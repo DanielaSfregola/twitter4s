@@ -15,18 +15,19 @@ class OAuthProviderSpec extends Specification {
 
   val provider = new OAuthProvider(consumerToken, accessToken) {
     override def currentMillis = 1318622958
+    override def generateNonce = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
   }
 
   "OAuth Provider" should {
 
     val uri = Uri("https://api.twitter.com/1/statuses/update.json?include_entities=true")
     val headers = List(`Content-Type`(`application/x-www-form-urlencoded`))
-    val entity = HttpEntity("status=Hello%20Ladies%20%2b%20Gentlemen%2c%20a%20signed%20OAuth%20request%21")
+    val entity = HttpEntity("status=Hello Ladies + Gentlemen, a signed OAuth request!")
     val request = HttpRequest(POST, uri, headers, entity)
 
     "provide the oauth parameters as expected" in {
 
-      val oauthParams = provider.oauthParamsFIXME(request)
+      val oauthParams = provider.getOAuthParams(request)
       oauthParams.size === 7
       oauthParams("oauth_consumer_key") === consumerToken.key
       oauthParams("oauth_signature_method") === "HMAC-SHA1"
@@ -38,8 +39,15 @@ class OAuthProviderSpec extends Specification {
     }
 
     "generate the signature base string as expected" in {
+      val oauthParams = Map(
+        "oauth_consumer_key"-> consumerToken.key,
+        "oauth_signature_method" -> "HMAC-SHA1",
+        "oauth_version" -> "1.0",
+        "oauth_token" -> accessToken.key,
+        "oauth_nonce" -> "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
+        "oauth_timestamp" -> "1318622958")
       val expectedSignatureBase = "POST&https%3A%2F%2Fapi.twitter.com%2F1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521"
-      provider.signatureBase(request) === expectedSignatureBase
+      provider.getSignatureBase(oauthParams)(request) === expectedSignatureBase
     }
 
     "generate the signing key as expected" in {
