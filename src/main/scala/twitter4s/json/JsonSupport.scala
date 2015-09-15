@@ -1,4 +1,4 @@
-package twitter4s.utils
+package twitter4s.json
 
 import org.json4s.{DefaultFormats, Formats}
 import spray.httpx.Json4sSupport

@@ -1,10 +1,10 @@
 package twitter4s.entities
 
-import twitter4s.utils.ConfigProvider
+import twitter4s.utils.Configuration
 
 case class ConsumerToken(key: String, secret: String)
 
-object ConsumerToken extends ConfigProvider {
+object ConsumerToken extends Configuration {
 
   val ConsumerTokenFromConf = ConsumerToken(
     key = config.getString("twitter.consumer.key"),

@@ -2,6 +2,6 @@ package twitter4s.utils
 
 import com.typesafe.config.{ConfigFactory, Config}
 
-trait ConfigProvider {
+trait Configuration {
   def config: Config = ConfigFactory.load()
 }
