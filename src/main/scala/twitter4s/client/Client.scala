@@ -14,12 +14,12 @@ trait Client extends JsonSupport with ActorContextExtractor {
 
   def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) = pipeline[T] apply request
 
-  implicit def toResponse[T: FromResponseUnmarshaller](request: HttpRequest): T = sendReceiveAs[T](request)
+  implicit def toResponse[T: FromResponseUnmarshaller](request: HttpRequest): Future[T] = sendReceiveAs[T](request)
 
   // TODO - logRequest, logResponse customisable?
   // TODO - link request and response?
   def pipeline[T: FromResponseUnmarshaller] =
-    logRequest ~> sendReceive ~> logResponse ~> json4sUnmarshaller[T]
+    logRequest ~> sendReceive ~> logResponse ~> unmarshal[T]
 
   def sendReceive = spray.client.pipelining.sendReceive
 
