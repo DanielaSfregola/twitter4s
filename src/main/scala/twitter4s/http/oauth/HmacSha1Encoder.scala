@@ -1,4 +1,4 @@
-package twitter4s.oauth
+package twitter4s.http.oauth
 
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec

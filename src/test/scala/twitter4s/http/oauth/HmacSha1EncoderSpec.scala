@@ -1,4 +1,4 @@
-package twitter4s.oauth
+package twitter4s.http.oauth
 
 import org.specs2.mutable.Specification
 

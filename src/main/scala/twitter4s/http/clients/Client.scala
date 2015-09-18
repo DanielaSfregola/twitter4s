@@ -1,12 +1,12 @@
-package twitter4s.client
+package twitter4s.http.clients
 
 import scala.concurrent.Future
 
 import spray.client.pipelining._
-import spray.http.{HttpResponse, HttpRequest}
+import spray.http.{HttpRequest, HttpResponse}
 import spray.httpx.unmarshalling.FromResponseUnmarshaller
-import twitter4s.json.JsonSupport
-import twitter4s.providers.{ActorRefFactoryProvider}
+import twitter4s.providers.ActorRefFactoryProvider
+import twitter4s.http.unmarshalling.JsonSupport
 import twitter4s.utils.ActorContextExtractor
 
 trait Client extends JsonSupport with ActorContextExtractor {

@@ -1,4 +1,4 @@
-package twitter4s.oauth
+package twitter4s.http.oauth
 
 import org.specs2.mutable.Specification
 import spray.http._
@@ -25,9 +25,15 @@ class OAuthProviderSpec extends Specification {
     val entity = HttpEntity("status=Hello Ladies + Gentlemen, a signed OAuth request!")
     val request = HttpRequest(POST, uri, headers, entity)
 
+    "provide an Authorization token according to the OAuth standards" in {
+      val oauthHeader = provider.oauthHeader(request)
+      val expectedAuthorization = """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk/jLY=", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
+      oauthHeader === HttpHeaders.RawHeader("Authorization", expectedAuthorization)
+    }
+
     "provide the oauth parameters as expected" in {
 
-      val oauthParams = provider.getOAuthParams(request)
+      val oauthParams = provider.oauthParams(request)
       oauthParams.size === 7
       oauthParams("oauth_consumer_key") === consumerToken.key
       oauthParams("oauth_signature_method") === "HMAC-SHA1"

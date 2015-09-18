@@ -1,8 +1,8 @@
-package twitter4s.oauth
+package twitter4s.http
 
 import org.specs2.mutable.Specification
 
-class packageOAuthSpec extends Specification {
+class packageHttpSpec extends Specification {
 
   "Rich String" should {
 

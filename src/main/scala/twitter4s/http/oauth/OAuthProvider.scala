@@ -1,11 +1,27 @@
-package twitter4s.oauth
+package twitter4s.http
+package oauth
 
 import scala.util.Random
 
-import spray.http.HttpRequest
+import spray.http.{HttpHeaders, HttpHeader, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 
 class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) extends HmacSha1Encoder {
+
+  def oauthHeader(implicit request: HttpRequest): HttpHeader = {
+    val authorizationValue = oauthParams.map{ case (k, v) => s"""$k="$v""""}.toList.sorted.mkString(", ")
+    HttpHeaders.RawHeader("Authorization", s"OAuth $authorizationValue")
+  }
+
+  def oauthParams(implicit request: HttpRequest): Map[String, String] = {
+    val oauthParams = basicOAuthParams
+    oauthParams + oauthSignature(oauthParams)(request)
+  }
+
+  def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
+    val signatureBase = getSignatureBase(oauthParams)
+    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey))
+  }
 
   val signingKey = {
     val encodedConsumerSecret = consumerToken.secret.toAscii
@@ -13,16 +29,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$encodedConsumerSecret&$encodedAccessTokenSecret"
   }
 
-  def getOAuthParams(request: HttpRequest): Map[String, String] = {
-    val oauthParams = basicOAuthParams
-    oauthParams + oauthSignature(oauthParams)(request)
-  }
-
-  protected def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
-    val signatureBase = getSignatureBase(oauthParams)
-    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey))
-  }
-
+  protected def currentMillis = System.currentTimeMillis
+  protected def generateNonce = Random.alphanumeric.take(42).mkString
 
   private def basicOAuthParams: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)
@@ -35,9 +43,6 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     Map(consumerKey, nonce, signatureMethod, timestamp, token, version)
   }
 
-  protected def currentMillis = System.currentTimeMillis
-  protected def generateNonce = Random.alphanumeric.take(42).mkString
-
   def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val method = request.method.toString.toAscii
     val baseUrl = {
@@ -49,8 +54,9 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
   }
 
   private def bodyParams(implicit request: HttpRequest): Map[String, String] = {
-    val body = request.entity.asString
-    body.split("=", 2).toList.grouped(2).map { case List(k,v) => k -> v }.toMap
+    val entities = request.entity.asString.split("&")
+    val bodyTokens = entities.map {_.split("=", 2)}.flatten.toList
+    bodyTokens.grouped(2).map { case List(k, v) => k -> v}.toMap
   }
 
   private def queryParams(implicit request: HttpRequest) = request.uri.query.toMap

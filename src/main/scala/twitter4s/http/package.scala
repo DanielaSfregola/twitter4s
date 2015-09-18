@@ -2,7 +2,7 @@ package twitter4s
 
 import java.net.URLEncoder
 
-package object oauth {
+package object http {
 
   implicit class RichString(val value: String) {
 
