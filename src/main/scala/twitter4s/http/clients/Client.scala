@@ -4,17 +4,20 @@ import scala.concurrent.Future
 
 import spray.client.pipelining._
 import spray.http.{HttpRequest, HttpResponse}
-import spray.httpx.unmarshalling.FromResponseUnmarshaller
-import twitter4s.providers.ActorRefFactoryProvider
+import spray.httpx.unmarshalling.{FromMessageUnmarshaller, FromResponseUnmarshaller, UnmarshallerLifting}
 import twitter4s.http.unmarshalling.JsonSupport
+import twitter4s.providers.ActorRefFactoryProvider
 import twitter4s.utils.ActorContextExtractor
 
-trait Client extends JsonSupport with ActorContextExtractor {
+trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLifting {
   self: ActorRefFactoryProvider =>
 
-  def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) = pipeline[T] apply request
+  def sendReceiveAs[T](request: HttpRequest)(implicit mu: FromMessageUnmarshaller[T]) = {
+    val ru: FromResponseUnmarshaller[T] = fromResponseUnmarshaller(mu)
+    pipeline(ru) apply request
+  }
 
-  implicit def toResponse[T: FromResponseUnmarshaller](request: HttpRequest): Future[T] = sendReceiveAs[T](request)
+  implicit def toResponse[T: Manifest](request: HttpRequest): Future[T] = sendReceiveAs[T](request)
 
   // TODO - logRequest, logResponse customisable?
   // TODO - link request and response?

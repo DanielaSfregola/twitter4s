@@ -3,7 +3,7 @@ package marshalling
 
 trait BodyEncoder {
 
-  // TODO - we could improve this with macros...
+  // TODO - can we improve this with Macros?
 
   def toBodyAsParams(cc: Product): String = {
     val asMap = toMap(cc)
@@ -14,7 +14,7 @@ trait BodyEncoder {
     }.flatten.toList.sorted.mkString("&")
   }
 
-  def toMap(cc: Product): Map[String, Any] = {
+  private def toMap(cc: Product): Map[String, Any] = {
     val values = cc.productIterator
     cc.getClass.getDeclaredFields.map( _.getName -> values.next ).toMap
   }
