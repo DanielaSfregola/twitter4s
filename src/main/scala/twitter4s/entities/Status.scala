@@ -1,7 +1,9 @@
 package twitter4s.entities
 
+import java.util.Date
+
 case class Status(
-              created_at: String, // TODO - change to proper date
+              created_at: Date,
               id: Long,
               id_str: String,
               text: String,
@@ -24,5 +26,3 @@ case class Status(
               favorited: Boolean,
               retweeted: Boolean,
               lang: String)
-
-

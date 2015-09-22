@@ -2,9 +2,8 @@ package twitter4s.http.clients
 
 import scala.concurrent.Future
 
-import spray.client.pipelining._
 import spray.http.{HttpRequest, HttpResponse}
-import spray.httpx.unmarshalling.{FromMessageUnmarshaller, FromResponseUnmarshaller, UnmarshallerLifting}
+import spray.httpx.unmarshalling.{FromResponseUnmarshaller, UnmarshallerLifting}
 import twitter4s.http.unmarshalling.JsonSupport
 import twitter4s.providers.ActorRefFactoryProvider
 import twitter4s.utils.ActorContextExtractor
@@ -12,17 +11,16 @@ import twitter4s.utils.ActorContextExtractor
 trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLifting {
   self: ActorRefFactoryProvider =>
 
-  def sendReceiveAs[T](request: HttpRequest)(implicit mu: FromMessageUnmarshaller[T]) = {
-    val ru: FromResponseUnmarshaller[T] = fromResponseUnmarshaller(mu)
-    pipeline(ru) apply request
+  implicit class RichHttpRequest(val request: HttpRequest) {
+    def responseAs[T: Manifest]: Future[T] = sendReceiveAs[T](request)
   }
 
-  implicit def toResponse[T: Manifest](request: HttpRequest): Future[T] = sendReceiveAs[T](request)
+  def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) =
+    pipeline apply request
 
   // TODO - logRequest, logResponse customisable?
   // TODO - link request and response?
-  def pipeline[T: FromResponseUnmarshaller] =
-    logRequest ~> sendReceive ~> logResponse ~> unmarshal[T]
+  def pipeline[T: FromResponseUnmarshaller]: HttpRequest => Future[T]
 
   def sendReceive = spray.client.pipelining.sendReceive
 
@@ -35,7 +33,7 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
   def logResponse: Future[HttpResponse] => Future[HttpResponse] = { futureResponse =>
     futureResponse.map { response =>
       response.status.isSuccess match {
-        case true => log.info(s"${response.status} ${response.headers}")
+        case true => log.info(s"${response.status}")
         case false => log.error(response.toString)
       }
     }

@@ -5,8 +5,7 @@ import akka.actor.ActorRefFactory
 import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http.{HttpMethod, HttpRequest}
-import spray.httpx.unmarshalling.{ Deserializer => _ }
-import spray.httpx.unmarshalling.FromResponseUnmarshaller
+import spray.httpx.unmarshalling.{Deserializer => _, FromResponseUnmarshaller}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 import twitter4s.http.marshalling.BodyEncoder
 import twitter4s.http.oauth.OAuthProvider
@@ -16,7 +15,7 @@ class OAuthClient(consumerToken: ConsumerToken, accessToken: AccessToken)
 
   val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
-  override def pipeline[T: FromResponseUnmarshaller] =
+  def pipeline[T: FromResponseUnmarshaller] =
     withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse ~> unmarshal[T]
 
   def withOAuthHeader: HttpRequest => HttpRequest = { request =>
@@ -36,7 +35,6 @@ class OAuthClient(consumerToken: ConsumerToken, accessToken: AccessToken)
 
     def apply(uri: String, content: Product): HttpRequest =
       apply(uri, toBodyAsParams(content))
-
   }
 
 }

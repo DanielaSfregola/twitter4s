@@ -18,7 +18,7 @@ trait TwitterStatusClient extends Configurations {
                contributor_details: Boolean = false,
                include_entities: Boolean = true): Future[Seq[Status]] = {
     val options = MentionsOptions(count, since_id, max_id, trim_user, contributor_details, include_entities)
-    Get(s"$baseUrl/mentions_timeline.json?$options")
+    Get(s"$baseUrl/mentions_timeline.json?$options").responseAs[Seq[Status]]
   }
 
 }
