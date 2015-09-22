@@ -14,7 +14,7 @@ class OAuthProviderSpec extends Specification {
   implicit val accessToken = AccessToken("370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE")
 
   val provider = new OAuthProvider(consumerToken, accessToken) {
-    override def currentMillis = 1318622958
+    override def currentSecondsFromEpoc = 1318622958
     override def generateNonce = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
   }
 
@@ -27,7 +27,7 @@ class OAuthProviderSpec extends Specification {
 
     "provide an Authorization token according to the OAuth standards" in {
       val oauthHeader = provider.oauthHeader(request)
-      val expectedAuthorization = """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk/jLY=", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
+      val expectedAuthorization = """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
       oauthHeader === HttpHeaders.RawHeader("Authorization", expectedAuthorization)
     }
 
@@ -41,7 +41,7 @@ class OAuthProviderSpec extends Specification {
       oauthParams("oauth_token") === accessToken.key
       oauthParams("oauth_nonce").size === 42
       oauthParams("oauth_timestamp") === "1318622958"
-      oauthParams("oauth_signature") === "tnnArxj06cWHq44gCs1OSKk/jLY="
+      oauthParams("oauth_signature") === "tnnArxj06cWHq44gCs1OSKk%2FjLY%3D"
     }
 
     "generate the signature base string as expected" in {

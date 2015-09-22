@@ -3,7 +3,6 @@ package marshalling
 
 trait BodyEncoder {
 
-  // TODO - can we improve this with Macros?
 
   def toBodyAsParams(cc: Product): String = {
     val asMap = toMap(cc)
@@ -14,8 +13,8 @@ trait BodyEncoder {
     }.flatten.toList.sorted.mkString("&")
   }
 
-  private def toMap(cc: Product): Map[String, Any] = {
-    val values = cc.productIterator
-    cc.getClass.getDeclaredFields.map( _.getName -> values.next ).toMap
-  }
+  // TODO - improve performance with Macros
+  private def toMap(cc: Product): Map[String, Any] =
+    cc.getClass.getDeclaredFields.map( _.getName ).zip( cc.productIterator.to ).toMap
+
 }

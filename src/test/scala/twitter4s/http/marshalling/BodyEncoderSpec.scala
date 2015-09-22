@@ -13,6 +13,7 @@ class BodyEncoderSpec extends Specification with BodyEncoder {
       val result = toBodyAsParams(test)
       result === "a=5&c=nice%20string"
     }
+
   }
 
 }

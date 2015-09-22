@@ -1,9 +1,7 @@
 package twitter4s.http
 package oauth
 
-import scala.util.Random
-
-import spray.http.{HttpHeaders, HttpHeader, HttpRequest}
+import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 
 class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) extends HmacSha1Encoder {
@@ -20,7 +18,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
 
   def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val signatureBase = getSignatureBase(oauthParams)
-    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey))
+    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey).toAscii)
   }
 
   val signingKey = {
@@ -29,8 +27,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$encodedConsumerSecret&$encodedAccessTokenSecret"
   }
 
-  protected def currentMillis = System.currentTimeMillis
-  protected def generateNonce = Random.alphanumeric.take(42).mkString
+  protected def currentSecondsFromEpoc = 1442927981//System.currentTimeMillis / 1000
+  protected def generateNonce = "79e37270e50fb6c21a5cb72abfe56c26"//Random.alphanumeric.take(42).mkString
 
   private def basicOAuthParams: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)
@@ -38,7 +36,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     val version = ("oauth_version" -> "1.0")
     val token = ("oauth_token" -> accessToken.key)
     def nonce = ("oauth_nonce" -> generateNonce)
-    def timestamp = ("oauth_timestamp" -> currentMillis.toString)
+    def timestamp = ("oauth_timestamp" -> currentSecondsFromEpoc.toString)
 
     Map(consumerKey, nonce, signatureMethod, timestamp, token, version)
   }

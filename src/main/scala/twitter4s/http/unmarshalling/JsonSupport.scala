@@ -1,9 +1,22 @@
 package twitter4s.http.unmarshalling
 
-import org.json4s.{DefaultFormats, Formats}
-import spray.httpx.Json4sSupport
+import java.lang.reflect.InvocationTargetException
 
-trait JsonSupport extends Json4sSupport {
+import org.json4s.native.Serialization
+import org.json4s.{DefaultFormats, Formats, MappingException}
+import spray.http.{HttpCharsets, HttpEntity, MediaTypes}
+import spray.httpx.unmarshalling.Unmarshaller
+
+trait JsonSupport {
 
   implicit def json4sFormats: Formats = DefaultFormats
+
+  implicit def json4sUnmarshaller[T: Manifest] =
+    Unmarshaller[T](MediaTypes.`application/json`) {
+      case x: HttpEntity.NonEmpty ⇒
+        try Serialization.read[T](x.asString(defaultCharset = HttpCharsets.`UTF-8`))
+        catch {
+          case MappingException("unknown error", ite: InvocationTargetException) ⇒ throw ite.getCause
+        }
+    }
 }
