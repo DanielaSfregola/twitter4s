@@ -27,15 +27,19 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
   def sendReceive = spray.client.pipelining.sendReceive
 
   def logRequest: HttpRequest => HttpRequest = { request =>
-    log.info(s"${request.method.toString} ${request.uri.toString}")
+    log.info(s"${request.method} ${request.uri}")
     request
   }
 
-  def logResponse: Future[HttpResponse] => Future[HttpResponse] = { response =>
-    response.map { res =>
-      log.info(res.toString)
+  // TODO - improve response logging
+  def logResponse: Future[HttpResponse] => Future[HttpResponse] = { futureResponse =>
+    futureResponse.map { response =>
+      response.status.isSuccess match {
+        case true => log.info(s"${response.status} ${response.headers}")
+        case false => log.error(response.toString)
+      }
     }
-    response
+    futureResponse
   }
 
 }

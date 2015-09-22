@@ -1,6 +1,8 @@
 package twitter4s.http
 package oauth
 
+import scala.util.Random
+
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 
@@ -27,8 +29,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$encodedConsumerSecret&$encodedAccessTokenSecret"
   }
 
-  protected def currentSecondsFromEpoc = 1442927981//System.currentTimeMillis / 1000
-  protected def generateNonce = "79e37270e50fb6c21a5cb72abfe56c26"//Random.alphanumeric.take(42).mkString
+  protected def currentSecondsFromEpoc = System.currentTimeMillis / 1000
+  protected def generateNonce = Random.alphanumeric.take(42).mkString
 
   private def basicOAuthParams: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)
@@ -52,10 +54,13 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
   }
 
   private def bodyParams(implicit request: HttpRequest): Map[String, String] = {
-    val entities = request.entity.asString.split("&")
-    val bodyTokens = entities.map {_.split("=", 2)}.flatten.toList
-    bodyTokens.grouped(2).map { case List(k, v) => k -> v}.toMap
-  }
+    val body = request.entity.asString
+    if (!body.isEmpty) {
+      val entities = body.split("&")
+      val bodyTokens = entities.map {_.split("=", 2)}.flatten.toList
+      bodyTokens.grouped(2).map { case List(k, v) => k -> v}.toMap
+    } else Map()
+ }
 
   private def queryParams(implicit request: HttpRequest) = request.uri.query.toMap
 

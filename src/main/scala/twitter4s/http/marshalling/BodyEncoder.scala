@@ -3,7 +3,6 @@ package marshalling
 
 trait BodyEncoder {
 
-
   def toBodyAsParams(cc: Product): String = {
     val asMap = toMap(cc)
     asMap.map{
