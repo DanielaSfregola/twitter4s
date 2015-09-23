@@ -53,7 +53,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$method&$baseUrl&$encodedParams"
   }
 
-  private def bodyParams(implicit request: HttpRequest): Map[String, String] = {
+  def bodyParams(implicit request: HttpRequest): Map[String, String] = {
     val body = request.entity.asString
     if (!body.isEmpty) {
       val entities = body.split("&")
