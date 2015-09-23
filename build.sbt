@@ -24,7 +24,8 @@ libraryDependencies ++= {
     "io.spray" %% "spray-http" % SprayVersion,
     "io.spray" %% "spray-routing" % SprayVersion,
     "org.json4s" %% "json4s-native" % Json4sVersion,
-    "org.specs2" %% "specs2-core" % Spec2Version % "test"
+    "org.specs2" %% "specs2-core" % Spec2Version % "test",
+    "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % "test"
   )
 
 }

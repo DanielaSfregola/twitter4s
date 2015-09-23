@@ -1,0 +1,608 @@
+[
+  {
+    "created_at": "Tue Jul 14 09:22:51 +0000 2015",
+    "id": 620886161964208129,
+    "id_str": "620886161964208129",
+    "text": "@DanielaSfregola hy scala women :D nice to meet u :D",
+    "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": 2911461333,
+    "in_reply_to_user_id_str": "2911461333",
+    "in_reply_to_screen_name": "DanielaSfregola",
+    "user": {
+      "id": 177237415,
+      "id_str": "177237415",
+      "name": "Qbiel",
+      "screen_name": "SoeHokBiel",
+      "location": "Bandung",
+      "description": "Less Sleep Coffee More",
+      "url": null,
+      "entities": {"description": {"urls": []}},
+      "protected": false,
+      "followers_count": 88,
+      "friends_count": 56,
+      "listed_count": 1,
+      "created_at": "Wed Aug 11 16:26:31 +0000 2010",
+      "favourites_count": 2,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 389,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1298491494\/174474_1670288542_7944926_n_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1298491494\/174474_1670288542_7944926_n_normal.jpg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "A8C7F7",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 1,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "DanielaSfregola",
+          "name": "Daniela Sfregola",
+          "id": 2911461333,
+          "id_str": "2911461333",
+          "indices": [
+            0,
+            16
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "favorited": true,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Jul 01 09:20:38 +0000 2015",
+    "id": 616174565232918528,
+    "id_str": "616174565232918528",
+    "text": "How to Create a Spray Custom Authenticator http:\/\/t.co\/tIJCpDByxs via @DanielaSfregola #Scala #HTTP",
+    "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 55290238,
+      "id_str": "55290238",
+      "name": "Alfredo Serafini",
+      "screen_name": "seralf",
+      "location": "Roma",
+      "description": "Mi appassiona di pi\u00f9 il come del cosa. I  am more passionate about the how than the what.\nhttp:\/\/t.co\/tFbjLHhACd",
+      "url": "http:\/\/t.co\/wZBkmkueb3",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/wZBkmkueb3",
+              "expanded_url": "http:\/\/seralf.it",
+              "display_url": "seralf.it",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/tFbjLHhACd",
+              "expanded_url": "http:\/\/seralf.it\/hire-me",
+              "display_url": "seralf.it\/hire-me",
+              "indices": [
+                90,
+                112
+              ]
+            }
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 388,
+      "friends_count": 2001,
+      "listed_count": 66,
+      "created_at": "Thu Jul 09 16:53:20 +0000 2009",
+      "favourites_count": 316,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 1809,
+      "lang": "it",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme2\/bg.gif",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme2\/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2957120738\/7c184f1138563d6c82667b62cc50942a_normal.jpeg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2957120738\/7c184f1138563d6c82667b62cc50942a_normal.jpeg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/55290238\/1398231127",
+      "profile_link_color": "447700",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Scala",
+          "indices": [
+            87,
+            93
+          ]
+        },
+        {
+          "text": "HTTP",
+          "indices": [
+            94,
+            99
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "DanielaSfregola",
+          "name": "Daniela Sfregola",
+          "id": 2911461333,
+          "id_str": "2911461333",
+          "indices": [
+            70,
+            86
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "http:\/\/t.co\/tIJCpDByxs",
+          "expanded_url": "http:\/\/wp.me\/p5uYrc-6L",
+          "display_url": "wp.me\/p5uYrc-6L",
+          "indices": [
+            43,
+            65
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Jul 01 08:35:28 +0000 2015",
+    "id": 616163194638364672,
+    "id_str": "616163194638364672",
+    "text": "Oops! One more! https:\/\/t.co\/yJhCsyPRCI \/cc @DanielaSfregola",
+    "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 1372082066,
+      "id_str": "1372082066",
+      "name": "ScalaItaly",
+      "screen_name": "ScalaItaly",
+      "location": "Italy",
+      "description": "L'unica conferenza su Scala in Italia \/ The only conference on Scala in Italy - https:\/\/t.co\/zwWSedilj6",
+      "url": "http:\/\/t.co\/zo6utSwqJY",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/zo6utSwqJY",
+              "expanded_url": "http:\/\/scala-italy.it\/",
+              "display_url": "scala-italy.it",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/zwWSedilj6",
+              "expanded_url": "https:\/\/vimeo.com\/channels\/932072\/133344804",
+              "display_url": "vimeo.com\/channels\/93207\u2026",
+              "indices": [
+                80,
+                103
+              ]
+            }
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 284,
+      "friends_count": 261,
+      "listed_count": 19,
+      "created_at": "Mon Apr 22 12:58:44 +0000 2013",
+      "favourites_count": 65,
+      "utc_offset": 7200,
+      "time_zone": "Rome",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 311,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/3572618102\/a6aedc265defd9e1f2adc680d83e7fc9_normal.jpeg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/3572618102\/a6aedc265defd9e1f2adc680d83e7fc9_normal.jpeg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1372082066\/1442954007",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 2,
+    "favorite_count": 1,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "DanielaSfregola",
+          "name": "Daniela Sfregola",
+          "id": 2911461333,
+          "id_str": "2911461333",
+          "indices": [
+            44,
+            60
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "https:\/\/t.co\/yJhCsyPRCI",
+          "expanded_url": "https:\/\/vimeo.com\/channels\/932072",
+          "display_url": "vimeo.com\/channels\/932072",
+          "indices": [
+            16,
+            39
+          ]
+        }
+      ]
+    },
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Wed Jun 10 13:47:37 +0000 2015",
+    "id": 608631606270668801,
+    "id_str": "608631606270668801",
+    "text": "@DanielaSfregola @MichaelPNash Enjoy!",
+    "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": 608631256788676608,
+    "in_reply_to_status_id_str": "608631256788676608",
+    "in_reply_to_user_id": 2911461333,
+    "in_reply_to_user_id_str": "2911461333",
+    "in_reply_to_screen_name": "DanielaSfregola",
+    "user": {
+      "id": 431984720,
+      "id_str": "431984720",
+      "name": "BoldRadius Solutions",
+      "screen_name": "BoldRadius",
+      "location": "San Francisco | Ottawa",
+      "description": "BoldRadius is an expert consulting, training & software development firm, specializing in the Typesafe Reactive Platform: #Scala, #Akka, #PlayFramework & #Spark",
+      "url": "http:\/\/t.co\/oCDcGzSfvA",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/oCDcGzSfvA",
+              "expanded_url": "http:\/\/www.boldradius.com",
+              "display_url": "boldradius.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {"urls": []}
+      },
+      "protected": false,
+      "followers_count": 759,
+      "friends_count": 681,
+      "listed_count": 51,
+      "created_at": "Thu Dec 08 22:24:52 +0000 2011",
+      "favourites_count": 1119,
+      "utc_offset": -10800,
+      "time_zone": "Atlantic Time (Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 3681,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "232130",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/546542000\/TindrTwitterBG.jpg",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/546542000\/TindrTwitterBG.jpg",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/446507388300849152\/1MTOg3Up_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/446507388300849152\/1MTOg3Up_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/431984720\/1427130287",
+      "profile_link_color": "208096",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 2,
+    "favorite_count": 1,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "DanielaSfregola",
+          "name": "Daniela Sfregola",
+          "id": 2911461333,
+          "id_str": "2911461333",
+          "indices": [
+            0,
+            16
+          ]
+        },
+        {
+          "screen_name": "MichaelPNash",
+          "name": "Michael Nash",
+          "id": 24999933,
+          "id_str": "24999933",
+          "indices": [
+            17,
+            30
+          ]
+        }
+      ],
+      "urls": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Fri May 29 16:19:15 +0000 2015",
+    "id": 604321111778664448,
+    "id_str": "604321111778664448",
+    "text": "Lambda #4 is out! Featuring - @OweinReese @DanielaSfregola @ptrelford @kmett @stuartsierra @ErlangCentral - http:\/\/t.co\/1F4XoY9grA",
+    "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 1345043875,
+      "id_str": "1345043875",
+      "name": "Functional Works",
+      "screen_name": "Functionalworks",
+      "location": "London HQ | Global reach ",
+      "description": "Functional Programming Advocates. Providing Talent Solutions, Strategic Advice, Curated Events & Insight across Clojure, Scala, Erlang, Haskell, F#, OCaml,Swift",
+      "url": "http:\/\/t.co\/BXwhIYmO2c",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/BXwhIYmO2c",
+              "expanded_url": "http:\/\/functionalworks.com\/",
+              "display_url": "functionalworks.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {"urls": []}
+      },
+      "protected": false,
+      "followers_count": 4061,
+      "friends_count": 360,
+      "listed_count": 212,
+      "created_at": "Thu Apr 11 18:46:02 +0000 2013",
+      "favourites_count": 4557,
+      "utc_offset": 7200,
+      "time_zone": "Amsterdam",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 4027,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "131516",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/439367291214364673\/M_Z9rDrf_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/439367291214364673\/M_Z9rDrf_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1345043875\/1412684063",
+      "profile_link_color": "F52727",
+      "profile_sidebar_border_color": "EEEEEE",
+      "profile_sidebar_fill_color": "EFEFEF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 4,
+    "favorite_count": 4,
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "OweinReese",
+          "name": "Owein Reese",
+          "id": 404119861,
+          "id_str": "404119861",
+          "indices": [
+            30,
+            41
+          ]
+        },
+        {
+          "screen_name": "DanielaSfregola",
+          "name": "Daniela Sfregola",
+          "id": 2911461333,
+          "id_str": "2911461333",
+          "indices": [
+            42,
+            58
+          ]
+        },
+        {
+          "screen_name": "ptrelford",
+          "name": "Sean's dad",
+          "id": 30888410,
+          "id_str": "30888410",
+          "indices": [
+            59,
+            69
+          ]
+        },
+        {
+          "screen_name": "kmett",
+          "name": "Edward Kmett",
+          "id": 16781974,
+          "id_str": "16781974",
+          "indices": [
+            70,
+            76
+          ]
+        },
+        {
+          "screen_name": "stuartsierra",
+          "name": "Stuart Sierra",
+          "id": 22637653,
+          "id_str": "22637653",
+          "indices": [
+            77,
+            90
+          ]
+        },
+        {
+          "screen_name": "ErlangCentral",
+          "name": "Erlang Central",
+          "id": 993425858,
+          "id_str": "993425858",
+          "indices": [
+            91,
+            105
+          ]
+        }
+      ],
+      "urls": [
+        {
+          "url": "http:\/\/t.co\/1F4XoY9grA",
+          "expanded_url": "http:\/\/us10.campaign-archive2.com\/?u=30f19e2c5b9f15cfb95906716&id=da26788923&e=9489bec169",
+          "display_url": "us10.campaign-archive2.com\/?u=30f19e2c5b9\u2026",
+          "indices": [
+            108,
+            130
+          ]
+        }
+      ]
+    },
+    "favorited": true,
+    "retweeted": true,
+    "possibly_sensitive": false,
+    "lang": "en"
+  }
+]

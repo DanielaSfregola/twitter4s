@@ -1,6 +1,6 @@
 package twitter4s.entities
 
-import twitter4s.utils.Configurations
+import twitter4s.util.Configurations
 
 case class AccessToken(key: String, secret: String)
 

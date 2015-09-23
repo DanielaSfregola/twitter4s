@@ -6,13 +6,13 @@ import spray.http.{HttpRequest, HttpResponse}
 import spray.httpx.unmarshalling.{FromResponseUnmarshaller, UnmarshallerLifting}
 import twitter4s.http.unmarshalling.JsonSupport
 import twitter4s.providers.ActorRefFactoryProvider
-import twitter4s.utils.ActorContextExtractor
+import twitter4s.util.ActorContextExtractor
 
 trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLifting {
   self: ActorRefFactoryProvider =>
 
   implicit class RichHttpRequest(val request: HttpRequest) {
-    def responseAs[T: Manifest]: Future[T] = sendReceiveAs[T](request)
+    def respondAs[T: Manifest]: Future[T] = sendReceiveAs[T](request)
   }
 
   def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) =
@@ -33,7 +33,7 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
   def logResponse: Future[HttpResponse] => Future[HttpResponse] = { futureResponse =>
     futureResponse.map { response =>
       response.status.isSuccess match {
-        case true => log.info(s"${response.status}")
+        case true => log.info(response.status.toString)
         case false => log.error(response.toString)
       }
     }

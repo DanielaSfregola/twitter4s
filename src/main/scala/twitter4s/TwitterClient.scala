@@ -8,8 +8,7 @@ import twitter4s.entities.{AccessToken, ConsumerToken}
 import twitter4s.http.clients.OAuthClient
 import twitter4s.statuses.TwitterStatusClient
 
-class TwitterClient(consumerToken: ConsumerToken = ConsumerTokenFromConf,
-                    accessToken: AccessToken = AccessTokenFromConf)
-                   (implicit actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends OAuthClient(consumerToken, accessToken)
-                    with TwitterStatusClient
+class TwitterClient(val consumerToken: ConsumerToken = ConsumerTokenFromConf,
+                    val accessToken: AccessToken = AccessTokenFromConf)
+                   (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends OAuthClient with TwitterStatusClient
 

@@ -1,4 +1,4 @@
-package twitter4s.utils
+package twitter4s.util
 
 import com.typesafe.config.{ConfigFactory, Config}
 

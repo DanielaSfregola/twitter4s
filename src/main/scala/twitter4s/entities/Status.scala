@@ -19,7 +19,7 @@ case class Status(
                   coordinates: Option[Location],
                   place: Option[Place],
                   contributors: Option[String], // TODO - it was null
-                  is_quote_status: Boolean,
+                  is_quote_status: Boolean = false,
                   retweet_count: Long,
                   favorite_count: Long,
                   entities: Option[Entities],

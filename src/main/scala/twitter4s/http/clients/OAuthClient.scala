@@ -1,19 +1,16 @@
 package twitter4s.http.clients
 
-import akka.actor.ActorRefFactory
-
 import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http.{HttpMethod, HttpRequest}
 import spray.httpx.unmarshalling.{Deserializer => _, FromResponseUnmarshaller}
-import twitter4s.entities.{AccessToken, ConsumerToken}
 import twitter4s.http.marshalling.BodyEncoder
 import twitter4s.http.oauth.OAuthProvider
+import twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
-class OAuthClient(consumerToken: ConsumerToken, accessToken: AccessToken)
-            (implicit val actorRefFactory: ActorRefFactory) extends Client {
+trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
-  val oauthProvider = new OAuthProvider(consumerToken, accessToken)
+  lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
   def pipeline[T: FromResponseUnmarshaller] =
     withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse ~> unmarshal[T]

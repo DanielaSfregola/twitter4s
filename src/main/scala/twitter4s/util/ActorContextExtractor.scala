@@ -1,4 +1,4 @@
-package twitter4s.utils
+package twitter4s.util
 
 import scala.concurrent.ExecutionContext
 import akka.event.LoggingAdapter

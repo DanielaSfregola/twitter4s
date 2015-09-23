@@ -45,10 +45,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
 
   def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val method = request.method.toString.toAscii
-    val baseUrl = {
-      val uri = request.uri
-      s"${uri.scheme}:${uri.authority}${uri.path}"
-    }.toAscii
+    val baseUrl = request.uri.endpoint.toAscii
     val encodedParams = encodeParams(queryParams ++ oauthParams ++ bodyParams)
     s"$method&$baseUrl&$encodedParams"
   }

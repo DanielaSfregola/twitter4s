@@ -4,21 +4,34 @@ import scala.concurrent.Future
 
 import twitter4s.entities.Status
 import twitter4s.http.clients.OAuthClient
-import twitter4s.utils.Configurations
+import twitter4s.util.Configurations
 
-trait TwitterStatusClient extends Configurations {
-  self: OAuthClient =>
+trait TwitterStatusClient extends OAuthClient with Configurations {
 
   val baseUrl = s"$twitterUrl/$apiVersion/statuses"
 
-  def mentions(count: Option[Int] = None,
+  def mentionsTimeline(count: Option[Int] = None,
                since_id: Option[Long] = None,
                max_id: Option[Long] = None,
                trim_user: Boolean = false,
                contributor_details: Boolean = false,
                include_entities: Boolean = true): Future[Seq[Status]] = {
-    val options = MentionsOptions(count, since_id, max_id, trim_user, contributor_details, include_entities)
-    Get(s"$baseUrl/mentions_timeline.json?$options").responseAs[Seq[Status]]
+    val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities)
+    Get(s"$baseUrl/mentions_timeline.json?$parameters").respondAs[Seq[Status]]
+  }
+
+  def userTimeline(user_id: Option[Long] = None,
+               screen_name: Option[String] = None,
+               since_id: Option[Long] = None,
+               count: Option[Int] = None,
+               max_id: Option[Long] = None,
+               trim_user: Boolean = false,
+               exclude_replies: Boolean = false,
+               contributor_details: Boolean = false,
+               include_rts: Boolean = true
+              ): Future[Seq[Status]] = {
+    val parameters = TimelineParameters(user_id, screen_name, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
+    Get(s"$baseUrl/user_timeline.json?$parameters").respondAs[Seq[Status]]
   }
 
 }
