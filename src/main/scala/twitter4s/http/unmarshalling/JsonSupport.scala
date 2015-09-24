@@ -10,7 +10,9 @@ import spray.httpx.unmarshalling.Unmarshaller
 
 trait JsonSupport {
 
-  implicit def json4sFormats: Formats = new DefaultFormats {
+  implicit def json4sFormats: Formats = defaultFormats
+
+  val defaultFormats = new DefaultFormats {
     override def dateFormatter = {
       val simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy")
       simpleDateFormat

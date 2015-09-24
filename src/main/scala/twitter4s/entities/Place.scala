@@ -1,15 +1,17 @@
 package twitter4s.entities
 
+import spray.http.Uri
+
 case class Place(
-                id: String,
-                url: String, // TODO - check if any issues with escape chars and maybe make it into URI?
-                place_type: String,
-                name: String,
-                full_name: String,
-                country_code: String,
-                country: String,
-                contained_within: Seq[String], // TODO, it was empty
+                attributes: Map[String, String],
                 bounding_box: Area,
-                attributes: String // TODO - it was empty obj
+                country: String,
+                country_code: String,
+                full_name: String,
+                id: String,
+                name: String,
+                place_type: String,
+                url: Uri,
+                contained_within: Seq[Place]
                 )
 
