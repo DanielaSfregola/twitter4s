@@ -1,0 +1,271 @@
+[{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:48:20 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":0,
+  "favorited":false,
+  "id":648887037152620544,
+  "id_str":"648887037152620544",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":0,
+  "retweeted":false,
+  "source":"<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+  "text":"Just finished my \"daily git\" slides for tonight using @decksetapp\nEspecially with the crazy 75% discount, is really a no-brainer to get.",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:44:28 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":0,
+  "favorited":false,
+  "id":648886067014311936,
+  "id_str":"648886067014311936",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":0,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+  "text":"I hate busses.",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:44:23 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648886043832401920,
+  "id_str":"648886043832401920",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":55,
+  "retweeted":false,
+  "retweeted_status":{
+    "contributors":[],
+    "created_at":"Tue Sep 29 15:27:18 +0100 2015",
+    "favorite_count":15,
+    "favorited":false,
+    "id":648866645855879168,
+    "id_str":"648866645855879168",
+    "lang":"en",
+    "possibly_sensitive":false,
+    "scopes":{
+
+    },
+    "retweet_count":55,
+    "retweeted":false,
+    "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text":"💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.co/hIdTA3v2zE",
+    "truncated":false,
+    "withheld_copyright":false,
+    "withheld_in_countries":[]
+  },
+  "source":"<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+  "text":"RT @decksetapp: 💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.c\u2026",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:44:02 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648885956364275719,
+  "id_str":"648885956364275719",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":7,
+  "retweeted":false,
+  "retweeted_status":{
+    "contributors":[],
+    "created_at":"Tue Sep 29 16:43:16 +0100 2015",
+    "favorite_count":4,
+    "favorited":false,
+    "id":648885761996034049,
+    "id_str":"648885761996034049",
+    "lang":"en",
+    "possibly_sensitive":false,
+    "scopes":{
+
+    },
+    "retweet_count":7,
+    "retweeted":false,
+    "source":"<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+    "text":"A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3Qbu3GH",
+    "truncated":false,
+    "withheld_copyright":false,
+    "withheld_in_countries":[]
+  },
+  "source":"<a href=\"http://sites.google.com/site/yorufukurou/\" rel=\"nofollow\">YoruFukurou</a>",
+  "text":"RT @giltene: A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3\u2026",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:33:11 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":0,
+  "favorited":false,
+  "id":648883228414074880,
+  "id_str":"648883228414074880",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":4,
+  "retweeted":false,
+  "retweeted_status":{
+    "contributors":[],
+    "created_at":"Tue Sep 29 14:48:31 +0100 2015",
+    "entities":{
+      "hashtags":[],
+      "media":[],
+      "urls":[]
+    },
+    "favorite_count":4,
+    "favorited":false,
+    "id":648856887706939393,
+    "id_str":"648856887706939393",
+    "lang":"en",
+    "possibly_sensitive":false,
+    "scopes":{
+
+    },
+    "retweet_count":4,
+    "retweeted":false,
+    "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text":"Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd read it. :D",
+    "truncated":false,
+    "withheld_copyright":false,
+    "withheld_in_countries":[]
+  },
+  "source":"<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+  "text":"RT @adron: Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd re\u2026",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:23:59 +0100 2015",
+  "favorite_count":3,
+  "favorited":false,
+  "id":648880909421182976,
+  "id_str":"648880909421182976",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://adobe.com\" rel=\"nofollow\">Adobe® Social</a>",
+  "text":"Startup Spotlight: @CivisAnalytics, empowering the data-driven startup with Amazon Redshift http://t.co/Py6aDPQpFj http://t.co/MJZgfsQUsO",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:17:09 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648879193216917504,
+  "id_str":"648879193216917504",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":1,
+  "retweeted":false,
+  "source":"<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
+  "text":"Good news! #Typesafe and @DataStax Partner to Bring Reactive Data Infrastructure to Enterprises | http://t.co/rDnd7S3AEU #cassandra #akka",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:16:32 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648879035741798400,
+  "id_str":"648879035741798400",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":0,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"How a probabilistic reasoning system predicts the outcome of a corner kick from http://t.co/oFvRE7bvdf http://t.co/zytXLkyndk",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:01:29 +0100 2015",
+  "favorite_count":1,
+  "favorited":false,
+  "id":648875249824567296,
+  "id_str":"648875249824567296",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
+  "text":"Download the eBook \"Description, Discovery, and Profiles\" @InfoQ @apiacademy http://t.co/4GmQKpvN5A #DDandP http://t.co/BDrHG8cpfj",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Sep 29 16:00:54 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648875102084427776,
+  "id_str":"648875102084427776",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":0,
+  "retweeted":false,
+  "source":"<a href=\"http://www.hubspot.com/\" rel=\"nofollow\">HubSpot</a>",
+  "text":"Meet @Databricks at Booth 550 in #StrataHadoop World in NYC http://t.co/jF4axxJU8j http://t.co/fvGjyot6zu",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+}]

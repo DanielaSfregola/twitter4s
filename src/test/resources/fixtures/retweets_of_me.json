@@ -1,0 +1,218 @@
+[{
+  "contributors":[],
+  "created_at":"Tue Sep 29 15:14:44 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":648863485888208896,
+  "id_str":"648863485888208896",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":1,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"Scumbag Chrome http://t.co/3raBctS9qh",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Mon Aug 17 19:48:39 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":633349736943235072,
+  "id_str":"633349736943235072",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":1,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"#Spray: how to (de)serialize objects with #json4s http://t.co/CxnHzaH9H1 #scala",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Mon Jun 29 19:07:35 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":615582396868509696,
+  "id_str":"615582396868509696",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+  "text":"How to Create a #Spray Custom Authenticator http://t.co/KBB3hmnRoA",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Thu Jun 25 06:57:44 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":613949174871126016,
+  "id_str":"613949174871126016",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":1,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"#Scala 2.11.7 is now available! http://t.co/Lcqh19jFeO",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Jun 23 19:00:37 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":613406318406176768,
+  "id_str":"613406318406176768",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+  "text":"Static Duck Typing in #Scala http://t.co/NKwO7cvsZ1",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Thu Jun 18 19:13:56 +0100 2015",
+  "favorite_count":1,
+  "favorited":false,
+  "id":611597729769385984,
+  "id_str":"611597729769385984",
+  "lang":"fr",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":1,
+  "retweeted":false,
+  "source":"<a href=\"http://mobile.twitter.com\" rel=\"nofollow\">Mobile Web</a>",
+  "text":"Performance Comparison between immutable Seq, List, Vector #Scala http://t.co/6L9wl8BVoq",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Mon Jun 15 21:51:51 +0100 2015",
+  "favorite_count":0,
+  "favorited":false,
+  "id":610550305718013952,
+  "id_str":"610550305718013952",
+  "lang":"fr",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+  "text":"Performance comparison between immutable Seq, List, Vector #Scala http://t.co/SgUBcs97rj http://t.co/XpS3nIcAh1",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Wed Jun 10 15:15:58 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"ScalaDays",
+      "indices":[31,41]
+    },{
+      "text":"Akka",
+      "indices":[119,124]
+    }],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":7,
+  "favorited":false,
+  "id":608638741155049472,
+  "id_str":"608638741155049472",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":8,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"Great talk by @MichaelPNash at #ScalaDays: nice case study to compare the performance between CRUD and DDDD systems... #Akka rocks! :D",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Wed Jun 10 14:46:14 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"ScalaDays",
+      "indices":[32,42]
+    }],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":2,
+  "favorited":false,
+  "id":608631256788676608,
+  "id_str":"608631256788676608",
+  "lang":"tl",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":3,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"Attending @MichaelPNash talk at #ScalaDays on Akka Scalability",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+},{
+  "contributors":[],
+  "created_at":"Tue Jun 09 10:54:00 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"ScalaDays",
+      "indices":[61,71]
+    }],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":1,
+  "favorited":false,
+  "id":608210429060521984,
+  "id_str":"608210429060521984",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":2,
+  "retweeted":false,
+  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+  "text":"\"Your Data is like Candy: you want it now\" @helenaedelson at #ScalaDays",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+}]
