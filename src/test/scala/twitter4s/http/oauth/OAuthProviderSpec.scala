@@ -22,7 +22,7 @@ class OAuthProviderSpec extends Specification {
 
     val uri = Uri("https://api.twitter.com/1/statuses/update.json?include_entities=true")
     val headers = List(`Content-Type`(`application/x-www-form-urlencoded`))
-    val entity = HttpEntity("status=Hello Ladies + Gentlemen, a signed OAuth request!")
+    val entity = HttpEntity("status=Hello+Ladies+%2B+Gentlemen%2C+a+signed+OAuth+request%21")
     val request = HttpRequest(POST, uri, headers, entity)
 
     "provide an Authorization token according to the OAuth standards" in {
@@ -63,7 +63,7 @@ class OAuthProviderSpec extends Specification {
 
     "extract body parameters from a request with body as expected" in {
       val bodyParams = provider.bodyParams(request)
-      bodyParams === Map("status" -> "Hello Ladies + Gentlemen, a signed OAuth request!")
+      bodyParams === Map("status" -> "Hello%20Ladies%20%2B%20Gentlemen%2C%20a%20signed%20OAuth%20request%21")
     }
 
     "extract body parameters from a request without body as expected" in {

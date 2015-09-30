@@ -8,7 +8,9 @@ package object http {
 
   implicit class RichString(val value: String) {
 
-    def toAscii = URLEncoder.encode(value, "UTF-8").replace("+", "%20")
+    def toAscii = urlEncoded.replace("+", "%20")
+
+    def urlEncoded = URLEncoder.encode(value, "UTF-8")
 
   }
 

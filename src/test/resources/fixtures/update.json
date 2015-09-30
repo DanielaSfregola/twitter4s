@@ -1,0 +1,25 @@
+{
+  "contributors":[],
+  "created_at":"Wed Sep 30 17:34:55 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[]
+  },
+  "favorite_count":0,
+  "favorited":false,
+  "id":649261149893074944,
+  "id_str":"649261149893074944",
+  "lang":"en",
+  "possibly_sensitive":false,
+  "scopes":{
+
+  },
+  "retweet_count":0,
+  "retweeted":false,
+  "source":"<a href=\"http://danielasfregola.com/\" rel=\"nofollow\">scala-twitter-tutorial</a>",
+  "text":"This is a test",
+  "truncated":false,
+  "withheld_copyright":false,
+  "withheld_in_countries":[]
+}

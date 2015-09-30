@@ -7,8 +7,9 @@ trait BodyEncoder {
     val asMap = toMap(cc)
     asMap.map{
       case (k, None) => None
-      case (k, Some(v)) => Some(s"$k=${v.toString.toAscii}")
-      case (k, v) => Some(s"$k=${v.toString.toAscii}")
+      case (k, Some(v)) => Some(s"$k=${v.toString.urlEncoded}")
+      case (k, Seq()) => None
+      case (k, v) => Some(s"$k=${v.toString.urlEncoded}")
     }.flatten.toList.sorted.mkString("&")
   }
 

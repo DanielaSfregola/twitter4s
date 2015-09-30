@@ -1,0 +1,11 @@
+package twitter4s.statuses.entities
+
+case class StatusUpdate(status: String,
+                  in_reply_to_status_id: Option[Long] = None,
+                  possibly_sensitive: Boolean = false,
+                  lat: Option[Long] = None,
+                  long: Option[Long] = None,
+                  place_id: Option[String] = None,
+                  display_coordinates: Boolean = false,
+                  trim_user: Boolean = false,
+                  media_ids: Seq[Long] = Seq.empty)

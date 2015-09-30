@@ -1,8 +1,6 @@
 package twitter4s.http
 package oauth
 
-import scala.util.Random
-
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 
@@ -15,12 +13,12 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
 
   def oauthParams(implicit request: HttpRequest): Map[String, String] = {
     val oauthParams = basicOAuthParams
-    oauthParams + oauthSignature(oauthParams)(request)
+    (oauthParams + oauthSignature(oauthParams)(request)).mapValues(_.toAscii)
   }
 
   def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val signatureBase = getSignatureBase(oauthParams)
-    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey).toAscii)
+    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey))
   }
 
   val signingKey = {
@@ -29,8 +27,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$encodedConsumerSecret&$encodedAccessTokenSecret"
   }
 
-  protected def currentSecondsFromEpoc = System.currentTimeMillis / 1000
-  protected def generateNonce = Random.alphanumeric.take(42).mkString
+  protected def currentSecondsFromEpoc =1443636830 //System.currentTimeMillis / 1000
+  protected def generateNonce = "0cfe37cbe51ed689f34e6dde7435f659" //Random.alphanumeric.take(42).mkString
 
   private def basicOAuthParams: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)
@@ -46,12 +44,12 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
   def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val method = request.method.toString.toAscii
     val baseUrl = request.uri.endpoint.toAscii
-    val encodedParams = encodeParams(queryParams ++ oauthParams ++ bodyParams)
+    val encodedParams = encodeParams(queryParams ++ oauthParams ++ bodyParams).toAscii
     s"$method&$baseUrl&$encodedParams"
   }
 
   def bodyParams(implicit request: HttpRequest): Map[String, String] = {
-    val body = request.entity.asString
+    val body = request.entity.asString.replace("+", "%20")
     if (!body.isEmpty) {
       val entities = body.split("&")
       val bodyTokens = entities.map {_.split("=", 2)}.flatten.toList
@@ -59,15 +57,14 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     } else Map()
  }
 
-  private def queryParams(implicit request: HttpRequest) = request.uri.query.toMap
+  private def queryParams(implicit request: HttpRequest) = request.uri.query.toMap.mapValues(_.toAscii)
 
-  private def encodeParams(params: Map[String, String]) = {
-    val encodedParams = params.map { case (k, v) => (k.toAscii, v.toAscii) }
-    encodedParams.keySet.toList.sorted.map { encodedKey =>
-      val encodedValue = encodedParams(encodedKey)
-      s"$encodedKey=$encodedValue"
-    }.mkString("&").toAscii
-  }
+  private def encodeParams(params: Map[String, String]) =
+    params.keySet.toList.sorted.map { key =>
+      val value = params(key)
+      s"$key=$value"
+    }.mkString("&")
+
 
 
 }
