@@ -39,7 +39,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                    trim_user: Boolean = false,
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
-                   include_entities: Boolean = true) = {
+                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
     val parameters = HomeTimelineParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
     Get(s"$baseUrl/home_timeline.json?$parameters").respondAs[Seq[Tweet]]
   }
@@ -50,9 +50,24 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                    trim_user: Boolean = false,
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
-                   include_entities: Boolean = true) = {
+                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
     val parameters = RetweetsOfMeParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
     Get(s"$baseUrl/retweets_of_me.json?$parameters").respondAs[Seq[Tweet]]
+  }
+
+  def retweets(id: Long,
+               count: Int = 100,
+               trim_user: Boolean = false): Future[Seq[Tweet]] = {
+    val parameters = RetweetsParameters(count, trim_user)
+    Get(s"$baseUrl/retweets/$id.json?$parameters").respondAs[Seq[Tweet]]
+  }
+
+  def show(id: Long,
+          trim_user: Boolean = false,
+          include_my_retweet: Boolean = false,
+          include_entities: Boolean = true): Future[Tweet] = {
+    val parameters = ShowParameters(id, trim_user, include_my_retweet, include_entities)
+    Get(s"$baseUrl/show.json?$parameters").respondAs[Tweet]
   }
 
 }

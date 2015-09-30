@@ -34,3 +34,10 @@ case class RetweetsOfMeParameters(count: Int,
                                   exclude_replies: Boolean,
                                   contributor_details: Boolean,
                                   include_entities: Boolean) extends Parameters
+
+case class RetweetsParameters(count: Int, trim_user: Boolean) extends Parameters
+
+case class ShowParameters(id: Long,
+                          rim_user: Boolean,
+                          include_my_retweet: Boolean,
+                          include_entities: Boolean) extends Parameters
