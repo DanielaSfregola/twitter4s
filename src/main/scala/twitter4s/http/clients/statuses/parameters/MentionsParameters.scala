@@ -1,4 +1,4 @@
-package twitter4s.statuses.parameters
+package twitter4s.http.clients.statuses.parameters
 
 import twitter4s.http.marshalling.Parameters
 

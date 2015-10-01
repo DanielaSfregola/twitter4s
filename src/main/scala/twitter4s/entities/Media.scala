@@ -3,7 +3,7 @@ package twitter4s.entities
 import spray.http.Uri
 
 case class Media(
-                display_url: Uri,
+                display_url: String,
                 expanded_url: Uri,
                 id: Long,
                 id_str: String,

@@ -1,4 +1,4 @@
-package twitter4s.statuses.entities
+package twitter4s.http.clients.statuses.entities
 
 case class StatusUpdate(status: String,
                   in_reply_to_status_id: Option[Long] = None,

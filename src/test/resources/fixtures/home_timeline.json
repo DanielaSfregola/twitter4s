@@ -10,7 +10,6 @@
   "favorited":false,
   "id":648887037152620544,
   "id_str":"648887037152620544",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -34,7 +33,6 @@
   "favorited":false,
   "id":648886067014311936,
   "id_str":"648886067014311936",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -53,7 +51,6 @@
   "favorited":false,
   "id":648886043832401920,
   "id_str":"648886043832401920",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -67,7 +64,6 @@
     "favorited":false,
     "id":648866645855879168,
     "id_str":"648866645855879168",
-    "lang":"en",
     "possibly_sensitive":false,
     "scopes":{
 
@@ -88,11 +84,26 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:44:02 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"HowNOTtoMeasureLatency",
+      "indices":[32,55]
+    },{
+      "text":"strangeloop2015",
+      "indices":[71,87]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[122,140],
+      "url":"https://t.co/ljj3Qbu3GH",
+      "display_url":"youtube.com/watch?v=lJ8ydI\u2026",
+      "expanded_url":"https://www.youtube.com/watch?v=lJ8ydIuPFeU"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648885956364275719,
   "id_str":"648885956364275719",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -102,11 +113,26 @@
   "retweeted_status":{
     "contributors":[],
     "created_at":"Tue Sep 29 16:43:16 +0100 2015",
+    "entities":{
+      "hashtags":[{
+        "text":"HowNOTtoMeasureLatency",
+        "indices":[19,42]
+      },{
+        "text":"strangeloop2015",
+        "indices":[58,74]
+      }],
+      "media":[],
+      "urls":[{
+        "indices":[109,132],
+        "url":"https://t.co/ljj3Qbu3GH",
+        "display_url":"youtube.com/watch?v=lJ8ydI\u2026",
+        "expanded_url":"https://www.youtube.com/watch?v=lJ8ydIuPFeU"
+      }]
+    },
     "favorite_count":4,
     "favorited":false,
     "id":648885761996034049,
     "id_str":"648885761996034049",
-    "lang":"en",
     "possibly_sensitive":false,
     "scopes":{
 
@@ -136,7 +162,6 @@
   "favorited":false,
   "id":648883228414074880,
   "id_str":"648883228414074880",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -155,7 +180,6 @@
     "favorited":false,
     "id":648856887706939393,
     "id_str":"648856887706939393",
-    "lang":"en",
     "possibly_sensitive":false,
     "scopes":{
 
@@ -180,7 +204,6 @@
   "favorited":false,
   "id":648880909421182976,
   "id_str":"648880909421182976",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -195,11 +218,29 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:17:09 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Typesafe",
+      "indices":[11,20]
+    },{
+      "text":"cassandra",
+      "indices":[121,131]
+    },{
+      "text":"akka",
+      "indices":[132,137]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[98,120],
+      "url":"http://t.co/rDnd7S3AEU",
+      "display_url":"bit.ly/1NZ7Rr0",
+      "expanded_url":"http://bit.ly/1NZ7Rr0"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648879193216917504,
   "id_str":"648879193216917504",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -218,7 +259,6 @@
   "favorited":false,
   "id":648879035741798400,
   "id_str":"648879035741798400",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -237,7 +277,6 @@
   "favorited":false,
   "id":648875249824567296,
   "id_str":"648875249824567296",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -256,7 +295,6 @@
   "favorited":false,
   "id":648875102084427776,
   "id_str":"648875102084427776",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 

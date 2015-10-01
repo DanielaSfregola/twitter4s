@@ -2,6 +2,8 @@ package twitter4s.entities
 
 import java.util.Date
 
+import twitter4s.entities.enums.Language.Language
+
 case class Tweet(
                  contributors: Seq[Contributor],
                  coordinates: Option[Coordinates],
@@ -18,7 +20,7 @@ case class Tweet(
                  in_reply_to_status_id_str: Option[String],
                  in_reply_to_user_id: Option[Long],
                  in_reply_to_user_id_str: Option[String],
-                 lang: Option[String],
+                 lang: Option[Language],
                  place: Option[Place],
                  possibly_sensitive: Boolean = false,
                  quoted_status_id: Option[Long],

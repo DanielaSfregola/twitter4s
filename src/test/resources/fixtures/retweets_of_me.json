@@ -1,11 +1,20 @@
 [{
   "contributors":[],
   "created_at":"Tue Sep 29 15:14:44 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[{
+      "indices":[15,37],
+      "url":"http://t.co/3raBctS9qh",
+      "display_url":"commitstrip.com/en/2015/09/28/\u2026",
+      "expanded_url":"http://www.commitstrip.com/en/2015/09/28/scumbag-chrome/"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648863485888208896,
   "id_str":"648863485888208896",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -20,11 +29,29 @@
 },{
   "contributors":[],
   "created_at":"Mon Aug 17 19:48:39 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Spray",
+      "indices":[0,6]
+    },{
+      "text":"json4s",
+      "indices":[42,49]
+    },{
+      "text":"scala",
+      "indices":[73,79]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[50,72],
+      "url":"http://t.co/CxnHzaH9H1",
+      "display_url":"wp.me/p5uYrc-7k",
+      "expanded_url":"http://wp.me/p5uYrc-7k"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":633349736943235072,
   "id_str":"633349736943235072",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -39,11 +66,23 @@
 },{
   "contributors":[],
   "created_at":"Mon Jun 29 19:07:35 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Spray",
+      "indices":[16,22]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[44,66],
+      "url":"http://t.co/KBB3hmnRoA",
+      "display_url":"danielasfregola.com/2015/06/29/how\u2026",
+      "expanded_url":"http://danielasfregola.com/2015/06/29/how-to-create-a-spray-custom-authenticator"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":615582396868509696,
   "id_str":"615582396868509696",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -58,11 +97,23 @@
 },{
   "contributors":[],
   "created_at":"Thu Jun 25 06:57:44 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Scala",
+      "indices":[0,6]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[32,54],
+      "url":"http://t.co/Lcqh19jFeO",
+      "display_url":"scala-lang.org/news/2.11.7",
+      "expanded_url":"http://scala-lang.org/news/2.11.7"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":613949174871126016,
   "id_str":"613949174871126016",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -77,11 +128,23 @@
 },{
   "contributors":[],
   "created_at":"Tue Jun 23 19:00:37 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Scala",
+      "indices":[22,28]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[29,51],
+      "url":"http://t.co/NKwO7cvsZ1",
+      "display_url":"danielasfregola.com/2015/06/23/sta\u2026",
+      "expanded_url":"http://danielasfregola.com/2015/06/23/static-duck-typing-in-scala"
+    }]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":613406318406176768,
   "id_str":"613406318406176768",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -96,11 +159,23 @@
 },{
   "contributors":[],
   "created_at":"Thu Jun 18 19:13:56 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Scala",
+      "indices":[59,65]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[66,88],
+      "url":"http://t.co/6L9wl8BVoq",
+      "display_url":"wp.me/p5uYrc-6a",
+      "expanded_url":"http://wp.me/p5uYrc-6a"
+    }]
+  },
   "favorite_count":1,
   "favorited":false,
   "id":611597729769385984,
   "id_str":"611597729769385984",
-  "lang":"fr",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -119,7 +194,6 @@
   "favorited":false,
   "id":610550305718013952,
   "id_str":"610550305718013952",
-  "lang":"fr",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -149,7 +223,6 @@
   "favorited":false,
   "id":608638741155049472,
   "id_str":"608638741155049472",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -176,7 +249,6 @@
   "favorited":false,
   "id":608631256788676608,
   "id_str":"608631256788676608",
-  "lang":"tl",
   "possibly_sensitive":false,
   "scopes":{
 
@@ -203,7 +275,6 @@
   "favorited":false,
   "id":608210429060521984,
   "id_str":"608210429060521984",
-  "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
 

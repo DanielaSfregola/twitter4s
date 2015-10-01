@@ -1,22 +1,11 @@
-package twitter4s.statuses.parameters
+package twitter4s.http.clients.statuses.parameters
 
 import twitter4s.http.marshalling.Parameters
 
-case class UserTimelineParameters(user_id: Option[Long],
-                                  screen_name: Option[String],
+case class HomeTimelineParameters(count: Int,
                                   since_id: Option[Long],
-                                  count: Int,
                                   max_id: Option[Long],
                                   trim_user: Boolean,
                                   exclude_replies: Boolean,
                                   contributor_details: Boolean,
-                                  include_rts: Boolean) extends Parameters
-
-
-
-
-
-
-
-
-
+                                  include_entities: Boolean) extends Parameters

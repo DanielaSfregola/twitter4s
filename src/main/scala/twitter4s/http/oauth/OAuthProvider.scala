@@ -1,6 +1,8 @@
 package twitter4s.http
 package oauth
 
+import scala.util.Random
+
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
 
@@ -27,8 +29,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$encodedConsumerSecret&$encodedAccessTokenSecret"
   }
 
-  protected def currentSecondsFromEpoc =1443636830 //System.currentTimeMillis / 1000
-  protected def generateNonce = "0cfe37cbe51ed689f34e6dde7435f659" //Random.alphanumeric.take(42).mkString
+  protected def currentSecondsFromEpoc = System.currentTimeMillis / 1000
+  protected def generateNonce = Random.alphanumeric.take(42).mkString
 
   private def basicOAuthParams: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)

@@ -1,11 +1,16 @@
-package twitter4s.statuses
+package twitter4s.http
+package clients.statuses
 
 import scala.concurrent.Future
 
-import twitter4s.entities.Tweet
+import twitter4s.entities.{OEmbedTweet, Tweet}
+import twitter4s.entities.enums.Alignment.Alignment
+import twitter4s.entities.enums.Language.Language
+import twitter4s.entities.enums.WidgetType.WidgetType
+import twitter4s.entities.enums.{Alignment, Language}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.statuses.entities.StatusUpdate
-import twitter4s.statuses.parameters._
+import twitter4s.http.clients.statuses.entities.StatusUpdate
+import twitter4s.http.clients.statuses.parameters._
 import twitter4s.util.Configurations
 
 trait TwitterStatusClient extends OAuthClient with Configurations {
@@ -108,6 +113,34 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
   def retweet(id: Long, trim_user: Boolean = false): Future[Tweet] = {
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/retweet/$id.json?$parameters").respondAs[Tweet]
+  }
+
+  def oembedById(id: Long,
+             maxwidth: Option[Int] = None,
+             hide_media: Boolean = false,
+             hide_thread: Boolean = false,
+             omit_script: Boolean = false,
+             align: Alignment = Alignment.None,
+             related: Seq[String] = Seq.empty,
+             lang: Language = Language.English,
+             widget_type: Option[WidgetType] = None,
+             hide_tweet: Boolean = false): Future[OEmbedTweet] = {
+    val parameters = OEmbedParametersById(id, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
+    Get(s"$statusesUrl/oembed.json?$parameters").respondAs[OEmbedTweet]
+  }
+
+  def oembedByUrl(url: String,
+             maxwidth: Option[Int] = None,
+             hide_media: Boolean = false,
+             hide_thread: Boolean = false,
+             omit_script: Boolean = false,
+             align: Alignment = Alignment.None,
+             related: Seq[String] = Seq.empty,
+             lang: Language = Language.English,
+             widget_type: Option[WidgetType] = None,
+             hide_tweet: Boolean = false): Future[OEmbedTweet] = {
+    val parameters = OEmbedParametersByUrl(url.urlEncoded, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
+    Get(s"$statusesUrl/oembed.json?$parameters").respondAs[OEmbedTweet]
   }
 
 }

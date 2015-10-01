@@ -1,8 +1,8 @@
-package twitter4s.statuses
+package twitter4s.http.clients.statuses
 
 import spray.http.{MediaTypes, ContentType, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
-import twitter4s.entities.Tweet
+import twitter4s.entities.{OEmbedTweet, Tweet}
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterStatusClientSpec extends ClientSpec {
@@ -108,6 +108,26 @@ class TwitterStatusClientSpec extends ClientSpec {
         request.uri.query === Query("trim_user=false")
       }.respondWith("/twitter/retweet.json").await
       result === loadJsonAs[Tweet]("/fixtures/retweet.json")
+    }
+
+    "get a tweet by id in oembed format " in new TwitterStatusClientSpecContext {
+      val id = 648866645855879168L
+      val result: OEmbedTweet = when(oembedById(id)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
+        request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")
+      }.respondWith("/twitter/oembed.json").await
+      result === loadJsonAs[OEmbedTweet]("/fixtures/oembed.json")
+    }
+
+    "get a tweet by url in oembed format " in new TwitterStatusClientSpecContext {
+      val url = s"https://twitter.com/Interior/status/648866645855879168"
+      val result: OEmbedTweet = when(oembedByUrl(url)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
+        request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https%253A%252F%252Ftwitter.com%252FInterior%252Fstatus%252F648866645855879168")
+      }.respondWith("/twitter/oembed.json").await
+      result === loadJsonAs[OEmbedTweet]("/fixtures/oembed.json")
     }
   }
 }

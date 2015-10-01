@@ -1,8 +1,8 @@
-package twitter4s.statuses.parameters
+package twitter4s.http.clients.statuses.parameters
 
 import twitter4s.http.marshalling.Parameters
 
-case class HomeTimelineParameters(count: Int,
+case class RetweetsOfMeParameters(count: Int,
                                   since_id: Option[Long],
                                   max_id: Option[Long],
                                   trim_user: Boolean,
