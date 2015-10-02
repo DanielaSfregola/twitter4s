@@ -3,13 +3,12 @@ package clients.statuses
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{OEmbedTweet, Tweet}
+import twitter4s.entities.{RetweetersIds, StatusUpdate, OEmbedTweet, Tweet}
 import twitter4s.entities.enums.Alignment.Alignment
 import twitter4s.entities.enums.Language.Language
 import twitter4s.entities.enums.WidgetType.WidgetType
 import twitter4s.entities.enums.{Alignment, Language}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.statuses.entities.StatusUpdate
 import twitter4s.http.clients.statuses.parameters._
 import twitter4s.util.Configurations
 
@@ -70,9 +69,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
   }
 
   def show(id: Long,
-          trim_user: Boolean = false,
-          include_my_retweet: Boolean = false,
-          include_entities: Boolean = true): Future[Tweet] = {
+           trim_user: Boolean = false,
+           include_my_retweet: Boolean = false,
+           include_entities: Boolean = true): Future[Tweet] = {
     val parameters = ShowParameters(id, trim_user, include_my_retweet, include_entities)
     Get(s"$statusesUrl/show.json?$parameters").respondAs[Tweet]
   }
@@ -109,39 +108,67 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     val directMessage = s"D $username $message"
     update(directMessage, in_reply_to_status_id, possibly_sensitive, lat, long, place_id, display_coordinates, trim_user, media_ids)
   }
-  
+
   def retweet(id: Long, trim_user: Boolean = false): Future[Tweet] = {
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/retweet/$id.json?$parameters").respondAs[Tweet]
   }
 
   def oembedById(id: Long,
-             maxwidth: Option[Int] = None,
-             hide_media: Boolean = false,
-             hide_thread: Boolean = false,
-             omit_script: Boolean = false,
-             align: Alignment = Alignment.None,
-             related: Seq[String] = Seq.empty,
-             lang: Language = Language.English,
-             widget_type: Option[WidgetType] = None,
-             hide_tweet: Boolean = false): Future[OEmbedTweet] = {
+                 maxwidth: Option[Int] = None,
+                 hide_media: Boolean = false,
+                 hide_thread: Boolean = false,
+                 omit_script: Boolean = false,
+                 align: Alignment = Alignment.None,
+                 related: Seq[String] = Seq.empty,
+                 lang: Language = Language.English,
+                 widget_type: Option[WidgetType] = None,
+                 hide_tweet: Boolean = false): Future[OEmbedTweet] = {
     val parameters = OEmbedParametersById(id, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
     Get(s"$statusesUrl/oembed.json?$parameters").respondAs[OEmbedTweet]
   }
 
   def oembedByUrl(url: String,
-             maxwidth: Option[Int] = None,
-             hide_media: Boolean = false,
-             hide_thread: Boolean = false,
-             omit_script: Boolean = false,
-             align: Alignment = Alignment.None,
-             related: Seq[String] = Seq.empty,
-             lang: Language = Language.English,
-             widget_type: Option[WidgetType] = None,
-             hide_tweet: Boolean = false): Future[OEmbedTweet] = {
+                  maxwidth: Option[Int] = None,
+                  hide_media: Boolean = false,
+                  hide_thread: Boolean = false,
+                  omit_script: Boolean = false,
+                  align: Alignment = Alignment.None,
+                  related: Seq[String] = Seq.empty,
+                  lang: Language = Language.English,
+                  widget_type: Option[WidgetType] = None,
+                  hide_tweet: Boolean = false): Future[OEmbedTweet] = {
     val parameters = OEmbedParametersByUrl(url.urlEncoded, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
     Get(s"$statusesUrl/oembed.json?$parameters").respondAs[OEmbedTweet]
   }
 
+  // TODO - support for the stringified version
+  def retweetersIds(id: Long, count: Int = 100, cursor: Int = -1): Future[RetweetersIds] = {
+    val parameters = RetweetersIdsParameters(id, count, cursor)
+    Get(s"$statusesUrl/retweeters/ids.json?$parameters").respondAs[RetweetersIds]
+  }
+
+  def lookup(ids: Seq[Long],
+             include_entities: Boolean = true,
+             trim_user: Boolean = false): Future[Seq[Tweet]] = {
+    require(!ids.isEmpty, "Please, provide at least 1 id to lookup")
+    val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
+    genericLookup[Seq[Tweet]](parameters)
+  }
+
+  def mappedLookup(ids: Seq[Long],
+                   include_entities: Boolean = true,
+                   trim_user: Boolean = false): Future[Map[String, Tweet]] = {
+    val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = true)
+    genericLookup(parameters)
+  }
+
+  private def genericLookup[T: Manifest](parameters: LookupParameters): Future[T] =
+    Get(s"$statusesUrl/lookup.json?$parameters").respondAs[T]
 }
+
+
+
+
+
 

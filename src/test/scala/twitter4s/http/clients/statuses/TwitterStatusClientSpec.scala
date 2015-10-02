@@ -2,7 +2,7 @@ package twitter4s.http.clients.statuses
 
 import spray.http.{MediaTypes, ContentType, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
-import twitter4s.entities.{OEmbedTweet, Tweet}
+import twitter4s.entities.{RetweetersIds, OEmbedTweet, Tweet}
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterStatusClientSpec extends ClientSpec {
@@ -128,6 +128,23 @@ class TwitterStatusClientSpec extends ClientSpec {
         request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https%253A%252F%252Ftwitter.com%252FInterior%252Fstatus%252F648866645855879168")
       }.respondWith("/twitter/oembed.json").await
       result === loadJsonAs[OEmbedTweet]("/fixtures/oembed.json")
+    }
+
+    "get retweeters ids" in new TwitterStatusClientSpecContext {
+      val result: RetweetersIds = when(retweetersIds(327473909412814850L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
+        request.uri.query === Query("count=100&cursor=-1&id=327473909412814850")
+      }.respondWith("/twitter/retweeters_ids.json").await
+      result === loadJsonAs[RetweetersIds]("/fixtures/retweeters_ids.json")
+    }
+
+    "perform a lookup" in new TwitterStatusClientSpecContext {
+      failure
+    }
+
+    "perform a mapped lookup" in new TwitterStatusClientSpecContext {
+      failure
     }
   }
 }
