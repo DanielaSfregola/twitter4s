@@ -3,7 +3,7 @@ package clients.statuses
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{RetweetersIds, StatusUpdate, OEmbedTweet, Tweet}
+import twitter4s.entities._
 import twitter4s.entities.enums.Alignment.Alignment
 import twitter4s.entities.enums.Language.Language
 import twitter4s.entities.enums.WidgetType.WidgetType
@@ -148,19 +148,23 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/retweeters/ids.json?$parameters").respondAs[RetweetersIds]
   }
 
+  def lookup(ids: Long*): Future[Seq[LookupTweet]] = lookup(ids)
+
   def lookup(ids: Seq[Long],
              include_entities: Boolean = true,
-             trim_user: Boolean = false): Future[Seq[Tweet]] = {
+             trim_user: Boolean = false): Future[Seq[LookupTweet]] = {
     require(!ids.isEmpty, "Please, provide at least 1 id to lookup")
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
-    genericLookup[Seq[Tweet]](parameters)
+    genericLookup[Seq[LookupTweet]](parameters)
   }
+
+  def mappedLookup(ids: Long*): Future[MappedLookup] = mappedLookup(ids)
 
   def mappedLookup(ids: Seq[Long],
                    include_entities: Boolean = true,
-                   trim_user: Boolean = false): Future[Map[String, Tweet]] = {
+                   trim_user: Boolean = false): Future[MappedLookup] = {
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = true)
-    genericLookup(parameters)
+    genericLookup[MappedLookup](parameters)
   }
 
   private def genericLookup[T: Manifest](parameters: LookupParameters): Future[T] =

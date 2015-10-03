@@ -2,7 +2,7 @@ package twitter4s.http.clients.statuses
 
 import spray.http.{MediaTypes, ContentType, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
-import twitter4s.entities.{RetweetersIds, OEmbedTweet, Tweet}
+import twitter4s.entities._
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterStatusClientSpec extends ClientSpec {
@@ -140,11 +140,21 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
-      failure
+      val result: Seq[LookupTweet] = when(lookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
+        request.uri.query === Query("id=327473909412814850,327473909412814851&include_entities=true&map=false&trim_user=false")
+      }.respondWith("/twitter/lookup.json").await
+      result === loadJsonAs[Seq[LookupTweet]]("/fixtures/lookup.json")
     }
 
     "perform a mapped lookup" in new TwitterStatusClientSpecContext {
-      failure
+      val result: MappedLookup = when(mappedLookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
+        request.uri.query === Query("id=327473909412814850,327473909412814851&include_entities=true&map=true&trim_user=false")
+      }.respondWith("/twitter/mapped_lookup.json").await
+      result === loadJsonAs[MappedLookup]("/fixtures/mapped_lookup.json")
     }
   }
 }
