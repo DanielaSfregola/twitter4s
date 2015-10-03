@@ -142,11 +142,18 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/oembed.json?$parameters").respondAs[OEmbedTweet]
   }
 
-  // TODO - support for the stringified version
   def retweetersIds(id: Long, count: Int = 100, cursor: Int = -1): Future[RetweetersIds] = {
-    val parameters = RetweetersIdsParameters(id, count, cursor)
-    Get(s"$statusesUrl/retweeters/ids.json?$parameters").respondAs[RetweetersIds]
+    val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = false)
+    genericRetweetersIds[RetweetersIds](parameters)
   }
+
+  def retweetersIdsStringified(id: Long, count: Int = 100, cursor: Int = -1): Future[RetweetersIdsStringified] = {
+    val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = true)
+    genericRetweetersIds[RetweetersIdsStringified](parameters)
+  }
+
+  private def genericRetweetersIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] =
+    Get(s"$statusesUrl/retweeters/ids.json?$parameters").respondAs[T]
 
   def lookup(ids: Long*): Future[Seq[LookupTweet]] = lookup(ids)
 
@@ -158,13 +165,13 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     genericLookup[Seq[LookupTweet]](parameters)
   }
 
-  def mappedLookup(ids: Long*): Future[MappedLookup] = mappedLookup(ids)
+  def lookupMapped(ids: Long*): Future[LookupMapped] = lookupMapped(ids)
 
-  def mappedLookup(ids: Seq[Long],
+  def lookupMapped(ids: Seq[Long],
                    include_entities: Boolean = true,
-                   trim_user: Boolean = false): Future[MappedLookup] = {
+                   trim_user: Boolean = false): Future[LookupMapped] = {
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = true)
-    genericLookup[MappedLookup](parameters)
+    genericLookup[LookupMapped](parameters)
   }
 
   private def genericLookup[T: Manifest](parameters: LookupParameters): Future[T] =

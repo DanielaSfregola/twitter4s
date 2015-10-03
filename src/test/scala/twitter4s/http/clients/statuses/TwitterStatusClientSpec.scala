@@ -134,9 +134,18 @@ class TwitterStatusClientSpec extends ClientSpec {
       val result: RetweetersIds = when(retweetersIds(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
-        request.uri.query === Query("count=100&cursor=-1&id=327473909412814850")
+        request.uri.query === Query("count=100&cursor=-1&id=327473909412814850&stringify_ids=false")
       }.respondWith("/twitter/retweeters_ids.json").await
       result === loadJsonAs[RetweetersIds]("/fixtures/retweeters_ids.json")
+    }
+
+    "get retweeters ids stringified" in new TwitterStatusClientSpecContext {
+      val result: RetweetersIdsStringified = when(retweetersIdsStringified(327473909412814850L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
+        request.uri.query === Query("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
+      }.respondWith("/twitter/retweeters_ids_stringified.json").await
+      result === loadJsonAs[RetweetersIdsStringified]("/fixtures/retweeters_ids_stringified.json")
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
@@ -149,12 +158,12 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a mapped lookup" in new TwitterStatusClientSpecContext {
-      val result: MappedLookup = when(mappedLookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+      val result: LookupMapped = when(lookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
         request.uri.query === Query("id=327473909412814850,327473909412814851&include_entities=true&map=true&trim_user=false")
-      }.respondWith("/twitter/mapped_lookup.json").await
-      result === loadJsonAs[MappedLookup]("/fixtures/mapped_lookup.json")
+      }.respondWith("/twitter/lookup_mapped.json").await
+      result === loadJsonAs[LookupMapped]("/fixtures/lookup_mapped.json")
     }
   }
 }
