@@ -2,10 +2,7 @@ package twitter4s.entities
 
 import java.util.Date
 
-import twitter4s.entities.enums.Language.Language
-
-case class Tweet(
-                 contributors: Seq[Contributor],
+case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                  coordinates: Option[Coordinates],
                  created_at: Date,
                  current_user_retweet: Option[TweetId],
@@ -20,7 +17,7 @@ case class Tweet(
                  in_reply_to_status_id_str: Option[String],
                  in_reply_to_user_id: Option[Long],
                  in_reply_to_user_id_str: Option[String],
-                 lang: Option[Language],
+                 lang: Option[String],
                  place: Option[Place],
                  possibly_sensitive: Boolean = false,
                  quoted_status_id: Option[Long],
@@ -35,9 +32,8 @@ case class Tweet(
                  truncated: Boolean = false,
                  user: Option[User],
                  withheld_copyright: Boolean = false,
-                 withheld_in_countries: Seq[String],
-                 withheld_scope: Option[String]
-                 )
+                 withheld_in_countries: Seq[String] = Seq.empty,
+                 withheld_scope: Option[String])
 
 
 

@@ -3,7 +3,6 @@ package twitter4s.entities
 import java.util.Date
 
 import spray.http.Uri
-import twitter4s.entities.enums.Language.Language
 
 case class LookupUser(
                contributors_enabled: Boolean = false,
@@ -21,7 +20,7 @@ case class LookupUser(
                id: Long,
                id_str: String,
                is_translator: Boolean = false,
-               lang: Language,
+               lang: String,
                listed_count: Int,
                location: Option[String],
                name: String,

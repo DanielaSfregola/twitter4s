@@ -17,12 +17,69 @@
       "favorited":false,
       "id":327473909412814850,
       "id_str":"327473909412814850",
+      "lang":"en",
       "possibly_sensitive":false,
       "retweet_count":1016,
       "retweeted":false,
       "source":"<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
       "text":"We've updated Twitter for Mac with an easier way to share photos, retina display support, and more languages: http://t.co/mn4RkcpaPf",
-      "truncated":false
+      "truncated":false,
+      "user":{
+        "contributors_enabled":false,
+        "created_at":"Tue Feb 20 14:35:54 +0000 2007",
+        "default_profile":false,
+        "default_profile_image":false,
+        "description":"Your official source for news, updates and tips from Twitter, Inc.\n\n\nNeed help? Visit http://t.co/qq1HEzvnrA.",
+        "entities":{
+          "url":{
+            "urls":[{
+              "url":"http://t.co/5iRhy7wTgu",
+              "expanded_url":"http://blog.twitter.com/",
+              "display_url":"blog.twitter.com",
+              "indices":[0,22]
+            }]
+          },
+          "description":{
+            "urls":[{
+              "url":"http://t.co/qq1HEzvnrA",
+              "expanded_url":"http://support.twitter.com",
+              "display_url":"support.twitter.com",
+              "indices":[86,108]
+            }]
+          }
+        },
+        "favourites_count":73,
+        "follow_request_sent":false,
+        "following":false,
+        "followers_count":46631316,
+        "friends_count":139,
+        "geo_enabled":true,
+        "id":783214,
+        "id_str":"783214",
+        "is_translator":false,
+        "lang":"en",
+        "listed_count":88469,
+        "location":"San Francisco, CA",
+        "name":"Twitter",
+        "profile_background_color":"ACDED6",
+        "profile_background_image_url":"http://pbs.twimg.com/profile_background_images/657090062/l1uqey5sy82r9ijhke1i.png",
+        "profile_background_image_url_https":"https://pbs.twimg.com/profile_background_images/657090062/l1uqey5sy82r9ijhke1i.png",
+        "profile_background_tile":true,
+        "profile_banner_url":"https://pbs.twimg.com/profile_banners/783214/1436401887",
+        "profile_image_url":"http://pbs.twimg.com/profile_images/615680132565504000/EIpgSD2K_normal.png",
+        "profile_image_url_https":"https://pbs.twimg.com/profile_images/615680132565504000/EIpgSD2K_normal.png",
+        "profile_link_color":"226699",
+        "profile_sidebar_border_color":"FFFFFF",
+        "profile_sidebar_fill_color":"F6F6F6",
+        "profile_text_color":"333333",
+        "protected":false,
+        "screen_name":"twitter",
+        "statuses_count":2158,
+        "time_zone":"Pacific Time (US & Canada)",
+        "url":"http://t.co/5iRhy7wTgu",
+        "utc_offset":-25200,
+        "verified":true
+      }
     },
     "327473909412814851":null
   }

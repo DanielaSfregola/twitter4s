@@ -1,6 +1,6 @@
 package twitter4s.http.clients.statuses
 
-import spray.http.{MediaTypes, ContentType, HttpEntity, HttpMethods}
+import spray.http.{HttpEntity, ContentType, MediaTypes, HttpMethods}
 import spray.http.Uri.Query
 import twitter4s.entities._
 import twitter4s.util.{ClientSpec, ClientSpecContext}
@@ -19,7 +19,6 @@ class TwitterStatusClientSpec extends ClientSpec {
                   }.respondWith("/twitter/mentions_timeline.json").await
       result === loadJsonAs[Seq[Tweet]]("/fixtures/mentions_timeline.json")
     }
-
 
     "perform a user timeline request" in new TwitterStatusClientSpecContext {
       val result: Seq[Tweet] = when(userTimeline(count = 10)).expectRequest { request =>
