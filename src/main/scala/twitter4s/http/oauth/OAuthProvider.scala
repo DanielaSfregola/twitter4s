@@ -59,7 +59,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     } else Map()
  }
 
-  private def queryParams(implicit request: HttpRequest) = request.uri.query.toMap.mapValues(_.toAscii)
+  def queryParams(implicit request: HttpRequest) = request.uri.query.toMap.mapValues(_.toAscii)
 
   private def encodeParams(params: Map[String, String]) =
     params.keySet.toList.sorted.map { key =>

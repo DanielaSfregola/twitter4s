@@ -5,7 +5,10 @@ import com.typesafe.config.{ConfigFactory, Config}
 trait Configurations {
   def config: Config = ConfigFactory.load()
 
-  val twitterUrl = "https://api.twitter.com"
-  val apiVersion = "1.1"
+  val twitterVersion = "1.1"
+
+  val apiTwitterUrl = "https://api.twitter.com"
+  val mediaTwitterUrl = "https://upload.twitter.com"
+
 
 }

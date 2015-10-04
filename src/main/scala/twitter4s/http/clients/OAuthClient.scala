@@ -31,8 +31,12 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
   class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
     def apply(uri: String, content: Product): HttpRequest = {
-      val data = toBodyAsParams(content)
-      apply(uri).withEntity(HttpEntity(ContentType(MediaTypes.`application/x-www-form-urlencoded`), data))
+      val data = toBodyAsEncodedParams(content)
+      apply(uri, data, ContentType(MediaTypes.`application/x-www-form-urlencoded`))
+    }
+
+    def apply(uri: String, data: String, contentType: ContentType): HttpRequest = {
+      apply(uri).withEntity(HttpEntity(contentType, data))
     }
   }
 
