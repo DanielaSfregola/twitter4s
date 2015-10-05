@@ -9,7 +9,8 @@
       "url":"http://t.co/3raBctS9qh",
       "display_url":"commitstrip.com/en/2015/09/28/\u2026",
       "expanded_url":"http://www.commitstrip.com/en/2015/09/28/scumbag-chrome/"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -34,7 +35,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -88,7 +101,8 @@
       "url":"http://t.co/CxnHzaH9H1",
       "display_url":"wp.me/p5uYrc-7k",
       "expanded_url":"http://wp.me/p5uYrc-7k"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -113,7 +127,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -161,7 +187,8 @@
       "url":"http://t.co/KBB3hmnRoA",
       "display_url":"danielasfregola.com/2015/06/29/how\u2026",
       "expanded_url":"http://danielasfregola.com/2015/06/29/how-to-create-a-spray-custom-authenticator"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -186,7 +213,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -234,7 +273,8 @@
       "url":"http://t.co/Lcqh19jFeO",
       "display_url":"scala-lang.org/news/2.11.7",
       "expanded_url":"http://scala-lang.org/news/2.11.7"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -259,7 +299,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -307,7 +359,8 @@
       "url":"http://t.co/NKwO7cvsZ1",
       "display_url":"danielasfregola.com/2015/06/23/sta\u2026",
       "expanded_url":"http://danielasfregola.com/2015/06/23/static-duck-typing-in-scala"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -332,7 +385,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -380,7 +445,8 @@
       "url":"http://t.co/6L9wl8BVoq",
       "display_url":"wp.me/p5uYrc-6a",
       "expanded_url":"http://wp.me/p5uYrc-6a"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":1,
   "favorited":false,
@@ -405,7 +471,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -442,6 +520,20 @@
 },{
   "contributors":[],
   "created_at":"Mon Jun 15 21:51:51 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"Scala",
+      "indices":[59,65]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[66,88],
+      "url":"http://t.co/SgUBcs97rj",
+      "display_url":"danielasfregola.com/2015/06/15/whi\u2026",
+      "expanded_url":"http://danielasfregola.com/2015/06/15/which-immutable-scala-collection"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":610550305718013952,
@@ -465,7 +557,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -511,7 +615,8 @@
       "indices":[119,124]
     }],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":7,
   "favorited":false,
@@ -536,7 +641,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -579,7 +696,8 @@
       "indices":[32,42]
     }],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":2,
   "favorited":false,
@@ -604,7 +722,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -647,7 +777,8 @@
       "indices":[61,71]
     }],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":1,
   "favorited":false,
@@ -672,7 +803,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,

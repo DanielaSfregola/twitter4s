@@ -4,7 +4,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -29,7 +30,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/LLVcnQBRC5",
+          "display_url":"buildo.io",
+          "expanded_url":"http://buildo.io"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":380,
     "follow_request_sent":false,
@@ -72,7 +85,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -97,7 +111,11 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":1435,
     "follow_request_sent":false,
@@ -136,6 +154,17 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:44:23 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[{
+      "indices":[106,128],
+      "url":"http://t.co/irHM9eIN6B",
+      "display_url":"apple.co/1ig68dx",
+      "expanded_url":"http://apple.co/1ig68dx"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648886043832401920,
@@ -150,6 +179,17 @@
   "retweeted_status":{
     "contributors":[],
     "created_at":"Tue Sep 29 15:27:18 +0100 2015",
+    "entities":{
+      "hashtags":[],
+      "media":[],
+      "urls":[{
+        "indices":[90,112],
+        "url":"http://t.co/irHM9eIN6B",
+        "display_url":"apple.co/1ig68dx",
+        "expanded_url":"http://apple.co/1ig68dx"
+      }],
+      "user_mentions":[]
+    },
     "favorite_count":15,
     "favorited":false,
     "id":648866645855879168,
@@ -173,7 +213,19 @@
       "entities":{
         "hashtags":[],
         "media":[],
-        "urls":[]
+        "url":{
+          "urls":[{
+            "indices":[0,22],
+            "url":"http://t.co/qZdruXQkI0",
+            "display_url":"decksetapp.com",
+            "expanded_url":"http://www.decksetapp.com"
+          }]
+        },
+        "urls":[],
+        "user_mentions":[],
+        "description":{
+          "urls":[]
+        }
       },
       "favourites_count":451,
       "follow_request_sent":false,
@@ -221,7 +273,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/LLVcnQBRC5",
+          "display_url":"buildo.io",
+          "expanded_url":"http://buildo.io"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":380,
     "follow_request_sent":false,
@@ -275,7 +339,8 @@
       "url":"https://t.co/ljj3Qbu3GH",
       "display_url":"youtube.com/watch?v=lJ8ydI\u2026",
       "expanded_url":"https://www.youtube.com/watch?v=lJ8ydIuPFeU"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -305,7 +370,8 @@
         "url":"https://t.co/ljj3Qbu3GH",
         "display_url":"youtube.com/watch?v=lJ8ydI\u2026",
         "expanded_url":"https://www.youtube.com/watch?v=lJ8ydIuPFeU"
-      }]
+      }],
+      "user_mentions":[]
     },
     "favorite_count":4,
     "favorited":false,
@@ -330,7 +396,19 @@
       "entities":{
         "hashtags":[],
         "media":[],
-        "urls":[]
+        "url":{
+          "urls":[{
+            "indices":[0,22],
+            "url":"http://t.co/7yLslJTQoQ",
+            "display_url":"latencytipoftheday.blogspot.com",
+            "expanded_url":"http://latencytipoftheday.blogspot.com/"
+          }]
+        },
+        "urls":[],
+        "user_mentions":[],
+        "description":{
+          "urls":[]
+        }
       },
       "favourites_count":273,
       "follow_request_sent":false,
@@ -380,7 +458,11 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":4734,
     "follow_request_sent":false,
@@ -421,7 +503,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -440,7 +523,8 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "urls":[],
+      "user_mentions":[]
     },
     "favorite_count":4,
     "favorited":false,
@@ -465,7 +549,19 @@
       "entities":{
         "hashtags":[],
         "media":[],
-        "urls":[]
+        "url":{
+          "urls":[{
+            "indices":[0,22],
+            "url":"http://t.co/IPcSay6b8O",
+            "display_url":"compositecode.com",
+            "expanded_url":"http://compositecode.com"
+          }]
+        },
+        "urls":[],
+        "user_mentions":[],
+        "description":{
+          "urls":[]
+        }
       },
       "favourites_count":14715,
       "follow_request_sent":false,
@@ -515,7 +611,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/CVvC0wC3ab",
+          "display_url":"thomas.lockney.net",
+          "expanded_url":"http://thomas.lockney.net"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":27377,
     "follow_request_sent":false,
@@ -555,6 +663,17 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:23:59 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[{
+      "indices":[92,114],
+      "url":"http://t.co/Py6aDPQpFj",
+      "display_url":"oak.ctx.ly/r/3rway",
+      "expanded_url":"http://oak.ctx.ly/r/3rway"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":3,
   "favorited":false,
   "id":648880909421182976,
@@ -578,7 +697,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/7Oaf2nvqPa",
+          "display_url":"aws.amazon.com/start-ups/",
+          "expanded_url":"http://aws.amazon.com/start-ups/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":160,
     "follow_request_sent":false,
@@ -635,7 +766,8 @@
       "url":"http://t.co/rDnd7S3AEU",
       "display_url":"bit.ly/1NZ7Rr0",
       "expanded_url":"http://bit.ly/1NZ7Rr0"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -660,7 +792,24 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/bzGTwCmOGg",
+          "display_url":"typesafe.com",
+          "expanded_url":"http://typesafe.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[{
+          "indices":[117,139],
+          "url":"http://t.co/o1Bt6dQtgH",
+          "display_url":"typesafe.com/company/contact",
+          "expanded_url":"http://www.typesafe.com/company/contact"
+        }]
+      }
     },
     "favourites_count":877,
     "follow_request_sent":false,
@@ -700,6 +849,17 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:16:32 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[{
+      "indices":[80,102],
+      "url":"http://t.co/oFvRE7bvdf",
+      "display_url":"manning.com/books/practica\u2026",
+      "expanded_url":"http://manning.com/books/practical-probabilistic-programming"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648879035741798400,
@@ -723,7 +883,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/hoWlwoEP88",
+          "display_url":"manning.com",
+          "expanded_url":"http://www.manning.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":1527,
     "follow_request_sent":false,
@@ -762,6 +934,20 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:01:29 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"DDandP",
+      "indices":[100,107]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[77,99],
+      "url":"http://t.co/4GmQKpvN5A",
+      "display_url":"b.mamund.com/1MynXGo",
+      "expanded_url":"http://b.mamund.com/1MynXGo"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":1,
   "favorited":false,
   "id":648875249824567296,
@@ -785,7 +971,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/sVYacwmB4U",
+          "display_url":"amundsen.com/blog/",
+          "expanded_url":"http://amundsen.com/blog/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":270,
     "follow_request_sent":false,
@@ -823,6 +1021,20 @@
 },{
   "contributors":[],
   "created_at":"Tue Sep 29 16:00:54 +0100 2015",
+  "entities":{
+    "hashtags":[{
+      "text":"StrataHadoop",
+      "indices":[33,46]
+    }],
+    "media":[],
+    "urls":[{
+      "indices":[60,82],
+      "url":"http://t.co/jF4axxJU8j",
+      "display_url":"dbricks.co/1WvvQRz",
+      "expanded_url":"http://dbricks.co/1WvvQRz"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":0,
   "favorited":false,
   "id":648875102084427776,
@@ -846,7 +1058,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/PoQGTE0sky",
+          "display_url":"databricks.com",
+          "expanded_url":"http://databricks.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":17,
     "follow_request_sent":false,

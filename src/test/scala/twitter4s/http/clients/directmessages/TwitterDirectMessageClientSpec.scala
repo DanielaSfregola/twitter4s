@@ -11,16 +11,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
 
   "Twitter Direct Message Client" should {
 
-    "retrieve sent direct messages" in new TwitterDirectMessageClientSpecContext {
-      val result: Seq[DirectMessage] = when(directMessages(count = 10)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/sent.json"
-        request.uri.query === Query("count=10&include_entities=true&page=-1")
-      }.respondWith("/twitter/directmessages/sent.json").await
-      result === loadJsonAs[Seq[DirectMessage]]("/fixtures/directmessages/sent.json")
-    }
-
-    "retrieve specific direct message" in new TwitterDirectMessageClientSpecContext {
+    "retrieve a specific direct message" in new TwitterDirectMessageClientSpecContext {
       val id = 649298254383980547L
       val result: DirectMessage = when(directMessage(id)).expectRequest { request =>
         request.method === HttpMethods.GET
@@ -29,5 +20,26 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       }.respondWith("/twitter/directmessages/show.json").await
       result === loadJsonAs[DirectMessage]("/fixtures/directmessages/show.json")
     }
+
+    "get sent direct messages" in new TwitterDirectMessageClientSpecContext {
+      val result: Seq[DirectMessage] = when(sentDirectMessages(count = 10)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/sent.json"
+        request.uri.query === Query("count=10&include_entities=true&page=-1")
+      }.respondWith("/twitter/directmessages/sent.json").await
+      result === loadJsonAs[Seq[DirectMessage]]("/fixtures/directmessages/sent.json")
+    }
+
+    "get received direct messages" in new TwitterDirectMessageClientSpecContext {
+      val result: Seq[DirectMessage] = when(receivedDirectMessages(count = 10)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages.json"
+        request.uri.query === Query("count=10&include_entities=true&skip_status=false")
+      }.respondWith("/twitter/directmessages/received.json").await
+      result === loadJsonAs[Seq[DirectMessage]]("/fixtures/directmessages/received.json")
+    }
+
   }
+
+
 }

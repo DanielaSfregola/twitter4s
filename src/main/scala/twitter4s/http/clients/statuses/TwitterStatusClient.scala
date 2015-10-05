@@ -82,7 +82,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Post(s"$statusesUrl/destroy/$id.json?$parameters").respondAs[Tweet]
   }
 
-  def update(status: String,
+  def updateStatus(status: String,
              in_reply_to_status_id: Option[Long] = None,
              possibly_sensitive: Boolean = false,
              lat: Option[Long] = None,
@@ -106,7 +106,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                     trim_user: Boolean = false,
                     media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
     val directMessage = s"D $username $message"
-    update(directMessage, in_reply_to_status_id, possibly_sensitive, lat, long, place_id, display_coordinates, trim_user, media_ids)
+    updateStatus(directMessage, in_reply_to_status_id, possibly_sensitive, lat, long, place_id, display_coordinates, trim_user, media_ids)
   }
 
   def retweet(id: Long, trim_user: Boolean = false): Future[Tweet] = {

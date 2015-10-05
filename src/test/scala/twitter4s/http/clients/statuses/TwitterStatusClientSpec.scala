@@ -67,8 +67,8 @@ class TwitterStatusClientSpec extends ClientSpec {
       result === loadJsonAs[Tweet]("/fixtures/statuses/show.json")
     }
 
-    "send an update" in new TwitterStatusClientSpecContext {
-      val result: Tweet = when(update("This is a test")).expectRequest { request =>
+    "send a status update" in new TwitterStatusClientSpecContext {
+      val result: Tweet = when(updateStatus("This is a test")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
         request.entity === HttpEntity(

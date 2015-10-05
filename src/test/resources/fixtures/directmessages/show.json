@@ -3,7 +3,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "id":649298254383980547,
   "id_str":"649298254383980547",
@@ -16,7 +17,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/34uCLCPVkH",
+          "display_url":"marcobonzanini.com",
+          "expanded_url":"http://marcobonzanini.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":3,
     "follow_request_sent":false,
@@ -24,13 +37,16 @@
     "followers_count":239,
     "friends_count":206,
     "geo_enabled":false,
+    "has_extended_profile":false,
     "id":19018614,
     "id_str":"19018614",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":34,
     "location":"London, United Kingdom",
     "name":"Marco Bonzanini",
+    "notifications":false,
     "profile_background_color":"709397",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme6/bg.gif",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme6/bg.gif",
@@ -41,6 +57,7 @@
     "profile_sidebar_border_color":"86A4A6",
     "profile_sidebar_fill_color":"A0C5C7",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"marcobonzanini",
     "show_all_inline_media":false,
@@ -51,6 +68,7 @@
     "verified":false
   },
   "recipient_id":19018614,
+  "recipient_id_str":"19018614",
   "recipient_screen_name":"marcobonzanini",
   "sender":{
     "contributors_enabled":false,
@@ -61,7 +79,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -69,13 +99,16 @@
     "followers_count":133,
     "friends_count":95,
     "geo_enabled":true,
+    "has_extended_profile":false,
     "id":2911461333,
     "id_str":"2911461333",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":13,
     "location":"London, United Kingdom",
     "name":"Daniela Sfregola",
+    "notifications":false,
     "profile_background_color":"C0DEED",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
@@ -86,6 +119,7 @@
     "profile_sidebar_border_color":"C0DEED",
     "profile_sidebar_fill_color":"DDEEF6",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"DanielaSfregola",
     "show_all_inline_media":false,
@@ -94,6 +128,7 @@
     "verified":false
   },
   "sender_id":2911461333,
+  "sender_id_str":"2911461333",
   "sender_screen_name":"DanielaSfregola",
   "text":"FUNZIONAAAAAAAAAA :D"
 }

@@ -4,7 +4,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":1,
   "favorited":true,
@@ -32,7 +33,11 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":2,
     "follow_request_sent":false,
@@ -82,7 +87,8 @@
       "url":"http://t.co/tIJCpDByxs",
       "display_url":"wp.me/p5uYrc-6L",
       "expanded_url":"http://wp.me/p5uYrc-6L"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
@@ -107,7 +113,24 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/wZBkmkueb3",
+          "display_url":"seralf.it",
+          "expanded_url":"http://seralf.it"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[{
+          "indices":[90,112],
+          "url":"http://t.co/tFbjLHhACd",
+          "display_url":"seralf.it/hire-me",
+          "expanded_url":"http://seralf.it/hire-me"
+        }]
+      }
     },
     "favourites_count":316,
     "follow_request_sent":false,
@@ -153,7 +176,8 @@
       "url":"https://t.co/yJhCsyPRCI",
       "display_url":"vimeo.com/channels/932072",
       "expanded_url":"https://vimeo.com/channels/932072"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":1,
   "favorited":false,
@@ -178,7 +202,24 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/zo6utSwqJY",
+          "display_url":"scala-italy.it",
+          "expanded_url":"http://scala-italy.it/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[{
+          "indices":[80,103],
+          "url":"https://t.co/zwWSedilj6",
+          "display_url":"vimeo.com/channels/93207\u2026",
+          "expanded_url":"https://vimeo.com/channels/932072/133344804"
+        }]
+      }
     },
     "favourites_count":65,
     "follow_request_sent":false,
@@ -221,7 +262,8 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":1,
   "favorited":false,
@@ -251,7 +293,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/oCDcGzSfvA",
+          "display_url":"boldradius.com",
+          "expanded_url":"http://www.boldradius.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":1119,
     "follow_request_sent":false,
@@ -299,7 +353,8 @@
       "url":"http://t.co/1F4XoY9grA",
       "display_url":"us10.campaign-archive2.com/?u=30f19e2c5b9\u2026",
       "expanded_url":"http://us10.campaign-archive2.com/?u=30f19e2c5b9f15cfb95906716&id=da26788923&e=9489bec169"
-    }]
+    }],
+    "user_mentions":[]
   },
   "favorite_count":4,
   "favorited":true,
@@ -324,7 +379,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/BXwhIYmO2c",
+          "display_url":"functionalworks.com",
+          "expanded_url":"http://functionalworks.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":4557,
     "follow_request_sent":false,
