@@ -4,7 +4,7 @@ import scala.concurrent.Future
 
 import twitter4s.entities.DirectMessage
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.directmessages.parameters.{ReceivedParameters, ShowParameters, SentParameters}
+import twitter4s.http.clients.directmessages.parameters.{DestroyParameters, ReceivedParameters, ShowParameters, SentParameters}
 import twitter4s.util.Configurations
 
 trait TwitterDirectMessageClient extends OAuthClient with Configurations {
@@ -32,5 +32,10 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
                              skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
     Get(s"$directMessagesUrl.json?$parameters").respondAs[Seq[DirectMessage]]
+  }
+
+  def destroyDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
+    val parameters = DestroyParameters(id, include_entities)
+    Post(s"$directMessagesUrl/destroy.json?$parameters").respondAs[DirectMessage]
   }
 }
