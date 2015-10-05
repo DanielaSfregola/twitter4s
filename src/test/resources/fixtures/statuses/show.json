@@ -1,10 +1,22 @@
 {
   "contributors":[],
   "created_at":"Tue Sep 29 15:27:18 +0100 2015",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "urls":[{
+      "indices":[90,112],
+      "url":"http://t.co/irHM9eIN6B",
+      "display_url":"apple.co/1ig68dx",
+      "expanded_url":"http://apple.co/1ig68dx"
+    }],
+    "user_mentions":[]
+  },
   "favorite_count":28,
   "favorited":false,
   "id":648866645855879168,
   "id_str":"648866645855879168",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -24,7 +36,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,22],
+          "url":"http://t.co/qZdruXQkI0",
+          "display_url":"decksetapp.com",
+          "expanded_url":"http://www.decksetapp.com"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":477,
     "follow_request_sent":false,
@@ -32,13 +56,16 @@
     "followers_count":1838,
     "friends_count":31,
     "geo_enabled":false,
+    "has_extended_profile":false,
     "id":2251684044,
     "id_str":"2251684044",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":67,
     "location":"Your Mac",
     "name":"Deckset",
+    "notifications":false,
     "profile_background_color":"323740",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
@@ -50,6 +77,7 @@
     "profile_sidebar_border_color":"FFFFFF",
     "profile_sidebar_fill_color":"DDEEF6",
     "profile_text_color":"333333",
+    "profile_use_background_image":false,
     "protected":false,
     "screen_name":"decksetapp",
     "show_all_inline_media":false,

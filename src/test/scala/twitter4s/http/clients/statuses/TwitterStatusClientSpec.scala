@@ -1,6 +1,6 @@
 package twitter4s.http.clients.statuses
 
-import spray.http.{HttpEntity, ContentType, MediaTypes, HttpMethods}
+import spray.http.{ContentType, MediaTypes, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
 import twitter4s.entities._
 import twitter4s.util.{ClientSpec, ClientSpecContext}

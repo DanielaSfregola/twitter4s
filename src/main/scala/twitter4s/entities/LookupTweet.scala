@@ -16,6 +16,7 @@ case class LookupTweet(
                  in_reply_to_status_id_str: Option[String],
                  in_reply_to_user_id: Option[Long],
                  in_reply_to_user_id_str: Option[String],
+                 is_quote_status: Boolean = false,
                  lang: Option[String],
                  place: Option[Place],
                  possibly_sensitive: Boolean = false,

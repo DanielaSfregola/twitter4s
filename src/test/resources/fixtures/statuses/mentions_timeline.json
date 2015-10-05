@@ -5,7 +5,13 @@
     "hashtags":[],
     "media":[],
     "urls":[],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":2911461333,
+      "id_str":"2911461333",
+      "indices":[0,16],
+      "name":"Daniela Sfregola",
+      "screen_name":"DanielaSfregola"
+    }]
   },
   "favorite_count":1,
   "favorited":true,
@@ -14,6 +20,7 @@
   "in_reply_to_screen_name":"DanielaSfregola",
   "in_reply_to_user_id":2911461333,
   "in_reply_to_user_id_str":"2911461333",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -45,13 +52,16 @@
     "followers_count":88,
     "friends_count":56,
     "geo_enabled":false,
+    "has_extended_profile":false,
     "id":177237415,
     "id_str":"177237415",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":1,
     "location":"Bandung",
     "name":"Qbiel",
+    "notifications":false,
     "profile_background_color":"022330",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme15/bg.png",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme15/bg.png",
@@ -62,6 +72,7 @@
     "profile_sidebar_border_color":"A8C7F7",
     "profile_sidebar_fill_color":"C0DFEC",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"SoeHokBiel",
     "show_all_inline_media":false,
@@ -88,12 +99,19 @@
       "display_url":"wp.me/p5uYrc-6L",
       "expanded_url":"http://wp.me/p5uYrc-6L"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":2911461333,
+      "id_str":"2911461333",
+      "indices":[70,86],
+      "name":"Daniela Sfregola",
+      "screen_name":"DanielaSfregola"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
   "id":616174565232918528,
   "id_str":"616174565232918528",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -138,13 +156,16 @@
     "followers_count":388,
     "friends_count":2001,
     "geo_enabled":false,
+    "has_extended_profile":false,
     "id":55290238,
     "id_str":"55290238",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"it",
     "listed_count":66,
     "location":"Roma",
     "name":"Alfredo Serafini",
+    "notifications":false,
     "profile_background_color":"C6E2EE",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme2/bg.gif",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme2/bg.gif",
@@ -156,6 +177,7 @@
     "profile_sidebar_border_color":"FFFFFF",
     "profile_sidebar_fill_color":"DAECF4",
     "profile_text_color":"663B12",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"seralf",
     "show_all_inline_media":false,
@@ -177,12 +199,19 @@
       "display_url":"vimeo.com/channels/932072",
       "expanded_url":"https://vimeo.com/channels/932072"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":2911461333,
+      "id_str":"2911461333",
+      "indices":[44,60],
+      "name":"Daniela Sfregola",
+      "screen_name":"DanielaSfregola"
+    }]
   },
   "favorite_count":1,
   "favorited":false,
   "id":616163194638364672,
   "id_str":"616163194638364672",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -227,13 +256,16 @@
     "followers_count":284,
     "friends_count":261,
     "geo_enabled":false,
+    "has_extended_profile":false,
     "id":1372082066,
     "id_str":"1372082066",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":19,
     "location":"Italy",
     "name":"ScalaItaly",
+    "notifications":false,
     "profile_background_color":"C0DEED",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
@@ -245,6 +277,7 @@
     "profile_sidebar_border_color":"C0DEED",
     "profile_sidebar_fill_color":"DDEEF6",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"ScalaItaly",
     "show_all_inline_media":false,
@@ -263,7 +296,19 @@
     "hashtags":[],
     "media":[],
     "urls":[],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":2911461333,
+      "id_str":"2911461333",
+      "indices":[0,16],
+      "name":"Daniela Sfregola",
+      "screen_name":"DanielaSfregola"
+    },{
+      "id":24999933,
+      "id_str":"24999933",
+      "indices":[17,30],
+      "name":"Michael Nash",
+      "screen_name":"MichaelPNash"
+    }]
   },
   "favorite_count":1,
   "favorited":false,
@@ -274,6 +319,7 @@
   "in_reply_to_status_id_str":"608631256788676608",
   "in_reply_to_user_id":2911461333,
   "in_reply_to_user_id_str":"2911461333",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -313,13 +359,16 @@
     "followers_count":759,
     "friends_count":681,
     "geo_enabled":true,
+    "has_extended_profile":false,
     "id":431984720,
     "id_str":"431984720",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":51,
     "location":"San Francisco | Ottawa",
     "name":"BoldRadius Solutions",
+    "notifications":false,
     "profile_background_color":"232130",
     "profile_background_image_url":"http://pbs.twimg.com/profile_background_images/546542000/TindrTwitterBG.jpg",
     "profile_background_image_url_https":"https://pbs.twimg.com/profile_background_images/546542000/TindrTwitterBG.jpg",
@@ -331,6 +380,7 @@
     "profile_sidebar_border_color":"FFFFFF",
     "profile_sidebar_fill_color":"DDEEF6",
     "profile_text_color":"333333",
+    "profile_use_background_image":false,
     "protected":false,
     "screen_name":"BoldRadius",
     "show_all_inline_media":false,
@@ -354,12 +404,49 @@
       "display_url":"us10.campaign-archive2.com/?u=30f19e2c5b9\u2026",
       "expanded_url":"http://us10.campaign-archive2.com/?u=30f19e2c5b9f15cfb95906716&id=da26788923&e=9489bec169"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":404119861,
+      "id_str":"404119861",
+      "indices":[30,41],
+      "name":"Owein Reese",
+      "screen_name":"OweinReese"
+    },{
+      "id":2911461333,
+      "id_str":"2911461333",
+      "indices":[42,58],
+      "name":"Daniela Sfregola",
+      "screen_name":"DanielaSfregola"
+    },{
+      "id":30888410,
+      "id_str":"30888410",
+      "indices":[59,69],
+      "name":"Sean's dad",
+      "screen_name":"ptrelford"
+    },{
+      "id":16781974,
+      "id_str":"16781974",
+      "indices":[70,76],
+      "name":"Edward Kmett",
+      "screen_name":"kmett"
+    },{
+      "id":22637653,
+      "id_str":"22637653",
+      "indices":[77,90],
+      "name":"Stuart Sierra",
+      "screen_name":"stuartsierra"
+    },{
+      "id":993425858,
+      "id_str":"993425858",
+      "indices":[91,105],
+      "name":"Erlang Central",
+      "screen_name":"ErlangCentral"
+    }]
   },
   "favorite_count":4,
   "favorited":true,
   "id":604321111778664448,
   "id_str":"604321111778664448",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -399,13 +486,16 @@
     "followers_count":4061,
     "friends_count":360,
     "geo_enabled":true,
+    "has_extended_profile":false,
     "id":1345043875,
     "id_str":"1345043875",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":212,
     "location":"London HQ | Global reach ",
     "name":"Functional Works",
+    "notifications":false,
     "profile_background_color":"131516",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme14/bg.gif",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme14/bg.gif",
@@ -417,6 +507,7 @@
     "profile_sidebar_border_color":"EEEEEE",
     "profile_sidebar_fill_color":"EFEFEF",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"Functionalworks",
     "show_all_inline_media":false,

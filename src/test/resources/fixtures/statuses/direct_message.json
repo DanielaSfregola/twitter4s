@@ -4,12 +4,14 @@
   "entities":{
     "hashtags":[],
     "media":[],
-    "urls":[]
+    "urls":[],
+    "user_mentions":[]
   },
   "favorite_count":0,
   "favorited":false,
   "id":649261149893074944,
   "id_str":"649261149893074944",
+  "is_quote_status":false,
   "lang":"en",
   "possibly_sensitive":false,
   "scopes":{
@@ -29,7 +31,19 @@
     "entities":{
       "hashtags":[],
       "media":[],
-      "urls":[]
+      "url":{
+        "urls":[{
+          "indices":[0,23],
+          "url":"https://t.co/0FKNGVnRwX",
+          "display_url":"danielasfregola.com",
+          "expanded_url":"https://www.danielasfregola.com/"
+        }]
+      },
+      "urls":[],
+      "user_mentions":[],
+      "description":{
+        "urls":[]
+      }
     },
     "favourites_count":68,
     "follow_request_sent":false,
@@ -37,13 +51,16 @@
     "followers_count":132,
     "friends_count":93,
     "geo_enabled":true,
+    "has_extended_profile":false,
     "id":2911461333,
     "id_str":"2911461333",
+    "is_translation_enabled":false,
     "is_translator":false,
     "lang":"en",
     "listed_count":13,
     "location":"London, United Kingdom",
     "name":"Daniela Sfregola",
+    "notifications":false,
     "profile_background_color":"C0DEED",
     "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
     "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
@@ -54,6 +71,7 @@
     "profile_sidebar_border_color":"C0DEED",
     "profile_sidebar_fill_color":"DDEEF6",
     "profile_text_color":"333333",
+    "profile_use_background_image":true,
     "protected":false,
     "screen_name":"DanielaSfregola",
     "show_all_inline_media":false,

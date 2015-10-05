@@ -13,7 +13,13 @@
       "display_url":"github.com/bfil/scala-aut\u2026",
       "expanded_url":"https://github.com/bfil/scala-automapper"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":161225991,
+      "id_str":"161225991",
+      "indices":[3,10],
+      "name":"Bruno Filippone",
+      "screen_name":"BFil85"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -197,7 +203,13 @@
       "display_url":"bldrd.us/1NFftyW",
       "expanded_url":"http://bldrd.us/1NFftyW"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":431984720,
+      "id_str":"431984720",
+      "indices":[3,14],
+      "name":"BoldRadius Solutions",
+      "screen_name":"BoldRadius"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -384,7 +396,19 @@
       "display_url":"bit.ly/1imnufV",
       "expanded_url":"http://bit.ly/1imnufV"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":16602164,
+      "id_str":"16602164",
+      "indices":[3,12],
+      "name":"Typesafe",
+      "screen_name":"typesafe"
+    },{
+      "id":20847695,
+      "id_str":"20847695",
+      "indices":[38,47],
+      "name":"aℕdy ℙetrella",
+      "screen_name":"noootsab"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -415,7 +439,13 @@
         "display_url":"bit.ly/1imnufV",
         "expanded_url":"http://bit.ly/1imnufV"
       }],
-      "user_mentions":[]
+      "user_mentions":[{
+        "id":20847695,
+        "id_str":"20847695",
+        "indices":[24,33],
+        "name":"aℕdy ℙetrella",
+        "screen_name":"noootsab"
+      }]
     },
     "favorite_count":34,
     "favorited":false,
@@ -573,7 +603,13 @@
       "display_url":"hintjens.com/blog:94",
       "expanded_url":"http://hintjens.com/blog:94"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":24012073,
+      "id_str":"24012073",
+      "indices":[3,12],
+      "name":"Pieter Hintjens",
+      "screen_name":"hintjens"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -762,7 +798,13 @@
       "display_url":"wp.me/p5y8RO-30",
       "expanded_url":"http://wp.me/p5y8RO-30"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":19018614,
+      "id_str":"19018614",
+      "indices":[3,18],
+      "name":"Marco Bonzanini",
+      "screen_name":"marcobonzanini"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -954,7 +996,13 @@
       "display_url":"tmblr.co/ZlHOLw1tXSL_q",
       "expanded_url":"http://tmblr.co/ZlHOLw1tXSL_q"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":440686069,
+      "id_str":"440686069",
+      "indices":[3,12],
+      "name":"Akka Team",
+      "screen_name":"akkateam"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -1138,7 +1186,13 @@
       "display_url":"velvia.github.io/Docker-Scala-S\u2026",
       "expanded_url":"http://velvia.github.io/Docker-Scala-Sbt/"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":824776921,
+      "id_str":"824776921",
+      "indices":[3,13],
+      "name":"Evan Chan",
+      "screen_name":"Evanfchan"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -1331,7 +1385,13 @@
       "display_url":"wp.me/p5y8RO-2V",
       "expanded_url":"http://wp.me/p5y8RO-2V"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":19018614,
+      "id_str":"19018614",
+      "indices":[3,18],
+      "name":"Marco Bonzanini",
+      "screen_name":"marcobonzanini"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -1535,7 +1595,13 @@
       "display_url":"bit.ly/1TV6fnc",
       "expanded_url":"http://bit.ly/1TV6fnc"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":16602164,
+      "id_str":"16602164",
+      "indices":[3,12],
+      "name":"Typesafe",
+      "screen_name":"typesafe"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
@@ -1748,7 +1814,13 @@
       "display_url":"wp.me/p5y8RO-2Q",
       "expanded_url":"http://wp.me/p5y8RO-2Q"
     }],
-    "user_mentions":[]
+    "user_mentions":[{
+      "id":19018614,
+      "id_str":"19018614",
+      "indices":[3,18],
+      "name":"Marco Bonzanini",
+      "screen_name":"marcobonzanini"
+    }]
   },
   "favorite_count":0,
   "favorited":false,
