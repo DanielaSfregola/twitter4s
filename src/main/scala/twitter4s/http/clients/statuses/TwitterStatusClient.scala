@@ -76,7 +76,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/show.json?$parameters").respondAs[Tweet]
   }
 
-  def destroy(id: Long,
+  def destroyStatus(id: Long,
               trim_user: Boolean = false): Future[Tweet] = {
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/destroy/$id.json?$parameters").respondAs[Tweet]
@@ -95,7 +95,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
   }
 
-  def directMessage(message: String,
+  def createDirectMessageAsTweet(message: String,
                     username: String,
                     in_reply_to_status_id: Option[Long] = None,
                     possibly_sensitive: Boolean = false,
