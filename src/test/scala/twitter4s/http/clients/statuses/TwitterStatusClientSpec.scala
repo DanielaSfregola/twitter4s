@@ -78,8 +78,8 @@ class TwitterStatusClientSpec extends ClientSpec {
       result === loadJsonAs[Tweet]("/fixtures/statuses/update.json")
     }
 
-    "send a direct message" in new TwitterStatusClientSpecContext {
-      val result: Tweet = when(directMessage("This is a test for a direct message", "DanielaSfregola")).expectRequest { request =>
+    "send direct message as tweet" in new TwitterStatusClientSpecContext {
+      val result: Tweet = when(createDirectMessageAsTweet("This is a test for a direct message", "DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
         request.entity === HttpEntity(
@@ -91,7 +91,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "delete an existing tweet" in new TwitterStatusClientSpecContext {
       val id = 648866645855879168L
-      val result: Tweet = when(destroy(id)).expectRequest { request =>
+      val result: Tweet = when(destroyStatus(id)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/destroy/$id.json"
         request.uri.query === Query("trim_user=false")

@@ -4,7 +4,7 @@ import scala.concurrent.Future
 
 import twitter4s.entities.DirectMessage
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.directmessages.parameters.{DestroyParameters, ReceivedParameters, ShowParameters, SentParameters}
+import twitter4s.http.clients.directmessages.parameters._
 import twitter4s.util.Configurations
 
 trait TwitterDirectMessageClient extends OAuthClient with Configurations {
@@ -15,6 +15,21 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     val parameters = ShowParameters(id)
     Get(s"$directMessagesUrl/show.json?$parameters").respondAs[DirectMessage]
   }
+
+  def createDirectMessage(user_id: Long,
+                          text: String): Future[DirectMessage] = {
+    val parameters = CreateParameters(user_id = Some(user_id),text = text)
+    genericCreateDirectMessage(parameters)
+  }
+
+  def createDirectMessage(screen_name: String,
+                          text: String): Future[DirectMessage] = {
+    val parameters = CreateParameters(screen_name = Some(screen_name),text = text)
+    genericCreateDirectMessage(parameters)
+  }
+
+  private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] =
+    Get(s"$directMessagesUrl/new.json?$parameters").respondAs[DirectMessage]
 
   def sentDirectMessages(since_id: Option[Long] = None,
                          max_id: Option[Long] = None,

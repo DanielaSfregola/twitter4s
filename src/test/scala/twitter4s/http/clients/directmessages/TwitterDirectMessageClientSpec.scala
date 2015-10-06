@@ -49,6 +49,26 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       result === loadJsonAs[DirectMessage]("/fixtures/directmessages/destroy.json")
     }
 
+    "create a direct message by user_id" in new TwitterDirectMessageClientSpecContext {
+      val text = "FUNZIONAAAAAAAAAA :D"
+      val result: DirectMessage = when(createDirectMessage(2911461333L, text)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
+        request.uri.query === Query("text=FUNZIONAAAAAAAAAA+:D&user_id=2911461333")
+      }.respondWith("/twitter/directmessages/new.json").await
+      result === loadJsonAs[DirectMessage]("/fixtures/directmessages/new.json")
+    }
+
+    "create a direct message by screen_name" in new TwitterDirectMessageClientSpecContext {
+      val text = "FUNZIONAAAAAAAAAA :D"
+      val result: DirectMessage = when(createDirectMessage("marcobonzanini", text)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
+        request.uri.query === Query("screen_name=marcobonzanini&text=FUNZIONAAAAAAAAAA+:D")
+      }.respondWith("/twitter/directmessages/new.json").await
+      result === loadJsonAs[DirectMessage]("/fixtures/directmessages/new.json")
+    }
+
   }
 
 
