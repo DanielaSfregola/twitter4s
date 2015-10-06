@@ -130,21 +130,21 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "get retweeters ids" in new TwitterStatusClientSpecContext {
-      val result: RetweetersIds = when(retweetersIds(327473909412814850L)).expectRequest { request =>
+      val result: UserIds = when(retweetersIds(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
         request.uri.query === Query("count=100&cursor=-1&id=327473909412814850&stringify_ids=false")
       }.respondWith("/twitter/statuses/retweeters_ids.json").await
-      result === loadJsonAs[RetweetersIds]("/fixtures/statuses/retweeters_ids.json")
+      result === loadJsonAs[UserIds]("/fixtures/statuses/retweeters_ids.json")
     }
 
     "get retweeters ids stringified" in new TwitterStatusClientSpecContext {
-      val result: RetweetersIdsStringified = when(retweetersIdsStringified(327473909412814850L)).expectRequest { request =>
+      val result: UserIdsStringified = when(retweetersIdsStringified(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
         request.uri.query === Query("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
       }.respondWith("/twitter/statuses/retweeters_ids_stringified.json").await
-      result === loadJsonAs[RetweetersIdsStringified]("/fixtures/statuses/retweeters_ids_stringified.json")
+      result === loadJsonAs[UserIdsStringified]("/fixtures/statuses/retweeters_ids_stringified.json")
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
