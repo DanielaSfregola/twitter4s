@@ -160,7 +160,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
   def lookup(ids: Seq[Long],
              include_entities: Boolean = true,
              trim_user: Boolean = false): Future[Seq[LookupTweet]] = {
-    require(!ids.isEmpty, "Please, provide at least 1 id to lookup")
+    require(!ids.isEmpty, "please, provide at least one id to lookup")
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
     genericLookup[Seq[LookupTweet]](parameters)
   }

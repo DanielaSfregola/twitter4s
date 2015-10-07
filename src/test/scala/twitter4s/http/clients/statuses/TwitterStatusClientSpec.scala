@@ -156,6 +156,10 @@ class TwitterStatusClientSpec extends ClientSpec {
       result === loadJsonAs[Seq[LookupTweet]]("/fixtures/statuses/lookup.json")
     }
 
+    "reject request if no ids have been provided for the lookup" in new TwitterStatusClientSpecContext {
+      lookup() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one id to lookup")
+    }
+
     "perform a mapped lookup" in new TwitterStatusClientSpecContext {
       val result: LookupMapped = when(lookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
