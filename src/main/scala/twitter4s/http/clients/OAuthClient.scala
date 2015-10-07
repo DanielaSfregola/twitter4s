@@ -4,7 +4,7 @@ import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http._
 import spray.httpx.unmarshalling.{Deserializer => _, FromResponseUnmarshaller}
-import twitter4s.http.marshalling.BodyEncoder
+import twitter4s.http.marshalling.{Parameters, BodyEncoder}
 import twitter4s.http.oauth.OAuthProvider
 import twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
@@ -29,6 +29,8 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
   val Head = new OAuthRequestBuilder(HEAD)
 
   class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
+
+    def apply(uri: String, parameters: Parameters): HttpRequest = apply(s"$uri?$parameters")
 
     def apply(uri: String, content: Product): HttpRequest = {
       val data = toBodyAsEncodedParams(content)

@@ -13,7 +13,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
 
   def directMessage(id: Long): Future[DirectMessage] = {
     val parameters = ShowParameters(id)
-    Get(s"$directMessagesUrl/show.json?$parameters").respondAs[DirectMessage]
+    Get(s"$directMessagesUrl/show.json", parameters).respondAs[DirectMessage]
   }
 
   def createDirectMessage(user_id: Long,
@@ -29,7 +29,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
   }
 
   private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] =
-    Get(s"$directMessagesUrl/new.json?$parameters").respondAs[DirectMessage]
+    Get(s"$directMessagesUrl/new.json", parameters).respondAs[DirectMessage]
 
   def sentDirectMessages(since_id: Option[Long] = None,
                          max_id: Option[Long] = None,
@@ -37,7 +37,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
                          include_entities: Boolean = true,
                          page: Int = -1): Future[Seq[DirectMessage]] = {
     val parameters = SentParameters(since_id, max_id, count, include_entities, page)
-    Get(s"$directMessagesUrl/sent.json?$parameters").respondAs[Seq[DirectMessage]]
+    Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
   }
 
   def receivedDirectMessages(since_id: Option[Long] = None,
@@ -46,11 +46,11 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
                              include_entities: Boolean = true,
                              skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
-    Get(s"$directMessagesUrl.json?$parameters").respondAs[Seq[DirectMessage]]
+    Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
   }
 
   def destroyDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
     val parameters = DestroyParameters(id, include_entities)
-    Post(s"$directMessagesUrl/destroy.json?$parameters").respondAs[DirectMessage]
+    Post(s"$directMessagesUrl/destroy.json", parameters).respondAs[DirectMessage]
   }
 }
