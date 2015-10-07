@@ -2,9 +2,9 @@ package twitter4s.http.clients.friendships
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{UserIdsStringified, UserIds}
+import twitter4s.entities.{User, UserIdsStringified, UserIds}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.friendships.parameters.{FriendshipParameters, FollowingParameters, BlockedParameters}
+import twitter4s.http.clients.friendships.parameters.{FollowParameters, FriendshipParameters, FollowingParameters, BlockedParameters}
 import twitter4s.util.Configurations
 
 
@@ -27,12 +27,12 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericBlockedUsers[T: Manifest](parameters: BlockedParameters): Future[T] =
     Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAs[T]
 
-  def friendsPerUserName(user_id: Long, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
+  def friendsPerUserId(user_id: Long, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericFriends[UserIds](parameters)
   }
 
-  def friendsPerScreenName(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
+  def friends(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericFriends[UserIds](parameters)
   }
@@ -42,7 +42,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericFriends[UserIdsStringified](parameters)
   }
 
-  def friendsPerUserScreenStringified(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def friendsStringified(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIdsStringified] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericFriends[UserIdsStringified](parameters)
   }
@@ -55,7 +55,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericFollowers[UserIds](parameters)
   }
 
-  def followersPerScreenName(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
+  def followers(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericFollowers[UserIds](parameters)
   }
@@ -65,7 +65,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericFollowers[UserIdsStringified](parameters)
   }
 
-  def followersPerScreenNameStringified(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def followersStringified(screen_name: String, cursor: Int = -1, count: Int = -1): Future[UserIdsStringified] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericFollowers[UserIdsStringified](parameters)
   }
@@ -98,5 +98,17 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
     Get(s"$friendshipsUrl/outgoing.json", parameters).respondAs[T]
 
+  def followUserId(user_id: Long, notify: Boolean = true): Future[User] = {
+    val parameters = FollowParameters(Some(user_id), screen_name = None, notify)
+    genericFollow(parameters)
+  }
+
+  def follow(screen_name: String, notify: Boolean = true): Future[User] = {
+    val parameters = FollowParameters(user_id = None, Some(screen_name), notify)
+    genericFollow(parameters)
+  }
+
+  private def genericFollow(parameters: FollowParameters): Future[User] =
+    Post(s"$friendshipsUrl/create.json", parameters).respondAs[User]
 
 }
