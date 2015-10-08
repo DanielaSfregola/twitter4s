@@ -1,0 +1,1404 @@
+{
+  "users": [
+    {
+      "id": 4325301,
+      "id_str": "4325301",
+      "name": "Jason Zaugg",
+      "screen_name": "retronym",
+      "location": "Brisbane, Australia",
+      "description": "Compiler Engineer @ Typesafe",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 2878,
+      "friends_count": 329,
+      "listed_count": 149,
+      "created_at": "Thu Apr 12 08:52:38 +0000 2007",
+      "favourites_count": 171,
+      "utc_offset": 32400,
+      "time_zone": "Yakutsk",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 1472,
+      "lang": "en",
+      "status": {
+        "created_at": "Wed Oct 07 19:53:28 +0000 2015",
+        "id": 651847832538734593,
+        "id_str": "651847832538734593",
+        "text": "RT @scala_lang: Gitter room reorg: scala\/scala is now the general room. scala\/contributors for talking internals. (scala\/scala\/scala-user i\u2026",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+          "created_at": "Wed Oct 07 18:04:32 +0000 2015",
+          "id": 651820418538602496,
+          "id_str": "651820418538602496",
+          "text": "Gitter room reorg: scala\/scala is now the general room. scala\/contributors for talking internals. (scala\/scala\/scala-user is being retired.)",
+          "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+          "truncated": false,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "in_reply_to_screen_name": null,
+          "geo": null,
+          "coordinates": null,
+          "place": null,
+          "contributors": null,
+          "retweet_count": 5,
+          "favorite_count": 2,
+          "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": []
+          },
+          "favorited": false,
+          "retweeted": false,
+          "lang": "en"
+        },
+        "retweet_count": 5,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "scala_lang",
+              "name": "Scala",
+              "id": 1221300014,
+              "id_str": "1221300014",
+              "indices": [
+                3,
+                14
+              ]
+            }
+          ],
+          "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "9AE4E8",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000122871725\/5269c866ffadd34a3401ec3476476dad.png",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000122871725\/5269c866ffadd34a3401ec3476476dad.png",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/515822337\/avatar_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/515822337\/avatar_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/4325301\/1398330737",
+      "profile_link_color": "000000",
+      "profile_sidebar_border_color": "87BC44",
+      "profile_sidebar_fill_color": "E0FF92",
+      "profile_text_color": "0000FF",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 118185789,
+      "id_str": "118185789",
+      "name": "Patrik Nordwall",
+      "screen_name": "patriknw",
+      "location": "Stockholm",
+      "description": "Work @typesafe with #Scala, #Akka",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1628,
+      "friends_count": 131,
+      "listed_count": 83,
+      "created_at": "Sat Feb 27 21:41:51 +0000 2010",
+      "favourites_count": 13,
+      "utc_offset": 7200,
+      "time_zone": "Stockholm",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 1080,
+      "lang": "en",
+      "status": {
+        "created_at": "Sun Oct 04 15:06:39 +0000 2015",
+        "id": 650688486631211008,
+        "id_str": "650688486631211008",
+        "text": "RT @mrt1nz: #Cassandra plugin for #Akka Persistence 2.4.0 released. https:\/\/t.co\/Bc840GyfXF Thanks @chbatey for all your high-quality work \u2026",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+          "created_at": "Sun Oct 04 08:34:53 +0000 2015",
+          "id": 650589896407691264,
+          "id_str": "650589896407691264",
+          "text": "#Cassandra plugin for #Akka Persistence 2.4.0 released. https:\/\/t.co\/Bc840GyfXF Thanks @chbatey for all your high-quality work on it!",
+          "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+          "truncated": false,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "in_reply_to_screen_name": null,
+          "geo": null,
+          "coordinates": null,
+          "place": null,
+          "contributors": null,
+          "retweet_count": 47,
+          "favorite_count": 50,
+          "entities": {
+            "hashtags": [
+              {
+                "text": "Cassandra",
+                "indices": [
+                  0,
+                  10
+                ]
+              },
+              {
+                "text": "Akka",
+                "indices": [
+                  22,
+                  27
+                ]
+              }
+            ],
+            "symbols": [],
+            "user_mentions": [
+              {
+                "screen_name": "chbatey",
+                "name": "Christopher Batey",
+                "id": 80530885,
+                "id_str": "80530885",
+                "indices": [
+                  87,
+                  95
+                ]
+              }
+            ],
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/Bc840GyfXF",
+                "expanded_url": "https:\/\/github.com\/krasserm\/akka-persistence-cassandra\/issues?q=milestone%3A0.4+is%3Aclosed",
+                "display_url": "github.com\/krasserm\/akka-\u2026",
+                "indices": [
+                  56,
+                  79
+                ]
+              }
+            ]
+          },
+          "favorited": false,
+          "retweeted": false,
+          "possibly_sensitive": false,
+          "lang": "en"
+        },
+        "retweet_count": 47,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Cassandra",
+              "indices": [
+                12,
+                22
+              ]
+            },
+            {
+              "text": "Akka",
+              "indices": [
+                34,
+                39
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "mrt1nz",
+              "name": "Martin Krasser",
+              "id": 15295946,
+              "id_str": "15295946",
+              "indices": [
+                3,
+                10
+              ]
+            },
+            {
+              "screen_name": "chbatey",
+              "name": "Christopher Batey",
+              "id": 80530885,
+              "id_str": "80530885",
+              "indices": [
+                99,
+                107
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/Bc840GyfXF",
+              "expanded_url": "https:\/\/github.com\/krasserm\/akka-persistence-cassandra\/issues?q=milestone%3A0.4+is%3Aclosed",
+              "display_url": "github.com\/krasserm\/akka-\u2026",
+              "indices": [
+                68,
+                91
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "9AE4E8",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/94984933\/x22e289ef5702458dc86f5cd301a22f3.png",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/94984933\/x22e289ef5702458dc86f5cd301a22f3.png",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2452148249\/p51txvmjs3gks27bs5vr_normal.jpeg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2452148249\/p51txvmjs3gks27bs5vr_normal.jpeg",
+      "profile_link_color": "0000FF",
+      "profile_sidebar_border_color": "87BC44",
+      "profile_sidebar_fill_color": "E0FF92",
+      "profile_text_color": "000000",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 19418890,
+      "id_str": "19418890",
+      "name": "Josh Suereth",
+      "screen_name": "jsuereth",
+      "location": "",
+      "description": "Author: Scala In Depth\r\nDeveloper: Geeky Scala Stuff\r\nAll Around: Big Nerd",
+      "url": "http:\/\/t.co\/VVHwaER3hu",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/VVHwaER3hu",
+              "expanded_url": "http:\/\/jsuereth.com",
+              "display_url": "jsuereth.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 6765,
+      "friends_count": 399,
+      "listed_count": 365,
+      "created_at": "Fri Jan 23 22:53:57 +0000 2009",
+      "favourites_count": 611,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 6797,
+      "lang": "en",
+      "status": {
+        "created_at": "Sun Oct 04 15:29:30 +0000 2015",
+        "id": 650694240176087041,
+        "id_str": "650694240176087041",
+        "text": "@aut0mat0n1c believe you can do that all in one string",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": 650521639931768832,
+        "in_reply_to_status_id_str": "650521639931768832",
+        "in_reply_to_user_id": 260389486,
+        "in_reply_to_user_id_str": "260389486",
+        "in_reply_to_screen_name": "aut0mat0n1c",
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "aut0mat0n1c",
+              "name": "randy shepherd",
+              "id": 260389486,
+              "id_str": "260389486",
+              "indices": [
+                0,
+                12
+              ]
+            }
+          ],
+          "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2162642114\/me-suprised-cropped_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2162642114\/me-suprised-cropped_normal.jpg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 15295946,
+      "id_str": "15295946",
+      "name": "Martin Krasser",
+      "screen_name": "mrt1nz",
+      "location": "",
+      "description": "Distributed systems developer, Scala\/Java programmer, integration specialist, downhill whatever",
+      "url": "http:\/\/t.co\/fUhk1fMSWp",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/fUhk1fMSWp",
+              "expanded_url": "http:\/\/martin-krasser.de\/",
+              "display_url": "martin-krasser.de",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 2302,
+      "friends_count": 57,
+      "listed_count": 136,
+      "created_at": "Wed Jul 02 07:02:10 +0000 2008",
+      "favourites_count": 159,
+      "utc_offset": 7200,
+      "time_zone": "Vienna",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 2732,
+      "lang": "en",
+      "status": {
+        "created_at": "Wed Oct 07 17:02:20 +0000 2015",
+        "id": 651804763030454272,
+        "id_str": "651804763030454272",
+        "text": "RT @okumin: akka-persistence-sql-async \u30d1\u30d6\u30ea\u30c3\u30b7\u30e5\u3057\u307e\u3057\u305f\u3002 https:\/\/t.co\/mVg93Znk9F #Akka",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+          "created_at": "Wed Oct 07 15:05:00 +0000 2015",
+          "id": 651775238699552768,
+          "id_str": "651775238699552768",
+          "text": "akka-persistence-sql-async \u30d1\u30d6\u30ea\u30c3\u30b7\u30e5\u3057\u307e\u3057\u305f\u3002 https:\/\/t.co\/mVg93Znk9F #Akka",
+          "source": "\u003ca href=\"http:\/\/sites.google.com\/site\/yorufukurou\/\" rel=\"nofollow\"\u003eYoruFukurou\u003c\/a\u003e",
+          "truncated": false,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "in_reply_to_screen_name": null,
+          "geo": null,
+          "coordinates": null,
+          "place": null,
+          "contributors": null,
+          "retweet_count": 6,
+          "favorite_count": 7,
+          "entities": {
+            "hashtags": [
+              {
+                "text": "Akka",
+                "indices": [
+                  63,
+                  68
+                ]
+              }
+            ],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/mVg93Znk9F",
+                "expanded_url": "https:\/\/github.com\/okumin\/akka-persistence-sql-async",
+                "display_url": "github.com\/okumin\/akka-pe\u2026",
+                "indices": [
+                  39,
+                  62
+                ]
+              }
+            ]
+          },
+          "favorited": false,
+          "retweeted": false,
+          "possibly_sensitive": false,
+          "lang": "ja"
+        },
+        "retweet_count": 6,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Akka",
+              "indices": [
+                75,
+                80
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "okumin",
+              "name": "\u304a\u304f\u307f\u3093@\u5973\u5b50\u9ad8\u6821\u751f",
+              "id": 91770461,
+              "id_str": "91770461",
+              "indices": [
+                3,
+                10
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/mVg93Znk9F",
+              "expanded_url": "https:\/\/github.com\/okumin\/akka-persistence-sql-async",
+              "display_url": "github.com\/okumin\/akka-pe\u2026",
+              "indices": [
+                51,
+                74
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "ja"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/801620954\/0b2c80a4fda06927c22a086826e87dd0.jpeg",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/801620954\/0b2c80a4fda06927c22a086826e87dd0.jpeg",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1123689116\/Bild006a_normal.jpg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1123689116\/Bild006a_normal.jpg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/15295946\/1361957839",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 1345043875,
+      "id_str": "1345043875",
+      "name": "Functional Works",
+      "screen_name": "Functionalworks",
+      "location": "London HQ | Global reach ",
+      "description": "Functional Programming Advocates. Providing Talent Solutions, Strategic Advice, Curated Events & Insight across Clojure, Scala, Erlang, Haskell, F#, OCaml,Swift",
+      "url": "http:\/\/t.co\/BXwhIYmO2c",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/BXwhIYmO2c",
+              "expanded_url": "http:\/\/functionalworks.com\/",
+              "display_url": "functionalworks.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 4192,
+      "friends_count": 365,
+      "listed_count": 216,
+      "created_at": "Thu Apr 11 18:46:02 +0000 2013",
+      "favourites_count": 4606,
+      "utc_offset": 7200,
+      "time_zone": "Amsterdam",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 4168,
+      "lang": "en",
+      "status": {
+        "created_at": "Wed Oct 07 20:08:17 +0000 2015",
+        "id": 651851561082220544,
+        "id_str": "651851561082220544",
+        "text": "Debugging Functional #javascript http:\/\/t.co\/yqbQnpzGAn",
+        "source": "\u003ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003eBuffer\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 0,
+        "favorite_count": 7,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "javascript",
+              "indices": [
+                21,
+                32
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/yqbQnpzGAn",
+              "expanded_url": "http:\/\/buff.ly\/1WMvfv1",
+              "display_url": "buff.ly\/1WMvfv1",
+              "indices": [
+                33,
+                55
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "131516",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/439367291214364673\/M_Z9rDrf_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/439367291214364673\/M_Z9rDrf_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1345043875\/1412684063",
+      "profile_link_color": "F52727",
+      "profile_sidebar_border_color": "EEEEEE",
+      "profile_sidebar_fill_color": "EFEFEF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 573048915,
+      "id_str": "573048915",
+      "name": "Scala Puzzlers",
+      "screen_name": "ScalaPuzzlers",
+      "location": "",
+      "description": "",
+      "url": "http:\/\/t.co\/ukKxj5OaSc",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/ukKxj5OaSc",
+              "expanded_url": "http:\/\/scalapuzzlers.com",
+              "display_url": "scalapuzzlers.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 378,
+      "friends_count": 20,
+      "listed_count": 15,
+      "created_at": "Sun May 06 19:59:29 +0000 2012",
+      "favourites_count": 0,
+      "utc_offset": -10800,
+      "time_zone": "Atlantic Time (Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 44,
+      "lang": "en",
+      "status": {
+        "created_at": "Mon Mar 30 12:37:46 +0000 2015",
+        "id": 582522103167094784,
+        "id_str": "582522103167094784",
+        "text": "RT @ConcreteVitamin: http:\/\/t.co\/hsrHnAxW2I is quite good &amp; indeed surprising! Would love to see a variant on Scala performance gotchas :) \u2026",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweeted_status": {
+          "created_at": "Sun Mar 29 23:01:35 +0000 2015",
+          "id": 582316704673447937,
+          "id_str": "582316704673447937",
+          "text": "http:\/\/t.co\/hsrHnAxW2I is quite good &amp; indeed surprising! Would love to see a variant on Scala performance gotchas :) \/cc @rxin?",
+          "source": "\u003ca href=\"http:\/\/www.hootsuite.com\" rel=\"nofollow\"\u003eHootsuite\u003c\/a\u003e",
+          "truncated": false,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "in_reply_to_screen_name": null,
+          "geo": null,
+          "coordinates": null,
+          "place": null,
+          "contributors": null,
+          "retweet_count": 2,
+          "favorite_count": 2,
+          "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "user_mentions": [
+              {
+                "screen_name": "rxin",
+                "name": "Reynold Xin",
+                "id": 17712257,
+                "id_str": "17712257",
+                "indices": [
+                  126,
+                  131
+                ]
+              }
+            ],
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/hsrHnAxW2I",
+                "expanded_url": "http:\/\/scalapuzzlers.com\/",
+                "display_url": "scalapuzzlers.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "favorited": false,
+          "retweeted": false,
+          "possibly_sensitive": false,
+          "lang": "en"
+        },
+        "retweet_count": 2,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "ConcreteVitamin",
+              "name": "Zongheng Yang",
+              "id": 11453482,
+              "id_str": "11453482",
+              "indices": [
+                3,
+                19
+              ]
+            },
+            {
+              "screen_name": "rxin",
+              "name": "Reynold Xin",
+              "id": 17712257,
+              "id_str": "17712257",
+              "indices": [
+                143,
+                144
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/hsrHnAxW2I",
+              "expanded_url": "http:\/\/scalapuzzlers.com\/",
+              "display_url": "scalapuzzlers.com",
+              "indices": [
+                21,
+                43
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2210992592\/sp_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2210992592\/sp_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 3425836427,
+      "id_str": "3425836427",
+      "name": "Scala World",
+      "screen_name": "scalaworldconf",
+      "location": "Penrith, England",
+      "description": "The most exciting Scala event of the year!",
+      "url": "https:\/\/t.co\/7WqZMYNtQT",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/7WqZMYNtQT",
+              "expanded_url": "https:\/\/scala.world\/",
+              "display_url": "scala.world",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 452,
+      "friends_count": 136,
+      "listed_count": 17,
+      "created_at": "Sun Aug 16 13:05:09 +0000 2015",
+      "favourites_count": 340,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 200,
+      "lang": "en",
+      "status": {
+        "created_at": "Thu Oct 08 07:18:33 +0000 2015",
+        "id": 652020237617917952,
+        "id_str": "652020237617917952",
+        "text": "Here's a sneak preview of @extempore2's Scala World talk.\nhttp:\/\/t.co\/b2CHs9euKe",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 0,
+        "favorite_count": 2,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "extempore2",
+              "name": "Paul Phillips",
+              "id": 21311342,
+              "id_str": "21311342",
+              "indices": [
+                26,
+                37
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/b2CHs9euKe",
+              "expanded_url": "http:\/\/cdn.makeagif.com\/media\/10-08-2015\/05tcpi.gif",
+              "display_url": "cdn.makeagif.com\/media\/10-08-20\u2026",
+              "indices": [
+                58,
+                80
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/632902788217970688\/rf0GE2M1_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/632902788217970688\/rf0GE2M1_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 297636217,
+      "id_str": "297636217",
+      "name": "Alex Lakatos",
+      "screen_name": "lakatos88",
+      "location": "London, England",
+      "description": "Tech Lead by day, Mozilla Representative Mentor and Freelance Web Developer by night.",
+      "url": "http:\/\/t.co\/0j6CAUcqKp",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/0j6CAUcqKp",
+              "expanded_url": "http:\/\/alexlakatos.com",
+              "display_url": "alexlakatos.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 544,
+      "friends_count": 323,
+      "listed_count": 37,
+      "created_at": "Thu May 12 21:01:50 +0000 2011",
+      "favourites_count": 183,
+      "utc_offset": 10800,
+      "time_zone": "Bucharest",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 1522,
+      "lang": "en",
+      "status": {
+        "created_at": "Thu Oct 08 06:22:10 +0000 2015",
+        "id": 652006049248055296,
+        "id_str": "652006049248055296",
+        "text": "I wonder what Power I'll get... http:\/\/t.co\/Pm4Rsk5YD7",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [],
+          "media": [
+            {
+              "id": 652006042402988032,
+              "id_str": "652006042402988032",
+              "indices": [
+                32,
+                54
+              ],
+              "media_url": "http:\/\/pbs.twimg.com\/media\/CQxkCoTWoAAYIwq.jpg",
+              "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQxkCoTWoAAYIwq.jpg",
+              "url": "http:\/\/t.co\/Pm4Rsk5YD7",
+              "display_url": "pic.twitter.com\/Pm4Rsk5YD7",
+              "expanded_url": "http:\/\/twitter.com\/lakatos88\/status\/652006049248055296\/photo\/1",
+              "type": "photo",
+              "sizes": {
+                "small": {
+                  "w": 340,
+                  "h": 459,
+                  "resize": "fit"
+                },
+                "large": {
+                  "w": 758,
+                  "h": 1024,
+                  "resize": "fit"
+                },
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "medium": {
+                  "w": 600,
+                  "h": 810,
+                  "resize": "fit"
+                }
+              }
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/635626850\/uygvubn5einvv79plu4l.png",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/635626850\/uygvubn5einvv79plu4l.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/488462714268692480\/s0fwq3m4_normal.jpeg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/488462714268692480\/s0fwq3m4_normal.jpeg",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/297636217\/1393085844",
+      "profile_link_color": "ABB8C2",
+      "profile_sidebar_border_color": "222224",
+      "profile_sidebar_fill_color": "1F1918",
+      "profile_text_color": "474247",
+      "profile_use_background_image": true,
+      "has_extended_profile": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 2539089865,
+      "id_str": "2539089865",
+      "name": "ScalaJobs",
+      "screen_name": "scalajobsorg",
+      "location": "",
+      "description": "Better Scala Play Lift Akka Jobs",
+      "url": "http:\/\/t.co\/8DWx5AZUl1",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/8DWx5AZUl1",
+              "expanded_url": "http:\/\/scalajobs.org",
+              "display_url": "scalajobs.org",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 400,
+      "friends_count": 911,
+      "listed_count": 14,
+      "created_at": "Sun Jun 01 08:18:53 +0000 2014",
+      "favourites_count": 25,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 28,
+      "lang": "tr",
+      "status": {
+        "created_at": "Wed Oct 07 18:50:34 +0000 2015",
+        "id": 651832001314615296,
+        "id_str": "651832001314615296",
+        "text": "Hiring Senior Java \/ Scala Developer at Ytrail\nhttp:\/\/t.co\/LhmhhZ6FbB\n\n#scala #java #jobs #hiring #germany #JavaEE http:\/\/t.co\/jH2O5SgvWS",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 2,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "scala",
+              "indices": [
+                71,
+                77
+              ]
+            },
+            {
+              "text": "java",
+              "indices": [
+                78,
+                83
+              ]
+            },
+            {
+              "text": "jobs",
+              "indices": [
+                84,
+                89
+              ]
+            },
+            {
+              "text": "hiring",
+              "indices": [
+                90,
+                97
+              ]
+            },
+            {
+              "text": "germany",
+              "indices": [
+                98,
+                106
+              ]
+            },
+            {
+              "text": "JavaEE",
+              "indices": [
+                107,
+                114
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "http:\/\/t.co\/LhmhhZ6FbB",
+              "expanded_url": "http:\/\/scalajobs.org\/jobs\/30\/senior-java-scala-developer-ytrail\/",
+              "display_url": "scalajobs.org\/jobs\/30\/senior\u2026",
+              "indices": [
+                47,
+                69
+              ]
+            }
+          ],
+          "media": [
+            {
+              "id": 651831999271825408,
+              "id_str": "651831999271825408",
+              "indices": [
+                115,
+                137
+              ],
+              "media_url": "http:\/\/pbs.twimg.com\/media\/CQvFv_HUcAAmbOo.png",
+              "media_url_https": "https:\/\/pbs.twimg.com\/media\/CQvFv_HUcAAmbOo.png",
+              "url": "http:\/\/t.co\/jH2O5SgvWS",
+              "display_url": "pic.twitter.com\/jH2O5SgvWS",
+              "expanded_url": "http:\/\/twitter.com\/scalajobsorg\/status\/651832001314615296\/photo\/1",
+              "type": "photo",
+              "sizes": {
+                "small": {
+                  "w": 320,
+                  "h": 226,
+                  "resize": "fit"
+                },
+                "thumb": {
+                  "w": 150,
+                  "h": 150,
+                  "resize": "crop"
+                },
+                "large": {
+                  "w": 320,
+                  "h": 226,
+                  "resize": "fit"
+                },
+                "medium": {
+                  "w": 320,
+                  "h": 226,
+                  "resize": "fit"
+                }
+              }
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/473016900687908864\/6Jf-4esJ.png",
+      "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/473016900687908864\/6Jf-4esJ.png",
+      "profile_background_tile": true,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/473016425884307456\/j_Iz_Sbb_normal.png",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/473016425884307456\/j_Iz_Sbb_normal.png",
+      "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2539089865\/1401611075",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    },
+    {
+      "id": 150371060,
+      "id_str": "150371060",
+      "name": "Stefano Campana",
+      "screen_name": "campanastefano",
+      "location": "London",
+      "description": "M&A and Strategy Consultant, Startup Mentor. I create innovative business models. Founder\/CEO",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1097,
+      "friends_count": 1103,
+      "listed_count": 10,
+      "created_at": "Mon May 31 19:30:31 +0000 2010",
+      "favourites_count": 5,
+      "utc_offset": 7200,
+      "time_zone": "Rome",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 53,
+      "lang": "en",
+      "status": {
+        "created_at": "Tue Aug 11 12:56:13 +0000 2015",
+        "id": 631086717576060928,
+        "id_str": "631086717576060928",
+        "text": "Now live 'Great British Beer Festival Opens At London Olympia' #gbbf #beerfestival  https:\/\/t.co\/byk6XxMY0g via @happenceapp",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "retweet_count": 0,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "gbbf",
+              "indices": [
+                63,
+                68
+              ]
+            },
+            {
+              "text": "beerfestival",
+              "indices": [
+                69,
+                82
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "happenceapp",
+              "name": "happence",
+              "id": 3182353361,
+              "id_str": "3182353361",
+              "indices": [
+                112,
+                124
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/byk6XxMY0g",
+              "expanded_url": "https:\/\/www.happence.com\/andywithacamera\/great-british-beer-festival-open-at-london-olympia",
+              "display_url": "happence.com\/andywithacamer\u2026",
+              "indices": [
+                84,
+                107
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/520564270786809857\/yf95Wy07_normal.jpeg",
+      "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/520564270786809857\/yf95Wy07_normal.jpeg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false,
+      "blocking": false,
+      "blocked_by": false
+    }
+  ],
+  "next_cursor": 1505237162178665432,
+  "next_cursor_str": "1505237162178665432",
+  "previous_cursor": 0,
+  "previous_cursor_str": "0"
+}

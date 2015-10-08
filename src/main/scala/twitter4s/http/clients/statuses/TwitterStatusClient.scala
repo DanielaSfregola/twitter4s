@@ -142,12 +142,12 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/oembed.json", parameters).respondAs[OEmbedTweet]
   }
 
-  def retweetersIds(id: Long, count: Int = 100, cursor: Int = -1): Future[UserIds] = {
+  def retweetersIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIds] = {
     val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = false)
     genericRetweetersIds[UserIds](parameters)
   }
 
-  def retweetersIdsStringified(id: Long, count: Int = 100, cursor: Int = -1): Future[UserIdsStringified] = {
+  def retweetersIdsStringified(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIdsStringified] = {
     val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = true)
     genericRetweetersIds[UserIdsStringified](parameters)
   }

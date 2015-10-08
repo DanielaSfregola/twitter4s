@@ -4,5 +4,5 @@ import twitter4s.http.marshalling.Parameters
 
 case class RetweetersIdsParameters(id: Long,
                                    count: Int,
-                                   cursor: Int,
+                                   cursor: Long,
                                    stringify_ids: Boolean) extends Parameters

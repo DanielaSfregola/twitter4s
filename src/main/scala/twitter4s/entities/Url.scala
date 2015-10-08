@@ -3,6 +3,6 @@ package twitter4s.entities
 import spray.http.Uri
 
 case class Url(indices: Seq[Int] = Seq.empty,
-               url: Uri,
+               url: String,
                display_url: String,
-               expanded_url: Uri)
+               expanded_url: String)

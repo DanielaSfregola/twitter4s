@@ -1,7 +1,5 @@
 package twitter4s.entities
 
-import spray.http.Uri
-
 case class Place(attributes: Map[String, String],
                  bounding_box: Area,
                  country: String,
@@ -10,6 +8,6 @@ case class Place(attributes: Map[String, String],
                  id: String,
                  name: String,
                  place_type: String,
-                 url: Uri,
+                 url: String,
                  contained_within: Seq[Place])
 
