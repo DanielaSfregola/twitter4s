@@ -149,15 +149,15 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "follow a user" in new TwitterFriendshipClientSpecContext {
-      val result: User = when(follow("DanielaSfregola")).expectRequest { request =>
+      val result: User = when(follow("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-        request.uri.query === Query("follow=true&screen_name=DanielaSfregola")
+        request.uri.query === Query("follow=true&screen_name=marcobonzanini")
       }.respondWith("/twitter/friendships/follow.json").await
       result === loadJsonAs[User]("/fixtures/friendships/follow.json")
     }
 
-    "follow a user by user_id" in new TwitterFriendshipClientSpecContext {
+    "follow a user by user id" in new TwitterFriendshipClientSpecContext {
       val id = 19018614L
       val result: User = when(followUserId(id)).expectRequest { request =>
         request.method === HttpMethods.POST
@@ -165,6 +165,101 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         request.uri.query === Query("follow=true&user_id=19018614")
       }.respondWith("/twitter/friendships/follow.json").await
       result === loadJsonAs[User]("/fixtures/friendships/follow.json")
+    }
+
+    "unfollow a user" in new TwitterFriendshipClientSpecContext {
+      val result: User = when(unfollow("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
+        request.uri.query === Query("screen_name=marcobonzanini")
+      }.respondWith("/twitter/friendships/unfollow.json").await
+      result === loadJsonAs[User]("/fixtures/friendships/unfollow.json")
+    }
+
+    "unfollow a user by user id" in new TwitterFriendshipClientSpecContext {
+      val id = 19018614L
+      val result: User = when(unfollow(id)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
+        request.uri.query === Query("user_id=19018614")
+      }.respondWith("/twitter/friendships/unfollow.json").await
+      result === loadJsonAs[User]("/fixtures/friendships/unfollow.json")
+    }
+    
+    "enable retweets notifications for a user" in new TwitterFriendshipClientSpecContext {
+      val result: Relationship = when(enableRetweetsNotifications("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("retweets=true&screen_name=marcobonzanini")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "enable retweets notifications for a user by user id" in new TwitterFriendshipClientSpecContext {
+      val id = 19018614L
+      val result: Relationship = when(enableRetweetsNotifications(19018614L)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("retweets=true&user_id=19018614")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "disable retweets notifications for a user" in new TwitterFriendshipClientSpecContext {
+      val result: Relationship = when(disableRetweetsNotifications("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("retweets=false&screen_name=marcobonzanini")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "disable retweets notifications for a user by user id" in new TwitterFriendshipClientSpecContext {
+      val id = 19018614L
+      val result: Relationship = when(disableRetweetsNotifications(19018614L)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("retweets=false&user_id=19018614")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "enable device notifications for a user" in new TwitterFriendshipClientSpecContext {
+      val result: Relationship = when(enableDeviceNotifications("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("device=true&screen_name=marcobonzanini")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "enable device notifications for a user by user id" in new TwitterFriendshipClientSpecContext {
+      val id = 19018614L
+      val result: Relationship = when(enableDeviceNotifications(19018614L)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("device=true&user_id=19018614")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "disable device notifications for a user" in new TwitterFriendshipClientSpecContext {
+      val result: Relationship = when(disableDeviceNotifications("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("device=false&screen_name=marcobonzanini")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
+    }
+
+    "disable device notifications for a user by user id" in new TwitterFriendshipClientSpecContext {
+      val id = 19018614L
+      val result: Relationship = when(disableDeviceNotifications(19018614L)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
+        request.uri.query === Query("device=false&user_id=19018614")
+      }.respondWith("/twitter/friendships/update.json").await
+      result === loadJsonAs[Relationship]("/fixtures/friendships/update.json")
     }
   }
 }

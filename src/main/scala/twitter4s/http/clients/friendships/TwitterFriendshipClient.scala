@@ -2,9 +2,9 @@ package twitter4s.http.clients.friendships
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{UserIds, UserIdsStringified, User}
+import twitter4s.entities.{Relationship, UserIds, UserIdsStringified, User}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.friendships.parameters.{BlockedParameters, FollowParameters, FollowingParameters, FriendshipParameters}
+import twitter4s.http.clients.friendships.parameters._
 import twitter4s.util.Configurations
 
 
@@ -110,5 +110,61 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
   private def genericFollow(parameters: FollowParameters): Future[User] =
     Post(s"$friendshipsUrl/create.json", parameters).respondAs[User]
+
+  def unfollow(screen_name: String): Future[User] = {
+    val parameters: UnfollowParameters = UnfollowParameters(user_id = None, Some(screen_name))
+    genericUnfollow(parameters)
+  }
+
+  def unfollow(user_id: Long): Future[User] = {
+    val parameters: UnfollowParameters = UnfollowParameters(Some(user_id), screen_name = None)
+    genericUnfollow(parameters)
+  }
+
+  private def genericUnfollow(parameters: UnfollowParameters): Future[User] =
+    Post(s"$friendshipsUrl/destroy.json", parameters).respondAs[User]
+  
+  def enableRetweetsNotifications(screen_name: String): Future[Relationship] = {
+    val parameters = RetweetNotificationParameters(user_id = None, Some(screen_name), retweets = true)
+    genericNotifications(parameters)
+  }
+
+  def enableRetweetsNotifications(user_id: Long): Future[Relationship] = {
+    val parameters = RetweetNotificationParameters(Some(user_id), screen_name = None, retweets = true)
+    genericNotifications(parameters)
+  }
+
+  def disableRetweetsNotifications(screen_name: String): Future[Relationship] = {
+    val parameters = RetweetNotificationParameters(user_id = None, Some(screen_name), retweets = false)
+    genericNotifications(parameters)
+  }
+
+  def disableRetweetsNotifications(user_id: Long): Future[Relationship] = {
+    val parameters = RetweetNotificationParameters(Some(user_id), screen_name = None, retweets = false)
+    genericNotifications(parameters)
+  }
+
+  def enableDeviceNotifications(screen_name: String): Future[Relationship] = {
+    val parameters = DeviceNotificationParameters(user_id = None, Some(screen_name), device = true)
+    genericNotifications(parameters)
+  }
+
+  def enableDeviceNotifications(user_id: Long): Future[Relationship] = {
+    val parameters = DeviceNotificationParameters(Some(user_id), screen_name = None, device = true)
+    genericNotifications(parameters)
+  }
+
+  def disableDeviceNotifications(screen_name: String): Future[Relationship] = {
+    val parameters = DeviceNotificationParameters(user_id = None, Some(screen_name), device = false)
+    genericNotifications(parameters)
+  }
+
+  def disableDeviceNotifications(user_id: Long): Future[Relationship] = {
+    val parameters = DeviceNotificationParameters(Some(user_id), screen_name = None, device = false)
+    genericNotifications(parameters)
+  }
+
+  private def genericNotifications(parameters: NotificationParameters): Future[Relationship] =
+    Post(s"$friendshipsUrl/update.json", parameters).respondAs[Relationship]
 
 }

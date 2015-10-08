@@ -1,0 +1,30 @@
+{
+  "relationship": {
+    "source": {
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "screen_name": "DanielaSfregola",
+      "following": true,
+      "followed_by": true,
+      "following_received": null,
+      "following_requested": false,
+      "notifications_enabled": false,
+      "can_dm": false,
+      "blocking": false,
+      "blocked_by": false,
+      "muting": false,
+      "want_retweets": true,
+      "all_replies": false,
+      "marked_spam": false
+    },
+    "target": {
+      "id": 19018614,
+      "id_str": "19018614",
+      "screen_name": "marcobonzanini",
+      "following": true,
+      "followed_by": true,
+      "following_received": false,
+      "following_requested": null
+    }
+  }
+}
