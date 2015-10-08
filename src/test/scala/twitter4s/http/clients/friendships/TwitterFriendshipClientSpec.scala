@@ -2,8 +2,8 @@ package twitter4s.http.clients.friendships
 
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import twitter4s.entities.{User, UserIdsStringified, UserIds}
-import twitter4s.util.{ClientSpecContext, ClientSpec}
+import twitter4s.entities._
+import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterFriendshipClientSpec extends ClientSpec {
 
@@ -152,19 +152,19 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: User = when(follow("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=true")
+        request.uri.query === Query("follow=true&screen_name=DanielaSfregola")
       }.respondWith("/twitter/friendships/follow.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/follow.json")
+      result === loadJsonAs[User]("/fixtures/friendships/follow.json")
     }
 
     "follow a user by user_id" in new TwitterFriendshipClientSpecContext {
-      val id = 2911461333L
+      val id = 19018614L
       val result: User = when(followUserId(id)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=true")
+        request.uri.query === Query("follow=true&user_id=19018614")
       }.respondWith("/twitter/friendships/follow.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/follow.json")
+      result === loadJsonAs[User]("/fixtures/friendships/follow.json")
     }
   }
 }

@@ -2,9 +2,9 @@ package twitter4s.http.clients.friendships
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{User, UserIdsStringified, UserIds}
+import twitter4s.entities.{UserIds, UserIdsStringified, User}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.friendships.parameters.{FollowParameters, FriendshipParameters, FollowingParameters, BlockedParameters}
+import twitter4s.http.clients.friendships.parameters.{BlockedParameters, FollowParameters, FollowingParameters, FriendshipParameters}
 import twitter4s.util.Configurations
 
 
