@@ -167,4 +167,16 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericNotifications(parameters: NotificationParameters): Future[Relationship] =
     Post(s"$friendshipsUrl/update.json", parameters).respondAs[Relationship]
 
+  def relationship(source_id: Long, target_id: Long): Future[Relationship] = {
+    val parameters = RelationshipParametersByIds(source_id, target_id)
+    genericRelationship(parameters)
+  }
+
+  def relationship(source_screen_name: String, target_screen_name: String): Future[Relationship] = {
+    val parameters = RelationshipParametersByNames(source_screen_name, target_screen_name)
+    genericRelationship(parameters)
+  }
+
+  private def genericRelationship(parameters: RelationshipParameters): Future[Relationship] =
+    Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
 }
