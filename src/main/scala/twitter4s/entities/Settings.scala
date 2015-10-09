@@ -13,14 +13,14 @@ case class Settings(allow_contributor_request: String,
                     sleep_time: SleepTime,
                     show_all_inline_media: Boolean = false,
                     use_cookie_personalization: Boolean = false,
-                    time_zone: Option[TimeZone] = None,
+                    time_zone: Option[TimeZoneRecord] = None,
                     trend_location: Seq[Location] = Seq.empty)
 
 case class SleepTime(enabled: Boolean = false,
                      end_time: Option[String] = None,
                      start_time: Option[String] = None)
 
-case class TimeZone(name: String, tzinfo_name: String, utc_offset: Int)
+case class TimeZoneRecord(name: String, tzinfo_name: String, utc_offset: Int)
 
 case class Location(country: String,
                     countryCode: String,
