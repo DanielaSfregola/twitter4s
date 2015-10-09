@@ -12,12 +12,12 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
   val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
 
-  def blockedUsers(): Future[Seq[Long]] = {
+  def blockedUsersIds(): Future[Seq[Long]] = {
     val parameters = BlockedParameters(stringify_ids = false)
     genericBlockedUsers[Seq[Long]](parameters)
   }
 
-  def blockedUsersStringified(): Future[Seq[String]] = {
+  def blockedUsersIdsStringified(): Future[Seq[String]] = {
     val parameters = BlockedParameters(stringify_ids = true)
     genericBlockedUsers[Seq[String]](parameters)
   }

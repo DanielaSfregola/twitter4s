@@ -12,7 +12,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
   "Twitter Friendship Client" should {
 
     "get all blocked users" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[Long] = when(blockedUsers).expectRequest { request =>
+      val result: Seq[Long] = when(blockedUsersIds).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
         request.uri.query === Query("stringify_ids=false")
@@ -21,7 +21,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get all blocked users stringified" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[String] = when(blockedUsersStringified).expectRequest { request =>
+      val result: Seq[String] = when(blockedUsersIdsStringified).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
         request.uri.query === Query("stringify_ids=true")
