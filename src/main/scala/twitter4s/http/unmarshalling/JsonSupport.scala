@@ -10,7 +10,7 @@ import spray.httpx.unmarshalling.Unmarshaller
 
 trait JsonSupport {
 
-  implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all
+  implicit def json4sFormats: Formats = defaultFormats
 
   val defaultFormats = new DefaultFormats {
     override def dateFormatter = {

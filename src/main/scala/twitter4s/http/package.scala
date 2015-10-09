@@ -1,6 +1,6 @@
 package twitter4s
 
-import java.net.{URLDecoder, URLEncoder}
+import java.net.URLEncoder
 
 import spray.http.Uri
 
@@ -11,9 +11,6 @@ package object http {
     def toAscii = urlEncoded.replace("+", "%20")
 
     def urlEncoded = URLEncoder.encode(value, "UTF-8")
-
-    def urlDecoded = URLDecoder.decode(value, "UTF-8")
-
   }
 
   implicit class RichUri(val uri: Uri) {
