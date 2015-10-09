@@ -11,8 +11,6 @@ import twitter4s.util.Configurations
 trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
   val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
-  val friendsUrl = s"$apiTwitterUrl/$twitterVersion/friends"
-  val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
 
   def blockedUsers(): Future[Seq[Long]] = {
     val parameters = BlockedParameters(stringify_ids = false)
@@ -26,52 +24,6 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
   private def genericBlockedUsers[T: Manifest](parameters: BlockedParameters): Future[T] =
     Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAs[T]
-
-  def friendsIdsPerUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
-    val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
-    genericFriends[UserIds](parameters)
-  }
-
-  def friendsIds(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
-    val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
-    genericFriends[UserIds](parameters)
-  }
-
-  def friendsPerUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
-    val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
-    genericFriends[UserIdsStringified](parameters)
-  }
-
-  def friendsStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
-    val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
-    genericFriends[UserIdsStringified](parameters)
-  }
-
-  private def genericFriends[T: Manifest](parameters: FollowingParameters): Future[T] =
-    Get(s"$friendsUrl/ids.json", parameters).respondAs[T]
-
-  def followersPerUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
-    val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
-    genericFollowers[UserIds](parameters)
-  }
-
-  def followers(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
-    val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
-    genericFollowers[UserIds](parameters)
-  }
-
-  def followersPerUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
-    val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
-    genericFollowers[UserIdsStringified](parameters)
-  }
-
-  def followersStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
-    val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
-    genericFollowers[UserIdsStringified](parameters)
-  }
-
-  private def genericFollowers[T: Manifest](parameters: FollowingParameters): Future[T] =
-    Get(s"$followersUrl/ids.json", parameters).respondAs[T]
 
   def incomingFriendships(cursor: Long = -1): Future[UserIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
@@ -180,24 +132,18 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericRelationship(parameters: RelationshipParameters): Future[Relationship] =
     Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
 
-  def friends(screen_name: String,
-              cursor: Long = -1,
-              count: Int = 20,
-              skip_status: Boolean = false,
-              include_user_entities: Boolean = true): Future[Users] = {
-    val parameters = FriendsParameters(user_id = None, Some(screen_name), cursor, count, skip_status, include_user_entities)
-    genericFriends(parameters)
+  def myRelationships(screen_names: String*): Future[Seq[LookupRelationship]] = {
+    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    val parameters = RelationshipsParameters(user_id = None, screen_name = Some(screen_names.mkString(",")))
+    genericMyRelationships(parameters)
   }
 
-  def friendsPerUserId(user_id: Long,
-                       cursor: Long = -1,
-                       count: Int = 20,
-                       skip_status: Boolean = false,
-                       include_user_entities: Boolean = true): Future[Users] = {
-    val parameters = FriendsParameters(Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
-    genericFriends(parameters)
+  def myRelationshipsByUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
+    require(!user_ids.isEmpty, "please, provide at least one user id")
+    val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
+    genericMyRelationships(parameters)
   }
 
-  private def genericFriends(parameters: FriendsParameters): Future[Users] =
-    Get(s"$friendsUrl/list.json", parameters).respondAs[Users]
+  private def genericMyRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] =
+    Get(s"$friendshipsUrl/lookup.json", parameters).respondAs[Seq[LookupRelationship]] // TODO
 }

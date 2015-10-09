@@ -29,81 +29,6 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       result === loadJsonAs[Seq[String]]("/fixtures/friendships/blocked_users_stringified.json")
     }
 
-    "get friends ids of a specific user by id" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(friendsIdsPerUserId(2911461333L)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=false&user_id=2911461333")
-      }.respondWith("/twitter/friendships/friends_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/friendships/friends_ids.json")
-    }
-
-    "get friends ids of a specific user by name" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(friendsIds("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
-      }.respondWith("/twitter/friendships/friends_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/friendships/friends_ids.json")
-    }
-
-
-    "get friends stringified ids of a specific user by id" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(friendsPerUserIdStringified(2911461333L)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
-      }.respondWith("/twitter/friendships/friends_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/friends_ids_stringified.json")
-    }
-
-    "get friends stringified ids of a specific user by name" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(friendsStringified("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
-      }.respondWith("/twitter/friendships/friends_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/friends_ids_stringified.json")
-    }
-
-
-    "get followers ids of a specific user by id" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(followersPerUserId(2911461333L)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=false&user_id=2911461333")
-      }.respondWith("/twitter/friendships/followers_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/friendships/followers_ids.json")
-    }
-
-    "get followers ids of a specific user by name" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(followers("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
-      }.respondWith("/twitter/friendships/followers_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/friendships/followers_ids.json")
-    }
-
-
-    "get followers stringified ids of a specific user by id" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(followersPerUserIdStringified(2911461333L)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
-      }.respondWith("/twitter/friendships/followers_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/followers_ids_stringified.json")
-    }
-
-    "get followers stringified ids of a specific user by name" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(followersStringified("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
-      }.respondWith("/twitter/friendships/followers_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/followers_ids_stringified.json")
-    }
-
     "get incoming friendships" in new TwitterFriendshipClientSpecContext {
       val result: UserIds = when(incomingFriendships()).expectRequest { request =>
         request.method === HttpMethods.GET
@@ -266,22 +191,22 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       result === loadJsonAs[Relationship]("/fixtures/friendships/relationship.json")
     }
 
-    "get friends of a user" in new TwitterFriendshipClientSpecContext {
-      val result: Users = when(friends("DanielaSfregola", count = 10)).expectRequest { request =>
+    "get relationships with a list of users" in new TwitterFriendshipClientSpecContext {
+      val result: Seq[LookupRelationship] = when(myRelationships("marcobonzanini", "odersky")).expectRequest { request =>
         request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
-        request.uri.query === Query("count=10&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
-      }.respondWith("/twitter/friendships/users.json").await
-      result === loadJsonAs[Users]("/fixtures/friendships/users.json")
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
+        request.uri.query === Query("screen_name=marcobonzanini,odersky")
+      }.respondWith("/twitter/friendships/relationships.json").await
+      result === loadJsonAs[Seq[LookupRelationship]]("/fixtures/friendships/relationships.json")
     }
 
-    "get friends of a user by user id" in new TwitterFriendshipClientSpecContext {
-      val result: Users = when(friendsPerUserId(2911461333L, count = 10)).expectRequest { request =>
+    "get relationships with a list of users by user id" in new TwitterFriendshipClientSpecContext {
+      val result: Seq[LookupRelationship] = when(myRelationshipsByUserIds(2911461333L, 2911461334L)).expectRequest { request =>
         request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
-        request.uri.query === Query("count=10&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
-      }.respondWith("/twitter/friendships/users.json").await
-      result === loadJsonAs[Users]("/fixtures/friendships/users.json")
+        request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
+        request.uri.query === Query("user_id=2911461333,2911461334")
+      }.respondWith("/twitter/friendships/relationships.json").await
+      result === loadJsonAs[Seq[LookupRelationship]]("/fixtures/friendships/relationships.json")
     }
   }
 }

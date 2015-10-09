@@ -1,4 +1,4 @@
-package twitter4s.http.clients.friendships.parameters
+package twitter4s.http.clients.friends.parameters
 
 import twitter4s.http.marshalling.Parameters
 

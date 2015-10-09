@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Marco Bonzanini",
+    "screen_name": "marcobonzanini",
+    "id": 19018614,
+    "id_str": "19018614",
+    "connections": [
+      "following",
+      "followed_by"
+    ]
+  },
+  {
+    "name": "Martin Odersky",
+    "screen_name": "odersky",
+    "id": 17765013,
+    "id_str": "17765013",
+    "connections": [
+      "following"
+    ]
+  }
+]
