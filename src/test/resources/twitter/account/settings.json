@@ -1,0 +1,19 @@
+{
+  "protected": false,
+  "screen_name": "DanielaSfregola",
+  "always_use_https": true,
+  "use_cookie_personalization": true,
+  "sleep_time": {
+    "enabled": false,
+    "end_time": null,
+    "start_time": null
+  },
+  "geo_enabled": true,
+  "language": "en",
+  "discoverable_by_email": true,
+  "discoverable_by_mobile_phone": false,
+  "display_sensitive_media": false,
+  "allow_contributor_request": "all",
+  "allow_dms_from": "following",
+  "allow_dm_groups_from": "following"
+}
