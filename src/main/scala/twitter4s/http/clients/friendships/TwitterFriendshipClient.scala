@@ -132,13 +132,13 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericRelationship(parameters: RelationshipParameters): Future[Relationship] =
     Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
 
-  def myRelationships(screen_names: String*): Future[Seq[LookupRelationship]] = {
+  def relationships(screen_names: String*): Future[Seq[LookupRelationship]] = {
     require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = RelationshipsParameters(user_id = None, screen_name = Some(screen_names.mkString(",")))
     genericMyRelationships(parameters)
   }
 
-  def myRelationshipsByUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
+  def relationshipsByUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
     genericMyRelationships(parameters)
