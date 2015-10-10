@@ -59,7 +59,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "perform a show tweet request" in new TwitterStatusClientSpecContext {
       val id = 648866645855879168L
-      val result: Tweet = when(show(id)).expectRequest { request =>
+      val result: Tweet = when(showStatus(id)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/show.json"
         request.uri.query === Query("id=648866645855879168&include_entities=true&include_my_retweet=false&trim_user=false")
@@ -111,7 +111,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "get a tweet by id in oembed format " in new TwitterStatusClientSpecContext {
       val id = 648866645855879168L
-      val result: OEmbedTweet = when(oembedById(id)).expectRequest { request =>
+      val result: OEmbedTweet = when(oembedStatusById(id)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")
@@ -121,7 +121,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "get a tweet by url in oembed format " in new TwitterStatusClientSpecContext {
       val url = s"https://twitter.com/Interior/status/648866645855879168"
-      val result: OEmbedTweet = when(oembedByUrl(url)).expectRequest { request =>
+      val result: OEmbedTweet = when(oembedStatusByUrl(url)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https%253A%252F%252Ftwitter.com%252FInterior%252Fstatus%252F648866645855879168")
@@ -148,7 +148,7 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
-      val result: Seq[LookupTweet] = when(lookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+      val result: Seq[LookupTweet] = when(statusLookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
         request.uri.query === Query("id=327473909412814850,327473909412814851&include_entities=true&map=false&trim_user=false")
@@ -157,11 +157,11 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterStatusClientSpecContext {
-      lookup() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one id to lookup")
+      statusLookup() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one status id to lookup")
     }
 
     "perform a mapped lookup" in new TwitterStatusClientSpecContext {
-      val result: LookupMapped = when(lookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+      val result: LookupMapped = when(statusLookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
         request.uri.query === Query("id=327473909412814850,327473909412814851&include_entities=true&map=true&trim_user=false")

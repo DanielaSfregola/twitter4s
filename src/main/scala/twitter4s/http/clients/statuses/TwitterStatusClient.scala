@@ -68,7 +68,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Tweet]]
   }
 
-  def show(id: Long,
+  def showStatus(id: Long,
            trim_user: Boolean = false,
            include_my_retweet: Boolean = false,
            include_entities: Boolean = true): Future[Tweet] = {
@@ -114,7 +114,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]
   }
 
-  def oembedById(id: Long,
+  def oembedStatusById(id: Long,
                  maxwidth: Option[Int] = None,
                  hide_media: Boolean = false,
                  hide_thread: Boolean = false,
@@ -128,7 +128,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/oembed.json", parameters).respondAs[OEmbedTweet]
   }
 
-  def oembedByUrl(url: String,
+  def oembedStatusByUrl(url: String,
                   maxwidth: Option[Int] = None,
                   hide_media: Boolean = false,
                   hide_thread: Boolean = false,
@@ -155,26 +155,26 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
   private def genericRetweetersIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] =
     Get(s"$statusesUrl/retweeters/ids.json", parameters).respondAs[T]
 
-  def lookup(ids: Long*): Future[Seq[LookupTweet]] = lookup(ids)
+  def statusLookup(ids: Long*): Future[Seq[LookupTweet]] = statusLookup(ids)
 
-  def lookup(ids: Seq[Long],
+  def statusLookup(ids: Seq[Long],
              include_entities: Boolean = true,
              trim_user: Boolean = false): Future[Seq[LookupTweet]] = {
-    require(!ids.isEmpty, "please, provide at least one id to lookup")
+    require(!ids.isEmpty, "please, provide at least one status id to lookup")
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
-    genericLookup[Seq[LookupTweet]](parameters)
+    genericStatusLookup[Seq[LookupTweet]](parameters)
   }
 
-  def lookupMapped(ids: Long*): Future[LookupMapped] = lookupMapped(ids)
+  def statusLookupMapped(ids: Long*): Future[LookupMapped] = statusLookupMapped(ids)
 
-  def lookupMapped(ids: Seq[Long],
+  def statusLookupMapped(ids: Seq[Long],
                    include_entities: Boolean = true,
                    trim_user: Boolean = false): Future[LookupMapped] = {
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = true)
-    genericLookup[LookupMapped](parameters)
+    genericStatusLookup[LookupMapped](parameters)
   }
 
-  private def genericLookup[T: Manifest](parameters: LookupParameters): Future[T] =
+  private def genericStatusLookup[T: Manifest](parameters: LookupParameters): Future[T] =
     Get(s"$statusesUrl/lookup.json", parameters).respondAs[T]
 }
 

@@ -13,6 +13,7 @@ import twitter4s.http.clients.followers.TwitterFollowerClient
 import twitter4s.http.clients.friends.TwitterFriendClient
 import twitter4s.http.clients.friendships.TwitterFriendshipClient
 import twitter4s.http.clients.statuses.TwitterStatusClient
+import twitter4s.http.clients.users.TwitterUserClient
 
 class TwitterClient(val consumerToken: ConsumerToken = ConsumerTokenFromConf, val accessToken: AccessToken = AccessTokenFromConf)
                    (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends OAuthClient with Clients
@@ -24,3 +25,4 @@ trait Clients extends TwitterStatusClient
   with TwitterFriendClient
   with TwitterAccountClient
   with TwitterBlockClient
+  with TwitterUserClient
