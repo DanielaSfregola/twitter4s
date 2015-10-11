@@ -12,8 +12,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
   "Twitter Direct Message Client" should {
 
     "retrieve a specific direct message" in new TwitterDirectMessageClientSpecContext {
-      val id = 649298254383980547L
-      val result: DirectMessage = when(directMessage(id)).expectRequest { request =>
+      val result: DirectMessage = when(directMessage(649298254383980547L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/show.json"
         request.uri.query === Query("id=649298254383980547")
@@ -40,8 +39,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
     }
 
     "destroy a direct message" in new TwitterDirectMessageClientSpecContext {
-      val id = 649298254383980547L
-      val result: DirectMessage = when(destroyDirectMessage(id)).expectRequest { request =>
+      val result: DirectMessage = when(destroyDirectMessage(649298254383980547L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/destroy.json"
         request.uri.query === Query("id=649298254383980547&include_entities=true")

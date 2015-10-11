@@ -9,6 +9,7 @@ import twitter4s.http.clients.OAuthClient
 import twitter4s.http.clients.account.TwitterAccountClient
 import twitter4s.http.clients.blocks.TwitterBlockClient
 import twitter4s.http.clients.directmessages.TwitterDirectMessageClient
+import twitter4s.http.clients.favorites.TwitterFavoriteClient
 import twitter4s.http.clients.followers.TwitterFollowerClient
 import twitter4s.http.clients.friends.TwitterFriendClient
 import twitter4s.http.clients.friendships.TwitterFriendshipClient
@@ -30,3 +31,4 @@ trait Clients extends TwitterStatusClient
   with TwitterUserClient
   with TwitterMuteClient
   with TwitterSuggestionClient
+  with TwitterFavoriteClient

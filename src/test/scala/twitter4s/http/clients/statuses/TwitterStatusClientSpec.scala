@@ -58,8 +58,7 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a show tweet request" in new TwitterStatusClientSpecContext {
-      val id = 648866645855879168L
-      val result: Tweet = when(showStatus(id)).expectRequest { request =>
+      val result: Tweet = when(showStatus(648866645855879168L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/show.json"
         request.uri.query === Query("id=648866645855879168&include_entities=true&include_my_retweet=false&trim_user=false")
@@ -110,8 +109,7 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "get a tweet by id in oembed format " in new TwitterStatusClientSpecContext {
-      val id = 648866645855879168L
-      val result: OEmbedTweet = when(oembedStatusById(id)).expectRequest { request =>
+      val result: OEmbedTweet = when(oembedStatusById(648866645855879168L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")
