@@ -9,7 +9,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
 
   trait TwitterFollowerClientSpecContext extends ClientSpecContext with TwitterFollowerClient
 
-  "Twitter Friendship Client" should {
+  "Twitter Follower Client" should {
 
     "get followers ids of a specific user by id" in new TwitterFollowerClientSpecContext {
       val result: UserIds = when(followersIdsPerUserId(2911461333L)).expectRequest { request =>
