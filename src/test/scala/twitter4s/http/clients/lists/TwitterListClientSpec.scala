@@ -2,7 +2,7 @@ package twitter4s.http.clients.lists
 
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import twitter4s.entities.{Subscription, Subscriptions, Tweet}
+import twitter4s.entities.{User, Subscription, Subscriptions, Tweet}
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterListClientSpec  extends ClientSpec {
@@ -204,6 +204,60 @@ class TwitterListClientSpec  extends ClientSpec {
     
     "reject 'addMembersPerSlugAndOwnerId' if no screen names are provided" in new TwitterListClientSpecContext {
       addMembersPerSlugAndOwnerId("meetup-20100301", 6253282, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+    }
+
+    "get member by id per list id" in new TwitterListClientSpecContext {
+      val result: User = when(memberByIdPerListId(8044403, 2911461333L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&list_id=8044403&skip_status=false&user_id=2911461333")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get member by id per slug and owner" in new TwitterListClientSpecContext {
+      val result: User = when(memberByIdPerSlugAndOwner("meetup-20100301", "twitterapi", 2911461333L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301&user_id=2911461333")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get member by id per slug and owner id" in new TwitterListClientSpecContext {
+      val result: User = when(memberByIdPerSlugAndOwnerId("meetup-20100301", 6253282, 2911461333L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301&user_id=2911461333")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get member per list id" in new TwitterListClientSpecContext {
+      val result: User = when(memberPerListId(8044403, "DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&list_id=8044403&screen_name=DanielaSfregola&skip_status=false")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get member per slug and owner" in new TwitterListClientSpecContext {
+      val result: User = when(memberPerSlugAndOwner("meetup-20100301", "twitterapi", "DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&owner_screen_name=twitterapi&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get member per slug and owner id" in new TwitterListClientSpecContext {
+      val result: User = when(memberPerSlugAndOwnerId("meetup-20100301", 6253282, "DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
+        request.uri.query === Query("include_entities=true&owner_id=6253282&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
+      }.respondWith("/twitter/lists/list_member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
     }
   }
 

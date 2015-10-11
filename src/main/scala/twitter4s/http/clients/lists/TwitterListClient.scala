@@ -2,7 +2,7 @@ package twitter4s.http.clients.lists
 
 import scala.concurrent.Future
 
-import twitter4s.entities.{Subscription, Subscriptions, Tweet}
+import twitter4s.entities.{User, Subscription, Subscriptions, Tweet}
 import twitter4s.http.clients.OAuthClient
 import twitter4s.http.clients.lists.parameters._
 import twitter4s.util.Configurations
@@ -163,5 +163,82 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   private def genericAddMembers(parameters: MembersParameters): Future[Unit] =
     Post(s"$listsUrl/members/create_all.json", parameters).respondAs[Unit]
+
+  def memberByIdPerListId(list_id: Long,
+                        user_id: Long,
+                        include_entities: Boolean = true,
+                        skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(list_id = Some(list_id),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  def memberByIdPerSlugAndOwner(slug: String,
+                              owner_screen_name: String,
+                              user_id: Long,
+                              include_entities: Boolean = true,
+                              skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_screen_name = Some(owner_screen_name),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  def memberByIdPerSlugAndOwnerId(slug: String,
+                                owner_id: Long,
+                                user_id: Long,
+                                include_entities: Boolean = true,
+                                skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_id = Some(owner_id),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  def memberPerListId(list_id: Long,
+                      screen_name: String,
+                      include_entities: Boolean = true,
+                      skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(list_id = Some(list_id),
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  def memberPerSlugAndOwner(slug: String,
+                            owner_screen_name: String,
+                            screen_name: String,
+                            include_entities: Boolean = true,
+                            skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_screen_name = Some(owner_screen_name),
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  def memberPerSlugAndOwnerId(slug: String,
+                              owner_id: Long,
+                              screen_name: String,
+                              include_entities: Boolean = true,
+                              skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_id = Some(owner_id),
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericMember(parameters)
+  }
+
+  private def genericMember(parameters: MemberParameters): Future[User] =
+    Get(s"$listsUrl/members/show.json", parameters).respondAs[User]
 
 }
