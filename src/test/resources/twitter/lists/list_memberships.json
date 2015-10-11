@@ -1,0 +1,934 @@
+{
+  "next_cursor": 0,
+  "next_cursor_str": "0",
+  "previous_cursor": 0,
+  "previous_cursor_str": "0",
+  "lists": [
+    {
+      "id": 201610803,
+      "id_str": "201610803",
+      "name": "elasticsearch",
+      "uri": "\/dersteppen\/lists\/elasticsearch",
+      "subscriber_count": 34,
+      "member_count": 4482,
+      "mode": "public",
+      "description": "",
+      "slug": "elasticsearch",
+      "full_name": "@dersteppen\/elasticsearch",
+      "created_at": "Wed Apr 08 04:05:19 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 70660603,
+        "id_str": "70660603",
+        "name": "dersteppen",
+        "screen_name": "dersteppen",
+        "location": "Bogot\u00e1, Colombia",
+        "description": "Entrepreneur, GeoGeek CTO at @gkudos \/ Mapping",
+        "url": "http:\/\/t.co\/md3M2db8xN",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/md3M2db8xN",
+                "expanded_url": "http:\/\/gkudos.com",
+                "display_url": "gkudos.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1317,
+        "friends_count": 2001,
+        "listed_count": 132,
+        "created_at": "Tue Sep 01 11:50:14 +0000 2009",
+        "favourites_count": 743,
+        "utc_offset": -18000,
+        "time_zone": "Central Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 20549,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "131516",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/572974544618565632\/S8shQkFL.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/572974544618565632\/S8shQkFL.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/477074799966298113\/MhEOorTs_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/477074799966298113\/MhEOorTs_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/70660603\/1425460774",
+        "profile_link_color": "009999",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "81B3DF",
+        "profile_text_color": "090F49",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 217183769,
+      "id_str": "217183769",
+      "name": "angularjs",
+      "uri": "\/EmmanuelDemey\/lists\/angularjs",
+      "subscriber_count": 50,
+      "member_count": 5000,
+      "mode": "public",
+      "description": "",
+      "slug": "angularjs",
+      "full_name": "@EmmanuelDemey\/angularjs",
+      "created_at": "Fri Aug 14 19:34:22 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 48291605,
+        "id_str": "48291605",
+        "name": "Emmanuel DEMEY",
+        "screen_name": "EmmanuelDemey",
+        "location": "Lille - France",
+        "description": "Web Specialist - Java and JavaScript technologies - @ZenikaNord",
+        "url": "http:\/\/t.co\/lWeVaL9H6J",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/lWeVaL9H6J",
+                "expanded_url": "http:\/\/Gillespie59.github.io",
+                "display_url": "Gillespie59.github.io",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 797,
+        "friends_count": 1421,
+        "listed_count": 109,
+        "created_at": "Thu Jun 18 08:40:05 +0000 2009",
+        "favourites_count": 1281,
+        "utc_offset": 7200,
+        "time_zone": "Paris",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 4241,
+        "lang": "fr",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "022330",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/628190699951923200\/vS3yoC1K_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/628190699951923200\/vS3yoC1K_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/48291605\/1427485955",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "A8C7F7",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 212501487,
+      "id_str": "212501487",
+      "name": "Angular -- but not square",
+      "uri": "\/sarahjessica1\/lists\/angular-but-not-square",
+      "subscriber_count": 64,
+      "member_count": 4989,
+      "mode": "public",
+      "description": "",
+      "slug": "angular-but-not-square",
+      "full_name": "@sarahjessica1\/angular-but-not-square",
+      "created_at": "Wed Jul 01 19:20:42 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 20260726,
+        "id_str": "20260726",
+        "name": "SarahJessica Leivers",
+        "screen_name": "sarahjessica1",
+        "location": "London, England",
+        "description": "#fullstack #javascript #angular #mongo #node #gulp #ux #java #cucumber &c.\nTime Person of the Year 2006.\n\nNot mother to any beautiful children.",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 955,
+        "friends_count": 500,
+        "listed_count": 83,
+        "created_at": "Fri Feb 06 18:56:54 +0000 2009",
+        "favourites_count": 117,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 6353,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "669900",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/427200164\/LucLeLapin.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/427200164\/LucLeLapin.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1570721406\/Screen_shot_2011-10-03_at_10.28.02_AM_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1570721406\/Screen_shot_2011-10-03_at_10.28.02_AM_normal.png",
+        "profile_link_color": "CC0000",
+        "profile_sidebar_border_color": "545454",
+        "profile_sidebar_fill_color": "E0DCE0",
+        "profile_text_color": "545454",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 217142789,
+      "id_str": "217142789",
+      "name": "Convinced scala-ist",
+      "uri": "\/jchampemont\/lists\/convinced-scala-ist",
+      "subscriber_count": 12,
+      "member_count": 2141,
+      "mode": "public",
+      "description": "",
+      "slug": "convinced-scala-ist",
+      "full_name": "@jchampemont\/convinced-scala-ist",
+      "created_at": "Fri Aug 14 10:04:43 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 1977656136,
+        "id_str": "1977656136",
+        "name": "Jean Champ\u00e9mont",
+        "screen_name": "jchampemont",
+        "location": "",
+        "description": "Software Engineer, Java enthusiast and video-gamer. Opinions and tweets are my own - Mes tweets n'engagent que moi.",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 180,
+        "friends_count": 313,
+        "listed_count": 15,
+        "created_at": "Mon Oct 21 06:39:54 +0000 2013",
+        "favourites_count": 31,
+        "utc_offset": 7200,
+        "time_zone": "Paris",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 857,
+        "lang": "fr",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "9AE4E8",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme16\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme16\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/613428626281906177\/gT5EqwBd_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/613428626281906177\/gT5EqwBd_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/1977656136\/1396594808",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "BDDCAD",
+        "profile_sidebar_fill_color": "DDFFCC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 196129088,
+      "id_str": "196129088",
+      "name": "scaladays",
+      "uri": "\/jubal_ince\/lists\/scaladays",
+      "subscriber_count": 18,
+      "member_count": 2560,
+      "mode": "public",
+      "description": "",
+      "slug": "scaladays",
+      "full_name": "@jubal_ince\/scaladays",
+      "created_at": "Fri Feb 20 22:26:12 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 57829667,
+        "id_str": "57829667",
+        "name": "Jubal Ince",
+        "screen_name": "jubal_ince",
+        "location": "SF \/ Portland \/ Seattle",
+        "description": "Talent Community Manager at @Workday. #wdayjobs http:\/\/t.co\/ltMXCY571T",
+        "url": "http:\/\/t.co\/sJSGeRyFvd",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/sJSGeRyFvd",
+                "expanded_url": "http:\/\/linkedin.com\/in\/jubal",
+                "display_url": "linkedin.com\/in\/jubal",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/ltMXCY571T",
+                "expanded_url": "http:\/\/bit.ly\/wdayjobs",
+                "display_url": "bit.ly\/wdayjobs",
+                "indices": [
+                  48,
+                  70
+                ]
+              }
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 1112,
+        "friends_count": 2001,
+        "listed_count": 140,
+        "created_at": "Sat Jul 18 02:30:07 +0000 2009",
+        "favourites_count": 684,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 11449,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "022330",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/477503848601251840\/m72n5bWx_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/477503848601251840\/m72n5bWx_normal.jpeg",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "A8C7F7",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 198038907,
+      "id_str": "198038907",
+      "name": "Python",
+      "uri": "\/_nicolasdavid_\/lists\/python",
+      "subscriber_count": 46,
+      "member_count": 3761,
+      "mode": "public",
+      "description": "",
+      "slug": "python",
+      "full_name": "@_nicolasdavid_\/python",
+      "created_at": "Sat Mar 07 19:22:10 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 505934711,
+        "id_str": "505934711",
+        "name": "Nicolas David",
+        "screen_name": "_nicolasdavid_",
+        "location": "Cap-Ferret \/ Paris",
+        "description": "curious sceptic",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 291,
+        "friends_count": 101,
+        "listed_count": 35,
+        "created_at": "Mon Feb 27 14:40:35 +0000 2012",
+        "favourites_count": 788,
+        "utc_offset": 7200,
+        "time_zone": "Amsterdam",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 636,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000072697290\/3f4db122fd8f3cfe6be2c1003aa30d41.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000072697290\/3f4db122fd8f3cfe6be2c1003aa30d41.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/378800000531487985\/d0871543c3ddb9be32ee9f88a426fff7_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/378800000531487985\/d0871543c3ddb9be32ee9f88a426fff7_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/505934711\/1409423008",
+        "profile_link_color": "3B94D9",
+        "profile_sidebar_border_color": "204207",
+        "profile_sidebar_fill_color": "060A00",
+        "profile_text_color": "618238",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 199926658,
+      "id_str": "199926658",
+      "name": "datavis fans",
+      "uri": "\/ctricot\/lists\/datavis-fans",
+      "subscriber_count": 29,
+      "member_count": 4987,
+      "mode": "public",
+      "description": "",
+      "slug": "datavis-fans",
+      "full_name": "@ctricot\/datavis-fans",
+      "created_at": "Wed Mar 25 10:49:02 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 16663249,
+        "id_str": "16663249",
+        "name": "Christophe Tricot",
+        "screen_name": "ctricot",
+        "location": "Earth",
+        "description": "Join Brokl now! - http:\/\/t.co\/21bM2XIFgJ",
+        "url": "http:\/\/t.co\/vmHvimKzmR",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/vmHvimKzmR",
+                "expanded_url": "http:\/\/about.me\/christophe.tricot",
+                "display_url": "about.me\/christophe.tri\u2026",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/21bM2XIFgJ",
+                "expanded_url": "http:\/\/www.brokl.com",
+                "display_url": "brokl.com",
+                "indices": [
+                  18,
+                  40
+                ]
+              }
+            ]
+          }
+        },
+        "protected": false,
+        "followers_count": 766,
+        "friends_count": 1080,
+        "listed_count": 74,
+        "created_at": "Thu Oct 09 07:02:11 +0000 2008",
+        "favourites_count": 362,
+        "utc_offset": 7200,
+        "time_zone": "Paris",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 2718,
+        "lang": "fr",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/611414140649897984\/1dXJOBeY_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/611414140649897984\/1dXJOBeY_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/16663249\/1441121331",
+        "profile_link_color": "1B1E1C",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "000000",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 84463329,
+      "id_str": "84463329",
+      "name": "dev",
+      "uri": "\/clarkkampfe\/lists\/dev",
+      "subscriber_count": 2,
+      "member_count": 706,
+      "mode": "public",
+      "description": "",
+      "slug": "dev",
+      "full_name": "@clarkkampfe\/dev",
+      "created_at": "Tue Jan 29 15:35:33 +0000 2013",
+      "following": false,
+      "user": {
+        "id": 13142292,
+        "id_str": "13142292",
+        "name": "Clark Kampfe",
+        "screen_name": "clarkkampfe",
+        "location": "Chicago",
+        "description": "Lapsed photojourno, politico, into that sweet, sweet functional programming (elixir, scala).",
+        "url": "http:\/\/t.co\/swduSKgr6q",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/swduSKgr6q",
+                "expanded_url": "http:\/\/zeroclarkthirty.com",
+                "display_url": "zeroclarkthirty.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 438,
+        "friends_count": 978,
+        "listed_count": 38,
+        "created_at": "Wed Feb 06 05:20:29 +0000 2008",
+        "favourites_count": 3901,
+        "utc_offset": -18000,
+        "time_zone": "Central Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 19427,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/597072106258604035\/jhCeAc3i_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/597072106258604035\/jhCeAc3i_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/13142292\/1380223021",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 196051344,
+      "id_str": "196051344",
+      "name": "Scala---Haskell",
+      "uri": "\/ChuckMiskyes\/lists\/scala-haskell",
+      "subscriber_count": 0,
+      "member_count": 122,
+      "mode": "public",
+      "description": "",
+      "slug": "scala-haskell",
+      "full_name": "@ChuckMiskyes\/scala-haskell",
+      "created_at": "Fri Feb 20 12:35:18 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 151523180,
+        "id_str": "151523180",
+        "name": "Carlo Micieli",
+        "screen_name": "ChuckMiskyes",
+        "location": "Italy",
+        "description": "Code monkey at day; #scala #haskell hacker at night.",
+        "url": "https:\/\/t.co\/RL830YMrNG",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/RL830YMrNG",
+                "expanded_url": "https:\/\/carlomicieli.github.io\/",
+                "display_url": "carlomicieli.github.io",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 66,
+        "friends_count": 177,
+        "listed_count": 7,
+        "created_at": "Thu Jun 03 16:04:29 +0000 2010",
+        "favourites_count": 94,
+        "utc_offset": -7200,
+        "time_zone": "Greenland",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2660,
+        "lang": "it",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "31343D",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/738738455\/8efe6b44a8f641a9e5c90318cc8231b5.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/738738455\/8efe6b44a8f641a9e5c90318cc8231b5.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/479339376456261634\/J6OyKFQV_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/479339376456261634\/J6OyKFQV_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/151523180\/1356172358",
+        "profile_link_color": "323E4C",
+        "profile_sidebar_border_color": "212535",
+        "profile_sidebar_fill_color": "000C29",
+        "profile_text_color": "784726",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 109023360,
+      "id_str": "109023360",
+      "name": "Scala",
+      "uri": "\/muuki88\/lists\/scala",
+      "subscriber_count": 0,
+      "member_count": 19,
+      "mode": "public",
+      "description": "",
+      "slug": "scala",
+      "full_name": "@muuki88\/scala",
+      "created_at": "Mon Mar 24 18:53:54 +0000 2014",
+      "following": false,
+      "user": {
+        "id": 157671522,
+        "id_str": "157671522",
+        "name": "Muki Seiler",
+        "screen_name": "muuki88",
+        "location": "Munich",
+        "description": "Scala, Java and Open Source Enthusiast. sbt-native-packager",
+        "url": "http:\/\/t.co\/g6KgI6Rigb",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/g6KgI6Rigb",
+                "expanded_url": "http:\/\/about.me\/muuki88",
+                "display_url": "about.me\/muuki88",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 211,
+        "friends_count": 336,
+        "listed_count": 41,
+        "created_at": "Sun Jun 20 14:19:32 +0000 2010",
+        "favourites_count": 1265,
+        "utc_offset": 7200,
+        "time_zone": "Berlin",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 1177,
+        "lang": "de",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "1A1B1F",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/537723943725961218\/gK_UtfA7.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/537723943725961218\/gK_UtfA7.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1736846888\/muki_profile_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1736846888\/muki_profile_normal.png",
+        "profile_link_color": "4E1475",
+        "profile_sidebar_border_color": "181A1E",
+        "profile_sidebar_fill_color": "252429",
+        "profile_text_color": "666666",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 195229102,
+      "id_str": "195229102",
+      "name": "scala",
+      "uri": "\/TheDriox\/lists\/scala",
+      "subscriber_count": 27,
+      "member_count": 5001,
+      "mode": "public",
+      "description": "",
+      "slug": "scala",
+      "full_name": "@TheDriox\/scala",
+      "created_at": "Fri Feb 13 16:28:43 +0000 2015",
+      "following": false,
+      "user": {
+        "id": 216042075,
+        "id_str": "216042075",
+        "name": "Adrien Crovetto",
+        "screen_name": "TheDriox",
+        "location": "Paris",
+        "description": "",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 24,
+        "friends_count": 56,
+        "listed_count": 5,
+        "created_at": "Mon Nov 15 16:56:31 +0000 2010",
+        "favourites_count": 2,
+        "utc_offset": 7200,
+        "time_zone": "Ljubljana",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 1614,
+        "lang": "fr",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/519390825852059649\/mjqYTRJS_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/519390825852059649\/mjqYTRJS_normal.jpeg",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 117272517,
+      "id_str": "117272517",
+      "name": "devs",
+      "uri": "\/joescii\/lists\/devs",
+      "subscriber_count": 7,
+      "member_count": 684,
+      "mode": "public",
+      "description": "Developers and development-related stuff I follow",
+      "slug": "devs",
+      "full_name": "@joescii\/devs",
+      "created_at": "Fri Apr 25 16:15:18 +0000 2014",
+      "following": false,
+      "user": {
+        "id": 295976669,
+        "id_str": "295976669",
+        "name": "Joe Barnes",
+        "screen_name": "joescii",
+        "location": "Heart o' Dixie",
+        "description": "Agility, cloud, and functional programming from south of the Mason-Dixon. #RollTide",
+        "url": "http:\/\/t.co\/UEFRxskCpP",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/UEFRxskCpP",
+                "expanded_url": "http:\/\/proseand.co.nz",
+                "display_url": "proseand.co.nz",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1232,
+        "friends_count": 1234,
+        "listed_count": 59,
+        "created_at": "Tue May 10 00:15:06 +0000 2011",
+        "favourites_count": 1346,
+        "utc_offset": -18000,
+        "time_zone": "Central Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 19643,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "1A1B1F",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/858504176\/29346b1d8d891c522951cda7ce635eaf.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/858504176\/29346b1d8d891c522951cda7ce635eaf.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/641002714068070400\/md8Mh33H_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/641002714068070400\/md8Mh33H_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/295976669\/1401380434",
+        "profile_link_color": "BD1818",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "252429",
+        "profile_text_color": "666666",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 183555623,
+      "id_str": "183555623",
+      "name": "Pragmatism",
+      "uri": "\/LincolnCannon\/lists\/pragmatism",
+      "subscriber_count": 38,
+      "member_count": 4865,
+      "mode": "public",
+      "description": "This is a list of accounts tweeting about pragmatism.",
+      "slug": "pragmatism",
+      "full_name": "@LincolnCannon\/pragmatism",
+      "created_at": "Mon Dec 01 00:42:10 +0000 2014",
+      "following": false,
+      "user": {
+        "id": 14074860,
+        "id_str": "14074860",
+        "name": "Lincoln Cannon",
+        "screen_name": "LincolnCannon",
+        "location": "Orem UT USA",
+        "description": "Lincoln Cannon is a technologist and philosopher, and leading advocate of technological evolution and postsecular religion.",
+        "url": "http:\/\/t.co\/jApZlzxhjQ",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/jApZlzxhjQ",
+                "expanded_url": "http:\/\/lincoln.metacannon.net",
+                "display_url": "lincoln.metacannon.net",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 2355,
+        "friends_count": 46,
+        "listed_count": 207,
+        "created_at": "Mon Mar 03 22:20:05 +0000 2008",
+        "favourites_count": 1436,
+        "utc_offset": -21600,
+        "time_zone": "Mountain Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 8174,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "EEEEEE",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/870152292\/d591a8eaf17964675f929e6bef09d4cf.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/870152292\/d591a8eaf17964675f929e6bef09d4cf.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/1676605590\/369378_692791745_437728135_n_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/1676605590\/369378_692791745_437728135_n_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/14074860\/1398310528",
+        "profile_link_color": "336699",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    }
+  ]
+}

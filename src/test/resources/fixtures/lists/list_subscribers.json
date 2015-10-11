@@ -1,0 +1,249 @@
+[{
+  "blocked_by":false,
+  "blocking":false,
+  "contributors_enabled":false,
+  "created_at":"Thu Jan 15 11:28:04 +0000 2009",
+  "default_profile":false,
+  "default_profile_image":false,
+  "description":"Data Scientist - Information Retrieval, NLP, Text Analytics, Machine Learning, everything Python. PhD from @QMUL",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "url":{
+      "urls":[{
+        "indices":[0,22],
+        "url":"http://t.co/34uCLCPVkH",
+        "display_url":"marcobonzanini.com",
+        "expanded_url":"http://marcobonzanini.com"
+      }]
+    },
+    "urls":[],
+    "user_mentions":[],
+    "description":{
+      "urls":[]
+    }
+  },
+  "favourites_count":3,
+  "follow_request_sent":false,
+  "following":false,
+  "followers_count":243,
+  "friends_count":206,
+  "geo_enabled":false,
+  "has_extended_profile":false,
+  "id":19018614,
+  "id_str":"19018614",
+  "is_translation_enabled":false,
+  "is_translator":false,
+  "lang":"en",
+  "listed_count":33,
+  "location":"London, United Kingdom",
+  "muting":false,
+  "name":"Marco Bonzanini",
+  "notifications":false,
+  "profile_background_color":"709397",
+  "profile_background_image_url":"http://abs.twimg.com/images/themes/theme6/bg.gif",
+  "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme6/bg.gif",
+  "profile_background_tile":false,
+  "profile_image_url":"http://pbs.twimg.com/profile_images/1436932130/marco-ir_normal.jpg",
+  "profile_image_url_https":"https://pbs.twimg.com/profile_images/1436932130/marco-ir_normal.jpg",
+  "profile_link_color":"FF3300",
+  "profile_sidebar_border_color":"86A4A6",
+  "profile_sidebar_fill_color":"A0C5C7",
+  "profile_text_color":"333333",
+  "profile_use_background_image":true,
+  "protected":false,
+  "screen_name":"marcobonzanini",
+  "show_all_inline_media":false,
+  "status":{
+    "contributors":[],
+    "created_at":"Tue Oct 06 21:17:44 +0100 2015",
+    "entities":{
+      "hashtags":[],
+      "media":[],
+      "urls":[],
+      "user_mentions":[{
+        "id":97880420,
+        "id_str":"97880420",
+        "indices":[0,15],
+        "name":"Miguel Martinez",
+        "screen_name":"miguelmalvarez"
+      }]
+    },
+    "favorite_count":1,
+    "favorited":false,
+    "id":651491549889626112,
+    "id_str":"651491549889626112",
+    "in_reply_to_screen_name":"miguelmalvarez",
+    "in_reply_to_status_id":651445856802074625,
+    "in_reply_to_status_id_str":"651445856802074625",
+    "in_reply_to_user_id":97880420,
+    "in_reply_to_user_id_str":"97880420",
+    "is_quote_status":false,
+    "lang":"en",
+    "possibly_sensitive":false,
+    "scopes":{
+
+    },
+    "retweet_count":0,
+    "retweeted":false,
+    "source":"<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+    "text":"@miguelmalvarez nice one as usual",
+    "truncated":false,
+    "withheld_copyright":false,
+    "withheld_in_countries":[]
+  },
+  "statuses_count":171,
+  "time_zone":"London",
+  "url":"http://t.co/34uCLCPVkH",
+  "utc_offset":3600,
+  "verified":false
+},{
+  "blocked_by":false,
+  "blocking":false,
+  "contributors_enabled":false,
+  "created_at":"Sun Nov 30 22:56:21 +0000 2008",
+  "default_profile":true,
+  "default_profile_image":false,
+  "description":"lead designer of Scala",
+  "entities":{
+    "hashtags":[],
+    "media":[],
+    "url":{
+      "urls":[{
+        "indices":[0,22],
+        "url":"http://t.co/eLC2ehOVXJ",
+        "display_url":"lamp.epfl.ch/~odersky",
+        "expanded_url":"http://lamp.epfl.ch/~odersky"
+      }]
+    },
+    "urls":[],
+    "user_mentions":[],
+    "description":{
+      "urls":[]
+    }
+  },
+  "favourites_count":13,
+  "follow_request_sent":false,
+  "following":true,
+  "followers_count":34414,
+  "friends_count":148,
+  "geo_enabled":false,
+  "has_extended_profile":false,
+  "id":17765013,
+  "id_str":"17765013",
+  "is_translation_enabled":false,
+  "is_translator":false,
+  "lang":"en",
+  "listed_count":1418,
+  "location":"Switzerland",
+  "muting":false,
+  "name":"Martin Odersky",
+  "notifications":false,
+  "profile_background_color":"C0DEED",
+  "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
+  "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
+  "profile_background_tile":false,
+  "profile_image_url":"http://pbs.twimg.com/profile_images/673909115/Martin_normal.JPG",
+  "profile_image_url_https":"https://pbs.twimg.com/profile_images/673909115/Martin_normal.JPG",
+  "profile_link_color":"0084B4",
+  "profile_sidebar_border_color":"C0DEED",
+  "profile_sidebar_fill_color":"DDEEF6",
+  "profile_text_color":"333333",
+  "profile_use_background_image":true,
+  "protected":false,
+  "screen_name":"odersky",
+  "show_all_inline_media":false,
+  "status":{
+    "contributors":[],
+    "created_at":"Fri Oct 09 19:36:26 +0100 2015",
+    "entities":{
+      "hashtags":[{
+        "text":"haskellx",
+        "indices":[72,81]
+      }],
+      "media":[],
+      "urls":[{
+        "indices":[82,105],
+        "url":"https://t.co/smC9KvzZqd",
+        "display_url":"speakerdeck.com/larsrh/what-ha\u2026",
+        "expanded_url":"https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
+      }],
+      "user_mentions":[{
+        "id":548301113,
+        "id_str":"548301113",
+        "indices":[3,11],
+        "name":"Lars Hupel",
+        "screen_name":"larsr_h"
+      },{
+        "id":29444566,
+        "id_str":"29444566",
+        "indices":[131,140],
+        "name":"Miles Sabin",
+        "screen_name":"milessabin"
+      }]
+    },
+    "favorite_count":0,
+    "favorited":false,
+    "id":652553222977138689,
+    "id_str":"652553222977138689",
+    "is_quote_status":false,
+    "lang":"en",
+    "possibly_sensitive":false,
+    "scopes":{
+
+    },
+    "retweet_count":35,
+    "retweeted":false,
+    "retweeted_status":{
+      "contributors":[],
+      "created_at":"Fri Oct 09 14:30:11 +0100 2015",
+      "entities":{
+        "hashtags":[{
+          "text":"haskellx",
+          "indices":[59,68]
+        }],
+        "media":[],
+        "urls":[{
+          "indices":[69,92],
+          "url":"https://t.co/smC9KvzZqd",
+          "display_url":"speakerdeck.com/larsrh/what-ha\u2026",
+          "expanded_url":"https://speakerdeck.com/larsrh/what-haskell-can-learn-from-scala"
+        }],
+        "user_mentions":[{
+          "id":29444566,
+          "id_str":"29444566",
+          "indices":[118,129],
+          "name":"Miles Sabin",
+          "screen_name":"milessabin"
+        }]
+      },
+      "favorite_count":92,
+      "favorited":false,
+      "id":652476152070586369,
+      "id_str":"652476152070586369",
+      "is_quote_status":false,
+      "lang":"en",
+      "possibly_sensitive":false,
+      "scopes":{
+
+      },
+      "retweet_count":35,
+      "retweeted":false,
+      "source":"<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+      "text":"Slides from my talk \"What Haskell can learn from Scala\" at #haskellx https://t.co/smC9KvzZqd \u2013 mistakes are mine, not @milessabin's :-)",
+      "truncated":false,
+      "withheld_copyright":false,
+      "withheld_in_countries":[]
+    },
+    "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text":"RT @larsr_h: Slides from my talk \"What Haskell can learn from Scala\" at #haskellx https://t.co/smC9KvzZqd \u2013 mistakes are mine, not @milessa\u2026",
+    "truncated":false,
+    "withheld_copyright":false,
+    "withheld_in_countries":[]
+  },
+  "statuses_count":730,
+  "time_zone":"Bern",
+  "url":"http://t.co/eLC2ehOVXJ",
+  "utc_offset":7200,
+  "verified":false
+}]

@@ -1,4 +1,4 @@
-package twitter4s.http.clients.subscriptions.parameters
+package twitter4s.http.clients.lists.parameters
 
 import twitter4s.http.marshalling.Parameters
 
