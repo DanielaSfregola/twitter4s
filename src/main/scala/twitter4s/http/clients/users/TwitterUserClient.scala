@@ -4,7 +4,7 @@ import scala.concurrent.Future
 
 import twitter4s.entities.User
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.users.parameters.UsersParameters
+import twitter4s.http.clients.users.parameters.{UserParameters, UsersParameters}
 import twitter4s.util.Configurations
 
 trait TwitterUserClient extends OAuthClient with Configurations {
@@ -20,9 +20,9 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     genericUsers(parameters)
   }
 
-  def usersByUserId(ids: Long*): Future[Seq[User]] = usersByUserId(ids)
+  def usersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids)
 
-  def usersByUserId(ids: Seq[Long],
+  def usersByIds(ids: Seq[Long],
                     include_entities: Boolean = true): Future[Seq[User]] = {
     require(!ids.isEmpty, "please, provide at least one user id to lookup")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
@@ -31,4 +31,20 @@ trait TwitterUserClient extends OAuthClient with Configurations {
 
   private def genericUsers(parameters: UsersParameters): Future[Seq[User]] =
     Get(s"$usersUrl/lookup.json", parameters).respondAs[Seq[User]]
+
+  def user(screen_name: String, include_entities: Boolean = true): Future[User] = {
+    val parameters = UserParameters(user_id = None, Some(screen_name), include_entities)
+    genericUser(parameters)
+  }
+
+  def userById(id: Long, include_entities: Boolean = true): Future[User] = {
+    val parameters = UserParameters(Some(id), screen_name = None, include_entities)
+    genericUser(parameters)
+  }
+
+  private def genericUser(parameters: UserParameters): Future[User] =
+    Get(s"$usersUrl/show.json", parameters).respondAs[User]
+
+
+
 }

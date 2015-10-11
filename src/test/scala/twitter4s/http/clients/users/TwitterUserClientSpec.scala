@@ -21,12 +21,30 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "retrieve users by user ids" in new TwitterUserClientSpecContext {
-      val result: Seq[User] = when(usersByUserId(19018614, 17765013)).expectRequest { request =>
+      val result: Seq[User] = when(usersByIds(19018614, 17765013)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
         request.uri.query === Query("include_entities=true&user_id=19018614,17765013")
       }.respondWith("/twitter/users/users.json").await
       result === loadJsonAs[Seq[User]]("/fixtures/users/users.json")
+    }
+
+    "retrieve user" in new TwitterUserClientSpecContext {
+      val result: User = when(user("marcobonzanini")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
+        request.uri.query === Query("include_entities=true&screen_name=marcobonzanini")
+      }.respondWith("/twitter/users/user.json").await
+      result === loadJsonAs[User]("/fixtures/users/user.json")
+    }
+
+    "retrieve user by id" in new TwitterUserClientSpecContext {
+      val result: User = when(userById(19018614)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
+        request.uri.query === Query("include_entities=true&user_id=19018614")
+      }.respondWith("/twitter/users/user.json").await
+      result === loadJsonAs[User]("/fixtures/users/user.json")
     }
   }
 }
