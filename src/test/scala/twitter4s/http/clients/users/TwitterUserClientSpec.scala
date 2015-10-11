@@ -2,7 +2,7 @@ package twitter4s.http.clients.users
 
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import twitter4s.entities.User
+import twitter4s.entities.{Banners, User}
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterUserClientSpec extends ClientSpec {
@@ -45,6 +45,24 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
         request.uri.query === Query("include_entities=true&user_id=19018614")
       }.respondWith("/twitter/users/user.json").await
       result === loadJsonAs[User]("/fixtures/users/user.json")
+    }
+
+    "get the profile banners of a user" in new  TwitterUserClientSpecContext {
+      val result: Banners = when(profileBanners("DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
+        request.uri.query === Query("screen_name=DanielaSfregola")
+      }.respondWith("/twitter/users/profile_banner.json").await
+      result === loadJsonAs[Banners]("/fixtures/users/profile_banner.json")
+    }
+
+    "get the profile banners of a user by id" in new  TwitterUserClientSpecContext {
+      val result: Banners = when(profileBannersPerUserId(19018614)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
+        request.uri.query === Query("user_id=19018614")
+      }.respondWith("/twitter/users/profile_banner.json").await
+      result === loadJsonAs[Banners]("/fixtures/users/profile_banner.json")
     }
   }
 }

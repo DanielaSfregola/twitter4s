@@ -1,6 +1,6 @@
 package twitter4s.http.clients.account
 
-import spray.http.{MediaTypes, ContentType, HttpEntity, HttpMethods}
+import spray.http._
 import twitter4s.entities.enums.{Hour, TimeZone, ContributorType}
 import twitter4s.entities.{ProfileUpdate, User, Settings}
 import twitter4s.util.{ClientSpec, ClientSpecContext}
@@ -9,7 +9,7 @@ class TwitterAccountClientSpec extends ClientSpec {
 
   trait TwitterAccountClientSpecContext extends ClientSpecContext with TwitterAccountClient
 
-  "Twitter Friend Client" should {
+  "Twitter Account Client" should {
 
     "retrieve account settings" in new TwitterAccountClientSpecContext {
       val result: Settings = when(settings).expectRequest { request =>
@@ -108,6 +108,14 @@ class TwitterAccountClientSpec extends ClientSpec {
           "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
       }.respondWith("/twitter/account/user.json").await
       result === loadJsonAs[User]("/fixtures/account/user.json")
+    }
+
+    "remove a profile banner" in new TwitterAccountClientSpecContext {
+      val result: Unit = when(removeProfileBanner).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/account/remove_profile_banner.json"
+      }.respondWithOk.await
+      result === ()
     }
   }
 

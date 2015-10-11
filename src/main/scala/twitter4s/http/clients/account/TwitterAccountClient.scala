@@ -78,4 +78,8 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
 
   // TODO - support update_profile_backgroung_image
   // TODO - support update_profile_image
+  // TODO - support update_profile_banner
+
+  def removeProfileBanner(): Future[Unit] = Post(s"$accountUrl/remove_profile_banner.json").respondAs[Unit]
+
 }

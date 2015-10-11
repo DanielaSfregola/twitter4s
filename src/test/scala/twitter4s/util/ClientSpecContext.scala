@@ -47,6 +47,12 @@ abstract class ClientSpecContext extends TestActorSystem with OAuthClient with F
 
     def respondWith(resourcePath: String): Future[T] =
       respondWith(HttpResponse(StatusCodes.OK, HttpEntity(MediaTypes.`application/json`, loadJson(resourcePath))))
+
+    def respondWithOk: Future[Unit] = {
+      val response = HttpResponse(StatusCodes.OK, HttpEntity(MediaTypes.`application/json`, """{"code": "OK"}"""))
+      transport.reply(response)
+      Future(())
+    }
   }
 
   implicit class RichUri(val uri: Uri) {
