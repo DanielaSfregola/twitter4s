@@ -2,7 +2,7 @@ package twitter4s.http.clients.lists
 
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import twitter4s.entities.{User, Subscription, Subscriptions, Tweet}
+import twitter4s.entities._
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterListClientSpec  extends ClientSpec {
@@ -258,6 +258,33 @@ class TwitterListClientSpec  extends ClientSpec {
         request.uri.query === Query("include_entities=true&owner_id=6253282&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
       }.respondWith("/twitter/lists/list_member.json").await
       result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+    }
+
+    "get members of list per list id" in new TwitterListClientSpecContext {
+      val result: Users = when(membersOfList(8044403)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
+        request.uri.query === Query("count=20&cursor=-1&include_entities=true&list_id=8044403&skip_status=false")
+      }.respondWith("/twitter/lists/list_members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
+    }
+
+    "get members of list per slug and owner" in new TwitterListClientSpecContext {
+      val result: Users = when(membersOfListPerSlugAndOwner("meetup-20100301", "twitterapi")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
+        request.uri.query === Query("count=20&cursor=-1&include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301")
+      }.respondWith("/twitter/lists/list_members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
+    }
+
+    "get members of list per slug and owner id" in new TwitterListClientSpecContext {
+      val result: Users = when(membersOfListPerSlugAndOwnerId("meetup-20100301", 6253282)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
+        request.uri.query === Query("count=20&cursor=-1&include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301")
+      }.respondWith("/twitter/lists/list_members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
     }
   }
 
