@@ -20,6 +20,10 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       result === loadJsonAs[Seq[User]]("/fixtures/users/users.json")
     }
 
+    "reject request if no screen names have been provided to retreive users" in new TwitterUserClientSpecContext {
+      users() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+    }
+
     "retrieve users by user ids" in new TwitterUserClientSpecContext {
       val result: Seq[User] = when(usersByIds(19018614, 17765013)).expectRequest { request =>
         request.method === HttpMethods.GET
@@ -27,6 +31,10 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
         request.uri.query === Query("include_entities=true&user_id=19018614,17765013")
       }.respondWith("/twitter/users/users.json").await
       result === loadJsonAs[Seq[User]]("/fixtures/users/users.json")
+    }
+
+    "reject request if no ids have been provided to retreive users by ids" in new TwitterUserClientSpecContext {
+      usersByIds() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
     }
 
     "retrieve user" in new TwitterUserClientSpecContext {

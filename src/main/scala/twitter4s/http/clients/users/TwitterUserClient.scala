@@ -15,7 +15,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
 
   def users(screen_names: Seq[String],
             include_entities: Boolean = true): Future[Seq[User]] = {
-    require(!screen_names.isEmpty, "please, provide at least one user to lookup")
+    require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = UsersParameters(user_id = None, Some(screen_names.mkString(",")), include_entities)
     genericUsers(parameters)
   }
@@ -24,7 +24,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
 
   def usersByIds(ids: Seq[Long],
                     include_entities: Boolean = true): Future[Seq[User]] = {
-    require(!ids.isEmpty, "please, provide at least one user id to lookup")
+    require(!ids.isEmpty, "please, provide at least one user id")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericUsers(parameters)
   }
