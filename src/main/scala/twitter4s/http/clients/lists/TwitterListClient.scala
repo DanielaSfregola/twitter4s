@@ -3,6 +3,7 @@ package twitter4s.http.clients.lists
 import scala.concurrent.Future
 
 import twitter4s.entities._
+import twitter4s.entities.enums.Mode.Mode
 import twitter4s.http.clients.OAuthClient
 import twitter4s.http.clients.lists.parameters._
 import twitter4s.util.Configurations
@@ -337,4 +338,85 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   private def genericDeleteList(parameters: ListParameters): Future[TwitterList] =
     Post(s"$listsUrl/destroy.json", parameters).respondAs[TwitterList]
+
+  def updateListModeById(list_id: Long, mode: Mode): Future[Unit] = {
+    val parameters = ListParameters(list_id = Some(list_id))
+    val update = ListUpdate(mode = Some(mode))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListModeBySlugAndOwnerName(slug: String, owner_screen_name: String, mode: Mode): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
+    val update = ListUpdate(mode = Some(mode))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListModeBySlugAndOwnerId(slug: String, owner_id: Long, mode: Mode): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
+    val update = ListUpdate(mode = Some(mode))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListNameById(list_id: Long, name: String): Future[Unit] = {
+    val parameters = ListParameters(list_id = Some(list_id))
+    val update = ListUpdate(name = Some(name))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListNameBySlugAndOwnerName(slug: String, owner_screen_name: String, name: String): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
+    val update = ListUpdate(name = Some(name))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListNameBySlugAndOwnerId(slug: String, owner_id: Long, name: String): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
+    val update = ListUpdate(name = Some(name))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListDescriptionById(list_id: Long, description: String): Future[Unit] = {
+    val parameters = ListParameters(list_id = Some(list_id))
+    val update = ListUpdate(description = Some(description))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListDescriptionBySlugAndOwnerName(slug: String, owner_screen_name: String, description: String): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
+    val update = ListUpdate(description = Some(description))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListDescriptionBySlugAndOwnerId(slug: String, owner_id: Long, description: String): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
+    val update = ListUpdate(description = Some(description))
+    genericUpdateList(parameters, update)
+  }
+  
+  def updateListById(list_id: Long, update: ListUpdate): Future[Unit] = {
+    val parameters = ListParameters(list_id = Some(list_id))
+    genericUpdateList(parameters, update)
+  }
+  
+  def updateListBySlugAndOwnerName(slug: String, owner_screen_name: String, update: ListUpdate): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
+    genericUpdateList(parameters, update)
+  }
+
+  def updateListBySlugAndOwnerId(slug: String, owner_id: Long, update: ListUpdate): Future[Unit] = {
+    val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
+    genericUpdateList(parameters, update)
+  }
+
+  private def genericUpdateList(parameters: ListParameters, update: ListUpdate): Future[Unit] = {
+    val listUpdate = UpdateListParameters(
+      list_id = parameters.list_id,
+      slug = parameters.slug,
+      owner_screen_name = parameters.owner_screen_name,
+      owner_id = parameters.owner_id,
+      description = update.description,
+      name = update.name,
+      mode = update.mode)
+    Post(s"$listsUrl/update.json", listUpdate).respondAs[Unit]
+  }
 }

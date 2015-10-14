@@ -3,6 +3,7 @@ package twitter4s.http.clients.lists
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 import twitter4s.entities._
+import twitter4s.entities.enums.Mode
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterListClientSpec  extends ClientSpec {
@@ -366,6 +367,117 @@ class TwitterListClientSpec  extends ClientSpec {
         request.uri.query === Query("owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWith("/twitter/lists/destroy.json").await
       result === loadJsonAs[TwitterList]("/fixtures/lists/destroy.json")
+    }
+
+    "update list mode by id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListModeById(8044403, Mode.Private)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("list_id=8044403&mode=private")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list mode by slug and owner name" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListModeBySlugAndOwnerName("meetup-20100301", "twitterapi", Mode.Private)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list mode by slug and owner id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListModeBySlugAndOwnerId("meetup-20100301", 6253282, Mode.Private)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("mode=private&owner_id=6253282&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list name by id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListNameById(8044403, "new name")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("list_id=8044403&name=new+name")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list name by slug and owner name" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListNameBySlugAndOwnerName("meetup-20100301", "twitterapi", "new name")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("name=new+name&owner_screen_name=twitterapi&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list name by slug and owner id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListNameBySlugAndOwnerId("meetup-20100301", 6253282, "new name")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("name=new+name&owner_id=6253282&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list description by id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListDescriptionById(8044403, "cool description")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&list_id=8044403")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list description by slug and owner name" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListDescriptionBySlugAndOwnerName("meetup-20100301", "twitterapi", "cool description")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&owner_screen_name=twitterapi&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list description by slug and owner id" in new TwitterListClientSpecContext {
+      val result: Unit = when(updateListDescriptionBySlugAndOwnerId("meetup-20100301", 6253282, "cool description")).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&owner_id=6253282&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list by id" in new TwitterListClientSpecContext {
+      val update = ListUpdate(mode = Some(Mode.Private), description = Some("cool description"))
+      val result: Unit = when(updateListById(8044403, update)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&list_id=8044403&mode=private")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list by slug and owner name" in new TwitterListClientSpecContext {
+      val update = ListUpdate(mode = Some(Mode.Private), description = Some("cool description"))
+      val result: Unit = when(updateListBySlugAndOwnerName("meetup-20100301", "twitterapi", update)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "update list by slug and owner id" in new TwitterListClientSpecContext {
+      val update = ListUpdate(mode = Some(Mode.Private), description = Some("cool description"))
+      val result: Unit = when(updateListBySlugAndOwnerId("meetup-20100301", 6253282, update)).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
+        request.uri.query === Query("description=cool+description&mode=private&owner_id=6253282&slug=meetup-20100301")
+      }.respondWithOk.await
+      result === ()
     }
   }
 
