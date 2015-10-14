@@ -479,6 +479,42 @@ class TwitterListClientSpec  extends ClientSpec {
       }.respondWithOk.await
       result === ()
     }
+
+    "create a list" in new TwitterListClientSpecContext {
+      val result: TwitterList = when(createList("my-list", Mode.Private, Some("a nice description"))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/create.json"
+        request.uri.query === Query("description=a+nice+description&mode=private&name=my-list")
+      }.respondWith("/twitter/lists/create.json").await
+      result === loadJsonAs[TwitterList]("/twitter/lists/create.json")
+    }
+
+    "get list by id" in new TwitterListClientSpecContext {
+      val result: TwitterList = when(listById(222669735)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
+        request.uri.query === Query("list_id=222669735")
+      }.respondWith("/twitter/lists/show.json").await
+      result === loadJsonAs[TwitterList]("/twitter/lists/show.json")
+    }
+
+    "get list by slug and owner name" in new TwitterListClientSpecContext {
+      val result: TwitterList = when(listBySlugAndOwnerName("my-list", "Daniela Sfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
+        request.uri.query === Query("owner_screen_name=Daniela+Sfregola&slug=my-list")
+      }.respondWith("/twitter/lists/show.json").await
+      result === loadJsonAs[TwitterList]("/twitter/lists/show.json")
+    }
+
+    "get list by slug and owner id" in new TwitterListClientSpecContext {
+      val result: TwitterList = when(listBySlugAndOwnerId("my-list", 2911461333L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
+        request.uri.query === Query("owner_id=2911461333&slug=my-list")
+      }.respondWith("/twitter/lists/show.json").await
+      result === loadJsonAs[TwitterList]("/twitter/lists/show.json")
+    }
   }
 
 }

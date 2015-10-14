@@ -3,6 +3,7 @@ package twitter4s.http.clients.lists
 import scala.concurrent.Future
 
 import twitter4s.entities._
+import twitter4s.entities.enums.Mode
 import twitter4s.entities.enums.Mode.Mode
 import twitter4s.http.clients.OAuthClient
 import twitter4s.http.clients.lists.parameters._
@@ -419,4 +420,27 @@ trait TwitterListClient extends OAuthClient with Configurations {
       mode = update.mode)
     Post(s"$listsUrl/update.json", listUpdate).respondAs[Unit]
   }
+
+  def createList(name: String, mode: Mode = Mode.Public, description: Option[String] = None): Future[TwitterList] = {
+    val parameteres = CreateListParameters(name, mode, description)
+    Post(s"$listsUrl/create.json", parameteres).respondAs[TwitterList]
+  }
+
+  def listById(list_id: Long): Future[TwitterList] = {
+    val parameters = ListParameters(list_id = Some(list_id))
+    genericList(parameters)
+  }
+
+  def listBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[TwitterList] = {
+    val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
+    genericList(parameters)
+  }
+
+  def listBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] = {
+    val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
+    genericList(parameters)
+  }
+
+  private def genericList(parameters: ListParameters): Future[TwitterList] =
+    Get(s"$listsUrl/show.json", parameters).respondAs[TwitterList]
 }
