@@ -342,74 +342,74 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   def updateListModeById(list_id: Long, mode: Mode): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
-    val update = ListUpdate(mode = Some(mode))
+    val update = TwitterListUpdate(mode = Some(mode))
     genericUpdateList(parameters, update)
   }
 
   def updateListModeBySlugAndOwnerName(slug: String, owner_screen_name: String, mode: Mode): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
-    val update = ListUpdate(mode = Some(mode))
+    val update = TwitterListUpdate(mode = Some(mode))
     genericUpdateList(parameters, update)
   }
 
   def updateListModeBySlugAndOwnerId(slug: String, owner_id: Long, mode: Mode): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
-    val update = ListUpdate(mode = Some(mode))
+    val update = TwitterListUpdate(mode = Some(mode))
     genericUpdateList(parameters, update)
   }
 
   def updateListNameById(list_id: Long, name: String): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
-    val update = ListUpdate(name = Some(name))
+    val update = TwitterListUpdate(name = Some(name))
     genericUpdateList(parameters, update)
   }
 
   def updateListNameBySlugAndOwnerName(slug: String, owner_screen_name: String, name: String): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
-    val update = ListUpdate(name = Some(name))
+    val update = TwitterListUpdate(name = Some(name))
     genericUpdateList(parameters, update)
   }
 
   def updateListNameBySlugAndOwnerId(slug: String, owner_id: Long, name: String): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
-    val update = ListUpdate(name = Some(name))
+    val update = TwitterListUpdate(name = Some(name))
     genericUpdateList(parameters, update)
   }
 
   def updateListDescriptionById(list_id: Long, description: String): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
-    val update = ListUpdate(description = Some(description))
+    val update = TwitterListUpdate(description = Some(description))
     genericUpdateList(parameters, update)
   }
 
   def updateListDescriptionBySlugAndOwnerName(slug: String, owner_screen_name: String, description: String): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
-    val update = ListUpdate(description = Some(description))
+    val update = TwitterListUpdate(description = Some(description))
     genericUpdateList(parameters, update)
   }
 
   def updateListDescriptionBySlugAndOwnerId(slug: String, owner_id: Long, description: String): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
-    val update = ListUpdate(description = Some(description))
+    val update = TwitterListUpdate(description = Some(description))
     genericUpdateList(parameters, update)
   }
   
-  def updateListById(list_id: Long, update: ListUpdate): Future[Unit] = {
+  def updateListById(list_id: Long, update: TwitterListUpdate): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericUpdateList(parameters, update)
   }
   
-  def updateListBySlugAndOwnerName(slug: String, owner_screen_name: String, update: ListUpdate): Future[Unit] = {
+  def updateListBySlugAndOwnerName(slug: String, owner_screen_name: String, update: TwitterListUpdate): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
     genericUpdateList(parameters, update)
   }
 
-  def updateListBySlugAndOwnerId(slug: String, owner_id: Long, update: ListUpdate): Future[Unit] = {
+  def updateListBySlugAndOwnerId(slug: String, owner_id: Long, update: TwitterListUpdate): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
     genericUpdateList(parameters, update)
   }
 
-  private def genericUpdateList(parameters: ListParameters, update: ListUpdate): Future[Unit] = {
+  private def genericUpdateList(parameters: ListParameters, update: TwitterListUpdate): Future[Unit] = {
     val listUpdate = UpdateListParameters(
       list_id = parameters.list_id,
       slug = parameters.slug,
@@ -443,4 +443,21 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   private def genericList(parameters: ListParameters): Future[TwitterList] =
     Get(s"$listsUrl/show.json", parameters).respondAs[TwitterList]
+
+  def listSubscriptions(screen_name: String,
+                        count: Int = 20,
+                        cursor: Long = -1): Future[TwitterLists] = {
+    val parameters = SubscriptionsParameters(user_id = None, Some(screen_name), count, cursor)
+    genericListSubscriptions(parameters)
+  }
+
+  def listSubscriptionsByUserId(user_id: Long,
+                                count: Int = 20,
+                                cursor: Long = -1): Future[TwitterLists] = {
+    val parameters = SubscriptionsParameters(Some(user_id), screen_name = None, count, cursor)
+    genericListSubscriptions(parameters)
+  }
+
+  private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] =
+    Get(s"$listsUrl/subscriptions.json", parameters).respondAs[TwitterLists]
 }

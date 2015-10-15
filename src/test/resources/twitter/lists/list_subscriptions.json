@@ -1,0 +1,378 @@
+{
+  "next_cursor": 1381665145279094592,
+  "next_cursor_str": "1381665145279094592",
+  "previous_cursor": 0,
+  "previous_cursor_str": "0",
+  "lists": [
+    {
+      "id": 79043502,
+      "id_str": "79043502",
+      "name": "v1",
+      "uri": "\/fww\/lists\/v1",
+      "subscriber_count": 28,
+      "member_count": 64,
+      "mode": "public",
+      "description": "",
+      "slug": "v1",
+      "full_name": "@fww\/v1",
+      "created_at": "Mon Oct 15 22:00:35 +0000 2012",
+      "following": false,
+      "user": {
+        "id": 7413782,
+        "id_str": "7413782",
+        "name": "Frankie Warren",
+        "screen_name": "fww",
+        "location": "Oakland",
+        "description": "I keep data flowing for @clever, developing partnerships with leading Student Information Systems across the country.",
+        "url": "http:\/\/t.co\/Ejm4fygCkh",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/Ejm4fygCkh",
+                "expanded_url": "http:\/\/www.frankiewarren.com",
+                "display_url": "frankiewarren.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 578,
+        "friends_count": 570,
+        "listed_count": 19,
+        "created_at": "Wed Jul 11 21:57:49 +0000 2007",
+        "favourites_count": 1106,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 6306,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "03080A",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/778004043\/8a89e4413fd3bf06de2b18962ddd864e.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/778004043\/8a89e4413fd3bf06de2b18962ddd864e.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2724418311\/b023f27714e85fdbbe2009c4ba802267_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2724418311\/b023f27714e85fdbbe2009c4ba802267_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/7413782\/1400111366",
+        "profile_link_color": "706E6E",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "FFFFFF",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 58790720,
+      "id_str": "58790720",
+      "name": "Left the Flock",
+      "uri": "\/F6x\/lists\/left-the-flock",
+      "subscriber_count": 3,
+      "member_count": 105,
+      "mode": "public",
+      "description": "Looking forward to what\u2019s next for these former Twitter employees. ",
+      "slug": "left-the-flock",
+      "full_name": "@F6x\/left-the-flock",
+      "created_at": "Fri Nov 11 22:57:17 +0000 2011",
+      "following": false,
+      "user": {
+        "id": 5507572,
+        "id_str": "5507572",
+        "name": "Stephen R. Fox",
+        "screen_name": "F6x",
+        "location": "San Francisco, CA",
+        "description": "Social networking xenophobe.",
+        "url": "http:\/\/t.co\/ygIEmovbxy",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/ygIEmovbxy",
+                "expanded_url": "http:\/\/stephenrfox.com",
+                "display_url": "stephenrfox.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1048,
+        "friends_count": 666,
+        "listed_count": 58,
+        "created_at": "Wed Apr 25 20:22:21 +0000 2007",
+        "favourites_count": 2976,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 16112,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "9AE4E8",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/454778235130105856\/Cbq-Um8Q.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/454778235130105856\/Cbq-Um8Q.jpeg",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/539330777713221632\/nmQGrRV__normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/539330777713221632\/nmQGrRV__normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/5507572\/1348936071",
+        "profile_link_color": "0000FF",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "44A2FD",
+        "profile_text_color": "000000",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 95508994,
+      "id_str": "95508994",
+      "name": "Dev + Platform Relations",
+      "uri": "\/froginthevalley\/lists\/dev-platform-relations",
+      "subscriber_count": 5,
+      "member_count": 24,
+      "mode": "public",
+      "description": "My Team @ Twitter",
+      "slug": "dev-platform-relations",
+      "full_name": "@froginthevalley\/dev-platform-relations",
+      "created_at": "Wed Sep 04 20:43:30 +0000 2013",
+      "following": false,
+      "user": {
+        "id": 657693,
+        "id_str": "657693",
+        "name": "Sylvain Carle",
+        "screen_name": "froginthevalley",
+        "location": "Montr\u00e9al",
+        "description": "General Manager @FounderFuel and Partner @RealVentures. Previously: Senior Developer Advocate @Twitter. Aussi en Fran\u00e7ais: @sylvain.",
+        "url": "http:\/\/t.co\/DpimqhcXZ0",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/DpimqhcXZ0",
+                "expanded_url": "http:\/\/afroginthevalley.com",
+                "display_url": "afroginthevalley.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 9769,
+        "friends_count": 2844,
+        "listed_count": 492,
+        "created_at": "Thu Jan 18 00:10:45 +0000 2007",
+        "favourites_count": 3331,
+        "utc_offset": -14400,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 10698,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": true,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/568768757669957633\/YznskDzj.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/568768757669957633\/YznskDzj.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/425774377657827328\/p8B9ooUc_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/425774377657827328\/p8B9ooUc_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/657693\/1403209471",
+        "profile_link_color": "949494",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "252429",
+        "profile_text_color": "666666",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 95113344,
+      "id_str": "95113344",
+      "name": "Users with IDs \u003e 32 bits",
+      "uri": "\/kurrik\/lists\/users-with-ids-32-bits",
+      "subscriber_count": 6,
+      "member_count": 2,
+      "mode": "public",
+      "description": "",
+      "slug": "users-with-ids-32-bits",
+      "full_name": "@kurrik\/users-with-ids-32-bits",
+      "created_at": "Wed Aug 28 16:55:40 +0000 2013",
+      "following": false,
+      "user": {
+        "id": 7588892,
+        "id_str": "7588892",
+        "name": "Arne R\u0ca0_\u0ca0mann-Kurrik",
+        "screen_name": "kurrik",
+        "location": "Sam Francesco",
+        "description": "Software Engineer at Twitter dot com, practitioner of dark sandwich arts.",
+        "url": "http:\/\/t.co\/UrjQWyPSkY",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/UrjQWyPSkY",
+                "expanded_url": "http:\/\/blog.roomanna.com",
+                "display_url": "blog.roomanna.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 8121,
+        "friends_count": 2129,
+        "listed_count": 235,
+        "created_at": "Thu Jul 19 15:58:07 +0000 2007",
+        "favourites_count": 5159,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 6096,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "8FC1FF",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/454673496996462592\/cezGFZYN.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/454673496996462592\/cezGFZYN.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/378800000644633364\/fc3b6ae787f7b54bbdc3613a3520a7bb_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/378800000644633364\/fc3b6ae787f7b54bbdc3613a3520a7bb_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/7588892\/1397085720",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "C7E0FF",
+        "profile_text_color": "000000",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    },
+    {
+      "id": 55932616,
+      "id_str": "55932616",
+      "name": "team",
+      "uri": "\/TwitterEng\/lists\/team",
+      "subscriber_count": 205,
+      "member_count": 318,
+      "mode": "public",
+      "description": "",
+      "slug": "team",
+      "full_name": "@TwitterEng\/team",
+      "created_at": "Mon Oct 03 02:48:07 +0000 2011",
+      "following": false,
+      "user": {
+        "id": 6844292,
+        "id_str": "6844292",
+        "name": "Twitter Engineering",
+        "screen_name": "TwitterEng",
+        "location": "San Francisco, CA",
+        "description": "The official account for Twitter Engineering.",
+        "url": "http:\/\/t.co\/gJvsjUZJ3O",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/gJvsjUZJ3O",
+                "expanded_url": "http:\/\/engineering.twitter.com",
+                "display_url": "engineering.twitter.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 924052,
+        "friends_count": 1,
+        "listed_count": 3871,
+        "created_at": "Sat Jun 16 00:14:36 +0000 2007",
+        "favourites_count": 9,
+        "utc_offset": -25200,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": true,
+        "statuses_count": 311,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C6E2EE",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme2\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme2\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/2284174594\/apcu4c9tu2zkefnev0jt_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/2284174594\/apcu4c9tu2zkefnev0jt_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/6844292\/1396958504",
+        "profile_link_color": "1F98C7",
+        "profile_sidebar_border_color": "C6E2EE",
+        "profile_sidebar_fill_color": "DAECF4",
+        "profile_text_color": "663B12",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      }
+    }
+  ]
+}
