@@ -533,6 +533,84 @@ class TwitterListClientSpec  extends ClientSpec {
       }.respondWith("/twitter/lists/list_subscriptions.json").await
       result === loadJsonAs[TwitterLists]("/fixtures/lists/list_subscriptions.json")
     }
+
+    "remove members from list" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersFromList(222669735, Seq("marcobonzanini", "odersky"))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("list_id=222669735&screen_name=marcobonzanini,odersky")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "remove members from list by slug and owner name" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersFromListBySlugAndOwnerName("my-list", "DanielaSfregola", Seq("marcobonzanini", "odersky"))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("owner_screen_name=DanielaSfregola&screen_name=marcobonzanini,odersky&slug=my-list")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "remove members from list by slug and owner id" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersFromListBySlugAndOwnerId("my-list", 2911461333L, Seq("marcobonzanini", "odersky"))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("owner_id=2911461333&screen_name=marcobonzanini,odersky&slug=my-list")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "remove members ids from list" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersIdsFromList(222669735, Seq(2911461333L, 2911461334L))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("list_id=222669735&user_id=2911461333,2911461334")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "remove members ids from list by slug and owner name" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersIdsFromListBySlugAndOwnerName("my-list", "DanielaSfregola", Seq(2911461333L, 2911461334L))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("owner_screen_name=DanielaSfregola&slug=my-list&user_id=2911461333,2911461334")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "remove members ids from list by slug and owner id" in new TwitterListClientSpecContext {
+      val result: Unit = when(removeMembersIdsFromListBySlugAndOwnerId("my-list", 2911461333L, Seq(2911461333L, 2911461334L))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
+        request.uri.query === Query("owner_id=2911461333&slug=my-list&user_id=2911461333,2911461334")
+      }.respondWithOk.await
+      result === ()
+    }
+
+    "reject 'removeMembersFromList' if no screen names are provided" in new TwitterListClientSpecContext {
+      removeMembersFromList(222669735, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+    }
+
+    "reject 'removeMembersFromListBySlugAndOwnerName' if no screen names are provided" in new TwitterListClientSpecContext {
+      removeMembersFromListBySlugAndOwnerName("my-list", "DanielaSfregola", Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+    }
+
+    "reject 'removeMembersFromListBySlugAndOwnerId' if no screen names are provided" in new TwitterListClientSpecContext {
+      removeMembersFromListBySlugAndOwnerId("my-list", 2911461333L, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+    }
+
+    "reject 'removeMembersIdsFromList' if no ids are provided" in new TwitterListClientSpecContext {
+      removeMembersIdsFromList(222669735, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+    }
+
+    "reject 'removeMembersIdsFromListBySlugAndOwnerName' if no ids are provided" in new TwitterListClientSpecContext {
+      removeMembersIdsFromListBySlugAndOwnerName("my-list", "DanielaSfregola", Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+    }
+
+    "reject 'addMembersIdsToList' if no ids are provided" in new TwitterListClientSpecContext {
+      removeMembersIdsFromListBySlugAndOwnerId("my-list", 2911461333L, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+    }
   }
 
 }

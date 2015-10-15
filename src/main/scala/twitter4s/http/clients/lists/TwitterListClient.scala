@@ -460,4 +460,52 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/subscriptions.json", parameters).respondAs[TwitterLists]
+
+  def removeMembersFromList(list_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
+    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    val parameters = RemoveMembersParameters(list_id = Some(list_id), screen_name = Some(members_screen_names.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  def removeMembersFromListBySlugAndOwnerName(slug: String, owner_screen_name: String, members_screen_names: Seq[String]): Future[Unit] = {
+    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    val parameters = RemoveMembersParameters(slug = Some(slug),
+      owner_screen_name = Some(owner_screen_name),
+      screen_name = Some(members_screen_names.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  def removeMembersFromListBySlugAndOwnerId(slug: String, owner_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
+    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    val parameters = RemoveMembersParameters(slug = Some(slug),
+      owner_id = Some(owner_id),
+      screen_name = Some(members_screen_names.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  def removeMembersIdsFromList(list_id: Long, members_ids: Seq[Long]): Future[Unit] = {
+    require(!members_ids.isEmpty, "please, provide at least one user id")
+    val parameters = RemoveMembersParameters(list_id = Some(list_id), user_id = Some(members_ids.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  def removeMembersIdsFromListBySlugAndOwnerName(slug: String, owner_screen_name: String, members_ids: Seq[Long]): Future[Unit] = {
+    require(!members_ids.isEmpty, "please, provide at least one user id")
+    val parameters = RemoveMembersParameters(slug = Some(slug),
+      owner_screen_name = Some(owner_screen_name),
+      user_id = Some(members_ids.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  def removeMembersIdsFromListBySlugAndOwnerId(slug: String, owner_id: Long, members_ids: Seq[Long]): Future[Unit] = {
+    require(!members_ids.isEmpty, "please, provide at least one user id")
+    val parameters = RemoveMembersParameters(slug = Some(slug),
+      owner_id = Some(owner_id),
+      user_id = Some(members_ids.mkString(",")))
+    genericRemoveMembersFromList(parameters)
+  }
+
+  private def genericRemoveMembersFromList(parameters: RemoveMembersParameters): Future[Unit] =
+    Post(s"$listsUrl/members/destroy_all.json", parameters).respondAs[Unit]
+
 }
