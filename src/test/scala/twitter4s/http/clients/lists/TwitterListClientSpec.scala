@@ -35,8 +35,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&list_id=8044403")
-      }.respondWith("/twitter/lists/list_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/list_timeline.json")
+      }.respondWith("/twitter/lists/timeline.json").await
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "get a list timeline by slug and owner" in new TwitterListClientSpecContext {
@@ -44,8 +44,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_screen_name=twitterapi&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/list_timeline.json")
+      }.respondWith("/twitter/lists/timeline.json").await
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "get a list timeline by slug and owner id" in new TwitterListClientSpecContext {
@@ -53,8 +53,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_id=6253282&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/list_timeline.json")
+      }.respondWith("/twitter/lists/timeline.json").await
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "remove list member by list id and user" in new TwitterListClientSpecContext {
@@ -116,17 +116,17 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/memberships.json"
         request.uri.query === Query("count=20&cursor=-1&filter_to_owned_lists=false&screen_name=DanielaSfregola")
-      }.respondWith("/twitter/lists/list_memberships.json").await
-      result === loadJsonAs[TwitterLists]("/fixtures/lists/list_memberships.json")
+      }.respondWith("/twitter/lists/memberships.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/memberships.json")
     }
 
     "get list memberships per user id" in new TwitterListClientSpecContext {
-      val result: TwitterLists = when(membershipsByUserId(2911461333L)).expectRequest { request =>
+      val result: TwitterLists = when(membershipsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/memberships.json"
         request.uri.query === Query("count=20&cursor=-1&filter_to_owned_lists=false&user_id=2911461333")
-      }.respondWith("/twitter/lists/list_memberships.json").await
-      result === loadJsonAs[TwitterLists]("/fixtures/lists/list_memberships.json")
+      }.respondWith("/twitter/lists/memberships.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/memberships.json")
     }
 
     "add members ids per list id" in new TwitterListClientSpecContext {
@@ -212,8 +212,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&list_id=8044403&skip_status=false&user_id=2911461333")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get member by id per slug and owner" in new TwitterListClientSpecContext {
@@ -221,8 +221,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301&user_id=2911461333")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get member by id per slug and owner id" in new TwitterListClientSpecContext {
@@ -230,8 +230,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301&user_id=2911461333")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get member per list id" in new TwitterListClientSpecContext {
@@ -239,8 +239,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&list_id=8044403&screen_name=DanielaSfregola&skip_status=false")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get member per slug and owner" in new TwitterListClientSpecContext {
@@ -248,8 +248,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&owner_screen_name=twitterapi&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get member per slug and owner id" in new TwitterListClientSpecContext {
@@ -257,8 +257,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.query === Query("include_entities=true&owner_id=6253282&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_member.json").await
-      result === loadJsonAs[User]("/fixtures/lists/list_member.json")
+      }.respondWith("/twitter/lists/member.json").await
+      result === loadJsonAs[User]("/fixtures/lists/member.json")
     }
 
     "get members of list per list id" in new TwitterListClientSpecContext {
@@ -266,8 +266,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.query === Query("count=20&cursor=-1&include_entities=true&list_id=8044403&skip_status=false")
-      }.respondWith("/twitter/lists/list_members.json").await
-      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
+      }.respondWith("/twitter/lists/members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/members.json")
     }
 
     "get members of list per slug and owner" in new TwitterListClientSpecContext {
@@ -275,8 +275,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.query === Query("count=20&cursor=-1&include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_members.json").await
-      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
+      }.respondWith("/twitter/lists/members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/members.json")
     }
 
     "get members of list per slug and owner id" in new TwitterListClientSpecContext {
@@ -284,8 +284,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.query === Query("count=20&cursor=-1&include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301")
-      }.respondWith("/twitter/lists/list_members.json").await
-      result === loadJsonAs[Users]("/fixtures/lists/list_members.json")
+      }.respondWith("/twitter/lists/members.json").await
+      result === loadJsonAs[Users]("/fixtures/lists/members.json")
     }
 
     "add member id to list id" in new TwitterListClientSpecContext {
@@ -521,8 +521,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/subscriptions.json"
         request.uri.query === Query("count=20&cursor=-1&screen_name=DanielaSfregola")
-      }.respondWith("/twitter/lists/list_subscriptions.json").await
-      result === loadJsonAs[TwitterLists]("/fixtures/lists/list_subscriptions.json")
+      }.respondWith("/twitter/lists/subscriptions.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/subscriptions.json")
     }
 
     "get list subscriptions by user id" in new TwitterListClientSpecContext {
@@ -530,8 +530,8 @@ class TwitterListClientSpec  extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/subscriptions.json"
         request.uri.query === Query("count=20&cursor=-1&user_id=2911461333")
-      }.respondWith("/twitter/lists/list_subscriptions.json").await
-      result === loadJsonAs[TwitterLists]("/fixtures/lists/list_subscriptions.json")
+      }.respondWith("/twitter/lists/subscriptions.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/subscriptions.json")
     }
 
     "remove members from list" in new TwitterListClientSpecContext {
@@ -610,6 +610,24 @@ class TwitterListClientSpec  extends ClientSpec {
 
     "reject 'addMembersIdsToList' if no ids are provided" in new TwitterListClientSpecContext {
       removeMembersIdsFromListBySlugAndOwnerId("my-list", 2911461333L, Seq.empty) must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+    }
+
+    "get ownerships for user" in new TwitterListClientSpecContext {
+      val result: TwitterLists = when(ownerships("DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/ownerships.json"
+        request.uri.query === Query("count=20&cursor=-1&screen_name=DanielaSfregola")
+      }.respondWith("/twitter/lists/ownerships.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/ownerships.json")
+    }
+
+    "get ownerships for user by id" in new TwitterListClientSpecContext {
+      val result: TwitterLists = when(ownershipsForUserId(2911461333L)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/lists/ownerships.json"
+        request.uri.query === Query("count=20&cursor=-1&user_id=2911461333")
+      }.respondWith("/twitter/lists/ownerships.json").await
+      result === loadJsonAs[TwitterLists]("/fixtures/lists/ownerships.json")
     }
   }
 

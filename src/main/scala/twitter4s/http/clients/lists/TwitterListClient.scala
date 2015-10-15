@@ -116,7 +116,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericMemberships(parameters)
   }
 
-  def membershipsByUserId(user_id: Long,
+  def membershipsForUserId(user_id: Long,
                            count: Int = 20,
                            cursor: Long = -1,
                            filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
@@ -508,4 +508,16 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericRemoveMembersFromList(parameters: RemoveMembersParameters): Future[Unit] =
     Post(s"$listsUrl/members/destroy_all.json", parameters).respondAs[Unit]
 
+  def ownerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+    val parameters = OwnershipsParameters(user_id = None, Some(screen_name), count, cursor)
+    genericOwnerships(parameters)
+  }
+
+  def ownershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+    val parameters = OwnershipsParameters(Some(user_id), screen_name = None, count, cursor)
+    genericOwnerships(parameters)
+  }
+
+  private def genericOwnerships(parameters: OwnershipsParameters): Future[TwitterLists] =
+    Get(s"$listsUrl/ownerships.json", parameters).respondAs[TwitterLists]
 }
