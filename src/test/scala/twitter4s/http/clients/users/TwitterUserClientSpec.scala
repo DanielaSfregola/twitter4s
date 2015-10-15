@@ -65,7 +65,7 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "get the profile banners of a user by id" in new  TwitterUserClientSpecContext {
-      val result: Banners = when(profileBannersPerUserId(19018614)).expectRequest { request =>
+      val result: Banners = when(profileBannersForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
         request.uri.query === Query("user_id=19018614")

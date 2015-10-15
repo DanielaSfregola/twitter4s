@@ -109,7 +109,7 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "get a tweet by id in oembed format " in new TwitterStatusClientSpecContext {
-      val result: OEmbedTweet = when(oembedStatusById(648866645855879168L)).expectRequest { request =>
+      val result: OEmbedTweet = when(oembedStatus(648866645855879168L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.query === Query("align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")

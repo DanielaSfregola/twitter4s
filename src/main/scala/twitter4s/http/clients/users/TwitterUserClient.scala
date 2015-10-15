@@ -52,7 +52,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     genericProfileBanners(parameters)
   }
 
-  def profileBannersPerUserId(user_id: Long): Future[Banners] = {
+  def profileBannersForUserId(user_id: Long): Future[Banners] = {
     val parameters = BannersParameters(Some(user_id), screen_name = None)
     genericProfileBanners(parameters)
   }

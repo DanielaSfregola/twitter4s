@@ -20,7 +20,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     genericFavorites(parameters)
   }
 
-  def favoritesPerUserId(user_id: Long,
+  def favoritesForUserId(user_id: Long,
                          count: Int = 20,
                          since_id: Option[Long] = None,
                          max_id: Option[Long] = None,

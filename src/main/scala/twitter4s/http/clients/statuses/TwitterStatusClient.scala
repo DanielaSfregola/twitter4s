@@ -114,7 +114,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]
   }
 
-  def oembedStatusById(id: Long,
+  def oembedStatus(id: Long,
                  maxwidth: Option[Int] = None,
                  hide_media: Boolean = false,
                  hide_thread: Boolean = false,
@@ -124,7 +124,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                  lang: Language = Language.English,
                  widget_type: Option[WidgetType] = None,
                  hide_tweet: Boolean = false): Future[OEmbedTweet] = {
-    val parameters = OEmbedParametersById(id, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
+    val parameters = OEmbedParameters(id, maxwidth, hide_media, hide_thread, omit_script, align, related, lang, widget_type, hide_tweet)
     Get(s"$statusesUrl/oembed.json", parameters).respondAs[OEmbedTweet]
   }
 

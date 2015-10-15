@@ -11,7 +11,7 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
 
   val friendsUrl = s"$apiTwitterUrl/$twitterVersion/friends"
 
-  def friendsIdsPerUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
+  def friendsIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericFriends[UserIds](parameters)
   }
@@ -21,7 +21,7 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     genericFriends[UserIds](parameters)
   }
 
-  def friendsPerUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def friendsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericFriends[UserIdsStringified](parameters)
   }
@@ -44,7 +44,7 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     genericFriends(parameters)
   }
 
-  def friendsPerUserId(user_id: Long,
+  def friendsForUserId(user_id: Long,
                        cursor: Long = -1,
                        count: Int = 20,
                        skip_status: Boolean = false,

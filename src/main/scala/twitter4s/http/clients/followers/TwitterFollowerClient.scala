@@ -11,7 +11,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
 
   val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
 
-  def followersIdsPerUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
+  def followersIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericFollowersIds[UserIds](parameters)
   }
@@ -21,7 +21,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     genericFollowersIds[UserIds](parameters)
   }
 
-  def followersIdsPerUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def followersIdsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericFollowersIds[UserIdsStringified](parameters)
   }
@@ -43,7 +43,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     genericFollowers(parameters)
   }
 
-  def followersPerUserId(user_id: Long,
+  def followersForUserId(user_id: Long,
                         cursor: Long = -1,
                         count: Int = -1,
                         skip_status: Boolean = false,

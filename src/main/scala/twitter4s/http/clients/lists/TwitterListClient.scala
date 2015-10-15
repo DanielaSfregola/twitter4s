@@ -13,12 +13,12 @@ trait TwitterListClient extends OAuthClient with Configurations {
 
   val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
 
-  def listsByScreenName(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def lists(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(user_id = None, Some(screen_name), reverse)
     genericLists(parameters)
   }
 
-  def listsByUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def listsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(Some(user_id), screen_name = None, reverse)
     genericLists(parameters)
   }
@@ -52,12 +52,12 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericListTimeline(parameters)
   }
 
-  def listTimelineById(list_id: Long,
-                        count: Int = 20,
-                        since_id: Option[Long] = None,
-                        max_id: Option[Long] = None,
-                        include_entities: Boolean = true,
-                        include_rts: Boolean = false): Future[Seq[Tweet]] = {
+  def listTimeline(list_id: Long,
+                   count: Int = 20,
+                   since_id: Option[Long] = None,
+                   max_id: Option[Long] = None,
+                   include_entities: Boolean = true,
+                   include_rts: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -67,7 +67,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] =
     Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
 
-  def removeMemberFromListById(list_id: Long, member_screen_name: String): Future[Unit] = {
+  def removeMemberFromList(list_id: Long, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), screen_name = Some(member_screen_name))
     genericRemoveMemberFromList(parameters)
   }
@@ -86,7 +86,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericRemoveMemberFromList(parameters)
   }
 
-  def removeMemberIdFromListById(list_id: Long, member_id: Long): Future[Unit] = {
+  def removeMemberIdFromList(list_id: Long, member_id: Long): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), user_id = Some(member_id))
     genericRemoveMemberFromList(parameters)
   }
@@ -108,7 +108,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericRemoveMemberFromList(parameters: RemoveMemberParameters): Future[Unit] =
     Post(s"$listsUrl/members/destroy.json", parameters).respondAs[Unit]
 
-  def membershipsByScreenName(screen_name: String,
+  def memberships(screen_name: String,
                   count: Int = 20,
                   cursor: Long = -1,
                   filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
@@ -127,7 +127,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericMemberships(parameters: MembershipsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/memberships.json", parameters).respondAs[TwitterLists]
 
-  def addMembersIdsToListById(list_id: Long, user_ids: Seq[Long]): Future[Unit] = {
+  def addMembersIdsToList(list_id: Long, user_ids: Seq[Long]): Future[Unit] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(list_id = Some(list_id), user_id = Some(user_ids.mkString(",")))
     genericAddMembersToList(parameters)
@@ -145,7 +145,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericAddMembersToList(parameters)
   }
 
-  def addMembersToListById(list_id: Long, screen_names: Seq[String]): Future[Unit] = {
+  def addMembersToList(list_id: Long, screen_names: Seq[String]): Future[Unit] = {
     require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = MembersParameters(list_id = Some(list_id), screen_name = Some(screen_names.mkString(",")))
     genericAddMembersToList(parameters)
@@ -166,7 +166,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericAddMembersToList(parameters: MembersParameters): Future[Unit] =
     Post(s"$listsUrl/members/create_all.json", parameters).respondAs[Unit]
 
-  def listMemberIdById(list_id: Long,
+  def listMemberId(list_id: Long,
                           user_id: Long,
                           include_entities: Boolean = true,
                           skip_status: Boolean = false): Future[User] = {
@@ -203,7 +203,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericListMember(parameters)
   }
 
-  def listMemberById(list_id: Long,
+  def listMember(list_id: Long,
                       screen_name: String,
                       include_entities: Boolean = true,
                       skip_status: Boolean = false): Future[User] = {
@@ -243,7 +243,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericListMember(parameters: MemberParameters): Future[User] =
     Get(s"$listsUrl/members/show.json", parameters).respondAs[User]
 
-  def listMembersById(list_id: Long,
+  def listMembers(list_id: Long,
                     count: Int = 20,
                     cursor: Long = -1,
                     include_entities: Boolean = true,
@@ -289,7 +289,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericListMembers(parameters: ListMembersParameters): Future[Users] =
     Get(s"$listsUrl/members.json", parameters).respondAs[Users]
 
-  def addMemberIdToListById(list_id: Long, user_id: Long): Future[Unit] = {
+  def addMemberIdToList(list_id: Long, user_id: Long): Future[Unit] = {
     val parameters = AddMemberParameters(list_id = Some(list_id), user_id = Some(user_id))
     genericAddMemberToList(parameters)
   }
@@ -304,7 +304,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericAddMemberToList(parameters)
   }
 
-  def addMemberToListById(list_id: Long, screen_name: String): Future[Unit] = {
+  def addMemberToList(list_id: Long, screen_name: String): Future[Unit] = {
     val parameters = AddMemberParameters(list_id = Some(list_id), screen_name = Some(screen_name))
     genericAddMemberToList(parameters)
   }
@@ -322,7 +322,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericAddMemberToList(parameters: AddMemberParameters): Future[Unit] =
     Post(s"$listsUrl/members/create.json", parameters).respondAs[Unit]
 
-  def deleteListById(list_id: Long): Future[TwitterList] = {
+  def deleteList(list_id: Long): Future[TwitterList] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericDeleteList(parameters)
   }
@@ -340,7 +340,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericDeleteList(parameters: ListParameters): Future[TwitterList] =
     Post(s"$listsUrl/destroy.json", parameters).respondAs[TwitterList]
 
-  def updateListModeById(list_id: Long, mode: Mode): Future[Unit] = {
+  def updateListMode(list_id: Long, mode: Mode): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
     val update = TwitterListUpdate(mode = Some(mode))
     genericUpdateList(parameters, update)
@@ -358,7 +358,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericUpdateList(parameters, update)
   }
 
-  def updateListNameById(list_id: Long, name: String): Future[Unit] = {
+  def updateListName(list_id: Long, name: String): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
     val update = TwitterListUpdate(name = Some(name))
     genericUpdateList(parameters, update)
@@ -376,7 +376,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericUpdateList(parameters, update)
   }
 
-  def updateListDescriptionById(list_id: Long, description: String): Future[Unit] = {
+  def updateListDescription(list_id: Long, description: String): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
     val update = TwitterListUpdate(description = Some(description))
     genericUpdateList(parameters, update)
@@ -394,7 +394,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericUpdateList(parameters, update)
   }
   
-  def updateListById(list_id: Long, update: TwitterListUpdate): Future[Unit] = {
+  def updateList(list_id: Long, update: TwitterListUpdate): Future[Unit] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericUpdateList(parameters, update)
   }
@@ -422,11 +422,11 @@ trait TwitterListClient extends OAuthClient with Configurations {
   }
 
   def createList(name: String, mode: Mode = Mode.Public, description: Option[String] = None): Future[TwitterList] = {
-    val parameteres = CreateListParameters(name, mode, description)
-    Post(s"$listsUrl/create.json", parameteres).respondAs[TwitterList]
+    val parameters = CreateListParameters(name, mode, description)
+    Post(s"$listsUrl/create.json", parameters).respondAs[TwitterList]
   }
 
-  def listById(list_id: Long): Future[TwitterList] = {
+  def list(list_id: Long): Future[TwitterList] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericList(parameters)
   }
