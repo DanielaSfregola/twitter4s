@@ -3,7 +3,7 @@ package twitter4s.entities
 import java.util.Date
 
 case class Tweet(contributors: Seq[Contributor] = Seq.empty,
-                 coordinates: Option[Coordinates] = None,
+                 coordinates: Seq[Seq[Seq[Float]]] = Seq.empty,
                  created_at: Date,
                  current_user_retweet: Option[TweetId] = None,
                  entities: Option[Entities] = None,
@@ -19,7 +19,7 @@ case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                  in_reply_to_user_id_str: Option[String] = None,
                  is_quote_status: Boolean = false,
                  lang: Option[String] = None,
-                 place: Option[Place] = None,
+                 place: Option[GeoPlace] = None,
                  possibly_sensitive: Boolean = false,
                  quoted_status_id: Option[Long] = None,
                  quoted_status_id_str: Option[String] = None,

@@ -1,0 +1,90 @@
+{
+  "attributes": {
+    "162834:id": "2202"
+  },
+  "bounding_box": {
+    "coordinates": [
+      [
+        [
+          -122.489136,
+          37.786926
+        ],
+        [
+          -122.489136,
+          37.812866
+        ],
+        [
+          -122.446304,
+          37.812866
+        ],
+        [
+          -122.446304,
+          37.786926
+        ],
+        [
+          -122.489136,
+          37.786926
+        ]
+      ]
+    ],
+    "type": "Polygon"
+  },
+  "country": "United States",
+  "country_code": "US",
+  "full_name": "Presidio, San Francisco",
+  "id": "df51dec6f4ee2b2c",
+  "name": "Presidio",
+  "place_type": "neighborhood",
+  "url": "https://api.twitter.com/1.1/geo/id/df51dec6f4ee2b2c.json",
+  "contained_within": [
+    {
+      "attributes": {
+      },
+      "bounding_box": {
+        "coordinates": [
+          [
+            [
+              -122.51492,
+              37.708076
+            ],
+            [
+              -122.51492,
+              37.833237
+            ],
+            [
+              -122.35703,
+              37.833237
+            ],
+            [
+              -122.35703,
+              37.708076
+            ],
+            [
+              -122.51492,
+              37.708076
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "country": "United States",
+      "country_code": "US",
+      "full_name": "San Francisco, CA",
+      "id": "5a110d312052166f",
+      "name": "San Francisco",
+      "place_type": "city",
+      "url": "https://api.twitter.com/1.1/geo/id/5a110d312052166f.json",
+      "contained_within": [],
+      "centroid": [
+        -122.44614,
+        37.75981
+      ],
+      "polylines": []
+    }
+  ],
+  "centroid": [
+    -122.465996,
+    37.799824
+  ],
+  "polylines": []
+}

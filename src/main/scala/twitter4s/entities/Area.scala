@@ -1,3 +1,3 @@
 package twitter4s.entities
 
-case class Area(coordinates: Seq[Seq[Coordinates]], `type`: String)
+case class Area(coordinates: Seq[Seq[Seq[Float]]], `type`: String)

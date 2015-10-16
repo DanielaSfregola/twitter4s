@@ -6,7 +6,7 @@ import twitter4s.entities._
 import twitter4s.entities.enums.Mode
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
-class TwitterListClientSpec  extends ClientSpec {
+class TwitterListClientSpec extends ClientSpec {
 
   trait TwitterListClientSpecContext extends ClientSpecContext with TwitterListClient
 

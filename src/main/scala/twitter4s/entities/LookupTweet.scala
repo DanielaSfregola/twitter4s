@@ -4,7 +4,7 @@ import java.util.Date
 
 case class LookupTweet(
                  contributors: Seq[Contributor],
-                 coordinates: Option[Coordinates],
+                 coordinates: Seq[Seq[Seq[Float]]] = Seq.empty,
                  created_at: Date,
                  entities: Option[Entities],
                  favorite_count: Int = 0,
@@ -18,7 +18,7 @@ case class LookupTweet(
                  in_reply_to_user_id_str: Option[String],
                  is_quote_status: Boolean = false,
                  lang: Option[String],
-                 place: Option[Place],
+                 place: Option[GeoPlace],
                  possibly_sensitive: Boolean = false,
                  retweet_count: Long = 0,
                  retweeted: Boolean = false,

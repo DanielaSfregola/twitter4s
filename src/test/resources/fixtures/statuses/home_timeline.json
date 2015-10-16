@@ -1,5 +1,6 @@
 [{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:48:20 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -29,6 +30,8 @@
   "text":"Just finished my \"daily git\" slides for tonight using @decksetapp\nEspecially with the crazy 75% discount, is really a no-brainer to get.",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Wed Jun 25 12:34:01 +0100 2008",
     "default_profile":true,
@@ -65,6 +68,7 @@
     "lang":"en",
     "listed_count":20,
     "location":"Milano",
+    "muting":false,
     "name":"Gabriele Petronella",
     "notifications":false,
     "profile_background_color":"C0DEED",
@@ -92,6 +96,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:44:28 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -115,6 +120,8 @@
   "text":"I hate busses.",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Thu Jul 31 20:24:50 +0100 2008",
     "default_profile":false,
@@ -143,6 +150,7 @@
     "lang":"en",
     "listed_count":26,
     "location":"Rome, Italy",
+    "muting":false,
     "name":"Luca Spiller",
     "notifications":false,
     "profile_background_color":"709397",
@@ -169,6 +177,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:44:23 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -201,6 +210,7 @@
   "retweeted":false,
   "retweeted_status":{
     "contributors":[],
+    "coordinates":[],
     "created_at":"Tue Sep 29 15:27:18 +0100 2015",
     "entities":{
       "hashtags":[],
@@ -229,6 +239,8 @@
     "text":"💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.co/hIdTA3v2zE",
     "truncated":false,
     "user":{
+      "blocked_by":false,
+      "blocking":false,
       "contributors_enabled":false,
       "created_at":"Wed Dec 18 08:59:28 +0000 2013",
       "default_profile":false,
@@ -265,6 +277,7 @@
       "lang":"en",
       "listed_count":68,
       "location":"Your Mac",
+      "muting":false,
       "name":"Deckset",
       "notifications":false,
       "profile_background_color":"323740",
@@ -293,6 +306,8 @@
   "text":"RT @decksetapp: 💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.c\u2026",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Wed Jun 25 12:34:01 +0100 2008",
     "default_profile":true,
@@ -329,6 +344,7 @@
     "lang":"en",
     "listed_count":20,
     "location":"Milano",
+    "muting":false,
     "name":"Gabriele Petronella",
     "notifications":false,
     "profile_background_color":"C0DEED",
@@ -356,6 +372,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:44:02 +0100 2015",
   "entities":{
     "hashtags":[{
@@ -394,6 +411,7 @@
   "retweeted":false,
   "retweeted_status":{
     "contributors":[],
+    "coordinates":[],
     "created_at":"Tue Sep 29 16:43:16 +0100 2015",
     "entities":{
       "hashtags":[{
@@ -428,6 +446,8 @@
     "text":"A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3Qbu3GH",
     "truncated":false,
     "user":{
+      "blocked_by":false,
+      "blocking":false,
       "contributors_enabled":false,
       "created_at":"Thu Jul 24 16:30:09 +0100 2008",
       "default_profile":true,
@@ -464,6 +484,7 @@
       "lang":"en",
       "listed_count":103,
       "location":"Palo Alto, CA",
+      "muting":false,
       "name":"Gil Tene",
       "notifications":false,
       "profile_background_color":"C0DEED",
@@ -494,6 +515,8 @@
   "text":"RT @giltene: A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3\u2026",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Thu Oct 23 22:13:35 +0100 2008",
     "default_profile":true,
@@ -522,6 +545,7 @@
     "lang":"en",
     "listed_count":246,
     "location":"Bay Area",
+    "muting":false,
     "name":"Jamie Allen",
     "notifications":false,
     "profile_background_color":"C0DEED",
@@ -547,6 +571,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:33:11 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -574,6 +599,7 @@
   "retweeted":false,
   "retweeted_status":{
     "contributors":[],
+    "coordinates":[],
     "created_at":"Tue Sep 29 14:48:31 +0100 2015",
     "entities":{
       "hashtags":[],
@@ -587,6 +613,25 @@
     "id_str":"648856887706939393",
     "is_quote_status":false,
     "lang":"en",
+    "place":{
+      "attributes":{
+
+      },
+      "bounding_box":{
+        "coordinates":[[[19.79343,49.96756],[20.217962,49.96756],[20.217962,50.12496],[19.79343,50.12496]]],
+        "type":"Polygon"
+      },
+      "country":"Polska",
+      "country_code":"PL",
+      "full_name":"Krakow, Lesser Poland",
+      "id":"c458763765cea500",
+      "name":"Krakow",
+      "place_type":"city",
+      "url":"https://api.twitter.com/1.1/geo/id/c458763765cea500.json",
+      "contained_within":[],
+      "centroid":[],
+      "polylines":[]
+    },
     "possibly_sensitive":false,
     "scopes":{
 
@@ -597,6 +642,8 @@
     "text":"Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd read it. :D",
     "truncated":false,
     "user":{
+      "blocked_by":false,
+      "blocking":false,
       "contributors_enabled":false,
       "created_at":"Sun Aug 31 06:56:04 +0100 2008",
       "default_profile":false,
@@ -633,6 +680,7 @@
       "lang":"en",
       "listed_count":465,
       "location":"Portland, OR",
+      "muting":false,
       "name":"Λdrøn",
       "notifications":false,
       "profile_background_color":"000000",
@@ -663,6 +711,8 @@
   "text":"RT @adron: Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd re\u2026",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Thu Mar 22 21:47:22 +0000 2007",
     "default_profile":false,
@@ -699,6 +749,7 @@
     "lang":"en",
     "listed_count":202,
     "location":"Portland, OR",
+    "muting":false,
     "name":"Thomas Lockney",
     "notifications":false,
     "profile_background_color":"1A1B1F",
@@ -726,6 +777,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:23:59 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -760,6 +812,8 @@
   "text":"Startup Spotlight: @CivisAnalytics, empowering the data-driven startup with Amazon Redshift http://t.co/Py6aDPQpFj http://t.co/MJZgfsQUsO",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Tue Jul 20 23:08:31 +0100 2010",
     "default_profile":false,
@@ -796,6 +850,7 @@
     "lang":"en",
     "listed_count":921,
     "location":"",
+    "muting":false,
     "name":"AWS startups",
     "notifications":false,
     "profile_background_color":"C0DEED",
@@ -823,6 +878,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:17:09 +0100 2015",
   "entities":{
     "hashtags":[{
@@ -866,6 +922,8 @@
   "text":"Good news! #Typesafe and @DataStax Partner to Bring Reactive Data Infrastructure to Enterprises | http://t.co/rDnd7S3AEU #cassandra #akka",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Sun Oct 05 15:50:41 +0100 2008",
     "default_profile":false,
@@ -907,6 +965,7 @@
     "lang":"en",
     "listed_count":842,
     "location":"",
+    "muting":false,
     "name":"Typesafe",
     "notifications":false,
     "profile_background_color":"53CCEC",
@@ -934,6 +993,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:16:32 +0100 2015",
   "entities":{
     "hashtags":[],
@@ -962,6 +1022,8 @@
   "text":"How a probabilistic reasoning system predicts the outcome of a corner kick from http://t.co/oFvRE7bvdf http://t.co/zytXLkyndk",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Tue Mar 17 17:13:25 +0000 2009",
     "default_profile":false,
@@ -998,6 +1060,7 @@
     "lang":"en",
     "listed_count":1088,
     "location":"Shelter Island, United States",
+    "muting":false,
     "name":"Manning Publications",
     "notifications":false,
     "profile_background_color":"ACDED6",
@@ -1024,6 +1087,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:01:29 +0100 2015",
   "entities":{
     "hashtags":[{
@@ -1067,6 +1131,8 @@
   "text":"Download the eBook \"Description, Discovery, and Profiles\" @InfoQ @apiacademy http://t.co/4GmQKpvN5A #DDandP http://t.co/BDrHG8cpfj",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Tue Mar 13 22:38:54 +0000 2007",
     "default_profile":false,
@@ -1103,6 +1169,7 @@
     "lang":"en",
     "listed_count":390,
     "location":"Erlanger, KY",
+    "muting":false,
     "name":"Mike Amundsen",
     "notifications":false,
     "profile_background_color":"131516",
@@ -1128,6 +1195,7 @@
   "withheld_in_countries":[]
 },{
   "contributors":[],
+  "coordinates":[],
   "created_at":"Tue Sep 29 16:00:54 +0100 2015",
   "entities":{
     "hashtags":[{
@@ -1165,6 +1233,8 @@
   "text":"Meet @Databricks at Booth 550 in #StrataHadoop World in NYC http://t.co/jF4axxJU8j http://t.co/fvGjyot6zu",
   "truncated":false,
   "user":{
+    "blocked_by":false,
+    "blocking":false,
     "contributors_enabled":false,
     "created_at":"Tue Jul 02 08:28:36 +0100 2013",
     "default_profile":true,
@@ -1201,6 +1271,7 @@
     "lang":"en",
     "listed_count":328,
     "location":"",
+    "muting":false,
     "name":"Databricks",
     "notifications":false,
     "profile_background_color":"C0DEED",
