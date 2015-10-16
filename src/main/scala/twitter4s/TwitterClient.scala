@@ -13,6 +13,7 @@ import twitter4s.http.clients.favorites.TwitterFavoriteClient
 import twitter4s.http.clients.followers.TwitterFollowerClient
 import twitter4s.http.clients.friends.TwitterFriendClient
 import twitter4s.http.clients.friendships.TwitterFriendshipClient
+import twitter4s.http.clients.geo.TwitterGeoClient
 import twitter4s.http.clients.mutes.TwitterMuteClient
 import twitter4s.http.clients.statuses.TwitterStatusClient
 import twitter4s.http.clients.lists.TwitterListClient
@@ -34,3 +35,4 @@ trait Clients extends TwitterStatusClient
   with TwitterSuggestionClient
   with TwitterFavoriteClient
   with TwitterListClient
+  with TwitterGeoClient
