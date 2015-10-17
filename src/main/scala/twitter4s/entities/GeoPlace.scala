@@ -10,6 +10,6 @@ case class GeoPlace(attributes: Map[String, String],
                     place_type: String,
                     url: String,
                     contained_within: Seq[GeoPlace],
-                    centroid: Seq[Float] = Seq.empty,
+                    centroid: Seq[Double] = Seq.empty,
                     polylines: Seq[String] = Seq.empty)
 
