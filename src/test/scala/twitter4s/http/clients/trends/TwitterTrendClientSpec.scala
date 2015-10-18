@@ -29,6 +29,15 @@ class TwitterTrendClientSpec  extends ClientSpec {
       result === loadJsonAs[LocationTrends]("/fixtures/trends/trends.json")
     }
 
+    "get trends for a location without hashtags" in new TwitterTrendClientSpecContext {
+      val result: LocationTrends = when(trends(1, true)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
+        request.uri.query === Query("exclude=hashtags&id=1")
+      }.respondWith("/twitter/trends/trends.json").await
+      result === loadJsonAs[LocationTrends]("/fixtures/trends/trends.json")
+    }
+
     "get locations with available trends" in new TwitterTrendClientSpecContext {
       val result: Seq[Location] = when(availableLocationTrends).expectRequest { request =>
         request.method === HttpMethods.GET

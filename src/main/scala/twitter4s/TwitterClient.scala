@@ -7,6 +7,7 @@ import twitter4s.entities.ConsumerToken._
 import twitter4s.entities.{AccessToken, ConsumerToken}
 import twitter4s.http.clients.OAuthClient
 import twitter4s.http.clients.account.TwitterAccountClient
+import twitter4s.http.clients.application.TwitterApplicationClient
 import twitter4s.http.clients.blocks.TwitterBlockClient
 import twitter4s.http.clients.directmessages.TwitterDirectMessageClient
 import twitter4s.http.clients.favorites.TwitterFavoriteClient
@@ -38,3 +39,4 @@ trait Clients extends TwitterStatusClient
   with TwitterListClient
   with TwitterGeoClient
   with TwitterTrendClient
+  with TwitterApplicationClient

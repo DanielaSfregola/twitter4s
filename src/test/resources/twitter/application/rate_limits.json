@@ -1,0 +1,449 @@
+{
+  "rate_limit_context": {
+    "access_token": "2911461333-Mp3Ci04w91xYPcmxWUBGwPtD6stuYpn0smxlXBw"
+  },
+  "resources": {
+    "lists": {
+      "\/lists\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/memberships": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/subscribers\/show": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/members": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/lists\/subscriptions": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/show": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/ownerships": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/subscribers": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/lists\/members\/show": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/lists\/statuses": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      }
+    },
+    "application": {
+      "\/application\/rate_limit_status": {
+        "limit": 180,
+        "remaining": 179,
+        "reset": 1445181993
+      }
+    },
+    "mutes": {
+      "\/mutes\/users\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/mutes\/users\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "friendships": {
+      "\/friendships\/outgoing": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friendships\/no_retweets\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friendships\/lookup": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friendships\/incoming": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friendships\/show": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      }
+    },
+    "blocks": {
+      "\/blocks\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/blocks\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "geo": {
+      "\/geo\/similar_places": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/geo\/id\/:place_id": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/geo\/reverse_geocode": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/geo\/search": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "users": {
+      "\/users\/report_spam": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/users\/show\/:id": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/users\/search": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/users\/suggestions\/:slug": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/users\/derived_info": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/users\/profile_banner": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/users\/suggestions\/:slug\/members": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/users\/lookup": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/users\/suggestions": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "followers": {
+      "\/followers\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/followers\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "collections": {
+      "\/collections\/list": {
+        "limit": 1000,
+        "remaining": 1000,
+        "reset": 1445181993
+      },
+      "\/collections\/entries": {
+        "limit": 1000,
+        "remaining": 1000,
+        "reset": 1445181993
+      },
+      "\/collections\/show": {
+        "limit": 1000,
+        "remaining": 1000,
+        "reset": 1445181993
+      }
+    },
+    "statuses": {
+      "\/statuses\/retweeters\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/statuses\/retweets_of_me": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/statuses\/home_timeline": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/statuses\/show\/:id": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/statuses\/user_timeline": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/statuses\/friends": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/statuses\/retweets\/:id": {
+        "limit": 60,
+        "remaining": 60,
+        "reset": 1445181993
+      },
+      "\/statuses\/mentions_timeline": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/statuses\/oembed": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      },
+      "\/statuses\/lookup": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      }
+    },
+    "contacts": {
+      "\/contacts\/uploaded_by": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      },
+      "\/contacts\/users": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      },
+      "\/contacts\/addressbook": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      },
+      "\/contacts\/users_and_uploaded_by": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      },
+      "\/contacts\/delete\/status": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      }
+    },
+    "moments": {
+      "\/moments\/permissions": {
+        "limit": 300,
+        "remaining": 300,
+        "reset": 1445181993
+      }
+    },
+    "help": {
+      "\/help\/tos": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/help\/configuration": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/help\/settings": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/help\/privacy": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/help\/languages": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "friends": {
+      "\/friends\/following\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friends\/following\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friends\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/friends\/ids": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "direct_messages": {
+      "\/direct_messages\/sent": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/direct_messages": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/direct_messages\/sent_and_received": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/direct_messages\/show": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "account": {
+      "\/account\/login_verification_enrollment": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/account\/update_profile": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/account\/verify_credentials": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/account\/settings": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "favorites": {
+      "\/favorites\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "device": {
+      "\/device\/token": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "saved_searches": {
+      "\/saved_searches\/destroy\/:id": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/saved_searches\/show\/:id": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/saved_searches\/list": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    },
+    "search": {
+      "\/search\/tweets": {
+        "limit": 180,
+        "remaining": 180,
+        "reset": 1445181993
+      }
+    },
+    "trends": {
+      "\/trends\/closest": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/trends\/available": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      },
+      "\/trends\/place": {
+        "limit": 15,
+        "remaining": 15,
+        "reset": 1445181993
+      }
+    }
+  }
+}

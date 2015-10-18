@@ -30,7 +30,8 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
 
   class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
-    def apply(uri: String, parameters: Parameters): HttpRequest = apply(s"$uri?$parameters")
+    def apply(uri: String, parameters: Parameters): HttpRequest =
+      if (!parameters.toString.isEmpty) apply(s"$uri?$parameters") else apply(uri)
 
     def apply(uri: String, content: Product): HttpRequest = {
       val data = toBodyAsEncodedParams(content)
