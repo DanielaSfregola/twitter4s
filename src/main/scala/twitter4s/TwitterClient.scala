@@ -18,6 +18,7 @@ import twitter4s.http.clients.mutes.TwitterMuteClient
 import twitter4s.http.clients.statuses.TwitterStatusClient
 import twitter4s.http.clients.lists.TwitterListClient
 import twitter4s.http.clients.suggestions.TwitterSuggestionClient
+import twitter4s.http.clients.trends.TwitterTrendClient
 import twitter4s.http.clients.users.TwitterUserClient
 
 class TwitterClient(val consumerToken: ConsumerToken = ConsumerTokenFromConf, val accessToken: AccessToken = AccessTokenFromConf)
@@ -36,3 +37,4 @@ trait Clients extends TwitterStatusClient
   with TwitterFavoriteClient
   with TwitterListClient
   with TwitterGeoClient
+  with TwitterTrendClient

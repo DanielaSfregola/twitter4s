@@ -22,12 +22,4 @@ case class SleepTime(enabled: Boolean = false,
 
 case class TimeZoneRecord(name: String, tzinfo_name: String, utc_offset: Int)
 
-case class Location(country: String,
-                    countryCode: String,
-                    name: String,
-                    parentid: Long,
-                    placeType: PlaceType,
-                    url: String,
-                    woeid: Long)
-
 case class PlaceType(code: String, name: String)
