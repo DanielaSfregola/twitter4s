@@ -1,0 +1,106 @@
+{
+  "query": {
+    "params": {
+      "accuracy": "0.0",
+      "granularity": "neighborhood",
+      "query": "Creazzo",
+      "autocomplete": false,
+      "trim_place": false
+    },
+    "type": "search",
+    "url": "https://api.twitter.com/1.1/geo/search.json?query=Creazzo"
+  },
+  "result": {
+    "places": [
+      {
+        "attributes": {
+        },
+        "bounding_box": {
+          "coordinates": [
+            [
+              [
+                11.4467501,
+                45.5186812
+              ],
+              [
+                11.4467501,
+                45.5560155
+              ],
+              [
+                11.5030507,
+                45.5560155
+              ],
+              [
+                11.5030507,
+                45.5186812
+              ],
+              [
+                11.4467501,
+                45.5186812
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "country": "Italia",
+        "country_code": "IT",
+        "full_name": "Creazzo, Veneto",
+        "id": "f6853c5cb8bce542",
+        "name": "Creazzo",
+        "place_type": "city",
+        "url": "https://api.twitter.com/1.1/geo/id/f6853c5cb8bce542.json",
+        "contained_within": [
+          {
+            "attributes": {
+            },
+            "bounding_box": {
+              "coordinates": [
+                [
+                  [
+                    11.1358969987069,
+                    45.2553179991286
+                  ],
+                  [
+                    11.1358969987069,
+                    46.0133088013266
+                  ],
+                  [
+                    11.8361999996732,
+                    46.0133088013266
+                  ],
+                  [
+                    11.8361999996732,
+                    45.2553179991286
+                  ],
+                  [
+                    11.1358969987069,
+                    45.2553179991286
+                  ]
+                ]
+              ],
+              "type": "Polygon"
+            },
+            "country": "Italia",
+            "country_code": "IT",
+            "full_name": "Vicenza, Veneto",
+            "id": "ab960b883b12e252",
+            "name": "Vicenza",
+            "place_type": "admin",
+            "url": "https://api.twitter.com/1.1/geo/id/ab960b883b12e252.json",
+            "contained_within": [],
+            "centroid": [
+              11.4057870480963,
+              45.6344105002099
+            ],
+            "polylines": []
+          }
+        ],
+        "centroid": [
+          11.4707112843551,
+          45.53770675
+        ],
+        "polylines": []
+      }
+    ]
+  }
+}

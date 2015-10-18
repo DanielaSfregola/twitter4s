@@ -4,12 +4,17 @@ package marshalling
 trait BodyEncoder {
 
   def toBodyAsParams(cc: Product): String =
-    toBodyAsMap(cc).map{ case (k, v) => s"$k=$v"}.toList.sorted.mkString("&")
+    toBodyAsMap(cc).map{ case (k, v) =>
+      val key = k.replace("$colon", ":")
+      s"$key=$v"
+    }.toList.sorted.mkString("&")
 
   def toBodyAsEncodedParams(cc: Product): String =
-    toBodyAsMap(cc).map{ case (k, v) => s"$k=${v.urlEncoded}"}.toList.sorted.mkString("&")
+    toBodyAsMap(cc).map{ case (k, v) =>
+      val key = k.replace("$colon", ":")
+      s"$key=${v.urlEncoded}"
+    }.toList.sorted.mkString("&")
 
-  
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).map {
       case (k, None) => None
@@ -17,8 +22,6 @@ trait BodyEncoder {
       case (k, Seq()) => None
       case (k, v) => Some(k -> v.toString)
     }.flatten.toMap
-    
-  
 
   // TODO - improve performance with Macros
   private def asMap(cc: Product): Map[String, Any] =

@@ -1,0 +1,102 @@
+{
+  "result": {
+    "places": [
+      {
+        "id": "f6853c5cb8bce542",
+        "url": "https:\/\/api.twitter.com\/1.1\/geo\/id\/f6853c5cb8bce542.json",
+        "place_type": "city",
+        "name": "Creazzo",
+        "full_name": "Creazzo, Veneto",
+        "country_code": "IT",
+        "country": "Italia",
+        "contained_within": [
+          {
+            "id": "ab960b883b12e252",
+            "url": "https:\/\/api.twitter.com\/1.1\/geo\/id\/ab960b883b12e252.json",
+            "place_type": "admin",
+            "name": "Vicenza",
+            "full_name": "Vicenza, Veneto",
+            "country_code": "IT",
+            "country": "Italia",
+            "centroid": [
+              11.4057870480963,
+              45.6344105002099
+            ],
+            "bounding_box": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    11.1358969987069,
+                    45.2553179991286
+                  ],
+                  [
+                    11.1358969987069,
+                    46.0133088013266
+                  ],
+                  [
+                    11.8361999996732,
+                    46.0133088013266
+                  ],
+                  [
+                    11.8361999996732,
+                    45.2553179991286
+                  ],
+                  [
+                    11.1358969987069,
+                    45.2553179991286
+                  ]
+                ]
+              ]
+            },
+            "attributes": {}
+          }
+        ],
+        "centroid": [
+          11.4707112843551,
+          45.53770675
+        ],
+        "bounding_box": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                11.4467501,
+                45.5186812
+              ],
+              [
+                11.4467501,
+                45.5560155
+              ],
+              [
+                11.5030507,
+                45.5560155
+              ],
+              [
+                11.5030507,
+                45.5186812
+              ],
+              [
+                11.4467501,
+                45.5186812
+              ]
+            ]
+          ]
+        },
+        "attributes": {}
+      }
+    ]
+  },
+  "query": {
+    "url": "https:\/\/api.twitter.com\/1.1\/geo\/search.json?attribute:street_address=Via+Giotto+15&query=Creazzo",
+    "type": "search",
+    "params": {
+      "accuracy": 0.0,
+      "granularity": "neighborhood",
+      "query": "Creazzo",
+      "autocomplete": false,
+      "trim_place": false,
+      "attribute:street_address": "Via Giotto 15"
+    }
+  }
+}

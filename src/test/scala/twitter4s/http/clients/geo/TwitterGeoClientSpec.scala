@@ -28,6 +28,30 @@ class TwitterGeoClientSpec extends ClientSpec {
       }.respondWith("/twitter/geo/reverse_geocode.json").await
       result === loadJsonAs[GeoSearch]("/fixtures/geo/reverse_geocode.json")
     }
+
+    "search a geo place" in new TwitterGeoClientSpecContext {
+      val result: GeoSearch = when(searchGeoPlace("Creazzo")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
+        request.uri.query === Query("query=Creazzo")
+      }.respondWith("/twitter/geo/search.json").await
+      result === loadJsonAs[GeoSearch]("/fixtures/geo/search.json")
+    }
+
+    "perform an advanced search of a geo place" in new TwitterGeoClientSpecContext {
+      val result: GeoSearch = when(advancedSearchGeoPlace(query = Some("Creazzo"), street_address = Some("Via Giotto 15"))).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
+        request.uri.query === Query("attribute:street_address=Via+Giotto+15&query=Creazzo")
+      }.respondWith("/twitter/geo/advanced_search.json").await
+      result === loadJsonAs[GeoSearch]("/fixtures/geo/advanced_search.json")
+    }
+
+    "reject advanced search if no latitude or longitude or ip or query have been provided" in new TwitterGeoClientSpecContext {
+      val msg = "requirement failed: please, provide at least one of the following: 'latitude', 'longitude', 'query', 'ip'"
+      advancedSearchGeoPlace(street_address = Some("Via Giotto 15")) must throwA[IllegalArgumentException](msg)
+    }
+
   }
 
 }
