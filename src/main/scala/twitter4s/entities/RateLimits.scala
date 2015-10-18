@@ -26,4 +26,5 @@ case class Resources(lists: Map[String, RateLimit] = Map.empty,
                      search: Map[String, RateLimit] = Map.empty,
                      trends: Map[String, RateLimit] = Map.empty)
 
-case class RateLimit(limit: Int, remaining: Int, reset: Long) // TODO - reset should be a date
+case class RateLimit(limit: Int, remaining: Int, reset: Long)
+// TODO - convert reset to Date?

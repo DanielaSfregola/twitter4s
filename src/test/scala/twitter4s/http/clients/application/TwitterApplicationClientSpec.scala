@@ -10,9 +10,9 @@ class TwitterApplicationClientSpec  extends ClientSpec {
 
   trait TwitterApplicationClientSpecContext extends ClientSpecContext with TwitterApplicationClient
 
-  "Twitter Friend Client" should {
+  "Twitter Application Client" should {
 
-    "get friends ids of a specific user by id" in new TwitterApplicationClientSpecContext {
+    "get application rate limits" in new TwitterApplicationClientSpecContext {
       val result: RateLimits = when(rateLimits(Resource.Account, Resource.Statuses)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
