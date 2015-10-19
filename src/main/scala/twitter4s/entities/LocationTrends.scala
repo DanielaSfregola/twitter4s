@@ -1,7 +1,7 @@
 package twitter4s.entities
 
-case class LocationTrends(as_of: String, // TODO - convert to Date?
-                          created_at: String, // TODO - convert to Date?
+case class LocationTrends(as_of: String, // TODO - convert to Date? Different date format here...
+                          created_at: String, // TODO - convert to Date? Different date format here...
                           locations: Seq[LocationOverview] = Seq.empty,
                           trends: Seq[Trend] = Seq.empty)
 

@@ -6,7 +6,7 @@ import twitter4s.entities.RateLimits
 import twitter4s.entities.enums.Resource
 import twitter4s.util.{ClientSpecContext, ClientSpec}
 
-class TwitterApplicationClientSpec  extends ClientSpec {
+class TwitterApplicationClientSpec extends ClientSpec {
 
   trait TwitterApplicationClientSpecContext extends ClientSpecContext with TwitterApplicationClient
 
