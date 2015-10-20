@@ -4,7 +4,7 @@ import scala.concurrent.Future
 
 import twitter4s.entities.{Location, LocationTrends}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.trends.parameters.TrendsParameters
+import twitter4s.http.clients.trends.parameters.{LocationParameters, TrendsParameters}
 import twitter4s.util.Configurations
 
 trait TwitterTrendClient extends OAuthClient with Configurations {
@@ -19,7 +19,12 @@ trait TwitterTrendClient extends OAuthClient with Configurations {
     Get(s"$trendsUrl/place.json", parameters).respondAs[LocationTrends]
   }
 
-  def availableLocationTrends(): Future[Seq[Location]] =
+  def locationTrends(): Future[Seq[Location]] =
     Get(s"$trendsUrl/available.json").respondAs[Seq[Location]]
+
+  def closestLocationTrends(latitude: Double, longitude: Double): Future[Seq[Location]] = {
+    val parameters = LocationParameters(latitude, longitude)
+    Get(s"$trendsUrl/closest.json", parameters).respondAs[Seq[Location]]
+  }
 
 }
