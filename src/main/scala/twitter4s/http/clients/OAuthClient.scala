@@ -13,12 +13,21 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
   lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
   def pipeline[T: FromResponseUnmarshaller] =
-    withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse ~> unmarshal[T]
+    withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse ~> unmarshalResponse[T]
 
   def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
   }
+  
+  def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
+    hr.status.isSuccess match {
+      case true => hr ~> unmarshal[T]
+      case false => ???
+    }
+  }
+
+
 
   val Get = new OAuthRequestBuilder(GET)
   val Post = new OAuthRequestBuilder(POST)
