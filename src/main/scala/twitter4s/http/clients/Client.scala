@@ -19,25 +19,21 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
     pipeline apply request
 
   // TODO - logRequest, logResponse customisable?
-  // TODO - link request and response?
   def pipeline[T: FromResponseUnmarshaller]: HttpRequest => Future[T]
 
   def sendReceive = spray.client.pipelining.sendReceive
 
   def logRequest: HttpRequest => HttpRequest = { request =>
     log.info(s"${request.method} ${request.uri}")
+    log.debug(s"${request.method} ${request.uri} | ${request.entity.asString}")
     request
   }
 
-  // TODO - improve response logging
-  def logResponse: Future[HttpResponse] => Future[HttpResponse] = { futureResponse =>
-    futureResponse.map { response =>
-      response.status.isSuccess match {
-        case true => log.info(response.status.toString)
-        case false => log.error(response.toString)
-      }
-    }
-    futureResponse
+  def logResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
+    val elapsed = System.currentTimeMillis - requestStartTime
+    log.info(s"${request.method} ${request.uri} (${response.status}) | ${elapsed}ms")
+    log.debug(s"${request.method} ${request.uri} (${response.status}) | ${response.entity.asString}")
+    response
   }
 
 }

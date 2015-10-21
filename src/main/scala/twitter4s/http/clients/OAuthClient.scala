@@ -8,7 +8,7 @@ import spray.http.HttpMethods._
 import spray.http._
 import spray.httpx.unmarshalling.{Deserializer => _, FromResponseUnmarshaller}
 import twitter4s.exceptions.{Errors, TwitterException}
-import twitter4s.http.marshalling.{Parameters, BodyEncoder}
+import twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import twitter4s.http.oauth.OAuthProvider
 import twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
@@ -16,8 +16,9 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
 
   lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
-  def pipeline[T: FromResponseUnmarshaller] =
-    withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse ~> unmarshalResponse[T]
+  def pipeline[T: FromResponseUnmarshaller] = { implicit request =>
+    request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
+  }
 
   def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
