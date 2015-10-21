@@ -72,5 +72,14 @@ trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       }.respondWith("/twitter/users/profile_banner.json").await
       result === loadJsonAs[Banners]("/fixtures/users/profile_banner.json")
     }
+
+    "search for a user" in new TwitterUserClientSpecContext {
+      val result: Seq[User] = when(searchUser("DanielaSfregola")).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/users/search.json"
+        request.uri.query === Query("count=20&include_entities=true&page=-1&q=DanielaSfregola")
+      }.respondWith("/twitter/users/users.json").await
+      result === loadJsonAs[Seq[User]]("/fixtures/users/users.json")
+    }
   }
 }

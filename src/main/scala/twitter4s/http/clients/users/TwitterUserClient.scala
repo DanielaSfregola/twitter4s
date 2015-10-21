@@ -4,7 +4,7 @@ import scala.concurrent.Future
 
 import twitter4s.entities.{Banners, User}
 import twitter4s.http.clients.OAuthClient
-import twitter4s.http.clients.users.parameters.{BannersParameters, UserParameters, UsersParameters}
+import twitter4s.http.clients.users.parameters.{SearchParameters, BannersParameters, UserParameters, UsersParameters}
 import twitter4s.util.Configurations
 
 trait TwitterUserClient extends OAuthClient with Configurations {
@@ -59,4 +59,12 @@ trait TwitterUserClient extends OAuthClient with Configurations {
 
   private def genericProfileBanners(parameters: BannersParameters): Future[Banners] =
     Get(s"$usersUrl/profile_banner.json", parameters).respondAs[Banners]
+
+  def searchUser(query: String,
+                 page: Int = -1,
+                 count: Int = 20,
+                 include_entities: Boolean = true): Future[Seq[User]] = {
+    val parameters = SearchParameters(query, page, count, include_entities)
+    Get(s"$usersUrl/search.json", parameters).respondAs[Seq[User]]
+  }
 }
