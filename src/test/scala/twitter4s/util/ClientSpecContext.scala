@@ -6,12 +6,13 @@ import akka.testkit.TestProbe
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 
+import org.specs2.matcher.NoConcurrentExecutionContext
 import org.specs2.specification.Scope
 import spray.http._
 import twitter4s.entities.{AccessToken, ConsumerToken}
 import twitter4s.http.clients.OAuthClient
 
-abstract class ClientSpecContext extends TestActorSystem with OAuthClient with FixturesSupport with AwaitableFuture with Scope {
+abstract class ClientSpecContext extends TestActorSystem with OAuthClient with FixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
   self =>
 
   val consumerToken = ConsumerToken("consumer-key", "consumer-secret")
@@ -30,10 +31,12 @@ abstract class ClientSpecContext extends TestActorSystem with OAuthClient with F
 
   class RequestMatcher[T](future: Future[T]) {
     protected def responder = new Responder(future)
+
     def expectRequest(req: HttpRequest): Responder[T] = {
       transport.expectMsg(req)
       responder
     }
+
     def expectRequest(fn: HttpRequest => Unit) = {
       transport.expectMsgPF() {
         case req: HttpRequest => fn(req)
