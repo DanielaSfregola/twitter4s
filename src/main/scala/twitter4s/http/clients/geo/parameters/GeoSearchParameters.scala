@@ -12,5 +12,5 @@ case class GeoSearchParameters(lat: Option[Double],
                                accuracy: Option[Accuracy],
                                max_results: Option[Int],
                                contained_within: Option[String],
-                               `attribute:street_address`: Option[String]) extends Parameters
-                               // TODO - callback support?
+                               `attribute:street_address`: Option[String],
+                               callback: Option[String]) extends Parameters

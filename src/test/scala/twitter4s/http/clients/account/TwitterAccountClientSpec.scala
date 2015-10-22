@@ -29,7 +29,7 @@ class TwitterAccountClientSpec extends ClientSpec {
 
     "update account settings" in new TwitterAccountClientSpecContext {
       val result: Settings = when(updateSettings(
-        allow_contributor_request = Some(ContributorType.ALL),
+        allow_contributor_request = Some(ContributorType.All),
         sleep_time_enabled = Some(true),
         start_sleep_time = Some(Hour.TEN_PM),
         end_sleep_time = Some(Hour.SIX_AM),

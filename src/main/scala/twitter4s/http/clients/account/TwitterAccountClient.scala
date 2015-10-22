@@ -2,7 +2,7 @@ package twitter4s.http.clients.account
 
 import scala.concurrent.Future
 
-import twitter4s.entities.enums.ContributorType._
+import twitter4s.entities.enums.ContributorType.ContributorType
 import twitter4s.entities.enums.Hour._
 import twitter4s.entities.enums.Language._
 import twitter4s.entities.enums.TimeZone._

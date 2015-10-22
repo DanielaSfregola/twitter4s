@@ -8,5 +8,5 @@ case class ReverseGeoCodeParameters(lat: Double,
                                     long: Double,
                                     accuracy: Accuracy,
                                     granularity: Granularity,
-                                    max_results: Option[Int]) extends Parameters
-                                    // TODO - callback support?
+                                    max_results: Option[Int],
+                                    callback: Option[String]) extends Parameters

@@ -19,8 +19,9 @@ trait TwitterGeoClient  extends OAuthClient with Configurations {
                      long: Double,
                      accuracy: Accuracy = Accuracy.Default,
                      granularity: Granularity = Granularity.Neighborhood,
-                     max_results: Option[Int] = None): Future[GeoSearch] = {
-    val parameters = ReverseGeoCodeParameters(lat, long, accuracy, granularity, max_results)
+                     max_results: Option[Int] = None,
+                     callback: Option[String] = None): Future[GeoSearch] = {
+    val parameters = ReverseGeoCodeParameters(lat, long, accuracy, granularity, max_results, callback)
     Get(s"$geoUrl/reverse_geocode.json", parameters).respondAs[GeoSearch]
   }
   
@@ -34,10 +35,11 @@ trait TwitterGeoClient  extends OAuthClient with Configurations {
                              accuracy: Option[Accuracy] = None,
                              max_results: Option[Int] = None,
                              contained_within: Option[String] = None,
-                             street_address: Option[String] = None): Future[GeoSearch] = {
+                             street_address: Option[String] = None,
+                             callback: Option[String] = None): Future[GeoSearch] = {
     require(latitude.isDefined || longitude.isDefined || ip.isDefined || query.isDefined,
             "please, provide at least one of the following: 'latitude', 'longitude', 'query', 'ip'")
-    val parameters = GeoSearchParameters(latitude, longitude, query, ip, granularity, accuracy, max_results, contained_within, street_address)
+    val parameters = GeoSearchParameters(latitude, longitude, query, ip, granularity, accuracy, max_results, contained_within, street_address, callback)
     Get(s"$geoUrl/search.json", parameters).respondAs[GeoSearch]
   }
 

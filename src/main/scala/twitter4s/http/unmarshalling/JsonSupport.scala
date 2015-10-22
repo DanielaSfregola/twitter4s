@@ -10,7 +10,7 @@ import spray.httpx.unmarshalling.Unmarshaller
 
 trait JsonSupport {
 
-  implicit def json4sFormats: Formats = defaultFormats
+  implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all
 
   val defaultFormats = new DefaultFormats {
     override def dateFormatter = {
@@ -21,10 +21,11 @@ trait JsonSupport {
 
   implicit def json4sUnmarshaller[T: Manifest] = {
     Unmarshaller[T](MediaTypes.`application/json`) {
-      case x: HttpEntity.NonEmpty ⇒
+      case x: HttpEntity.NonEmpty =>
         try Serialization.read[T](x.asString(defaultCharset = HttpCharsets.`UTF-8`))
         catch {
-          case MappingException("unknown error", ite: InvocationTargetException) ⇒ throw ite.getCause
+          case MappingException("unknown error", ite: InvocationTargetException) =>
+            throw ite.getCause
         }
     }
   }
