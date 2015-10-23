@@ -21,9 +21,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                        max_id: Option[Long] = None,
                        trim_user: Boolean = false,
                        contributor_details: Boolean = false,
-                       include_entities: Boolean = true): Future[Seq[Tweet]] = {
+                       include_entities: Boolean = true): Future[Seq[Status]] = {
     val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities)
-    Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAs[Seq[Status]]
   }
 
   def userTimeline(user_id: Option[Long] = None,
@@ -34,9 +34,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                    trim_user: Boolean = false,
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
-                   include_rts: Boolean = true): Future[Seq[Tweet]] = {
+                   include_rts: Boolean = true): Future[Seq[Status]] = {
     val parameters = UserTimelineParameters(user_id, screen_name, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
-    Get(s"$statusesUrl/user_timeline.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$statusesUrl/user_timeline.json", parameters).respondAs[Seq[Status]]
   }
 
   def homeTimeline(count: Int = 200,
@@ -45,9 +45,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                    trim_user: Boolean = false,
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
-                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
+                   include_entities: Boolean = true): Future[Seq[Status]] = {
     val parameters = HomeTimelineParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
-    Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Status]]
   }
 
   def retweetsOfMe(count: Int = 200,
@@ -56,30 +56,30 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                    trim_user: Boolean = false,
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
-                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
+                   include_entities: Boolean = true): Future[Seq[Status]] = {
     val parameters = RetweetsOfMeParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
-    Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAs[Seq[Status]]
   }
 
   def retweets(id: Long,
                count: Int = 100,
-               trim_user: Boolean = false): Future[Seq[Tweet]] = {
+               trim_user: Boolean = false): Future[Seq[Status]] = {
     val parameters = RetweetsParameters(count, trim_user)
-    Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Status]]
   }
 
   def showStatus(id: Long,
            trim_user: Boolean = false,
            include_my_retweet: Boolean = false,
-           include_entities: Boolean = true): Future[Tweet] = {
+           include_entities: Boolean = true): Future[Status] = {
     val parameters = ShowParameters(id, trim_user, include_my_retweet, include_entities)
-    Get(s"$statusesUrl/show.json", parameters).respondAs[Tweet]
+    Get(s"$statusesUrl/show.json", parameters).respondAs[Status]
   }
 
   def destroyStatus(id: Long,
-              trim_user: Boolean = false): Future[Tweet] = {
+              trim_user: Boolean = false): Future[Status] = {
     val parameters = PostParameters(trim_user)
-    Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Tweet]
+    Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Status]
   }
 
   def updateStatus(status: String,
@@ -90,9 +90,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
              place_id: Option[String] = None,
              display_coordinates: Boolean = false,
              trim_user: Boolean = false,
-             media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
+             media_ids: Seq[Long] = Seq.empty): Future[Status] = {
     val entity = StatusUpdate(status, in_reply_to_status_id, possibly_sensitive, lat, long, place_id, display_coordinates, trim_user, media_ids)
-    Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
+    Post(s"$statusesUrl/update.json", entity).respondAs[Status]
   }
 
   def createDirectMessageAsTweet(message: String,
@@ -104,14 +104,14 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                     place_id: Option[String] = None,
                     display_coordinates: Boolean = false,
                     trim_user: Boolean = false,
-                    media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
+                    media_ids: Seq[Long] = Seq.empty): Future[Status] = {
     val directMessage = s"D $username $message"
     updateStatus(directMessage, in_reply_to_status_id, possibly_sensitive, lat, long, place_id, display_coordinates, trim_user, media_ids)
   }
 
-  def retweet(id: Long, trim_user: Boolean = false): Future[Tweet] = {
+  def retweet(id: Long, trim_user: Boolean = false): Future[Status] = {
     val parameters = PostParameters(trim_user)
-    Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]
+    Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Status]
   }
 
   def oembedStatus(id: Long,

@@ -32,7 +32,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                     since_id: Option[Long] = None,
                                     max_id: Option[Long] = None,
                                     include_entities: Boolean = true,
-                                    include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                                    include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -45,7 +45,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                   since_id: Option[Long] = None,
                                   max_id: Option[Long] = None,
                                   include_entities: Boolean = true,
-                                  include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                                  include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -57,15 +57,15 @@ trait TwitterListClient extends OAuthClient with Configurations {
                    since_id: Option[Long] = None,
                    max_id: Option[Long] = None,
                    include_entities: Boolean = true,
-                   include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                   include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
     genericListTimeline(parameters)
   }
 
-  private def genericListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] =
-    Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
+  private def genericListTimeline(parameters: ListTimelineParameters): Future[Seq[Status]] =
+    Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Status]]
 
   def removeMemberFromList(list_id: Long, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), screen_name = Some(member_screen_name))
