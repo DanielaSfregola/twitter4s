@@ -1,0 +1,2809 @@
+{
+  "statuses": [
+    {
+      "metadata": {
+        "result_type": "recent",
+        "iso_language_code": "ru"
+      },
+      "created_at": "Sun Oct 25 10:22:13 +0000 2015",
+      "id": 658227054874382336,
+      "id_str": "658227054874382336",
+      "text": "\u0447\u0435\u043c \u0434\u0430\u043b\u044c\u0448\u0435, \u0442\u0435\u043c \u0431\u043e\u043b\u044c\u0448\u0435 \u043c\u043d\u0435 \u043d\u0440\u0430\u0432\u044f\u0442\u0441\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0435 \u044f\u0437\u044b\u043a\u0438 #scala",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 9377422,
+        "id_str": "9377422",
+        "name": "\u041a\u043b\u0430\u0441\u0441\u0438\u043a",
+        "screen_name": "classx",
+        "location": "Israel",
+        "description": "Co-founder of Topixoft, founder of TarTar, podcaster.",
+        "url": "http:\/\/t.co\/LhJUYujJMZ",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/LhJUYujJMZ",
+                "expanded_url": "http:\/\/about.me\/classx",
+                "display_url": "about.me\/classx",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 429,
+        "friends_count": 97,
+        "listed_count": 28,
+        "created_at": "Thu Oct 11 13:21:06 +0000 2007",
+        "favourites_count": 188,
+        "utc_offset": 7200,
+        "time_zone": "Jerusalem",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 9081,
+        "lang": "ru",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "022330",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/521582250186395649\/ybLVCU_R_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/521582250186395649\/ybLVCU_R_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/9377422\/1391610764",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "A8C7F7",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "scala",
+            "indices": [
+              57,
+              63
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "ru"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:13:30 +0000 2015",
+      "id": 658224858933927940,
+      "id_str": "658224858933927940",
+      "text": "RT @ScalaAcademy: \u201c#Scala: Arrays are not (that much of) a special case\u201d https:\/\/t.co\/SqcXLNyx3H | #Java",
+      "source": "\u003ca href=\"http:\/\/not.yet\/\" rel=\"nofollow\"\u003efinal one kk\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 2942356560,
+        "id_str": "2942356560",
+        "name": "Java",
+        "screen_name": "retweetjava",
+        "location": "",
+        "description": "Hey, I retweet #Java related tweets. Follow us and maybe you'll learn something new! Questions\/concerns? Contact @jdf221 or @Jordanb844",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 2883,
+        "friends_count": 19,
+        "listed_count": 2757,
+        "created_at": "Thu Dec 25 02:07:45 +0000 2014",
+        "favourites_count": 62453,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 167794,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "022330",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme15\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/547942714675712000\/Kr9dDPXJ_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/547942714675712000\/Kr9dDPXJ_normal.png",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "A8C7F7",
+        "profile_sidebar_fill_color": "C0DFEC",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sun Oct 25 07:47:01 +0000 2015",
+        "id": 658187995024109569,
+        "id_str": "658187995024109569",
+        "text": "\u201c#Scala: Arrays are not (that much of) a special case\u201d https:\/\/t.co\/SqcXLNyx3H | #Java",
+        "source": "\u003ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003eBuffer\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 2600538973,
+          "id_str": "2600538973",
+          "name": "Scala Academy",
+          "screen_name": "ScalaAcademy",
+          "location": "",
+          "description": "Live Interactive Scala Training Online!\ninfo@scalaacademy.com",
+          "url": "http:\/\/t.co\/EopXLzpmhB",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "http:\/\/t.co\/EopXLzpmhB",
+                  "expanded_url": "http:\/\/www.scala-academy.com\/",
+                  "display_url": "scala-academy.com",
+                  "indices": [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 143,
+          "friends_count": 190,
+          "listed_count": 22,
+          "created_at": "Wed Jul 02 21:51:01 +0000 2014",
+          "favourites_count": 103,
+          "utc_offset": null,
+          "time_zone": null,
+          "geo_enabled": false,
+          "verified": false,
+          "statuses_count": 429,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/489702099534352384\/JYeeaPg4_normal.png",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/489702099534352384\/JYeeaPg4_normal.png",
+          "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2600538973\/1443610793",
+          "profile_link_color": "0084B4",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "has_extended_profile": false,
+          "default_profile": true,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 1,
+        "favorite_count": 0,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Scala",
+              "indices": [
+                1,
+                7
+              ]
+            },
+            {
+              "text": "Java",
+              "indices": [
+                81,
+                86
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/SqcXLNyx3H",
+              "expanded_url": "http:\/\/buff.ly\/1G1SVXJ",
+              "display_url": "buff.ly\/1G1SVXJ",
+              "indices": [
+                55,
+                78
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Scala",
+            "indices": [
+              19,
+              25
+            ]
+          },
+          {
+            "text": "Java",
+            "indices": [
+              99,
+              104
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "ScalaAcademy",
+            "name": "Scala Academy",
+            "id": 2600538973,
+            "id_str": "2600538973",
+            "indices": [
+              3,
+              16
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/SqcXLNyx3H",
+            "expanded_url": "http:\/\/buff.ly\/1G1SVXJ",
+            "display_url": "buff.ly\/1G1SVXJ",
+            "indices": [
+              73,
+              96
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:12:20 +0000 2015",
+      "id": 658224567039717376,
+      "id_str": "658224567039717376",
+      "text": "RT @ManningBooks: Hey #LambdaWorld! Save 39% on #fp, #java, #scala, and other books with code ctwlambdaw at https:\/\/t.co\/OdkWpwUDeg #mannin\u2026",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 14908048,
+        "id_str": "14908048",
+        "name": "Sr.Software Engineer",
+        "screen_name": "dmkavanagh",
+        "location": "...over an Irish rainbow",
+        "description": "Software Developer for 35 years currently involved in Java\/Java EE, Apache Camel, Service Mix, ActiveMQ, Blueprint",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 844,
+        "friends_count": 2003,
+        "listed_count": 208,
+        "created_at": "Mon May 26 11:34:34 +0000 2008",
+        "favourites_count": 26276,
+        "utc_offset": -14400,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 22244,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "ACDED6",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/3229442079\/800b5f79bd5ad9c586ce5c2de8dadbed_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/3229442079\/800b5f79bd5ad9c586ce5c2de8dadbed_normal.jpeg",
+        "profile_link_color": "038544",
+        "profile_sidebar_border_color": "EEEEEE",
+        "profile_sidebar_fill_color": "F6F6F6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sun Oct 25 10:00:10 +0000 2015",
+        "id": 658221505948442625,
+        "id_str": "658221505948442625",
+        "text": "Hey #LambdaWorld! Save 39% on #fp, #java, #scala, and other books with code ctwlambdaw at https:\/\/t.co\/OdkWpwUDeg #manningbooks",
+        "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 24914741,
+          "id_str": "24914741",
+          "name": "Manning Publications",
+          "screen_name": "ManningBooks",
+          "location": "Shelter Island, United States",
+          "description": "Follow Manning Publications on Twitter and get exclusive discounts, product announcements, author news, and great content.",
+          "url": "http:\/\/t.co\/hoWlwoEP88",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "http:\/\/t.co\/hoWlwoEP88",
+                  "expanded_url": "http:\/\/www.manning.com",
+                  "display_url": "manning.com",
+                  "indices": [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 13036,
+          "friends_count": 882,
+          "listed_count": 1114,
+          "created_at": "Tue Mar 17 17:13:25 +0000 2009",
+          "favourites_count": 1596,
+          "utc_offset": -14400,
+          "time_zone": "Eastern Time (US & Canada)",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 20053,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "ACDED6",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/386363365\/uglyguy_normal.jpg",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/386363365\/uglyguy_normal.jpg",
+          "profile_link_color": "038543",
+          "profile_sidebar_border_color": "EEEEEE",
+          "profile_sidebar_fill_color": "F6F6F6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "has_extended_profile": false,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": true,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 1,
+        "favorite_count": 1,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "LambdaWorld",
+              "indices": [
+                4,
+                16
+              ]
+            },
+            {
+              "text": "fp",
+              "indices": [
+                30,
+                33
+              ]
+            },
+            {
+              "text": "java",
+              "indices": [
+                35,
+                40
+              ]
+            },
+            {
+              "text": "scala",
+              "indices": [
+                42,
+                48
+              ]
+            },
+            {
+              "text": "manningbooks",
+              "indices": [
+                114,
+                127
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/OdkWpwUDeg",
+              "expanded_url": "http:\/\/manning.com",
+              "display_url": "manning.com",
+              "indices": [
+                90,
+                113
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "LambdaWorld",
+            "indices": [
+              22,
+              34
+            ]
+          },
+          {
+            "text": "fp",
+            "indices": [
+              48,
+              51
+            ]
+          },
+          {
+            "text": "java",
+            "indices": [
+              53,
+              58
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              60,
+              66
+            ]
+          },
+          {
+            "text": "manningbooks",
+            "indices": [
+              132,
+              140
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "ManningBooks",
+            "name": "Manning Publications",
+            "id": 24914741,
+            "id_str": "24914741",
+            "indices": [
+              3,
+              16
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/OdkWpwUDeg",
+            "expanded_url": "http:\/\/manning.com",
+            "display_url": "manning.com",
+            "indices": [
+              108,
+              131
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "sv",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:11:06 +0000 2015",
+      "id": 658224254136266752,
+      "id_str": "658224254136266752",
+      "text": "RT @inoxcrom66: Grotesco p\u00e5 scala \u00e4r l\u00e4tt det roligaste jag sett! #sthlm #grotesco #scala",
+      "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 2829569412,
+        "id_str": "2829569412",
+        "name": "Lena Ahlstedt",
+        "screen_name": "AhlstedtLena",
+        "location": "Stockholm ",
+        "description": "Specialpedagogik,Diktberoende, L\u00e4rarf\u00f6rbundet, Forskning ,utveckling, Nyfiken ,Helhetssyn ,Musik g\u00e4ller i alla l\u00e4gen..Orden \u00e4r mina egna.G\u00e5tt med 2014",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 746,
+        "friends_count": 2019,
+        "listed_count": 15,
+        "created_at": "Wed Sep 24 09:52:42 +0000 2014",
+        "favourites_count": 193,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2284,
+        "lang": "sv",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/516293991663284224\/PfpToqSG_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/516293991663284224\/PfpToqSG_normal.jpeg",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "sv",
+          "result_type": "recent"
+        },
+        "created_at": "Sat Sep 26 20:21:30 +0000 2015",
+        "id": 647868621352513537,
+        "id_str": "647868621352513537",
+        "text": "Grotesco p\u00e5 scala \u00e4r l\u00e4tt det roligaste jag sett! #sthlm #grotesco #scala",
+        "source": "\u003ca href=\"http:\/\/twitter.com\/download\/iphone\" rel=\"nofollow\"\u003eTwitter for iPhone\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 360092133,
+          "id_str": "360092133",
+          "name": "Joakim Karlsson",
+          "screen_name": "inoxcrom66",
+          "location": "Sweden",
+          "description": "Arbetar som coach inom skolans v\u00e4rld d\u00e4r jag fr\u00e4mst utf\u00f6r kartl\u00e4ggningar, r\u00e5dgiver samt modellhandleder d\u00e4r h\u00f6gre m\u00e5luppfyllelse samt inkludering \u00e4r m\u00e5len!",
+          "url": null,
+          "entities": {
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 474,
+          "friends_count": 1018,
+          "listed_count": 7,
+          "created_at": "Mon Aug 22 17:34:27 +0000 2011",
+          "favourites_count": 1188,
+          "utc_offset": null,
+          "time_zone": null,
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 5360,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/3028538656\/0744f020227938a4513fb65931279954_normal.png",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/3028538656\/0744f020227938a4513fb65931279954_normal.png",
+          "profile_link_color": "0084B4",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "has_extended_profile": false,
+          "default_profile": true,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 1,
+        "favorite_count": 2,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "sthlm",
+              "indices": [
+                50,
+                56
+              ]
+            },
+            {
+              "text": "grotesco",
+              "indices": [
+                57,
+                66
+              ]
+            },
+            {
+              "text": "scala",
+              "indices": [
+                67,
+                73
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [],
+          "urls": []
+        },
+        "favorited": false,
+        "retweeted": false,
+        "lang": "sv"
+      },
+      "is_quote_status": false,
+      "retweet_count": 1,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "sthlm",
+            "indices": [
+              66,
+              72
+            ]
+          },
+          {
+            "text": "grotesco",
+            "indices": [
+              73,
+              82
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              83,
+              89
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "inoxcrom66",
+            "name": "Joakim Karlsson",
+            "id": 360092133,
+            "id_str": "360092133",
+            "indices": [
+              3,
+              14
+            ]
+          }
+        ],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "sv"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "und",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:10:07 +0000 2015",
+      "id": 658224007532146689,
+      "id_str": "658224007532146689",
+      "text": "@PiLu975 mass\u00ed,un #pezzo,na #scala,fai tu..",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": 658223568560484352,
+      "in_reply_to_status_id_str": "658223568560484352",
+      "in_reply_to_user_id": 847497841,
+      "in_reply_to_user_id_str": "847497841",
+      "in_reply_to_screen_name": "PiLu975",
+      "user": {
+        "id": 2742164776,
+        "id_str": "2742164776",
+        "name": "\u27a1IO,ROBIROBOT\u27a1",
+        "screen_name": "robirobot74",
+        "location": "STOCAZZO ",
+        "description": "BIONICO",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 999,
+        "friends_count": 536,
+        "listed_count": 15,
+        "created_at": "Wed Aug 13 22:11:29 +0000 2014",
+        "favourites_count": 40902,
+        "utc_offset": 3600,
+        "time_zone": "Ljubljana",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 34209,
+        "lang": "it",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/581585418942038016\/pWGN3SUe_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/581585418942038016\/pWGN3SUe_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2742164776\/1420286493",
+        "profile_link_color": "DD2E44",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "000000",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "pezzo",
+            "indices": [
+              18,
+              24
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              28,
+              34
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "PiLu975",
+            "name": "#ercica",
+            "id": 847497841,
+            "id_str": "847497841",
+            "indices": [
+              0,
+              8
+            ]
+          }
+        ],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "und"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:04:18 +0000 2015",
+      "id": 658222545196437504,
+      "id_str": "658222545196437504",
+      "text": "RT @cvogt: Need #Slick 2 -&gt; 3 migration example? Just upgraded #ensime-server. https:\/\/t.co\/ixPHEeFYpL cc @fommil  #scala",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 6526632,
+        "id_str": "6526632",
+        "name": "Sam Halliday",
+        "screen_name": "fommil",
+        "location": "London",
+        "description": "Scala, Java, Big Data, R&D, Mathematics, Leadership",
+        "url": "http:\/\/t.co\/cuoDY9MRMI",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/cuoDY9MRMI",
+                "expanded_url": "http:\/\/github.com\/fommil",
+                "display_url": "github.com\/fommil",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 504,
+        "friends_count": 186,
+        "listed_count": 44,
+        "created_at": "Sat Jun 02 17:54:55 +0000 2007",
+        "favourites_count": 2199,
+        "utc_offset": 0,
+        "time_zone": "Europe\/London",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 1840,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/6526632\/1363946877",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sun Oct 25 01:55:18 +0000 2015",
+        "id": 658099484866564097,
+        "id_str": "658099484866564097",
+        "text": "Need #Slick 2 -&gt; 3 migration example? Just upgraded #ensime-server. https:\/\/t.co\/ixPHEeFYpL cc @fommil  #scala",
+        "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 315265842,
+          "id_str": "315265842",
+          "name": "Christopher Vogt",
+          "screen_name": "cvogt",
+          "location": "NYC",
+          "description": "Software Engineer at @xdotai \/                     Scala Slick developer",
+          "url": "https:\/\/t.co\/iOgSCN2TH8",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "https:\/\/t.co\/iOgSCN2TH8",
+                  "expanded_url": "https:\/\/github.com\/cvogt\/compossible",
+                  "display_url": "github.com\/cvogt\/compossi\u2026",
+                  "indices": [
+                    0,
+                    23
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 748,
+          "friends_count": 40,
+          "listed_count": 27,
+          "created_at": "Sat Jun 11 15:42:41 +0000 2011",
+          "favourites_count": 105,
+          "utc_offset": 3600,
+          "time_zone": "Berlin",
+          "geo_enabled": false,
+          "verified": false,
+          "statuses_count": 681,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "000000",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/542684298621358080\/sTwaAI0k_normal.jpeg",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/542684298621358080\/sTwaAI0k_normal.jpeg",
+          "profile_link_color": "3B94D9",
+          "profile_sidebar_border_color": "000000",
+          "profile_sidebar_fill_color": "000000",
+          "profile_text_color": "000000",
+          "profile_use_background_image": false,
+          "has_extended_profile": false,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 7,
+        "favorite_count": 10,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Slick",
+              "indices": [
+                5,
+                11
+              ]
+            },
+            {
+              "text": "ensime",
+              "indices": [
+                55,
+                62
+              ]
+            },
+            {
+              "text": "scala",
+              "indices": [
+                107,
+                113
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "fommil",
+              "name": "Sam Halliday",
+              "id": 6526632,
+              "id_str": "6526632",
+              "indices": [
+                98,
+                105
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/ixPHEeFYpL",
+              "expanded_url": "https:\/\/github.com\/ensime\/ensime-server\/pull\/1119",
+              "display_url": "github.com\/ensime\/ensime-\u2026",
+              "indices": [
+                71,
+                94
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 7,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Slick",
+            "indices": [
+              16,
+              22
+            ]
+          },
+          {
+            "text": "ensime",
+            "indices": [
+              66,
+              73
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              118,
+              124
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "cvogt",
+            "name": "Christopher Vogt",
+            "id": 315265842,
+            "id_str": "315265842",
+            "indices": [
+              3,
+              9
+            ]
+          },
+          {
+            "screen_name": "fommil",
+            "name": "Sam Halliday",
+            "id": 6526632,
+            "id_str": "6526632",
+            "indices": [
+              109,
+              116
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/ixPHEeFYpL",
+            "expanded_url": "https:\/\/github.com\/ensime\/ensime-server\/pull\/1119",
+            "display_url": "github.com\/ensime\/ensime-\u2026",
+            "indices": [
+              82,
+              105
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 10:00:10 +0000 2015",
+      "id": 658221505948442625,
+      "id_str": "658221505948442625",
+      "text": "Hey #LambdaWorld! Save 39% on #fp, #java, #scala, and other books with code ctwlambdaw at https:\/\/t.co\/OdkWpwUDeg #manningbooks",
+      "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 24914741,
+        "id_str": "24914741",
+        "name": "Manning Publications",
+        "screen_name": "ManningBooks",
+        "location": "Shelter Island, United States",
+        "description": "Follow Manning Publications on Twitter and get exclusive discounts, product announcements, author news, and great content.",
+        "url": "http:\/\/t.co\/hoWlwoEP88",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/hoWlwoEP88",
+                "expanded_url": "http:\/\/www.manning.com",
+                "display_url": "manning.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 13036,
+        "friends_count": 882,
+        "listed_count": 1114,
+        "created_at": "Tue Mar 17 17:13:25 +0000 2009",
+        "favourites_count": 1596,
+        "utc_offset": -14400,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 20053,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "ACDED6",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme18\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/386363365\/uglyguy_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/386363365\/uglyguy_normal.jpg",
+        "profile_link_color": "038543",
+        "profile_sidebar_border_color": "EEEEEE",
+        "profile_sidebar_fill_color": "F6F6F6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 1,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "LambdaWorld",
+            "indices": [
+              4,
+              16
+            ]
+          },
+          {
+            "text": "fp",
+            "indices": [
+              30,
+              33
+            ]
+          },
+          {
+            "text": "java",
+            "indices": [
+              35,
+              40
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              42,
+              48
+            ]
+          },
+          {
+            "text": "manningbooks",
+            "indices": [
+              114,
+              127
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/OdkWpwUDeg",
+            "expanded_url": "http:\/\/manning.com",
+            "display_url": "manning.com",
+            "indices": [
+              90,
+              113
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:50:27 +0000 2015",
+      "id": 658219058169409536,
+      "id_str": "658219058169409536",
+      "text": "We Won! How #Scala Conquered the Big Data World https:\/\/t.co\/cC10FT52gk via @siah",
+      "source": "\u003ca href=\"http:\/\/stackoverflow.com\/questions\/tagged\/scala\" rel=\"nofollow\"\u003eBestScala\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 1243555766,
+        "id_str": "1243555766",
+        "name": "ScalaFact",
+        "screen_name": "ScalaFact",
+        "location": "",
+        "description": "Daily Scala tweets.",
+        "url": "http:\/\/t.co\/Ckal8yqLIg",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/Ckal8yqLIg",
+                "expanded_url": "http:\/\/stackoverflow.com\/questions\/tagged\/scala",
+                "display_url": "stackoverflow.com\/questions\/tagg\u2026",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1717,
+        "friends_count": 187,
+        "listed_count": 220,
+        "created_at": "Tue Mar 05 11:56:10 +0000 2013",
+        "favourites_count": 44,
+        "utc_offset": 10800,
+        "time_zone": "Baghdad",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 4368,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/3341837871\/935c3136c5e25db90658931fbc2bc59e_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/3341837871\/935c3136c5e25db90658931fbc2bc59e_normal.png",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Scala",
+            "indices": [
+              12,
+              18
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "siah",
+            "name": "Mark Faridani",
+            "id": 5082531,
+            "id_str": "5082531",
+            "indices": [
+              76,
+              81
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/cC10FT52gk",
+            "expanded_url": "http:\/\/gettopical.com\/scala\/85a8e074bafaa037c860872f8bcebf41?src=twitter",
+            "display_url": "gettopical.com\/scala\/85a8e074\u2026",
+            "indices": [
+              48,
+              71
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:47:56 +0000 2015",
+      "id": 658218424691249152,
+      "id_str": "658218424691249152",
+      "text": "Just published #shapeless 2.2.5 for #Scala 2.12.0-M3 ... JVM only until Scala.js supports 2.12.0-M3.",
+      "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 29444566,
+        "id_str": "29444566",
+        "name": "Miles Sabin",
+        "screen_name": "milessabin",
+        "location": "Brighton, UK",
+        "description": "I do stuff with Scala. Partner at _.underscore. Type astronaut and shapeless hacker.",
+        "url": "http:\/\/t.co\/wvSQ6p9vWL",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/wvSQ6p9vWL",
+                "expanded_url": "http:\/\/milessabin.com\/blog",
+                "display_url": "milessabin.com\/blog",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 5002,
+        "friends_count": 262,
+        "listed_count": 336,
+        "created_at": "Tue Apr 07 13:15:40 +0000 2009",
+        "favourites_count": 6532,
+        "utc_offset": 0,
+        "time_zone": "London",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 14970,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "E0E0E0",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme6\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme6\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/566725281516236800\/A97aW1Pg_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/566725281516236800\/A97aW1Pg_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/29444566\/1398457582",
+        "profile_link_color": "A24545",
+        "profile_sidebar_border_color": "999999",
+        "profile_sidebar_fill_color": "F0F0F0",
+        "profile_text_color": "555555",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "shapeless",
+            "indices": [
+              15,
+              25
+            ]
+          },
+          {
+            "text": "Scala",
+            "indices": [
+              36,
+              42
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": []
+      },
+      "favorited": false,
+      "retweeted": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:47:36 +0000 2015",
+      "id": 658218341287489536,
+      "id_str": "658218341287489536",
+      "text": "RT @fommil: #scala #slick once again has a #freesoftware MSSQL driver, plus a new Oracle one! https:\/\/t.co\/fesRHsjccM @fsf",
+      "source": "\u003ca href=\"http:\/\/www.myplume.com\/\" rel=\"nofollow\"\u003ePlume\u00a0for\u00a0Android\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 2152063228,
+        "id_str": "2152063228",
+        "name": "Timo Rantalaiho",
+        "screen_name": "timorantalaiho",
+        "location": "Helsinki",
+        "description": "Programmer and consultant working for @ReaktorNow . I do everything from UI to persistent storages, and currently dig functional style, not much TDD\/BDD anymore",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 249,
+        "friends_count": 286,
+        "listed_count": 71,
+        "created_at": "Fri Oct 25 04:42:48 +0000 2013",
+        "favourites_count": 1513,
+        "utc_offset": 7200,
+        "time_zone": "Helsinki",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 2684,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000103278048\/66ea25370f210d08f2e77b03199bd7b5.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000103278048\/66ea25370f210d08f2e77b03199bd7b5.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/378800000644351016\/193c68598e64f3391facf9774e53d0f2_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/378800000644351016\/193c68598e64f3391facf9774e53d0f2_normal.jpeg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2152063228\/1382678015",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sat Oct 24 18:54:46 +0000 2015",
+        "id": 657993652233482240,
+        "id_str": "657993652233482240",
+        "text": "#scala #slick once again has a #freesoftware MSSQL driver, plus a new Oracle one! https:\/\/t.co\/fesRHsjccM @fsf",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 6526632,
+          "id_str": "6526632",
+          "name": "Sam Halliday",
+          "screen_name": "fommil",
+          "location": "London",
+          "description": "Scala, Java, Big Data, R&D, Mathematics, Leadership",
+          "url": "http:\/\/t.co\/cuoDY9MRMI",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "http:\/\/t.co\/cuoDY9MRMI",
+                  "expanded_url": "http:\/\/github.com\/fommil",
+                  "display_url": "github.com\/fommil",
+                  "indices": [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 504,
+          "friends_count": 186,
+          "listed_count": 44,
+          "created_at": "Sat Jun 02 17:54:55 +0000 2007",
+          "favourites_count": 2199,
+          "utc_offset": 0,
+          "time_zone": "Europe\/London",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 1840,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+          "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/6526632\/1363946877",
+          "profile_link_color": "0084B4",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "has_extended_profile": false,
+          "default_profile": true,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 6,
+        "favorite_count": 12,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "scala",
+              "indices": [
+                0,
+                6
+              ]
+            },
+            {
+              "text": "slick",
+              "indices": [
+                7,
+                13
+              ]
+            },
+            {
+              "text": "freesoftware",
+              "indices": [
+                31,
+                44
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "fsf",
+              "name": "Free Software Fndn.",
+              "id": 14662473,
+              "id_str": "14662473",
+              "indices": [
+                106,
+                110
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/fesRHsjccM",
+              "expanded_url": "https:\/\/github.com\/smootoo\/freeslick",
+              "display_url": "github.com\/smootoo\/freesl\u2026",
+              "indices": [
+                82,
+                105
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 6,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "scala",
+            "indices": [
+              12,
+              18
+            ]
+          },
+          {
+            "text": "slick",
+            "indices": [
+              19,
+              25
+            ]
+          },
+          {
+            "text": "freesoftware",
+            "indices": [
+              43,
+              56
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "fommil",
+            "name": "Sam Halliday",
+            "id": 6526632,
+            "id_str": "6526632",
+            "indices": [
+              3,
+              10
+            ]
+          },
+          {
+            "screen_name": "fsf",
+            "name": "Free Software Fndn.",
+            "id": 14662473,
+            "id_str": "14662473",
+            "indices": [
+              118,
+              122
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/fesRHsjccM",
+            "expanded_url": "https:\/\/github.com\/smootoo\/freeslick",
+            "display_url": "github.com\/smootoo\/freesl\u2026",
+            "indices": [
+              94,
+              117
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:37:33 +0000 2015",
+      "id": 658215813103636482,
+      "id_str": "658215813103636482",
+      "text": "RT @cvogt: Need #Slick 2 -&gt; 3 migration example? Just upgraded #ensime-server. https:\/\/t.co\/ixPHEeFYpL cc @fommil  #scala",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/download\/android\" rel=\"nofollow\"\u003eTwitter for Android\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 60093,
+        "id_str": "60093",
+        "name": "Richard Dallaway",
+        "screen_name": "d6y",
+        "location": "Brighton, UK",
+        "description": "Scala at Underscore Consulting; author of Essential Slick,  Lift Cookbook. Hobbies: Exoplanets.",
+        "url": "http:\/\/t.co\/bsVxyMHdFt",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/bsVxyMHdFt",
+                "expanded_url": "http:\/\/richard.dallaway.com",
+                "display_url": "richard.dallaway.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 783,
+        "friends_count": 311,
+        "listed_count": 81,
+        "created_at": "Tue Dec 12 11:00:51 +0000 2006",
+        "favourites_count": 1264,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 5445,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "EDECE9",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme3\/bg.gif",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme3\/bg.gif",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/378800000600224854\/68e0b03f6a64590a3c22637714546600_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/378800000600224854\/68e0b03f6a64590a3c22637714546600_normal.jpeg",
+        "profile_link_color": "088253",
+        "profile_sidebar_border_color": "D3D2CF",
+        "profile_sidebar_fill_color": "E3E2DE",
+        "profile_text_color": "634047",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": true,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sun Oct 25 01:55:18 +0000 2015",
+        "id": 658099484866564097,
+        "id_str": "658099484866564097",
+        "text": "Need #Slick 2 -&gt; 3 migration example? Just upgraded #ensime-server. https:\/\/t.co\/ixPHEeFYpL cc @fommil  #scala",
+        "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 315265842,
+          "id_str": "315265842",
+          "name": "Christopher Vogt",
+          "screen_name": "cvogt",
+          "location": "NYC",
+          "description": "Software Engineer at @xdotai \/                     Scala Slick developer",
+          "url": "https:\/\/t.co\/iOgSCN2TH8",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "https:\/\/t.co\/iOgSCN2TH8",
+                  "expanded_url": "https:\/\/github.com\/cvogt\/compossible",
+                  "display_url": "github.com\/cvogt\/compossi\u2026",
+                  "indices": [
+                    0,
+                    23
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 748,
+          "friends_count": 40,
+          "listed_count": 27,
+          "created_at": "Sat Jun 11 15:42:41 +0000 2011",
+          "favourites_count": 105,
+          "utc_offset": 3600,
+          "time_zone": "Berlin",
+          "geo_enabled": false,
+          "verified": false,
+          "statuses_count": 681,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "000000",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme14\/bg.gif",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/542684298621358080\/sTwaAI0k_normal.jpeg",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/542684298621358080\/sTwaAI0k_normal.jpeg",
+          "profile_link_color": "3B94D9",
+          "profile_sidebar_border_color": "000000",
+          "profile_sidebar_fill_color": "000000",
+          "profile_text_color": "000000",
+          "profile_use_background_image": false,
+          "has_extended_profile": false,
+          "default_profile": false,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 7,
+        "favorite_count": 10,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "Slick",
+              "indices": [
+                5,
+                11
+              ]
+            },
+            {
+              "text": "ensime",
+              "indices": [
+                55,
+                62
+              ]
+            },
+            {
+              "text": "scala",
+              "indices": [
+                107,
+                113
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "fommil",
+              "name": "Sam Halliday",
+              "id": 6526632,
+              "id_str": "6526632",
+              "indices": [
+                98,
+                105
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/ixPHEeFYpL",
+              "expanded_url": "https:\/\/github.com\/ensime\/ensime-server\/pull\/1119",
+              "display_url": "github.com\/ensime\/ensime-\u2026",
+              "indices": [
+                71,
+                94
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 7,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Slick",
+            "indices": [
+              16,
+              22
+            ]
+          },
+          {
+            "text": "ensime",
+            "indices": [
+              66,
+              73
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              118,
+              124
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "cvogt",
+            "name": "Christopher Vogt",
+            "id": 315265842,
+            "id_str": "315265842",
+            "indices": [
+              3,
+              9
+            ]
+          },
+          {
+            "screen_name": "fommil",
+            "name": "Sam Halliday",
+            "id": 6526632,
+            "id_str": "6526632",
+            "indices": [
+              109,
+              116
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/ixPHEeFYpL",
+            "expanded_url": "https:\/\/github.com\/ensime\/ensime-server\/pull\/1119",
+            "display_url": "github.com\/ensime\/ensime-\u2026",
+            "indices": [
+              82,
+              105
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:09:03 +0000 2015",
+      "id": 658208641204539392,
+      "id_str": "658208641204539392",
+      "text": "\u201c#Scala is a very expressive language. And yet it lets you express your ideas with very few lines of code.\u201d https:\/\/t.co\/mVbfZF0GOw",
+      "source": "\u003ca href=\"http:\/\/bufferapp.com\" rel=\"nofollow\"\u003eBuffer\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 2600538973,
+        "id_str": "2600538973",
+        "name": "Scala Academy",
+        "screen_name": "ScalaAcademy",
+        "location": "",
+        "description": "Live Interactive Scala Training Online!\ninfo@scalaacademy.com",
+        "url": "http:\/\/t.co\/EopXLzpmhB",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/EopXLzpmhB",
+                "expanded_url": "http:\/\/www.scala-academy.com\/",
+                "display_url": "scala-academy.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 143,
+        "friends_count": 190,
+        "listed_count": 22,
+        "created_at": "Wed Jul 02 21:51:01 +0000 2014",
+        "favourites_count": 103,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 429,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/489702099534352384\/JYeeaPg4_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/489702099534352384\/JYeeaPg4_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/2600538973\/1443610793",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "Scala",
+            "indices": [
+              1,
+              7
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/mVbfZF0GOw",
+            "expanded_url": "http:\/\/buff.ly\/1LrzUKo",
+            "display_url": "buff.ly\/1LrzUKo",
+            "indices": [
+              108,
+              131
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "es",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 09:00:31 +0000 2015",
+      "id": 658206491455807489,
+      "id_str": "658206491455807489",
+      "text": "Bajo la protecci\u00f3n del gran maestro Leonardo \ud83c\udfa8\u2764\n#goodmorning #buongiorno #scala #leonardodavinci\u2026 https:\/\/t.co\/hb40sZtGu9",
+      "source": "\u003ca href=\"http:\/\/instagram.com\" rel=\"nofollow\"\u003eInstagram\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 132919802,
+        "id_str": "132919802",
+        "name": "Annie C",
+        "screen_name": "AnnieC_art",
+        "location": "Milano, Italia ",
+        "description": "Made in Spain. 1990. Live in Milano. Artist. Music is my passion. Wanderlust.\nSorridi sempre alla vita! Art Historian.\nInstagram @annielawanderlust",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 1005,
+        "friends_count": 1103,
+        "listed_count": 24,
+        "created_at": "Wed Apr 14 14:39:28 +0000 2010",
+        "favourites_count": 1380,
+        "utc_offset": 0,
+        "time_zone": "Casablanca",
+        "geo_enabled": true,
+        "verified": false,
+        "statuses_count": 43746,
+        "lang": "es",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FF6699",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/378800000046453051\/038e57fcff57e320e7eae07121e6dea0.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/378800000046453051\/038e57fcff57e320e7eae07121e6dea0.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/647035348778897408\/5hcLjhQh_normal.jpg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/647035348778897408\/5hcLjhQh_normal.jpg",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/132919802\/1433168260",
+        "profile_link_color": "B40B43",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "E5507E",
+        "profile_text_color": "362720",
+        "profile_use_background_image": true,
+        "has_extended_profile": true,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          45.466736,
+          9.189618
+        ]
+      },
+      "coordinates": {
+        "type": "Point",
+        "coordinates": [
+          9.189618,
+          45.466736
+        ]
+      },
+      "place": {
+        "id": "1ea588c12abd39d7",
+        "url": "https:\/\/api.twitter.com\/1.1\/geo\/id\/1ea588c12abd39d7.json",
+        "place_type": "city",
+        "name": "Milan",
+        "full_name": "Milan, Lombardy",
+        "country_code": "IT",
+        "country": "Italia",
+        "contained_within": [],
+        "bounding_box": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                9.040628,
+                45.3867262
+              ],
+              [
+                9.2780451,
+                45.3867262
+              ],
+              [
+                9.2780451,
+                45.5359644
+              ],
+              [
+                9.040628,
+                45.5359644
+              ]
+            ]
+          ]
+        },
+        "attributes": {}
+      },
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "goodmorning",
+            "indices": [
+              48,
+              60
+            ]
+          },
+          {
+            "text": "buongiorno",
+            "indices": [
+              61,
+              72
+            ]
+          },
+          {
+            "text": "scala",
+            "indices": [
+              73,
+              79
+            ]
+          },
+          {
+            "text": "leonardodavinci",
+            "indices": [
+              80,
+              96
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/hb40sZtGu9",
+            "expanded_url": "https:\/\/instagram.com\/p\/9QThHtoZ52\/",
+            "display_url": "instagram.com\/p\/9QThHtoZ52\/",
+            "indices": [
+              98,
+              121
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "es"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 08:44:24 +0000 2015",
+      "id": 658202436184707073,
+      "id_str": "658202436184707073",
+      "text": "RT @fommil: #scala #slick once again has a #freesoftware MSSQL driver, plus a new Oracle one! https:\/\/t.co\/fesRHsjccM @fsf",
+      "source": "\u003ca href=\"http:\/\/twitter.com\/#!\/download\/ipad\" rel=\"nofollow\"\u003eTwitter for iPad\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 1464559968,
+        "id_str": "1464559968",
+        "name": "Filippo Rottoli",
+        "screen_name": "FilHippo",
+        "location": "",
+        "description": "Software Engineer with a strong interest for innovative ICT technologies, passionate about #BigData, #FastData, #HTAP, #CloudComputing and #WebProgramming",
+        "url": null,
+        "entities": {
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 118,
+        "friends_count": 471,
+        "listed_count": 135,
+        "created_at": "Tue May 28 12:41:43 +0000 2013",
+        "favourites_count": 409,
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 3419,
+        "lang": "it",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "C0DEED",
+        "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/441562694420676608\/x8gB9h_N_normal.jpeg",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/441562694420676608\/x8gB9h_N_normal.jpeg",
+        "profile_link_color": "0084B4",
+        "profile_sidebar_border_color": "C0DEED",
+        "profile_sidebar_fill_color": "DDEEF6",
+        "profile_text_color": "333333",
+        "profile_use_background_image": true,
+        "has_extended_profile": false,
+        "default_profile": true,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweeted_status": {
+        "metadata": {
+          "iso_language_code": "en",
+          "result_type": "recent"
+        },
+        "created_at": "Sat Oct 24 18:54:46 +0000 2015",
+        "id": 657993652233482240,
+        "id_str": "657993652233482240",
+        "text": "#scala #slick once again has a #freesoftware MSSQL driver, plus a new Oracle one! https:\/\/t.co\/fesRHsjccM @fsf",
+        "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+        "truncated": false,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_screen_name": null,
+        "user": {
+          "id": 6526632,
+          "id_str": "6526632",
+          "name": "Sam Halliday",
+          "screen_name": "fommil",
+          "location": "London",
+          "description": "Scala, Java, Big Data, R&D, Mathematics, Leadership",
+          "url": "http:\/\/t.co\/cuoDY9MRMI",
+          "entities": {
+            "url": {
+              "urls": [
+                {
+                  "url": "http:\/\/t.co\/cuoDY9MRMI",
+                  "expanded_url": "http:\/\/github.com\/fommil",
+                  "display_url": "github.com\/fommil",
+                  "indices": [
+                    0,
+                    22
+                  ]
+                }
+              ]
+            },
+            "description": {
+              "urls": []
+            }
+          },
+          "protected": false,
+          "followers_count": 504,
+          "friends_count": 186,
+          "listed_count": 44,
+          "created_at": "Sat Jun 02 17:54:55 +0000 2007",
+          "favourites_count": 2199,
+          "utc_offset": 0,
+          "time_zone": "Europe\/London",
+          "geo_enabled": true,
+          "verified": false,
+          "statuses_count": 1840,
+          "lang": "en",
+          "contributors_enabled": false,
+          "is_translator": false,
+          "is_translation_enabled": false,
+          "profile_background_color": "C0DEED",
+          "profile_background_image_url": "http:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_image_url_https": "https:\/\/abs.twimg.com\/images\/themes\/theme1\/bg.png",
+          "profile_background_tile": false,
+          "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+          "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/494912315976736768\/x9VVsrs2_normal.jpeg",
+          "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/6526632\/1363946877",
+          "profile_link_color": "0084B4",
+          "profile_sidebar_border_color": "C0DEED",
+          "profile_sidebar_fill_color": "DDEEF6",
+          "profile_text_color": "333333",
+          "profile_use_background_image": true,
+          "has_extended_profile": false,
+          "default_profile": true,
+          "default_profile_image": false,
+          "following": false,
+          "follow_request_sent": false,
+          "notifications": false
+        },
+        "geo": null,
+        "coordinates": null,
+        "place": null,
+        "contributors": null,
+        "is_quote_status": false,
+        "retweet_count": 6,
+        "favorite_count": 12,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "scala",
+              "indices": [
+                0,
+                6
+              ]
+            },
+            {
+              "text": "slick",
+              "indices": [
+                7,
+                13
+              ]
+            },
+            {
+              "text": "freesoftware",
+              "indices": [
+                31,
+                44
+              ]
+            }
+          ],
+          "symbols": [],
+          "user_mentions": [
+            {
+              "screen_name": "fsf",
+              "name": "Free Software Fndn.",
+              "id": 14662473,
+              "id_str": "14662473",
+              "indices": [
+                106,
+                110
+              ]
+            }
+          ],
+          "urls": [
+            {
+              "url": "https:\/\/t.co\/fesRHsjccM",
+              "expanded_url": "https:\/\/github.com\/smootoo\/freeslick",
+              "display_url": "github.com\/smootoo\/freesl\u2026",
+              "indices": [
+                82,
+                105
+              ]
+            }
+          ]
+        },
+        "favorited": false,
+        "retweeted": false,
+        "possibly_sensitive": false,
+        "lang": "en"
+      },
+      "is_quote_status": false,
+      "retweet_count": 6,
+      "favorite_count": 0,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "scala",
+            "indices": [
+              12,
+              18
+            ]
+          },
+          {
+            "text": "slick",
+            "indices": [
+              19,
+              25
+            ]
+          },
+          {
+            "text": "freesoftware",
+            "indices": [
+              43,
+              56
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "fommil",
+            "name": "Sam Halliday",
+            "id": 6526632,
+            "id_str": "6526632",
+            "indices": [
+              3,
+              10
+            ]
+          },
+          {
+            "screen_name": "fsf",
+            "name": "Free Software Fndn.",
+            "id": 14662473,
+            "id_str": "14662473",
+            "indices": [
+              118,
+              122
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/fesRHsjccM",
+            "expanded_url": "https:\/\/github.com\/smootoo\/freeslick",
+            "display_url": "github.com\/smootoo\/freesl\u2026",
+            "indices": [
+              94,
+              117
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    {
+      "metadata": {
+        "iso_language_code": "en",
+        "result_type": "recent"
+      },
+      "created_at": "Sun Oct 25 08:35:21 +0000 2015",
+      "id": 658200158442790912,
+      "id_str": "658200158442790912",
+      "text": "Senior Backend Developer at relayr (Berlin, Germany) https:\/\/t.co\/matf795QNq #scala",
+      "source": "\u003ca href=\"https:\/\/careers.stackoverflow.com\" rel=\"nofollow\"\u003eCareers 2.0 bot\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 190626981,
+        "id_str": "190626981",
+        "name": "Stack Overflow Jobs",
+        "screen_name": "StackDevJobs",
+        "location": "",
+        "description": "Stack Overflow Careers is the official careers platform of Stack Overflow, the #1 Q&A site built by programmers, for programmers.",
+        "url": "http:\/\/t.co\/sG1zqXgzNq",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "http:\/\/t.co\/sG1zqXgzNq",
+                "expanded_url": "http:\/\/careers.stackoverflow.com\/",
+                "display_url": "careers.stackoverflow.com",
+                "indices": [
+                  0,
+                  22
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 11333,
+        "friends_count": 327,
+        "listed_count": 845,
+        "created_at": "Tue Sep 14 12:53:24 +0000 2010",
+        "favourites_count": 391,
+        "utc_offset": -14400,
+        "time_zone": "Eastern Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": false,
+        "statuses_count": 71723,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FBFBFB",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/148752680\/xe55b7d4c9f2811fad54fc85d6d45f80.png",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/148752680\/xe55b7d4c9f2811fad54fc85d6d45f80.png",
+        "profile_background_tile": true,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/643779014268579840\/bRJStj7A_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/643779014268579840\/bRJStj7A_normal.png",
+        "profile_link_color": "F48024",
+        "profile_sidebar_border_color": "EBEBEB",
+        "profile_sidebar_fill_color": "E9E9E9",
+        "profile_text_color": "666666",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 0,
+      "favorite_count": 1,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "scala",
+            "indices": [
+              77,
+              83
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/matf795QNq",
+            "expanded_url": "http:\/\/careers.stackoverflow.com\/jobs\/101069\/senior-backend-developer-relayr",
+            "display_url": "careers.stackoverflow.com\/jobs\/101069\/se\u2026",
+            "indices": [
+              53,
+              76
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    }
+  ],
+  "search_metadata": {
+    "completed_in": 0.062,
+    "max_id": 658227054874382336,
+    "max_id_str": "658227054874382336",
+    "next_results": "?max_id=658200158442790911&q=%23scala&include_entities=1&result_type=mixed",
+    "query": "%23scala",
+    "refresh_url": "?since_id=658227054874382336&q=%23scala&result_type=mixed&include_entities=1",
+    "count": 15,
+    "since_id": 0,
+    "since_id_str": "0"
+  }
+}

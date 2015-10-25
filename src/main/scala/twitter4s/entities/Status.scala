@@ -34,7 +34,8 @@ case class Status(contributors: Seq[Contributor] = Seq.empty,
                  user: Option[User] = None,
                  withheld_copyright: Boolean = false,
                  withheld_in_countries: Seq[String] = Seq.empty,
-                 withheld_scope: Option[String] = None)
+                 withheld_scope: Option[String] = None,
+                 metadata: Option[StatusMetadata] = None)
 
 
 
