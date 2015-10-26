@@ -13,7 +13,7 @@ import twitter4s.util.Configurations
 
 trait TwitterAccountClient extends OAuthClient with Configurations {
 
-  val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
+  private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 
   def settings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
 

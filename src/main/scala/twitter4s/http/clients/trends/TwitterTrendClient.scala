@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterTrendClient extends OAuthClient with Configurations {
 
-  val trendsUrl = s"$apiTwitterUrl/$twitterVersion/trends"
+  private val trendsUrl = s"$apiTwitterUrl/$twitterVersion/trends"
 
   def globalTrends(exclude_hashtags: Boolean = false): Future[LocationTrends] = trends(1, exclude_hashtags)
 

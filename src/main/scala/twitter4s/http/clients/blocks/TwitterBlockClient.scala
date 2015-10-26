@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterBlockClient extends OAuthClient with Configurations {
 
-  val blocksUrl = s"$apiTwitterUrl/$twitterVersion/blocks"
+  private val blocksUrl = s"$apiTwitterUrl/$twitterVersion/blocks"
 
   def blockedUsers(include_entities: Boolean = true,
                    skip_status: Boolean = false,

@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterHelpClient extends OAuthClient with Configurations {
 
-  val helpUrl = s"$apiTwitterUrl/$twitterVersion/help"
+  private val helpUrl = s"$apiTwitterUrl/$twitterVersion/help"
 
   def configuration(): Future[Configuration] =
     Get(s"$helpUrl/configuration.json").respondAs[Configuration]

@@ -11,7 +11,7 @@ import twitter4s.util.Configurations
 
 trait TwitterListClient extends OAuthClient with Configurations {
 
-  val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
+  private val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
 
   def lists(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(user_id = None, Some(screen_name), reverse)

@@ -10,7 +10,7 @@ import twitter4s.util.Configurations
 
 trait TwitterApplicationClient extends OAuthClient with Configurations {
 
-  val applicationUrl = s"$apiTwitterUrl/$twitterVersion/application"
+  private val applicationUrl = s"$apiTwitterUrl/$twitterVersion/application"
 
   def rateLimits(resources: Resource*): Future[RateLimits] = {
     val parameters = RatesParameters(Option(resources.mkString(",")).filter(_.trim.nonEmpty))

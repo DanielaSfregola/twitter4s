@@ -14,7 +14,7 @@ import twitter4s.util.Configurations
 
 trait TwitterStatusClient extends OAuthClient with Configurations {
 
-  val statusesUrl = s"$apiTwitterUrl/$twitterVersion/statuses"
+  private val statusesUrl = s"$apiTwitterUrl/$twitterVersion/statuses"
 
   def mentionsTimeline(count: Int = 200,
                        since_id: Option[Long] = None,

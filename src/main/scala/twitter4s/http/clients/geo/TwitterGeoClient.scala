@@ -11,7 +11,7 @@ import twitter4s.util.Configurations
 
 trait TwitterGeoClient  extends OAuthClient with Configurations {
 
-  val geoUrl = s"$apiTwitterUrl/$twitterVersion/geo"
+  private val geoUrl = s"$apiTwitterUrl/$twitterVersion/geo"
 
   def geoPlace(place_id: String): Future[GeoPlace] = Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
 

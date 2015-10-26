@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterFavoriteClient extends OAuthClient with Configurations {
 
-  val favoritesUrl = s"$apiTwitterUrl/$twitterVersion/favorites"
+  private val favoritesUrl = s"$apiTwitterUrl/$twitterVersion/favorites"
 
   def favorites(screen_name: String,
                 count: Int = 20,
