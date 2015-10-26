@@ -11,7 +11,7 @@ import twitter4s.util.Configurations
 
 trait TwitterSuggestionClient extends OAuthClient with Configurations {
 
-  val suggestionsUrl = s"$apiTwitterUrl/$twitterVersion/users/suggestions"
+  private val suggestionsUrl = s"$apiTwitterUrl/$twitterVersion/users/suggestions"
 
   def suggestions(slug: String, lang: Language = Language.English): Future[Suggestions] = {
     val parameters = SuggestionsParameters(lang)

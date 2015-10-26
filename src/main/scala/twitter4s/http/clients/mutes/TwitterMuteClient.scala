@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterMuteClient extends OAuthClient with Configurations {
 
-  val mutesUrl = s"$apiTwitterUrl/$twitterVersion/mutes/users"
+  private val mutesUrl = s"$apiTwitterUrl/$twitterVersion/mutes/users"
 
   def muteUser(screen_name: String): Future[User] = {
     val parameters = MuteParameters(user_id = None, Some(screen_name))

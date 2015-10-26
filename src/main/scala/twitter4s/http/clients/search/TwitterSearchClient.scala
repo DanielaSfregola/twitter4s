@@ -14,7 +14,7 @@ import twitter4s.util.Configurations
 
 trait TwitterSearchClient extends OAuthClient with Configurations {
 
-  val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
+  private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
 
   def searchTweet(query: String,
                   count: Int = 15,

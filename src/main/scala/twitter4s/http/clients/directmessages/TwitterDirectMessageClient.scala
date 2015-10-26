@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterDirectMessageClient extends OAuthClient with Configurations {
 
-  val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
+  private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
 
   def directMessage(id: Long): Future[DirectMessage] = {
     val parameters = ShowParameters(id)

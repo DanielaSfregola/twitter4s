@@ -8,9 +8,9 @@ import twitter4s.util.Configurations
 
 trait TwitterMediaClient extends MediaOAuthClient with Configurations {
 
-  val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
+  private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 
-  val BufferSize = 5 * 1024 * 1024
+  private val BufferSize = 5 * 1024 * 1024
 
 
   // TODO - fix this!

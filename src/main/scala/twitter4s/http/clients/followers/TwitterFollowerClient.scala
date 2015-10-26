@@ -9,7 +9,7 @@ import twitter4s.util.Configurations
 
 trait TwitterFollowerClient extends OAuthClient with Configurations {
 
-  val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
+  private val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
 
   def followersIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIds] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)

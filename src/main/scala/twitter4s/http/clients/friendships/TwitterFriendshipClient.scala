@@ -10,7 +10,7 @@ import twitter4s.util.Configurations
 
 trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
-  val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
+  private val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
 
   def blockedUsersIds(): Future[Seq[Long]] = {
     val parameters = BlockedParameters(stringify_ids = false)
