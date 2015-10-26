@@ -1,0 +1,16 @@
+[
+  {
+    "created_at": "Tue Jun 15 10:37:24 +0100 2010",
+    "id": 9569704,
+    "id_str": "9569704",
+    "name": "@twitterapi",
+    "query": "@twitterapi"
+  },
+  {
+    "created_at": "Tue Jun 15 10:38:04 +0100 2010",
+    "id": 9569730,
+    "id_str": "9569730",
+    "name": "@twitter OR twitterapi OR \"twitter api\" OR \"@anywhere\"",
+    "query": "@twitter OR twitterapi OR \"twitter api\" OR \"@anywhere\""
+  }
+]
