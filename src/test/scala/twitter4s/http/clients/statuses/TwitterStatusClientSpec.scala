@@ -90,7 +90,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "delete an existing tweet" in new TwitterStatusClientSpecContext {
       val id = 648866645855879168L
-      val result: Status = when(destroyStatus(id)).expectRequest { request =>
+      val result: Status = when(deleteStatus(id)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/destroy/$id.json"
         request.uri.query === Query("trim_user=false")

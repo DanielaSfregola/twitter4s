@@ -76,7 +76,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/show.json", parameters).respondAs[Status]
   }
 
-  def destroyStatus(id: Long,
+  def deleteStatus(id: Long,
               trim_user: Boolean = false): Future[Status] = {
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Status]
