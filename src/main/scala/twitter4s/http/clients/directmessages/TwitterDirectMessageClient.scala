@@ -49,7 +49,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
   }
 
-  def destroyDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
+  def deleteDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
     val parameters = DestroyParameters(id, include_entities)
     Post(s"$directMessagesUrl/destroy.json", parameters).respondAs[DirectMessage]
   }
