@@ -5,7 +5,7 @@ import spray.http.Uri.Query
 import twitter4s.entities.StatusSearch
 import twitter4s.util.{ClientSpec, ClientSpecContext}
 
-class TwitterSearchClientSpec  extends ClientSpec {
+class TwitterSearchClientSpec extends ClientSpec {
 
   trait TwitterSearchClientSpecContext extends ClientSpecContext with TwitterSearchClient
 
