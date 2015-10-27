@@ -21,7 +21,8 @@ trait TwitterSavedSearchClient extends OAuthClient with Configurations {
 
   def deleteSavedSearch(id: Long): Future[SavedSearch] =
     Post(s"$savedSearchUrl/destroy/$id.json").respondAs[SavedSearch]
-  
-    // TODO - GET saved_searches/show/:id
+
+  def savedSearch(id: Long): Future[SavedSearch] =
+    Get(s"$savedSearchUrl/show/$id.json").respondAs[SavedSearch]
   
 }

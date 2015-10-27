@@ -36,6 +36,15 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
       }.respondWith("/twitter/savedsearches/destroy.json").await
       result === loadJsonAs[SavedSearch]("/fixtures/savedsearches/destroy.json")
     }
+
+    "get saved search by id" in new TwitterSavedSearchClientSpecContext {
+      val id = 9569704
+      val result: SavedSearch = when(savedSearch(id)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === s"https://api.twitter.com/1.1/saved_searches/show/$id.json"
+      }.respondWith("/twitter/savedsearches/show.json").await
+      result === loadJsonAs[SavedSearch]("/fixtures/savedsearches/show.json")
+    }
   }
 
 }
