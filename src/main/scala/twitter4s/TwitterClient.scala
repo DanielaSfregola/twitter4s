@@ -16,6 +16,7 @@ import twitter4s.http.clients.friends.TwitterFriendClient
 import twitter4s.http.clients.friendships.TwitterFriendshipClient
 import twitter4s.http.clients.geo.TwitterGeoClient
 import twitter4s.http.clients.help.TwitterHelpClient
+import twitter4s.http.clients.media.TwitterMediaClient
 import twitter4s.http.clients.mutes.TwitterMuteClient
 import twitter4s.http.clients.savedsearches.TwitterSavedSearchClient
 import twitter4s.http.clients.search.TwitterSearchClient
@@ -46,3 +47,4 @@ trait Clients extends TwitterStatusClient
   with TwitterHelpClient
   with TwitterSearchClient
   with TwitterSavedSearchClient
+  with TwitterMediaClient

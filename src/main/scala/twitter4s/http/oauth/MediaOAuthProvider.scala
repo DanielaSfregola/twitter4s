@@ -8,8 +8,6 @@ class MediaOAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken)
 
   override def bodyParams(implicit request: HttpRequest): Map[String, String] = Map()
 
-  override def queryParams(implicit request: HttpRequest) = Map()
-
 }
 
 

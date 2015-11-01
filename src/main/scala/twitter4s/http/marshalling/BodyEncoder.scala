@@ -18,12 +18,13 @@ trait BodyEncoder {
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).map {
       case (k, None) => None
-      case (k, Some(v)) => Some(k -> v.toString)
+      case (k, Some("")) => None
       case (k, Seq()) => None
+      case (k, Some(v)) => Some(k -> v.toString)
       case (k, v) => Some(k -> v.toString)
     }.flatten.toMap
 
-  // TODO - improve performance with Macros
+  // TODO - improve performance with Macros?
   private def asMap(cc: Product): Map[String, Any] =
     cc.getClass.getDeclaredFields.map( _.getName ).zip( cc.productIterator.to ).toMap
 
