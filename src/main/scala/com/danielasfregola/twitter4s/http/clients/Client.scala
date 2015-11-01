@@ -25,14 +25,14 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
 
   def logRequest: HttpRequest => HttpRequest = { request =>
     log.info(s"${request.method} ${request.uri}")
-    log.debug(s"${request.method} ${request.uri} | ${request.entity.asString}")
+    log.info(s"${request.method} ${request.uri} | ${request.entity.asString} | ${request.headers} | ${request}")
     request
   }
 
   def logResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
     val elapsed = System.currentTimeMillis - requestStartTime
     log.info(s"${request.method} ${request.uri} (${response.status}) | ${elapsed}ms")
-    log.debug(s"${request.method} ${request.uri} (${response.status}) | ${response.entity.asString}")
+    log.info(s"${request.method} ${request.uri} (${response.status}) | ${response.entity.asString}")
     response
   }
 
