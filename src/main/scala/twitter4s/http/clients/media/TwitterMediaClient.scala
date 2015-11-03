@@ -58,28 +58,27 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaEncoder with Configu
   }
 
   private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int): Future[Unit] = {
-    val boundary = {
-      val id = s"00t4s${mediaId}s4t99"
-      s"--$id\r\n"
-    }
+    val CRLF = """\r\n"""
+    val boundary = s"""00t4s${mediaId}s4t99"""
+    val fieldName = "media"
 
-    def bodyBuilder(key: String, value: String) = boundary +
-      s"""Content-Disposition: form-data; name="$key"\r\n""" +
-      s"\r\n$value\r\n"
+    def bodyBuilder(key: String, value: String) = "--" + boundary +
+      s"""${CRLF}Content-Disposition: form-data; name=\"$key\"$CRLF""" +
+      s"""$CRLF$value$CRLF"""
 
-    val bodyFileInformation = boundary +
-     s"""Content-Disposition: form-data; name="media_data"; filename="$filename"\r\n""" +
-     "Content-Type: application/octet-stream\r\n" +
-     "Content-Transfer-Encoding: base64\r\n"
+    val bodyFileInformation = "--" + boundary +
+     s"""${CRLF}Content-Disposition: form-data; name=\"$fieldName\"; filename=\"$filename\"$CRLF""" +
+     s"""Content-Type: application/octet-stream$CRLF""" +
+     s"""Content-Transfer-Encoding: base64$CRLF"""
 
-    val encodedData = s"\r\n${chunk.base64Data}\r\n"
+    val encodedData = s"""$CRLF${chunk.base64Data.mkString("""\n""")}\\n"""
 
     val body = bodyBuilder("command", "APPEND") +
                bodyBuilder("media_id", mediaId.toString) +
                bodyBuilder("segment_index", idx.toString) +
                bodyFileInformation +
                encodedData +
-               boundary
+               s"""$CRLF--$boundary--$CRLF"""
 
     Post(s"$mediaUrl/upload.json", body,
           ContentType(MediaTypes.`multipart/form-data` withBoundary(boundary))

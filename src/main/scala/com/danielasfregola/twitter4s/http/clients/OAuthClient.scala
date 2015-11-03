@@ -59,8 +59,8 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
       apply(uri, data, contentType)
     }
 
-    def apply(uri: String, data: String, contentType: ContentType, headers: HttpHeader*): HttpRequest = {
-      apply(uri).withEntity(HttpEntity(contentType, HttpData(data))).withHeaders(headers.toList)
+    def apply(uri: String, data: String, contentType: ContentType): HttpRequest = {
+      apply(uri).withEntity(HttpEntity(contentType, data))
     }
   }
 

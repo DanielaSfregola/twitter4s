@@ -3,7 +3,7 @@ package twitter4s.encoding
 import java.io.InputStream
 import java.util.Base64
 
-case class Chunk(base64Data: String)
+case class Chunk(base64Data: Seq[String])
 
 trait MediaEncoder {
 
@@ -20,7 +20,7 @@ trait MediaEncoder {
     if (length <= 0) Stream()
     else {
       val base64Data = Base64.getEncoder.encodeToString(bytes.take(length))
-      Chunk(base64Data) #:: readChunks(inputStream)
+      Chunk(base64Data.grouped(60).toList) #:: readChunks(inputStream)
     }
   }
 }
