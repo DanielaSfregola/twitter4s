@@ -6,7 +6,6 @@ import java.net.URLConnection
 import scala.concurrent.Future
 
 import spray.http._
-import twitter4s.encoding.Chunk
 import twitter4s.entities.MediaDetails
 import twitter4s.http.clients.MediaOAuthClient
 import twitter4s.http.clients.media.entities._
