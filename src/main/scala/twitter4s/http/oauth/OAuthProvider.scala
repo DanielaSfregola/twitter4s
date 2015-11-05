@@ -5,8 +5,9 @@ import scala.util.Random
 
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import twitter4s.entities.{AccessToken, ConsumerToken}
+import twitter4s.util.Encoder
 
-class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) extends HmacSha1Encoder {
+class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) extends Encoder {
 
   def oauthHeader(implicit request: HttpRequest): HttpHeader = {
     val authorizationValue = oauthParams.map{ case (k, v) => s"""$k="$v""""}.toList.sorted.mkString(", ")

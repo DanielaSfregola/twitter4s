@@ -6,13 +6,13 @@ import java.net.URLConnection
 import scala.concurrent.Future
 
 import spray.http._
-import twitter4s.encoding.{Chunk, MediaEncoder}
+import twitter4s.encoding.Chunk
 import twitter4s.entities.MediaDetails
 import twitter4s.http.clients.MediaOAuthClient
 import twitter4s.http.clients.media.entities._
-import twitter4s.util.Configurations
+import twitter4s.util.{Chunk, MediaReader, Configurations}
 
-trait TwitterMediaClient extends MediaOAuthClient with MediaEncoder with Configurations {
+trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
 
   private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 

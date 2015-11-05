@@ -1,11 +1,11 @@
-package twitter4s.encoding
+package twitter4s.util
 
 import java.io.InputStream
-import java.util.Base64
+
 
 case class Chunk(base64Data: Seq[String])
 
-trait MediaEncoder {
+trait MediaReader extends Encoder {
 
   protected val chunkSize: Int
 
@@ -19,7 +19,7 @@ trait MediaEncoder {
     val length = inputStream.read(bytes)
     if (length <= 0) Stream()
     else {
-      val base64Data = Base64.getEncoder.encodeToString(bytes.take(length))
+      val base64Data = toBase64(bytes.take(length))
       Chunk(base64Data.grouped(60).toList) #:: readChunks(inputStream)
     }
   }
