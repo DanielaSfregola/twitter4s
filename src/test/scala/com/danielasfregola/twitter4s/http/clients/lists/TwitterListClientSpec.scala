@@ -63,7 +63,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("list_id=8044403&screen_name=DanielaSfregola")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove list member by slug and owner and user" in new TwitterListClientSpecContext {
@@ -72,7 +72,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("owner_screen_name=twitterapi&screen_name=DanielaSfregola&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove list member by slug and owner id and user" in new TwitterListClientSpecContext {
@@ -81,7 +81,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("owner_id=6253282&screen_name=DanielaSfregola&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove list member by list id and user id" in new TwitterListClientSpecContext {
@@ -90,7 +90,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("list_id=8044403&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove list member by slug and owner and user id" in new TwitterListClientSpecContext {
@@ -99,7 +99,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("owner_screen_name=twitterapi&slug=meetup-20100301&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove list member by slug and owner id and user id" in new TwitterListClientSpecContext {
@@ -108,7 +108,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("owner_id=6253282&slug=meetup-20100301&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "get list memberships per user" in new TwitterListClientSpecContext {
@@ -135,7 +135,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("list_id=8044403&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "add members ids per slug and owner" in new TwitterListClientSpecContext {
@@ -144,7 +144,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("owner_screen_name=twitterapi&slug=meetup-20100301&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "add members ids per slug and owner id" in new TwitterListClientSpecContext {
@@ -153,7 +153,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("owner_id=6253282&slug=meetup-20100301&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "add members per list id" in new TwitterListClientSpecContext {
@@ -162,7 +162,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("list_id=8044403&screen_name=marcobonzanini,odersky")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "add members per slug and owner" in new TwitterListClientSpecContext {
@@ -171,7 +171,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("owner_screen_name=twitterapi&screen_name=marcobonzanini,odersky&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "add members per slug and owner id" in new TwitterListClientSpecContext {
@@ -180,7 +180,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create_all.json"
         request.uri.query === Query("owner_id=6253282&screen_name=marcobonzanini,odersky&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
     
     "reject 'addMembersIdsToList' if no ids are provided" in new TwitterListClientSpecContext {
@@ -294,7 +294,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("list_id=8044403&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "add member id to slug and owner" in new TwitterListClientSpecContext {
@@ -303,7 +303,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("owner_screen_name=twitterapi&slug=meetup-20100301&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "add member id to slug and owner id" in new TwitterListClientSpecContext {
@@ -312,7 +312,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("owner_id=6253282&slug=meetup-20100301&user_id=2911461333")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "add member per list id" in new TwitterListClientSpecContext {
@@ -321,7 +321,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("list_id=8044403&screen_name=marcobonzanini")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "add member per slug and owner" in new TwitterListClientSpecContext {
@@ -330,7 +330,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("owner_screen_name=twitterapi&screen_name=marcobonzanini&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "add member per slug and owner id" in new TwitterListClientSpecContext {
@@ -339,7 +339,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/create.json"
         request.uri.query === Query("owner_id=6253282&screen_name=marcobonzanini&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "delete a list by id" in new TwitterListClientSpecContext {
@@ -375,7 +375,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("list_id=8044403&mode=private")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list mode by slug and owner name" in new TwitterListClientSpecContext {
@@ -384,7 +384,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list mode by slug and owner id" in new TwitterListClientSpecContext {
@@ -393,7 +393,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("mode=private&owner_id=6253282&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list name by id" in new TwitterListClientSpecContext {
@@ -402,7 +402,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("list_id=8044403&name=new+name")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list name by slug and owner name" in new TwitterListClientSpecContext {
@@ -411,7 +411,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("name=new+name&owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list name by slug and owner id" in new TwitterListClientSpecContext {
@@ -420,7 +420,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("name=new+name&owner_id=6253282&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list description by id" in new TwitterListClientSpecContext {
@@ -429,7 +429,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&list_id=8044403")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list description by slug and owner name" in new TwitterListClientSpecContext {
@@ -438,7 +438,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list description by slug and owner id" in new TwitterListClientSpecContext {
@@ -447,7 +447,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&owner_id=6253282&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list by id" in new TwitterListClientSpecContext {
@@ -457,7 +457,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&list_id=8044403&mode=private")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list by slug and owner name" in new TwitterListClientSpecContext {
@@ -467,7 +467,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "update list by slug and owner id" in new TwitterListClientSpecContext {
@@ -477,7 +477,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
         request.uri.query === Query("description=cool+description&mode=private&owner_id=6253282&slug=meetup-20100301")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "create a list" in new TwitterListClientSpecContext {
@@ -540,7 +540,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("list_id=222669735&screen_name=marcobonzanini,odersky")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove members from list by slug and owner name" in new TwitterListClientSpecContext {
@@ -549,7 +549,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("owner_screen_name=DanielaSfregola&screen_name=marcobonzanini,odersky&slug=my-list")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove members from list by slug and owner id" in new TwitterListClientSpecContext {
@@ -558,7 +558,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("owner_id=2911461333&screen_name=marcobonzanini,odersky&slug=my-list")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove members ids from list" in new TwitterListClientSpecContext {
@@ -567,7 +567,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("list_id=222669735&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove members ids from list by slug and owner name" in new TwitterListClientSpecContext {
@@ -576,7 +576,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("owner_screen_name=DanielaSfregola&slug=my-list&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "remove members ids from list by slug and owner id" in new TwitterListClientSpecContext {
@@ -585,7 +585,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy_all.json"
         request.uri.query === Query("owner_id=2911461333&slug=my-list&user_id=2911461333,2911461334")
       }.respondWithOk.await
-      result === ()
+      result === (())
     }
 
     "reject 'removeMembersFromList' if no screen names are provided" in new TwitterListClientSpecContext {
