@@ -1,5 +1,5 @@
 import com.typesafe.sbt.SbtGhPages._
-import com.typesafe.sbt.SbtGit.git
+import com.typesafe.sbt.SbtGit.{GitKeys => git}
 import com.typesafe.sbt.SbtSite._
 import sbt.Keys._
 import sbt.{LocalProject, _}
@@ -57,7 +57,7 @@ object Twitter4s extends Build {
     resolvers ++= Resolvers.resolvers,
 
     publishMavenStyle := true,
-    git.remoteRepo := "git@github.com:DanielaSfregola/twitter4s.git",
+    git.gitRemoteRepo := "git@github.com:DanielaSfregola/twitter4s.git",
 
     scalacOptions ++= Seq(
       "-encoding", "UTF-8",
