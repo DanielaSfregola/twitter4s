@@ -1,10 +1,8 @@
-import sbt._
-import sbt.Keys._
 import com.typesafe.sbt.SbtGhPages._
-import com.typesafe.sbt.SbtGit.GitKeys
+import com.typesafe.sbt.SbtGit.git
 import com.typesafe.sbt.SbtSite._
-import sbt.LocalProject
-import sbt.Tests.{InProcess, Group}
+import sbt.Keys._
+import sbt.{LocalProject, _}
 
 object Resolvers {
   val resolvers = Seq(
@@ -41,25 +39,25 @@ object Twitter4s extends Build {
   Seq(
     name := "twitter4s",
     version := v,
-    organization := "com.danielasfregola",
+    organization := "com.DanielaSfregola",
     scalaVersion := "2.11.7",
     licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
     homepage := Some(url("https://github.com/DanielaSfregola/twitter4s")),
     scmInfo := Some(ScmInfo(url("https://github.com/DanielaSfregola/twitter4s"), "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),
-    apiURL := Some(url("http://danielasfregola.github.io/twitter4s/latest/api/")),
+    apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
     pomExtra := (
     <developers>
       <developer>
         <id>DanielaSfregola</id>
         <name>Daniela Sfregola</name>
-        <url>http://github.com/danielasfregola/</url>
+        <url>http://danielasfregola.com/</url>
       </developer>
     </developers>
     ),
     resolvers ++= Resolvers.resolvers,
 
     publishMavenStyle := true,
-    GitKeys.gitRemoteRepo := "git@github.com:danielasfregola/twitter4s.git",
+    git.remoteRepo := "git@github.com:DanielaSfregola/twitter4s.git",
 
     scalacOptions ++= Seq(
       "-encoding", "UTF-8",
@@ -76,32 +74,19 @@ object Twitter4s extends Build {
       )
     },
     autoAPIMappings := true,
-    apiURL := Some(url("http://danielasfregola.github.io/twitter4s/")),
+    apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/")),
     scalacOptions in (Compile, doc) <++= version in LocalProject("twitter4s") map { version =>
       val branch = if(version.trim.endsWith("SNAPSHOT")) "master" else version
       Seq[String](
-          "-doc-source-url", "https://github.com/danielasfregola/twitter4s/tree/" + branch +"€{FILE_PATH}.scala"
+          "-doc-source-url", "https://github.com/DanielaSfregola/twitter4s/tree/" + branch +"€{FILE_PATH}.scala"
         )
     }
   ) ++ site.settings ++ site.includeScaladoc(v +"/api") ++ site.includeScaladoc("latest/api") ++ ghpages.settings
-
-  lazy val BenchTest = config("bench") extend Test
-
-  lazy val benchTestSettings = inConfig(BenchTest)(Defaults.testSettings ++ Seq(
-    sourceDirectory in BenchTest <<= baseDirectory / "src/benchmark",
-    testFrameworks in BenchTest := Seq(new TestFramework("org.scalameter.ScalaMeterFramework")),
-
-    testGrouping in BenchTest <<= definedTests in BenchTest map partitionTests
-  ))
 
   lazy val root = Project(id = "twitter4s",
     base = file("."),
     settings = standardSettings ++ Seq(
       libraryDependencies ++= Dependencies.dependencies
     )
-  ).configs(BenchTest)
-
-  def partitionTests(tests: Seq[TestDefinition]) = {
-    Seq(new Group("inProcess", tests, InProcess))
-  }
+  )
 }
