@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s.http.oauth
 
+import com.danielasfregola.twitter4s.util.HmacSha1Encoder
 import org.specs2.mutable.Specification
 
 class HmacSha1EncoderSpec extends Specification with HmacSha1Encoder {

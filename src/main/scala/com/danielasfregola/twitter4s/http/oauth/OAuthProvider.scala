@@ -3,6 +3,7 @@ package oauth
 
 import scala.util.Random
 
+import com.danielasfregola.twitter4s.util.HmacSha1Encoder
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 

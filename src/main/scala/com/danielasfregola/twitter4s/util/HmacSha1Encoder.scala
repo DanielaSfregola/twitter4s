@@ -1,8 +1,8 @@
-package com.danielasfregola.twitter4s.http.oauth
+package com.danielasfregola.twitter4s.util
 
+import java.util.Base64
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
-import java.util.Base64
 
 trait HmacSha1Encoder {
 
