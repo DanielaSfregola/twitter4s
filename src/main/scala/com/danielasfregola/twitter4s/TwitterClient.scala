@@ -28,21 +28,21 @@ import com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient
 class TwitterClient(val consumerToken: ConsumerToken = ConsumerTokenFromConf, val accessToken: AccessToken = AccessTokenFromConf)
                    (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends OAuthClient with Clients
 
-trait Clients extends TwitterStatusClient
+trait Clients extends TwitterAccountClient
+  with TwitterApplicationClient
+  with TwitterBlockClient
   with TwitterDirectMessageClient
-  with TwitterFriendshipClient
+  with TwitterFavoriteClient
   with TwitterFollowerClient
   with TwitterFriendClient
-  with TwitterAccountClient
-  with TwitterBlockClient
-  with TwitterUserClient
-  with TwitterMuteClient
-  with TwitterSuggestionClient
-  with TwitterFavoriteClient
-  with TwitterListClient
+  with TwitterFriendshipClient
   with TwitterGeoClient
-  with TwitterTrendClient
-  with TwitterApplicationClient
   with TwitterHelpClient
-  with TwitterSearchClient
+  with TwitterListClient
+  with TwitterMuteClient
   with TwitterSavedSearchClient
+  with TwitterSearchClient
+  with TwitterStatusClient
+  with TwitterSuggestionClient
+  with TwitterUserClient
+  with TwitterTrendClient
