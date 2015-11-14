@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.followers
 
 import scala.concurrent.Future
 
-import com.danielasfregola.twitter4s.entities.{Users, UserIdsStringified, UserIds}
+import com.danielasfregola.twitter4s.entities.{Users, UserStringifiedIds, UserIds}
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.followers.parameters.{FollowersParameters, FollowingParameters}
 import com.danielasfregola.twitter4s.util.Configurations
@@ -21,14 +21,14 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     genericFollowersIds[UserIds](parameters)
   }
 
-  def followersIdsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def followersIdsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserStringifiedIds] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
-    genericFollowersIds[UserIdsStringified](parameters)
+    genericFollowersIds[UserStringifiedIds](parameters)
   }
 
-  def followersIdsStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def followersIdsStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserStringifiedIds] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
-    genericFollowersIds[UserIdsStringified](parameters)
+    genericFollowersIds[UserStringifiedIds](parameters)
   }
 
   private def genericFollowersIds[T: Manifest](parameters: FollowingParameters): Future[T] =

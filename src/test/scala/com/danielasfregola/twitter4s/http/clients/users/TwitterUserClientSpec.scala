@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.users
 
 import com.danielasfregola.twitter4s.entities.{Banners, User}
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.util.{ClientSpecContext, ClientSpec}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 

@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.followers
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{Users, UserIds, UserIdsStringified}
-import com.danielasfregola.twitter4s.http.ClientSpecContext
+import com.danielasfregola.twitter4s.entities.{Users, UserIds, UserStringifiedIds}
 
 class TwitterFollowerClientSpec extends ClientSpec {
 
@@ -32,21 +32,21 @@ class TwitterFollowerClientSpec extends ClientSpec {
 
 
     "get followers stringified ids of a specific user by id" in new TwitterFollowerClientSpecContext {
-      val result: UserIdsStringified = when(followersIdsForUserIdStringified(2911461333L)).expectRequest { request =>
+      val result: UserStringifiedIds = when(followersIdsForUserIdStringified(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
       }.respondWith("/twitter/followers/followers_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/followers/followers_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/followers/followers_ids_stringified.json")
     }
 
     "get followers stringified ids of a specific user by name" in new TwitterFollowerClientSpecContext {
-      val result: UserIdsStringified = when(followersIdsStringified("DanielaSfregola")).expectRequest { request =>
+      val result: UserStringifiedIds = when(followersIdsStringified("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
       }.respondWith("/twitter/followers/followers_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/followers/followers_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/followers/followers_ids_stringified.json")
     }
 
     "get followers of a specific user" in new TwitterFollowerClientSpecContext {

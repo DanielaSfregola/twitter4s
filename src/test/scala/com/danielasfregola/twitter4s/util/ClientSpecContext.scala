@@ -1,11 +1,10 @@
-package com.danielasfregola.twitter4s.http
+package com.danielasfregola.twitter4s.util
 
 import akka.testkit.TestProbe
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.util.{AwaitableFuture, FixturesSupport, TestActorSystem}
 import org.specs2.matcher.NoConcurrentExecutionContext
 import org.specs2.specification.Scope
 import spray.http._

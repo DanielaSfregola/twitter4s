@@ -1,11 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.lists
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Mode
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterListClientSpec extends ClientSpec {
 

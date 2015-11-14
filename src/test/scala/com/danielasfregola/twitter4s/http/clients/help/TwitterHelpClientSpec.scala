@@ -1,9 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.help
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import com.danielasfregola.twitter4s.entities.{LanguageDetails, TermsOfService, PrivacyPolicy, Configuration}
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterHelpClientSpec extends ClientSpec {
 

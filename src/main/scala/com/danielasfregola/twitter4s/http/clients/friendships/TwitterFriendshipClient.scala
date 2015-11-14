@@ -30,9 +30,9 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericIncomingFriendships[UserIds](parameters)
   }
   
-  def incomingFriendshipsStringified(cursor: Long = -1): Future[UserIdsStringified] = {
+  def incomingFriendshipsStringified(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
-    genericIncomingFriendships[UserIdsStringified](parameters)
+    genericIncomingFriendships[UserStringifiedIds](parameters)
   }
 
   private def genericIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
@@ -42,9 +42,9 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
     genericOutgoingFriendships[UserIds](parameters)
   }
-  def outgoingFriendshipsStringified(cursor: Long = -1): Future[UserIdsStringified] = {
+  def outgoingFriendshipsStringified(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
-    genericOutgoingFriendships[UserIdsStringified](parameters)
+    genericOutgoingFriendships[UserStringifiedIds](parameters)
   }
 
   private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =

@@ -147,9 +147,9 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     genericRetweetersIds[UserIds](parameters)
   }
 
-  def retweetersIdsStringified(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIdsStringified] = {
+  def retweetersIdsStringified(id: Long, count: Int = 100, cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = true)
-    genericRetweetersIds[UserIdsStringified](parameters)
+    genericRetweetersIds[UserStringifiedIds](parameters)
   }
 
   private def genericRetweetersIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] =

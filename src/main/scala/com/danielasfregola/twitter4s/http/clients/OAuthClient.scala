@@ -12,7 +12,7 @@ import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
-private[http] trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
+trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 

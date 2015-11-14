@@ -50,6 +50,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Thu Oct 08 03:35:08 +0100 2015",
       "entities":{
         "hashtags":[],
@@ -145,10 +146,10 @@
       "media":[],
       "url":{
         "urls":[{
-          "indices":[0,22],
           "url":"http://t.co/ftcV3ISCdx",
+          "expanded_url":"http://www.hibaiunzueta.com",
           "display_url":"hibaiunzueta.com",
-          "expanded_url":"http://www.hibaiunzueta.com"
+          "indices":[0,22]
         }]
       },
       "urls":[],
@@ -191,6 +192,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Thu Oct 08 15:14:36 +0100 2015",
       "entities":{
         "hashtags":[],
@@ -294,6 +296,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Fri Sep 18 12:32:10 +0100 2015",
       "entities":{
         "hashtags":[{
@@ -324,6 +327,7 @@
       "retweeted":false,
       "retweeted_status":{
         "contributors":[],
+        "coordinates":[],
         "created_at":"Sun Sep 13 00:44:06 +0100 2015",
         "entities":{
           "hashtags":[{
@@ -375,10 +379,10 @@
       "media":[],
       "url":{
         "urls":[{
-          "indices":[0,22],
           "url":"http://t.co/HUvDLSOdhW",
+          "expanded_url":"http://about.me/tomz85",
           "display_url":"about.me/tomz85",
-          "expanded_url":"http://about.me/tomz85"
+          "indices":[0,22]
         }]
       },
       "urls":[],
@@ -421,6 +425,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Fri Sep 25 14:03:04 +0100 2015",
       "entities":{
         "hashtags":[{
@@ -429,10 +434,10 @@
         }],
         "media":[],
         "urls":[{
-          "indices":[108,130],
           "url":"http://t.co/PxgydyRARy",
+          "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
           "display_url":"slideshare.net/GiampaoloTrapa\u2026",
-          "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala"
+          "indices":[108,130]
         }],
         "user_mentions":[{
           "id":22006274,
@@ -456,6 +461,7 @@
       "retweeted":false,
       "retweeted_status":{
         "contributors":[],
+        "coordinates":[],
         "created_at":"Thu Sep 24 23:47:33 +0100 2015",
         "entities":{
           "hashtags":[{
@@ -464,10 +470,10 @@
           }],
           "media":[],
           "urls":[{
-            "indices":[88,110],
             "url":"http://t.co/PxgydyRARy",
+            "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
             "display_url":"slideshare.net/GiampaoloTrapa\u2026",
-            "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala"
+            "indices":[88,110]
           }],
           "user_mentions":[]
         },
@@ -477,6 +483,25 @@
         "id_str":"647180599153819652",
         "is_quote_status":false,
         "lang":"en",
+        "place":{
+          "attributes":{
+
+          },
+          "bounding_box":{
+            "coordinates":[[[13.6683593,45.6067875],[13.8985003,45.6067875],[13.8985003,45.7467022],[13.6683593,45.7467022]]],
+            "type":"Polygon"
+          },
+          "country":"Italia",
+          "country_code":"IT",
+          "full_name":"Trieste, Friuli-Venezia Giulia",
+          "id":"cf5d106c94750000",
+          "name":"Trieste",
+          "place_type":"city",
+          "url":"https://api.twitter.com/1.1/geo/id/cf5d106c94750000.json",
+          "contained_within":[],
+          "centroid":[],
+          "polylines":[]
+        },
         "possibly_sensitive":false,
         "scopes":{
 
@@ -513,10 +538,10 @@
       "media":[],
       "url":{
         "urls":[{
-          "indices":[0,22],
           "url":"http://t.co/1TBURBFHqg",
+          "expanded_url":"http://www.thesocializers.com",
           "display_url":"thesocializers.com",
-          "expanded_url":"http://www.thesocializers.com"
+          "indices":[0,22]
         }]
       },
       "urls":[],
@@ -559,6 +584,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Thu Oct 08 15:27:25 +0100 2015",
       "entities":{
         "hashtags":[],
@@ -646,15 +672,16 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Fri Jun 12 19:21:42 +0100 2015",
       "entities":{
         "hashtags":[],
         "media":[],
         "urls":[{
-          "indices":[105,127],
           "url":"http://t.co/GlJI9xP6Bj",
+          "expanded_url":"http://spoti.fi/Nfwqh7",
           "display_url":"spoti.fi/Nfwqh7",
-          "expanded_url":"http://spoti.fi/Nfwqh7"
+          "indices":[105,127]
         }],
         "user_mentions":[]
       },
@@ -731,6 +758,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Fri Oct 09 04:20:32 +0100 2015",
       "entities":{
         "hashtags":[],
@@ -808,6 +836,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Tue Apr 14 15:45:28 +0100 2015",
       "entities":{
         "hashtags":[],
@@ -902,6 +931,7 @@
     "show_all_inline_media":false,
     "status":{
       "contributors":[],
+      "coordinates":[],
       "created_at":"Sat Sep 14 23:44:47 +0100 2013",
       "entities":{
         "hashtags":[],

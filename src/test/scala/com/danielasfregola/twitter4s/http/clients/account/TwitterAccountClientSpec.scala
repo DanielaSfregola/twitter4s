@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.account
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http._
 import com.danielasfregola.twitter4s.entities.enums.{Hour, TimeZone, ContributorType}
 import com.danielasfregola.twitter4s.entities.{ProfileUpdate, User, Settings}
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterAccountClientSpec extends ClientSpec {
 

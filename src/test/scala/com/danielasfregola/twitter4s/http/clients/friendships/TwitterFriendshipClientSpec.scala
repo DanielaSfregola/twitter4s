@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.friendships
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterFriendshipClientSpec extends ClientSpec {
 
@@ -40,12 +40,12 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get incoming friendships stringified" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(incomingFriendshipsStringified()).expectRequest { request =>
+      val result: UserStringifiedIds = when(incomingFriendshipsStringified()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
         request.uri.query === Query("cursor=-1&stringify_ids=true")
       }.respondWith("/twitter/friendships/incoming_friendships_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/incoming_friendships_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/friendships/incoming_friendships_ids_stringified.json")
     }
 
     "get outgoing friendships" in new TwitterFriendshipClientSpecContext {
@@ -58,12 +58,12 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get outgoing friendships stringified" in new TwitterFriendshipClientSpecContext {
-      val result: UserIdsStringified = when(outgoingFriendshipsStringified()).expectRequest { request =>
+      val result: UserStringifiedIds = when(outgoingFriendshipsStringified()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
         request.uri.query === Query("cursor=-1&stringify_ids=true")
       }.respondWith("/twitter/friendships/outgoing_friendships_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friendships/outgoing_friendships_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/friendships/outgoing_friendships_ids_stringified.json")
     }
 
     "follow a user" in new TwitterFriendshipClientSpecContext {

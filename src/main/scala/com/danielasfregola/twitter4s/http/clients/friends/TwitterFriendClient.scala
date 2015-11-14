@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.friends
 
 import scala.concurrent.Future
 
-import com.danielasfregola.twitter4s.entities.{UserIds, UserIdsStringified, Users}
+import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.friends.parameters.{FriendsParameters, FriendParameters}
 import com.danielasfregola.twitter4s.util.Configurations
@@ -21,14 +21,14 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     genericFriends[UserIds](parameters)
   }
 
-  def friendsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def friendsForUserIdStringified(user_id: Long, cursor: Long = -1, count: Int = -1): Future[UserStringifiedIds] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
-    genericFriends[UserIdsStringified](parameters)
+    genericFriends[UserStringifiedIds](parameters)
   }
 
-  def friendsStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserIdsStringified] = {
+  def friendsStringified(screen_name: String, cursor: Long = -1, count: Int = -1): Future[UserStringifiedIds] = {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
-    genericFriends[UserIdsStringified](parameters)
+    genericFriends[UserStringifiedIds](parameters)
   }
 
   private def genericFriends[T: Manifest](parameters: FriendParameters): Future[T] =

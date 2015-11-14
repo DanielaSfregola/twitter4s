@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.statuses
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.{ContentType, MediaTypes, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterStatusClientSpec extends ClientSpec {
 
@@ -138,12 +137,12 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "get retweeters ids stringified" in new TwitterStatusClientSpecContext {
-      val result: UserIdsStringified = when(retweetersIdsStringified(327473909412814850L)).expectRequest { request =>
+      val result: UserStringifiedIds = when(retweetersIdsStringified(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
         request.uri.query === Query("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
       }.respondWith("/twitter/statuses/retweeters_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/statuses/retweeters_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/statuses/retweeters_ids_stringified.json")
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {

@@ -1,13 +1,13 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 
 import scala.concurrent.Future
 import scala.util.Failure
 
 import spray.http.{HttpResponse, StatusCodes}
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterError, TwitterException}
-import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class OAuthClientSpec extends ClientSpec {
 

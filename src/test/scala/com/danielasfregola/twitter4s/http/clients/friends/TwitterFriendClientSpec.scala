@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.friends
 
-import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
+
+import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{UserIds, UserIdsStringified, Users}
-import com.danielasfregola.twitter4s.http.ClientSpecContext
+import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
 
 class TwitterFriendClientSpec extends ClientSpec {
 
@@ -31,21 +31,21 @@ class TwitterFriendClientSpec extends ClientSpec {
     }
 
     "get friends stringified ids of a specific user by id" in new TwitterFriendClientSpecContext {
-      val result: UserIdsStringified = when(friendsForUserIdStringified(2911461333L)).expectRequest { request =>
+      val result: UserStringifiedIds = when(friendsForUserIdStringified(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
         request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
       }.respondWith("/twitter/friends/friends_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friends/friends_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/friends/friends_ids_stringified.json")
     }
 
     "get friends stringified ids of a specific user by name" in new TwitterFriendClientSpecContext {
-      val result: UserIdsStringified = when(friendsStringified("DanielaSfregola")).expectRequest { request =>
+      val result: UserStringifiedIds = when(friendsStringified("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
         request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
       }.respondWith("/twitter/friends/friends_ids_stringified.json").await
-      result === loadJsonAs[UserIdsStringified]("/fixtures/friends/friends_ids_stringified.json")
+      result === loadJsonAs[UserStringifiedIds]("/fixtures/friends/friends_ids_stringified.json")
     }
 
     "get friends of a user" in new TwitterFriendClientSpecContext {
