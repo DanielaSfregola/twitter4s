@@ -13,7 +13,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
   "Twitter Favorite Client" should {
 
     "get favorites" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Status] = when(favorites("DanielaSfregola")).expectRequest { request =>
+      val result: Seq[Status] = when(getFavoriteStatusesForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&screen_name=DanielaSfregola")
@@ -22,7 +22,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
     }
 
     "get favorites per user id" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Status] = when(favoritesForUserId(19018614)).expectRequest { request =>
+      val result: Seq[Status] = when(getFavoriteStatusesForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&user_id=19018614")
@@ -31,7 +31,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
     }
 
     "favorite a tweet" in new TwitterFavoriteClientSpecContext {
-      val result: Status = when(favorite(243138128959913986L)).expectRequest { request =>
+      val result: Status = when(favoriteStatus(243138128959913986L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/create.json"
         request.uri.query === Query("id=243138128959913986&include_entities=true")
@@ -40,7 +40,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
     }
 
     "unfavorite a tweet" in new TwitterFavoriteClientSpecContext {
-      val result: Status = when(unfavorite(243138128959913986L)).expectRequest { request =>
+      val result: Status = when(unfavoriteStatus(243138128959913986L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/destroy.json"
         request.uri.query === Query("id=243138128959913986&include_entities=true")
