@@ -1,9 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.account
 
+import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
 import spray.http._
 import com.danielasfregola.twitter4s.entities.enums.{Hour, TimeZone, ContributorType}
 import com.danielasfregola.twitter4s.entities.{ProfileUpdate, User, Settings}
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterAccountClientSpec extends ClientSpec {
 
@@ -12,7 +13,7 @@ class TwitterAccountClientSpec extends ClientSpec {
   "Twitter Account Client" should {
 
     "retrieve account settings" in new TwitterAccountClientSpecContext {
-      val result: Settings = when(settings).expectRequest { request =>
+      val result: Settings = when(getSettings).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/settings.json"
       }.respondWith("/twitter/account/settings.json").await

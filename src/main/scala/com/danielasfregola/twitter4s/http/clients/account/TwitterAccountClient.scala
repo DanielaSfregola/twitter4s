@@ -11,12 +11,49 @@ import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.account.parameters.CredentialsParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+/** Implements the available requests for the `account` resource.
+  * */
 trait TwitterAccountClient extends OAuthClient with Configurations {
 
   private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 
-  def settings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
+  /** Returns settings (including current trend, geo and sleep time information) for the authenticating user.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/account/settings" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/account/settings</a>.
+    *
+    * @return  the account settings for the authenticating user.
+    * */
+  def getSettings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
 
+  /** Updates the authenticating user’s settings.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/settings" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/settings</a>.
+    *
+    * @param allow_contributor_request : optional, by default is `None`.
+    *                                  Whether to allow others to include user as contributor.
+    *                                  Possible values include `All` (anyone can include user),
+    *                                  `Following` (only followers can include user) or `None`.
+    * @param sleep_time_enabled : optional, by default is `None`.
+    *                           When set to `true`, will enable sleep time for the user.
+    *                           Sleep time is the time when push or SMS notifications should not be sent to the user.
+    * @param start_sleep_time : optional, by default is `None`.
+    *                         The hour that sleep time should begin if it is enabled.
+    *                         The time is considered to be in the same timezone as the user’s time_zone setting.
+    * @param end_sleep_time : optional, by default is `None`.
+    *                       The hour that sleep time should end if it is enabled.
+    *                       The time is considered to be in the same timezone as the user’s time_zone setting.
+    * @param lang : optional, by default is `None`.
+    *             The language which Twitter should render in for this user.
+    * @param time_zone  : optional, by default is `None`.
+    *                  The timezone dates and times should be displayed in for the user.
+    * @param trend_location_woeid : optional, by default is `None`.
+    *                             The Yahoo! Where On Earth ID to use as the user’s default trend location.
+    *                             Global information is available by using 1 as the WOEID.
+    *                             The woeid must be one of the locations returned by [node:59].
+    * @return : the updated settings.
+    * */
   def updateSettings(allow_contributor_request: Option[ContributorType] = None,
                      sleep_time_enabled: Option[Boolean] = None,
                      start_sleep_time: Option[Hour] = None,
@@ -28,9 +65,32 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateSettings(options)
   }
 
-  def updateSettings(settingsOptions: SettingsOptions): Future[Settings] =
-    Post(s"$accountUrl/settings.json", settingsOptions).respondAs[Settings]
+  /** Updates the authenticating user’s settings.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/settings" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/settings</a>.
+    *
+    * @param settings_options : the setting options to update. Only the parameters specified will be updated.
+    * @return : the updated settings.
+    * */
+  def updateSettings(settings_options: SettingsOptions): Future[Settings] =
+    Post(s"$accountUrl/settings.json", settings_options).respondAs[Settings]
 
+  /** Returns a representation of the requesting user if authentication was successful; it throws a [[com.danielasfregola.twitter4s.exceptions.TwitterException]] if not.
+    * Use this method to test if supplied user credentials are valid.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/account/verify_credentials" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/account/verify_credentials</a>.
+    *
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @param include_email : by default is `false`.
+    *                      When set to `true` email will be returned in the user objects.
+    *                      If the user does not have an email address on their account, or if the email address is un-verified, null will be returned.
+    * @return : the user representation.
+    * */
   def verifyCredentials(include_entities: Boolean = true,
                         skip_status: Boolean = false,
                         include_email: Boolean = false): Future[User] = {
@@ -38,6 +98,18 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     Get(s"$accountUrl/verify_credentials.json", parameters).respondAs[User]
   }
 
+  /** Sets the name that users are able to set under the “Account” tab of their settings page.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param name : Full name associated with the profile. Maximum of 20 characters.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the user representation.
+    * */
   def updateProfileName(name: String,
                         include_entities: Boolean = true,
                         skip_status: Boolean = false): Future[User] = {
@@ -45,6 +117,19 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateProfile(update)
   }
 
+  /** Sets the url that users are able to set under the “Account” tab of their settings page.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param url : URL associated with the profile. Will be prepended with “http://” if not present.
+    *            Maximum of 100 characters.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the user representation.
+    * */
   def updateProfileUrl(url: String,
                         include_entities: Boolean = true,
                         skip_status: Boolean = false): Future[User] = {
@@ -52,6 +137,19 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateProfile(update)
   }
 
+  /** Sets the location that users are able to set under the “Account” tab of their settings page.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param location : The city or country describing where the user of the account is located.
+    *                 The contents are not normalized or geocoded in any way. Maximum of 30 characters.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the user representation.
+    * */
   def updateProfileLocation(location: String,
                             include_entities: Boolean = true,
                             skip_status: Boolean = false): Future[User] = {
@@ -59,6 +157,18 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateProfile(update)
   }
 
+  /** Sets the description that users are able to set under the “Account” tab of their settings page.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param description : A description of the user owning the account. Maximum of 160 characters.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the user representation.
+    * */
   def updateProfileDescription(description: String,
                                include_entities: Boolean = true,
                                skip_status: Boolean = false): Future[User] = {
@@ -66,6 +176,19 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateProfile(update)
   }
 
+  /** Sets the link color that users are able to set under the “Account” tab of their settings page.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param link_color : Sets a hex value that controls the color scheme of links used on the authenticating user’s profile page on twitter.com.
+    *                   This must be a valid hexadecimal value, and may be either three or six characters (ex: F00 or FF0000).
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the user representation.
+    * */
   def updateProfileLinkColor(link_color: String,
                              include_entities: Boolean = true,
                              skip_status: Boolean = false): Future[User] = {
@@ -73,13 +196,25 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     updateProfile(update)
   }
 
+  /** Sets some values that users are able to set under the “Account” tab of their settings page. Only the parameters specified will be updated.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+    *
+    * @param update : the profile values to update.
+    * @return : the user representation.
+    * */
   def updateProfile(update: ProfileUpdate): Future[User] =
     Post(s"$accountUrl/update_profile.json", update).respondAs[User]
+
+  /** Removes the uploaded profile banner for the authenticating user.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/account/remove_profile_banner" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/account/remove_profile_banner</a>.
+    * */
+  def removeProfileBanner(): Future[Unit] = Post(s"$accountUrl/remove_profile_banner.json").respondAs[Unit]
 
   // TODO - support update_profile_backgroung_image
   // TODO - support update_profile_image
   // TODO - support update_profile_banner
-
-  def removeProfileBanner(): Future[Unit] = Post(s"$accountUrl/remove_profile_banner.json").respondAs[Unit]
-
 }

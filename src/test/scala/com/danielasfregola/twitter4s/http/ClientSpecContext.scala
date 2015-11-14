@@ -1,16 +1,17 @@
-package com.danielasfregola.twitter4s.util
+package com.danielasfregola.twitter4s.http
 
-import scala.concurrent.Future
-import scala.concurrent.duration.{DurationInt, FiniteDuration}
 import akka.testkit.TestProbe
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
-
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.util.{AwaitableFuture, FixturesSupport, TestActorSystem}
 import org.specs2.matcher.NoConcurrentExecutionContext
 import org.specs2.specification.Scope
 import spray.http._
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+
+import scala.concurrent.Future
+import scala.concurrent.duration.{DurationInt, FiniteDuration}
 
 abstract class ClientSpecContext extends TestActorSystem with OAuthClient with FixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
   self =>

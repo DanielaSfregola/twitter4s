@@ -1,9 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.users
 
+import com.danielasfregola.twitter4s.entities.{Banners, User}
+import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{Banners, User}
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 
 class TwitterUserClientSpec extends ClientSpec {
 

@@ -1,9 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.directmessages
 
+import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 import com.danielasfregola.twitter4s.entities.DirectMessage
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
 

@@ -1,9 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.statuses
 
+import com.danielasfregola.twitter4s.http.{ClientSpec, ClientSpecContext}
 import spray.http.{ContentType, MediaTypes, HttpEntity, HttpMethods}
 import spray.http.Uri.Query
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.http.ClientSpecContext
 
 class TwitterStatusClientSpec extends ClientSpec {
 

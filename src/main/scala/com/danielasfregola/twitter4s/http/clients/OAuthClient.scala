@@ -12,20 +12,20 @@ import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
-trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
+private[http] trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
-  lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
+  protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
   def pipeline[T: FromResponseUnmarshaller] = { implicit request =>
     request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
   }
 
-  def withOAuthHeader: HttpRequest => HttpRequest = { request =>
+  protected def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
   }
   
-  def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
+  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
     hr.status.isSuccess match {
       case true => hr ~> unmarshal[T]
       case false =>
