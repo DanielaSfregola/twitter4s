@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.blocks.parameters.{BlockedUserIdsParameters, BlockParameters, BlockedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
-/** Implements the available requests for the `block` resource.
+/** Implements the available requests for the `blocks` resource.
   */
 trait TwitterBlockClient extends OAuthClient with Configurations {
 
