@@ -34,19 +34,53 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     Get(s"$blocksUrl/list.json", parameters).respondAs[Users]
   }
 
+  /** Returns an array of user ids the authenticating user is blocking.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+    *
+    * @param cursor : by default is `-1`,  which is the first “page”.
+    *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
+    * @return : the representation of user ids with cursors.
+    */
   def getBlockedUserIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = false, cursor)
     genericGetBlockedUserIds[UserIds](parameters)
   }
 
+  /** Returns an array of user stringified ids the authenticating user is blocking.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+    *
+    * @param cursor : by default is `-1`,  which is the first “page”.
+    *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
+    * @return : the representation of user stringified ids with cursors.
+    */
   def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = true, cursor)
     genericGetBlockedUserIds[UserStringifiedIds](parameters)
   }
 
-  def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] =
+  private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] =
     Get(s"$blocksUrl/ids.json", parameters).respondAs[T]
 
+  /** Blocks the specified user from following the authenticating user.
+    * In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
+    * If a follow or friend relationship exists it is destroyed.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+    *
+    * @param screen_name : The screen name of the potentially blocked user.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the representation of the blocked user.
+    */
   def blockUser(screen_name: String,
                 include_entities: Boolean = true,
                 skip_status: Boolean = false): Future[User] = {
@@ -54,6 +88,20 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     genericBlock(parameters)
   }
 
+  /** Blocks the specified user id from following the authenticating user.
+    * In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
+    * If a follow or friend relationship exists it is destroyed.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+    *
+    * @param user_id : The ID of the potentially blocked user.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the representation of the blocked user.
+    */
   def blockUserId(user_id: Long,
                   include_entities: Boolean = true,
                   skip_status: Boolean = false): Future[User] = {
@@ -64,13 +112,41 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
   private def genericBlock(parameters: BlockParameters): Future[User] =
     Post(s"$blocksUrl/create.json", parameters).respondAs[User]
 
-  def unblock(screen_name: String,
-            include_entities: Boolean = true,
-            skip_status: Boolean = false): Future[User] = {
+  /** Un-blocks the user for the authenticating user.
+    * Returns the un-blocked user in the requested format when successful.
+    * If relationships existed before the block was instated, they will not be restored.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+    *
+    * @param screen_name : The screen name of the potentially blocked user.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the representation of the unblocked user.
+    */
+  def unblockUser(screen_name: String,
+                  include_entities: Boolean = true,
+                  skip_status: Boolean = false): Future[User] = {
     val parameters = BlockParameters(user_id = None, Some(screen_name), include_entities, skip_status)
     genericUnblock(parameters)
   }
 
+  /** Un-blocks the user specified id for the authenticating user.
+    * Returns the un-blocked user in the requested format when successful.
+    * If relationships existed before the block was instated, they will not be restored.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+    *
+    * @param user_id : he ID of the potentially blocked user.
+    * @param include_entities : by default is `true`.
+    *                         The entities node will not be included when set to false.
+    * @param skip_status : by default is `false`.
+    *                    When set to either `true` statuses will not be included in the returned user object.
+    * @return : the representation of the unblocked user.
+    */
   def unblockUserId(user_id: Long,
                   include_entities: Boolean = true,
                   skip_status: Boolean = false): Future[User] = {

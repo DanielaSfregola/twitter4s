@@ -57,7 +57,7 @@ class TwitterBlockClientSpec extends ClientSpec {
     }
 
     "unblock user"  in new TwitterBlockClientSpecContext {
-      val result: User = when(unblock("marcobonzanini")).expectRequest { request =>
+      val result: User = when(unblockUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/destroy.json"
         request.uri.query === Query("include_entities=true&screen_name=marcobonzanini&skip_status=false")
