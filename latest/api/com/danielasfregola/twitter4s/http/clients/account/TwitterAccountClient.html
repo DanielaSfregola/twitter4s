@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/account/TwitterAccountClient.scala" target="_blank">TwitterAccountClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>account</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/account/TwitterAccountClient.scala" target="_blank">TwitterAccountClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -358,7 +359,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#apiTwitterUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#apiTwitterUrl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apiTwitterUrl:String"></a>
       <a id="apiTwitterUrl:String"></a>
       <h4 class="signature">
@@ -374,7 +375,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -415,7 +416,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#config" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#config" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="config:com.typesafe.config.Config"></a>
       <a id="config:Config"></a>
       <h4 class="signature">
@@ -431,7 +432,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport#defaultFormats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultFormats:org.json4s.DefaultFormats"></a>
       <a id="defaultFormats:DefaultFormats"></a>
@@ -591,6 +592,27 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#getSettings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSettings():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]"></a>
+      <a id="getSettings():Future[Settings]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSettings</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Settings.html" class="extype" name="com.danielasfregola.twitter4s.entities.Settings">Settings</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient@getSettings():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns settings (including current trend, geo and sleep time information) for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Returns settings (including current trend, geo and sleep time information) for the authenticating user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/account/settings" target="_blank">
+  https://dev.twitter.com/rest/reference/get/account/settings</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The account settings for the authenticating user.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -710,7 +732,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#mediaTwitterUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#mediaTwitterUrl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="mediaTwitterUrl:String"></a>
       <a id="mediaTwitterUrl:String"></a>
       <h4 class="signature">
@@ -726,7 +748,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -778,7 +800,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#oauthProvider" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#oauthProvider" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="oauthProvider:com.danielasfregola.twitter4s.http.oauth.OAuthProvider"></a>
       <a id="oauthProvider:OAuthProvider"></a>
       <h4 class="signature">
@@ -794,7 +816,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#pipeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pipeline[T](implicitevidence$1:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpRequest=&gt;scala.concurrent.Future[T]"></a>
       <a id="pipeline[T](FromResponseUnmarshaller[T]):(HttpRequest)⇒Future[T]"></a>
@@ -812,7 +834,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#removeProfileBanner" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#removeProfileBanner" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="removeProfileBanner():scala.concurrent.Future[Unit]"></a>
       <a id="removeProfileBanner():Future[Unit]"></a>
       <h4 class="signature">
@@ -828,7 +850,11 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Removes the uploaded profile banner for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Removes the uploaded profile banner for the authenticating user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/remove_profile_banner" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/remove_profile_banner</a>.
+</p></div></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -863,23 +889,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#settings" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="settings():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]"></a>
-      <a id="settings():Future[Settings]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">settings</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Settings.html" class="extype" name="com.danielasfregola.twitter4s.entities.Settings">Settings</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient@settings():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -914,7 +923,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="twitterVersion:String"></a>
       <a id="twitterVersion:String"></a>
       <h4 class="signature">
@@ -930,8 +939,8 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>
       <a id="unmarshalResponse[T](FromResponseUnmarshaller[T]):(HttpResponse)⇒T"></a>
       <h4 class="signature">
@@ -947,8 +956,8 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfile(update:com.danielasfregola.twitter4s.entities.ProfileUpdate):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfile(ProfileUpdate):Future[User]"></a>
       <h4 class="signature">
@@ -964,8 +973,12 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileDescription" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets some values that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets some values that users are able to set under the “Account” tab of their settings page. Only the parameters specified will be updated.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">update</dt><dd class="cmt"><p>: The profile values to update.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileDescription" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfileDescription(description:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfileDescription(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -981,8 +994,14 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileLinkColor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets the description that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the description that users are able to set under the “Account” tab of their settings page.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">description</dt><dd class="cmt"><p>: A description of the user owning the account. Maximum of 160 characters.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileLinkColor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfileLinkColor(link_color:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfileLinkColor(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -998,8 +1017,15 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileLocation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets the link color that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the link color that users are able to set under the “Account” tab of their settings page.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">link_color</dt><dd class="cmt"><p>: Sets a hex value that controls the color scheme of links used on the authenticating user’s profile page on twitter.com.
+                  This must be a valid hexadecimal value, and may be either three or six characters (ex: F00 or FF0000).</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileLocation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfileLocation(location:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfileLocation(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -1015,8 +1041,15 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileName" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets the location that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the location that users are able to set under the “Account” tab of their settings page.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">location</dt><dd class="cmt"><p>: The city or country describing where the user of the account is located.
+                The contents are not normalized or geocoded in any way. Maximum of 30 characters.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfileName(name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfileName(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -1032,8 +1065,14 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets the name that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the name that users are able to set under the “Account” tab of their settings page.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">name</dt><dd class="cmt"><p>: Full name associated with the profile. Maximum of 20 characters.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateProfileUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateProfileUrl(url:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="updateProfileUrl(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -1049,9 +1088,16 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateSettings" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="updateSettings(settingsOptions:com.danielasfregola.twitter4s.entities.SettingsOptions):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]"></a>
+      <p class="shortcomment cmt">Sets the url that users are able to set under the “Account” tab of their settings page.</p><div class="fullcomment"><div class="comment cmt"><p>Sets the url that users are able to set under the “Account” tab of their settings page.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/update_profile" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
+</p></div><dl class="paramcmts block"><dt class="param">url</dt><dd class="cmt"><p>: URL associated with the profile. Will be prepended with “http://” if not present.
+           Maximum of 100 characters.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateSettings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="updateSettings(settings_options:com.danielasfregola.twitter4s.entities.SettingsOptions):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]"></a>
       <a id="updateSettings(SettingsOptions):Future[Settings]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -1059,15 +1105,19 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">updateSettings</span><span class="params">(<span name="settingsOptions">settingsOptions: <a href="../../../entities/SettingsOptions.html" class="extype" name="com.danielasfregola.twitter4s.entities.SettingsOptions">SettingsOptions</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Settings.html" class="extype" name="com.danielasfregola.twitter4s.entities.Settings">Settings</a>]</span>
+        <span class="name">updateSettings</span><span class="params">(<span name="settings_options">settings_options: <a href="../../../entities/SettingsOptions.html" class="extype" name="com.danielasfregola.twitter4s.entities.SettingsOptions">SettingsOptions</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Settings.html" class="extype" name="com.danielasfregola.twitter4s.entities.Settings">Settings</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient@updateSettings(settingsOptions:com.danielasfregola.twitter4s.entities.SettingsOptions):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient@updateSettings(settings_options:com.danielasfregola.twitter4s.entities.SettingsOptions):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateSettings" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Updates the authenticating user’s settings.</p><div class="fullcomment"><div class="comment cmt"><p>Updates the authenticating user’s settings.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/settings" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/settings</a>.
+</p></div><dl class="paramcmts block"><dt class="param">settings_options</dt><dd class="cmt"><p>: The setting options to update. Only the parameters specified will be updated.</p></dd><dt>returns</dt><dd class="cmt"><p>: The updated settings.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#updateSettings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="updateSettings(allow_contributor_request:Option[com.danielasfregola.twitter4s.entities.enums.ContributorType.ContributorType],sleep_time_enabled:Option[Boolean],start_sleep_time:Option[com.danielasfregola.twitter4s.entities.enums.Hour.Hour],end_sleep_time:Option[com.danielasfregola.twitter4s.entities.enums.Hour.Hour],lang:Option[com.danielasfregola.twitter4s.entities.enums.Language.Language],time_zone:Option[com.danielasfregola.twitter4s.entities.enums.TimeZone.TimeZone],trend_location_woeid:Option[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Settings]"></a>
       <a id="updateSettings(Option[ContributorType],Option[Boolean],Option[Hour],Option[Hour],Option[Language],Option[TimeZone],Option[Long]):Future[Settings]"></a>
       <h4 class="signature">
@@ -1083,8 +1133,26 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#verifyCredentials" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Updates the authenticating user’s settings.</p><div class="fullcomment"><div class="comment cmt"><p>Updates the authenticating user’s settings.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/account/settings" target="_blank">
+  https://dev.twitter.com/rest/reference/post/account/settings</a>.
+</p></div><dl class="paramcmts block"><dt class="param">allow_contributor_request</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                                 Whether to allow others to include user as contributor.
+                                 Possible values include <code>All</code> (anyone can include user),
+                                 <code>Following</code> (only followers can include user) or <code>None</code>.</p></dd><dt class="param">sleep_time_enabled</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                          When set to <code>true</code>, will enable sleep time for the user.
+                          Sleep time is the time when push or SMS notifications should not be sent to the user.</p></dd><dt class="param">start_sleep_time</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                        The hour that sleep time should begin if it is enabled.
+                        The time is considered to be in the same timezone as the user’s time_zone setting.</p></dd><dt class="param">end_sleep_time</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                      The hour that sleep time should end if it is enabled.
+                      The time is considered to be in the same timezone as the user’s time_zone setting.</p></dd><dt class="param">lang</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+            The language which Twitter should render in for this user.</p></dd><dt class="param">time_zone</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                 The timezone dates and times should be displayed in for the user.</p></dd><dt class="param">trend_location_woeid</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                            The Yahoo! Where On Earth ID to use as the user’s default trend location.
+                            Global information is available by using 1 as the WOEID.
+                            The woeid must be one of the locations returned by [node:59].</p></dd><dt>returns</dt><dd class="cmt"><p>: The updated settings.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient#verifyCredentials" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="verifyCredentials(include_entities:Boolean,skip_status:Boolean,include_email:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="verifyCredentials(Boolean,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -1100,7 +1168,16 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Returns a representation of the requesting user if authentication was successful; it throws a <a href="../../../exceptions/TwitterException.html" class="extype" name="com.danielasfregola.twitter4s.exceptions.TwitterException">com.danielasfregola.twitter4s.exceptions.TwitterException</a> if not.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a representation of the requesting user if authentication was successful; it throws a <a href="../../../exceptions/TwitterException.html" class="extype" name="com.danielasfregola.twitter4s.exceptions.TwitterException">com.danielasfregola.twitter4s.exceptions.TwitterException</a> if not.
+Use this method to test if supplied user credentials are valid.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/account/verify_credentials" target="_blank">
+  https://dev.twitter.com/rest/reference/get/account/verify_credentials</a>.
+</p></div><dl class="paramcmts block"><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt class="param">include_email</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                     When set to <code>true</code> email will be returned in the user objects.
+                     If the user does not have an email address on their account, or if the email address is un-verified, null will be returned.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation.</p></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -1170,7 +1247,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withOAuthHeader" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="withOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
       <a id="withOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
       <h4 class="signature">
@@ -1186,7 +1263,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

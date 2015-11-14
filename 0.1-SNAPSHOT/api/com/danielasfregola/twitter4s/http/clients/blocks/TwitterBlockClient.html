@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/blocks/TwitterBlockClient.scala" target="_blank">TwitterBlockClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>block</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/blocks/TwitterBlockClient.scala" target="_blank">TwitterBlockClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -358,7 +359,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#apiTwitterUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#apiTwitterUrl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apiTwitterUrl:String"></a>
       <a id="apiTwitterUrl:String"></a>
       <h4 class="signature">
@@ -374,7 +375,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -392,24 +393,32 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#block" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="block(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="block(String,Boolean,Boolean):Future[User]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#blockUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="blockUser(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="blockUser(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">block</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+        <span class="name">blockUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@block(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@blockUser(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#blockUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Blocks the specified user from following the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Blocks the specified user from following the authenticating user.
+In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
+If a follow or friend relationship exists it is destroyed.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially blocked user.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the blocked user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#blockUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="blockUserId(user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="blockUserId(Long,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -425,24 +434,15 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#blockedUsers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="blockedUsers(include_entities:Boolean,skip_status:Boolean,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
-      <a id="blockedUsers(Boolean,Boolean,Long):Future[Users]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">blockedUsers</span><span class="params">(<span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@blockedUsers(include_entities:Boolean,skip_status:Boolean,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Blocks the specified user id from following the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Blocks the specified user id from following the authenticating user.
+In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
+If a follow or friend relationship exists it is destroyed.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the potentially blocked user.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the blocked user.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -466,7 +466,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#config" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#config" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="config:com.typesafe.config.Config"></a>
       <a id="config:Config"></a>
       <h4 class="signature">
@@ -482,7 +482,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport#defaultFormats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultFormats:org.json4s.DefaultFormats"></a>
       <a id="defaultFormats:DefaultFormats"></a>
@@ -625,6 +625,77 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UnmarshallerLifting</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#getBlockedUserIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getBlockedUserIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getBlockedUserIds(Long):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBlockedUserIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@getBlockedUserIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns an array of user ids the authenticating user is blocking.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an array of user ids the authenticating user is blocking.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of user ids with cursors.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#getBlockedUserStringifiedIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getBlockedUserStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getBlockedUserStringifiedIds(Long):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBlockedUserStringifiedIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@getBlockedUserStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns an array of user stringified ids the authenticating user is blocking.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an array of user stringified ids the authenticating user is blocking.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of user stringified ids with cursors.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#getBlockedUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getBlockedUsers(include_entities:Boolean,skip_status:Boolean,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
+      <a id="getBlockedUsers(Boolean,Boolean,Long):Future[Users]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getBlockedUsers</span><span class="params">(<span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@getBlockedUsers(include_entities:Boolean,skip_status:Boolean,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the users that the authenticating user is blocking.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the users that the authenticating user is blocking.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/blocks/list" target="_blank">
+  https://dev.twitter.com/rest/reference/get/blocks/list</a>.
+</p></div><dl class="paramcmts block"><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of blocked users.</p></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -761,7 +832,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#mediaTwitterUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#mediaTwitterUrl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="mediaTwitterUrl:String"></a>
       <a id="mediaTwitterUrl:String"></a>
       <h4 class="signature">
@@ -777,7 +848,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -829,7 +900,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#oauthProvider" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#oauthProvider" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="oauthProvider:com.danielasfregola.twitter4s.http.oauth.OAuthProvider"></a>
       <a id="oauthProvider:OAuthProvider"></a>
       <h4 class="signature">
@@ -845,7 +916,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#pipeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pipeline[T](implicitevidence$1:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpRequest=&gt;scala.concurrent.Future[T]"></a>
       <a id="pipeline[T](FromResponseUnmarshaller[T]):(HttpRequest)⇒Future[T]"></a>
@@ -931,7 +1002,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="twitterVersion:String"></a>
       <a id="twitterVersion:String"></a>
       <h4 class="signature">
@@ -947,25 +1018,33 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#unblock" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="unblock(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="unblock(String,Boolean,Boolean):Future[User]"></a>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#unblockUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unblockUser(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="unblockUser(String,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unblock</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+        <span class="name">unblockUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@unblock(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@unblockUser(screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#unblockUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Un-blocks the user for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Un-blocks the user for the authenticating user.
+Returns the un-blocked user in the requested format when successful.
+If relationships existed before the block was instated, they will not be restored.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially blocked user.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the unblocked user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#unblockUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unblockUserId(user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="unblockUserId(Long,Boolean,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -981,8 +1060,16 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <p class="shortcomment cmt">Un-blocks the user specified id for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Un-blocks the user specified id for the authenticating user.
+Returns the un-blocked user in the requested format when successful.
+If relationships existed before the block was instated, they will not be restored.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: he ID of the potentially blocked user.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the unblocked user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>
       <a id="unmarshalResponse[T](FromResponseUnmarshaller[T]):(HttpResponse)⇒T"></a>
       <h4 class="signature">
@@ -998,7 +1085,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -1068,7 +1155,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withOAuthHeader" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="withOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
       <a id="withOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
       <h4 class="signature">
@@ -1084,7 +1171,7 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 
