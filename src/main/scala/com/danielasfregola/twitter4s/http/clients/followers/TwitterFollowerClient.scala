@@ -124,7 +124,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     * */
   def getFollowersForUser(screen_name: String,
                           cursor: Long = -1,
-                          count: Int = 5000,
+                          count: Int = 20,
                           skip_status: Boolean = false,
                           include_user_entities: Boolean = true): Future[Users] = {
     val parameters = FollowersParameters(user_id = None, screen_name = Some(screen_name), cursor, count, skip_status, include_user_entities)
