@@ -19,18 +19,18 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
-    * @param count : By default is `200`.
+    * @param count : By default it is `200`.
     *              Specifies the number of records to retrieve.
     *              Must be less than or equal to 200; defaults to 20.
     *              The value of count is best thought of as a limit to the number of tweets to return
     *              because suspended or deleted content is removed after the count has been applied.
-    * @param since_id : Optional, by default is `None`.
+    * @param since_id : Optional, by default it is `None`.
     *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
     *                 There are limits to the number of Tweets which can be accessed through the API.
     *                 If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.
-    * @param max_id : Optional, by default is `None`.
+    * @param max_id : Optional, by default it is `None`.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @return : The sequence of favorite statuses.
     * */
@@ -49,18 +49,18 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
-    * @param count : By default is `200`.
+    * @param count : By default it is `200`.
     *              Specifies the number of records to retrieve.
     *              Must be less than or equal to 200; defaults to 20.
     *              The value of count is best thought of as a limit to the number of tweets to return
     *              because suspended or deleted content is removed after the count has been applied.
-    * @param since_id : Optional, by default is `None`.
+    * @param since_id : Optional, by default it is `None`.
     *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
     *                 There are limits to the number of Tweets which can be accessed through the API.
     *                 If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.
-    * @param max_id : Optional, by default is `None`.
+    * @param max_id : Optional, by default it is `None`.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @return : The sequence of favorite statuses.
     * */
@@ -84,7 +84,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/favorites/create</a>.
     *
     * @param id : The numerical ID of the desired status.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @return : The liked status.
     * */
@@ -101,7 +101,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/favorites/destroy</a>.
     *
     * @param id : The numerical ID of the desired status.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @return : The un-liked status.
     * */

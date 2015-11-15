@@ -16,7 +16,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserIds = when(getFollowerIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=false&user_id=2911461333")
+        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
       }.respondWith("/twitter/followers/followers_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/followers/followers_ids.json")
     }
@@ -25,7 +25,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserIds = when(getFollowerIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
+        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
       }.respondWith("/twitter/followers/followers_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/followers/followers_ids.json")
     }
@@ -35,7 +35,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(getFollowerStringifiedIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
+        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
       }.respondWith("/twitter/followers/followers_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/followers/followers_ids_stringified.json")
     }
@@ -44,7 +44,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(getFollowersStringifiedIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
+        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
       }.respondWith("/twitter/followers/followers_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/followers/followers_ids_stringified.json")
     }
@@ -53,7 +53,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: Users = when(getFollowersForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
-        request.uri.query === Query("count=-1&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
+        request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
       }.respondWith("/twitter/followers/followers.json").await
       result === loadJsonAs[Users]("/fixtures/followers/followers.json")
     }
@@ -62,7 +62,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: Users = when(getFollowersForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
-        request.uri.query === Query("count=-1&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
+        request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
       }.respondWith("/twitter/followers/followers.json").await
       result === loadJsonAs[Users]("/fixtures/followers/followers.json")
     }

@@ -18,14 +18,14 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/get/blocks/list" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/blocks/list</a>.
     *
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
-    * @param cursor : By default is `-1`,  which is the first “page”.
+    * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
-    * @return : The representation of blocked users.
+    * @return : The cursored representation of blocked users.
     */
   def getBlockedUsers(include_entities: Boolean = true,
                       skip_status: Boolean = false,
@@ -39,10 +39,10 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
     *
-    * @param cursor : By default is `-1`,  which is the first “page”.
+    * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
-    * @return : The representation of user ids with cursors.
+    * @return : The cursored representation of user ids.
     */
   def getBlockedUserIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = false, cursor)
@@ -54,10 +54,10 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
     *
-    * @param cursor : By default is `-1`,  which is the first “page”.
+    * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
-    * @return : The representation of user stringified ids with cursors.
+    * @return : The cursored representation of user stringified ids with cursors.
     */
   def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = true, cursor)
@@ -75,9 +75,9 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
     */
@@ -96,9 +96,9 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
     *
     * @param user_id : The ID of the potentially blocked user.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
     */
@@ -120,9 +120,9 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.
     */
@@ -141,9 +141,9 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
     *
     * @param user_id : he ID of the potentially blocked user.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.
     */

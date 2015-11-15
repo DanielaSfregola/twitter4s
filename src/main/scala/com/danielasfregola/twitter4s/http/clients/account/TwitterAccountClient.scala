@@ -31,24 +31,24 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/post/account/settings" target="_blank">
     *   https://dev.twitter.com/rest/reference/post/account/settings</a>.
     *
-    * @param allow_contributor_request : Optional, by default is `None`.
+    * @param allow_contributor_request : Optional, by default it is `None`.
     *                                  Whether to allow others to include user as contributor.
     *                                  Possible values include `All` (anyone can include user),
     *                                  `Following` (only followers can include user) or `None`.
-    * @param sleep_time_enabled : Optional, by default is `None`.
+    * @param sleep_time_enabled : Optional, by default it is `None`.
     *                           When set to `true`, will enable sleep time for the user.
     *                           Sleep time is the time when push or SMS notifications should not be sent to the user.
-    * @param start_sleep_time : Optional, by default is `None`.
+    * @param start_sleep_time : Optional, by default it is `None`.
     *                         The hour that sleep time should begin if it is enabled.
     *                         The time is considered to be in the same timezone as the user’s time_zone setting.
-    * @param end_sleep_time : Optional, by default is `None`.
+    * @param end_sleep_time : Optional, by default it is `None`.
     *                       The hour that sleep time should end if it is enabled.
     *                       The time is considered to be in the same timezone as the user’s time_zone setting.
-    * @param lang : Optional, by default is `None`.
+    * @param lang : Optional, by default it is `None`.
     *             The language which Twitter should render in for this user.
-    * @param time_zone  : Optional, by default is `None`.
+    * @param time_zone  : Optional, by default it is `None`.
     *                  The timezone dates and times should be displayed in for the user.
-    * @param trend_location_woeid : Optional, by default is `None`.
+    * @param trend_location_woeid : Optional, by default it is `None`.
     *                             The Yahoo! Where On Earth ID to use as the user’s default trend location.
     *                             Global information is available by using 1 as the WOEID.
     *                             The woeid must be one of the locations returned by [node:59].
@@ -82,11 +82,11 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/get/account/verify_credentials" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/account/verify_credentials</a>.
     *
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
-    * @param include_email : By default is `false`.
+    * @param include_email : By default it is `false`.
     *                      When set to `true` email will be returned in the user objects.
     *                      If the user does not have an email address on their account, or if the email address is un-verified, null will be returned.
     * @return : The user representation.
@@ -104,9 +104,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
     *
     * @param name : Full name associated with the profile. Maximum of 20 characters.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
     * */
@@ -124,9 +124,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @param url : URL associated with the profile. Will be prepended with “http://” if not present.
     *            Maximum of 100 characters.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
     * */
@@ -144,9 +144,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @param location : The city or country describing where the user of the account is located.
     *                 The contents are not normalized or geocoded in any way. Maximum of 30 characters.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
     * */
@@ -163,9 +163,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/account/update_profile</a>.
     *
     * @param description : A description of the user owning the account. Maximum of 160 characters.
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
     * */
@@ -183,9 +183,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @param link_color : Sets a hex value that controls the color scheme of links used on the authenticating user’s profile page on twitter.com.
     *                   This must be a valid hexadecimal value, and may be either three or six characters (ex: F00 or FF0000).
-    * @param include_entities : By default is `true`.
+    * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
-    * @param skip_status : By default is `false`.
+    * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
     * */
