@@ -166,7 +166,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "disable device notifications for a user by user id" in new TwitterFriendshipClientSpecContext {
-      val result: Relationship = when(disableDeviceNotifications(19018614L)).expectRequest { request =>
+      val result: Relationship = when(disableDeviceNotificationsForUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
         request.uri.query === Query("device=false&user_id=19018614")
