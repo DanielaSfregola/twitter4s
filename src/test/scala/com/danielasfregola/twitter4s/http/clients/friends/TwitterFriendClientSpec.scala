@@ -13,43 +13,43 @@ class TwitterFriendClientSpec extends ClientSpec {
   "Twitter Friend Client" should {
 
     "get friends ids of a specific user by id" in new TwitterFriendClientSpecContext {
-      val result: UserIds = when(friendsIdsForUserId(2911461333L)).expectRequest { request =>
+      val result: UserIds = when(getFriendIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=false&user_id=2911461333")
+        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
       }.respondWith("/twitter/friends/friends_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/friends/friends_ids.json")
     }
 
     "get friends ids of a specific user by name" in new TwitterFriendClientSpecContext {
-      val result: UserIds = when(friendsIds("DanielaSfregola")).expectRequest { request =>
+      val result: UserIds = when(getFriendIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
+        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
       }.respondWith("/twitter/friends/friends_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/friends/friends_ids.json")
     }
 
     "get friends stringified ids of a specific user by id" in new TwitterFriendClientSpecContext {
-      val result: UserStringifiedIds = when(friendsForUserIdStringified(2911461333L)).expectRequest { request =>
+      val result: UserStringifiedIds = when(getFriendStringifiedIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&stringify_ids=true&user_id=2911461333")
+        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
       }.respondWith("/twitter/friends/friends_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/friends/friends_ids_stringified.json")
     }
 
     "get friends stringified ids of a specific user by name" in new TwitterFriendClientSpecContext {
-      val result: UserStringifiedIds = when(friendsStringified("DanielaSfregola")).expectRequest { request =>
+      val result: UserStringifiedIds = when(getFriendStringifiedIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-        request.uri.query === Query("count=-1&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
+        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
       }.respondWith("/twitter/friends/friends_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/friends/friends_ids_stringified.json")
     }
 
     "get friends of a user" in new TwitterFriendClientSpecContext {
-      val result: Users = when(friends("DanielaSfregola", count = 10)).expectRequest { request =>
+      val result: Users = when(getFriendsForUser("DanielaSfregola", count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
         request.uri.query === Query("count=10&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
@@ -58,7 +58,7 @@ class TwitterFriendClientSpec extends ClientSpec {
     }
 
     "get friends of a user by user id" in new TwitterFriendClientSpecContext {
-      val result: Users = when(friendsForUserId(2911461333L, count = 10)).expectRequest { request =>
+      val result: Users = when(getFriendsForUserId(2911461333L, count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
         request.uri.query === Query("count=10&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
