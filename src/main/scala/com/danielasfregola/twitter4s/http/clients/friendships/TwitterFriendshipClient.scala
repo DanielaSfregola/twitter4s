@@ -12,42 +12,42 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
 
   private val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
 
-  def blockedUsersIds(): Future[Seq[Long]] = {
+  def getNoRetweetsUserIds(): Future[Seq[Long]] = {
     val parameters = BlockedParameters(stringify_ids = false)
-    genericBlockedUsers[Seq[Long]](parameters)
+    genericGetNoRetweetsUserIds[Seq[Long]](parameters)
   }
 
-  def blockedUsersIdsStringified(): Future[Seq[String]] = {
+  def getNoRetweetsUserStringifiedIds(): Future[Seq[String]] = {
     val parameters = BlockedParameters(stringify_ids = true)
-    genericBlockedUsers[Seq[String]](parameters)
+    genericGetNoRetweetsUserIds[Seq[String]](parameters)
   }
 
-  private def genericBlockedUsers[T: Manifest](parameters: BlockedParameters): Future[T] =
+  private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[T] =
     Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAs[T]
 
-  def incomingFriendships(cursor: Long = -1): Future[UserIds] = {
+  def getIncomingFriendshipIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
-    genericIncomingFriendships[UserIds](parameters)
+    genericGetIncomingFriendships[UserIds](parameters)
   }
   
-  def incomingFriendshipsStringified(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def getIncomingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
-    genericIncomingFriendships[UserStringifiedIds](parameters)
+    genericGetIncomingFriendships[UserStringifiedIds](parameters)
   }
 
-  private def genericIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
+  private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
     Get(s"$friendshipsUrl/incoming.json", parameters).respondAs[T]
 
-  def outgoingFriendships(cursor: Long = -1): Future[UserIds] = {
+  def getOutgoingFriendshipIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
-    genericOutgoingFriendships[UserIds](parameters)
+    getGenericOutgoingFriendships[UserIds](parameters)
   }
-  def outgoingFriendshipsStringified(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def getOutgoingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
-    genericOutgoingFriendships[UserStringifiedIds](parameters)
+    getGenericOutgoingFriendships[UserStringifiedIds](parameters)
   }
 
-  private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
+  private def getGenericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
     Get(s"$friendshipsUrl/outgoing.json", parameters).respondAs[T]
 
   def followUserId(user_id: Long, notify: Boolean = true): Future[User] = {
@@ -55,7 +55,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericFollow(parameters)
   }
 
-  def follow(screen_name: String, notify: Boolean = true): Future[User] = {
+  def followUser(screen_name: String, notify: Boolean = true): Future[User] = {
     val parameters = FollowParameters(user_id = None, Some(screen_name), notify)
     genericFollow(parameters)
   }
@@ -63,12 +63,12 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericFollow(parameters: FollowParameters): Future[User] =
     Post(s"$friendshipsUrl/create.json", parameters).respondAs[User]
 
-  def unfollow(screen_name: String): Future[User] = {
+  def unfollowUser(screen_name: String): Future[User] = {
     val parameters: UnfollowParameters = UnfollowParameters(user_id = None, Some(screen_name))
     genericUnfollow(parameters)
   }
 
-  def unfollow(user_id: Long): Future[User] = {
+  def unfollowUserId(user_id: Long): Future[User] = {
     val parameters: UnfollowParameters = UnfollowParameters(Some(user_id), screen_name = None)
     genericUnfollow(parameters)
   }
@@ -76,37 +76,37 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericUnfollow(parameters: UnfollowParameters): Future[User] =
     Post(s"$friendshipsUrl/destroy.json", parameters).respondAs[User]
   
-  def enableRetweetsNotifications(screen_name: String): Future[Relationship] = {
+  def enableRetweetsNotificationsForUser(screen_name: String): Future[Relationship] = {
     val parameters = RetweetNotificationParameters(user_id = None, Some(screen_name), retweets = true)
     genericNotifications(parameters)
   }
 
-  def enableRetweetsNotifications(user_id: Long): Future[Relationship] = {
+  def enableRetweetsNotificationsForUserId(user_id: Long): Future[Relationship] = {
     val parameters = RetweetNotificationParameters(Some(user_id), screen_name = None, retweets = true)
     genericNotifications(parameters)
   }
 
-  def disableRetweetsNotifications(screen_name: String): Future[Relationship] = {
+  def disableRetweetsNotificationsForUser(screen_name: String): Future[Relationship] = {
     val parameters = RetweetNotificationParameters(user_id = None, Some(screen_name), retweets = false)
     genericNotifications(parameters)
   }
 
-  def disableRetweetsNotifications(user_id: Long): Future[Relationship] = {
+  def disableRetweetsNotificationsForUserId(user_id: Long): Future[Relationship] = {
     val parameters = RetweetNotificationParameters(Some(user_id), screen_name = None, retweets = false)
     genericNotifications(parameters)
   }
 
-  def enableDeviceNotifications(screen_name: String): Future[Relationship] = {
+  def enableDeviceNotificationsForUser(screen_name: String): Future[Relationship] = {
     val parameters = DeviceNotificationParameters(user_id = None, Some(screen_name), device = true)
     genericNotifications(parameters)
   }
 
-  def enableDeviceNotifications(user_id: Long): Future[Relationship] = {
+  def enableDeviceNotificationsForUserId(user_id: Long): Future[Relationship] = {
     val parameters = DeviceNotificationParameters(Some(user_id), screen_name = None, device = true)
     genericNotifications(parameters)
   }
 
-  def disableDeviceNotifications(screen_name: String): Future[Relationship] = {
+  def disableDeviceNotificationsForUser(screen_name: String): Future[Relationship] = {
     val parameters = DeviceNotificationParameters(user_id = None, Some(screen_name), device = false)
     genericNotifications(parameters)
   }
@@ -119,31 +119,31 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
   private def genericNotifications(parameters: NotificationParameters): Future[Relationship] =
     Post(s"$friendshipsUrl/update.json", parameters).respondAs[Relationship]
 
-  def relationship(source_id: Long, target_id: Long): Future[Relationship] = {
+  def getRelationshipBetweenUserIds(source_id: Long, target_id: Long): Future[Relationship] = {
     val parameters = RelationshipParametersByIds(source_id, target_id)
-    genericRelationship(parameters)
+    genericGetRelationship(parameters)
   }
 
-  def relationship(source_screen_name: String, target_screen_name: String): Future[Relationship] = {
+  def getRelationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[Relationship] = {
     val parameters = RelationshipParametersByNames(source_screen_name, target_screen_name)
-    genericRelationship(parameters)
+    genericGetRelationship(parameters)
   }
 
-  private def genericRelationship(parameters: RelationshipParameters): Future[Relationship] =
+  private def genericGetRelationship(parameters: RelationshipParameters): Future[Relationship] =
     Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
 
-  def relationships(screen_names: String*): Future[Seq[LookupRelationship]] = {
+  def getRelationshipsWithUsers(screen_names: String*): Future[Seq[LookupRelationship]] = {
     require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = RelationshipsParameters(user_id = None, screen_name = Some(screen_names.mkString(",")))
-    genericMyRelationships(parameters)
+    genericGetRelationships(parameters)
   }
 
-  def relationshipsByUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
+  def getRelationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
-    genericMyRelationships(parameters)
+    genericGetRelationships(parameters)
   }
 
-  private def genericMyRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] =
-    Get(s"$friendshipsUrl/lookup.json", parameters).respondAs[Seq[LookupRelationship]] // TODO
+  private def genericGetRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] =
+    Get(s"$friendshipsUrl/lookup.json", parameters).respondAs[Seq[LookupRelationship]]
 }
