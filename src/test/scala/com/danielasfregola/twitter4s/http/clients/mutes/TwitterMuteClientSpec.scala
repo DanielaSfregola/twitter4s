@@ -48,7 +48,7 @@ class TwitterMuteClientSpec extends ClientSpec {
     }
 
     "get muted users ids" in new TwitterMuteClientSpecContext {
-      val result: UserIds = when(mutedUsersIds()).expectRequest { request =>
+      val result: UserIds = when(getMutedUsersIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/ids.json"
         request.uri.query === Query("cursor=-1")

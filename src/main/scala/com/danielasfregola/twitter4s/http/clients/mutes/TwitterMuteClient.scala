@@ -37,7 +37,7 @@ trait TwitterMuteClient extends OAuthClient with Configurations {
   private def genericUnmuteUser(parameters: MuteParameters): Future[User] =
     Post(s"$mutesUrl/destroy.json", parameters).respondAs[User]
 
-  def mutedUsersIds(cursor: Long = -1): Future[UserIds] = {
+  def getMutedUsersIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = MutedUsersIdsParameters(cursor)
     Get(s"$mutesUrl/ids.json", parameters).respondAs[UserIds]
   }
