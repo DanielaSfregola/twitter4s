@@ -137,39 +137,39 @@ trait TwitterListClient extends OAuthClient with Configurations {
                             cursor: Long = -1,
                             filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
     val parameters = MembershipsParameters(user_id = None, Some(screen_name), count, cursor, filter_to_owned_lists)
-    genericMemberships(parameters)
+    genericGetMemberships(parameters)
   }
 
-  def membershipsForUserId(user_id: Long,
-                           count: Int = 20,
-                           cursor: Long = -1,
-                           filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+  def getMembershipsForUserId(user_id: Long,
+                              count: Int = 20,
+                              cursor: Long = -1,
+                              filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
     val parameters = MembershipsParameters(Some(user_id), screen_name = None, count, cursor, filter_to_owned_lists)
-    genericMemberships(parameters)
+    genericGetMemberships(parameters)
   }
 
-  private def genericMemberships(parameters: MembershipsParameters): Future[TwitterLists] =
+  private def genericGetMemberships(parameters: MembershipsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/memberships.json", parameters).respondAs[TwitterLists]
 
-  def addMembersIdsToList(list_id: Long, user_ids: Seq[Long]): Future[Unit] = {
+  def addMemberIdsToListByListId(list_id: Long, user_ids: Seq[Long]): Future[Unit] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(list_id = Some(list_id), user_id = Some(user_ids.mkString(",")))
     genericAddMembersToList(parameters)
   }
 
-  def addMembersIdsToListBySlugAndOwnerName(slug: String, owner_screen_name: String, user_ids: Seq[Long]): Future[Unit] = {
+  def addMemberIdsToListBySlugAndOwnerName(slug: String, owner_screen_name: String, user_ids: Seq[Long]): Future[Unit] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(user_ids.mkString(",")))
     genericAddMembersToList(parameters)
   }
 
-  def addMembersIdsToListBySlugAndOwnerId(slug: String, owner_id: Long, user_ids: Seq[Long]): Future[Unit] = {
+  def addMemberIdsToListBySlugAndOwnerId(slug: String, owner_id: Long, user_ids: Seq[Long]): Future[Unit] = {
     require(!user_ids.isEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(user_ids.mkString(",")))
     genericAddMembersToList(parameters)
   }
 
-  def addMembersToList(list_id: Long, screen_names: Seq[String]): Future[Unit] = {
+  def addMembersToListByListId(list_id: Long, screen_names: Seq[String]): Future[Unit] = {
     require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = MembersParameters(list_id = Some(list_id), screen_name = Some(screen_names.mkString(",")))
     genericAddMembersToList(parameters)
@@ -190,81 +190,81 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericAddMembersToList(parameters: MembersParameters): Future[Unit] =
     Post(s"$listsUrl/members/create_all.json", parameters).respondAs[Unit]
 
-  def listMemberId(list_id: Long,
-                          user_id: Long,
-                          include_entities: Boolean = true,
-                          skip_status: Boolean = false): Future[User] = {
+  def getMemberByUserIdAndListId(list_id: Long,
+                                 user_id: Long,
+                                 include_entities: Boolean = true,
+                                 skip_status: Boolean = false): Future[User] = {
     val parameters = MemberParameters(list_id = Some(list_id),
                                       user_id = Some(user_id),
                                       include_entities = include_entities,
                                       skip_status = skip_status)
-    genericListMember(parameters)
+    genericGetMember(parameters)
   }
 
-  def listMemberIdBySlugAndOwnerName(slug: String,
-                               owner_screen_name: String,
-                               user_id: Long,
+  def getMemberByUserIdSlugAndOwnerName(slug: String,
+                                        owner_screen_name: String,
+                                        user_id: Long,
+                                        include_entities: Boolean = true,
+                                        skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_screen_name = Some(owner_screen_name),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericGetMember(parameters)
+  }
+
+  def getMemberByUserIdSlugAndOwnerId(slug: String,
+                                      owner_id: Long,
+                                      user_id: Long,
+                                      include_entities: Boolean = true,
+                                      skip_status: Boolean = false): Future[User] = {
+    val parameters = MemberParameters(slug = Some(slug),
+                                      owner_id = Some(owner_id),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
+    genericGetMember(parameters)
+  }
+
+  def getMemberByUserAndListId(list_id: Long,
+                               screen_name: String,
                                include_entities: Boolean = true,
                                skip_status: Boolean = false): Future[User] = {
-    val parameters = MemberParameters(slug = Some(slug),
-                                      owner_screen_name = Some(owner_screen_name),
-                                      user_id = Some(user_id),
-                                      include_entities = include_entities,
-                                      skip_status = skip_status)
-    genericListMember(parameters)
-  }
-
-  def listMemberIdBySlugAndOwnerId(slug: String,
-                                  owner_id: Long,
-                                  user_id: Long,
-                                  include_entities: Boolean = true,
-                                  skip_status: Boolean = false): Future[User] = {
-    val parameters = MemberParameters(slug = Some(slug),
-                                      owner_id = Some(owner_id),
-                                      user_id = Some(user_id),
-                                      include_entities = include_entities,
-                                      skip_status = skip_status)
-    genericListMember(parameters)
-  }
-
-  def listMember(list_id: Long,
-                      screen_name: String,
-                      include_entities: Boolean = true,
-                      skip_status: Boolean = false): Future[User] = {
     val parameters = MemberParameters(list_id = Some(list_id),
                                       screen_name = Some(screen_name),
                                       include_entities = include_entities,
                                       skip_status = skip_status)
-    genericListMember(parameters)
+    genericGetMember(parameters)
   }
 
-  def listMemberBySlugAndOwnerName(slug: String,
-                            owner_screen_name: String,
-                            screen_name: String,
-                            include_entities: Boolean = true,
-                            skip_status: Boolean = false): Future[User] = {
+  def getMemberByUserSlugAndOwnerName(slug: String,
+                                      owner_screen_name: String,
+                                      screen_name: String,
+                                      include_entities: Boolean = true,
+                                      skip_status: Boolean = false): Future[User] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_screen_name = Some(owner_screen_name),
                                       screen_name = Some(screen_name),
                                       include_entities = include_entities,
                                       skip_status = skip_status)
-    genericListMember(parameters)
+    genericGetMember(parameters)
   }
 
-  def listMemberBySlugAndOwnerId(slug: String,
-                              owner_id: Long,
-                              screen_name: String,
-                              include_entities: Boolean = true,
-                              skip_status: Boolean = false): Future[User] = {
+  def getMemberByUserSlugAndOwnerId(slug: String,
+                                    owner_id: Long,
+                                    screen_name: String,
+                                    include_entities: Boolean = true,
+                                    skip_status: Boolean = false): Future[User] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_id = Some(owner_id),
                                       screen_name = Some(screen_name),
                                       include_entities = include_entities,
                                       skip_status = skip_status)
-    genericListMember(parameters)
+    genericGetMember(parameters)
   }
 
-  private def genericListMember(parameters: MemberParameters): Future[User] =
+  private def genericGetMember(parameters: MemberParameters): Future[User] =
     Get(s"$listsUrl/members/show.json", parameters).respondAs[User]
 
   def listMembers(list_id: Long,
