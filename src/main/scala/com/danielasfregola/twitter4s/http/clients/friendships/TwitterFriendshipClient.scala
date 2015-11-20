@@ -112,6 +112,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/create</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param notify : By default it is `true`.
     *               Enable notifications for the target user.
     * @return :  The user representation of the target user.
@@ -127,6 +128,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/create</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param notify : By default it is `true`.
     *               Enable notifications for the target user.
     * @return :  The user representation of the target user.
@@ -145,6 +147,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
     *
     * @param user_id : The ID of the user for whom to unfollow.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def unfollowUserId(user_id: Long): Future[User] = {
@@ -158,6 +161,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
     *
     * @param screen_name : The screen name of the user for whom to unfollow.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def unfollowUser(screen_name: String): Future[User] = {
@@ -174,6 +178,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def enableRetweetsNotificationsForUser(screen_name: String): Future[Relationship] = {
@@ -187,6 +192,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def enableRetweetsNotificationsForUserId(user_id: Long): Future[Relationship] = {
@@ -200,6 +206,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def disableRetweetsNotificationsForUser(screen_name: String): Future[Relationship] = {
@@ -213,6 +220,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def disableRetweetsNotificationsForUserId(user_id: Long): Future[Relationship] = {
@@ -226,6 +234,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def enableDeviceNotificationsForUser(screen_name: String): Future[Relationship] = {
@@ -239,6 +248,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def enableDeviceNotificationsForUserId(user_id: Long): Future[Relationship] = {
@@ -252,6 +262,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def disableDeviceNotificationsForUser(screen_name: String): Future[Relationship] = {
@@ -265,6 +276,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The user representation of the target user.
     * */
   def disableDeviceNotificationsForUserId(user_id: Long): Future[Relationship] = {
@@ -313,8 +325,8 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
     *
     * @param screen_names :  The list of screen names.
-    *                     At least 1 screen name needs to be provided.
-    *                     Up to 100 are allowed in a single request.
+    *                     At least 1 screen name needs to be provided. Up to 100 are allowed in a single request.
+    *                     Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The sequence of the lookup relationships.
     * */
   def getRelationshipsWithUsers(screen_names: String*): Future[Seq[LookupRelationship]] = {
@@ -330,8 +342,8 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
     *
     * @param user_ids :  The list of user ids.
-    *                 At least 1 user id needs to be provided.
-    *                 Up to 100 are allowed in a single request.
+    *                 At least 1 user id needs to be provided. Up to 100 are allowed in a single request.
+    *                 Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The sequence of the lookup relationships.
     * */
   def getRelationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {

@@ -13,7 +13,7 @@ class TwitterListClientSpec extends ClientSpec {
   "Twitter List Client" should {
 
     "get lists for a user" in new TwitterListClientSpecContext {
-      val result: Seq[TwitterList] = when(lists("DanielaSfregola")).expectRequest { request =>
+      val result: Seq[TwitterList] = when(getListsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/list.json"
         request.uri.query === Query("reverse=false&screen_name=DanielaSfregola")
@@ -22,7 +22,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get lists for a user by id" in new TwitterListClientSpecContext {
-      val result: Seq[TwitterList] = when(listsForUserId(2911461333L)).expectRequest { request =>
+      val result: Seq[TwitterList] = when(getListsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/list.json"
         request.uri.query === Query("reverse=false&user_id=2911461333")
@@ -31,7 +31,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get a list timeline by id" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(listTimeline(8044403)).expectRequest { request =>
+      val result: Seq[Status] = when(getListTimelineByListId(8044403)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&list_id=8044403")
@@ -40,7 +40,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get a list timeline by slug and owner" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(listTimelineBySlugAndOwnerName("meetup-20100301", "twitterapi")).expectRequest { request =>
+      val result: Seq[Status] = when(getListTimelineBySlugAndOwnerName("meetup-20100301", "twitterapi")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_screen_name=twitterapi&slug=meetup-20100301")
@@ -49,7 +49,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get a list timeline by slug and owner id" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(listTimelineBySlugAndOwnerId("meetup-20100301", 6253282)).expectRequest { request =>
+      val result: Seq[Status] = when(getListTimelineBySlugAndOwnerId("meetup-20100301", 6253282)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_id=6253282&slug=meetup-20100301")
@@ -58,7 +58,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "remove list member by list id and user" in new TwitterListClientSpecContext {
-      val result: Unit = when(removeMemberFromList(8044403, "DanielaSfregola")).expectRequest { request =>
+      val result: Unit = when(removeMemberFromListByListId(8044403, "DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("list_id=8044403&screen_name=DanielaSfregola")
@@ -85,7 +85,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "remove list member by list id and user id" in new TwitterListClientSpecContext {
-      val result: Unit = when(removeMemberIdFromList(8044403, 2911461333L)).expectRequest { request =>
+      val result: Unit = when(removeMemberIdFromListByListId(8044403, 2911461333L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/destroy.json"
         request.uri.query === Query("list_id=8044403&user_id=2911461333")
@@ -112,7 +112,7 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get list memberships per user" in new TwitterListClientSpecContext {
-      val result: TwitterLists = when(memberships("DanielaSfregola")).expectRequest { request =>
+      val result: TwitterLists = when(getMembershipsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/memberships.json"
         request.uri.query === Query("count=20&cursor=-1&filter_to_owned_lists=false&screen_name=DanielaSfregola")

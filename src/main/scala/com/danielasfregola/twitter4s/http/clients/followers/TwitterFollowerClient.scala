@@ -19,6 +19,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/ids</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
@@ -41,6 +42,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/ids</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
@@ -63,6 +65,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/ids</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
@@ -85,6 +88,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/ids</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
@@ -110,6 +114,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
@@ -137,6 +142,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/followers/list</a>.
     *
     * @param user_id : The screen name of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.

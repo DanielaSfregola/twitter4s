@@ -32,6 +32,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/direct_messages/new</a>.
     *
     * @param user_id : The ID of the user who should receive the direct message.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param text : The text of your direct message. Be sure to URL encode as necessary,
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
@@ -48,6 +49,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/direct_messages/new</a>.
     *
     * @param screen_name : The screen name of the user who should receive the direct message.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param text : The text of your direct message. Be sure to URL encode as necessary,
     *             and keep the message under 140 characters.
     * @return : The sent direct message.

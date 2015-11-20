@@ -19,6 +19,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param count : By default it is `200`.
     *              Specifies the number of records to retrieve.
     *              Must be less than or equal to 200; defaults to 20.
@@ -49,6 +50,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param count : By default it is `200`.
     *              Specifies the number of records to retrieve.
     *              Must be less than or equal to 200; defaults to 20.

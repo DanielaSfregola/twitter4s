@@ -75,6 +75,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @param skip_status : By default it is `false`.
@@ -96,6 +97,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
     *
     * @param user_id : The ID of the potentially blocked user.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @param skip_status : By default it is `false`.
@@ -120,6 +122,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @param skip_status : By default it is `false`.
@@ -140,7 +143,8 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * <a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
     *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
     *
-    * @param user_id : he ID of the potentially blocked user.
+    * @param user_id : The ID of the potentially blocked user.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         The entities node will not be included when set to false.
     * @param skip_status : By default it is `false`.

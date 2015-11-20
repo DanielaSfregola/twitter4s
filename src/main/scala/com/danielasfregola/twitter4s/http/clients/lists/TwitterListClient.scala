@@ -9,65 +9,89 @@ import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.lists.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 
+/** Implements the available requests for the `lists` resource.
+  */
 trait TwitterListClient extends OAuthClient with Configurations {
 
   private val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
 
-  def lists(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  /** Returns all lists the specified user subscribes to, including their own.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/list" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/list</a>.
+    *
+    * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
+    * @param reverse : By default it is `false`.
+    *                Set this to true if you would like owned lists to be returned first.
+    * @return : The sequence of all lists the specified user subscribes to.
+    */
+  def getListsForUser(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(user_id = None, Some(screen_name), reverse)
-    genericLists(parameters)
+    genericGetLists(parameters)
   }
 
-  def listsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  /** Returns all lists the specified user subscribes to, including their own.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/list" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/list</a>.
+    *
+    * @param user_id : The ID of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
+    * @param reverse : By default it is `false`.
+    *                Set this to true if you would like owned lists to be returned first.
+    * @return : The sequence of all lists the specified user subscribes to.
+    */
+  def getListsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(Some(user_id), screen_name = None, reverse)
-    genericLists(parameters)
+    genericGetLists(parameters)
   }
 
-  private def genericLists(parameters: ListsParameters): Future[Seq[TwitterList]] =
+  private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] =
     Get(s"$listsUrl/list.json", parameters).respondAs[Seq[TwitterList]]
 
-  def listTimelineBySlugAndOwnerId(slug: String,
-                                    owner_id: Long,
-                                    count: Int = 20,
-                                    since_id: Option[Long] = None,
-                                    max_id: Option[Long] = None,
-                                    include_entities: Boolean = true,
-                                    include_rts: Boolean = false): Future[Seq[Status]] = {
+  def getListTimelineBySlugAndOwnerId(slug: String,
+                                      owner_id: Long,
+                                      count: Int = 20,
+                                      since_id: Option[Long] = None,
+                                      max_id: Option[Long] = None,
+                                      include_entities: Boolean = true,
+                                      include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
-    genericListTimeline(parameters)
+    genericLGetListTimeline(parameters)
   }
 
-  def listTimelineBySlugAndOwnerName(slug: String,
-                                  owner_screen_name: String,
-                                  count: Int = 20,
-                                  since_id: Option[Long] = None,
-                                  max_id: Option[Long] = None,
-                                  include_entities: Boolean = true,
-                                  include_rts: Boolean = false): Future[Seq[Status]] = {
+  def getListTimelineBySlugAndOwnerName(slug: String,
+                                        owner_screen_name: String,
+                                        count: Int = 20,
+                                        since_id: Option[Long] = None,
+                                        max_id: Option[Long] = None,
+                                        include_entities: Boolean = true,
+                                        include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
-    genericListTimeline(parameters)
+    genericLGetListTimeline(parameters)
   }
 
-  def listTimeline(list_id: Long,
-                   count: Int = 20,
-                   since_id: Option[Long] = None,
-                   max_id: Option[Long] = None,
-                   include_entities: Boolean = true,
-                   include_rts: Boolean = false): Future[Seq[Status]] = {
+  def getListTimelineByListId(list_id: Long,
+                              count: Int = 20,
+                              since_id: Option[Long] = None,
+                              max_id: Option[Long] = None,
+                              include_entities: Boolean = true,
+                              include_rts: Boolean = false): Future[Seq[Status]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
-    genericListTimeline(parameters)
+    genericLGetListTimeline(parameters)
   }
 
-  private def genericListTimeline(parameters: ListTimelineParameters): Future[Seq[Status]] =
+  private def genericLGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Status]] =
     Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Status]]
 
-  def removeMemberFromList(list_id: Long, member_screen_name: String): Future[Unit] = {
+  def removeMemberFromListByListId(list_id: Long, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), screen_name = Some(member_screen_name))
     genericRemoveMemberFromList(parameters)
   }
@@ -86,7 +110,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericRemoveMemberFromList(parameters)
   }
 
-  def removeMemberIdFromList(list_id: Long, member_id: Long): Future[Unit] = {
+  def removeMemberIdFromListByListId(list_id: Long, member_id: Long): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), user_id = Some(member_id))
     genericRemoveMemberFromList(parameters)
   }
@@ -108,10 +132,10 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericRemoveMemberFromList(parameters: RemoveMemberParameters): Future[Unit] =
     Post(s"$listsUrl/members/destroy.json", parameters).respondAs[Unit]
 
-  def memberships(screen_name: String,
-                  count: Int = 20,
-                  cursor: Long = -1,
-                  filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+  def getMembershipsForUser(screen_name: String,
+                            count: Int = 20,
+                            cursor: Long = -1,
+                            filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
     val parameters = MembershipsParameters(user_id = None, Some(screen_name), count, cursor, filter_to_owned_lists)
     genericMemberships(parameters)
   }
