@@ -50,6 +50,28 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] =
     Get(s"$listsUrl/list.json", parameters).respondAs[Seq[TwitterList]]
 
+  /** Returns a timeline of tweets authored by members of the specified list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
+    * @param count : By default it is `20`.
+    *              Specifies the number of results to retrieve per "page".
+    * @param since_id : Optional, by default it is `None`.
+    *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
+    *                 There are limits to the number of Tweets which can be accessed through the API.
+    *                 If the limit of Tweets has occured since the `since_id`, the `since_id` will be forced to the oldest ID available.
+    * @param max_id : Optional, by default it is `None`.
+    *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
+    * @param include_entities : By default it is `true`.
+    *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
+    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    * @param include_rts : By default it is `false`.
+    *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
+    * @return : The sequence of tweets for the specified list.
+    */
   def getListTimelineBySlugAndOwnerId(slug: String,
                                       owner_id: Long,
                                       count: Int = 20,
@@ -63,6 +85,28 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericLGetListTimeline(parameters)
   }
 
+  /** Returns a timeline of tweets authored by members of the specified list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_screen_name : TThe screen name of the user who owns the list being requested by a `slug`.
+    * @param count : By default it is `20`.
+    *              Specifies the number of results to retrieve per "page".
+    * @param since_id : Optional, by default it is `None`.
+    *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
+    *                 There are limits to the number of Tweets which can be accessed through the API.
+    *                 If the limit of Tweets has occured since the `since_id`, the `since_id` will be forced to the oldest ID available.
+    * @param max_id : Optional, by default it is `None`.
+    *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
+    * @param include_entities : By default it is `true`.
+    *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
+    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    * @param include_rts : By default it is `false`.
+    *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
+    * @return : The sequence of tweets for the specified list.
+    */
   def getListTimelineBySlugAndOwnerName(slug: String,
                                         owner_screen_name: String,
                                         count: Int = 20,
@@ -76,6 +120,27 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericLGetListTimeline(parameters)
   }
 
+  /** Returns a timeline of tweets authored by members of the specified list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    *
+    * @param list_id : The numerical id of the list.
+    * @param count : By default it is `20`.
+    *              Specifies the number of results to retrieve per "page".
+    * @param since_id : Optional, by default it is `None`.
+    *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
+    *                 There are limits to the number of Tweets which can be accessed through the API.
+    *                 If the limit of Tweets has occured since the `since_id`, the `since_id` will be forced to the oldest ID available.
+    * @param max_id : Optional, by default it is `None`.
+    *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
+    * @param include_entities : By default it is `true`.
+    *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
+    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    * @param include_rts : By default it is `false`.
+    *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
+    * @return : The sequence of tweets for the specified list.
+    */
   def getListTimelineByListId(list_id: Long,
                               count: Int = 20,
                               since_id: Option[Long] = None,
@@ -91,11 +156,30 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericLGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Status]] =
     Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Status]]
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param list_id : The numerical id of the list.
+    * @param member_screen_name : The screen name of the user for whom to remove from the list.
+    *                           Helpful for disambiguating when a valid screen name is also a user ID.
+    */
   def removeMemberFromListByListId(list_id: Long, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), screen_name = Some(member_screen_name))
     genericRemoveMemberFromList(parameters)
   }
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
+    * @param member_screen_name : The screen name of the user for whom to remove from the list.
+    *                           Helpful for disambiguating when a valid screen name is also a user ID.
+    */
   def removeMemberFromListBySlugAndOwnerName(slug: String, owner_screen_name: String, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(slug = Some(slug),
                                             owner_screen_name = Some(owner_screen_name),
@@ -103,6 +187,16 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericRemoveMemberFromList(parameters)
   }
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
+    * @param member_screen_name : The screen name of the user for whom to remove from the list.
+    *                           Helpful for disambiguating when a valid screen name is also a user ID.
+    */
   def removeMemberFromListBySlugAndOwnerId(slug: String, owner_id: Long, member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(slug = Some(slug),
                                             owner_id = Some(owner_id),
@@ -110,11 +204,30 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericRemoveMemberFromList(parameters)
   }
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param list_id : The numerical id of the list.
+    * @param member_id : The ID of the user to remove from the list.
+    *                  Helpful for disambiguating when a valid user ID is also a valid screen name.
+    */
   def removeMemberIdFromListByListId(list_id: Long, member_id: Long): Future[Unit] = {
     val parameters = RemoveMemberParameters(list_id = Some(list_id), user_id = Some(member_id))
     genericRemoveMemberFromList(parameters)
   }
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
+    * @param member_id : The ID of the user to remove from the list.
+    *                  Helpful for disambiguating when a valid user ID is also a valid screen name.
+    */
   def removeMemberIdFromListBySlugAndOwnerName(slug: String, owner_screen_name: String, member_id: Long): Future[Unit] = {
     val parameters = RemoveMemberParameters(slug = Some(slug),
                                             owner_screen_name = Some(owner_screen_name),
@@ -122,6 +235,16 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericRemoveMemberFromList(parameters)
   }
 
+  /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    *
+    * @param slug : You can identify a list by its slug instead of its numerical id.
+    * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
+    * @param member_id : The ID of the user to remove from the list.
+    *                  Helpful for disambiguating when a valid user ID is also a valid screen name.
+    */
   def removeMemberIdFromListBySlugAndOwnerId(slug: String, owner_id: Long, member_id: Long): Future[Unit] = {
     val parameters = RemoveMemberParameters(slug = Some(slug),
                                             owner_id = Some(owner_id),
@@ -132,6 +255,22 @@ trait TwitterListClient extends OAuthClient with Configurations {
   private def genericRemoveMemberFromList(parameters: RemoveMemberParameters): Future[Unit] =
     Post(s"$listsUrl/members/destroy.json", parameters).respondAs[Unit]
 
+  /** Returns the twitter lists the specified user has been added to.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/memberships" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/memberships</a>.
+    *
+    * @param screen_name : The screen name of the user for whom to return results for.
+    *                    Helpful for disambiguating when a valid screen name is also a user ID.
+    * @param count : By default it is `20`.
+    *              The amount of results to return per page. Defaults to 20.
+    *              No more than 1000 results will ever be returned in a single page.
+    * @param cursor : By default it is `-1`,  which is the first “page”.
+    *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
+    * @param filter_to_owned_lists : By default it is `false`.
+    *                    When set to `true`, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.
+    * @return : The twitter lists the specified user has been added to.
+    */
   def getMembershipsForUser(screen_name: String,
                             count: Int = 20,
                             cursor: Long = -1,
@@ -140,6 +279,22 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericGetMemberships(parameters)
   }
 
+  /** Returns the twitter lists the specified user has been added to.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/lists/memberships" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/lists/memberships</a>.
+    *
+    * @param user_id : The ID of the user for whom to return results for.
+    *                Helpful for disambiguating when a valid user ID is also a valid screen name.
+    * @param count : By default it is `20`.
+    *              The amount of results to return per page. Defaults to 20.
+    *              No more than 1000 results will ever be returned in a single page.
+    * @param cursor : By default it is `-1`,  which is the first “page”.
+    *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
+    * @param filter_to_owned_lists : By default it is `false`.
+    *                    When set to `true`, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.
+    * @return : The twitter lists the specified user has been added to.
+    */
   def getMembershipsForUserId(user_id: Long,
                               count: Int = 20,
                               cursor: Long = -1,

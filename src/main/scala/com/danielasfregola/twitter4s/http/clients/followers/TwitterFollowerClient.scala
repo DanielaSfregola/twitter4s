@@ -22,7 +22,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `5000`.
     *              Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
@@ -45,7 +45,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `5000`.
     *              Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
@@ -68,7 +68,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `5000`.
     *              Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
@@ -91,7 +91,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `5000`.
     *              Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
@@ -117,7 +117,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `20`.
     *              The number of users to return per page, up to a maximum of 200.
@@ -145,7 +145,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
-    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is `None`.
+    *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param count : By default it is `20`.
     *              The number of users to return per page, up to a maximum of 200.
