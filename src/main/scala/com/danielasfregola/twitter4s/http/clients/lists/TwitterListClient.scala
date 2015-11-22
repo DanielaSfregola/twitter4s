@@ -78,7 +78,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                       since_id: Option[Long] = None,
                                       max_id: Option[Long] = None,
                                       include_entities: Boolean = true,
-                                      include_rts: Boolean = false): Future[Seq[Status]] = {
+                                      include_rts: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -113,7 +113,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                         since_id: Option[Long] = None,
                                         max_id: Option[Long] = None,
                                         include_entities: Boolean = true,
-                                        include_rts: Boolean = false): Future[Seq[Status]] = {
+                                        include_rts: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -146,15 +146,15 @@ trait TwitterListClient extends OAuthClient with Configurations {
                               since_id: Option[Long] = None,
                               max_id: Option[Long] = None,
                               include_entities: Boolean = true,
-                              include_rts: Boolean = false): Future[Seq[Status]] = {
+                              include_rts: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
     genericGetListTimeline(parameters)
   }
 
-  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Status]] =
-    Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Status]]
+  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] =
+    Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see

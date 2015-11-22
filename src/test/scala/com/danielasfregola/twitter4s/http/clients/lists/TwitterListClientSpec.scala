@@ -31,30 +31,30 @@ class TwitterListClientSpec extends ClientSpec {
     }
 
     "get a list timeline by id" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(getListTimelineByListId(8044403)).expectRequest { request =>
+      val result: Seq[Tweet] = when(getListTimelineByListId(8044403)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&list_id=8044403")
       }.respondWith("/twitter/lists/timeline.json").await
-      result === loadJsonAs[Seq[Status]]("/fixtures/lists/timeline.json")
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "get a list timeline by slug and owner" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(getListTimelineBySlugAndOwnerName("meetup-20100301", "twitterapi")).expectRequest { request =>
+      val result: Seq[Tweet] = when(getListTimelineBySlugAndOwnerName("meetup-20100301", "twitterapi")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_screen_name=twitterapi&slug=meetup-20100301")
       }.respondWith("/twitter/lists/timeline.json").await
-      result === loadJsonAs[Seq[Status]]("/fixtures/lists/timeline.json")
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "get a list timeline by slug and owner id" in new TwitterListClientSpecContext {
-      val result: Seq[Status] = when(getListTimelineBySlugAndOwnerId("meetup-20100301", 6253282)).expectRequest { request =>
+      val result: Seq[Tweet] = when(getListTimelineBySlugAndOwnerId("meetup-20100301", 6253282)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/statuses.json"
         request.uri.query === Query("count=20&include_entities=true&include_rts=false&owner_id=6253282&slug=meetup-20100301")
       }.respondWith("/twitter/lists/timeline.json").await
-      result === loadJsonAs[Seq[Status]]("/fixtures/lists/timeline.json")
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/lists/timeline.json")
     }
 
     "remove list member by list id and user" in new TwitterListClientSpecContext {

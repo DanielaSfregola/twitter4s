@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.favorites
 
 import scala.concurrent.Future
 
-import com.danielasfregola.twitter4s.entities.Status
+import com.danielasfregola.twitter4s.entities.Tweet
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.favorites.parameters.{FavoriteParameters, FavoritesParameters}
 import com.danielasfregola.twitter4s.util.Configurations
@@ -39,7 +39,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
                                  count: Int = 20,
                                  since_id: Option[Long] = None,
                                  max_id: Option[Long] = None,
-                                 include_entities: Boolean = true): Future[Seq[Status]] = {
+                                 include_entities: Boolean = true): Future[Seq[Tweet]] = {
     val parameters = FavoritesParameters(user_id = None, Some(screen_name), count, since_id, max_id, include_entities)
     genericGetFavoriteStatuses(parameters)
   }
@@ -70,13 +70,13 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
                                    count: Int = 20,
                                    since_id: Option[Long] = None,
                                    max_id: Option[Long] = None,
-                                   include_entities: Boolean = true): Future[Seq[Status]] = {
+                                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
     val parameters = FavoritesParameters(Some(user_id), screen_name = None, count, since_id, max_id, include_entities)
     genericGetFavoriteStatuses(parameters)
   }
 
-  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Status]] =
-    Get(s"$favoritesUrl/list.json", parameters).respondAs[Seq[Status]]
+  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Tweet]] =
+    Get(s"$favoritesUrl/list.json", parameters).respondAs[Seq[Tweet]]
 
   /** Likes the status specified in the ID parameter as the authenticating user.
     * Note: the like action was known as favorite before November 3, 2015;
@@ -90,9 +90,9 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *                         The entities node will not be included when set to false.
     * @return : The liked status.
     * */
-  def favoriteStatus(id: Long, include_entities: Boolean = true): Future[Status] = {
+  def favoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {
     val parameters = FavoriteParameters(id, include_entities)
-    Post(s"$favoritesUrl/create.json", parameters).respondAs[Status]
+    Post(s"$favoritesUrl/create.json", parameters).respondAs[Tweet]
   }
 
   /** Un-likes the status specified in the ID parameter as the authenticating user.
@@ -107,8 +107,8 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *                         The entities node will not be included when set to false.
     * @return : The un-liked status.
     * */
-  def unfavoriteStatus(id: Long, include_entities: Boolean = true): Future[Status] = {
+  def unfavoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {
     val parameters = FavoriteParameters(id, include_entities)
-    Post(s"$favoritesUrl/destroy.json", parameters).respondAs[Status]
+    Post(s"$favoritesUrl/destroy.json", parameters).respondAs[Tweet]
   }
 }

@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class StatusSearch(statuses: List[Status], search_metadata: SearchMetadata)
+case class StatusSearch(statuses: List[Tweet], search_metadata: SearchMetadata)
 
 case class SearchMetadata(completed_in: Double,
                           max_id: Long,
