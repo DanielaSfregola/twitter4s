@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>ExecutionContextProvider - com.danielasfregola.twitter4s.providers.ExecutionContextProvider</title>
-          <meta name="description" content="ExecutionContextProvider - com.danielasfregola.twitter4s.providers.ExecutionContextProvider" />
-          <meta name="keywords" content="ExecutionContextProvider com.danielasfregola.twitter4s.providers.ExecutionContextProvider" />
+          <title>TweetUpdate - com.danielasfregola.twitter4s.entities.TweetUpdate</title>
+          <meta name="description" content="TweetUpdate - com.danielasfregola.twitter4s.entities.TweetUpdate" />
+          <meta name="keywords" content="TweetUpdate com.danielasfregola.twitter4s.entities.TweetUpdate" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../index.html';
-            var hash = 'com.danielasfregola.twitter4s.providers.ExecutionContextProvider';
+            var hash = 'com.danielasfregola.twitter4s.entities.TweetUpdate';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,12 +28,12 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Trait" src="../../../../lib/trait_big.png" />
-        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.danielasfregola">danielasfregola</a>.<a href="../package.html" class="extype" name="com.danielasfregola.twitter4s">twitter4s</a>.<a href="package.html" class="extype" name="com.danielasfregola.twitter4s.providers">providers</a></p>
-        <h1>ExecutionContextProvider</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="com.danielasfregola.twitter4s.providers">package providers</a>
+        <img alt="Class" src="../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.danielasfregola">danielasfregola</a>.<a href="../package.html" class="extype" name="com.danielasfregola.twitter4s">twitter4s</a>.<a href="package.html" class="extype" name="com.danielasfregola.twitter4s.entities">entities</a></p>
+        <h1>TweetUpdate</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="com.danielasfregola.twitter4s.entities">package entities</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -42,20 +42,17 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">trait</span>
+        <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">ExecutionContextProvider</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
+        <span class="name">TweetUpdate</span><span class="params">(<span name="status">status: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="lat">lat: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="long">long: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span><span class="result"> extends <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a> with <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/providers/ExecutionContextProvider.scala" target="_blank">ExecutionContextProvider.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/entities/TweetUpdate.scala" target="_blank">TweetUpdate.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
-        </div><div class="toggleContainer block">
-            <span class="toggle">Known Subclasses</span>
-            <div class="subClasses hiddenContent"><a href="../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../http/clients/Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <a href="../Clients.html" class="extype" name="com.danielasfregola.twitter4s.Clients">Clients</a>, <a href="../http/clients/MediaOAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.MediaOAuthClient">MediaOAuthClient</a>, <a href="../http/clients/OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../http/clients/account/TwitterAccountClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient">TwitterAccountClient</a>, <a href="../http/clients/application/TwitterApplicationClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.application.TwitterApplicationClient">TwitterApplicationClient</a>, <a href="../http/clients/blocks/TwitterBlockClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient">TwitterBlockClient</a>, <a href="../TwitterClient.html" class="extype" name="com.danielasfregola.twitter4s.TwitterClient">TwitterClient</a>, <a href="../http/clients/directmessages/TwitterDirectMessageClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.directmessages.TwitterDirectMessageClient">TwitterDirectMessageClient</a>, <a href="../http/clients/favorites/TwitterFavoriteClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient">TwitterFavoriteClient</a>, <a href="../http/clients/followers/TwitterFollowerClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.followers.TwitterFollowerClient">TwitterFollowerClient</a>, <a href="../http/clients/friends/TwitterFriendClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient">TwitterFriendClient</a>, <a href="../http/clients/friendships/TwitterFriendshipClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient">TwitterFriendshipClient</a>, <a href="../http/clients/geo/TwitterGeoClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient">TwitterGeoClient</a>, <a href="../http/clients/help/TwitterHelpClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient">TwitterHelpClient</a>, <a href="../http/clients/lists/TwitterListClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient">TwitterListClient</a>, <a href="../http/clients/mutes/TwitterMuteClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient">TwitterMuteClient</a>, <a href="../http/clients/savedsearches/TwitterSavedSearchClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient">TwitterSavedSearchClient</a>, <a href="../http/clients/search/TwitterSearchClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.search.TwitterSearchClient">TwitterSearchClient</a>, <a href="../http/clients/statuses/TwitterStatusClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient">TwitterStatusClient</a>, <a href="../http/clients/suggestions/TwitterSuggestionClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient">TwitterSuggestionClient</a>, <a href="../http/clients/trends/TwitterTrendClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient">TwitterTrendClient</a>, <a href="../http/clients/users/TwitterUserClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient">TwitterUserClient</a></div>
-          </div></div>
+          <div class="superTypes hiddenContent"><a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a>, <span class="extype" name="java.io.Serializable">Serializable</span>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Equals" class="extype" target="_top">Equals</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+        </div></div>
         
 
       <div id="mbrsel">
@@ -72,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider"><span>ExecutionContextProvider</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.danielasfregola.twitter4s.entities.TweetUpdate"><span>TweetUpdate</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -89,25 +86,21 @@
 
       <div id="template">
         <div id="allMembers">
-        
-
-        
-
-        <div id="values" class="values members">
-              <h3>Abstract Value Members</h3>
-              <ol><li name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider#executionContext" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="executionContext:scala.concurrent.ExecutionContext"></a>
-      <a id="executionContext:ExecutionContext"></a>
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):com.danielasfregola.twitter4s.entities.TweetUpdate"></a>
+      <a id="&lt;init&gt;:TweetUpdate"></a>
       <h4 class="signature">
       <span class="modifier_kind">
-        <span class="modifier">implicit abstract </span>
-        <span class="kind">def</span>
+        <span class="modifier"></span>
+        <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">executionContext</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.ExecutionContext" class="extype" target="_top">ExecutionContext</a></span>
+        <span class="name">TweetUpdate</span><span class="params">(<span name="status">status: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="lat">lat: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="long">long: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@executionContext:scala.concurrent.ExecutionContext" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@&lt;init&gt;(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):com.danielasfregola.twitter4s.entities.TweetUpdate" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -115,8 +108,12 @@
     </li></ol>
             </div>
 
+        
+
+        
+
         <div id="values" class="values members">
-              <h3>Concrete Value Members</h3>
+              <h3>Value Members</h3>
               <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="!=(x$1:Any):Boolean"></a>
       <a id="!=(Any):Boolean"></a>
@@ -129,7 +126,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -146,7 +143,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@##():Int" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@##():Int" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -163,7 +160,7 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -180,7 +177,7 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -197,7 +194,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@clone():Object" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@clone():Object" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -208,6 +205,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#display_coordinates" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="display_coordinates:Boolean"></a>
+      <a id="display_coordinates:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">display_coordinates</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@display_coordinates:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -220,28 +234,11 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="equals(x$1:Any):Boolean"></a>
-      <a id="equals(Any):Boolean"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -254,7 +251,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -277,28 +274,28 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="hashCode():Int"></a>
-      <a id="hashCode():Int"></a>
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#in_reply_to_status_id" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="in_reply_to_status_id:Option[Long]"></a>
+      <a id="in_reply_to_status_id:Option[Long]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>
+        <span class="name">in_reply_to_status_id</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@hashCode():Int" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@in_reply_to_status_id:Option[Long]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -311,11 +308,62 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#lat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="lat:Option[Long]"></a>
+      <a id="lat:Option[Long]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lat</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@lat:Option[Long]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#long" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="long:Option[Long]"></a>
+      <a id="long:Option[Long]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">long</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@long:Option[Long]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#media_ids" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="media_ids:Seq[Long]"></a>
+      <a id="media_ids:Seq[Long]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">media_ids</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@media_ids:Seq[Long]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -328,7 +376,7 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -345,7 +393,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@notify():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -362,11 +410,62 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#place_id" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="place_id:Option[String]"></a>
+      <a id="place_id:Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">place_id</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@place_id:Option[String]" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#possibly_sensitive" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="possibly_sensitive:Boolean"></a>
+      <a id="possibly_sensitive:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">possibly_sensitive</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@possibly_sensitive:Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#status" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="status:String"></a>
+      <a id="status:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">status</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@status:String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -379,28 +478,28 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="toString():String"></a>
-      <a id="toString():String"></a>
+    </li><li name="com.danielasfregola.twitter4s.entities.TweetUpdate#trim_user" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="trim_user:Boolean"></a>
+      <a id="trim_user:Boolean"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">def</span>
+        <span class="kind">val</span>
       </span>
       <span class="symbol">
-        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+        <span class="name">trim_user</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@toString():String" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@trim_user:Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -413,7 +512,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@wait():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -436,7 +535,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="arg1">arg1: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -459,7 +558,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Unit" class="extype" target="_top">Unit</a></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.danielasfregola.twitter4s.providers.ExecutionContextProvider@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.danielasfregola.twitter4s.entities.TweetUpdate@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -479,7 +578,15 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Serializable" class="extype" target="_top">Serializable</a></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Product" class="extype" target="_top">Product</a></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Equals" class="extype" target="_top">Equals</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></h3>

@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/suggestions/TwitterSuggestionClient.scala" target="_blank">TwitterSuggestionClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>suggestions</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/suggestions/TwitterSuggestionClient.scala" target="_blank">TwitterSuggestionClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -591,6 +592,73 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#getSuggestedCategories" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSuggestedCategories(language:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Category]]"></a>
+      <a id="getSuggestedCategories(Language):Future[Seq[Category]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSuggestedCategories</span><span class="params">(<span name="language">language: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Category.html" class="extype" name="com.danielasfregola.twitter4s.entities.Category">Category</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@getSuggestedCategories(language:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Category]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Access to Twitter’s suggested user list.</p><div class="fullcomment"><div class="comment cmt"><p>Access to Twitter’s suggested user list. This returns the list of suggested user categories.
+It is recommended that applications cache this data for no more than one hour.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/suggestions" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/suggestions</a>.
+</p></div><dl class="paramcmts block"><dt class="param">language</dt><dd class="cmt"><p>: By default it is <code>English</code>.
+                 Restricts the suggested categories to the requested language.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the category suggestions.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#getSuggestions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSuggestions(slug:String,language:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Suggestions]"></a>
+      <a id="getSuggestions(String,Language):Future[Suggestions]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSuggestions</span><span class="params">(<span name="slug">slug: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="language">language: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Suggestions.html" class="extype" name="com.danielasfregola.twitter4s.entities.Suggestions">Suggestions</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@getSuggestions(slug:String,language:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Suggestions]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Access the users in a given category of the Twitter suggested user list.</p><div class="fullcomment"><div class="comment cmt"><p>Access the users in a given category of the Twitter suggested user list.
+It is recommended that applications cache this data for no more than one hour.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug</a>.
+</p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: The short name of list or a category.</p></dd><dt class="param">language</dt><dd class="cmt"><p>: By default it is <code>English</code>.
+                 Restricts the suggested categories to the requested language.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the user suggestions.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#getSuggestionsMembers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSuggestionsMembers(slug:String):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="getSuggestionsMembers(String):Future[Seq[User]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSuggestionsMembers</span><span class="params">(<span name="slug">slug: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@getSuggestionsMembers(slug:String):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.</p><div class="fullcomment"><div class="comment cmt"><p>Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug/members" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug/members</a>.
+</p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: The short name of list or a category.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the suggested users.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -846,57 +914,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#suggestedCategories" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="suggestedCategories(lang:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Category]]"></a>
-      <a id="suggestedCategories(Language):Future[Seq[Category]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">suggestedCategories</span><span class="params">(<span name="lang">lang: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Category.html" class="extype" name="com.danielasfregola.twitter4s.entities.Category">Category</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@suggestedCategories(lang:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Category]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#suggestions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="suggestions(slug:String,lang:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Suggestions]"></a>
-      <a id="suggestions(String,Language):Future[Suggestions]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">suggestions</span><span class="params">(<span name="slug">slug: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="lang">lang: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Suggestions.html" class="extype" name="com.danielasfregola.twitter4s.entities.Suggestions">Suggestions</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@suggestions(slug:String,lang:com.danielasfregola.twitter4s.entities.enums.Language.Language):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Suggestions]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient#suggestionsMembers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="suggestionsMembers(slug:String):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="suggestionsMembers(String):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">suggestionsMembers</span><span class="params">(<span name="slug">slug: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient@suggestionsMembers(slug:String):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>

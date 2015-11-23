@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/users/TwitterUserClient.scala" target="_blank">TwitterUserClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>users</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/users/TwitterUserClient.scala" target="_blank">TwitterUserClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -591,6 +592,188 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getProfileBannersForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getProfileBannersForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]"></a>
+      <a id="getProfileBannersForUser(String):Future[Banners]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getProfileBannersForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Banners.html" class="extype" name="com.danielasfregola.twitter4s.entities.Banners">Banners</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getProfileBannersForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a map of the available size variations of the specified user’s profile banner.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a map of the available size variations of the specified user’s profile banner.
+If the user has not uploaded a profile banner, a <code>TwitterException</code> will be thrown instead.
+This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
+The profile banner data available at each size variant’s URL is in PNG format.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/profile_banner" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/profile_banner</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results.
+                   Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt>returns</dt><dd class="cmt"><p>: The banners representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getProfileBannersForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getProfileBannersForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]"></a>
+      <a id="getProfileBannersForUserId(Long):Future[Banners]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getProfileBannersForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Banners.html" class="extype" name="com.danielasfregola.twitter4s.entities.Banners">Banners</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getProfileBannersForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a map of the available size variations of the specified user’s profile banner.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a map of the available size variations of the specified user’s profile banner.
+If the user has not uploaded a profile banner, a <code>TwitterException</code> will be thrown instead.
+This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
+The profile banner data available at each size variant’s URL is in PNG format.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/profile_banner" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/profile_banner</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The banners representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUser(screen_name:String,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="getUser(String,Boolean):Future[User]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUser(screen_name:String,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a variety of information about the user specified by the required screen name parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a variety of information about the user specified by the required screen name parameter.
+The author’s most recent Tweet will be returned inline when possible.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/show</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUserById" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUserById(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="getUserById(Long,Boolean):Future[User]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUserById</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUserById(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a variety of information about the user specified by the required screen name parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a variety of information about the user specified by the required screen name parameter.
+The author’s most recent Tweet will be returned inline when possible.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/show</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUsers(screen_names:Seq[String],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="getUsers(Seq[String],Boolean):Future[Seq[User]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUsers</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUsers(screen_names:Seq[String],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_names</dt><dd class="cmt"><p>: A sequence of screen names, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUsers(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="getUsers(String*):Future[Seq[User]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUsers</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUsers(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_names</dt><dd class="cmt"><p>: A sequence of screen names, up to 100 are allowed in a single request.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsersByIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUsersByIds(ids:Seq[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="getUsersByIds(Seq[Long],Boolean):Future[Seq[User]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUsersByIds</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUsersByIds(ids:Seq[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of user ids, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsersByIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUsersByIds(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="getUsersByIds(Long*):Future[Seq[User]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUsersByIds</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@getUsersByIds(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of user ids, up to 100 are allowed in a single request.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -812,57 +995,33 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#profileBanners" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="profileBanners(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]"></a>
-      <a id="profileBanners(String):Future[Banners]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#searchForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="searchForUser(query:String,page:Int,count:Int,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
+      <a id="searchForUser(String,Int,Int,Boolean):Future[Seq[User]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">profileBanners</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Banners.html" class="extype" name="com.danielasfregola.twitter4s.entities.Banners">Banners</a>]</span>
+        <span class="name">searchForUser</span><span class="params">(<span name="query">query: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="page">page: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@profileBanners(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@searchForUser(query:String,page:Int,count:Int,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#profileBannersForUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="profileBannersForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]"></a>
-      <a id="profileBannersForUserId(Long):Future[Banners]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">profileBannersForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Banners.html" class="extype" name="com.danielasfregola.twitter4s.entities.Banners">Banners</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@profileBannersForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Banners]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#searchUser" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="searchUser(query:String,page:Int,count:Int,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="searchUser(String,Int,Int,Boolean):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">searchUser</span><span class="params">(<span name="query">query: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="page">page: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@searchUser(query:String,page:Int,count:Int,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Provides a simple, relevance-based search interface to public user accounts on Twitter.</p><div class="fullcomment"><div class="comment cmt"><p>Provides a simple, relevance-based search interface to public user accounts on Twitter.
+Try querying by topical interest, full name, company name, location, or other criteria.
+Exact match searches are not supported. Only the first 1,000 matching results are available.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/users/search" target="_blank">
+  https://dev.twitter.com/rest/reference/get/users/search</a>.
+</p></div><dl class="paramcmts block"><dt class="param">query</dt><dd class="cmt"><p>: The search query to run against people search.</p></dd><dt class="param">page</dt><dd class="cmt"><p>: By default it is <code>-1</code>, which is the first &quot;page&quot;.
+            Specifies the page of results to retrieve.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
+             The number of potential user results to retrieve per page.
+             This value has a maximum of 20.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of users.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -965,108 +1124,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#user" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="user(screen_name:String,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="user(String,Boolean):Future[User]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">user</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@user(screen_name:String,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#userById" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="userById(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="userById(Long,Boolean):Future[User]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">userById</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@userById(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#users" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="users(screen_names:Seq[String],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="users(Seq[String],Boolean):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">users</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@users(screen_names:Seq[String],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#users" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="users(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="users(String*):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">users</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@users(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#usersByIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="usersByIds(ids:Seq[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="usersByIds(Seq[Long],Boolean):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">usersByIds</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@usersByIds(ids:Seq[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#usersByIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="usersByIds(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
-      <a id="usersByIds(Long*):Future[Seq[User]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">usersByIds</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@usersByIds(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/friendships/TwitterFriendshipClient.scala" target="_blank">TwitterFriendshipClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>friendships</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/friendships/TwitterFriendshipClient.scala" target="_blank">TwitterFriendshipClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -392,40 +393,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#blockedUsersIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="blockedUsersIds():scala.concurrent.Future[Seq[Long]]"></a>
-      <a id="blockedUsersIds():Future[Seq[Long]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">blockedUsersIds</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@blockedUsersIds():scala.concurrent.Future[Seq[Long]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#blockedUsersIdsStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="blockedUsersIdsStringified():scala.concurrent.Future[Seq[String]]"></a>
-      <a id="blockedUsersIdsStringified():Future[Seq[String]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">blockedUsersIdsStringified</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@blockedUsersIdsStringified():scala.concurrent.Future[Seq[String]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
       <a id="clone():AnyRef"></a>
@@ -483,142 +450,182 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableDeviceNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="disableDeviceNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="disableDeviceNotifications(Long):Future[Relationship]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableDeviceNotificationsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="disableDeviceNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="disableDeviceNotificationsForUser(String):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">disableDeviceNotifications</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">disableDeviceNotificationsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableDeviceNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableDeviceNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableDeviceNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="disableDeviceNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="disableDeviceNotifications(String):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to disable device notifications from the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to disable device notifications from the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to befriend.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableDeviceNotificationsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="disableDeviceNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="disableDeviceNotificationsForUserId(Long):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">disableDeviceNotifications</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">disableDeviceNotificationsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableDeviceNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableDeviceNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableRetweetsNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="disableRetweetsNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="disableRetweetsNotifications(Long):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to disable device notifications from the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to disable device notifications from the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to befriend.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableRetweetsNotificationsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="disableRetweetsNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="disableRetweetsNotificationsForUser(String):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">disableRetweetsNotifications</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">disableRetweetsNotificationsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableRetweetsNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableRetweetsNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableRetweetsNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="disableRetweetsNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="disableRetweetsNotifications(String):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to disable retweets from the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to disable retweets from the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to befriend.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#disableRetweetsNotificationsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="disableRetweetsNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="disableRetweetsNotificationsForUserId(Long):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">disableRetweetsNotifications</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">disableRetweetsNotificationsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableRetweetsNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@disableRetweetsNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableDeviceNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="enableDeviceNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="enableDeviceNotifications(Long):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to disable retweets from the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to disable retweets from the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to befriend.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableDeviceNotificationsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enableDeviceNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="enableDeviceNotificationsForUser(String):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enableDeviceNotifications</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">enableDeviceNotificationsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableDeviceNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableDeviceNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableDeviceNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="enableDeviceNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="enableDeviceNotifications(String):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to enable device notifications from the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to enable device notifications from the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to befriend.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableDeviceNotificationsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enableDeviceNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="enableDeviceNotificationsForUserId(Long):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enableDeviceNotifications</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">enableDeviceNotificationsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableDeviceNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableDeviceNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableRetweetsNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="enableRetweetsNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="enableRetweetsNotifications(Long):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to enable device notifications from the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to enable device notifications from the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to befriend.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableRetweetsNotificationsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enableRetweetsNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="enableRetweetsNotificationsForUser(String):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enableRetweetsNotifications</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">enableRetweetsNotificationsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableRetweetsNotifications(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableRetweetsNotificationsForUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableRetweetsNotifications" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="enableRetweetsNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="enableRetweetsNotifications(String):Future[Relationship]"></a>
+      <p class="shortcomment cmt">Allows one to enable retweets from the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to enable retweets from the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to befriend.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#enableRetweetsNotificationsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="enableRetweetsNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="enableRetweetsNotificationsForUserId(Long):Future[Relationship]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">enableRetweetsNotifications</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+        <span class="name">enableRetweetsNotificationsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableRetweetsNotifications(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@enableRetweetsNotificationsForUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Allows one to enable retweets from the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows one to enable retweets from the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to befriend.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -693,24 +700,30 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#follow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="follow(screen_name:String,notify:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="follow(String,Boolean):Future[User]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#followUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="followUser(screen_name:String,notify:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="followUser(String,Boolean):Future[User]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">follow</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="notify">notify: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+        <span class="name">followUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="notify">notify: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@follow(screen_name:String,notify:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@followUser(screen_name:String,notify:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#followUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Allows the authenticating users to follow the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows the authenticating users to follow the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to befriend.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">notify</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+              Enable notifications for the target user.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#followUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="followUserId(user_id:Long,notify:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="followUserId(Long,Boolean):Future[User]"></a>
       <h4 class="signature">
@@ -726,7 +739,13 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Allows the authenticating users to follow the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows the authenticating users to follow the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to befriend.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">notify</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+              Enable notifications for the target user.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
     </li><li name="spray.httpx.unmarshalling.UnmarshallerLifting#fromMessageUnmarshaller" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fromMessageUnmarshaller[T](implicitum:spray.httpx.unmarshalling.Unmarshaller[T]):spray.httpx.unmarshalling.FromMessageUnmarshaller[T]"></a>
       <a id="fromMessageUnmarshaller[T](Unmarshaller[T]):FromMessageUnmarshaller[T]"></a>
@@ -795,6 +814,230 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getIncomingFriendshipIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getIncomingFriendshipIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getIncomingFriendshipIds(Long):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getIncomingFriendshipIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getIncomingFriendshipIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/incoming" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/incoming</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of the user ids that have a pending request to follow the authenticating user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getIncomingFriendshipStringifiedIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getIncomingFriendshipStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getIncomingFriendshipStringifiedIds(Long):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getIncomingFriendshipStringifiedIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getIncomingFriendshipStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of numeric stringified IDs for every user who has a pending request to follow the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of numeric stringified IDs for every user who has a pending request to follow the authenticating user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/incoming" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/incoming</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The sequence of the user stringified ids that have a pending request to follow the authenticating user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getNoRetweetsUserIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getNoRetweetsUserIds():scala.concurrent.Future[Seq[Long]]"></a>
+      <a id="getNoRetweetsUserIds():Future[Seq[Long]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getNoRetweetsUserIds</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getNoRetweetsUserIds():scala.concurrent.Future[Seq[Long]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of user ids that the currently authenticated user does not want to receive retweets from.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of user ids that the currently authenticated user does not want to receive retweets from.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The sequence of user ids the currently authenticated user does not want to receive retweets from.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getNoRetweetsUserStringifiedIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getNoRetweetsUserStringifiedIds():scala.concurrent.Future[Seq[String]]"></a>
+      <a id="getNoRetweetsUserStringifiedIds():Future[Seq[String]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getNoRetweetsUserStringifiedIds</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getNoRetweetsUserStringifiedIds():scala.concurrent.Future[Seq[String]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of user stringified ids that the currently authenticated user does not want to receive retweets from.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of user stringified ids that the currently authenticated user does not want to receive retweets from.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The sequence of the user stringified ids the currently authenticated user does not want to receive retweets from.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getOutgoingFriendshipIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getOutgoingFriendshipIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getOutgoingFriendshipIds(Long):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getOutgoingFriendshipIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getOutgoingFriendshipIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/outgoing" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/outgoing</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The sequence of the user ids that have a pending follow request from the authenticating user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getOutgoingFriendshipStringifiedIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getOutgoingFriendshipStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getOutgoingFriendshipStringifiedIds(Long):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getOutgoingFriendshipStringifiedIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getOutgoingFriendshipStringifiedIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of numeric stringified IDs for every protected user for whom the authenticating user has a pending follow request.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of numeric stringified IDs for every protected user for whom the authenticating user has a pending follow request.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/outgoing" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/outgoing</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The sequence of the user stringified ids that have a pending follow request from the authenticating user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getRelationshipBetweenUserIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRelationshipBetweenUserIds(source_id:Long,target_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="getRelationshipBetweenUserIds(Long,Long):Future[Relationship]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRelationshipBetweenUserIds</span><span class="params">(<span name="source_id">source_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="target_id">target_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getRelationshipBetweenUserIds(source_id:Long,target_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns detailed information about the relationship between two arbitrary users ids.</p><div class="fullcomment"><div class="comment cmt"><p>Returns detailed information about the relationship between two arbitrary users ids.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/show" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/show</a>.
+</p></div><dl class="paramcmts block"><dt class="param">source_id</dt><dd class="cmt"><p>: The user id of the subject user.</p></dd><dt class="param">target_id</dt><dd class="cmt"><p>: The user id of the target user.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The representation of the relationship between the two users.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getRelationshipBetweenUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRelationshipBetweenUsers(source_screen_name:String,target_screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
+      <a id="getRelationshipBetweenUsers(String,String):Future[Relationship]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRelationshipBetweenUsers</span><span class="params">(<span name="source_screen_name">source_screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="target_screen_name">target_screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getRelationshipBetweenUsers(source_screen_name:String,target_screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns detailed information about the relationship between two arbitrary users.</p><div class="fullcomment"><div class="comment cmt"><p>Returns detailed information about the relationship between two arbitrary users.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/show" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/show</a>.
+</p></div><dl class="paramcmts block"><dt class="param">source_screen_name</dt><dd class="cmt"><p>: The screen name of the subject user.</p></dd><dt class="param">target_screen_name</dt><dd class="cmt"><p>: The screen name of the target user.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The representation of the relationship between the two users.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getRelationshipsWithUserIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRelationshipsWithUserIds(user_ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]"></a>
+      <a id="getRelationshipsWithUserIds(Long*):Future[Seq[LookupRelationship]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRelationshipsWithUserIds</span><span class="params">(<span name="user_ids">user_ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupRelationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupRelationship">LookupRelationship</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getRelationshipsWithUserIds(user_ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the relationships of the authenticating user of up to 100 user ids.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the relationships of the authenticating user of up to 100 user ids.
+Values for connections can be: <code>following</code>, <code>following_requested</code>, <code>followed_by</code>, <code>none</code>, <code>blocking</code>, <code>muting</code>.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_ids</dt><dd class="cmt"><p>:  The list of user ids.
+                At least 1 user id needs to be provided. Up to 100 are allowed in a single request.
+                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The sequence of the lookup relationships.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#getRelationshipsWithUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRelationshipsWithUsers(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]"></a>
+      <a id="getRelationshipsWithUsers(String*):Future[Seq[LookupRelationship]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRelationshipsWithUsers</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupRelationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupRelationship">LookupRelationship</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@getRelationshipsWithUsers(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the relationships of the authenticating user of up to 100 user screen names.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the relationships of the authenticating user of up to 100 user screen names.
+Values for connections can be: <code>following</code>, <code>following_requested</code>, <code>followed_by</code>, <code>none</code>, <code>blocking</code>, <code>muting</code>.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friendships/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_names</dt><dd class="cmt"><p>:  The list of screen names.
+                    At least 1 screen name needs to be provided. Up to 100 are allowed in a single request.
+                    Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The sequence of the lookup relationships.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -812,40 +1055,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#incomingFriendships" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="incomingFriendships(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="incomingFriendships(Long):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">incomingFriendships</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@incomingFriendships(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#incomingFriendshipsStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="incomingFriendshipsStringified(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
-      <a id="incomingFriendshipsStringified(Long):Future[UserStringifiedIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">incomingFriendshipsStringified</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@incomingFriendshipsStringified(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -1033,40 +1242,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#outgoingFriendships" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="outgoingFriendships(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="outgoingFriendships(Long):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">outgoingFriendships</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@outgoingFriendships(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#outgoingFriendshipsStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="outgoingFriendshipsStringified(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
-      <a id="outgoingFriendshipsStringified(Long):Future[UserStringifiedIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">outgoingFriendshipsStringified</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@outgoingFriendshipsStringified(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#pipeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pipeline[T](implicitevidence$1:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpRequest=&gt;scala.concurrent.Future[T]"></a>
       <a id="pipeline[T](FromResponseUnmarshaller[T]):(HttpRequest)⇒Future[T]"></a>
@@ -1084,74 +1259,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#relationship" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="relationship(source_screen_name:String,target_screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="relationship(String,String):Future[Relationship]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">relationship</span><span class="params">(<span name="source_screen_name">source_screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="target_screen_name">target_screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@relationship(source_screen_name:String,target_screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#relationship" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="relationship(source_id:Long,target_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]"></a>
-      <a id="relationship(Long,Long):Future[Relationship]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">relationship</span><span class="params">(<span name="source_id">source_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="target_id">target_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Relationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.Relationship">Relationship</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@relationship(source_id:Long,target_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Relationship]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#relationships" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="relationships(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]"></a>
-      <a id="relationships(String*):Future[Seq[LookupRelationship]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">relationships</span><span class="params">(<span name="screen_names">screen_names: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupRelationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupRelationship">LookupRelationship</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@relationships(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#relationshipsByUserIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="relationshipsByUserIds(user_ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]"></a>
-      <a id="relationshipsByUserIds(Long*):Future[Seq[LookupRelationship]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">relationshipsByUserIds</span><span class="params">(<span name="user_ids">user_ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupRelationship.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupRelationship">LookupRelationship</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@relationshipsByUserIds(user_ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupRelationship]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -1237,40 +1344,50 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#unfollow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="unfollow(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="unfollow(Long):Future[User]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#unfollowUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unfollowUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="unfollowUser(String):Future[User]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unfollow</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+        <span class="name">unfollowUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@unfollow(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@unfollowUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#unfollow" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="unfollow(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
-      <a id="unfollow(String):Future[User]"></a>
+      <p class="shortcomment cmt">Allows the authenticating users to unfollow the specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Allows the authenticating users to unfollow the specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to unfollow.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient#unfollowUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unfollowUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
+      <a id="unfollowUserId(Long):Future[User]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unfollow</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
+        <span class="name">unfollowUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/User.html" class="extype" name="com.danielasfregola.twitter4s.entities.User">User</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@unfollow(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient@unfollowUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Allows the authenticating users to unfollow the specified user id.</p><div class="fullcomment"><div class="comment cmt"><p>Allows the authenticating users to unfollow the specified user id.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/friendships/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to unfollow.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>:  The user representation of the target user.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>
       <a id="unmarshalResponse[T](FromResponseUnmarshaller[T]):(HttpResponse)⇒T"></a>

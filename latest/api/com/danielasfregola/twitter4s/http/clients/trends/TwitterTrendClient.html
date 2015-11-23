@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/trends/TwitterTrendClient.scala" target="_blank">TwitterTrendClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>trends</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/trends/TwitterTrendClient.scala" target="_blank">TwitterTrendClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -415,23 +416,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#closestLocationTrends" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="closestLocationTrends(latitude:Double,longitude:Double):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]"></a>
-      <a id="closestLocationTrends(Double,Double):Future[Seq[Location]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">closestLocationTrends</span><span class="params">(<span name="latitude">latitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="longitude">longitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Location.html" class="extype" name="com.danielasfregola.twitter4s.entities.Location">Location</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@closestLocationTrends(latitude:Double,longitude:Double):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.util.Configurations#config" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="config:com.typesafe.config.Config"></a>
       <a id="config:Config"></a>
@@ -608,23 +592,103 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#globalTrends" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="globalTrends(exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]"></a>
-      <a id="globalTrends(Boolean):Future[LocationTrends]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#getClosestLocationTrends" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClosestLocationTrends(latitude:Double,longitude:Double):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]"></a>
+      <a id="getClosestLocationTrends(Double,Double):Future[Seq[Location]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">globalTrends</span><span class="params">(<span name="exclude_hashtags">exclude_hashtags: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LocationTrends.html" class="extype" name="com.danielasfregola.twitter4s.entities.LocationTrends">LocationTrends</a>]</span>
+        <span class="name">getClosestLocationTrends</span><span class="params">(<span name="latitude">latitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="longitude">longitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Location.html" class="extype" name="com.danielasfregola.twitter4s.entities.Location">Location</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@globalTrends(exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@getClosestLocationTrends(latitude:Double,longitude:Double):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Returns the locations that Twitter has trending topic information for, closest to a specified location.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the locations that Twitter has trending topic information for, closest to a specified location.
+The response is an array of “locations” that encode the location’s WOEID and some other human-readable information such as a canonical name and country the location belongs in.
+A WOEID is a <a href="https://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/trends/closest" target="_blank">
+  https://dev.twitter.com/rest/reference/get/trends/closest</a>.
+</p></div><dl class="paramcmts block"><dt class="param">latitude</dt><dd class="cmt"><p>: If provided with a <code>longitude</code> parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair.
+                The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>: If provided with a <code>latitude</code> parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair.
+                 The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of locations that Twitter has trending topic information for.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#getGlobalTrends" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getGlobalTrends(exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]"></a>
+      <a id="getGlobalTrends(Boolean):Future[LocationTrends]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getGlobalTrends</span><span class="params">(<span name="exclude_hashtags">exclude_hashtags: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LocationTrends.html" class="extype" name="com.danielasfregola.twitter4s.entities.LocationTrends">LocationTrends</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@getGlobalTrends(exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the top 10 global trending topics.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the top 10 global trending topics.
+The response is an array of “trend” objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.
+This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/trends/place" target="_blank">
+  https://dev.twitter.com/rest/reference/get/trends/place</a>.
+</p></div><dl class="paramcmts block"><dt class="param">exclude_hashtags</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        Setting this to <code>true</code> will remove all hashtags from the trends list.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the location trends.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#getLocationTrends" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getLocationTrends():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]"></a>
+      <a id="getLocationTrends():Future[Seq[Location]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getLocationTrends</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Location.html" class="extype" name="com.danielasfregola.twitter4s.entities.Location">Location</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@getLocationTrends():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the locations that Twitter has trending topic information for.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the locations that Twitter has trending topic information for.
+The response is an array of “locations” that encode the location’s WOEID and some other human-readable information such as a canonical name and country the location belongs in.
+A WOEID is a <a href="https://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a>.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/trends/available" target="_blank">
+  https://dev.twitter.com/rest/reference/get/trends/available</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The sequence of locations that Twitter has trending topic information for.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#getTrends" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTrends(woeid:Long,exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]"></a>
+      <a id="getTrends(Long,Boolean):Future[LocationTrends]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTrends</span><span class="params">(<span name="woeid">woeid: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="exclude_hashtags">exclude_hashtags: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LocationTrends.html" class="extype" name="com.danielasfregola.twitter4s.entities.LocationTrends">LocationTrends</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@getTrends(woeid:Long,exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the top 10 trending topics for a specific <a href="https://developer.yahoo.com/geo/geoplanet/" target="_blank">WOEID</a>, if trending information is available for it.</a></p><div class="fullcomment"><div class="comment cmt"><p>Returns the top 10 trending topics for a specific <a href="https://developer.yahoo.com/geo/geoplanet/" target="_blank">WOEID</a>, if trending information is available for it.
+The response is an array of “trend” objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.
+This information is cached for 5 minutes. Requesting more frequently than that will not return any more data, and will count against your rate limit usage.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/trends/place" target="_blank">
+  https://dev.twitter.com/rest/reference/get/trends/place</a>.
+</p></div><dl class="paramcmts block"><dt class="param">woeid</dt><dd class="cmt"><p>: The <a href="https://developer.yahoo.com/geo/geoplanet/">Yahoo! Where On Earth ID</a> of the location to return trending information for.
+             Global information is available by using 1 as the WOEID.</p></dd><dt class="param">exclude_hashtags</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        Setting this to <code>true</code> will remove all hashtags from the trends list.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the location trends.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -693,23 +757,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#locationTrends" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="locationTrends():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]"></a>
-      <a id="locationTrends():Future[Seq[Location]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">locationTrends</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Location.html" class="extype" name="com.danielasfregola.twitter4s.entities.Location">Location</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@locationTrends():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Location]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.util.ActorContextExtractor#log" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="log:akka.event.LoggingAdapter"></a>
       <a id="log:LoggingAdapter"></a>
@@ -931,23 +978,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient#trends" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="trends(woeid:Long,exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]"></a>
-      <a id="trends(Long,Boolean):Future[LocationTrends]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">trends</span><span class="params">(<span name="woeid">woeid: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="exclude_hashtags">exclude_hashtags: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LocationTrends.html" class="extype" name="com.danielasfregola.twitter4s.entities.LocationTrends">LocationTrends</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient@trends(woeid:Long,exclude_hashtags:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LocationTrends]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="twitterVersion:String"></a>
       <a id="twitterVersion:String"></a>

@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/savedsearches/TwitterSavedSearchClient.scala" target="_blank">TwitterSavedSearchClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>saved_searches</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/savedsearches/TwitterSavedSearchClient.scala" target="_blank">TwitterSavedSearchClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -449,7 +450,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#deleteSavedSearch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#deleteSavedSearch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="deleteSavedSearch(id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.SavedSearch]"></a>
       <a id="deleteSavedSearch(Long):Future[SavedSearch]"></a>
       <h4 class="signature">
@@ -465,7 +466,12 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Destroys a saved search for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Destroys a saved search for the authenticating user.
+The authenticating user must be the owner of saved search id being destroyed.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/saved_searches/destroy/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/post/saved_searches/destroy/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The deleted search representation.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -608,6 +614,27 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#getSavedSearches" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSavedSearches():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.SavedSearch]]"></a>
+      <a id="getSavedSearches():Future[Seq[SavedSearch]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSavedSearches</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/SavedSearch.html" class="extype" name="com.danielasfregola.twitter4s.entities.SavedSearch">SavedSearch</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient@getSavedSearches():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.SavedSearch]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the authenticated user’s saved search queries.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the authenticated user’s saved search queries.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/saved_searches/list" target="_blank">
+  https://dev.twitter.com/rest/reference/get/saved_searches/list</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The sequence of saved searches.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -829,7 +856,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#saveSearch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#saveSearch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="saveSearch(query:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.SavedSearch]"></a>
       <a id="saveSearch(String):Future[SavedSearch]"></a>
       <h4 class="signature">
@@ -845,8 +872,13 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#savedSearch" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Create a new saved search for the authenticated user.</p><div class="fullcomment"><div class="comment cmt"><p>Create a new saved search for the authenticated user.
+A user may only have 25 saved searches.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/saved_searches/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/saved_searches/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">query</dt><dd class="cmt"><p>: The query of the search the user would like to save.</p></dd><dt>returns</dt><dd class="cmt"><p>: The saved search representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#savedSearch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="savedSearch(id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.SavedSearch]"></a>
       <a id="savedSearch(Long):Future[SavedSearch]"></a>
       <h4 class="signature">
@@ -862,24 +894,12 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient#savedSearches" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="savedSearches():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.SavedSearch]]"></a>
-      <a id="savedSearches():Future[Seq[SavedSearch]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">savedSearches</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/SavedSearch.html" class="extype" name="com.danielasfregola.twitter4s.entities.SavedSearch">SavedSearch</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient@savedSearches():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.SavedSearch]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Retrieve the information for the saved search represented by the given id.</p><div class="fullcomment"><div class="comment cmt"><p>Retrieve the information for the saved search represented by the given id.
+The authenticating user must be the owner of saved search ID being requested.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The saved search representation.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>

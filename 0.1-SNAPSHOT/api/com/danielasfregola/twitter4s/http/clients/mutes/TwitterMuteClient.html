@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/mutes/TwitterMuteClient.scala" target="_blank">TwitterMuteClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>mutes</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/mutes/TwitterMuteClient.scala" target="_blank">TwitterMuteClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -591,6 +592,59 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#getMutedUserIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMutedUserIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getMutedUserIds(Long):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMutedUserIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient@getMutedUserIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns an array of numeric user ids the authenticating user has muted.</p><div class="fullcomment"><div class="comment cmt"><p>Returns an array of numeric user ids the authenticating user has muted.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/mutes/users/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/mutes/users/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out.
+              The response from the API will include a previous_cursor and next_cursor to allow paging back and forth.
+              See [node:10362, title=”Using cursors to navigate collections”] for more information.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the muted user ids.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#getMutedUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMutedUsers(cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
+      <a id="getMutedUsers(Long,Boolean,Boolean):Future[Users]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMutedUsers</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient@getMutedUsers(cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the users representation that the authenticating user has muted.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the users representation that the authenticating user has muted.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/mutes/users/list" target="_blank">
+  https://dev.twitter.com/rest/reference/get/mutes/users/list</a>.
+</p></div><dl class="paramcmts block"><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out.
+              The response from the API will include a previous_cursor and next_cursor to allow paging back and forth.
+              See [node:10362, title=”Using cursors to navigate collections”] for more information.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
+                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                   When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the muted users.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -727,7 +781,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#muteUser" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#muteUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="muteUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="muteUser(String):Future[User]"></a>
       <h4 class="signature">
@@ -743,8 +797,14 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#muteUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Mutes the user specified for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Mutes the user specified for the authenticating user.
+Actions taken in this method are asynchronous and changes will be eventually consistent.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/mutes/users/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/mutes/users/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially muted user.
+                   Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt>returns</dt><dd class="cmt"><p>: The muted user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#muteUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="muteUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="muteUserId(Long):Future[User]"></a>
       <h4 class="signature">
@@ -760,41 +820,13 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#mutedUsers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mutedUsers(cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
-      <a id="mutedUsers(Long,Boolean,Boolean):Future[Users]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mutedUsers</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient@mutedUsers(cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#mutedUsersIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mutedUsersIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="mutedUsersIds(Long):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mutedUsersIds</span><span class="params">(<span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient@mutedUsersIds(cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Mutes the user ID specified for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Mutes the user ID specified for the authenticating user.
+Actions taken in this method are asynchronous and changes will be eventually consistent.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/mutes/users/create" target="_blank">
+  https://dev.twitter.com/rest/reference/post/mutes/users/create</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the potentially muted user.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The muted user representation.</p></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -982,7 +1014,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#unmuteUser" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#unmuteUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmuteUser(screen_name:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="unmuteUser(String):Future[User]"></a>
       <h4 class="signature">
@@ -998,8 +1030,14 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#unmuteUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Un-mutes the user specified for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Un-mutes the user specified for the authenticating user.
+Actions taken in this method are asynchronous and changes will be eventually consistent.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/mutes/users/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/mutes/users/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially muted user.
+                   Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt>returns</dt><dd class="cmt"><p>: The un-muted user representation.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient#unmuteUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmuteUserId(user_id:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="unmuteUserId(Long):Future[User]"></a>
       <h4 class="signature">
@@ -1015,7 +1053,13 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Un-mutes the user ID specified for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Un-mutes the user ID specified for the authenticating user.
+Actions taken in this method are asynchronous and changes will be eventually consistent.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/mutes/users/destroy" target="_blank">
+  https://dev.twitter.com/rest/reference/post/mutes/users/destroy</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the potentially muted user.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The un-muted user representation.</p></dd></dl></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

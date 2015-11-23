@@ -502,18 +502,18 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a> → <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient#favoriteStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="favoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="favoriteStatus(Long,Boolean):Future[Status]"></a>
+      <a id="favoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="favoriteStatus(Long,Boolean):Future[Tweet]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">favoriteStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
+        <span class="name">favoriteStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@favoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@favoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -523,7 +523,7 @@ the historical naming remains in API methods and object properties.
 For more information see
 <a href="https://dev.twitter.com/rest/reference/post/favorites/create" target="_blank">
   https://dev.twitter.com/rest/reference/post/favorites/create</a>.
-</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The liked status.</p></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
@@ -617,18 +617,18 @@ For more information see
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient#getFavoriteStatusesForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getFavoriteStatusesForUser(screen_name:String,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="getFavoriteStatusesForUser(String,Int,Option[Long],Option[Long],Boolean):Future[Seq[Status]]"></a>
+      <a id="getFavoriteStatusesForUser(screen_name:String,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getFavoriteStatusesForUser(String,Int,Option[Long],Option[Long],Boolean):Future[Seq[Tweet]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getFavoriteStatusesForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
+        <span class="name">getFavoriteStatusesForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@getFavoriteStatusesForUser(screen_name:String,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@getFavoriteStatusesForUser(screen_name:String,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -636,29 +636,30 @@ For more information see
 For more information see
 <a href="https://dev.twitter.com/rest/reference/get/favorites/list" target="_blank">
   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
-</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default is <code>200</code>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>200</code>.
              Specifies the number of records to retrieve.
              Must be less than or equal to 200; defaults to 20.
              The value of count is best thought of as a limit to the number of tweets to return
-             because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+             because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
                 Returns results with an ID greater than (that is, more recent than) the specified ID.
                 There are limits to the number of Tweets which can be accessed through the API.
-                If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
-              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient#getFavoriteStatusesForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="getFavoriteStatusesForUserId(user_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="getFavoriteStatusesForUserId(Long,Int,Option[Long],Option[Long],Boolean):Future[Seq[Status]]"></a>
+      <a id="getFavoriteStatusesForUserId(user_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getFavoriteStatusesForUserId(Long,Int,Option[Long],Option[Long],Boolean):Future[Seq[Tweet]]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">getFavoriteStatusesForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
+        <span class="name">getFavoriteStatusesForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@getFavoriteStatusesForUserId(user_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@getFavoriteStatusesForUserId(user_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -666,15 +667,16 @@ For more information see
 For more information see
 <a href="https://dev.twitter.com/rest/reference/get/favorites/list" target="_blank">
   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
-</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default is <code>200</code>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>200</code>.
              Specifies the number of records to retrieve.
              Must be less than or equal to 200; defaults to 20.
              The value of count is best thought of as a limit to the number of tweets to return
-             because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+             because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
                 Returns results with an ID greater than (that is, more recent than) the specified ID.
                 There are limits to the number of Tweets which can be accessed through the API.
-                If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
-              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+                If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -983,18 +985,18 @@ For more information see
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient#unfavoriteStatus" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
-      <a id="unfavoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="unfavoriteStatus(Long,Boolean):Future[Status]"></a>
+      <a id="unfavoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="unfavoriteStatus(Long,Boolean):Future[Tweet]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">unfavoriteStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
+        <span class="name">unfavoriteStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@unfavoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@unfavoriteStatus(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -1004,7 +1006,7 @@ the historical naming remains in API methods and object properties.
 For more information see
 <a href="https://dev.twitter.com/rest/reference/post/favorites/destroy" target="_blank">
   https://dev.twitter.com/rest/reference/post/favorites/destroy</a>.
-</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default is <code>true</code>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The un-liked status.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>

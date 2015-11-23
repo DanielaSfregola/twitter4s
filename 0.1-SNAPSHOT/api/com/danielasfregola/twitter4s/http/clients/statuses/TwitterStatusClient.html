@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/statuses/TwitterStatusClient.scala" target="_blank">TwitterStatusClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>statuses</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/statuses/TwitterStatusClient.scala" target="_blank">TwitterStatusClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -432,23 +433,43 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#createDirectMessageAsTweet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="createDirectMessageAsTweet(message:String,username:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="createDirectMessageAsTweet(String,String,Option[Long],Boolean,Option[Long],Option[Long],Option[String],Boolean,Boolean,Seq[Long]):Future[Status]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#createDirectMessageAsTweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createDirectMessageAsTweet(message:String,screen_name:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,latitude:Option[Long],longitude:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="createDirectMessageAsTweet(String,String,Option[Long],Boolean,Option[Long],Option[Long],Option[String],Boolean,Boolean,Seq[Long]):Future[Tweet]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">createDirectMessageAsTweet</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="username">username: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="lat">lat: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="long">long: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
+        <span class="name">createDirectMessageAsTweet</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="latitude">latitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="longitude">longitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@createDirectMessageAsTweet(message:String,username:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@createDirectMessageAsTweet(message:String,screen_name:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,latitude:Option[Long],longitude:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Sends a direct message to a specified user.</p><div class="fullcomment"><div class="comment cmt"><p>Sends a direct message to a specified user.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/statuses/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/statuses/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">message</dt><dd class="cmt"><p>: The text of your direct message.</p></dd><dt class="param">screen_name</dt><dd class="cmt"><p>: : The screen name of the user that should receive the message.
+                   Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt class="param">in_reply_to_status_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                             The ID of an existing status that the update is in reply to.
+                             Note that this parameter will be ignored unless the author of the tweet this parameter references is mentioned within the status text.
+                             Therefore, you must include @username, where username is the author of the referenced tweet, within the update.</p></dd><dt class="param">possibly_sensitive</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                          If you upload Tweet media that might be considered sensitive content such as nudity, violence, or medical procedures, you should set this value to <code>true</code>.</p></dd><dt class="param">latitude</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                The latitude of the location this tweet refers to.
+                This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive.
+                It will also be ignored if there isn’t a corresponding <code>longitude</code> parameter.</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                 The longitude of the location this tweet refers to.
+                 The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.
+                 This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding <code>latitude</code> parameter.</p></dd><dt class="param">place_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                A place in the world identified by an id.</p></dd><dt class="param">display_coordinates</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           Whether or not to put a pin on the exact coordinates a tweet has been sent from.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">media_ids</dt><dd class="cmt"><p>: By default it is an empty sequence.
+                 A list of media_ids to associate with the Tweet. You may include up to 4 photos or 1 animated GIF or 1 video in a Tweet.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the created direct message.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport#defaultFormats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultFormats:org.json4s.DefaultFormats"></a>
       <a id="defaultFormats:DefaultFormats"></a>
@@ -466,23 +487,31 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#deleteStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="deleteStatus(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="deleteStatus(Long,Boolean):Future[Status]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#deleteTweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deleteTweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="deleteTweet(Long,Boolean):Future[Tweet]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">deleteStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
+        <span class="name">deleteTweet</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@deleteStatus(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@deleteTweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Destroys the status specified by the required ID parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Destroys the status specified by the required ID parameter.
+The authenticating user must be the author of the specified status.
+Returns the destroyed status if successful.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/statuses/destroy/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/post/statuses/destroy/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the deleted tweet.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -625,6 +654,465 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getHomeTimeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getHomeTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getHomeTimeline(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getHomeTimeline</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getHomeTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow.
+The home timeline is central to how most users interact with the Twitter service.
+Up to 800 Tweets are obtainable on the home timeline.
+It is more volatile for users that follow many users or follow users who tweet frequently.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/home_timeline" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/home_timeline</a>.
+</p></div><dl class="paramcmts block"><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
+             Specifies the number of records to retrieve. Must be less than or equal to 200.
+             The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API.
+                If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">exclude_replies</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                       This parameter will prevent replies from appearing in the returned timeline.
+                       Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
+                           When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                   When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getMentionsTimeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMentionsTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getMentionsTimeline(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMentionsTimeline</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getMentionsTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the 20 most recent mentions (tweets containing a users’s @screen_name) for the authenticating user.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the 20 most recent mentions (tweets containing a users’s @screen_name) for the authenticating user.
+The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com.
+This method can only return up to 800 tweets.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline</a>.
+</p></div><dl class="paramcmts block"><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>200</code>.
+             Specifies the number of tweets to try and retrieve, up to a maximum of 200.
+             The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API.
+                If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
+                           When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getOembedTweetById" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getOembedTweetById(id:Long,max_width:Option[Int],hide_media:Boolean,hide_thread:Boolean,hide_tweet:Boolean,omit_script:Boolean,alignment:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],language:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]"></a>
+      <a id="getOembedTweetById(Long,Option[Int],Boolean,Boolean,Boolean,Boolean,Alignment,Seq[String],Language,Option[WidgetType]):Future[OEmbedTweet]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getOembedTweetById</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="max_width">max_width: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="hide_media">hide_media: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_thread">hide_thread: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_tweet">hide_tweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="omit_script">omit_script: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="alignment">alignment: <a href="../../../entities/enums/Alignment$.html#Alignment=com.danielasfregola.twitter4s.entities.enums.Alignment.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment">Alignment</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Alignment.None</a></span></span></span>, <span name="related">related: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Seq.empty</span></span>, <span name="language">language: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>, <span name="widget_type">widget_type: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../entities/enums/WidgetType$.html#WidgetType=com.danielasfregola.twitter4s.entities.enums.WidgetType.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType">WidgetType</a>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/OEmbedTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.OEmbedTweet">OEmbedTweet</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getOembedTweetById(id:Long,max_width:Option[Int],hide_media:Boolean,hide_thread:Boolean,hide_tweet:Boolean,omit_script:Boolean,alignment:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],language:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a single Tweet, specified by the Tweet ID, in an oEmbed-compatible format.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a single Tweet, specified by the Tweet ID, in an oEmbed-compatible format.
+The returned HTML snippet will be automatically recognized as an Embedded Tweet when Twitter’s widget JavaScript is included on the page.
+The oEmbed endpoint allows customization of the final appearance of an Embedded Tweet by setting the corresponding properties in HTML markup to be interpreted by Twitter’s JavaScript bundled with the HTML response by default.
+The format of the returned markup may change over time as Twitter adds new features or adjusts its Tweet representation.
+The Tweet fallback markup is meant to be cached on your servers for up to the suggested cache lifetime specified in the cache_age.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/oembed" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/oembed</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">max_width</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                 The maximum width of a rendered Tweet in whole pixels. This value must be between 220 and 550 inclusive.
+                 A supplied value under or over the allowed range will be returned as the minimum or maximum supported width respectively; the reset width value will be reflected in the returned width property.
+                 Note that Twitter does not support the oEmbed max_height parameter.
+                 Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video.
+                 Relatedly, the oEmbed response will not provide a value for height.
+                 Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</p></dd><dt class="param">hide_media</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                  When set to <code>true</code>, links in a Tweet are not expanded to photo, video, or link previews.</p></dd><dt class="param">hide_thread</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                   When set to <code>true</code>, a collapsed version of the previous Tweet in a conversation thread will not be displayed when the requested Tweet is in reply to another Tweet.</p></dd><dt class="param">hide_tweet</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                  Applies to video type only. Set to <code>true</code> to link directly to the Tweet URL instead of displaying a Tweet overlay when a viewer clicks on the Twitter bird logo.</p></dd><dt class="param">omit_script</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                   When set to <code>true</code>, the <code>&lt;script&gt;</code> responsible for loading widgets.js will not be returned. Your webpages should include their own reference to widgets.js for use across all Twitter widgets including Embedded Tweets.</p></dd><dt class="param">alignment</dt><dd class="cmt"><p>: By default it is <code>None</code>, meaning no alignment styles are specified for the Tweet.
+                 Specifies whether the embedded Tweet should be floated left, right, or center in the page relative to the parent element.</p></dd><dt class="param">related</dt><dd class="cmt"><p>: By default it is an empty sequence.
+               A sequence of Twitter usernames related to your content.
+               This value will be forwarded to Tweet action intents if a viewer chooses to reply, favorite, or retweet the embedded Tweet.</p></dd><dt class="param">language</dt><dd class="cmt"><p>: By default it is <code>English</code>.
+                Request returned HTML and a rendered Tweet in the specified Twitter language supported by embedded Tweets.</p></dd><dt class="param">widget_type</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                   Set to <code>video</code> to return a Twitter Video embed for the given Tweet.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of embedded tweet.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getOembedTweetByUrl" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getOembedTweetByUrl(url:String,max_width:Option[Int],hide_media:Boolean,hide_thread:Boolean,hide_tweet:Boolean,omit_script:Boolean,alignment:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],language:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]"></a>
+      <a id="getOembedTweetByUrl(String,Option[Int],Boolean,Boolean,Boolean,Boolean,Alignment,Seq[String],Language,Option[WidgetType]):Future[OEmbedTweet]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getOembedTweetByUrl</span><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="max_width">max_width: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="hide_media">hide_media: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_thread">hide_thread: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_tweet">hide_tweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="omit_script">omit_script: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="alignment">alignment: <a href="../../../entities/enums/Alignment$.html#Alignment=com.danielasfregola.twitter4s.entities.enums.Alignment.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment">Alignment</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Alignment.None</a></span></span></span>, <span name="related">related: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Seq.empty</span></span>, <span name="language">language: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>, <span name="widget_type">widget_type: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../entities/enums/WidgetType$.html#WidgetType=com.danielasfregola.twitter4s.entities.enums.WidgetType.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType">WidgetType</a>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/OEmbedTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.OEmbedTweet">OEmbedTweet</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getOembedTweetByUrl(url:String,max_width:Option[Int],hide_media:Boolean,hide_thread:Boolean,hide_tweet:Boolean,omit_script:Boolean,alignment:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],language:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a single Tweet, specified by a Tweet web URL, in an oEmbed-compatible format.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a single Tweet, specified by a Tweet web URL, in an oEmbed-compatible format.
+The returned HTML snippet will be automatically recognized as an Embedded Tweet when Twitter’s widget JavaScript is included on the page.
+The oEmbed endpoint allows customization of the final appearance of an Embedded Tweet by setting the corresponding properties in HTML markup to be interpreted by Twitter’s JavaScript bundled with the HTML response by default.
+The format of the returned markup may change over time as Twitter adds new features or adjusts its Tweet representation.
+The Tweet fallback markup is meant to be cached on your servers for up to the suggested cache lifetime specified in the cache_age.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/oembed" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/oembed</a>.
+</p></div><dl class="paramcmts block"><dt class="param">url</dt><dd class="cmt"><p>: The URL of the Tweet to be embedded.</p></dd><dt class="param">max_width</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                 The maximum width of a rendered Tweet in whole pixels. This value must be between 220 and 550 inclusive.
+                 A supplied value under or over the allowed range will be returned as the minimum or maximum supported width respectively; the reset width value will be reflected in the returned width property.
+                 Note that Twitter does not support the oEmbed max_height parameter.
+                 Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video.
+                 Relatedly, the oEmbed response will not provide a value for height.
+                 Implementations that need consistent heights for Tweets should refer to the hide_thread and hide_media parameters below.</p></dd><dt class="param">hide_media</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                  When set to <code>true</code>, links in a Tweet are not expanded to photo, video, or link previews.</p></dd><dt class="param">hide_thread</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                   When set to <code>true</code>, a collapsed version of the previous Tweet in a conversation thread will not be displayed when the requested Tweet is in reply to another Tweet.</p></dd><dt class="param">hide_tweet</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                  Applies to video type only. Set to <code>true</code> to link directly to the Tweet URL instead of displaying a Tweet overlay when a viewer clicks on the Twitter bird logo.</p></dd><dt class="param">omit_script</dt><dd class="cmt"><p>: By default, it is <code>false</code>.
+                   When set to <code>true</code>, the <code>&lt;script&gt;</code> responsible for loading widgets.js will not be returned. Your webpages should include their own reference to widgets.js for use across all Twitter widgets including Embedded Tweets.</p></dd><dt class="param">alignment</dt><dd class="cmt"><p>: By default it is <code>None</code>, meaning no alignment styles are specified for the Tweet.
+                 Specifies whether the embedded Tweet should be floated left, right, or center in the page relative to the parent element.</p></dd><dt class="param">related</dt><dd class="cmt"><p>: By default it is an empty sequence.
+               A sequence of Twitter usernames related to your content.
+               This value will be forwarded to Tweet action intents if a viewer chooses to reply, favorite, or retweet the embedded Tweet.</p></dd><dt class="param">language</dt><dd class="cmt"><p>: By default it is <code>English</code>.
+                Request returned HTML and a rendered Tweet in the specified Twitter language supported by embedded Tweets.</p></dd><dt class="param">widget_type</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                   Set to <code>video</code> to return a Twitter Video embed for the given Tweet.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of embedded tweet.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getRetweeterIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRetweeterIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getRetweeterIds(Long,Int,Long):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRetweeterIds</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getRetweeterIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default, it is <code>100</code>.
+             Specifies the number of ids to retrieve. Must be less than or equal to 100.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Breaks the results into pages. Provide values as returned in the response body’s <code>next_cursor</code> and <code>previous_cursor</code> attributes to page back and forth in the list.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the retweeter ids.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getRetweeterStringifiedIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRetweeterStringifiedIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getRetweeterStringifiedIds(Long,Int,Long):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRetweeterStringifiedIds</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getRetweeterStringifiedIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of up to 100 user stringified IDs belonging to users who have retweeted the tweet specified by the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of up to 100 user stringified IDs belonging to users who have retweeted the tweet specified by the id parameter.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default, it is <code>100</code>.
+             Specifies the number of ids to retrieve. Must be less than or equal to 100.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Breaks the results into pages. Provide values as returned in the response body’s <code>next_cursor</code> and <code>previous_cursor</code> attributes to page back and forth in the list.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the retweeter stringified ids.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getRetweets" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRetweets(id:Long,count:Int,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getRetweets(Long,Int,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRetweets</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getRetweets(id:Long,count:Int,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/retweets/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/retweets/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>100</code>.
+             Specifies the number of records to retrieve. Must be less than or equal to 100.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getRetweetsOfMe" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getRetweetsOfMe(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getRetweetsOfMe(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getRetweetsOfMe</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getRetweetsOfMe(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the most recent tweets authored by the authenticating user that have been retweeted by others.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the most recent tweets authored by the authenticating user that have been retweeted by others.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/retweets_of_me" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/retweets_of_me</a>.
+</p></div><dl class="paramcmts block"><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
+             Specifies the number of records to retrieve. Must be less than or equal to 100.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API.
+                If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">exclude_replies</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                       This parameter will prevent replies from appearing in the returned timeline.
+                       Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
+                           When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                   When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTweet(id:Long,trim_user:Boolean,include_my_retweet:Boolean,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="getTweet(Long,Boolean,Boolean,Boolean):Future[Tweet]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTweet</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_my_retweet">include_my_retweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getTweet(id:Long,trim_user:Boolean,include_my_retweet:Boolean,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">include_my_retweet</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                          When set to <code>true</code>, any Tweets returned that have been retweeted by the authenticating user will include an additional <code>current_user_retweet</code> node, containing the ID of the source status for the retweet.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the tweet.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTweetLookup(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]"></a>
+      <a id="getTweetLookup(Seq[Long],Boolean,Boolean):Future[Seq[LookupTweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTweetLookup</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupTweet">LookupTweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getTweetLookup(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
+This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
+Tweets that do not exist or cannot be viewed by the current user will not be returned.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTweetLookup(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]"></a>
+      <a id="getTweetLookup(Long*):Future[Seq[LookupTweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTweetLookup</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupTweet">LookupTweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getTweetLookup(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
+This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
+Tweets that do not exist or cannot be viewed by the current user will not be returned.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookupMapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTweetLookupMapped(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]"></a>
+      <a id="getTweetLookupMapped(Seq[Long],Boolean,Boolean):Future[LookupMapped]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTweetLookupMapped</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LookupMapped.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupMapped">LookupMapped</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getTweetLookupMapped(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
+This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
+Tweets ids will be used to create a map using the tweet id as key and tweet as corresponding body.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets mapped by id.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookupMapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTweetLookupMapped(ids:Long*):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]"></a>
+      <a id="getTweetLookupMapped(Long*):Future[LookupMapped]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTweetLookupMapped</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LookupMapped.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupMapped">LookupMapped</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getTweetLookupMapped(ids:Long*):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
+This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
+Tweets ids will be used to create a map using the tweet id as key and tweet as corresponding body.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+</p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets mapped by id.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getUserTimelineForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUserTimelineForUser(screen_name:String,since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getUserTimelineForUser(String,Option[Long],Int,Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUserTimelineForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_rts">include_rts: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getUserTimelineForUser(screen_name:String,since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of the most recent Tweets posted by the user indicated.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of the most recent Tweets posted by the user indicated.
+User timelines belonging to protected users may only be requested when the authenticated user either “owns” the timeline or is an approved follower of the owner.
+The timeline returned is the equivalent of the one seen when you view a user’s profile on twitter.com.
+This method can only return up to 3,200 of a user’s most recent Tweets.
+Native retweets of other statuses by the user is included in this total, regardless of whether <code>include_rts</code> is set to false when requesting this resource.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/user_timeline" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/user_timeline</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API.
+                If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>200</code>.
+             Specifies the number of tweets to try and retrieve, up to a maximum of 200.
+             The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.
+             We include retweets in the count, even if <code>include_rts</code> is not supplied.
+             It is recommended you always send <code>include_rts</code>=<code>true</code> when using this API method.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">exclude_replies</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                       This parameter will prevent replies from appearing in the returned timeline.
+                       Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
+                           When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                   When set to <code>false</code>, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter).
+                   Note: If you’re using the <code>trim_user</code> parameter in conjunction with <code>include_rts</code>, the retweets will still contain a full user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getUserTimelineForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUserTimelineForUserId(user_id:Long,since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
+      <a id="getUserTimelineForUserId(Long,Option[Long],Int,Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUserTimelineForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_rts">include_rts: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@getUserTimelineForUserId(user_id:Long,since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a collection of the most recent Tweets posted by the user id indicated.</p><div class="fullcomment"><div class="comment cmt"><p>Returns a collection of the most recent Tweets posted by the user id indicated.
+User timelines belonging to protected users may only be requested when the authenticated user either “owns” the timeline or is an approved follower of the owner.
+The timeline returned is the equivalent of the one seen when you view a user’s profile on twitter.com.
+This method can only return up to 3,200 of a user’s most recent Tweets.
+Native retweets of other statuses by the user is included in this total, regardless of whether <code>include_rts</code> is set to false when requesting this resource.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/statuses/user_timeline" target="_blank">
+  https://dev.twitter.com/rest/reference/get/statuses/user_timeline</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.</p></dd><dt class="param">since_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                Returns results with an ID greater than (that is, more recent than) the specified ID.
+                There are limits to the number of Tweets which can be accessed through the API.
+                If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>200</code>.
+             Specifies the number of tweets to try and retrieve, up to a maximum of 200.
+             The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied.
+             We include retweets in the count, even if <code>include_rts</code> is not supplied.
+             It is recommended you always send <code>include_rts</code>=<code>true</code> when using this API method.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">exclude_replies</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                       This parameter will prevent replies from appearing in the returned timeline.
+                       Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
+                           When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                   When set to <code>false</code>, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter).
+                   Note: If you’re using the <code>trim_user</code> parameter in conjunction with <code>include_rts</code>, the retweets will still contain a full user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -642,23 +1130,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#homeTimeline" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="homeTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="homeTimeline(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Status]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">homeTimeline</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@homeTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -778,23 +1249,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#mentionsTimeline" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="mentionsTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="mentionsTimeline(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean):Future[Seq[Status]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">mentionsTimeline</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@mentionsTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a>
       <a id="ne(AnyRef):Boolean"></a>
@@ -863,40 +1317,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#oembedStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="oembedStatus(id:Long,maxwidth:Option[Int],hide_media:Boolean,hide_thread:Boolean,omit_script:Boolean,align:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],lang:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType],hide_tweet:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]"></a>
-      <a id="oembedStatus(Long,Option[Int],Boolean,Boolean,Boolean,Alignment,Seq[String],Language,Option[WidgetType],Boolean):Future[OEmbedTweet]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">oembedStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="maxwidth">maxwidth: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="hide_media">hide_media: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_thread">hide_thread: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="omit_script">omit_script: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="align">align: <a href="../../../entities/enums/Alignment$.html#Alignment=com.danielasfregola.twitter4s.entities.enums.Alignment.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment">Alignment</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Alignment.None</a></span></span></span>, <span name="related">related: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Seq.empty</span></span>, <span name="lang">lang: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>, <span name="widget_type">widget_type: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../entities/enums/WidgetType$.html#WidgetType=com.danielasfregola.twitter4s.entities.enums.WidgetType.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType">WidgetType</a>] = <span class="symbol">None</span></span>, <span name="hide_tweet">hide_tweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/OEmbedTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.OEmbedTweet">OEmbedTweet</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@oembedStatus(id:Long,maxwidth:Option[Int],hide_media:Boolean,hide_thread:Boolean,omit_script:Boolean,align:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],lang:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType],hide_tweet:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#oembedStatusByUrl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="oembedStatusByUrl(url:String,maxwidth:Option[Int],hide_media:Boolean,hide_thread:Boolean,omit_script:Boolean,align:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],lang:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType],hide_tweet:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]"></a>
-      <a id="oembedStatusByUrl(String,Option[Int],Boolean,Boolean,Boolean,Alignment,Seq[String],Language,Option[WidgetType],Boolean):Future[OEmbedTweet]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">oembedStatusByUrl</span><span class="params">(<span name="url">url: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="maxwidth">maxwidth: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="hide_media">hide_media: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="hide_thread">hide_thread: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="omit_script">omit_script: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="align">align: <a href="../../../entities/enums/Alignment$.html#Alignment=com.danielasfregola.twitter4s.entities.enums.Alignment.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment">Alignment</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Alignment.None</a></span></span></span>, <span name="related">related: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">Seq.empty</span></span>, <span name="lang">lang: <a href="../../../entities/enums/Language$.html#Language=com.danielasfregola.twitter4s.entities.enums.Language.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Language.Language">Language</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Language.English</a></span></span></span>, <span name="widget_type">widget_type: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="../../../entities/enums/WidgetType$.html#WidgetType=com.danielasfregola.twitter4s.entities.enums.WidgetType.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType">WidgetType</a>] = <span class="symbol">None</span></span>, <span name="hide_tweet">hide_tweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/OEmbedTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.OEmbedTweet">OEmbedTweet</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@oembedStatusByUrl(url:String,maxwidth:Option[Int],hide_media:Boolean,hide_thread:Boolean,omit_script:Boolean,align:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],lang:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType],hide_tweet:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#pipeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="pipeline[T](implicitevidence$1:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpRequest=&gt;scala.concurrent.Future[T]"></a>
       <a id="pipeline[T](FromResponseUnmarshaller[T]):(HttpRequest)⇒Future[T]"></a>
@@ -914,91 +1334,29 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="retweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="retweet(Long,Boolean):Future[Status]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="retweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="retweet(Long,Boolean):Future[Tweet]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">retweet</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
+        <span class="name">retweet</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweet(id:Long,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweetersIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="retweetersIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="retweetersIds(Long,Int,Long):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">retweetersIds</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweetersIds(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweetersIdsStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="retweetersIdsStringified(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
-      <a id="retweetersIdsStringified(Long,Int,Long):Future[UserStringifiedIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">retweetersIdsStringified</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweetersIdsStringified(id:Long,count:Int,cursor:Long):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweets" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="retweets(id:Long,count:Int,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="retweets(Long,Int,Boolean):Future[Seq[Status]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">retweets</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">100</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweets(id:Long,count:Int,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#retweetsOfMe" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="retweetsOfMe(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="retweetsOfMe(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Status]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">retweetsOfMe</span><span class="params">(<span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@retweetsOfMe(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Retweets a tweet.</p><div class="fullcomment"><div class="comment cmt"><p>Retweets a tweet. Returns the original tweet with retweet details embedded.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/statuses/retweet/%3Aid" target="_blank">
+  https://dev.twitter.com/rest/reference/post/statuses/retweet/%3Aid</a>.
+</p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the original tweet with retweet details embedded.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -1033,91 +1391,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#showStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="showStatus(id:Long,trim_user:Boolean,include_my_retweet:Boolean,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="showStatus(Long,Boolean,Boolean,Boolean):Future[Status]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">showStatus</span><span class="params">(<span name="id">id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_my_retweet">include_my_retweet: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@showStatus(id:Long,trim_user:Boolean,include_my_retweet:Boolean,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#statusLookup" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="statusLookup(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]"></a>
-      <a id="statusLookup(Seq[Long],Boolean,Boolean):Future[Seq[LookupTweet]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">statusLookup</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupTweet">LookupTweet</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@statusLookup(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#statusLookup" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="statusLookup(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]"></a>
-      <a id="statusLookup(Long*):Future[Seq[LookupTweet]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">statusLookup</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LookupTweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupTweet">LookupTweet</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@statusLookup(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#statusLookupMapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="statusLookupMapped(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]"></a>
-      <a id="statusLookupMapped(Seq[Long],Boolean,Boolean):Future[LookupMapped]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">statusLookupMapped</span><span class="params">(<span name="ids">ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>]</span>, <span name="include_entities">include_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LookupMapped.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupMapped">LookupMapped</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@statusLookupMapped(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#statusLookupMapped" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="statusLookupMapped(ids:Long*):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]"></a>
-      <a id="statusLookupMapped(Long*):Future[LookupMapped]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">statusLookupMapped</span><span class="params">(<span name="ids">ids: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>*</span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/LookupMapped.html" class="extype" name="com.danielasfregola.twitter4s.entities.LookupMapped">LookupMapped</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@statusLookupMapped(ids:Long*):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.LookupMapped]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -1152,6 +1425,45 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#tweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="tweet(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,latitude:Option[Long],longitude:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
+      <a id="tweet(String,Option[Long],Boolean,Option[Long],Option[Long],Option[String],Boolean,Boolean,Seq[Long]):Future[Tweet]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tweet</span><span class="params">(<span name="status">status: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="latitude">latitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="longitude">longitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Tweet.html" class="extype" name="com.danielasfregola.twitter4s.entities.Tweet">Tweet</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@tweet(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,latitude:Option[Long],longitude:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Updates the authenticating user’s current status, also known as Tweeting.</p><div class="fullcomment"><div class="comment cmt"><p>Updates the authenticating user’s current status, also known as Tweeting.
+For each update attempt, the update text is compared with the authenticating user’s recent Tweets.
+Any attempt that would result in duplication will be blocked, resulting in a <code>TwitterException</code> error.
+Therefore, a user cannot submit the same status twice in a row.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/post/statuses/update" target="_blank">
+  https://dev.twitter.com/rest/reference/post/statuses/update</a>.
+</p></div><dl class="paramcmts block"><dt class="param">status</dt><dd class="cmt"><p>: The text of your status update, typically up to 140 characters.</p></dd><dt class="param">in_reply_to_status_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                             The ID of an existing status that the update is in reply to.
+                             Note that this parameter will be ignored unless the author of the tweet this parameter references is mentioned within the status text.
+                             Therefore, you must include @username, where username is the author of the referenced tweet, within the update.</p></dd><dt class="param">possibly_sensitive</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                          If you upload Tweet media that might be considered sensitive content such as nudity, violence, or medical procedures, you should set this value to <code>true</code>.</p></dd><dt class="param">latitude</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                The latitude of the location this tweet refers to.
+                This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive.
+                It will also be ignored if there isn’t a corresponding <code>longitude</code> parameter.</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>: Optional, by default is <code>None</code>.
+                 The longitude of the location this tweet refers to.
+                 The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.
+                 This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding <code>latitude</code> parameter.</p></dd><dt class="param">place_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                A place in the world identified by an id.</p></dd><dt class="param">display_coordinates</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                           Whether or not to put a pin on the exact coordinates a tweet has been sent from.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                 When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
+                 Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">media_ids</dt><dd class="cmt"><p>: By default it is an empty sequence.
+                 A list of media_ids to associate with the Tweet. You may include up to 4 photos or 1 animated GIF or 1 video in a Tweet.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the created tweet.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.util.Configurations#twitterVersion" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="twitterVersion:String"></a>
       <a id="twitterVersion:String"></a>
@@ -1186,40 +1498,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#updateStatus" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="updateStatus(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]"></a>
-      <a id="updateStatus(String,Option[Long],Boolean,Option[Long],Option[Long],Option[String],Boolean,Boolean,Seq[Long]):Future[Status]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">updateStatus</span><span class="params">(<span name="status">status: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="in_reply_to_status_id">in_reply_to_status_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="possibly_sensitive">possibly_sensitive: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="lat">lat: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="long">long: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="place_id">place_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="display_coordinates">display_coordinates: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="media_ids">media_ids: <span class="extype" name="scala.Seq">Seq</span>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">Seq.empty</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@updateStatus(status:String,in_reply_to_status_id:Option[Long],possibly_sensitive:Boolean,lat:Option[Long],long:Option[Long],place_id:Option[String],display_coordinates:Boolean,trim_user:Boolean,media_ids:Seq[Long]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Status]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#userTimeline" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="userTimeline(user_id:Option[Long],screen_name:Option[String],since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]"></a>
-      <a id="userTimeline(Option[Long],Option[String],Option[Long],Int,Option[Long],Boolean,Boolean,Boolean,Boolean):Future[Seq[Status]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">userTimeline</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="screen_name">screen_name: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>, <span name="since_id">since_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">200</span></span>, <span name="max_id">max_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a>] = <span class="symbol">None</span></span>, <span name="trim_user">trim_user: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="exclude_replies">exclude_replies: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="contributor_details">contributor_details: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_rts">include_rts: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/Status.html" class="extype" name="com.danielasfregola.twitter4s.entities.Status">Status</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@userTimeline(user_id:Option[Long],screen_name:Option[String],since_id:Option[Long],count:Int,max_id:Option[Long],trim_user:Boolean,exclude_replies:Boolean,contributor_details:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Status]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>

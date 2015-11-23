@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/friends/TwitterFriendClient.scala" target="_blank">TwitterFriendClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>friends</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/friends/TwitterFriendClient.scala" target="_blank">TwitterFriendClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -523,108 +524,6 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friends" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friends(screen_name:String,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
-      <a id="friends(String,Long,Int,Boolean,Boolean):Future[Users]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friends</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_user_entities">include_user_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friends(screen_name:String,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friendsForUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friendsForUserId(user_id:Long,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
-      <a id="friendsForUserId(Long,Long,Int,Boolean,Boolean):Future[Users]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friendsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_user_entities">include_user_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friendsForUserId(user_id:Long,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friendsForUserIdStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friendsForUserIdStringified(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
-      <a id="friendsForUserIdStringified(Long,Long,Int):Future[UserStringifiedIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friendsForUserIdStringified</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friendsForUserIdStringified(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friendsIds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friendsIds(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="friendsIds(String,Long,Int):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friendsIds</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friendsIds(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friendsIdsForUserId" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friendsIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
-      <a id="friendsIdsForUserId(Long,Long,Int):Future[UserIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friendsIdsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friendsIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#friendsStringified" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="friendsStringified(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
-      <a id="friendsStringified(String,Long,Int):Future[UserStringifiedIds]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">friendsStringified</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">1</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@friendsStringified(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="spray.httpx.unmarshalling.UnmarshallerLifting#fromMessageUnmarshaller" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fromMessageUnmarshaller[T](implicitum:spray.httpx.unmarshalling.Unmarshaller[T]):spray.httpx.unmarshalling.FromMessageUnmarshaller[T]"></a>
       <a id="fromMessageUnmarshaller[T](Unmarshaller[T]):FromMessageUnmarshaller[T]"></a>
@@ -693,6 +592,178 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendIdsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendIdsForUser(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getFriendIdsForUser(String,Long,Int):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendIdsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">5000</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendIdsForUser(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>5000</code>.
+             Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
+             The value of count is best thought of as a limit to the number of results to return.
+             When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user’s collection.
+             Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the user ids the specified user is following.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendIdsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]"></a>
+      <a id="getFriendIdsForUserId(Long,Long,Int):Future[UserIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendIdsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">5000</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserIds">UserIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user IDs for every user the specified user id is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user IDs for every user the specified user id is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>5000</code>.
+             Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
+             The value of count is best thought of as a limit to the number of results to return.
+             When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user’s collection.
+             Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the user ids the specified user id is following.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendStringifiedIdsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendStringifiedIdsForUser(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getFriendStringifiedIdsForUser(String,Long,Int):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendStringifiedIdsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">5000</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendStringifiedIdsForUser(screen_name:String,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user stringified IDs for every user the specified user is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user stringified IDs for every user the specified user is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>5000</code>.
+             Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
+             The value of count is best thought of as a limit to the number of results to return.
+             When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user’s collection.
+             Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the user stringified ids the specified user is following.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendStringifiedIdsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendStringifiedIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]"></a>
+      <a id="getFriendStringifiedIdsForUserId(Long,Long,Int):Future[UserStringifiedIds]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendStringifiedIdsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">5000</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/UserStringifiedIds.html" class="extype" name="com.danielasfregola.twitter4s.entities.UserStringifiedIds">UserStringifiedIds</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendStringifiedIdsForUserId(user_id:Long,cursor:Long,count:Int):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.UserStringifiedIds]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user stringified IDs for every user the specified user id is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user stringified IDs for every user the specified user id is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/ids</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>5000</code>.
+             Specifies the number of IDs attempt retrieval of, up to a maximum of 5,000 per distinct request.
+             The value of count is best thought of as a limit to the number of results to return.
+             When using the count parameter with this method, it is wise to use a consistent count value across all requests to the same user’s collection.
+             Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the user stringified ids the specified user id is following.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendsForUser(screen_name:String,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
+      <a id="getFriendsForUser(String,Long,Int,Boolean,Boolean):Future[Users]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendsForUser</span><span class="params">(<span name="screen_name">screen_name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_user_entities">include_user_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendsForUser(screen_name:String,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/list" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/list</a>.
+</p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
+                   Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
+             The number of users to return per page, up to a maximum of 200.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user objects.</p></dd><dt class="param">include_user_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                             The user object entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user is following.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFriendsForUserId(user_id:Long,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
+      <a id="getFriendsForUserId(Long,Long,Int,Boolean,Boolean):Future[Users]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFriendsForUserId</span><span class="params">(<span name="user_id">user_id: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a></span>, <span name="cursor">cursor: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Long" class="extype" target="_top">Long</a> = <span class="symbol">1</span></span>, <span name="count">count: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a> = <span class="symbol">20</span></span>, <span name="skip_status">skip_status: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">false</span></span>, <span name="include_user_entities">include_user_entities: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Boolean" class="extype" target="_top">Boolean</a> = <span class="symbol">true</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Users.html" class="extype" name="com.danielasfregola.twitter4s.entities.Users">Users</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@getFriendsForUserId(user_id:Long,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a cursored collection of user objects for every user the specified user id is following (otherwise known as their “friends”).</p><div class="fullcomment"><div class="comment cmt"><p>Returns a cursored collection of user objects for every user the specified user id is following (otherwise known as their “friends”).
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/friends/list" target="_blank">
+  https://dev.twitter.com/rest/reference/get/friends/list</a>.
+</p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
+               Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
+              Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
+              The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.    * @param max_id : Optional, by default it is <code>None</code>.
+              Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
+             The number of users to return per page, up to a maximum of 200.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                   When set to either <code>true</code> statuses will not be included in the returned user objects.</p></dd><dt class="param">include_user_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
+                             The user object entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user id is following.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>

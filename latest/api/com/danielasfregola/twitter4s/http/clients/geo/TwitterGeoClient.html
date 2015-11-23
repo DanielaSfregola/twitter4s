@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/geo/TwitterGeoClient.scala" target="_blank">TwitterGeoClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>geo</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/geo/TwitterGeoClient.scala" target="_blank">TwitterGeoClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -358,7 +359,7 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#advancedSearchGeoPlace" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#advancedSearchGeoPlace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="advancedSearchGeoPlace(latitude:Option[Double],longitude:Option[Double],query:Option[String],ip:Option[String],granularity:Option[com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity],accuracy:Option[com.danielasfregola.twitter4s.entities.Accuracy],max_results:Option[Int],contained_within:Option[String],street_address:Option[String],callback:Option[String]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]"></a>
       <a id="advancedSearchGeoPlace(Option[Double],Option[Double],Option[String],Option[String],Option[Granularity],Option[Accuracy],Option[Int],Option[String],Option[String],Option[String]):Future[GeoSearch]"></a>
       <h4 class="signature">
@@ -374,7 +375,31 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Advanced search for places that can be attached to a statuses/update.</p><div class="fullcomment"><div class="comment cmt"><p>Advanced search for places that can be attached to a statuses/update.
+Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/geo/search" target="_blank">
+  https://dev.twitter.com/rest/reference/get/geo/search</a>.
+</p></div><dl class="paramcmts block"><dt class="param">latitude</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                The latitude to search around.
+                This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive.
+                It will also be ignored if there isn’t a corresponding <code>longitude</code> parameter.</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                 The longitude to search around.
+                 The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.
+                 This parameter will be ignored if outside that range, if geo_enabled is disabled,
+                 or if there not a corresponding <code>latitude</code> parameter.</p></dd><dt class="param">query</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+             Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name.</p></dd><dt class="param">ip</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+          An IP address. Used when attempting to fix geolocation based off of the user’s IP address.</p></dd><dt class="param">granularity</dt><dd class="cmt"><p>: By default it is <code>Neighborhood</code>
+                   This is the minimal granularity of place types to return.</p></dd><dt class="param">max_results</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                   A hint as to the number of results to return.
+                   This does not guarantee that the number of results returned will equal max_results, but instead informs how many “nearby” results to return.
+                   Ideally, only pass in the number of places you intend to display to the user here.</p></dd><dt class="param">contained_within</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                        This is the place id which you would like to restrict the search results to.
+                        Setting this value means only places within the given place id will be found.</p></dd><dt class="param">street_address</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                      This parameter searches for places which have this given street address.
+                      There are other well-known, and application specific attributes available.
+                      Custom attributes are also permitted.</p></dd><dt class="param">callback</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                If supplied, the response will use the JSONP format with a callback of the given name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The geo search result.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.util.Configurations#apiTwitterUrl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apiTwitterUrl:String"></a>
       <a id="apiTwitterUrl:String"></a>
@@ -591,23 +616,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>UnmarshallerLifting</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#geoPlace" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="geoPlace(place_id:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoPlace]"></a>
-      <a id="geoPlace(String):Future[GeoPlace]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">geoPlace</span><span class="params">(<span name="place_id">place_id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/GeoPlace.html" class="extype" name="com.danielasfregola.twitter4s.entities.GeoPlace">GeoPlace</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient@geoPlace(place_id:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoPlace]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <a id="getClass():Class[_]"></a>
@@ -625,6 +633,27 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#getGeoPlace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getGeoPlace(place_id:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoPlace]"></a>
+      <a id="getGeoPlace(String):Future[GeoPlace]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getGeoPlace</span><span class="params">(<span name="place_id">place_id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/GeoPlace.html" class="extype" name="com.danielasfregola.twitter4s.entities.GeoPlace">GeoPlace</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient@getGeoPlace(place_id:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoPlace]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns all the information about a known place.</p><div class="fullcomment"><div class="comment cmt"><p>Returns all the information about a known place.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/geo/id/%3Aplace_id" target="_blank">
+  https://dev.twitter.com/rest/reference/get/geo/id/%3Aplace_id</a>.
+</p></div><dl class="paramcmts block"><dt class="param">place_id</dt><dd class="cmt"><p>: A place id in the world.</p></dd><dt>returns</dt><dd class="cmt"><p>: A set of information about place.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -846,8 +875,8 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#reverseGeocode" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="reverseGeocode(lat:Double,long:Double,accuracy:com.danielasfregola.twitter4s.entities.Accuracy,granularity:com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity,max_results:Option[Int],callback:Option[String]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]"></a>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#reverseGeocode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="reverseGeocode(latitude:Double,longitude:Double,accuracy:com.danielasfregola.twitter4s.entities.Accuracy,granularity:com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity,max_results:Option[Int],callback:Option[String]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]"></a>
       <a id="reverseGeocode(Double,Double,Accuracy,Granularity,Option[Int],Option[String]):Future[GeoSearch]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -855,15 +884,30 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">reverseGeocode</span><span class="params">(<span name="lat">lat: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="long">long: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="accuracy">accuracy: <a href="../../../entities/Accuracy.html" class="extype" name="com.danielasfregola.twitter4s.entities.Accuracy">Accuracy</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Accuracy.Default</a></span></span></span>, <span name="granularity">granularity: <a href="../../../entities/enums/Granularity$.html#Granularity=com.danielasfregola.twitter4s.entities.enums.Granularity.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity">Granularity</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Granularity.Neighborhood</a></span></span></span>, <span name="max_results">max_results: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="callback">callback: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/GeoSearch.html" class="extype" name="com.danielasfregola.twitter4s.entities.GeoSearch">GeoSearch</a>]</span>
+        <span class="name">reverseGeocode</span><span class="params">(<span name="latitude">latitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="longitude">longitude: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Double" class="extype" target="_top">Double</a></span>, <span name="accuracy">accuracy: <a href="../../../entities/Accuracy.html" class="extype" name="com.danielasfregola.twitter4s.entities.Accuracy">Accuracy</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Accuracy.Default</a></span></span></span>, <span name="granularity">granularity: <a href="../../../entities/enums/Granularity$.html#Granularity=com.danielasfregola.twitter4s.entities.enums.Granularity.Value" class="extmbr" name="com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity">Granularity</a> = <span class="symbol"><span class="name"><a href="../../../../../package.html">Granularity.Neighborhood</a></span></span></span>, <span name="max_results">max_results: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Int" class="extype" target="_top">Int</a>] = <span class="symbol">None</span></span>, <span name="callback">callback: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Option" class="extype" target="_top">Option</a>[<span class="extype" name="scala.Predef.String">String</span>] = <span class="symbol">None</span></span>)</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/GeoSearch.html" class="extype" name="com.danielasfregola.twitter4s.entities.GeoSearch">GeoSearch</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient@reverseGeocode(lat:Double,long:Double,accuracy:com.danielasfregola.twitter4s.entities.Accuracy,granularity:com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity,max_results:Option[Int],callback:Option[String]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]" title="Permalink" target="_top">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient@reverseGeocode(latitude:Double,longitude:Double,accuracy:com.danielasfregola.twitter4s.entities.Accuracy,granularity:com.danielasfregola.twitter4s.entities.enums.Granularity.Granularity,max_results:Option[Int],callback:Option[String]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]" title="Permalink" target="_top">
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#searchGeoPlace" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.</p><div class="fullcomment"><div class="comment cmt"><p>Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/geo/reverse_geocode" target="_blank">
+  https://dev.twitter.com/rest/reference/get/geo/reverse_geocode</a>.
+</p></div><dl class="paramcmts block"><dt class="param">latitude</dt><dd class="cmt"><p>: The latitude to search around.
+                This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive.
+                It will also be ignored if there isn’t a corresponding long parameter.</p></dd><dt class="param">longitude</dt><dd class="cmt"><p>: The longitude to search around.
+                 The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive.
+                 This parameter will be ignored if outside that range, if it is not a number,
+                 if geo_enabled is disabled, or if there not a corresponding lat parameter.</p></dd><dt class="param">accuracy</dt><dd class="cmt"><p>: By default it is <code>Default</code>, which is 0 meters.
+                A hint on the “region” in which to search.</p></dd><dt class="param">granularity</dt><dd class="cmt"><p>: By default it is <code>Neighborhood</code>
+                   This is the minimal granularity of place types to return.</p></dd><dt class="param">max_results</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                   A hint as to the number of results to return.
+                   This does not guarantee that the number of results returned will equal max_results, but instead informs how many “nearby” results to return.
+                   Ideally, only pass in the number of places you intend to display to the user here.</p></dd><dt class="param">callback</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
+                If supplied, the response will use the JSONP format with a callback of the given name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The geo search result.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient#searchGeoPlace" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="searchGeoPlace(query:String):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.GeoSearch]"></a>
       <a id="searchGeoPlace(String):Future[GeoSearch]"></a>
       <h4 class="signature">
@@ -879,7 +923,11 @@
         <img src="../../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Search for places that can be attached to a statuses/update.</p><div class="fullcomment"><div class="comment cmt"><p>Search for places that can be attached to a statuses/update.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/geo/search" target="_blank">
+  https://dev.twitter.com/rest/reference/get/geo/search</a>.
+</p></div><dl class="paramcmts block"><dt class="param">query</dt><dd class="cmt"><p>: Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name.</p></dd><dt>returns</dt><dd class="cmt"><p>: The geo search result.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>

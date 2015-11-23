@@ -49,7 +49,8 @@
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/help/TwitterHelpClient.scala" target="_blank">TwitterHelpClient.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Implements the available requests for the <code>help</code> resource.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/clients/help/TwitterHelpClient.scala" target="_blank">TwitterHelpClient.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a>, <a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a>, <a href="../../../providers/TokenProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.TokenProvider">TokenProvider</a>, <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a>, <span class="extype" name="spray.httpx.unmarshalling.UnmarshallerLifting">UnmarshallerLifting</span>, <a href="../../../util/ActorContextExtractor.html" class="extype" name="com.danielasfregola.twitter4s.util.ActorContextExtractor">ActorContextExtractor</a>, <a href="../../../providers/ActorRefFactoryProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider">ActorRefFactoryProvider</a>, <a href="../../../providers/ExecutionContextProvider.html" class="extype" name="com.danielasfregola.twitter4s.providers.ExecutionContextProvider">ExecutionContextProvider</a>, <a href="../../unmarshalling/JsonSupport.html" class="extype" name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport">JsonSupport</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
@@ -432,23 +433,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../../util/Configurations.html" class="extype" name="com.danielasfregola.twitter4s.util.Configurations">Configurations</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#configuration" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="configuration():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Configuration]"></a>
-      <a id="configuration():Future[Configuration]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">configuration</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Configuration.html" class="extype" name="com.danielasfregola.twitter4s.entities.Configuration">Configuration</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@configuration():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Configuration]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport#defaultFormats" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="defaultFormats:org.json4s.DefaultFormats"></a>
       <a id="defaultFormats:DefaultFormats"></a>
@@ -608,6 +592,91 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#getConfiguration" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getConfiguration():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Configuration]"></a>
+      <a id="getConfiguration():Future[Configuration]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getConfiguration</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/Configuration.html" class="extype" name="com.danielasfregola.twitter4s.entities.Configuration">Configuration</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@getConfiguration():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Configuration]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co shortened URL length.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co shortened URL length.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/help/configuration" target="_blank">
+  https://dev.twitter.com/rest/reference/get/help/configuration</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The current Twitter configuration.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#getPrivacyPolicy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getPrivacyPolicy():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.PrivacyPolicy]"></a>
+      <a id="getPrivacyPolicy():Future[PrivacyPolicy]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getPrivacyPolicy</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/PrivacyPolicy.html" class="extype" name="com.danielasfregola.twitter4s.entities.PrivacyPolicy">PrivacyPolicy</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@getPrivacyPolicy():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.PrivacyPolicy]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns Twitter’s Privacy Policy.</p><div class="fullcomment"><div class="comment cmt"><p>Returns Twitter’s Privacy Policy.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/help/privacy" target="_blank">
+  https://dev.twitter.com/rest/reference/get/help/privacy</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The Twitter's Privacy Policy.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#getSupportedLanguages" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getSupportedLanguages():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LanguageDetails]]"></a>
+      <a id="getSupportedLanguages():Future[Seq[LanguageDetails]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getSupportedLanguages</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LanguageDetails.html" class="extype" name="com.danielasfregola.twitter4s.entities.LanguageDetails">LanguageDetails</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@getSupportedLanguages():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LanguageDetails]]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the list of languages supported by Twitter along with the language code supported by Twitter.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the list of languages supported by Twitter along with the language code supported by Twitter.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/help/languages" target="_blank">
+  https://dev.twitter.com/rest/reference/get/help/languages</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: The list of languages supported by Twitter.</p></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#getTermsOfService" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTermsOfService():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.TermsOfService]"></a>
+      <a id="getTermsOfService():Future[TermsOfService]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTermsOfService</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/TermsOfService.html" class="extype" name="com.danielasfregola.twitter4s.entities.TermsOfService">TermsOfService</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@getTermsOfService():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.TermsOfService]" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns the Twitter Terms of Service.</p><div class="fullcomment"><div class="comment cmt"><p>Returns the Twitter Terms of Service.
+Note: these are not the same as the Developer Policy.
+For more information see
+<a href="https://dev.twitter.com/rest/reference/get/help/tos" target="_blank">
+  https://dev.twitter.com/rest/reference/get/help/tos</a>.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>: the Twitter Terms of Service.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -829,23 +898,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a> → <a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#privacyPolicy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="privacyPolicy():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.PrivacyPolicy]"></a>
-      <a id="privacyPolicy():Future[PrivacyPolicy]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">privacyPolicy</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/PrivacyPolicy.html" class="extype" name="com.danielasfregola.twitter4s.entities.PrivacyPolicy">PrivacyPolicy</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@privacyPolicy():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.PrivacyPolicy]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -880,23 +932,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../Client.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.Client">Client</a></dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#supportedLanguages" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="supportedLanguages():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LanguageDetails]]"></a>
-      <a id="supportedLanguages():Future[Seq[LanguageDetails]]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">supportedLanguages</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<span class="extype" name="scala.Seq">Seq</span>[<a href="../../../entities/LanguageDetails.html" class="extype" name="com.danielasfregola.twitter4s.entities.LanguageDetails">LanguageDetails</a>]]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@supportedLanguages():scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LanguageDetails]]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -914,23 +949,6 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient#termsOfService" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="termsOfService():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.TermsOfService]"></a>
-      <a id="termsOfService():Future[TermsOfService]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">termsOfService</span><span class="params">()</span><span class="result">: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.concurrent.Future" class="extype" target="_top">Future</a>[<a href="../../../entities/TermsOfService.html" class="extype" name="com.danielasfregola.twitter4s.entities.TermsOfService">TermsOfService</a>]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient@termsOfService():scala.concurrent.Future[com.danielasfregola.twitter4s.entities.TermsOfService]" title="Permalink" target="_top">
-        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
