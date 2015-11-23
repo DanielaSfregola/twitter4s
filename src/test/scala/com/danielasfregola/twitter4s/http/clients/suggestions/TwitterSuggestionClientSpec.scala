@@ -13,7 +13,7 @@ class TwitterSuggestionClientSpec extends ClientSpec {
 
     "get suggestions of a category" in new TwitterSuggestionClientSpecContext {
       val slug = "twitter"
-      val result: Suggestions = when(suggestions(slug)).expectRequest { request =>
+      val result: Suggestions = when(getSuggestions(slug)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/users/suggestions/$slug.json"
         request.uri.query === Query("lang=en")
@@ -22,7 +22,7 @@ class TwitterSuggestionClientSpec extends ClientSpec {
     }
 
     "get suggested categories" in new TwitterSuggestionClientSpecContext {
-      val result: Seq[Category] = when(suggestedCategories()).expectRequest { request =>
+      val result: Seq[Category] = when(getSuggestedCategories()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/suggestions.json"
         request.uri.query === Query("lang=en")
@@ -32,7 +32,7 @@ class TwitterSuggestionClientSpec extends ClientSpec {
 
     "get suggestions members" in new TwitterSuggestionClientSpecContext {
       val slug = "twitter"
-      val result: Seq[User] = when(suggestionsMembers(slug)).expectRequest { request =>
+      val result: Seq[User] = when(getSuggestionsMembers(slug)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/users/suggestions/$slug/members.json"
       }.respondWith("/twitter/suggestions/suggestions_members.json").await
