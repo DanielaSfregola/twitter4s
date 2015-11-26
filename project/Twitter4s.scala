@@ -39,8 +39,8 @@ object Twitter4s extends Build {
   Seq(
     name := "twitter4s",
     version := v,
-    organization := "com.DanielaSfregola",
     scalaVersion := "2.11.7",
+    organization := "com.danielasfregola",
     licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
     homepage := Some(url("https://github.com/DanielaSfregola/twitter4s")),
     scmInfo := Some(ScmInfo(url("https://github.com/DanielaSfregola/twitter4s"), "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),

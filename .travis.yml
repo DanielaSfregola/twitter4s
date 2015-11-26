@@ -5,7 +5,6 @@ after_script:
   - "sbt coveralls"
 scala:
   - 2.11.7
-  - 2.10.4
 jdk:
   - oraclejdk8
 env:
