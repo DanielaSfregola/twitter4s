@@ -1,4 +1,4 @@
-sonatypeProfileName := "com.danielasfregola.twitter4s"
+sonatypeProfileName := "com.danielasfregola"
 
 pomExtra in Global := {
   <url>http://danielasfregola.github.io/twitter4s</url>

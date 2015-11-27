@@ -5,9 +5,28 @@ twitter4s
 
 An asynchronous non-blocking Scala client for the Twitter API.
 
+Prerequisites
+-------------
+- Go to http://apps.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
+- Once the app has been created, generate a access key and access secret with the desired permission level.
+
+Also, note that the moment, only Scala 2.11.+ is supported.
+
 Setup
 -----
-TODO
+If you use SBT, make sure you have the Sonatype repo as resolver:
+
+```
+resolvers += "Sonatype OSS Releases" at
+ "https://oss.sonatype.org/content/repositories/releases/"
+```
+
+Also, you need to include the library as your dependency:
+```
+libraryDependencies ++= Seq(
+  "com.danielasfregola.twitter4s" %% "twitter4s" % "0.1-SNAPSHOT"
+)
+```
 
 Usage
 -----
@@ -19,4 +38,7 @@ TODO
 
 Coming up Features
 ---------------
-TODO
+- Streaming support
+- Media support
+- Efficient Login and token management
+- ...more to come!

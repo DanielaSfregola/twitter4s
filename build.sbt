@@ -1,6 +1,6 @@
 name := "twitter4s"
 
-version := "1.0-SNAPSHOT"
+version := "0.1-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
@@ -27,5 +27,4 @@ libraryDependencies ++= {
     "org.specs2" %% "specs2-core" % Spec2Version % "test",
     "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % "test"
   )
-
 }
