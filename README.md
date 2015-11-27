@@ -65,7 +65,7 @@ For example, you can get the home timeline of the authenticated user:
 ```
 client.getHomeTimeline()
 ```
-or of a given user:
+or you can get the timeline of a specific user:
 ```
 client.getUserTimelineForUser("DanielaSfregola")
 ```
