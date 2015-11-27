@@ -55,7 +55,7 @@ import com.danielasfregola.twitter4s.TwitterClient
 val client = new TwitterClient()
 ```
 
-Alternatively, you can specify you token directly when creating the client:
+Alternatively, you can also specify your tokens directly when creating the client:
 ```scala
 import com.danielasfregola.twitter4s.TwitterClient
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
