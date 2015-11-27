@@ -7,8 +7,14 @@ An asynchronous non-blocking Scala client for the Twitter API.
 
 Prerequisites
 -------------
+Only Scala 2.11.+ is supported.
+
 - Go to http://apps.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
 - Once the app has been created, generate a access key and access secret with the desired permission level.
+
+Rate Limits
+-----------
+Be aware that the Twitter API has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
 
 Setup
 -----
@@ -95,12 +101,6 @@ The complete scaladoc with all the available functionalities can be found [here]
 - [TwitterSuggestionClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient)
 - [TwitterUserClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient)
 - [TwitterTrendClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient)
-
-Limitations
------------
-Be aware that the Twitter API has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
-
-Only Scala 2.11.+ is supported.
 
 Coming up Features
 ---------------
