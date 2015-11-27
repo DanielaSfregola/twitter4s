@@ -24,13 +24,53 @@ resolvers += "Sonatype OSS Releases" at
 Also, you need to include the library as your dependency:
 ```
 libraryDependencies ++= Seq(
-  "com.danielasfregola.twitter4s" %% "twitter4s" % "0.1-SNAPSHOT"
+  "com.danielasfregola" %% "twitter4s" % "0.1-SNAPSHOT"
 )
 ```
 
 Usage
 -----
-TODO
+Add your consumer and access token to your configuration file, usually `application.conf` file:
+```
+twitter {
+  consumer {
+    key = "my-consumer-key"
+    secret = "my-consumer-secret"
+  }
+  access {
+    key = "my-access-key"
+    secret = "my-access-secret"
+  }
+}
+```
+These configurations will be automatically loaded when creating the twitter client:
+```
+import com.danielasfregola.twitter4s.TwitterClient
+
+val client = new TwitterClient()
+```
+
+Alternatively, you can specify you token directly when creating the client:
+```
+import com.danielasfregola.twitter4s.TwitterClient
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+
+val consumerToken = ConsumerToken(key = "my-consumer-key", secret = "my-consumer-secret")
+val accessToken = AccessToken(key = "my-access-key", secret = "my-access-secret")  
+val client = new TwitterClient(consumerToken, accessToken)
+```
+Once you have instanced your client you are ready to use it! :smile:
+
+For example, you can get the home timeline of the authenticated user:
+```
+client.getHomeTimeline()
+```
+or of a given user:
+```
+client.getUserTimelineForUser("DanielaSfregola")
+```
+
+Have a look at the documentation section for the list of supported methods.
 
 Documentation
 -------------
