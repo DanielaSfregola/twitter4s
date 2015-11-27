@@ -28,7 +28,7 @@ resolvers += "Sonatype OSS Releases" at
 Also, you need to include the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "0.1-SNAPSHOT"
+  "com.danielasfregola" %% "twitter4s" % "0.1"
 )
 ```
 
