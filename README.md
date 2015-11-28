@@ -82,25 +82,25 @@ Documentation
 -------------
 The complete scaladoc with all the available functionalities can be found [here](http://danielasfregola.github.io/twitter4s).
 
-[TwitterClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.TwitterClient) is composed by several traits grouped by resources and functionalities:
-- [TwitterAccountClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient)
-- [TwitterApplicationClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.application.TwitterApplicationClient)
-- [TwitterBlockClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient)
-- [TwitterDirectMessageClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.directmessages.TwitterDirectMessageClient)
-- [TwitterFavoriteClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient)
-- [TwitterFollowerClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.followers.TwitterFollowerClient)
-- [TwitterFriendClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient)
-- [TwitterFriendshipClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient)
-- [TwitterGeoClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient)
-- [TwitterHelpClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient)
-- [TwitterListClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient)
-- [TwitterMuteClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient)
-- [TwitterSavedSearchClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient)
-- [TwitterSearchClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.search.TwitterSearchClient)
-- [TwitterStatusClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient)
-- [TwitterSuggestionClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient)
-- [TwitterUserClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient)
-- [TwitterTrendClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient)
+[TwitterClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.TwitterClient) is composed by several traits. A list of the supported resources is following:
+- [account](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient)
+- [application](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.application.TwitterApplicationClient)
+- [blocks](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient)
+- [direct_messages](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.directmessages.TwitterDirectMessageClient)
+- [favorites](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient)
+- [followers](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.followers.TwitterFollowerClient)
+- [friends](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient)
+- [friendships](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipClient)
+- [geo](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient)
+- [help](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient)
+- [lists](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient)
+- [mutes](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient)
+- [saved_searches](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient)
+- [searches](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.search.TwitterSearchClient)
+- [statuses](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient)
+- [suggestions](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient)
+- [users](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient)
+- [trends](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient)
 
 Coming up Features
 ---------------
@@ -109,4 +109,4 @@ Coming up Features
 - Efficient Login and token management
 - ...
 
-Contributions and requests are more than welcome!
+Contributions and feature requests are more than welcome!
