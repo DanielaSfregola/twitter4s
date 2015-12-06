@@ -18,7 +18,7 @@ Be aware that the Twitter API has rate limits specific to each endpoint. For mor
 
 Setup
 -----
-If you use SBT, if you don't have it already, make sure you add the Maven Central as resolver:
+If you don't have it already, make sure you add the Maven Central as resolver in your SBT settings:
 
 ```scala
 resolvers += "Maven central" at "http://repo1.maven.org/maven2/"
