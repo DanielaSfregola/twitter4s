@@ -3,7 +3,7 @@ twitter4s
 
 [![Build Status](https://travis-ci.org/DanielaSfregola/twitter4s.svg?branch=master)](https://travis-ci.org/DanielaSfregola/twitter4s) [![Coverage Status](https://img.shields.io/coveralls/DanielaSfregola/twitter4s.svg)](https://coveralls.io/r/DanielaSfregola/twitter4s?branch=master) [![License](http://img.shields.io/:license-Apache%202-red.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
-An asynchronous non-blocking Scala client for the Twitter API.
+An asynchronous non-blocking Scala Twitter Client, implemented using spray and json4s.
 
 Prerequisites
 -------------
@@ -75,7 +75,7 @@ or you can get the timeline of a specific user:
 ```scala
 client.getUserTimelineForUser("DanielaSfregola")
 ```
-[Twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) contains for some examples on how to use this library.
+[twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) contains for some examples on how to use this library.
 
 Also, have a look at the [Documentation](https://github.com/DanielaSfregola/twitter4s#documentation) section for the list of supported functionalities.
 
