@@ -75,8 +75,9 @@ or you can get the timeline of a specific user:
 ```scala
 client.getUserTimelineForUser("DanielaSfregola")
 ```
+[Twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) contains for some examples on how to use this library.
 
-Have a look at the documentation section for the list of supported functionalities.
+Also, have a look at the [Documentation](https://github.com/DanielaSfregola/twitter4s#documentation) section for the list of supported functionalities.
 
 Documentation
 -------------
@@ -107,6 +108,7 @@ Coming up Features
 - Streaming support
 - Media support
 - Efficient Login and token management
+- Query support
 - ...
 
 Contributions and feature requests are more than welcome!
