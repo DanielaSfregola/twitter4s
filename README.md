@@ -18,11 +18,10 @@ Be aware that the Twitter API has rate limits specific to each endpoint. For mor
 
 Setup
 -----
-If you use SBT, if you don't have it already, make sure you add the Sonatype repo as resolver:
+If you use SBT, if you don't have it already, make sure you add the Maven Central as resolver:
 
 ```scala
-resolvers += "Sonatype OSS Releases" at
- "https://oss.sonatype.org/content/repositories/releases/"
+resolvers += "Maven central" at "http://repo1.maven.org/maven2/"
 ```
 
 Also, you need to include the library as your dependency:
