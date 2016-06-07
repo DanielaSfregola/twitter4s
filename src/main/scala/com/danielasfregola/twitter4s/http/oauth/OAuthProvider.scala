@@ -1,11 +1,11 @@
-package twitter4s.http
+package com.danielasfregola.twitter4s.http
 package oauth
 
-import scala.util.Random
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+import com.danielasfregola.twitter4s.util.Encoder
 
+import scala.util.Random
 import spray.http.{HttpHeader, HttpHeaders, HttpRequest}
-import twitter4s.entities.{AccessToken, ConsumerToken}
-import twitter4s.util.Encoder
 
 class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) extends Encoder {
 

@@ -1,15 +1,16 @@
-package twitter4s.http
+package com.danielasfregola.twitter4s.http
 package clients.media
 
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
 
+import com.danielasfregola.twitter4s.entities.MediaDetails
+import com.danielasfregola.twitter4s.http.clients.MediaOAuthClient
+
 import scala.concurrent.Future
 import spray.http._
-import twitter4s.entities.MediaDetails
-import twitter4s.http.clients.MediaOAuthClient
-import twitter4s.http.clients.media.entities._
-import twitter4s.util.{Chunk, Configurations, MediaReader}
+import com.danielasfregola.twitter4s.http.clients.media.entities._
+import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
 
 trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
 
@@ -72,6 +73,7 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     Post(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 
+  // TODO - fix me!
   def statusMedia(mediaId: Long): Future[Unit] = {
     val entity = MediaStatus(mediaId)
     Get(s"$mediaUrl/upload.json", entity).respondAs[Unit]

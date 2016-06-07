@@ -1,12 +1,11 @@
 package com.danielasfregola.twitter4s.http.clients
 
 import scala.util.Try
-
 import org.json4s.native.Serialization
 import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http._
-import spray.httpx.unmarshalling.{Deserializer => _, FromResponseUnmarshaller}
+import spray.httpx.unmarshalling.{FromResponseUnmarshaller, Deserializer => _}
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider

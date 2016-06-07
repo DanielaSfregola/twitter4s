@@ -1,4 +1,4 @@
-package twitter4s.util
+package com.danielasfregola.twitter4s.util
 
 import java.security.MessageDigest
 import java.util.Base64

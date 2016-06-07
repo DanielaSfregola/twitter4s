@@ -15,6 +15,7 @@ import com.danielasfregola.twitter4s.http.clients.friendships.TwitterFriendshipC
 import com.danielasfregola.twitter4s.http.clients.geo.TwitterGeoClient
 import com.danielasfregola.twitter4s.http.clients.help.TwitterHelpClient
 import com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient
+import com.danielasfregola.twitter4s.http.clients.media.TwitterMediaClient
 import com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient
 import com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient
 import com.danielasfregola.twitter4s.http.clients.search.TwitterSearchClient
@@ -37,6 +38,7 @@ trait Clients extends TwitterAccountClient
   with TwitterGeoClient
   with TwitterHelpClient
   with TwitterListClient
+  with TwitterMediaClient
   with TwitterMuteClient
   with TwitterSavedSearchClient
   with TwitterSearchClient
