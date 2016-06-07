@@ -13,10 +13,7 @@ trait JsonSupport {
   implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all
 
   val defaultFormats = new DefaultFormats {
-    override def dateFormatter = {
-      val simpleDateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy")
-      simpleDateFormat
-    }
+    override def dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy")
   }
 
   implicit def json4sUnmarshaller[T: Manifest] = {

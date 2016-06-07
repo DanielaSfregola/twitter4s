@@ -3,13 +3,13 @@ package clients.media
 
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
-import scala.concurrent.Future
 
+import scala.concurrent.Future
 import spray.http._
 import twitter4s.entities.MediaDetails
 import twitter4s.http.clients.MediaOAuthClient
 import twitter4s.http.clients.media.entities._
-import twitter4s.util.{Chunk, MediaReader, Configurations}
+import twitter4s.util.{Chunk, Configurations, MediaReader}
 
 trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
 
@@ -57,31 +57,14 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   }
 
   private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int): Future[Unit] = {
-    val CRLF = """\r\n"""
-    val boundary = s"""00t4s${mediaId}s4t99"""
-    val fieldName = "media"
+    val fields: Map[String, BodyPart] = Map(
+      "command" -> BodyPart("APPEND"),
+      "media_id" -> BodyPart(mediaId.toString),
+      "segment_index" -> BodyPart(idx.toString),
+      "media_data" -> BodyPart(chunk.base64Data.mkString)
+    )
 
-    def bodyBuilder(key: String, value: String) = "--" + boundary +
-      s"""${CRLF}Content-Disposition: form-data; name=\"$key\"$CRLF""" +
-      s"""$CRLF$value$CRLF"""
-
-    val bodyFileInformation = "--" + boundary +
-     s"""${CRLF}Content-Disposition: form-data; name=\"$fieldName\"; filename=\"$filename\"$CRLF""" +
-     s"""Content-Type: application/octet-stream$CRLF""" +
-     s"""Content-Transfer-Encoding: base64$CRLF"""
-
-    val encodedData = s"""$CRLF${chunk.base64Data.mkString("""\n""")}\\n"""
-
-    val body = bodyBuilder("command", "APPEND") +
-               bodyBuilder("media_id", mediaId.toString) +
-               bodyBuilder("segment_index", idx.toString) +
-               bodyFileInformation +
-               encodedData +
-               s"""$CRLF--$boundary--$CRLF"""
-
-    Post(s"$mediaUrl/upload.json", body,
-          ContentType(MediaTypes.`multipart/form-data` withBoundary(boundary))
-        ).respondAs[Unit]
+    formDataPipeline apply Post(s"$mediaUrl/upload.json", MultipartFormData(fields))
   }
 
   private def finalizeMedia(mediaId: Long): Future[MediaDetails] = {
@@ -89,8 +72,8 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     Post(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 
-  def statusMedia(mediaId: Long): Future[Unit] = { // TODO - change type
+  def statusMedia(mediaId: Long): Future[Unit] = {
     val entity = MediaStatus(mediaId)
-    Post(s"$mediaUrl/upload.json", entity).respondAs[Unit]
+    Get(s"$mediaUrl/upload.json", entity).respondAs[Unit]
   }
 }

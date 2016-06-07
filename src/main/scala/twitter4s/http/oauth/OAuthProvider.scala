@@ -55,7 +55,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     val body = request.entity.asString.replace("+", "%20")
     if (!body.isEmpty) {
       val entities = body.split("&")
-      val bodyTokens = entities.map {_.split("=", 2)}.flatten.toList
+      val bodyTokens = entities.flatMap {_.split("=", 2)}.toList
       bodyTokens.grouped(2).map { case List(k, v) => k -> v}.toMap
     } else Map()
  }
