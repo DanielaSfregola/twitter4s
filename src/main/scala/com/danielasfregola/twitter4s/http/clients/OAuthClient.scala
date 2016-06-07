@@ -24,14 +24,19 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
   }
+
+  def withSimpleOAuthHeader: HttpRequest => HttpRequest = { request =>
+    val authorizationHeader = oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
+    request.withHeaders( request.headers :+ authorizationHeader )
+  }
   
   protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
     hr.status.isSuccess match {
       case true => hr ~> unmarshal[T]
       case false =>
-        val errors = Try (
+        val errors = Try {
           Serialization.read[Errors](hr.entity.asString)
-        ) getOrElse ( Errors() )
+        } getOrElse { Errors() }
         throw new TwitterException(hr.status, errors)
     }
   }
@@ -59,9 +64,13 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
       apply(uri, data, contentType)
     }
 
-    def apply(uri: String, data: String, contentType: ContentType): HttpRequest = {
+    def apply(uri: String, data: String, contentType: ContentType): HttpRequest =
       apply(uri).withEntity(HttpEntity(contentType, data))
-    }
+
+
+    def apply(uri: String, multipartFormData: MultipartFormData): HttpRequest =
+      apply(Uri(uri), Some(multipartFormData))
+
   }
 
 }

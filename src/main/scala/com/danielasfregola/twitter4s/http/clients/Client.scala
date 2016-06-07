@@ -25,7 +25,7 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
 
   def logRequest: HttpRequest => HttpRequest = { request =>
     log.info(s"${request.method} ${request.uri}")
-    log.debug(s"${request.method} ${request.uri} | ${request.entity.asString} | ${request.headers} | ${request}")
+    log.debug(s"${request.method} ${request.uri} | ${request.entity.asString} | ${request.headers} | $request")
     request
   }
 
