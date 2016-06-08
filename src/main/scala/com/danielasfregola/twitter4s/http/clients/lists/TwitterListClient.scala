@@ -67,7 +67,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts : By default it is `false`.
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
@@ -102,7 +102,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts : By default it is `false`.
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
@@ -136,7 +136,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts : By default it is `false`.
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
@@ -426,7 +426,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -454,7 +454,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -484,7 +484,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -513,7 +513,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -541,7 +541,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -571,7 +571,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The user representation if the specified user is a member of the specified list, it throws an `TwitterException` instead.
@@ -605,7 +605,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.
@@ -637,7 +637,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.
@@ -671,7 +671,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.

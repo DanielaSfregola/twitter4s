@@ -9,7 +9,7 @@ import com.danielasfregola.twitter4s.http.clients.MediaOAuthClient
 
 import scala.concurrent.Future
 import spray.http._
-import com.danielasfregola.twitter4s.http.clients.media.entities._
+import com.danielasfregola.twitter4s.http.clients.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
 
 trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
@@ -18,11 +18,10 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
 
   protected val chunkSize = 5 * 1024 * 1024   // 5 MB
 
-  // TODO media_type enum
   def uploadMedia(filePath: String, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
     uploadMediaFromFile(new File(filePath), additional_owners)
   }
-  
+
   def uploadMediaFromFile(file: File, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
     val size = file.length
     val inputStream = new FileInputStream(file)
@@ -31,6 +30,7 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     uploadMediaFromInputStream(inputStream, size, mediaType, Some(filename), additional_owners)
   }
 
+  // TODO media_type enum
   def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: String, filename: Option[String] = None, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
 
     def filenameBuilder(mediaId: Long) = {
@@ -47,9 +47,9 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
 
   private def initMedia(size: Long,
                         media_type: String,
-                        additional_owners: Seq[String]): Future[InitMediaDetails] = {
+                        additional_owners: Seq[String]): Future[MediaDetails] = {
     val parameters = MediaInitParameters(size, media_type.toAscii, Some(additional_owners.mkString(",")))
-    Post(s"$mediaUrl/upload.json", parameters).respondAs[InitMediaDetails]
+    Post(s"$mediaUrl/upload.json", parameters).respondAs[MediaDetails]
   }
 
   private def appendMedia(mediaId: Long, inputStream: InputStream, filename: String): Future[Seq[Unit]] = {
@@ -69,13 +69,12 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   }
 
   private def finalizeMedia(mediaId: Long): Future[MediaDetails] = {
-    val entity = MediaFinalize(mediaId)
+    val entity = MediaFinalizeParameters(mediaId)
     Post(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 
-  // TODO - fix me!
-  def statusMedia(mediaId: Long): Future[Unit] = {
-    val entity = MediaStatus(mediaId)
-    Get(s"$mediaUrl/upload.json", entity).respondAs[Unit]
+  def statusMedia(mediaId: Long): Future[MediaDetails] = {
+    val entity = MediaStatusParameters(mediaId)
+    Get(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 }

@@ -108,7 +108,7 @@ trait TwitterMuteClient extends OAuthClient with Configurations {
     *               See [node:10362, title=”Using cursors to navigate collections”] for more information.
     * @param include_entities : By default it is `true`.
     *                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-    *                         You can omit entities from the result by setting `include_entities` to `false`.
+    *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The representation of the muted users.

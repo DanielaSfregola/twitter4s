@@ -32,7 +32,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     * @param max_id : Optional, by default it is `None`.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @return : The sequence of favorite statuses.
     * */
   def getFavoriteStatusesForUser(screen_name: String,
@@ -63,7 +63,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     * @param max_id : Optional, by default it is `None`.
     *               Returns results with an ID less than (that is, older than) or equal to the specified ID.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @return : The sequence of favorite statuses.
     * */
   def getFavoriteStatusesForUserId(user_id: Long,
@@ -87,7 +87,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *
     * @param id : The numerical ID of the desired status.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @return : The liked status.
     * */
   def favoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {
@@ -104,7 +104,7 @@ trait TwitterFavoriteClient extends OAuthClient with Configurations {
     *
     * @param id : The numerical ID of the desired status.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @return : The un-liked status.
     * */
   def unfavoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {

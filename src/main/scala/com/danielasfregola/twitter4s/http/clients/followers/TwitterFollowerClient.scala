@@ -124,7 +124,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user objects.
     * @param include_user_entities : By default it is `true`.
-    *                              The user object entities node will not be included when set to false.
+    *                              The user object parameters node will not be included when set to false.
     * @return : The cursored representation of the users following the specified user.
     * */
   def getFollowersForUser(screen_name: String,
@@ -152,7 +152,7 @@ trait TwitterFollowerClient extends OAuthClient with Configurations {
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user objects.
     * @param include_user_entities : By default it is `true`.
-    *                              The user object entities node will not be included when set to false.
+    *                              The user object parameters node will not be included when set to false.
     * @return : The cursored representation of the users following the specified user.
     * */
   def getFollowersForUserId(user_id: Long,

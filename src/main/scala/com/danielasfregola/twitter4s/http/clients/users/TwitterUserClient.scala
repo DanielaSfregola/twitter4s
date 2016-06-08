@@ -30,7 +30,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *
     * @param screen_names : A sequence of screen names, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
-    *                         The entities node that may appear within embedded statuses will be disincluded when set to `false`.
+    *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
   def getUsers(screen_names: Seq[String],
@@ -57,7 +57,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *
     * @param ids : A sequence of user ids, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
-    *                         The entities node that may appear within embedded statuses will be disincluded when set to `false`.
+    *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
   def getUsersByIds(ids: Seq[Long],
@@ -78,7 +78,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     * @param include_entities : By default it is `true`.
-    *                         The entities node that may appear within embedded statuses will be disincluded when set to `false`.
+    *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
   def getUser(screen_name: String, include_entities: Boolean = true): Future[User] = {
@@ -94,7 +94,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *
     * @param id : The ID of the user for whom to return results for.
     * @param include_entities : By default it is `true`.
-    *                         The entities node that may appear within embedded statuses will be disincluded when set to `false`.
+    *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
   def getUserById(id: Long, include_entities: Boolean = true): Future[User] = {
@@ -156,7 +156,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *              The number of potential user results to retrieve per page.
     *              This value has a maximum of 20.
     * @param include_entities : By default it is `true`.
-    *                         The entities node that may appear within embedded statuses will be disincluded when set to `false`.
+    *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of users.
     */
   def searchForUser(query: String,

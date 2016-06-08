@@ -107,7 +107,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *              The value of count is best thought of as a limit to the number of Tweets to return
     *              because suspended or deleted content is removed after the count has been applied.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The sequence of received direct messages.
@@ -129,7 +129,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *
     * @param id : The ID of the direct message to delete.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @return : The deleted direct message.
     * */
   def deleteDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {

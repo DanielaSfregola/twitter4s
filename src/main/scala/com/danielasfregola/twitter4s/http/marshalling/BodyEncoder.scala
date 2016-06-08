@@ -16,13 +16,13 @@ trait BodyEncoder {
     }.toList.sorted.mkString("&")
 
   private def toBodyAsMap(cc: Product): Map[String, String] =
-    asMap(cc).map {
+    asMap(cc).flatMap {
       case (k, None) => None
       case (k, Some("")) => None
       case (k, Seq()) => None
       case (k, Some(v)) => Some(k -> v.toString)
       case (k, v) => Some(k -> v.toString)
-    }.flatten.toMap
+    }
 
   // TODO - improve performance with Macros?
   private def asMap(cc: Product): Map[String, Any] =

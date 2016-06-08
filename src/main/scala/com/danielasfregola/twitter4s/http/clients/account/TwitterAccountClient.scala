@@ -83,7 +83,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/account/verify_credentials</a>.
     *
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @param include_email : By default it is `false`.
@@ -105,7 +105,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @param name : Full name associated with the profile. Maximum of 20 characters.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
@@ -125,7 +125,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     * @param url : URL associated with the profile. Will be prepended with “http://” if not present.
     *            Maximum of 100 characters.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
@@ -145,7 +145,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     * @param location : The city or country describing where the user of the account is located.
     *                 The contents are not normalized or geocoded in any way. Maximum of 30 characters.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
@@ -164,7 +164,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @param description : A description of the user owning the account. Maximum of 160 characters.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.
@@ -184,7 +184,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     * @param link_color : Sets a hex value that controls the color scheme of links used on the authenticating user’s profile page on twitter.com.
     *                   This must be a valid hexadecimal value, and may be either three or six characters (ex: F00 or FF0000).
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The user representation.

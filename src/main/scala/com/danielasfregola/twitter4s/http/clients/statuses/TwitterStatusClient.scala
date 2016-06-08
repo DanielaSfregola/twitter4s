@@ -41,7 +41,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                            When set to `true`, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will be disincluded when set to `false`.
+    *                         The parameters node will be disincluded when set to `false`.
     * @return : The sequence of tweets.
     */
   def getMentionsTimeline(count: Int = 200,
@@ -178,7 +178,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                            When set to `true`, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities : By default it is `true`.
-    *                    When set to `false`, The entities node will be disincluded when set to false.
+    *                    When set to `false`, The parameters node will be disincluded when set to false.
     * @return : The sequence of tweets.
     */
   def getHomeTimeline(count: Int = 20,
@@ -215,7 +215,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                            When set to `true`, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities : By default it is `true`.
-    *                    When set to `false`, The entities node will be disincluded when set to false.
+    *                    When set to `false`, The parameters node will be disincluded when set to false.
     * @return : The sequence of tweets.
     */
   def getRetweetsOfMe(count: Int = 20,
@@ -261,7 +261,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     * @param include_my_retweet : By default it is `false`.
     *                           When set to `true`, any Tweets returned that have been retweeted by the authenticating user will include an additional `current_user_retweet` node, containing the ID of the source status for the retweet.
     * @param include_entities : By default it is `true`.
-    *                         When set to `false`, The entities node will be disincluded when set to false.
+    *                         When set to `false`, The parameters node will be disincluded when set to false.
     * @return : The representation of the tweet.
     */
   def getTweet(id: Long,
@@ -563,7 +563,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will be disincluded when set to `false`.
+    *                         The parameters node will be disincluded when set to `false`.
     * @param trim_user : By default it is `false`.
     *                  When set to `true`, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
     *                  Set this parameter to `false` to receive the complete user object.
@@ -598,7 +598,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will be disincluded when set to `false`.
+    *                         The parameters node will be disincluded when set to `false`.
     * @param trim_user : By default it is `false`.
     *                  When set to `true`, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
     *                  Set this parameter to `false` to receive the complete user object.

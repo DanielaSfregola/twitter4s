@@ -1,6 +1,5 @@
-package twitter4s.http.oauth
+package com.danielasfregola.twitter4s.util
 
-import com.danielasfregola.twitter4s.util.Encoder
 import org.specs2.mutable.Specification
 
 class EncoderSpec extends Specification with Encoder {

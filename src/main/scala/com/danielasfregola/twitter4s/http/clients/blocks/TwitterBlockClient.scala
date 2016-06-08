@@ -19,7 +19,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *   https://dev.twitter.com/rest/reference/get/blocks/list</a>.
     *
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @param cursor : By default it is `-1`,  which is the first “page”.
@@ -77,7 +77,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * @param screen_name : The screen name of the potentially blocked user.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
@@ -99,7 +99,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * @param user_id : The ID of the potentially blocked user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
@@ -124,7 +124,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * @param screen_name : The screen name of the potentially blocked user.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.
@@ -146,7 +146,7 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     * @param user_id : The ID of the potentially blocked user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will not be included when set to false.
+    *                         The parameters node will not be included when set to false.
     * @param skip_status : By default it is `false`.
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.

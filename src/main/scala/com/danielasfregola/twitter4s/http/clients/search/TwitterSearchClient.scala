@@ -28,7 +28,7 @@ trait TwitterSearchClient extends OAuthClient with Configurations {
     * @param count : By default it is `15`.
     *              The number of tweets to return per page, up to a maximum of 100.
     * @param include_entities : By default it is `true`.
-    *                         The entities node will be disincluded when set to `false`.
+    *                         The parameters node will be disincluded when set to `false`.
     * @param result_type : By default it is `Mixed`.
     *                    Specifies what type of search results you would prefer to receive.
     *                    Valid values include:
