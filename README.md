@@ -21,7 +21,7 @@ Setup
 If you don't have it already, make sure you add the Maven Central as resolver in your SBT settings:
 
 ```scala
-resolvers += "Maven central" at "http://repo1.maven.org/maven2/"
+resolver += Resolver.sonatypeRepo("releases")
 ```
 
 Also, you need to include the library as your dependency:
@@ -110,3 +110,17 @@ Coming up Features
 - ...
 
 Contributions and feature requests are more than welcome!
+
+Snapshot Versions
+-----------------
+To use a snapshot version of this library, make sure you have the resolver for maven central (snapshot repositories) in your SBT settings:
+```scala
+resolver += Resolver.sonatypeRepo("snapshots")
+```
+
+Then, add the library as your dependency:
+```scala
+libraryDependencies ++= Seq(
+  "com.danielasfregola" %% "twitter4s" % "0.2-SNAPSHOT"
+)
+```
