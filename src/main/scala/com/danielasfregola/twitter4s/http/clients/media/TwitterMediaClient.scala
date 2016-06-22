@@ -30,8 +30,10 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     uploadMediaFromInputStream(inputStream, size, mediaType, Some(filename), additional_owners)
   }
 
-  // TODO media_type enum
-  def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: String, filename: Option[String] = None, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
+  def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: MediaType, filename: Option[String] = None, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] =
+    uploadMediaFromInputStream(inputStream, size, media_type.value, filename, additional_owners)
+
+  private def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: String, filename: Option[String], additional_owners: Seq[String]): Future[MediaDetails] = {
 
     def filenameBuilder(mediaId: Long) = {
       val extension = media_type.split("/", 2)
