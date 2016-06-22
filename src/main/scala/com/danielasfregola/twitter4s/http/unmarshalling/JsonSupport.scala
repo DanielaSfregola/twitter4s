@@ -2,6 +2,7 @@ package com.danielasfregola.twitter4s.http.unmarshalling
 
 import java.lang.reflect.InvocationTargetException
 import java.text.SimpleDateFormat
+import java.util.Locale
 
 import org.json4s.native.Serialization
 import org.json4s.{DefaultFormats, Formats, MappingException}
@@ -13,7 +14,7 @@ trait JsonSupport {
   implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all
 
   val defaultFormats = new DefaultFormats {
-    override def dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy")
+    override def dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy", Locale.ENGLISH)
   }
 
   implicit def json4sUnmarshaller[T: Manifest] = {
