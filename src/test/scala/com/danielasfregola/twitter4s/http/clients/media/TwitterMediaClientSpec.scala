@@ -31,9 +31,9 @@ class TwitterMediaClientSpec extends ClientSpec {
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/metadata/create.json"
             request.entity === HttpEntity(
-              ContentType(MediaTypes.`application/x-www-form-urlencoded`), "description=A+cat+picture&media_id=710511363345354753")
+              ContentType(MediaTypes.`application/json`), """{"media_id":"710511363345354753","description":"A cat picture"}""")
         }.respondWithOk.await
-      result should  (())
+      result === (())
     }
   }
 }

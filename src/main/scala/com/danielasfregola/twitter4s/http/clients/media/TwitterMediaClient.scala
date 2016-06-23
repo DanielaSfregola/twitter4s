@@ -11,6 +11,7 @@ import scala.concurrent.Future
 import spray.http._
 import com.danielasfregola.twitter4s.http.clients.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
+import org.json4s.native.Serialization
 
 trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
 
@@ -80,8 +81,9 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     Get(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 
-  def createMediaDescription(mediaId: Long, text: String) = {
+  def createMediaDescription(mediaId: Long, text: String): Future[Unit] = {
     val entity = MediaMetadataCreation(mediaId.toString, text)
-    Post(s"$mediaUrl/metadata/create.json", entity).respondAs[Unit]
+    val jsonEntity = Serialization.write(entity)
+    formDataPipeline apply Post(s"$mediaUrl/metadata/create.json", jsonEntity, MediaTypes.`application/json`)
   }
 }
