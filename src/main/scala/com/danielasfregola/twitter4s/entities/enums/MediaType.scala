@@ -10,4 +10,5 @@ object MediaType extends Enumeration {
 
 
   val MP4 = Value("video/mp4")
+  val MOV = Value("video/quicktime")
 }

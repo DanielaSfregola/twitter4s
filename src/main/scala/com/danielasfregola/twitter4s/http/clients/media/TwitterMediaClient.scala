@@ -18,7 +18,7 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
 
   protected val chunkSize = 5 * 1024 * 1024   // 5 MB
 
-  def uploadMedia(filePath: String, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
+  def uploadMediaFromPath(filePath: String, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
     uploadMediaFromFile(new File(filePath), additional_owners)
   }
 
@@ -78,5 +78,10 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   def statusMedia(mediaId: Long): Future[MediaDetails] = {
     val entity = MediaStatusParameters(mediaId)
     Get(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
+  }
+
+  def createMediaDescription(mediaId: Long, text: String) = {
+    val entity = MediaMetadataCreation(mediaId.toString, text)
+    Post(s"$mediaUrl/metadata/create.json", entity).respondAs[Unit]
   }
 }
