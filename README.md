@@ -27,7 +27,7 @@ resolver += Resolver.sonatypeRepo("releases")
 Also, you need to include the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "0.1"
+  "com.danielasfregola" %% "twitter4s" % "0.2"
 )
 ```
 
@@ -74,6 +74,19 @@ or you can get the timeline of a specific user:
 ```scala
 client.getUserTimelineForUser("DanielaSfregola")
 ```
+
+You can also update your tweet status:
+```scala
+client.tweet(status = "Test")
+```
+Asynchronous upload of images or short videos is also supported:
+```scala
+for {
+  upload <- client.uploadMediaFromPath("/path/to/file.png")
+  tweet <- client.tweet(status = "Test with media", media_ids = Seq(upload.media_id))
+} yield tweet
+```
+
 Have a look at the repository [twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) for some examples on how to use this library.
 Also, have a completed list of the supported functionalities is provided in the [Documentation](https://github.com/DanielaSfregola/twitter4s#documentation) section.
 
@@ -82,6 +95,8 @@ Documentation
 The complete scaladoc with all the available functionalities can be found [here](http://danielasfregola.github.io/twitter4s).
 
 [TwitterClient](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.TwitterClient) is composed by several traits. A list of the supported resources is following:
+
+#### Public API
 - [account](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient)
 - [application](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.application.TwitterApplicationClient)
 - [blocks](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient)
@@ -101,10 +116,13 @@ The complete scaladoc with all the available functionalities can be found [here]
 - [users](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient)
 - [trends](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient)
 
+#### Media API
+
+- [media](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.clients.media.TwitterMediaClient)
+
 Coming up Features
 ---------------
 - Streaming support
-- Media support
 - Efficient Login and token management
 - Query support
 - ...
@@ -121,6 +139,6 @@ resolver += Resolver.sonatypeRepo("snapshots")
 Then, add the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "0.2-SNAPSHOT"
+  "com.danielasfregola" %% "twitter4s" % "0.3-SNAPSHOT"
 )
 ```
