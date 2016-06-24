@@ -17,10 +17,10 @@ trait BodyEncoder {
 
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).flatMap {
+      case (k, head :: tail) => Some(k -> (head +: tail).mkString(","))
+      case (k, Nil) => None
       case (k, None) => None
       case (k, Some("")) => None
-      case (k, Seq()) => None
-      case (k, v @ Seq(_)) => Some(k -> v.mkString(","))
       case (k, Some(v)) => Some(k -> v.toString)
       case (k, v) => Some(k -> v.toString)
     }

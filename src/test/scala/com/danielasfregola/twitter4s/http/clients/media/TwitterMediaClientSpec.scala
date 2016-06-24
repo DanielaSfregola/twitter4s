@@ -11,8 +11,6 @@ class TwitterMediaClientSpec extends ClientSpec {
 
   "Twitter Media Client" should {
 
-    // TODO - media upload testing?
-
     "check the status of a media upload" in new TwitterMediaClientSpecContext {
       val result: MediaDetails =
         when(statusMedia(mediaId = 710511363345354753L)).expectRequest {
