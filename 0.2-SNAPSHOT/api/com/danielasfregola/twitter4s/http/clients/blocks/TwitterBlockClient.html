@@ -417,7 +417,7 @@ For more information see
   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
 </p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially blocked user.
                    Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the blocked user.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#blockUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="blockUserId(user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -443,7 +443,7 @@ For more information see
   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
 </p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the potentially blocked user.
                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the blocked user.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -694,7 +694,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/blocks/list" target="_blank">
   https://dev.twitter.com/rest/reference/get/blocks/list</a>.
 </p></div><dl class="paramcmts block"><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of blocked users.</p></dd></dl></div>
@@ -1045,7 +1045,7 @@ For more information see
   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
 </p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the potentially blocked user.
                    Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the unblocked user.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient#unblockUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unblockUserId(user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -1071,7 +1071,7 @@ For more information see
   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
 </p></div><dl class="paramcmts block"><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the potentially blocked user.
                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the unblocked user.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>
@@ -1176,6 +1176,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.blocks.TwitterBlockClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

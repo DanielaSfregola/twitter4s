@@ -690,7 +690,7 @@ For more information see
                        Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                            When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
                            When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                   When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+                   When set to <code>false</code>, The parameters node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getMentionsTimeline" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getMentionsTimeline(count:Int,since_id:Option[Long],max_id:Option[Long],trim_user:Boolean,contributor_details:Boolean,include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
       <a id="getMentionsTimeline(Int,Option[Long],Option[Long],Boolean,Boolean,Boolean):Future[Seq[Tweet]]"></a>
@@ -724,7 +724,7 @@ For more information see
                  Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                            When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
                            When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+                        The parameters node will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getOembedTweetById" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getOembedTweetById(id:Long,max_width:Option[Int],hide_media:Boolean,hide_thread:Boolean,hide_tweet:Boolean,omit_script:Boolean,alignment:com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment,related:Seq[String],language:com.danielasfregola.twitter4s.entities.enums.Language.Language,widget_type:Option[com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType]):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.OEmbedTweet]"></a>
       <a id="getOembedTweetById(Long,Option[Int],Boolean,Boolean,Boolean,Boolean,Alignment,Seq[String],Language,Option[WidgetType]):Future[OEmbedTweet]"></a>
@@ -907,7 +907,7 @@ For more information see
                        Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies.</p></dd><dt class="param">contributor_details</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                            When set to <code>true</code>, this parameter enhances the contributors element of the status response to include the screen_name of the contributor.
                            When set to <code>false</code>, only the user_id of the contributor is included.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                   When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
+                   When set to <code>false</code>, The parameters node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getTweet(id:Long,trim_user:Boolean,include_my_retweet:Boolean,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Tweet]"></a>
       <a id="getTweet(Long,Boolean,Boolean,Boolean):Future[Tweet]"></a>
@@ -932,7 +932,7 @@ For more information see
                  When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
                  Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt class="param">include_my_retweet</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                           When set to <code>true</code>, any Tweets returned that have been retweeted by the authenticating user will include an additional <code>current_user_retweet</code> node, containing the ID of the source status for the retweet.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        When set to <code>false</code>, The entities node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the tweet.</p></dd></dl></div>
+                        When set to <code>false</code>, The parameters node will be disincluded when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the tweet.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getTweetLookup(ids:Seq[Long],include_entities:Boolean,trim_user:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.LookupTweet]]"></a>
       <a id="getTweetLookup(Seq[Long],Boolean,Boolean):Future[Seq[LookupTweet]]"></a>
@@ -956,7 +956,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
 </p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                  When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
                  Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookup" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -1005,7 +1005,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
 </p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of tweet IDs, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will be disincluded when set to <code>false</code>.</p></dd><dt class="param">trim_user</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                  When set to <code>true</code>, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
                  Set this parameter to <code>false</code> to receive the complete user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the lookup tweets mapped by id.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient#getTweetLookupMapped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -1584,6 +1584,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

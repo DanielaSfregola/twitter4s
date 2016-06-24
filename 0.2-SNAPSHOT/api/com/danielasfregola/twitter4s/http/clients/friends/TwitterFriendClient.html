@@ -735,7 +735,7 @@ For more information see
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
              The number of users to return per page, up to a maximum of 200.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user objects.</p></dd><dt class="param">include_user_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                             The user object entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user is following.</p></dd></dl></div>
+                             The user object parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user is following.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient#getFriendsForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getFriendsForUserId(user_id:Long,cursor:Long,count:Int,skip_status:Boolean,include_user_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
       <a id="getFriendsForUserId(Long,Long,Int,Boolean,Boolean):Future[Users]"></a>
@@ -763,7 +763,7 @@ For more information see
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
              The number of users to return per page, up to a maximum of 200.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user objects.</p></dd><dt class="param">include_user_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                             The user object entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user id is following.</p></dd></dl></div>
+                             The user object parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The cursored representation of the users the specified user id is following.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -1173,6 +1173,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.friends.TwitterFriendClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

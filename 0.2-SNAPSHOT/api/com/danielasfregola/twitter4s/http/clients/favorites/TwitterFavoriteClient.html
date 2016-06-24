@@ -524,7 +524,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/post/favorites/create" target="_blank">
   https://dev.twitter.com/rest/reference/post/favorites/create</a>.
 </p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The liked status.</p></dd></dl></div>
+                        The parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The liked status.</p></dd></dl></div>
     </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <a id="finalize():Unit"></a>
@@ -646,7 +646,7 @@ For more information see
                 There are limits to the number of Tweets which can be accessed through the API.
                 If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
+                        The parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient#getFavoriteStatusesForUserId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getFavoriteStatusesForUserId(user_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
       <a id="getFavoriteStatusesForUserId(Long,Int,Option[Long],Option[Long],Boolean):Future[Seq[Tweet]]"></a>
@@ -677,7 +677,7 @@ For more information see
                 There are limits to the number of Tweets which can be accessed through the API.
                 If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
+                        The parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of favorite statuses.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <a id="hashCode():Int"></a>
@@ -1007,7 +1007,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/post/favorites/destroy" target="_blank">
   https://dev.twitter.com/rest/reference/post/favorites/destroy</a>.
 </p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The numerical ID of the desired status.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The un-liked status.</p></dd></dl></div>
+                        The parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The un-liked status.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#unmarshalResponse" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="unmarshalResponse[T](implicitevidence$2:spray.httpx.unmarshalling.FromResponseUnmarshaller[T]):spray.http.HttpResponse=&gt;T"></a>
       <a id="unmarshalResponse[T](FromResponseUnmarshaller[T]):(HttpResponse)⇒T"></a>
@@ -1111,6 +1111,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.favorites.TwitterFavoriteClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 
