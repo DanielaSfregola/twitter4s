@@ -116,7 +116,7 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/remove_profile_banner.json"
       }.respondWithOk.await
-      result === (())
+      result.isInstanceOf[Unit] should beTrue
     }
   }
 

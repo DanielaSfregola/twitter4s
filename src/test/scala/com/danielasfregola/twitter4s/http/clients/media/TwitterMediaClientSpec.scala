@@ -11,6 +11,8 @@ class TwitterMediaClientSpec extends ClientSpec {
 
   "Twitter Media Client" should {
 
+    // TODO - test actual media upload?
+
     "check the status of a media upload" in new TwitterMediaClientSpecContext {
       val result: MediaDetails =
         when(statusMedia(mediaId = 710511363345354753L)).expectRequest {
@@ -31,7 +33,7 @@ class TwitterMediaClientSpec extends ClientSpec {
             request.entity === HttpEntity(
               ContentType(MediaTypes.`application/json`), """{"media_id":"710511363345354753","description":"A cat picture"}""")
         }.respondWithOk.await
-      result === (())
+      result.isInstanceOf[Unit] should beTrue
     }
   }
 }
