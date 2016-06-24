@@ -15,7 +15,7 @@ class TwitterMediaClientSpec extends ClientSpec {
 
     "check the status of a media upload" in new TwitterMediaClientSpecContext {
       val result: MediaDetails =
-        when(statusMedia(mediaId = 710511363345354753L)).expectRequest {
+        when(statusMedia(media_id = 710511363345354753L)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
@@ -26,7 +26,7 @@ class TwitterMediaClientSpec extends ClientSpec {
 
     "upload a media description" in new TwitterMediaClientSpecContext {
       val result: Unit =
-        when(createMediaDescription(mediaId = 710511363345354753L, text = "A cat picture")).expectRequest {
+        when(createMediaDescription(media_id = 710511363345354753L, description = "A cat picture")).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/metadata/create.json"
