@@ -86,6 +86,17 @@ class TwitterStatusClientSpec extends ClientSpec {
       result === loadJsonAs[Tweet]("/fixtures/statuses/update.json")
     }
 
+    "send a status update with some media" in new TwitterStatusClientSpecContext {
+      val result: Tweet = when(tweet("This is a test", media_ids = Seq(1L, 2L))).expectRequest { request =>
+        request.method === HttpMethods.POST
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
+        request.entity === HttpEntity(
+          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
+          "display_coordinates=false&media_ids=1%2C2&possibly_sensitive=false&status=This+is+a+test&trim_user=false")
+      }.respondWith("/twitter/statuses/update.json").await
+      result === loadJsonAs[Tweet]("/fixtures/statuses/update.json")
+    }
+
     "send direct message as tweet" in new TwitterStatusClientSpecContext {
       val result: Tweet = when(createDirectMessageAsTweet("This is a test for a direct message", "DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.POST

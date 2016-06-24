@@ -11,18 +11,45 @@ import scala.concurrent.Future
 import spray.http._
 import com.danielasfregola.twitter4s.http.clients.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
+import org.json4s.native.Serialization
 
+/** Implements the available endpoints for the MEDIA API.
+  */
 trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
 
   private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 
   protected val chunkSize = 5 * 1024 * 1024   // 5 MB
 
-  def uploadMedia(filePath: String, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
+  /** Uploads media asynchronously from an absolute file path.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
+    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    *
+    * @param filePath : the absolute path of the file to upload.
+    * @param additional_owners : By default is empty.
+    *                          A comma-separated list of user IDs to set as additional owners
+    *                          allowed to use the returned media_id in Tweets or Cards.
+    *                          Up to 100 additional owners may be specified.
+    * @return : The media details
+    * */
+  def uploadMediaFromPath(filePath: String, additional_owners: Seq[Long] = Seq.empty): Future[MediaDetails] = {
     uploadMediaFromFile(new File(filePath), additional_owners)
   }
 
-  def uploadMediaFromFile(file: File, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
+  /** Uploads media asynchronously from a file.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
+    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    *
+    * @param file : the file to upload.
+    * @param additional_owners : By default is empty.
+    *                          A comma-separated list of user IDs to set as additional owners
+    *                          allowed to use the returned media_id in Tweets or Cards.
+    *                          Up to 100 additional owners may be specified.
+    * @return : The media details
+    * */
+  def uploadMediaFromFile(file: File, additional_owners: Seq[Long] = Seq.empty): Future[MediaDetails] = {
     val size = file.length
     val inputStream = new FileInputStream(file)
     val filename = file.getName
@@ -30,9 +57,26 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     uploadMediaFromInputStream(inputStream, size, mediaType, Some(filename), additional_owners)
   }
 
-  // TODO media_type enum
-  def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: String, filename: Option[String] = None, additional_owners: Seq[String] = Seq.empty): Future[MediaDetails] = {
+  /** Uploads media asynchronously from an input stream.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
+    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    *
+    * @param inputStream : the input stream to upload.
+    * @param size : the size of the data to upload.
+    * @param media_type : the type of the media to upload.
+    * @param filename : By default is `None`.
+    *                 The filename used when uploading the media.
+    * @param additional_owners : By default is empty.
+    *                          A comma-separated list of user IDs to set as additional owners
+    *                          allowed to use the returned media_id in Tweets or Cards.
+    *                          Up to 100 additional owners may be specified.
+    * @return : The media details
+    * */
+  def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: MediaType, filename: Option[String] = None, additional_owners: Seq[Long] = Seq.empty): Future[MediaDetails] =
+    uploadMediaFromInputStream(inputStream, size, media_type.value, filename, additional_owners)
 
+  private def uploadMediaFromInputStream(inputStream: InputStream, size: Long, media_type: String, filename: Option[String], additional_owners: Seq[Long]): Future[MediaDetails] = {
     def filenameBuilder(mediaId: Long) = {
       val extension = media_type.split("/", 2)
       filename.getOrElse(s"twitter4s-$mediaId.$extension")
@@ -47,7 +91,7 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
 
   private def initMedia(size: Long,
                         media_type: String,
-                        additional_owners: Seq[String]): Future[MediaDetails] = {
+                        additional_owners: Seq[Long]): Future[MediaDetails] = {
     val parameters = MediaInitParameters(size, media_type.toAscii, Some(additional_owners.mkString(",")))
     Post(s"$mediaUrl/upload.json", parameters).respondAs[MediaDetails]
   }
@@ -73,8 +117,31 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
     Post(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
 
-  def statusMedia(mediaId: Long): Future[MediaDetails] = {
-    val entity = MediaStatusParameters(mediaId)
+  /** Returns the status of a media upload for pulling purposes.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/get/media/upload-status" target="_blank">
+    *   https://dev.twitter.com/rest/reference/get/media/upload-status</a>.
+    *
+    * @param media_id : The id of the media.
+    * @return : The media details
+    * */
+  def statusMedia(media_id: Long): Future[MediaDetails] = {
+    val entity = MediaStatusParameters(media_id)
     Get(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
+  }
+
+  /** This endpoint can be used to provide additional information about the uploaded media_id.
+    * This feature is currently only supported for images and GIFs.
+    * For more information see
+    * <a href="https://dev.twitter.com/rest/reference/post/media/metadata/create" target="_blank">
+    *   https://dev.twitter.com/rest/reference/post/media/metadata/create</a>.
+    *
+    * @param media_id : The id of the media.
+    * @param description : The description of the media
+    * */
+  def createMediaDescription(media_id: Long, description: String): Future[Unit] = {
+    val entity = MediaMetadataCreation(media_id.toString, description)
+    val jsonEntity = Serialization.write(entity)
+    formDataPipeline apply Post(s"$mediaUrl/metadata/create.json", jsonEntity, MediaTypes.`application/json`)
   }
 }
