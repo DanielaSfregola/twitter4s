@@ -699,7 +699,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">list_id</dt><dd class="cmt"><p>: The numerical id of the list.</p></dd><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
                    Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#checkListMemberByUserIdAndListId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkListMemberByUserIdAndListId(list_id:Long,user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -725,7 +725,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">list_id</dt><dd class="cmt"><p>: The numerical id of the list.</p></dd><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#checkListMemberByUserIdSlugAndOwnerId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkListMemberByUserIdSlugAndOwnerId(slug:String,owner_id:Long,user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -751,7 +751,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: You can identify a list by its slug instead of its numerical id.</p></dd><dt class="param">owner_id</dt><dd class="cmt"><p>: The user ID of the user who owns the list being requested by a <code>slug</code>.</p></dd><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#checkListMemberByUserIdSlugAndOwnerName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkListMemberByUserIdSlugAndOwnerName(slug:String,owner_screen_name:String,user_id:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -777,7 +777,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: You can identify a list by its slug instead of its numerical id.</p></dd><dt class="param">owner_screen_name</dt><dd class="cmt"><p>: The screen name of the user who owns the list being requested by a <code>slug</code>.</p></dd><dt class="param">user_id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.
                Helpful for disambiguating when a valid user ID is also a valid screen name.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#checkListMemberByUserSlugAndOwnerId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkListMemberByUserSlugAndOwnerId(slug:String,owner_id:Long,screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -803,7 +803,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: You can identify a list by its slug instead of its numerical id.</p></dd><dt class="param">owner_id</dt><dd class="cmt"><p>: The user ID of the user who owns the list being requested by a <code>slug</code>.</p></dd><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
                    Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#checkListMemberByUserSlugAndOwnerName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="checkListMemberByUserSlugAndOwnerName(slug:String,owner_screen_name:String,screen_name:String,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
@@ -829,7 +829,7 @@ For more information see
 </p></div><dl class="paramcmts block"><dt class="param">slug</dt><dd class="cmt"><p>: You can identify a list by its slug instead of its numerical id.</p></dd><dt class="param">owner_screen_name</dt><dd class="cmt"><p>: The screen name of the user who owns the list being requested by a <code>slug</code>.</p></dd><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.
                    Helpful for disambiguating when a valid screen name is also a user ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The user representation if the specified user is a member of the specified list, it throws an <code>TwitterException</code> instead.</p></dd></dl></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a>
@@ -1205,7 +1205,7 @@ For more information see
              No more than 1000 results will ever be returned in a single page.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
               Breaks the results into pages. Provide values as returned in the response body’s <code>next_cursor</code> and <code>previous_cursor</code> attributes to page back and forth in the list.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The users representation of the members of the list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListMembersBySlugAndOwnerId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListMembersBySlugAndOwnerId(slug:String,owner_id:Long,count:Int,cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
@@ -1232,7 +1232,7 @@ For more information see
              No more than 1000 results will ever be returned in a single page.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
               Breaks the results into pages. Provide values as returned in the response body’s <code>next_cursor</code> and <code>previous_cursor</code> attributes to page back and forth in the list.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The users representation of the members of the list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListMembersBySlugAndOwnerName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListMembersBySlugAndOwnerName(slug:String,owner_screen_name:String,count:Int,cursor:Long,include_entities:Boolean,skip_status:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.Users]"></a>
@@ -1259,7 +1259,7 @@ For more information see
              No more than 1000 results will ever be returned in a single page.</p></dd><dt class="param">cursor</dt><dd class="cmt"><p>: By default it is <code>-1</code>,  which is the first “page”.
               Breaks the results into pages. Provide values as returned in the response body’s <code>next_cursor</code> and <code>previous_cursor</code> attributes to page back and forth in the list.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The users representation of the members of the list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListMembershipsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListMembershipsForUser(screen_name:String,count:Int,cursor:Long,filter_to_owned_lists:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.TwitterLists]"></a>
@@ -1443,7 +1443,7 @@ For more information see
                 If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to <code>true</code>, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets for the specified list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListTimelineBySlugAndOwnerId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListTimelineBySlugAndOwnerId(slug:String,owner_id:Long,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
@@ -1472,7 +1472,7 @@ For more information see
                 If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to <code>true</code>, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets for the specified list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListTimelineBySlugAndOwnerName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListTimelineBySlugAndOwnerName(slug:String,owner_screen_name:String,count:Int,since_id:Option[Long],max_id:Option[Long],include_entities:Boolean,include_rts:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.Tweet]]"></a>
@@ -1501,7 +1501,7 @@ For more information see
                 If the limit of Tweets has occured since the <code>since_id</code>, the <code>since_id</code> will be forced to the oldest ID available.</p></dd><dt class="param">max_id</dt><dd class="cmt"><p>: Optional, by default it is <code>None</code>.
               Returns results with an ID less than (that is, older than) or equal to the specified ID.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">include_rts</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to <code>true</code>, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of tweets for the specified list.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient#getListsForUser" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getListsForUser(screen_name:String,reverse:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.TwitterList]]"></a>
@@ -2480,6 +2480,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.lists.TwitterListClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

@@ -643,7 +643,7 @@ For more information see
               The response from the API will include a previous_cursor and next_cursor to allow paging back and forth.
               See [node:10362, title=”Using cursors to navigate collections”] for more information.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
                         his node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags.
-                        You can omit entities from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        You can omit parameters from the result by setting <code>include_entities</code> to <code>false</code>.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code>, statuses will not be included in the returned user objects.</p></dd><dt>returns</dt><dd class="cmt"><p>: The representation of the muted users.</p></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
@@ -1146,6 +1146,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

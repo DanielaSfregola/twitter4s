@@ -518,7 +518,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/post/direct_messages/destroy" target="_blank">
   https://dev.twitter.com/rest/reference/post/direct_messages/destroy</a>.
 </p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The ID of the direct message to delete.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The deleted direct message.</p></dd></dl></div>
+                        The parameters node will not be included when set to false.</p></dd><dt>returns</dt><dd class="cmt"><p>: The deleted direct message.</p></dd></dl></div>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -712,7 +712,7 @@ For more information see
              Specifies the number of direct messages to try and retrieve, up to a maximum of 200.
              The value of count is best thought of as a limit to the number of Tweets to return
              because suspended or deleted content is removed after the count has been applied.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
+                        The parameters node will not be included when set to false.</p></dd><dt class="param">skip_status</dt><dd class="cmt"><p>: By default it is <code>false</code>.
                    When set to either <code>true</code> statuses will not be included in the returned user object.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of received direct messages.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.directmessages.TwitterDirectMessageClient#getSentDirectMessages" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getSentDirectMessages(since_id:Option[Long],max_id:Option[Long],count:Int,include_entities:Boolean,page:Int):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.DirectMessage]]"></a>
@@ -1151,6 +1151,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.directmessages.TwitterDirectMessageClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 

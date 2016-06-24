@@ -45,13 +45,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">OAuthProvider</span><span class="result"> extends <a href="../../util/HmacSha1Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder">HmacSha1Encoder</a></span>
+        <span class="name">OAuthProvider</span><span class="result"> extends <a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/DanielaSfregola/twitter4s/tree/master/src/main/scala/com/danielasfregola/twitter4s/http/oauth/OAuthProvider.scala" target="_blank">OAuthProvider.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a href="../../util/HmacSha1Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder">HmacSha1Encoder</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
+          <div class="superTypes hiddenContent"><a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a>, <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Any" class="extype" target="_top">Any</a></div>
         </div><div class="toggleContainer block">
             <span class="toggle">Known Subclasses</span>
             <div class="subClasses hiddenContent"><a href="MediaOAuthProvider.html" class="extype" name="com.danielasfregola.twitter4s.http.oauth.MediaOAuthProvider">MediaOAuthProvider</a></div>
@@ -72,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.danielasfregola.twitter4s.http.oauth.OAuthProvider"><span>OAuthProvider</span></li><li class="in" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder"><span>HmacSha1Encoder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.danielasfregola.twitter4s.http.oauth.OAuthProvider"><span>OAuthProvider</span></li><li class="in" name="com.danielasfregola.twitter4s.util.Encoder"><span>Encoder</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -537,7 +537,24 @@
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.danielasfregola.twitter4s.util.HmacSha1Encoder#toHmacSha1" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+    </li><li name="com.danielasfregola.twitter4s.util.Encoder#toBase64" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toBase64(data:Array[Byte]):String"></a>
+      <a id="toBase64(Array[Byte]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toBase64</span><span class="params">(<span name="data">data: <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Array" class="extype" target="_top">Array</a>[<a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.Byte" class="extype" target="_top">Byte</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.danielasfregola.twitter4s.http.oauth.OAuthProvider@toBase64(data:Array[Byte]):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.util.Encoder#toHmacSha1" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toHmacSha1(base:String,secret:String):String"></a>
       <a id="toHmacSha1(String,String):String"></a>
       <h4 class="signature">
@@ -553,7 +570,24 @@
         <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../util/HmacSha1Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder">HmacSha1Encoder</a></dd></dl></div>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.util.Encoder#toSha1" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toSha1(base:String):String"></a>
+      <a id="toSha1(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toSha1</span><span class="params">(<span name="base">base: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.danielasfregola.twitter4s.http.oauth.OAuthProvider@toSha1(base:String):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a></dd></dl></div>
     </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="toString():String"></a>
       <a id="toString():String"></a>
@@ -649,8 +683,8 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder">
-              <h3>Inherited from <a href="../../util/HmacSha1Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.HmacSha1Encoder">HmacSha1Encoder</a></h3>
+        <div class="parent" name="com.danielasfregola.twitter4s.util.Encoder">
+              <h3>Inherited from <a href="../../util/Encoder.html" class="extype" name="com.danielasfregola.twitter4s.util.Encoder">Encoder</a></h3>
             </div><div class="parent" name="scala.AnyRef">
               <h3>Inherited from <a href="http://www.scala-lang.org/api/2.11.7/index.html#scala.AnyRef" class="extype" target="_top">AnyRef</a></h3>
             </div><div class="parent" name="scala.Any">

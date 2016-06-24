@@ -664,7 +664,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
   https://dev.twitter.com/rest/reference/get/users/show</a>.
 </p></div><dl class="paramcmts block"><dt class="param">screen_name</dt><dd class="cmt"><p>: The screen name of the user for whom to return results for.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+                        The parameters node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUserById" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getUserById(id:Long,include_entities:Boolean):scala.concurrent.Future[com.danielasfregola.twitter4s.entities.User]"></a>
       <a id="getUserById(Long,Boolean):Future[User]"></a>
@@ -687,7 +687,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
   https://dev.twitter.com/rest/reference/get/users/show</a>.
 </p></div><dl class="paramcmts block"><dt class="param">id</dt><dd class="cmt"><p>: The ID of the user for whom to return results for.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+                        The parameters node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getUsers(screen_names:Seq[String],include_entities:Boolean):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
       <a id="getUsers(Seq[String],Boolean):Future[Seq[User]]"></a>
@@ -709,7 +709,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
 </p></div><dl class="paramcmts block"><dt class="param">screen_names</dt><dd class="cmt"><p>: A sequence of screen names, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+                        The parameters node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsers" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getUsers(screen_names:String*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
       <a id="getUsers(String*):Future[Seq[User]]"></a>
@@ -752,7 +752,7 @@ For more information see
 <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
 </p></div><dl class="paramcmts block"><dt class="param">ids</dt><dd class="cmt"><p>: A sequence of user ids, up to 100 are allowed in a single request.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
+                        The parameters node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of user representations.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient#getUsersByIds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getUsersByIds(ids:Long*):scala.concurrent.Future[Seq[com.danielasfregola.twitter4s.entities.User]]"></a>
       <a id="getUsersByIds(Long*):Future[Seq[User]]"></a>
@@ -1021,7 +1021,7 @@ For more information see
             Specifies the page of results to retrieve.</p></dd><dt class="param">count</dt><dd class="cmt"><p>: By default it is <code>20</code>.
              The number of potential user results to retrieve per page.
              This value has a maximum of 20.</p></dd><dt class="param">include_entities</dt><dd class="cmt"><p>: By default it is <code>true</code>.
-                        The entities node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of users.</p></dd></dl></div>
+                        The parameters node that may appear within embedded statuses will be disincluded when set to <code>false</code>.</p></dd><dt>returns</dt><dd class="cmt"><p>: The sequence of users.</p></dd></dl></div>
     </li><li name="com.danielasfregola.twitter4s.http.clients.Client#sendReceive" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="sendReceive:spray.client.pipelining.SendReceive"></a>
       <a id="sendReceive:SendReceive"></a>
@@ -1210,6 +1210,23 @@ For more information see
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
+    </li><li name="com.danielasfregola.twitter4s.http.clients.OAuthClient#withSimpleOAuthHeader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest"></a>
+      <a id="withSimpleOAuthHeader:(HttpRequest)⇒HttpRequest"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withSimpleOAuthHeader</span><span class="result">: (<span class="extype" name="spray.http.HttpRequest">HttpRequest</span>) ⇒ <span class="extype" name="spray.http.HttpRequest">HttpRequest</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../../index.html#com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient@withSimpleOAuthHeader:spray.http.HttpRequest=&gt;spray.http.HttpRequest" title="Permalink" target="_top">
+        <img src="../../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../OAuthClient.html" class="extype" name="com.danielasfregola.twitter4s.http.clients.OAuthClient">OAuthClient</a></dd></dl></div>
     </li></ol>
             </div>
 
