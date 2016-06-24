@@ -33,7 +33,7 @@ object Dependencies {
 
 object Twitter4s extends Build {
 
-  val v = "0.2-SNAPSHOT"
+  val v = "0.2"
 
   lazy val standardSettings = Defaults.defaultSettings ++
   Seq(
