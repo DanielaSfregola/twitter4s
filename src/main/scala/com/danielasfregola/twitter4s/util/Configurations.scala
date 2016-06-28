@@ -17,13 +17,19 @@ trait Configurations {
 
 object TokensFromConfig extends Configurations {
 
-  val consumerTokenKey = Properties.envOrElse(
-    "TWITTER_CONSUMER_TOKEN_KEY", config.getString("twitter.consumer.key"))
-  val consumerTokenSecret = Properties.envOrElse(
-    "TWITTER_CONSUMER_TOKEN_SECRET", config.getString("twitter.consumer.secret"))
+  val consumerTokenKey = envVarOrConfig("TWITTER_CONSUMER_TOKEN_KEY", "twitter.consumer.key")
+  val consumerTokenSecret = envVarOrConfig("TWITTER_CONSUMER_TOKEN_SECRET", "twitter.consumer.secret")
 
-  val accessTokenKey = Properties.envOrElse(
-    "TWITTER_ACCESS_TOKEN_KEY", config.getString("twitter.access.key"))
-  val accessTokenSecret = Properties.envOrElse(
-    "TWITTER_ACCESS_TOKEN_SECRET", config.getString("twitter.access.secret"))
+  val accessTokenKey = envVarOrConfig("TWITTER_ACCESS_TOKEN_KEY", "twitter.access.key")
+  val accessTokenSecret = envVarOrConfig("TWITTER_ACCESS_TOKEN_SECRET", "twitter.access.secret")
+
+  private def envVarOrConfig(envVar: String, configName: String): String = {
+    try {
+      Properties.envOrNone(envVar).getOrElse(config.getString(configName))
+    } catch {
+      case ex: Throwable =>
+        val msg = s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
+        throw new RuntimeException(msg)
+    }
+  }
 }
