@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients
 
+import scala.concurrent.Future
 import scala.util.Try
 import org.json4s.native.Serialization
 import spray.client.pipelining._
@@ -11,12 +12,19 @@ import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
+import akka.actor.ActorRef
+
 trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
   def pipeline[T: FromResponseUnmarshaller] = { implicit request =>
     request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
+  }
+
+  def streamingPipeline[T: FromResponseUnmarshaller] = { (requester: ActorRef, request: HttpRequest) =>
+    request ~> (withOAuthHeader ~> logRequest ~> sendReceiveStream[T](requester) ~>
+      logResponse(System.currentTimeMillis)(request) ~> unmarshalResponse)
   }
 
   protected def withOAuthHeader: HttpRequest => HttpRequest = { request =>
@@ -29,9 +37,20 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     request.withHeaders( request.headers :+ authorizationHeader )
   }
   
-  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
+  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse => T = { hr =>
     hr.status.isSuccess match {
       case true => hr ~> unmarshal[T]
+      case false =>
+        val errors = Try {
+          Serialization.read[Errors](hr.entity.asString)
+        } getOrElse { Errors() }
+        throw new TwitterException(hr.status, errors)
+    }
+  }
+
+  protected def unmarshalResponse: HttpResponse => Unit = { hr =>
+    hr.status.isSuccess match {
+      case true => Unit
       case false =>
         val errors = Try {
           Serialization.read[Errors](hr.entity.asString)

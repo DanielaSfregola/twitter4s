@@ -24,6 +24,7 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
     "io.spray" %% "spray-client" % SprayVersion,
     "io.spray" %% "spray-http" % SprayVersion,
+    "io.spray" %% "spray-httpx" % SprayVersion,
     "io.spray" %% "spray-routing" % SprayVersion,
     "org.json4s" %% "json4s-native" % Json4sVersion,
     "org.specs2" %% "specs2-core" % Spec2Version % "test",
