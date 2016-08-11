@@ -22,11 +22,6 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
   }
 
-  def streamingPipeline[T: FromResponseUnmarshaller] = { (requester: ActorRef, request: HttpRequest) =>
-    request ~> (withOAuthHeader ~> logRequest ~> sendReceiveStream[T](requester) ~>
-      logResponse(System.currentTimeMillis)(request) ~> unmarshalResponse)
-  }
-
   protected def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
@@ -35,28 +30,6 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
   def withSimpleOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
     request.withHeaders( request.headers :+ authorizationHeader )
-  }
-  
-  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse => T = { hr =>
-    hr.status.isSuccess match {
-      case true => hr ~> unmarshal[T]
-      case false =>
-        val errors = Try {
-          Serialization.read[Errors](hr.entity.asString)
-        } getOrElse { Errors() }
-        throw new TwitterException(hr.status, errors)
-    }
-  }
-
-  protected def unmarshalResponse: HttpResponse => Unit = { hr =>
-    hr.status.isSuccess match {
-      case true => Unit
-      case false =>
-        val errors = Try {
-          Serialization.read[Errors](hr.entity.asString)
-        } getOrElse { Errors() }
-        throw new TwitterException(hr.status, errors)
-    }
   }
 
   val Get = new OAuthRequestBuilder(GET)

@@ -12,9 +12,4 @@ trait ActorContextExtractor extends ExecutionContextProvider with ActorRefFactor
 
   implicit val log: LoggingAdapter = LoggingContext.fromActorRefFactory(actorRefFactory)
   implicit val executionContext: ExecutionContext = actorRefFactory.dispatcher
-
-  implicit val system: ActorSystem = actorRefFactory match {
-    case x: ActorSystem  ⇒ x
-    case x: ActorContext ⇒ x.system
-  }
 }
