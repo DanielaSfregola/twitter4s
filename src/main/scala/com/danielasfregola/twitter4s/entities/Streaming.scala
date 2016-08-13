@@ -5,10 +5,6 @@ import java.util.Date
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.EventCode.EventCode
 
-/**
- * Created by gerardo.mendez on 8/8/16.
- */
-
 case class StreamingUpdate(streamingEvent: StreamingMessage)
 
 trait StreamingMessage

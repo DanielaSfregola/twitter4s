@@ -68,12 +68,12 @@ trait StreamingOAuthClient extends OAuthClient {
     }
   }
 
-  private object StreamingActor {
+  protected object StreamingActor {
     def props(requester: ActorRef) = Props(new StreamingActor(requester))
     object FetchResponse
   }
 
-  private class StreamingActor(requester: ActorRef) extends Actor with Stash {
+  protected class StreamingActor(requester: ActorRef) extends Actor with Stash {
 
     var response: Option[HttpResponse] = None
     var chunkBuffer: HttpData = HttpData.Empty
@@ -96,7 +96,7 @@ trait StreamingOAuthClient extends OAuthClient {
             val chunk = chunkBuffer +: data
             Future {
               try {
-                val event =HttpEntity(ContentTypes.`application/json`, chunk) ~> unmarshal[StreamingMessage]
+                val event = HttpEntity(ContentTypes.`application/json`, chunk) ~> unmarshal[StreamingMessage]
                 StreamingUpdate(event)
               } catch {
                 case t: Throwable =>
