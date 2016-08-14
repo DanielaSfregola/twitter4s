@@ -1,18 +1,12 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import scala.concurrent.Future
-import scala.util.Try
-import org.json4s.native.Serialization
 import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http._
 import spray.httpx.unmarshalling.{FromResponseUnmarshaller, Deserializer => _}
-import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
-
-import akka.actor.ActorRef
 
 trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 

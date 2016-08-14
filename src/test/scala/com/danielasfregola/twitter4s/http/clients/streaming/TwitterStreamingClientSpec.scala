@@ -56,13 +56,13 @@ class TwitterStreamingClientSpec extends ClientSpec {
     "parse a stream of data and output the corresponding entities" in new TwitterStreamingClientSpecContext {
       val processor = system.actorOf(StreamingActor.props(self))
 
-      Source.fromURL(getClass.getResource("/fixtures/streaming/status_filter.json")).getLines.foreach { line =>
+      Source.fromURL(getClass.getResource("/fixtures/streaming/public.json")).getLines.foreach { line =>
         processor ! MessageChunk(HttpData(line) +: HttpData("\r\n"))
       }
 
       val messages: Seq[StreamingUpdate] =
-        (loadJsonAs[Seq[Tweet]]("/twitter/streaming/status_filter_tweets.json") ++
-         loadJsonAs[Seq[LimitNotice]]("/twitter/streaming/status_filter_limit_notices.json"))
+        (loadJsonAs[Seq[Tweet]]("/twitter/streaming/public_tweets.json") ++
+         loadJsonAs[Seq[LimitNotice]]("/twitter/streaming/public_limit_notices.json"))
         .map (StreamingUpdate(_))
 
       expectMsgAllOf(messages: _*)

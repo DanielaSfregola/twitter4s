@@ -1,7 +1,5 @@
 package com.danielasfregola.twitter4s.util
 
-import akka.actor.{ActorContext, ActorSystem}
-
 import scala.concurrent.ExecutionContext
 import akka.event.LoggingAdapter
 
@@ -12,4 +10,5 @@ trait ActorContextExtractor extends ExecutionContextProvider with ActorRefFactor
 
   implicit val log: LoggingAdapter = LoggingContext.fromActorRefFactory(actorRefFactory)
   implicit val executionContext: ExecutionContext = actorRefFactory.dispatcher
+
 }

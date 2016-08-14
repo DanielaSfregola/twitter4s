@@ -5,15 +5,15 @@ import org.json4s.native.Serialization
 import spray.client.pipelining._
 
 import scala.concurrent.Future
+import scala.util.Try
 
 import spray.http._
-import spray.httpx.unmarshalling.{Unmarshaller, FromResponseUnmarshaller, UnmarshallerLifting}
+import spray.httpx.unmarshalling.{FromResponseUnmarshaller, UnmarshallerLifting}
 
 import com.danielasfregola.twitter4s.http.unmarshalling.JsonSupport
 import com.danielasfregola.twitter4s.providers.ActorRefFactoryProvider
 import com.danielasfregola.twitter4s.util.ActorContextExtractor
 
-import scala.util.Try
 
 trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLifting {
   self: ActorRefFactoryProvider =>
@@ -22,13 +22,13 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
     def respondAs[T: Manifest]: Future[T] = sendReceiveAs[T](request)
   }
 
+  // TODO - logRequest, logResponse customisable?
+  def pipeline[T: FromResponseUnmarshaller]: HttpRequest => Future[T]
+
   def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) =
     pipeline apply request
 
   def sendReceive = spray.client.pipelining.sendReceive
-
-  // TODO - logRequest, logResponse customisable?
-  def pipeline[T: FromResponseUnmarshaller]: HttpRequest => Future[T]
 
   def logRequest: HttpRequest => HttpRequest = { request =>
     log.info(s"${request.method} ${request.uri}")
