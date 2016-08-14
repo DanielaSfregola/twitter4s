@@ -1,8 +1,5 @@
 package com.danielasfregola.twitter4s.entities.enums
 
-/**
- * Created by gerardo.mendez on 8/10/16.
- */
 object DisconnectionCode extends Enumeration {
   type DisconnectionCode = Value
 
