@@ -14,5 +14,5 @@ case class TwitterList(created_at: Date,
                        member_count: Int,
                        mode: String,
                        slug: String,
-                       user: User)
+                       user: User) extends EventTargetObject
 
