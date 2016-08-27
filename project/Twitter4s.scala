@@ -24,6 +24,7 @@ object Dependencies {
     "com.typesafe.akka" %% "akka-actor" % AkkaVersion,
     "io.spray" %% "spray-client" % SprayVersion,
     "io.spray" %% "spray-http" % SprayVersion,
+    "io.spray" %% "spray-httpx" % SprayVersion,
     "io.spray" %% "spray-routing" % SprayVersion,
     "org.json4s" %% "json4s-native" % Json4sVersion,
     "org.specs2" %% "specs2-core" % Spec2Version % "test",
@@ -33,7 +34,7 @@ object Dependencies {
 
 object Twitter4s extends Build {
 
-  val v = "0.2.1"
+  val v = "0.3-SNAPSHOT"
 
   lazy val standardSettings = Defaults.defaultSettings ++
   Seq(

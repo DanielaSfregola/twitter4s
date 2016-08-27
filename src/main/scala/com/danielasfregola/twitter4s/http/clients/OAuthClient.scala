@@ -1,12 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import scala.util.Try
-import org.json4s.native.Serialization
 import spray.client.pipelining._
 import spray.http.HttpMethods._
 import spray.http._
 import spray.httpx.unmarshalling.{FromResponseUnmarshaller, Deserializer => _}
-import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
@@ -27,17 +24,6 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
   def withSimpleOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
     request.withHeaders( request.headers :+ authorizationHeader )
-  }
-  
-  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
-    hr.status.isSuccess match {
-      case true => hr ~> unmarshal[T]
-      case false =>
-        val errors = Try {
-          Serialization.read[Errors](hr.entity.asString)
-        } getOrElse { Errors() }
-        throw new TwitterException(hr.status, errors)
-    }
   }
 
   val Get = new OAuthRequestBuilder(GET)

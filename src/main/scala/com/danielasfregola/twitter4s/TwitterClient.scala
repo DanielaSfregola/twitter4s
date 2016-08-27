@@ -1,8 +1,6 @@
 package com.danielasfregola.twitter4s
 
 import akka.actor.{ActorRefFactory, ActorSystem}
-import com.danielasfregola.twitter4s.entities.AccessToken._
-import com.danielasfregola.twitter4s.entities.ConsumerToken._
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.account.TwitterAccountClient
 import com.danielasfregola.twitter4s.http.clients.application.TwitterApplicationClient
@@ -20,11 +18,13 @@ import com.danielasfregola.twitter4s.http.clients.mutes.TwitterMuteClient
 import com.danielasfregola.twitter4s.http.clients.savedsearches.TwitterSavedSearchClient
 import com.danielasfregola.twitter4s.http.clients.search.TwitterSearchClient
 import com.danielasfregola.twitter4s.http.clients.statuses.TwitterStatusClient
+import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingClient
 import com.danielasfregola.twitter4s.http.clients.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient
+import com.danielasfregola.twitter4s.util.TokensFromConfig
 
-class TwitterClient(val consumerToken: ConsumerToken = ConsumerTokenFromConf, val accessToken: AccessToken = AccessTokenFromConf)
+class TwitterClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
                    (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends Clients
 
 trait Clients extends TwitterAccountClient
@@ -46,3 +46,13 @@ trait Clients extends TwitterAccountClient
   with TwitterSuggestionClient
   with TwitterUserClient
   with TwitterTrendClient
+  with TwitterStreamingClient
+
+object TwitterClient {
+
+  def apply(): TwitterClient = {
+    val consumerToken = ConsumerToken(key = TokensFromConfig.consumerTokenKey, secret = TokensFromConfig.consumerTokenSecret)
+    val accessToken = AccessToken(key = TokensFromConfig.accessTokenKey, secret = TokensFromConfig.accessTokenSecret)
+    new TwitterClient(consumerToken, accessToken)
+  }
+}
