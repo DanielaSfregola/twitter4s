@@ -5,7 +5,7 @@ case class StatusSearch(statuses: List[Tweet], search_metadata: SearchMetadata)
 case class SearchMetadata(completed_in: Double,
                           max_id: Long,
                           max_id_str: String,
-                          next_results: Option[String] = None,
+                          next_results: Option[String],
                           query: String,
                           refresh_url: String,
                           count: Int,
