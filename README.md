@@ -27,7 +27,7 @@ resolver += Resolver.sonatypeRepo("releases")
 Also, you need to include the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "0.2"
+  "com.danielasfregola" %% "twitter4s" % "0.2.1"
 )
 ```
 
