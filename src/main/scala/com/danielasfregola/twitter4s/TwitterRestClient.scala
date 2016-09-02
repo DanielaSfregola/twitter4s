@@ -24,7 +24,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.TokensFromConfig
 
 class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                       (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends RestClients
+                       (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-rest")) extends RestClients
 
 trait RestClients extends TwitterAccountClient
   with TwitterApplicationClient

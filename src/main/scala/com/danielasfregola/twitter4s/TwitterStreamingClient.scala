@@ -1,17 +1,20 @@
 package com.danielasfregola.twitter4s
 
-import akka.actor.{ActorRefFactory, ActorSystem, Props}
+import akka.actor.{ActorRefFactory, ActorSystem, PoisonPill, Props}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient
 import com.danielasfregola.twitter4s.listeners.TwitterStreamListener
 import com.danielasfregola.twitter4s.util.TokensFromConfig
+import spray.can.Http
 
 import scala.reflect.ClassTag
 
 class TwitterStreamingClient[Listener <: TwitterStreamListener : ClassTag](val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                            (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends StreamingClients {
+                            (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-streaming")) extends StreamingClients {
 
-  implicit val listenerRef = actorRefFactory.actorOf(Props[Listener])
+  implicit lazy val listenerRef = actorRefFactory.actorOf(Props[Listener])
+
+  def closeConnection(): Unit = listenerRef ! PoisonPill
 }
 
 trait StreamingClients extends TwitterStatusClient
