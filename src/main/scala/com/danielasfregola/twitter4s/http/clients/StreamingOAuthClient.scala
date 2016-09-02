@@ -100,8 +100,8 @@ trait StreamingOAuthClient extends OAuthClient {
                 StreamingUpdate(event)
               } catch {
                 case t: Throwable =>
-                  log.error(t, "Unable to parse streaming entity")
-                  log.debug("Unable to parse streaming entity: [{}]", chunk.asString)
+                  log.error(t, "Unable to parse statuses entity")
+                  log.debug("Unable to parse statuses entity: [{}]", chunk.asString)
               }
             } onSuccess { case result: StreamingUpdate => requester ! result }
           }

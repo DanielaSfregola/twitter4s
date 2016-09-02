@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.http.clients.rest.streaming
+package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import akka.actor.ActorRef
 import akka.testkit.ImplicitSender
@@ -10,16 +10,14 @@ import spray.http._
 
 import scala.io.Source
 
-class TwitterStreamingClientSpec extends ClientSpec {
+class TwitterStatusClientSpec extends ClientSpec {
 
-  trait TwitterStreamingClientSpecContext extends ClientSpecContext with TwitterStreamingClient with ImplicitSender {
-    override def sendReceiveStream(requester: ActorRef): SendReceive = sendReceive
-  }
+  trait TwitterStatusClientSpecContext extends ClientSpecContext with TwitterStatusClient with ImplicitSender
 
   "Twitter Streaming Client" should {
     //TODO: Add null case for when there are no search terms
 
-    "start a filtered stream with a query" in new TwitterStreamingClientSpecContext {
+    "start a filtered stream with a query" in new TwitterStatusClientSpecContext {
       val result: Unit =
         when(getStatusesFilter(track = Some("trending"))).expectRequest {
           request =>
@@ -30,7 +28,7 @@ class TwitterStreamingClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "start a filtered stream with a query using POST method" in new TwitterStreamingClientSpecContext {
+    "start a filtered stream with a query using POST method" in new TwitterStatusClientSpecContext {
       val result: Unit =
         when(postStatusesFilter(track = Some("trending"))).expectRequest {
           request =>
@@ -42,7 +40,7 @@ class TwitterStreamingClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "start a sample stream" in new TwitterStreamingClientSpecContext {
+    "start a sample stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
         when(getStatusesSample()).expectRequest {
           request =>
@@ -53,7 +51,7 @@ class TwitterStreamingClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "parse a stream of data and output the corresponding entities" in new TwitterStreamingClientSpecContext {
+    "parse a stream of data and output the corresponding entities" in new TwitterStatusClientSpecContext {
       val processor = system.actorOf(StreamingActor.props(self))
 
       Source.fromURL(getClass.getResource("/fixtures/streaming/public.json")).getLines.foreach { line =>

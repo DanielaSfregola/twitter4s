@@ -1,18 +1,20 @@
 package com.danielasfregola.twitter4s.util
 
+import akka.actor.ActorRef
 import akka.testkit.TestProbe
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.{OAuthClient, StreamingOAuthClient}
 import org.specs2.matcher.NoConcurrentExecutionContext
 import org.specs2.specification.Scope
+import spray.client.pipelining._
 import spray.http._
 
 import scala.concurrent.Future
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
 
-abstract class ClientSpecContext extends TestActorSystem with OAuthClient with FixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
+abstract class ClientSpecContext extends TestActorSystem with StreamingOAuthClient with OAuthClient with FixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
   self =>
 
   val consumerToken = ConsumerToken("consumer-key", "consumer-secret")
@@ -26,6 +28,8 @@ abstract class ClientSpecContext extends TestActorSystem with OAuthClient with F
     implicit val timeout: Timeout = self.timeout
     spray.client.pipelining.sendReceive(transport.ref)
   }
+
+  override def sendReceiveStream(requester: ActorRef): SendReceive = sendReceive
 
   def when[T](future: Future[T]): RequestMatcher[T] = new RequestMatcher(future)
 

@@ -18,7 +18,6 @@ import com.danielasfregola.twitter4s.http.clients.rest.mutes.TwitterMuteClient
 import com.danielasfregola.twitter4s.http.clients.rest.savedsearches.TwitterSavedSearchClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.TwitterSearchClient
 import com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusClient
-import com.danielasfregola.twitter4s.http.clients.rest.streaming.TwitterStreamingClient
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
@@ -44,9 +43,8 @@ trait RestClients extends TwitterAccountClient
   with TwitterSearchClient
   with TwitterStatusClient
   with TwitterSuggestionClient
-  with TwitterUserClient
   with TwitterTrendClient
-  with TwitterStreamingClient
+  with TwitterUserClient
 
 object TwitterRestClient {
 
