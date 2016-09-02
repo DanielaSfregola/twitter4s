@@ -2,6 +2,8 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
+import com.danielasfregola.twitter4s.entities.streaming.{EventTargetObject, StreamingMessage}
+
 case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                  coordinates: Seq[Seq[Seq[Double]]] = Seq.empty,
                  created_at: Date,

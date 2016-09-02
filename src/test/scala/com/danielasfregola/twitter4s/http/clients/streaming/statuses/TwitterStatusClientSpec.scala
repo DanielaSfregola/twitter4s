@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
-import akka.actor.ActorRef
 import akka.testkit.ImplicitSender
-import com.danielasfregola.twitter4s.entities.{StreamingUpdate, Tweet, LimitNotice}
+import com.danielasfregola.twitter4s.entities.streaming.{LimitNotice, StreamingUpdate}
+import com.danielasfregola.twitter4s.entities.Tweet
 import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.client.pipelining._
 import spray.http.Uri.Query
 import spray.http._
 
