@@ -24,10 +24,10 @@ import com.danielasfregola.twitter4s.http.clients.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.TokensFromConfig
 
-class TwitterClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                   (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends Clients
+class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
+                       (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s")) extends RestClients
 
-trait Clients extends TwitterAccountClient
+trait RestClients extends TwitterAccountClient
   with TwitterApplicationClient
   with TwitterBlockClient
   with TwitterDirectMessageClient
@@ -48,11 +48,11 @@ trait Clients extends TwitterAccountClient
   with TwitterTrendClient
   with TwitterStreamingClient
 
-object TwitterClient {
+object TwitterRestClient {
 
-  def apply(): TwitterClient = {
+  def apply(): TwitterRestClient = {
     val consumerToken = ConsumerToken(key = TokensFromConfig.consumerTokenKey, secret = TokensFromConfig.consumerTokenSecret)
     val accessToken = AccessToken(key = TokensFromConfig.accessTokenKey, secret = TokensFromConfig.accessTokenSecret)
-    new TwitterClient(consumerToken, accessToken)
+    new TwitterRestClient(consumerToken, accessToken)
   }
 }
