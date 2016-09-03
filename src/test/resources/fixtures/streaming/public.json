@@ -14,3 +14,5 @@
 {"delete":{"status":{"id":303747490128207873,"id_str":"303747490128207873","user_id":74558989,"user_id_str":"74558989"},"timestamp_ms":"1472889733582"}}
 {"delete":{"status":{"id":303747490128207874,"id_str":"303747490128207874","user_id":74558990,"user_id_str":"74558990"},"timestamp_ms":"1472889733583"}}
 
+{"disconnect":{"code": 4,"stream_name":"my-stream-name","reason":"something-went-wrong"}}
+{"disconnect":{"code": 2,"stream_name":"","reason":""}}
