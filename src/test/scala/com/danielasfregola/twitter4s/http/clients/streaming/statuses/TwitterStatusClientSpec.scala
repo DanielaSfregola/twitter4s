@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import akka.actor.ActorRef
 import akka.testkit.ImplicitSender
-import com.danielasfregola.twitter4s.entities.streaming.{LimitNotice, StreamingUpdate}
+import com.danielasfregola.twitter4s.entities.streaming.{LimitNotice, StatusDeletionNotice, StreamingUpdate}
 import com.danielasfregola.twitter4s.entities.Tweet
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
 import com.danielasfregola.twitter4s.listeners.TwitterStreamListener
@@ -63,7 +63,8 @@ class TwitterStatusClientSpec extends ClientSpec {
 
       val messages: Seq[StreamingUpdate] =
         (loadJsonAs[Seq[Tweet]]("/twitter/streaming/public_tweets.json") ++
-         loadJsonAs[Seq[LimitNotice]]("/twitter/streaming/public_limit_notices.json"))
+         loadJsonAs[Seq[LimitNotice]]("/twitter/streaming/public_limit_notices.json") ++
+         loadJsonAs[Seq[StatusDeletionNotice]]("/twitter/streaming/public_status_deletion_notices.json"))
         .map (StreamingUpdate(_))
 
       expectMsgAllOf(messages: _*)

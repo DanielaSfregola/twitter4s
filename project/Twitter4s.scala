@@ -3,6 +3,7 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 import com.typesafe.sbt.SbtSite._
 import sbt.Keys._
 import sbt.{LocalProject, _}
+import scoverage.ScoverageSbtPlugin.ScoverageKeys._
 
 object Resolvers {
   val resolvers = Seq(
@@ -30,6 +31,14 @@ object Dependencies {
     "org.specs2" %% "specs2-core" % Spec2Version % "test",
     "com.typesafe.akka" %% "akka-testkit" % AkkaVersion % "test"
   )
+}
+
+object Scoverage {
+
+  val settings = Seq(
+    coverageExcludedPackages := "com.danielasfregola.twitter4s.listeners.*"
+  )
+
 }
 
 object Twitter4s extends Build {
@@ -88,6 +97,6 @@ object Twitter4s extends Build {
     base = file("."),
     settings = standardSettings ++ Seq(
       libraryDependencies ++= Dependencies.dependencies
-    )
+    ) ++ Scoverage.settings
   )
 }
