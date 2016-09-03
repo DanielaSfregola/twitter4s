@@ -16,3 +16,6 @@
 
 {"disconnect":{"code": 4,"stream_name":"my-stream-name","reason":"something-went-wrong"}}
 {"disconnect":{"code": 2,"stream_name":"","reason":""}}
+
+{"scrub_geo":{"user_id":14090452,"user_id_str":"14090452","up_to_status_id":23260136625,"up_to_status_id_str":"23260136625"}}
+{"scrub_geo":{"user_id":14090453,"user_id_str":"14090453","up_to_status_id":23260136626,"up_to_status_id_str":"23260136626"}}
