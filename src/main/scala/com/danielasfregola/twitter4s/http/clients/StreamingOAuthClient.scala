@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients
 
 import akka.actor._
-import akka.pattern.{ ask, pipe }
+import akka.pattern.ask
 import akka.io.IO
 import akka.util.Timeout
 import spray.can.Http
@@ -12,8 +12,8 @@ import spray.httpx.unmarshalling._
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
-
 import com.danielasfregola.twitter4s.entities._
+import com.danielasfregola.twitter4s.entities.streaming._
 
 trait StreamingOAuthClient extends OAuthClient {
 
@@ -100,8 +100,7 @@ trait StreamingOAuthClient extends OAuthClient {
                 StreamingUpdate(event)
               } catch {
                 case t: Throwable =>
-                  log.error(t, "Unable to parse streaming entity")
-                  log.debug("Unable to parse streaming entity: [{}]", chunk.asString)
+                  log.error(t, "Unable to parse statuses entity: [{}]", chunk.asString)
               }
             } onSuccess { case result: StreamingUpdate => requester ! result }
           }

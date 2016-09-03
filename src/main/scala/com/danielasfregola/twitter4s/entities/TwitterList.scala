@@ -2,6 +2,8 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
+import com.danielasfregola.twitter4s.entities.streaming.EventTargetObject
+
 case class TwitterList(created_at: Date,
                        description: String,
                        following: Boolean,
