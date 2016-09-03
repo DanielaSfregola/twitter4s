@@ -1,17 +1,17 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
-import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
-import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters.{StatusSampleParameters, StatusFilterParameters}
-import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
-
 import akka.actor.ActorRef
-
+import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
+import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters.{StatusFilterParameters, StatusSampleParameters}
+import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
+import com.danielasfregola.twitter4s.listeners.TwitterStreamListener
 
 import scala.concurrent.Future
+import scala.reflect.ClassTag
 
 trait TwitterStatusClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
 
-  implicit def listenerRef: ActorRef
+  private[twitter4s] def attachListener[Listener <: TwitterStreamListener : ClassTag]: ActorRef
 
   private val filterUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/filter.json"
   private val sampleUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/sample.json"
@@ -32,13 +32,14 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param locations : Optional, Specifies a set of bounding boxes to track.
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     */
-  def getStatusesFilter(follow: Option[String] = None,
-                        track: Option[String] = None,
-                        locations: Option[String] = None,
-                        stall_warnings: Boolean = false): Future[Unit] = {
+  def getStatusesFilter[Listener <: TwitterStreamListener: ClassTag](follow: Option[String] = None,
+                                                                     track: Option[String] = None,
+                                                                     locations: Option[String] = None,
+                                                                     stall_warnings: Boolean = false): Future[Unit] = {
     require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
     val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
-    streamingPipeline(listenerRef, Get(filterUrl, parameters))
+    val listener = attachListener[Listener]
+    streamingPipeline(listener, Get(filterUrl, parameters))
   }
 
   /** Same as getStatusesFilter, both GET and POST requests are supported,
@@ -53,13 +54,14 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param locations : Optional, Specifies a set of bounding boxes to track.
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     */
-  def postStatusesFilter(follow: Option[String] = None,
-                        track: Option[String] = None,
-                        locations: Option[String] = None,
-                        stall_warnings: Boolean = false): Future[Unit] = {
+  def postStatusesFilter[Listener <: TwitterStreamListener: ClassTag](follow: Option[String] = None,
+                                                                      track: Option[String] = None,
+                                                                      locations: Option[String] = None,
+                                                                      stall_warnings: Boolean = false): Future[Unit] = {
     require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
     val parameters = StatusFilterParameters(follow, track, locations)
-    streamingPipeline(listenerRef, Post(filterUrl, parameters.asInstanceOf[Product]))
+    val listener = attachListener[Listener]
+    streamingPipeline(listener, Post(filterUrl, parameters.asInstanceOf[Product]))
   }
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
@@ -75,8 +77,9 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     *
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     */
-  def getStatusesSample(stall_warnings: Boolean = false): Future[Unit] = {
+  def getStatusesSample[Listener <: TwitterStreamListener: ClassTag](stall_warnings: Boolean = false): Future[Unit] = {
     val parameters = StatusSampleParameters(stall_warnings)
-    streamingPipeline(listenerRef, Get(sampleUrl, parameters))
+    val listener = attachListener[Listener]
+    streamingPipeline(listener, Get(sampleUrl, parameters))
   }
 }
