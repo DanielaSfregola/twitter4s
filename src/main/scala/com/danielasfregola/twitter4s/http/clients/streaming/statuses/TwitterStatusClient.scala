@@ -1,17 +1,19 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import akka.actor.ActorRef
+import com.danielasfregola.twitter4s.entities.streaming.StreamingUpdate
 import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
-import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters.{StatusFilterParameters, StatusSampleParameters}
+import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters.{
+  StatusFilterParameters,
+  StatusSampleParameters
+}
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
-import com.danielasfregola.twitter4s.listeners.TwitterStreamListener
 
 import scala.concurrent.Future
-import scala.reflect.ClassTag
 
 trait TwitterStatusClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
 
-  private[twitter4s] def attachListener[Listener <: TwitterStreamListener : ClassTag]: ActorRef
+  private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
 
   private val filterUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/filter.json"
   private val sampleUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/sample.json"
@@ -20,8 +22,7 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * Although all of those three params are optional, at least one must be specified.
     * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingUpdate[StreamingEvent]`
-    * and forwarded to the instance of [[com.danielasfregola.twitter4s.listeners.TwitterStreamListener]]
-    * provided to the [[com.danielasfregola.twitter4s.TwitterStreamingClient]].
+    * and processed accordingly to the function `f`.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/post/statuses/filter" target="_blank">
     *   https://dev.twitter.com/streaming/reference/post/statuses/filter</a>.
@@ -31,14 +32,17 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param track : Optional, Keywords to track. Phrases of keywords are specified by a comma-separated list.
     * @param locations : Optional, Specifies a set of bounding boxes to track.
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param f: the function that defines how to process the received messages
     */
-  def getStatusesFilter[Listener <: TwitterStreamListener: ClassTag](follow: Option[String] = None,
-                                                                     track: Option[String] = None,
-                                                                     locations: Option[String] = None,
-                                                                     stall_warnings: Boolean = false): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
-    val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
-    val listener = attachListener[Listener]
+  def getStatusesFilter(follow: Option[String] = None,
+                        track: Option[String] = None,
+                        locations: Option[String] = None,
+                        stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
+    require(follow.orElse(track).orElse(locations).isDefined,
+            "At least one of 'follow', 'track' or 'locations' needs to be defined")
+    val parameters =
+      StatusFilterParameters(follow, track, locations, stall_warnings)
+    val listener = createListener(f)
     streamingPipeline(listener, Get(filterUrl, parameters))
   }
 
@@ -53,14 +57,16 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param track : Optional, Keywords to track. Phrases of keywords are specified by a comma-separated list.
     * @param locations : Optional, Specifies a set of bounding boxes to track.
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param f: the function that defines how to process the received messages
     */
-  def postStatusesFilter[Listener <: TwitterStreamListener: ClassTag](follow: Option[String] = None,
-                                                                      track: Option[String] = None,
-                                                                      locations: Option[String] = None,
-                                                                      stall_warnings: Boolean = false): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
+  def postStatusesFilter(follow: Option[String] = None,
+                         track: Option[String] = None,
+                         locations: Option[String] = None,
+                         stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
+    require(follow.orElse(track).orElse(locations).isDefined,
+            "At least one of 'follow', 'track' or 'locations' needs to be defined")
     val parameters = StatusFilterParameters(follow, track, locations)
-    val listener = attachListener[Listener]
+    val listener = createListener(f)
     streamingPipeline(listener, Post(filterUrl, parameters.asInstanceOf[Product]))
   }
 
@@ -68,18 +74,18 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * The Tweets returned by the default access level are the same, so if two different clients connect to this endpoint, they will see the same Tweets.
     * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingUpdate[StreamingEvent]`
-    * and forwarded to the instance of [[com.danielasfregola.twitter4s.listeners.TwitterStreamListener]]
-    * provided to the [[com.danielasfregola.twitter4s.TwitterStreamingClient]].
+    * and processed accordingly to the function `f`.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
     * Note: delimited is, for now, not supported
     *
     * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param f: the function that defines how to process the received messages
     */
-  def getStatusesSample[Listener <: TwitterStreamListener: ClassTag](stall_warnings: Boolean = false): Future[Unit] = {
+  def getStatusesSample(stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
     val parameters = StatusSampleParameters(stall_warnings)
-    val listener = attachListener[Listener]
+    val listener = createListener(f)
     streamingPipeline(listener, Get(sampleUrl, parameters))
   }
 }
