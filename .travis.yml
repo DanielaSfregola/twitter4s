@@ -1,14 +1,30 @@
 sudo: false
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+
+before_cache:
+  - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
+  - find $HOME/.sbt -name "*.lock" -delete
+
 language: scala
+
 script: "sbt clean coverage test"
+
 after_script:
   - "sbt coveralls"
+
 scala:
   - 2.11.7
+
 jdk:
   - oraclejdk8
+
 env:
   - SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
+
 # whitelist
 branches:
   only:
