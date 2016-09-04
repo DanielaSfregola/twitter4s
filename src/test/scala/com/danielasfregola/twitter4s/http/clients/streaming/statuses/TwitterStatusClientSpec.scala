@@ -64,8 +64,9 @@ class TwitterStatusClientSpec extends ClientSpec {
       val messages: Seq[StreamingUpdate] =
         (loadJsonAs[Seq[Tweet]]("/twitter/streaming/public_tweets.json") ++
          loadJsonAs[Seq[LimitNotice]]("/twitter/streaming/public_limit_notices.json") ++
-         loadJsonAs[Seq[DisconnectedMessage]]("/twitter/streaming/public_disconnected_messages.json") ++
+         loadJsonAs[Seq[DisconnectMessage]]("/twitter/streaming/public_disconnected_messages.json") ++
          loadJsonAs[Seq[LocationDeletionNotice]]("/twitter/streaming/public_location_deletion_notices.json") ++
+         loadJsonAs[Seq[StatusWithheldNotice]]("/twitter/streaming/public_status_withheld_notices.json") ++
          loadJsonAs[Seq[StatusDeletionNotice]]("/twitter/streaming/public_status_deletion_notices.json"))
         .map (StreamingUpdate(_))
 

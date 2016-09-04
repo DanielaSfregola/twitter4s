@@ -48,7 +48,7 @@ trait StreamingOAuthClient extends OAuthClient {
       json4sUnmarshaller[LimitNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[StatusWithheldNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[UserWithheldNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[DisconnectedMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[DisconnectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[WarningMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[Event].asInstanceOf[Unmarshaller[StreamingMessage]]
     )

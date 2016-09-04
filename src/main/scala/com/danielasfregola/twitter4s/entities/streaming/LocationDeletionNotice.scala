@@ -4,7 +4,7 @@ package com.danielasfregola.twitter4s.entities.streaming
   * Clients must honor these messages by deleting geocoded data from Tweets which fall before
   * the given status ID and belong to the specified user. These messages may also arrive before
   * a Tweet which falls into the specified range, although this is rare.
-  *
+  * For more information see
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#Location_deletion_notices_scrub_geo" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#Location_deletion_notices_scrub_geo</a>.
   */

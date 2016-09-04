@@ -19,3 +19,6 @@
 
 {"scrub_geo":{"user_id":14090452,"user_id_str":"14090452","up_to_status_id":23260136625,"up_to_status_id_str":"23260136625"}}
 {"scrub_geo":{"user_id":14090453,"user_id_str":"14090453","up_to_status_id":23260136626,"up_to_status_id_str":"23260136626"}}
+
+{"status_withheld":{"id":1234567890,"user_id":123456,"withheld_in_countries":["DE", "AR"]}}
+{"status_withheld":{"id":1234567891,"user_id":123457,"withheld_in_countries":["IT"]}}
