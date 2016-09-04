@@ -1,11 +1,11 @@
 package com.danielasfregola.twitter4s.entities.streaming
 
-import java.util.Date
-
-import com.danielasfregola.twitter4s.entities.User
-import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
-import com.danielasfregola.twitter4s.entities.enums.EventCode.EventCode
-
+/** When connected to a stream using the stall_warnings parameter,
+  * you may receive status notices indicating the current health of the connection.
+  * For more information see
+  * <a href="https://dev.twitter.com/streaming/overview/messages-types#stall_warnings" target="_blank">
+  *   https://dev.twitter.com/streaming/overview/messages-types#stall_warnings</a>.
+  */
 case class WarningMessage(warning: WarningMessageInfo) extends StreamingMessage
 
 case class WarningMessageInfo(code: String,
