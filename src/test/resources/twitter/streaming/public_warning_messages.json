@@ -1,24 +1,9 @@
 [
   {
-    "delete": {
-      "status": {
-        "id": 303747490128207873,
-        "id_str": "303747490128207873",
-        "user_id": 74558989,
-        "user_id_str": "74558989"
-      },
-      "timestamp_ms": "1472889733582"
-    }
-  },
-  {
-    "delete": {
-      "status": {
-        "id": 303747490128207874,
-        "id_str": "303747490128207874",
-        "user_id": 74558990,
-        "user_id_str": "74558990"
-      },
-      "timestamp_ms": "1472889733583"
+    "warning":{
+      "code":"FALLING_BEHIND",
+      "message":"Your connection is falling behind and messages are being queued for delivery to you. Your queue is now over 60% full. You will be disconnected when the queue is full.",
+      "percent_full": 60
     }
   }
 ]
