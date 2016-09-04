@@ -3,10 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 import akka.actor.ActorRef
 import com.danielasfregola.twitter4s.entities.streaming.StreamingUpdate
 import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
-import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters.{
-  StatusFilterParameters,
-  StatusSampleParameters
-}
+import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
@@ -38,10 +35,8 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
                         track: Option[String] = None,
                         locations: Option[String] = None,
                         stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined,
-            "At least one of 'follow', 'track' or 'locations' needs to be defined")
-    val parameters =
-      StatusFilterParameters(follow, track, locations, stall_warnings)
+    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
+    val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
     val listener = createListener(f)
     streamingPipeline(listener, Get(filterUrl, parameters))
   }
@@ -63,8 +58,7 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
                          track: Option[String] = None,
                          locations: Option[String] = None,
                          stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined,
-            "At least one of 'follow', 'track' or 'locations' needs to be defined")
+    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
     val parameters = StatusFilterParameters(follow, track, locations)
     val listener = createListener(f)
     streamingPipeline(listener, Post(filterUrl, parameters.asInstanceOf[Product]))
