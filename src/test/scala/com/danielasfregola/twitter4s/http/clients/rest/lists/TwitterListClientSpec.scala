@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.enums.Mode
 
 class TwitterListClientSpec extends ClientSpec {
 
-  trait TwitterListClientSpecContext extends ClientSpecContext with TwitterListClient
+  class TwitterListClientSpecContext extends ClientSpecContext with TwitterListClient
 
   "Twitter List Client" should {
 

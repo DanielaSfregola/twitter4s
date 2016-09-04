@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.Tweet
 
 class TwitterFavoriteClientSpec extends ClientSpec {
 
-  trait TwitterFavoriteClientSpecContext extends ClientSpecContext with TwitterFavoriteClient
+  class TwitterFavoriteClientSpecContext extends ClientSpecContext with TwitterFavoriteClient
 
   "Twitter Favorite Client" should {
 

@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.SavedSearch
 
 class TwitterSavedSearchClientSpec extends ClientSpec {
 
-  trait TwitterSavedSearchClientSpecContext extends ClientSpecContext with TwitterSavedSearchClient
+  class TwitterSavedSearchClientSpecContext extends ClientSpecContext with TwitterSavedSearchClient
 
   "Twitter Saved Search Client" should {
 

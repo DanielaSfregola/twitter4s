@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities._
 
 class TwitterStatusClientSpec extends ClientSpec {
 
-  trait TwitterStatusClientSpecContext extends ClientSpecContext with TwitterStatusClient
+  class TwitterStatusClientSpecContext extends ClientSpecContext with TwitterStatusClient
 
   "Twitter Status Client" should {
 

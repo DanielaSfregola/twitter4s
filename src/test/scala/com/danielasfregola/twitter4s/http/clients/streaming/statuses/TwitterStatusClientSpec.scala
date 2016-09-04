@@ -15,7 +15,7 @@ import scala.reflect.ClassTag
 
 class TwitterStatusClientSpec extends ClientSpec {
 
-  trait TwitterStatusClientSpecContext extends TwitterStreamingSpecContext with TwitterStatusClient
+  class TwitterStatusClientSpecContext extends TwitterStreamingSpecContext with TwitterStatusClient
 
   "Twitter Streaming Client" should {
 

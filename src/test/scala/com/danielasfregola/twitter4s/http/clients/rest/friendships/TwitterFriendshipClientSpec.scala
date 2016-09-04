@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities._
 
 class TwitterFriendshipClientSpec extends ClientSpec {
 
-  trait TwitterFriendshipClientSpecContext extends ClientSpecContext with TwitterFriendshipClient
+  class TwitterFriendshipClientSpecContext extends ClientSpecContext with TwitterFriendshipClient
 
   "Twitter Friendship Client" should {
 

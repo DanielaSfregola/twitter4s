@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.{Users, UserIds, User}
 
 class TwitterMuteClientSpec extends ClientSpec {
 
-  trait TwitterMuteClientSpecContext extends ClientSpecContext with TwitterMuteClient
+  class TwitterMuteClientSpecContext extends ClientSpecContext with TwitterMuteClient
 
   "Twitter Mute Client" should {
 

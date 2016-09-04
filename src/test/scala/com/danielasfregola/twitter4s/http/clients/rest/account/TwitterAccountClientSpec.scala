@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.{ProfileUpdate, User, Settings}
 
 class TwitterAccountClientSpec extends ClientSpec {
 
-  trait TwitterAccountClientSpecContext extends ClientSpecContext with TwitterAccountClient
+  class TwitterAccountClientSpecContext extends ClientSpecContext with TwitterAccountClient
 
   "Twitter Account Client" should {
 

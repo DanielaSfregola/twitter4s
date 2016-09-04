@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, User
 
 class TwitterFriendClientSpec extends ClientSpec {
 
-  trait TwitterFriendClientSpecContext extends ClientSpecContext with TwitterFriendClient
+  class TwitterFriendClientSpecContext extends ClientSpecContext with TwitterFriendClient
 
   "Twitter Friend Client" should {
 

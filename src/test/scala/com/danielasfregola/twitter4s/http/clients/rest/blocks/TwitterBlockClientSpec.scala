@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.{UserStringifiedIds, UserIds, User
 
 class TwitterBlockClientSpec extends ClientSpec {
 
-  trait TwitterBlockClientSpecContext extends ClientSpecContext with TwitterBlockClient
+  class TwitterBlockClientSpecContext extends ClientSpecContext with TwitterBlockClient
 
   "Twitter Block Client" should {
 

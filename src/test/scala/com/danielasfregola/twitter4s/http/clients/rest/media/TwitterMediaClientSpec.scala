@@ -7,7 +7,7 @@ import spray.http.Uri.Query
 
 class TwitterMediaClientSpec extends ClientSpec {
 
-  trait TwitterMediaClientSpecContext extends ClientSpecContext with TwitterMediaClient
+  class TwitterMediaClientSpecContext extends ClientSpecContext with TwitterMediaClient
 
   "Twitter Media Client" should {
 

@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.util.ClientSpecContext
 
 import scala.reflect.ClassTag
 
-trait TwitterStreamingSpecContext extends ClientSpecContext with ImplicitSender {
+class TwitterStreamingSpecContext extends ClientSpecContext with ImplicitSender {
 
   private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef = self
 
