@@ -31,15 +31,15 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
   def sendReceive = spray.client.pipelining.sendReceive
 
   def logRequest: HttpRequest => HttpRequest = { request =>
-    log.info(s"${request.method} ${request.uri}")
-    log.debug(s"${request.method} ${request.uri} | ${request.entity.asString} | ${request.headers} | $request")
+    log.info("{} {}", request.method, request.uri)
+    log.debug("{} {} | {} | {}", request.method, request.uri, request.entity.asString, request)
     request
   }
 
   def logResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
     val elapsed = System.currentTimeMillis - requestStartTime
-    log.info(s"${request.method} ${request.uri} (${response.status}) | ${elapsed}ms")
-    log.debug(s"${request.method} ${request.uri} (${response.status}) | ${response.entity.asString}")
+    log.info("{} {} ({}) | {}ms", request.method, request.uri, response.status, elapsed)
+    log.debug("{} {} ({}) | {}", request.method, request.uri, response.status, response.entity.asString)
     response
   }
 

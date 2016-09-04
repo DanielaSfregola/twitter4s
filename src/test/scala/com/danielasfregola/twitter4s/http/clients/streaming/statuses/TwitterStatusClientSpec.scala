@@ -4,8 +4,8 @@ import akka.actor.ActorRef
 import akka.testkit.ImplicitSender
 import com.danielasfregola.twitter4s.entities.streaming._
 import com.danielasfregola.twitter4s.entities.Tweet
+import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.listeners.TwitterStreamListener
 import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.Uri.Query
 import spray.http._
@@ -18,11 +18,10 @@ class TwitterStatusClientSpec extends ClientSpec {
   trait TwitterStatusClientSpecContext extends TwitterStreamingSpecContext with TwitterStatusClient
 
   "Twitter Streaming Client" should {
-    //TODO: Add null case for when there are no search terms
 
     "start a filtered stream with a query" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFilter[DummyListener](track = Some("trending"))).expectRequest {
+        when(getStatusesFilter(track = Some("trending"))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
@@ -33,7 +32,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a filtered stream with a query using POST method" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(postStatusesFilter[DummyListener](track = Some("trending"))).expectRequest {
+        when(postStatusesFilter(track = Some("trending"))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
@@ -45,7 +44,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a sample stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesSample[DummyListener]()).expectRequest {
+        when(getStatusesSample()(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
