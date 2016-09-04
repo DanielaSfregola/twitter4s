@@ -4,7 +4,7 @@ import spray.client.pipelining._
 import spray.http._
 import spray.httpx.unmarshalling.{Deserializer => _}
 
-trait MediaOAuthClient extends OAuthClient {
+private[twitter4s] trait MediaOAuthClient extends OAuthClient {
 
   def formDataPipeline = { implicit request: HttpRequest =>
     request ~> (withSimpleOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalEmptyResponse)

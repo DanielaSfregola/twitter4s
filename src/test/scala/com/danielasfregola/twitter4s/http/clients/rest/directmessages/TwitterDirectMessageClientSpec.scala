@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.entities.DirectMessage
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
 
-  trait TwitterDirectMessageClientSpecContext extends ClientSpecContext with TwitterDirectMessageClient
+  class TwitterDirectMessageClientSpecContext extends ClientSpecContext with TwitterDirectMessageClient
 
   "Twitter Direct Message Client" should {
 

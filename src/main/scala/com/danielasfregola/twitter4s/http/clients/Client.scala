@@ -18,17 +18,17 @@ import com.danielasfregola.twitter4s.util.ActorContextExtractor
 trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLifting {
   self: ActorRefFactoryProvider =>
 
-  implicit class RichHttpRequest(val request: HttpRequest) {
+  private[twitter4s] implicit class RichHttpRequest(val request: HttpRequest) {
     def respondAs[T: Manifest]: Future[T] = sendReceiveAs[T](request)
   }
 
   // TODO - logRequest, logResponse customisable?
   def pipeline[T: FromResponseUnmarshaller]: HttpRequest => Future[T]
 
-  def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) =
+  private[twitter4s] def sendReceiveAs[T: FromResponseUnmarshaller](request: HttpRequest) =
     pipeline apply request
 
-  def sendReceive = spray.client.pipelining.sendReceive
+  private[twitter4s] def sendReceive = spray.client.pipelining.sendReceive
 
   def logRequest: HttpRequest => HttpRequest = { request =>
     log.info("{} {}", request.method, request.uri)
@@ -43,7 +43,7 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
     response
   }
 
-  protected def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
+  private[twitter4s] def unmarshalResponse[T: FromResponseUnmarshaller]: HttpResponse ⇒ T = { hr =>
     hr.status.isSuccess match {
       case true => hr ~> unmarshal[T]
       case false =>
@@ -54,7 +54,7 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
     }
   }
 
-  def unmarshalEmptyResponse: HttpResponse ⇒ Unit = { hr =>
+  private[twitter4s] def unmarshalEmptyResponse: HttpResponse ⇒ Unit = { hr =>
     hr.status.isSuccess match {
       case true => ()
       case false =>

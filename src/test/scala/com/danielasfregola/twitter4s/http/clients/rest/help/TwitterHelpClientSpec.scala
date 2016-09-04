@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.{LanguageDetails, TermsOfService, 
 
 class TwitterHelpClientSpec extends ClientSpec {
 
-  trait TwitterHelpClientSpecContext extends ClientSpecContext with TwitterHelpClient
+  class TwitterHelpClientSpecContext extends ClientSpecContext with TwitterHelpClient
 
   "Twitter Help Client" should {
 

@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.{GeoSearch, GeoPlace}
 
 class TwitterGeoClientSpec extends ClientSpec {
 
-  trait TwitterGeoClientSpecContext extends ClientSpecContext with TwitterGeoClient
+  class TwitterGeoClientSpecContext extends ClientSpecContext with TwitterGeoClient
 
   "Twitter Geo Client" should {
 

@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
-trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
+private[twitter4s] trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
@@ -16,7 +16,7 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
   }
 
-  protected def withOAuthHeader: HttpRequest => HttpRequest = { request =>
+  def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
   }

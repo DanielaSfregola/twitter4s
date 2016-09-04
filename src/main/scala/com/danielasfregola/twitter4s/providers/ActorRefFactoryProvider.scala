@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.providers
 
 import akka.actor.ActorRefFactory
 
-trait ActorRefFactoryProvider {
+private[twitter4s] trait ActorRefFactoryProvider {
 
   implicit def actorRefFactory: ActorRefFactory
 }

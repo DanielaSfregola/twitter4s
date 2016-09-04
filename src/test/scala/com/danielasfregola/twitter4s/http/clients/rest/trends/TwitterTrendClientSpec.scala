@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.{LocationTrends, Location}
 
 class TwitterTrendClientSpec  extends ClientSpec {
 
-  trait TwitterTrendClientSpecContext extends ClientSpecContext with TwitterTrendClient
+  class TwitterTrendClientSpecContext extends ClientSpecContext with TwitterTrendClient
 
   "Twitter Trend Client" should {
 

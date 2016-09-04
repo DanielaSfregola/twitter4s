@@ -15,7 +15,7 @@ import scala.concurrent.duration._
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.streaming._
 
-trait StreamingOAuthClient extends OAuthClient {
+private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
 
   def streamingPipeline = { (requester: ActorRef, request: HttpRequest) =>
     request ~> (withOAuthHeader ~> logRequest ~> sendReceiveStream(requester) ~>

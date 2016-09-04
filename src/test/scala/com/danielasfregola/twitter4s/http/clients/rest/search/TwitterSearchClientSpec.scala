@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.StatusSearch
 
 class TwitterSearchClientSpec extends ClientSpec {
 
-  trait TwitterSearchClientSpecContext extends ClientSpecContext with TwitterSearchClient
+  class TwitterSearchClientSpecContext extends ClientSpecContext with TwitterSearchClient
 
   "Twitter Search Client" should {
 

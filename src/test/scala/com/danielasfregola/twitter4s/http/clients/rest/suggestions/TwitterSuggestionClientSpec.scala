@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.{User, Category, Suggestions}
 
 class TwitterSuggestionClientSpec extends ClientSpec {
 
-  trait TwitterSuggestionClientSpecContext extends ClientSpecContext with TwitterSuggestionClient
+  class TwitterSuggestionClientSpecContext extends ClientSpecContext with TwitterSuggestionClient
 
   "Twitter Suggestion Client" should {
 

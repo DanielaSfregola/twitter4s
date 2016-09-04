@@ -3,13 +3,13 @@ package com.danielasfregola.twitter4s.util
 import java.io.InputStream
 
 
-case class Chunk(base64Data: Seq[String])
+private[twitter4s] case class Chunk(base64Data: Seq[String])
 
 trait MediaReader extends Encoder {
 
   protected val chunkSize: Int
 
-  def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T): Seq[T] = {
+  private[twitter4s] def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T): Seq[T] = {
     val chunks = readChunks(inputStream).zipWithIndex
     chunks.map{ case (chunk, idx) => f(chunk, idx) }
   }

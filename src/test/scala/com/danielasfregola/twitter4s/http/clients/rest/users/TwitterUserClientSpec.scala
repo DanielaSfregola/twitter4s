@@ -7,7 +7,7 @@ import spray.http.Uri.Query
 
 class TwitterUserClientSpec extends ClientSpec {
 
-trait TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserClient
+class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserClient
 
   "Twitter User Client" should {
 

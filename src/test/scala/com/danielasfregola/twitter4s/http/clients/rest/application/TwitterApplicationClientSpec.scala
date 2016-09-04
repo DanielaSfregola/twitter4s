@@ -9,7 +9,7 @@ import com.danielasfregola.twitter4s.entities.enums.Resource
 
 class TwitterApplicationClientSpec extends ClientSpec {
 
-  trait TwitterApplicationClientSpecContext extends ClientSpecContext with TwitterApplicationClient
+  class TwitterApplicationClientSpecContext extends ClientSpecContext with TwitterApplicationClient
 
   "Twitter Application Client" should {
 
