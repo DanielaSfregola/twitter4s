@@ -14,52 +14,36 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
 
   private val filterUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/filter.json"
   private val sampleUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/sample.json"
+  private val firehoseUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/firehose.json"
 
   /** Starts a streaming connection from Twitter's public API, filtered with the 'follow', 'track' and 'location' parameters.
     * Although all of those three params are optional, at least one must be specified.
+    * The track, follow, and locations fields should be considered to be combined with an OR operator.
     * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingUpdate[StreamingEvent]`
     * and processed accordingly to the function `f`.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/post/statuses/filter" target="_blank">
     *   https://dev.twitter.com/streaming/reference/post/statuses/filter</a>.
-    * Note: delimited is, for now, not supported
     *
-    * @param follow : Optional, A comma separated list of user IDs, indicating the users to return statuses for in the stream.
-    * @param track : Optional, Keywords to track. Phrases of keywords are specified by a comma-separated list.
-    * @param locations : Optional, Specifies a set of bounding boxes to track.
-    * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param follow : Empty by default. A comma separated list of user IDs, indicating the users to return statuses for in the stream.
+    *                 For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#follow" target="_blank">
+    *                   https://dev.twitter.com/streaming/overview/request-parameters#follow</a>
+    * @param track : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
+    *                For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#track" target="_blank">
+    *                  https://dev.twitter.com/streaming/overview/request-parameters#track</a>
+    * @param locations : Empty by default. Specifies a set of bounding boxes to track.
+    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#locations" target="_blank">
+    *                      https://dev.twitter.com/streaming/overview/request-parameters#locations</a>
+    * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getStatusesFilter(follow: Option[String] = None,
-                        track: Option[String] = None,
-                        locations: Option[String] = None,
+  def getStatusesFilter(follow: Seq[Long] = Seq.empty,
+                        track: Seq[String] = Seq.empty,
+                        locations: Seq[Double] = Seq.empty,
                         stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
+    require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
-    val listener = createListener(f)
-    streamingPipeline(listener, Get(filterUrl, parameters))
-  }
-
-  /** Same as getStatusesFilter, both GET and POST requests are supported,
-    * but GET requests with too many parameters may cause the request to be rejected for excessive URL length.
-    * For more information see
-    * <a href="https://dev.twitter.com/streaming/reference/post/statuses/filter" target="_blank">
-    *   https://dev.twitter.com/streaming/reference/post/statuses/filter</a>.
-    * Note: delimited is, for now, not supported
-    *
-    * @param follow : Optional, A comma separated list of user IDs, indicating the users to return statuses for in the stream.
-    * @param track : Optional, Keywords to track. Phrases of keywords are specified by a comma-separated list.
-    * @param locations : Optional, Specifies a set of bounding boxes to track.
-    * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
-    * @param f: the function that defines how to process the received messages
-    */
-  def postStatusesFilter(follow: Option[String] = None,
-                         track: Option[String] = None,
-                         locations: Option[String] = None,
-                         stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
-    require(follow.orElse(track).orElse(locations).isDefined, "At least one of 'follow', 'track' or 'locations' needs to be defined")
-    val parameters = StatusFilterParameters(follow, track, locations)
     val listener = createListener(f)
     streamingPipeline(listener, Post(filterUrl, parameters.asInstanceOf[Product]))
   }
@@ -72,14 +56,33 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
-    * Note: delimited is, for now, not supported
     *
-    * @param stall_warnings : Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
   def getStatusesSample(stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
     val parameters = StatusSampleParameters(stall_warnings)
     val listener = createListener(f)
     streamingPipeline(listener, Get(sampleUrl, parameters))
+  }
+
+  /** Starts a streaming connection from Twitter's firehouse API of all public statuses.
+    * Few applications require this level of access.
+    * Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.
+    * For more information see <a href="https://dev.twitter.com/streaming/reference/get/statuses/firehose" target="_blank">
+    *   https://dev.twitter.com/streaming/reference/get/statuses/firehose</a>
+    *
+    * @param count: Optional. The number of messages to backfill.
+    *               For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#count" target="_blank">
+    *                 https://dev.twitter.com/streaming/overview/request-parameters#count</a>
+    * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+    * @param f: the function that defines how to process the received messages.
+    */
+  def getStatusesFirehouse(count: Option[Int] = None, stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
+    val maxCount = 150000
+    require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
+    val parameters = StatusFirehouseParameters(count, stall_warnings)
+    val listener = createListener(f)
+    streamingPipeline(listener, Get(firehoseUrl, parameters))
   }
 }

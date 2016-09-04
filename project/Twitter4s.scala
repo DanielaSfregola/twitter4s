@@ -38,7 +38,7 @@ object Dependencies {
 object Scoverage {
 
   val settings = Seq(
-    coverageExcludedPackages := "com.danielasfregola.twitter4s.processors.*",
+    coverageExcludedPackages := "com.danielasfregola.twitter4s.processors.*;com.danielasfregola.twitter4s.Twitter*Client",
     coverageMinimum := 85
   )
 

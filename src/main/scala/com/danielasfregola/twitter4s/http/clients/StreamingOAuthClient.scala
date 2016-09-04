@@ -79,9 +79,10 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
     var chunkBuffer: HttpData = HttpData.Empty
 
     def receive: Receive = {
-      case StreamingActor.FetchResponse =>
-        if (response.isDefined) sender ! response.get
-        else stash()
+      case StreamingActor.FetchResponse => response match {
+        case Some(rsp) => sender ! rsp
+        case None => stash()
+      }
 
       case ChunkedResponseStart(response: HttpResponse) =>
         this.response = Some(response)

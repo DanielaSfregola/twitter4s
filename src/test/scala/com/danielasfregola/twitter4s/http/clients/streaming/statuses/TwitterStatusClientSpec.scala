@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
 import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
 import spray.http.Uri.Query
-import spray.http._
+import spray.http.{HttpEntity, _}
 
 import scala.io.Source
 import scala.reflect.ClassTag
@@ -19,20 +19,9 @@ class TwitterStatusClientSpec extends ClientSpec {
 
   "Twitter Streaming Client" should {
 
-    "start a filtered stream with a query" in new TwitterStatusClientSpecContext {
+    "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFilter(track = Some("trending"))(dummyProcessing)).expectRequest {
-          request =>
-            request.method === HttpMethods.GET
-            request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
-            request.uri.query === Query("stall_warnings=false&track=trending")
-        }.respondWithOk.await
-      result.isInstanceOf[Unit] should beTrue
-    }
-
-    "start a filtered stream with a query using POST method" in new TwitterStatusClientSpecContext {
-      val result: Unit =
-        when(postStatusesFilter(track = Some("trending"))(dummyProcessing)).expectRequest {
+        when(getStatusesFilter(track = Seq("trending"))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
@@ -42,12 +31,23 @@ class TwitterStatusClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "start a sample stream" in new TwitterStatusClientSpecContext {
+    "start a sample status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
         when(getStatusesSample()(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
+            request.uri.query === Query("stall_warnings=false")
+        }.respondWithOk.await
+      result.isInstanceOf[Unit] should beTrue
+    }
+
+    "start a firehose status stream" in new TwitterStatusClientSpecContext {
+      val result: Unit =
+        when(getStatusesFirehouse()(dummyProcessing)).expectRequest {
+          request =>
+            request.method === HttpMethods.GET
+            request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/firehose.json"
             request.uri.query === Query("stall_warnings=false")
         }.respondWithOk.await
       result.isInstanceOf[Unit] should beTrue
