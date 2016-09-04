@@ -5,9 +5,9 @@ import java.util.Base64
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-trait Encoder {
+private[twitter4s] trait Encoder {
 
-  protected def toHmacSha1(base: String, secret: String): String = {
+  def toHmacSha1(base: String, secret: String): String = {
     val HMAC_SHA1 = "HmacSHA1"
     val UTF8 = "UTF-8"
     val secretKeySpec = new SecretKeySpec(secret.getBytes(UTF8), HMAC_SHA1)
@@ -18,17 +18,18 @@ trait Encoder {
     Base64.getEncoder.encodeToString(digest)
   }
 
-  protected def toBase64(data: Array[Byte]): String =
+  def toBase64(data: Array[Byte]): String =
     Base64.getEncoder.encodeToString(data)
 
-  protected def toSha1(base: String): String = {
+  def toSha1(base: String): String = {
     val SHA1 = "SHA-1"
     val messageDigest = MessageDigest.getInstance(SHA1)
     val bytes = messageDigest.digest(base.getBytes)
 
     val stringBuffer = new StringBuffer
     bytes.foreach { byte =>
-      stringBuffer.append(Integer.toString((byte & 0xff) + 0x100, 16).substring(1))
+      stringBuffer.append(
+        Integer.toString((byte & 0xff) + 0x100, 16).substring(1))
     }
     stringBuffer.toString
   }

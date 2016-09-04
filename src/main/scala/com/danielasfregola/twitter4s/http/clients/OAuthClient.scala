@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
 
-trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
+private[twitter4s] trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
@@ -16,7 +16,7 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
   }
 
-  protected def withOAuthHeader: HttpRequest => HttpRequest = { request =>
+  def withOAuthHeader: HttpRequest => HttpRequest = { request =>
     val authorizationHeader = oauthProvider.oauthHeader(request)
     request.withHeaders( request.headers :+ authorizationHeader )
   }
@@ -26,15 +26,15 @@ trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider
     request.withHeaders( request.headers :+ authorizationHeader )
   }
 
-  private[twitter4s] val Get = new OAuthRequestBuilder(GET)
-  private[twitter4s] val Post = new OAuthRequestBuilder(POST)
-  private[twitter4s] val Put = new OAuthRequestBuilder(PUT)
-  private[twitter4s] val Patch = new OAuthRequestBuilder(PATCH)
-  private[twitter4s] val Delete = new OAuthRequestBuilder(DELETE)
-  private[twitter4s] val Options = new OAuthRequestBuilder(OPTIONS)
-  private[twitter4s] val Head = new OAuthRequestBuilder(HEAD)
+  val Get = new OAuthRequestBuilder(GET)
+  val Post = new OAuthRequestBuilder(POST)
+  val Put = new OAuthRequestBuilder(PUT)
+  val Patch = new OAuthRequestBuilder(PATCH)
+  val Delete = new OAuthRequestBuilder(DELETE)
+  val Options = new OAuthRequestBuilder(OPTIONS)
+  val Head = new OAuthRequestBuilder(HEAD)
 
-  private[twitter4s] class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
+  class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
     def apply(uri: String, parameters: Parameters): HttpRequest =
       if (!parameters.toString.isEmpty) apply(s"$uri?$parameters") else apply(uri)
