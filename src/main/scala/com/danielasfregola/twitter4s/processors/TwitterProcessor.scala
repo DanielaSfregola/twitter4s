@@ -9,8 +9,8 @@ object TwitterProcessor extends LazyLogging with JsonSupport {
 
   def echo(update: StreamingUpdate): Unit =
     update match {
-      case StreamingUpdate(event: Event) => println(Serialization.write(event))//logger.info("{}", Serialization.write(event))
-      case StreamingUpdate(msg) => println(Serialization.write(msg))//logger.warn("{}", Serialization.write(msg))
+      case StreamingUpdate(event: Event) => logger.info("{}", Serialization.write(event))
+      case StreamingUpdate(msg) => logger.warn("{}", Serialization.write(msg))
     }
 
   def dot(update: StreamingUpdate): Unit = print(".")
