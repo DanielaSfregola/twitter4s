@@ -2,6 +2,8 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
+import com.danielasfregola.twitter4s.entities.streaming.{EventTargetObject, StreamingMessage}
+
 case class DirectMessage(created_at: Date,
                          entities: Option[Entities],
                          id: Long,
@@ -14,7 +16,7 @@ case class DirectMessage(created_at: Date,
                          sender_id: Long,
                          sender_id_str: String,
                          sender_screen_name: String,
-                         text: String)
+                         text: String) extends StreamingMessage with EventTargetObject
 
 
 

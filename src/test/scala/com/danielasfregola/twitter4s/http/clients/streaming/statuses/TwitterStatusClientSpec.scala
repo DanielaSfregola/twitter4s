@@ -1,23 +1,19 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
-import akka.actor.ActorRef
-import akka.testkit.ImplicitSender
 import com.danielasfregola.twitter4s.entities.streaming._
 import com.danielasfregola.twitter4s.entities.Tweet
-import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
+import com.danielasfregola.twitter4s.util.ClientSpec
 import spray.http.Uri.Query
 import spray.http.{HttpEntity, _}
 
 import scala.io.Source
-import scala.reflect.ClassTag
 
 class TwitterStatusClientSpec extends ClientSpec {
 
   class TwitterStatusClientSpecContext extends TwitterStreamingSpecContext with TwitterStatusClient
 
-  "Twitter Streaming Client" should {
+  "Twitter Status Streaming Client" should {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
