@@ -14,6 +14,7 @@ trait Configurations {
   protected val mediaTwitterUrl = "https://upload.twitter.com"
   protected val statusStreamingTwitterUrl = "https://stream.twitter.com"
   protected val userStreamingTwitterUrl = "https://userstream.twitter.com"
+  protected val siteStreamingTwitterUrl = "https://sitestream.twitter.com"
 
 }
 

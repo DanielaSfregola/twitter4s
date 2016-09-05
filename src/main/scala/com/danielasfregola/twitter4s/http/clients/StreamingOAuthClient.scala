@@ -53,7 +53,10 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
       json4sUnmarshaller[Event].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[StreamingMessage]]
+      json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[Envelop].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[EnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[StreamingMessage]]
     )
 
   implicit val eventTargetObjectUnmarshaller: Unmarshaller[EventTargetObject] =
