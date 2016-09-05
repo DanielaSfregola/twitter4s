@@ -12,9 +12,9 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
 
   private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
 
-  private val filterUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/filter.json"
-  private val sampleUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/sample.json"
-  private val firehoseUrl = s"$streamingTwitterUrl/$twitterVersion/statuses/firehose.json"
+  private val filterUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/filter.json"
+  private val sampleUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/sample.json"
+  private val firehoseUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/firehose.json"
 
   /** Starts a streaming connection from Twitter's public API, filtered with the 'follow', 'track' and 'location' parameters.
     * Although all of those three params are optional, at least one must be specified.
