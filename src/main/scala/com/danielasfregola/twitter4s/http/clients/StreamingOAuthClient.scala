@@ -54,8 +54,8 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
       json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[Envelop].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[EnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[UserEnvelop].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[UserEnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[StreamingMessage]]
     )
 
