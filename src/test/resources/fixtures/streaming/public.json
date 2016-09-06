@@ -27,3 +27,8 @@
 {"user_withheld":{"id":123457,"withheld_in_countries":["IT"]}}
 
 {"warning":{"code":"FALLING_BEHIND","message":"Your connection is falling behind and messages are being queued for delivery to you. Your queue is now over 60% full. You will be disconnected when the queue is full.", "percent_full": 60}}
+
+{"control":{"control_uri":"/1.1/site/c/01_225167_334389048B872A533002B34D73F8C29FD09EFC50"}}
+
+{"friends": [0,1,2,3,4]}
+{"friends": ["0","1","2","3","4"]}
