@@ -194,6 +194,7 @@ Coming up Features
 - Query support
 - Site streaming extended support
 - Support for dump to file
+- Upgrade to Akka Http
 - ...
 
 Contributions and feature requests are always welcome!
