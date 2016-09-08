@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s
 
 import akka.actor.{ActorRef, ActorRefFactory, ActorSystem, Props}
-import com.danielasfregola.twitter4s.entities.streaming.StreamingUpdate
+import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient
@@ -12,8 +12,10 @@ import com.danielasfregola.twitter4s.util.Configurations
 class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
                             (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-streaming")) extends StreamingClients {
 
-  private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef =
-    actorRefFactory.actorOf(Props(new TwitterStreamListener { def processStreamingUpdate = f }))
+  private[twitter4s] def createListener(f: StreamingMessage => Unit): ActorRef =
+    actorRefFactory.actorOf(Props(new TwitterStreamListener {
+      def processStreamingUpdate = { update => f(update.streamingEvent) }
+    }))
 }
 
 trait StreamingClients extends TwitterStatusClient with TwitterUserClient with TwitterSiteClient
