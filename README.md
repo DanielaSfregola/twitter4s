@@ -96,9 +96,9 @@ def printTweetText(msg: StreamingMessage): Unit =
 ```
 All  you need to do is attach your processing function to the stream:
 ```scala
-client.getStatusesSample(stall_warnings = true)(TwitterProcessor.logTweetText)
+client.getStatusesSample(stall_warnings = true)(printTweetText)
 ```
-...and you are done, happy days! :D
+...and you are done, happy days! :dancers:
 
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
@@ -192,7 +192,7 @@ Coming up Features
 ---------------
 - Efficient Login
 - Query support
-- Site Streaming improvements
+- Site streaming extended support
 - Support for dump to file
 - ...
 
@@ -200,7 +200,7 @@ Contributions and feature requests are always welcome!
 
 Previous Versions
 -----------------
-For version previous to 1.0, please have a look at [0.2.1-README.md](https://github.com/DanielaSfregola/twitter4s/blob/master/0.2.1-README.md).
+For document of versions previous to 1.0, please have a look at [0.2.1-README.md](https://github.com/DanielaSfregola/twitter4s/blob/master/0.2.1-README.md).
 
 Snapshot Versions
 -----------------
