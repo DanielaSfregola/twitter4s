@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming.sites
 import akka.actor.ActorRef
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
-import com.danielasfregola.twitter4s.entities.streaming.StreamingUpdate
+import com.danielasfregola.twitter4s.entities.streaming.{StreamingMessage, StreamingUpdate}
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
 import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
@@ -12,12 +12,14 @@ import scala.concurrent.Future
 
 trait TwitterSiteClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
 
-  private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
+  private[twitter4s] def createListener(f: StreamingMessage => Unit): ActorRef
 
   private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion"
 
   /** Starts a streaming connection from Twitter's site API. SStreams messages for a set of users,
     * as described in <a href="https://dev.twitter.com/streaming/sitestreams" target="_blank">Site streams</a>.
+    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingMessage`
+    * and processed accordingly to the function `f`.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/get/site" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/site</a>.
@@ -42,7 +44,7 @@ trait TwitterSiteClient extends StreamingOAuthClient with Configurations with Ac
                     `with`: WithFilter = WithFilter.User,
                     replies: Option[Boolean] = None,
                     stringify_friend_ids: Boolean = false,
-                    stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
+                    stall_warnings: Boolean = false)(f: StreamingMessage => Unit): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, stall_warnings)
     val listener = createListener(f)

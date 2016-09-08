@@ -55,13 +55,11 @@ trait Client extends JsonSupport with ActorContextExtractor with UnmarshallerLif
   }
 
   private[twitter4s] def unmarshalEmptyResponse: HttpResponse ⇒ Unit = { hr =>
-    hr.status.isSuccess match {
-      case true => ()
-      case false =>
-        val errors = Try {
-          Serialization.read[Errors](hr.entity.asString)
-        } getOrElse { Errors() }
-        throw new TwitterException(hr.status, errors)
+    if (hr.status.isFailure) {
+      val errors = Try {
+        Serialization.read[Errors](hr.entity.asString)
+      } getOrElse { Errors() }
+      throw new TwitterException(hr.status, errors)
     }
   }
 }
