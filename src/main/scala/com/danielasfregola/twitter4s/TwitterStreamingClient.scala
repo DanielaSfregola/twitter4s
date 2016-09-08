@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient
-import com.danielasfregola.twitter4s.util.TokensFromConfig
+import com.danielasfregola.twitter4s.util.Configurations
 
 class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
                             (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-streaming")) extends StreamingClients {
@@ -18,11 +18,11 @@ class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: 
 
 trait StreamingClients extends TwitterStatusClient with TwitterUserClient with TwitterSiteClient
 
-object TwitterStreamingClient {
+object TwitterStreamingClient extends Configurations {
 
   def apply: TwitterStreamingClient = {
-    val consumerToken = ConsumerToken(key = TokensFromConfig.consumerTokenKey, secret = TokensFromConfig.consumerTokenSecret)
-    val accessToken = AccessToken(key = TokensFromConfig.accessTokenKey, secret = TokensFromConfig.accessTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
+    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
     new TwitterStreamingClient(consumerToken, accessToken)
   }
 }

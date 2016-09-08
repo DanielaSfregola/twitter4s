@@ -21,7 +21,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusCli
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
-import com.danielasfregola.twitter4s.util.TokensFromConfig
+import com.danielasfregola.twitter4s.util.Configurations
 
 class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
                        (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-rest")) extends RestClients
@@ -46,11 +46,11 @@ trait RestClients extends TwitterAccountClient
   with TwitterTrendClient
   with TwitterUserClient
 
-object TwitterRestClient {
+object TwitterRestClient extends Configurations {
 
   def apply(): TwitterRestClient = {
-    val consumerToken = ConsumerToken(key = TokensFromConfig.consumerTokenKey, secret = TokensFromConfig.consumerTokenSecret)
-    val accessToken = AccessToken(key = TokensFromConfig.accessTokenKey, secret = TokensFromConfig.accessTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
+    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
     new TwitterRestClient(consumerToken, accessToken)
   }
 }

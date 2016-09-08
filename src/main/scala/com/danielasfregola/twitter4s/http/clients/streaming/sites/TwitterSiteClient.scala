@@ -14,7 +14,7 @@ trait TwitterSiteClient extends StreamingOAuthClient with Configurations with Ac
 
   private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
 
-  private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion/site.json"
+  private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion"
 
   /** Starts a streaming connection from Twitter's site API. SStreams messages for a set of users,
     * as described in <a href="https://dev.twitter.com/streaming/sitestreams" target="_blank">Site streams</a>.
@@ -46,6 +46,6 @@ trait TwitterSiteClient extends StreamingOAuthClient with Configurations with Ac
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, stall_warnings)
     val listener = createListener(f)
-    streamingPipeline(listener, Get(siteUrl, parameters))
+    streamingPipeline(listener, Get(s"$siteUrl/site.json", parameters))
   }
 }

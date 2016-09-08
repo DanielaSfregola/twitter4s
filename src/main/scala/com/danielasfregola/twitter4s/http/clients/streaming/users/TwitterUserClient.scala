@@ -14,7 +14,7 @@ trait TwitterUserClient extends StreamingOAuthClient with Configurations with Ac
 
   private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
 
-  private val userUrl = s"$userStreamingTwitterUrl/$twitterVersion/user.json"
+  private val userUrl = s"$userStreamingTwitterUrl/$twitterVersion"
 
   /** Starts a streaming connection from Twitter's user API. Streams messages for a single user as
     * described in <a href="https://dev.twitter.com/streaming/userstreams" target="_blank">User streams</a>.
@@ -51,6 +51,6 @@ trait TwitterUserClient extends StreamingOAuthClient with Configurations with Ac
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, stall_warnings)
     val listener = createListener(f)
-    streamingPipeline(listener, Get(userUrl, parameters))
+    streamingPipeline(listener, Get(s"$userUrl/user.json", parameters))
   }
 }

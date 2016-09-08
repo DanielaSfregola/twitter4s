@@ -12,9 +12,7 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
 
   private[twitter4s] def createListener(f: StreamingUpdate => Unit): ActorRef
 
-  private val filterUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/filter.json"
-  private val sampleUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/sample.json"
-  private val firehoseUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses/firehose.json"
+  private val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
 
   /** Starts a streaming connection from Twitter's public API, filtered with the 'follow', 'track' and 'location' parameters.
     * Although all of those three params are optional, at least one must be specified.
@@ -45,7 +43,7 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
     val listener = createListener(f)
-    streamingPipeline(listener, Post(filterUrl, parameters.asInstanceOf[Product]))
+    streamingPipeline(listener, Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]))
   }
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
@@ -63,7 +61,7 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
   def getStatusesSample(stall_warnings: Boolean = false)(f: StreamingUpdate => Unit): Future[Unit] = {
     val parameters = StatusSampleParameters(stall_warnings)
     val listener = createListener(f)
-    streamingPipeline(listener, Get(sampleUrl, parameters))
+    streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
   }
 
   /** Starts a streaming connection from Twitter's firehouse API of all public statuses.
@@ -83,6 +81,6 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehouseParameters(count, stall_warnings)
     val listener = createListener(f)
-    streamingPipeline(listener, Get(firehoseUrl, parameters))
+    streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
   }
 }
