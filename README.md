@@ -188,6 +188,25 @@ The complete scaladoc with all the available functionalities for the `TwitterRes
 - [trends](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.rest.clients.trends.TwitterTrendClient)
 - [media](http://danielasfregola.github.io/twitter4s/latest/api/index.html#com.danielasfregola.twitter4s.http.rest.clients.media.TwitterMediaClient)
 
+Proxy Support
+-------------
+If needed, you can redefine the domain used for each of the twitter api by overriding the following settings in your configuration file:
+```scala
+twitter {
+
+  rest {
+    api = "https://api.twitter.com"
+    media = "https://upload.twitter.com"
+  }
+
+  streaming {
+    public = "https://stream.twitter.com"
+    user = "https://userstream.twitter.com"
+    site = "https://sitestream.twitter.com"
+  }
+}
+```
+
 Coming up Features
 ---------------
 - Efficient Login
