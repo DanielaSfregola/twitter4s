@@ -1,6 +1,6 @@
 name := "twitter4s"
 
-version := "1.0.1"
+version := "1.1-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
