@@ -14,7 +14,7 @@ Scala 2.11.+ is supported.
 
 Rate Limits
 -----------
-Be aware that the Twitter API has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
+Be aware that the Twitter REST API has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
 
 Setup
 -----
