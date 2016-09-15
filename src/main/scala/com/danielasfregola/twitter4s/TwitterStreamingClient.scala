@@ -22,7 +22,7 @@ trait StreamingClients extends TwitterStatusClient with TwitterUserClient with T
 
 object TwitterStreamingClient extends Configurations {
 
-  def apply: TwitterStreamingClient = {
+  def apply(): TwitterStreamingClient = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
     val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
     new TwitterStreamingClient(consumerToken, accessToken)
