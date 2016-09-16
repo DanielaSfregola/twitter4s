@@ -249,7 +249,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Tweet]]
   }
 
-  /** Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
+  /** Returns a single Tweet, specified by the id parameter. The Tweet’s author will also be embedded within the tweet.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid</a>.
