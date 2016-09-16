@@ -11,3 +11,11 @@ case class Errors(errors: TwitterError*) {
 }
 
 case class TwitterException(code: StatusCode, errors: Errors) extends Exception(s"[$code] $errors")
+
+object TwitterException {
+
+  def apply(code: StatusCode, msg: String): TwitterException = {
+    val error = TwitterError(msg, code.intValue)
+    TwitterException(code, Errors(error))
+  }
+}
