@@ -17,6 +17,7 @@ after_script:
   - "sbt coveralls"
 
 scala:
+  - 2.11.8
   - 2.11.7
 
 jdk:

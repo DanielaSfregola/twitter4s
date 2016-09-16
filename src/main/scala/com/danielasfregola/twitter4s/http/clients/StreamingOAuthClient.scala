@@ -14,6 +14,9 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.streaming._
+import com.danielasfregola.twitter4s.exceptions.TwitterException
+
+import scala.util.{Failure, Success}
 
 private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
 
@@ -34,8 +37,9 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
     spray.client.pipelining.sendTo(io).withResponsesReceivedBy(processor)(request)
 
     val response = processor.ask(StreamingActor.FetchResponse)(Timeout(10.seconds))
-    response onFailure { case (t: Throwable) =>
-      processor ! PoisonPill
+    response onComplete {
+      case Success(resp @ HttpResponse(_, _, _, _)) => resp
+      case _ => processor ! PoisonPill; io ! PoisonPill
     }
     response.asInstanceOf[Future[HttpResponse]]
   }
@@ -114,6 +118,14 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
           }
           chunkBuffer = HttpData.Empty
         } else chunkBuffer = chunkBuffer +: data
+
+      case HttpResponse(status, entity, _, _) if status.isFailure =>
+        val msg = status match {
+          case StatusCodes.Unauthorized => "Make sure your consumer and access tokens are correct"
+          case _ => entity.asString
+        }
+        log.error(TwitterException(code = status, msg = msg), "While opening streaming connection")
+        sender ! PoisonPill
     }
   }
 }
