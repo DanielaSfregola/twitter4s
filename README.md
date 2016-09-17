@@ -109,7 +109,7 @@ Following is a list of all the available `StreamingMessage` instances:
 - [ControlMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/ControlMessage.scala)
 - [DirectMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/DirectMessage.scala)
 - [DisconnectMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/DisconnectMessage.scala)
-- [Event](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/Event.scala)
+- [Event](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/Event.scala). Each event is identified by an [EventCode](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/enums/EventCode.scala)
 - [FriendsLists](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/FriendsLists.scala) and [FriendsListsStringified](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/FriendsLists.scala)
 - [LimitNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/LimitNotice.scala)
 - [LocationDeletionNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/LocationDeletionNotice.scala)
