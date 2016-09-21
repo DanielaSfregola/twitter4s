@@ -46,7 +46,7 @@ object Scoverage {
 
 object Twitter4s extends Build {
 
-  val v = "1.1"
+  val v = "1.2-SNAPSHOT"
 
   lazy val standardSettings = Defaults.defaultSettings ++
   Seq(
