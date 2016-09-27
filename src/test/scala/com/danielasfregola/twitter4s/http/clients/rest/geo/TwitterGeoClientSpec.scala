@@ -16,8 +16,8 @@ class TwitterGeoClientSpec extends ClientSpec {
       val result: GeoPlace = when(getGeoPlace(placeId)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/id/$placeId.json"
-      }.respondWith("/twitter/geo/geo_place.json").await
-      result === loadJsonAs[GeoPlace]("/fixtures/geo/geo_place.json")
+      }.respondWith("/twitter/rest/geo/geo_place.json").await
+      result === loadJsonAs[GeoPlace]("/fixtures/rest/geo/geo_place.json")
     }
 
     "perform a reverse geocode search" in new TwitterGeoClientSpecContext {
@@ -25,8 +25,8 @@ class TwitterGeoClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/reverse_geocode.json"
         request.uri.query === Query("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
-      }.respondWith("/twitter/geo/reverse_geocode.json").await
-      result === loadJsonAs[GeoSearch]("/fixtures/geo/reverse_geocode.json")
+      }.respondWith("/twitter/rest/geo/reverse_geocode.json").await
+      result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/reverse_geocode.json")
     }
 
     "search a geo place" in new TwitterGeoClientSpecContext {
@@ -34,8 +34,8 @@ class TwitterGeoClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
         request.uri.query === Query("query=Creazzo")
-      }.respondWith("/twitter/geo/search.json").await
-      result === loadJsonAs[GeoSearch]("/fixtures/geo/search.json")
+      }.respondWith("/twitter/rest/geo/search.json").await
+      result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/search.json")
     }
 
     "perform an advanced search of a geo place" in new TwitterGeoClientSpecContext {
@@ -43,8 +43,8 @@ class TwitterGeoClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
         request.uri.query === Query("attribute:street_address=Via+Giotto+15&query=Creazzo")
-      }.respondWith("/twitter/geo/advanced_search.json").await
-      result === loadJsonAs[GeoSearch]("/fixtures/geo/advanced_search.json")
+      }.respondWith("/twitter/rest/geo/advanced_search.json").await
+      result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/advanced_search.json")
     }
 
     "reject advanced search if no latitude or longitude or ip or query have been provided" in new TwitterGeoClientSpecContext {

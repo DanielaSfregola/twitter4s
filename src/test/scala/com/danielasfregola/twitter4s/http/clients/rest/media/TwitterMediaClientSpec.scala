@@ -20,8 +20,8 @@ class TwitterMediaClientSpec extends ClientSpec {
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
             request.uri.query === Query("command=STATUS&media_id=710511363345354753")
-        }.respondWith("/twitter/media/media_details.json").await
-      result === loadJsonAs[MediaDetails]("/fixtures/media/media_details.json")
+        }.respondWith("/twitter/rest/media/media_details.json").await
+      result === loadJsonAs[MediaDetails]("/fixtures/rest/media/media_details.json")
     }
 
     "upload a media description" in new TwitterMediaClientSpecContext {

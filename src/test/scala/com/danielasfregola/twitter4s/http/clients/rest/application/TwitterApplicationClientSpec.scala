@@ -18,8 +18,8 @@ class TwitterApplicationClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
         request.uri.query === Query("resources=account,statuses")
-      }.respondWith("/twitter/application/rate_limits.json").await
-      result === loadJsonAs[RateLimits]("/fixtures/application/rate_limits.json")
+      }.respondWith("/twitter/rest/application/rate_limits.json").await
+      result === loadJsonAs[RateLimits]("/fixtures/rest/application/rate_limits.json")
     }
 
     "get application rate limits for all the resources" in new TwitterApplicationClientSpecContext {
@@ -27,8 +27,8 @@ class TwitterApplicationClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
         request.uri.query === Query()
-      }.respondWith("/twitter/application/rate_limits.json").await
-      result === loadJsonAs[RateLimits]("/fixtures/application/rate_limits.json")
+      }.respondWith("/twitter/rest/application/rate_limits.json").await
+      result === loadJsonAs[RateLimits]("/fixtures/rest/application/rate_limits.json")
     }
   }
 }
