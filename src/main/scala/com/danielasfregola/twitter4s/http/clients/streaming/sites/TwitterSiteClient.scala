@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming.sites
 import akka.actor.ActorRef
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
-import com.danielasfregola.twitter4s.entities.streaming.{StreamingMessage, StreamingUpdate}
+import com.danielasfregola.twitter4s.entities.streaming.{SiteStreamingMessage, StreamingMessage, StreamingUpdate}
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
 import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
@@ -12,7 +12,7 @@ import scala.concurrent.Future
 
 trait TwitterSiteClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
 
-  private[twitter4s] def createListener(f: StreamingMessage => Unit): ActorRef
+  private[twitter4s] def createListener(f: PartialFunction[StreamingMessage, Unit]): ActorRef
 
   private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion"
 
@@ -44,10 +44,10 @@ trait TwitterSiteClient extends StreamingOAuthClient with Configurations with Ac
                     `with`: WithFilter = WithFilter.User,
                     replies: Option[Boolean] = None,
                     stringify_friend_ids: Boolean = false,
-                    stall_warnings: Boolean = false)(f: StreamingMessage => Unit): Future[Unit] = {
+                    stall_warnings: Boolean = false)(f: SiteStreamingMessage => Unit): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, stall_warnings)
-    val listener = createListener(f)
+    val listener = createListener { case a: SiteStreamingMessage => f(a) }
     streamingPipeline(listener, Get(s"$siteUrl/site.json", parameters))
   }
 }

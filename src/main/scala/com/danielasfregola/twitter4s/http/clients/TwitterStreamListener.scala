@@ -6,8 +6,10 @@ import com.danielasfregola.twitter4s.entities.streaming.StreamingUpdate
 private[twitter4s] abstract class TwitterStreamListener extends Actor {
 
   def receive: Receive = {
-    case update: StreamingUpdate => processStreamingUpdate(update)
+    case update: StreamingUpdate if processStreamingUpdate.isDefinedAt(update) =>
+      processStreamingUpdate(update)
+    case _ => ()
   }
 
-  def processStreamingUpdate: StreamingUpdate => Unit
+  def processStreamingUpdate: PartialFunction[StreamingUpdate, Unit]
 }

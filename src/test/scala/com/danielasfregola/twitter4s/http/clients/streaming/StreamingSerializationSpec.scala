@@ -1,8 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.streaming
 
-import com.danielasfregola.twitter4s.entities.enums.EventCode.EventCode
 import com.danielasfregola.twitter4s.entities.streaming._
-import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet, TwitterList}
+import com.danielasfregola.twitter4s.entities.streaming.common._
+import com.danielasfregola.twitter4s.entities.streaming.site.ControlMessage
+import com.danielasfregola.twitter4s.entities.streaming.user.{FriendsLists, FriendsListsStringified, TweetEvent}
 import com.danielasfregola.twitter4s.util.ClientSpec
 import spray.http._
 
@@ -13,6 +14,11 @@ class StreamingSerializationSpec extends ClientSpec {
   "StreamingActor" should {
 
     "parse a stream of data and output the corresponding entities of type" in {
+
+      // TODO Tweet
+      // TODO Direct Message
+      // TODO all user envelops
+      // TODO all events
 
       "ControlMessage" in new TwitterStreamingSpecContext {
         val processor = system.actorOf(StreamingActor.props(self))
@@ -40,7 +46,7 @@ class StreamingSerializationSpec extends ClientSpec {
         expectMsgAllOf(messages: _*)
       }
 
-      "EventCode" in new TwitterStreamingSpecContext {
+      "TweetEvent" in new TwitterStreamingSpecContext {
         val processor = system.actorOf(StreamingActor.props(self))
 
         Source.fromURL(getClass.getResource("/twitter/streaming/user/events.json")).getLines.foreach { line =>
@@ -48,7 +54,7 @@ class StreamingSerializationSpec extends ClientSpec {
         }
 
         val messages: Seq[StreamingUpdate] =
-          loadJsonAs[Seq[Event]]("/fixtures/streaming/user/events.json").map(StreamingUpdate(_))
+          loadJsonAs[Seq[TweetEvent]]("/fixtures/streaming/user/events.json").map(StreamingUpdate(_))
 
         expectMsgAllOf(messages: _*)
       }

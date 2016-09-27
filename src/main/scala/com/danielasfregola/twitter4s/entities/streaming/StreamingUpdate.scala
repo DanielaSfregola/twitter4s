@@ -3,3 +3,7 @@ package com.danielasfregola.twitter4s.entities.streaming
 case class StreamingUpdate(streamingEvent: StreamingMessage)
 
 trait StreamingMessage
+
+trait CommonStreamingMessage extends UserStreamingMessage with SiteStreamingMessage
+trait UserStreamingMessage extends StreamingMessage
+trait SiteStreamingMessage extends StreamingMessage

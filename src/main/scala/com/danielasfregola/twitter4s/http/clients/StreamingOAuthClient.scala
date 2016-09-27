@@ -14,6 +14,9 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.streaming._
+import com.danielasfregola.twitter4s.entities.streaming.common._
+import com.danielasfregola.twitter4s.entities.streaming.site._
+import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 
 import scala.util.Success
@@ -44,30 +47,52 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
     response.asInstanceOf[Future[HttpResponse]]
   }
 
-  implicit val streamingMessageUnmarshaller: Unmarshaller[StreamingMessage] =
+  val commonStreamingMessageUnmarshaller: Unmarshaller[CommonStreamingMessage] =
     Unmarshaller.oneOf(
-      json4sUnmarshaller[Tweet].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[Event].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[StatusDeletionNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[LocationDeletionNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[LimitNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[StatusWithheldNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[UserWithheldNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[DisconnectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[WarningMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[UserEnvelop].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[UserEnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]]
+      json4sUnmarshaller[Tweet].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[DisconnectMessage].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[LimitNotice].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[LocationDeletionNotice].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[StatusDeletionNotice].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[StatusWithheldNotice].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[UserWithheldNotice].asInstanceOf[Unmarshaller[CommonStreamingMessage]],
+      json4sUnmarshaller[WarningMessage].asInstanceOf[Unmarshaller[CommonStreamingMessage]]
     )
 
-  implicit val eventTargetObjectUnmarshaller: Unmarshaller[EventTargetObject] =
+  val userStreamingMessageUnmarshaller: Unmarshaller[UserStreamingMessage] =
     Unmarshaller.oneOf(
-      json4sUnmarshaller[Tweet].asInstanceOf[Unmarshaller[EventTargetObject]],
-      json4sUnmarshaller[TwitterList].asInstanceOf[Unmarshaller[EventTargetObject]],
-      json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[EventTargetObject]]
+      json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[UserStreamingMessage]],
+      json4sUnmarshaller[SimpleEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]],
+      json4sUnmarshaller[TweetEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]],
+      json4sUnmarshaller[TwitterListEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]]
+    )
+
+  val siteStreamingMessageUnmarshaller: Unmarshaller[SiteStreamingMessage] =
+    Unmarshaller.oneOf(
+      json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweet].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopDirectMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopSimpleEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweetEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTwitterListEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopWarningMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweetStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopDirectMessageStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopSimpleEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweetEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTwitterListEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopWarningMessageStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]]
+    )
+
+  implicit val streamingMessageUnmarshaller: Unmarshaller[StreamingMessage] =
+    Unmarshaller.oneOf(
+      commonStreamingMessageUnmarshaller.asInstanceOf[Unmarshaller[StreamingMessage]],
+      userStreamingMessageUnmarshaller.asInstanceOf[Unmarshaller[StreamingMessage]],
+      siteStreamingMessageUnmarshaller.asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[UserEnvelopFriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[UserEnvelopFriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]]
     )
 
   def unmarshal[T: Unmarshaller]: HttpEntity ⇒ T = { response ⇒
