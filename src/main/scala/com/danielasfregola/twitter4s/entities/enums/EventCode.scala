@@ -1,9 +1,9 @@
 package com.danielasfregola.twitter4s.entities.enums
 
-trait EventCode
+abstract class EventCode extends Enumeration
 
-object SimpleEventCode extends Enumeration {
-   type SimpleEventCode = Value with EventCode
+object SimpleEventCode extends EventCode {
+   type SimpleEventCode = Value
 
   val AccessRevoked = Value("access_revoked")
   val Block = Value("block")
@@ -13,8 +13,8 @@ object SimpleEventCode extends Enumeration {
   val UserUpdate = Value("user_update")
 }
 
-object TweetEventCode extends Enumeration {
-  type TweetEventCode = Value with EventCode
+object TweetEventCode extends EventCode {
+  type TweetEventCode = Value
 
   val Favorite = Value("favorite")
   val FavoritedRetweet = Value("favorited_retweet")
@@ -22,8 +22,8 @@ object TweetEventCode extends Enumeration {
   val QuotedTweet = Value("quoted_tweet")
 }
 
-object TwitterListEventCode extends Enumeration {
-  type TwitterListEventCode = Value with EventCode
+object TwitterListEventCode extends EventCode {
+  type TwitterListEventCode = Value
 
   val ListCreated = Value("list_created")
   val ListDestroyed = Value("list_destroyed")

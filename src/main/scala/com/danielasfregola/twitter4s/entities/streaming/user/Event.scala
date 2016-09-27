@@ -15,7 +15,7 @@ import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#Events_event" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#Events_event</a>.
   */
-abstract class Event[T](created_at: Date, event: EventCode, target: User, source: User, target_object: Option[T])
+abstract class Event[T](created_at: Date, event: EventCode#Value, target: User, source: User, target_object: Option[T])
     extends UserStreamingMessage
 
 case class SimpleEvent(created_at: Date, event: SimpleEventCode, target: User, source: User, target_object: Option[String])

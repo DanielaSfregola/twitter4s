@@ -62,9 +62,9 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
   val userStreamingMessageUnmarshaller: Unmarshaller[UserStreamingMessage] =
     Unmarshaller.oneOf(
       json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[UserStreamingMessage]],
-      json4sUnmarshaller[SimpleEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]],
+      json4sUnmarshaller[TwitterListEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]],
       json4sUnmarshaller[TweetEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]],
-      json4sUnmarshaller[TwitterListEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]]
+      json4sUnmarshaller[SimpleEvent].asInstanceOf[Unmarshaller[UserStreamingMessage]]
     )
 
   val siteStreamingMessageUnmarshaller: Unmarshaller[SiteStreamingMessage] =
@@ -72,15 +72,15 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
       json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopTweet].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopDirectMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
-      json4sUnmarshaller[UserEnvelopSimpleEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
-      json4sUnmarshaller[UserEnvelopTweetEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopTwitterListEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweetEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopSimpleEvent].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopWarningMessage].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopTweetStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopDirectMessageStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
-      json4sUnmarshaller[UserEnvelopSimpleEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
-      json4sUnmarshaller[UserEnvelopTweetEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopTwitterListEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopTweetEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
+      json4sUnmarshaller[UserEnvelopSimpleEventStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]],
       json4sUnmarshaller[UserEnvelopWarningMessageStringified].asInstanceOf[Unmarshaller[SiteStreamingMessage]]
     )
 
