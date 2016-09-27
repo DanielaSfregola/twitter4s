@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-import com.danielasfregola.twitter4s.entities.streaming.EventTargetObject
+import com.danielasfregola.twitter4s.entities.streaming.{EventTargetObject, StreamingMessage}
 
 case class TwitterList(created_at: Date,
                        description: String,
@@ -16,5 +16,5 @@ case class TwitterList(created_at: Date,
                        member_count: Int,
                        mode: String,
                        slug: String,
-                       user: User) extends EventTargetObject
+                       user: User) extends EventTargetObject with StreamingMessage
 

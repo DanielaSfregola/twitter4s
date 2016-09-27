@@ -11,11 +11,11 @@ import spray.httpx.unmarshalling.Unmarshaller
 
 trait JsonSupport {
 
-  implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all
+  implicit def json4sFormats: Formats = defaultFormats ++ CustomSerializers.all ++ EnumSerializers.all
 
   val defaultFormats = new DefaultFormats {
     override def dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy", Locale.ENGLISH)
-  }
+  }.preservingEmptyValues
 
   implicit def json4sUnmarshaller[T: Manifest] = {
     Unmarshaller[T](MediaTypes.`application/json`) {

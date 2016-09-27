@@ -26,6 +26,7 @@ libraryDependencies ++= {
     "io.spray" %% "spray-httpx" % Spray,
     "io.spray" %% "spray-routing" % Spray,
     "org.json4s" %% "json4s-native" % Json4s,
+    "org.json4s" %% "json4s-ext" % Json4s,
     "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
     "org.specs2" %% "specs2-core" % Spec2Version % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test"

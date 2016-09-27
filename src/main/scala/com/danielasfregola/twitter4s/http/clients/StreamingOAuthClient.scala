@@ -16,7 +16,7 @@ import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.streaming._
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 
-import scala.util.{Failure, Success}
+import scala.util.Success
 
 private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
 
@@ -47,6 +47,7 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
   implicit val streamingMessageUnmarshaller: Unmarshaller[StreamingMessage] =
     Unmarshaller.oneOf(
       json4sUnmarshaller[Tweet].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[Event].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[StatusDeletionNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[LocationDeletionNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[LimitNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
@@ -54,13 +55,12 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
       json4sUnmarshaller[UserWithheldNotice].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[DisconnectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[WarningMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[Event].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[ControlMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[DirectMessage].asInstanceOf[Unmarshaller[StreamingMessage]],
       json4sUnmarshaller[UserEnvelop].asInstanceOf[Unmarshaller[StreamingMessage]],
-      json4sUnmarshaller[UserEnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]]
+      json4sUnmarshaller[UserEnvelopStringified].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[FriendsLists].asInstanceOf[Unmarshaller[StreamingMessage]],
+      json4sUnmarshaller[FriendsListsStringified].asInstanceOf[Unmarshaller[StreamingMessage]]
     )
 
   implicit val eventTargetObjectUnmarshaller: Unmarshaller[EventTargetObject] =
