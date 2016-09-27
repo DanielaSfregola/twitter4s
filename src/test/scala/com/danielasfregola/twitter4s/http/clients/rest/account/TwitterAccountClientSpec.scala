@@ -16,16 +16,16 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: Settings = when(getSettings).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/settings.json"
-      }.respondWith("/twitter/account/settings.json").await
-      result === loadJsonAs[Settings]("/fixtures/account/settings.json")
+      }.respondWith("/twitter/rest/account/settings.json").await
+      result === loadJsonAs[Settings]("/fixtures/rest/account/settings.json")
     }
 
     "verify credentials" in new TwitterAccountClientSpecContext {
       val result: User = when(verifyCredentials(include_email = true)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/verify_credentials.json"
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update account settings" in new TwitterAccountClientSpecContext {
@@ -40,8 +40,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "allow_contributor_request=all&end_sleep_time=06&sleep_time_enabled=true&start_sleep_time=22&time_zone=Europe%2FLondon")
-      }.respondWith("/twitter/account/settings.json").await
-      result === loadJsonAs[Settings]("/fixtures/account/settings.json")
+      }.respondWith("/twitter/rest/account/settings.json").await
+      result === loadJsonAs[Settings]("/fixtures/rest/account/settings.json")
     }
 
     "update a profile name" in new TwitterAccountClientSpecContext {
@@ -51,8 +51,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "include_entities=true&name=Daniela+Sfregola&skip_status=false")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update a profile url" in new TwitterAccountClientSpecContext {
@@ -62,8 +62,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update a profile description" in new TwitterAccountClientSpecContext {
@@ -73,8 +73,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "description=Nice+description+here&include_entities=true&skip_status=false")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update a profile location" in new TwitterAccountClientSpecContext {
@@ -84,8 +84,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "include_entities=true&location=London%2C+UK&skip_status=false")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update a profile link color" in new TwitterAccountClientSpecContext {
@@ -95,8 +95,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "include_entities=true&profile_link_color=0000FF&skip_status=false")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update a profile" in new TwitterAccountClientSpecContext {
@@ -107,8 +107,8 @@ class TwitterAccountClientSpec extends ClientSpec {
         request.entity === HttpEntity(
           ContentType(MediaTypes.`application/x-www-form-urlencoded`),
           "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
-      }.respondWith("/twitter/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/account/user.json")
+      }.respondWith("/twitter/rest/account/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "remove a profile banner" in new TwitterAccountClientSpecContext {

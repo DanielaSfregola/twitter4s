@@ -16,8 +16,8 @@ class TwitterSearchClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/search/tweets.json"
         request.uri.query === Query("count=15&include_entities=true&q=%23scala&result_type=mixed")
-      }.respondWith("/twitter/search/tweets.json").await
-      result === loadJsonAs[StatusSearch]("/fixtures/search/tweets.json")
+      }.respondWith("/twitter/rest/search/tweets.json").await
+      result === loadJsonAs[StatusSearch]("/fixtures/rest/search/tweets.json")
     }
   }
 

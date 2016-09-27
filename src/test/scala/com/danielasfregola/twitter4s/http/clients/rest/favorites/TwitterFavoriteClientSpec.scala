@@ -17,8 +17,8 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&screen_name=DanielaSfregola")
-      }.respondWith("/twitter/favorites/favorites.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/favorites/favorites.json")
+      }.respondWith("/twitter/rest/favorites/favorites.json").await
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
     }
 
     "get favorites per user id" in new TwitterFavoriteClientSpecContext {
@@ -26,8 +26,8 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&user_id=19018614")
-      }.respondWith("/twitter/favorites/favorites.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/favorites/favorites.json")
+      }.respondWith("/twitter/rest/favorites/favorites.json").await
+      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
     }
 
     "favorite a tweet" in new TwitterFavoriteClientSpecContext {
@@ -35,8 +35,8 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/create.json"
         request.uri.query === Query("id=243138128959913986&include_entities=true")
-      }.respondWith("/twitter/favorites/favorite.json").await
-      result === loadJsonAs[Tweet]("/fixtures/favorites/favorite.json")
+      }.respondWith("/twitter/rest/favorites/favorite.json").await
+      result === loadJsonAs[Tweet]("/fixtures/rest/favorites/favorite.json")
     }
 
     "unfavorite a tweet" in new TwitterFavoriteClientSpecContext {
@@ -44,8 +44,8 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/destroy.json"
         request.uri.query === Query("id=243138128959913986&include_entities=true")
-      }.respondWith("/twitter/favorites/unfavorite.json").await
-      result === loadJsonAs[Tweet]("/fixtures/favorites/unfavorite.json")
+      }.respondWith("/twitter/rest/favorites/unfavorite.json").await
+      result === loadJsonAs[Tweet]("/fixtures/rest/favorites/unfavorite.json")
     }
   }
 

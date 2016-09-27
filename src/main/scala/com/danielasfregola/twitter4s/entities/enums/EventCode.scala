@@ -7,6 +7,7 @@ object EventCode extends Enumeration {
   val Block = Value("block")
   val Unblock = Value("unblock")
   val Favorite = Value("favorite")
+  val FavoritedRetweet = Value("favorited_retweet")
   val Unfavorite = Value("unfavorite")
   val Follow = Value("follow")
   val Unfollow = Value("unfollow")

@@ -16,8 +16,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/create.json"
         request.uri.query === Query("screen_name=marcobonzanini")
-      }.respondWith("/twitter/mutes/user.json").await
-      result === loadJsonAs[User]("/fixtures/mutes/user.json")
+      }.respondWith("/twitter/rest/mutes/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/mutes/user.json")
     }
 
     "mute a user by id" in new TwitterMuteClientSpecContext {
@@ -25,8 +25,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/create.json"
         request.uri.query === Query("user_id=19018614")
-      }.respondWith("/twitter/mutes/user.json").await
-      result === loadJsonAs[User]("/fixtures/mutes/user.json")
+      }.respondWith("/twitter/rest/mutes/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/mutes/user.json")
     }
 
     "unmute a user" in new TwitterMuteClientSpecContext {
@@ -34,8 +34,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/destroy.json"
         request.uri.query === Query("screen_name=marcobonzanini")
-      }.respondWith("/twitter/mutes/user.json").await
-      result === loadJsonAs[User]("/fixtures/mutes/user.json")
+      }.respondWith("/twitter/rest/mutes/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/mutes/user.json")
     }
 
     "unmute a user by id" in new TwitterMuteClientSpecContext {
@@ -43,8 +43,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/destroy.json"
         request.uri.query === Query("user_id=19018614")
-      }.respondWith("/twitter/mutes/user.json").await
-      result === loadJsonAs[User]("/fixtures/mutes/user.json")
+      }.respondWith("/twitter/rest/mutes/user.json").await
+      result === loadJsonAs[User]("/fixtures/rest/mutes/user.json")
     }
 
     "get muted users ids" in new TwitterMuteClientSpecContext {
@@ -52,8 +52,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/ids.json"
         request.uri.query === Query("cursor=-1")
-      }.respondWith("/twitter/mutes/muted_users_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/mutes/muted_users_ids.json")
+      }.respondWith("/twitter/rest/mutes/muted_users_ids.json").await
+      result === loadJsonAs[UserIds]("/fixtures/rest/mutes/muted_users_ids.json")
     }
 
     "get muted users" in new TwitterMuteClientSpecContext {
@@ -61,8 +61,8 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/list.json"
         request.uri.query === Query("cursor=-1&include_entities=true&skip_status=false")
-      }.respondWith("/twitter/mutes/users.json").await
-      result === loadJsonAs[Users]("/fixtures/mutes/users.json")
+      }.respondWith("/twitter/rest/mutes/users.json").await
+      result === loadJsonAs[Users]("/fixtures/rest/mutes/users.json")
     }
   }
 }
