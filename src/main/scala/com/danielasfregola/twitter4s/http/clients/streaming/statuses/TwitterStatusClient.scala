@@ -1,16 +1,13 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
-import akka.actor.ActorRef
-import com.danielasfregola.twitter4s.entities.streaming.{CommonStreamingMessage, StreamingMessage, StreamingUpdate}
-import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
+import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
+import com.danielasfregola.twitter4s.http.clients.{StreamingOAuthClient, TwitterStreamListenerHelper}
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterStatusClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
-
-  private[twitter4s] def createListener(f: PartialFunction[StreamingMessage, Unit]): ActorRef
+trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAuthClient with Configurations with ActorContextExtractor {
 
   private val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
 
@@ -18,8 +15,8 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * Although all of those three params are optional, at least one must be specified.
     * The track, follow, and locations fields should be considered to be combined with an OR operator.
     * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
-    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingMessage`
-    * and processed accordingly to the function `f`.
+    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
+    * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/post/statuses/filter" target="_blank">
     *   https://dev.twitter.com/streaming/reference/post/statuses/filter</a>.
@@ -39,18 +36,18 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
   def getStatusesFilter(follow: Seq[Long] = Seq.empty,
                         track: Seq[String] = Seq.empty,
                         locations: Seq[Double] = Seq.empty,
-                        stall_warnings: Boolean = false)(f: CommonStreamingMessage => Unit): Future[Unit] = {
+                        stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, stall_warnings)
-    val listener = createListener { case a: CommonStreamingMessage => f(a) }
+    val listener = createCommonListener(f)
     streamingPipeline(listener, Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]))
   }
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
     * The Tweets returned by the default access level are the same, so if two different clients connect to this endpoint, they will see the same Tweets.
     * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
-    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingMessage`
-    * and processed accordingly to the function `f`.
+    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
+    * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
@@ -58,9 +55,9 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getStatusesSample(stall_warnings: Boolean = false)(f: CommonStreamingMessage => Unit): Future[Unit] = {
+  def getStatusesSample(stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val parameters = StatusSampleParameters(stall_warnings)
-    val listener = createListener { case a: CommonStreamingMessage => f(a) }
+    val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
   }
 
@@ -68,7 +65,9 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * Few applications require this level of access.
     * Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.
     * For more information see <a href="https://dev.twitter.com/streaming/reference/get/statuses/firehose" target="_blank">
-    *   https://dev.twitter.com/streaming/reference/get/statuses/firehose</a>
+    *   https://dev.twitter.com/streaming/reference/get/statuses/firehose</a>.
+    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
+    * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     *
     * @param count: Optional. The number of messages to backfill.
     *               For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#count" target="_blank">
@@ -76,11 +75,11 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages.
     */
-  def getStatusesFirehose(count: Option[Int] = None, stall_warnings: Boolean = false)(f: CommonStreamingMessage => Unit): Future[Unit] = {
+  def getStatusesFirehose(count: Option[Int] = None, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(count, stall_warnings)
-    val listener = createListener { case a: CommonStreamingMessage => f(a) }
+    val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
   }
 }

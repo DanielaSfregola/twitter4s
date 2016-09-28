@@ -30,7 +30,7 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
 
   def sendReceiveStream(requester: ActorRef): SendReceive = { request: HttpRequest =>
     val system: ActorSystem = actorRefFactory match {
-      case x: ActorSystem  ⇒ x
+      case x: ActorSystem ⇒ x
       case x: ActorContext ⇒ x.system
     }
 
@@ -115,10 +115,11 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
     var chunkBuffer: HttpData = HttpData.Empty
 
     def receive: Receive = {
-      case StreamingActor.FetchResponse => response match {
-        case Some(rsp) => sender ! rsp
-        case None => stash()
-      }
+      case StreamingActor.FetchResponse =>
+        response match {
+          case Some(rsp) => sender ! rsp
+          case None => stash()
+        }
 
       case ChunkedResponseStart(response: HttpResponse) =>
         this.response = Some(response)
@@ -129,7 +130,7 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
 
       case MessageChunk(data: HttpData, extension: String) =>
         if (data.length >= 2 && data.slice(data.length - 2, data.length).asString == "\r\n") {
-          if(data.length > 2) {
+          if (data.length > 2) {
             val chunk = chunkBuffer +: data
             Future {
               try {

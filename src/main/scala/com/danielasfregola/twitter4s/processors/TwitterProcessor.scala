@@ -8,15 +8,11 @@ import org.json4s.native.Serialization
 
 object TwitterProcessor extends LazyLogging with JsonSupport {
 
-  def echo(msg: StreamingMessage): Unit =
-    msg match {
-      case tweet: Tweet => logger.info("{}", Serialization.write(tweet))
-      case _ => logger.warn("{}", Serialization.write(msg))
-    }
+  def echo: PartialFunction[StreamingMessage, Unit] = {
+    case msg => logger.info("{}", Serialization.write(msg))
+  }
 
-  def logTweetText(msg: StreamingMessage): Unit =
-    msg match {
-      case tweet: Tweet => logger.info(tweet.text)
-      case _ =>
-    }
+  def logTweetText: PartialFunction[StreamingMessage, Unit] = {
+    case tweet: Tweet => logger.info(tweet.text)
+  }
 }

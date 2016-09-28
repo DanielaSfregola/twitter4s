@@ -9,5 +9,5 @@ class TwitterStreamingSpecContext extends ClientSpecContext with ImplicitSender 
 
   private[twitter4s] def createListener(f: PartialFunction[StreamingMessage, Unit]): ActorRef = self
 
-  def dummyProcessing(update: StreamingMessage): Unit = ()
+  def dummyProcessing: PartialFunction[StreamingMessage, Unit] = { case _ => }
 }
