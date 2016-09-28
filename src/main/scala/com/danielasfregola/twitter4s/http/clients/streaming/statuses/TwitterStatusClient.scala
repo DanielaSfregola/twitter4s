@@ -76,10 +76,10 @@ trait TwitterStatusClient extends StreamingOAuthClient with Configurations with 
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages.
     */
-  def getStatusesFirehouse(count: Option[Int] = None, stall_warnings: Boolean = false)(f: CommonStreamingMessage => Unit): Future[Unit] = {
+  def getStatusesFirehose(count: Option[Int] = None, stall_warnings: Boolean = false)(f: CommonStreamingMessage => Unit): Future[Unit] = {
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
-    val parameters = StatusFirehouseParameters(count, stall_warnings)
+    val parameters = StatusFirehoseParameters(count, stall_warnings)
     val listener = createListener { case a: CommonStreamingMessage => f(a) }
     streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
   }
