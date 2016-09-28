@@ -55,7 +55,15 @@ twitter {
   }
 }
 ```
-These configurations will be automatically loaded when creating a twitter client.
+These configurations will be automatically loaded when creating a twitter client, so all you have to do is to initialize your clients as following:
+```scala
+import com.danielasfregola.twitter4s.TwitterRestClient
+import com.danielasfregola.twitter4s.TwitterStreamingClient
+
+val restClient = TwitterRestClient()
+val streamingClient = TwitterStreamingClient()
+```
+
 Alternatively, you can also specify your tokens directly when creating the client:
 ```scala
 import com.danielasfregola.twitter4s.TwitterRestClient
