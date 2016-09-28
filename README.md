@@ -73,7 +73,7 @@ Once you have instantiated your client you are ready to use it! :smile:
 
 Twitter Streaming Client
 -----------------------
-[TwitterStreamingClient](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/TwitterStreamingClient.scala) is the client for the [Twitter Streaming API](https://dev.twitter.com/streaming/overview).
+[TwitterStreamingClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient).
 
 You can initialize the client as following:
 ```scala
@@ -106,30 +106,30 @@ Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/b
 The complete scaladoc with all the available streams for the `TwitterStreamingClient` can be found [here](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient).
 
 Following is a list of all the available `StreamingMessage` instances:
-- [ControlMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/ControlMessage.scala)
-- [DirectMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/DirectMessage.scala)
-- [DisconnectMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/DisconnectMessage.scala)
-- [Event](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/Event.scala). Each event is identified by an [EventCode](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/enums/EventCode.scala)
-- [FriendsLists](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/FriendsLists.scala) and [FriendsListsStringified](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/FriendsLists.scala)
-- [LimitNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/LimitNotice.scala)
-- [LocationDeletionNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/LocationDeletionNotice.scala)
-- [StatusDeletionNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/StatusDeletionNotice.scala)
-- [StatusWithheldNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/StatusWithheldNotice.scala)
-- [Tweet](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/Tweet.scala)
-- [UserEnvelop](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/UserEnvelop.scala) and [UserEnvelopStringified](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/UserEnvelop.scala)
-- [UserWithheldNotice](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/UserWithheldNotice.scala)
-- [WarningMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/streaming/WarningMessage.scala)
+- [ControlMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.ControlMessage)
+- [DirectMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.DirectMessage)
+- [DisconnectMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.DisconnectMessage)
+- [Event](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.Event). Each event is identified by an [EventCode](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.enums.EventCode$)
+- [FriendsLists](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.FriendsLists)
+- [LimitNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.LimitNotice)
+- [LocationDeletionNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.LocationDeletionNotice)
+- [StatusDeletionNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.StatusDeletionNotice)
+- [StatusWithheldNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.StatusWithheldNotice)
+- [Tweet](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.Tweet)
+- [UserEnvelop](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.UserEnvelop)
+- [UserWithheldNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.UserWithheldNotice)
+- [WarningMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.WarningMessage)
 
 Also, all the `EventTargetObject` instances are:
-- [Tweet](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/Tweet.scala)
-- [TweetList](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/TwitterList.scala)
-- [DirectMessage](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/entities/DirectMessage.scala)
+- [Tweet](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.Tweet)
+- [TweetList](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.TwitterList)
+- [DirectMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.DirectMessage)
 
 
 Twitter REST Client
 -------------------
 
-[TwitterRestClient](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/TwitterRestClient.scala) is the client for the [Twitter REST API](https://dev.twitter.com/rest/public).
+[TwitterRestClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient).
 
 You can initialize the client as following:
 ```
