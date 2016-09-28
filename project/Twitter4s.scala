@@ -8,7 +8,8 @@ import scoverage.ScoverageSbtPlugin.ScoverageKeys._
 object Resolvers {
   val resolvers = Seq(
     "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
-    "Spray Repository"    at "http://repo.spray.io"
+    "Spray Repository"    at "http://repo.spray.io",
+    Resolver.jcenterRepo
   )
 }
 
