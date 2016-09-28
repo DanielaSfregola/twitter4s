@@ -10,15 +10,11 @@ import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserCli
 import com.danielasfregola.twitter4s.util.Configurations
 
 class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                            (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-streaming")) extends StreamingClients {
+                            (implicit val actorRefFactory: ActorRefFactory = ActorSystem("twitter4s-streaming")) extends StreamingClients
 
-  private[twitter4s] def createListener(f: StreamingMessage => Unit): ActorRef =
-    actorRefFactory.actorOf(Props(new TwitterStreamListener {
-      def processStreamingUpdate = { update => f(update.streamingEvent) }
-    }))
-}
-
-trait StreamingClients extends TwitterStatusClient with TwitterUserClient with TwitterSiteClient
+trait StreamingClients extends TwitterStatusClient
+  with TwitterUserClient
+  with TwitterSiteClient
 
 object TwitterStreamingClient extends Configurations {
 

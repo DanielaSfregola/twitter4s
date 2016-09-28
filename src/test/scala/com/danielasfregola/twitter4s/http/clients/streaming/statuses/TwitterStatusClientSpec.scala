@@ -36,7 +36,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a firehose status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFirehouse()(dummyProcessing)).expectRequest {
+        when(getStatusesFirehose()(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/firehose.json"

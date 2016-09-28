@@ -1,25 +1,22 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.users
 
-import akka.actor.ActorRef
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
-import com.danielasfregola.twitter4s.entities.streaming.{StreamingMessage, StreamingUpdate}
-import com.danielasfregola.twitter4s.http.clients.StreamingOAuthClient
+import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
+import com.danielasfregola.twitter4s.http.clients.{StreamingOAuthClient, TwitterStreamListenerHelper}
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterUserClient extends StreamingOAuthClient with Configurations with ActorContextExtractor {
-
-  private[twitter4s] def createListener(f: StreamingMessage => Unit): ActorRef
+trait TwitterUserClient extends TwitterStreamListenerHelper with StreamingOAuthClient with Configurations with ActorContextExtractor {
 
   private val userUrl = s"$userStreamingTwitterUrl/$twitterVersion"
 
   /** Starts a streaming connection from Twitter's user API. Streams messages for a single user as
     * described in <a href="https://dev.twitter.com/streaming/userstreams" target="_blank">User streams</a>.
-    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `StreamingMessage`
-    * and processed accordingly to the function `f`.
+    * Since it's an asynchronous event stream, all the events will be parsed as entities of type `UserStreamingMessage`
+    * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
     * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
@@ -49,10 +46,10 @@ trait TwitterUserClient extends StreamingOAuthClient with Configurations with Ac
                     track: Seq[String] = Seq.empty,
                     locations: Seq[Double] = Seq.empty,
                     stringify_friend_ids: Boolean = false,
-                    stall_warnings: Boolean = false)(f: StreamingMessage => Unit): Future[Unit] = {
+                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, stall_warnings)
-    val listener = createListener(f)
+    val listener = createUserListener(f)
     streamingPipeline(listener, Get(s"$userUrl/user.json", parameters))
   }
 }

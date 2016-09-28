@@ -1,6 +1,7 @@
-package com.danielasfregola.twitter4s.entities.streaming
+package com.danielasfregola.twitter4s.entities.streaming.common
 
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
+import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 /** Streams may be shut down for a variety of reasons.
   * The streaming API will attempt to deliver a message indicating why a stream was closed.
@@ -10,7 +11,7 @@ import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.Disconnect
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages</a>.
   */
-case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends StreamingMessage
+case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends CommonStreamingMessage
 
 case class DisconnectMessageInfo(code: DisconnectionCode,
                                  stream_name: String,

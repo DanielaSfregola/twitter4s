@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-import com.danielasfregola.twitter4s.entities.streaming.{EventTargetObject, StreamingMessage}
+import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                  coordinates: Seq[Seq[Seq[Double]]] = Seq.empty,
@@ -37,7 +37,7 @@ case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                  withheld_copyright: Boolean = false,
                  withheld_in_countries: Seq[String] = Seq.empty,
                  withheld_scope: Option[String] = None,
-                 metadata: Option[StatusMetadata] = None) extends StreamingMessage with EventTargetObject
+                 metadata: Option[StatusMetadata] = None) extends CommonStreamingMessage
 
 
 

@@ -1,4 +1,6 @@
-package com.danielasfregola.twitter4s.entities.streaming
+package com.danielasfregola.twitter4s.entities.streaming.common
+
+import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 /** These messages indicate that a filtered stream has matched more Tweets
   * than its current rate limit allows to be delivered. Limit notices contain
@@ -9,7 +11,7 @@ package com.danielasfregola.twitter4s.entities.streaming
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#limit_notices" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#limit_notices</a>.
   */
-case class LimitNotice(limit: LimitTrack) extends StreamingMessage
+case class LimitNotice(limit: LimitTrack) extends CommonStreamingMessage
 
 case class LimitTrack(track: Long)
 

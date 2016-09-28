@@ -1,4 +1,6 @@
-package com.danielasfregola.twitter4s.entities.streaming
+package com.danielasfregola.twitter4s.entities.streaming.common
+
+import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 /** These messages indicate that a given Tweet has been deleted.
   * Client code must honor these messages by clearing the referenced Tweet from memory and any
@@ -8,7 +10,7 @@ package com.danielasfregola.twitter4s.entities.streaming
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#status_deletion_notices_delete" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#status_deletion_notices_delete</a>.
   */
-case class StatusDeletionNotice(delete: StatusDeletionNoticeInfo) extends StreamingMessage
+case class StatusDeletionNotice(delete: StatusDeletionNoticeInfo) extends CommonStreamingMessage
 
 case class StatusDeletionNoticeInfo(status: StatusDeletionId)
 
