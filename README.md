@@ -83,7 +83,7 @@ Twitter Streaming Client
 -----------------------
 [TwitterStreamingClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient) is the client to support stream connections offered by the Twitter Streaming Api.
 
-You can initialize the client as following:
+You can initialize the client as follows:
 ```scala
 import com.danielasfregola.twitter4s.TwitterStreamingClient
 
@@ -168,7 +168,7 @@ Twitter REST Client
 
 [TwitterRestClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient) is the client for the REST endpoints offered by the Twitter REST Api.
 
-Once you have configured your consumer and access token, you can initialize an instance of `TwitterRestClient` as following:
+Once you have configured your consumer and access token, you can initialize an instance of `TwitterRestClient` as follows:
 ```
 import com.danielasfregola.twitter4s.TwitterRestClient
 
