@@ -137,7 +137,7 @@ Have a look at the complete scaladoc for the [User Stream Client](http://daniela
 
 #### UserStreamingMessage types:
 - All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
-- [FriendsLists and FriendsListsStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsLists)
+- [FriendsLists](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsLists) and [FriendsListsStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsListsStringified)
 - [SimpleEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.SimpleEvent)
 - [TweetEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TweetEvent)
 - [TwitterListEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TwitterListEvent)
@@ -151,13 +151,13 @@ Have a look at the complete scaladoc for the [Site Stream Client](http://daniela
 #### SiteStreamingMessage types:
 - All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
 - [ControlMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.ControlMessage)
-- [UserEnvelopTweet and UserEnvelopTweetStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweet)
-- [UserEnvelopDirectMessage and UserEnvelopDirectMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopDirectMessage)
-- [UserEnvelopSimpleEvent and UserEnvelopSimpleEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopSimpleEvent)
-- [UserEnvelopTweetEvent and UserEnvelopTweetEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetEvent)
-- [UserEnvelopTwitterListEvent and UserEnvelopTwitterListEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTwitterListEvent)
-- [UserEnvelopFriendsLists and UserEnvelopFriendsListsEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopFriendsLists)
-- [UserEnvelopWarningMessage and UserEnvelopWarningMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopWarningMessage)
+- [UserEnvelopTweet](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweet) and [UserEnvelopTweetStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetStringified)
+- [UserEnvelopDirectMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopDirectMessage) and [UserEnvelopDirectMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopDirectMessageStringified)
+- [UserEnvelopSimpleEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopSimpleEvent) and [UserEnvelopSimpleEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopSimpleEventStringified)
+- [UserEnvelopTweetEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetEvent) and [UserEnvelopTweetEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetEventStringified)
+- [UserEnvelopTwitterListEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTwitterListEvent) and [UserEnvelopTwitterListEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTwitterListEventStringified)
+- [UserEnvelopFriendsLists](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopFriendsLists) and [UserEnvelopFriendsListsEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopFriendsListsStringified)
+- [UserEnvelopWarningMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopWarningMessage) and [UserEnvelopWarningMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopWarningMessageStringified)
 
 ### Documentation
 The complete scaladoc with all the available streams for the `TwitterStreamingClient` can be found [here](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient).
