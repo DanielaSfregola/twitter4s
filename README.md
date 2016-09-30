@@ -27,7 +27,7 @@ resolver += Resolver.sonatypeRepo("releases")
 Also, you need to include the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "1.1"
+  "com.danielasfregola" %% "twitter4s" % "2.0"
 )
 ```
 
@@ -81,7 +81,7 @@ Once you have instantiated your client you are ready to use it! :smile:
 
 Twitter Streaming Client
 -----------------------
-[TwitterStreamingClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient) is the client to support stream connections offered by the Twitter Streaming Api.
+[TwitterStreamingClient](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient) is the client to support stream connections offered by the Twitter Streaming Api.
 
 You can initialize the client as follows:
 ```scala
@@ -112,7 +112,7 @@ client.getStatusesSample(stall_warnings = true)(printTweetText)
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
 ### Public Stream
-Have a look at the complete scaladoc for the [Public Stream Client](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient).
+Have a look at the complete scaladoc for the [Public Stream Client](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient).
 
 #### Available streams
 - getStatusesFilter
@@ -120,53 +120,53 @@ Have a look at the complete scaladoc for the [Public Stream Client](http://danie
 - getStatusesFirehose
 
 #### CommonStreamingMessage types:
-- [Tweet](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.Tweet)
-- [DisconnectMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.DisconnectMessage)
-- [LimitNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.LimitNotice)
-- [LocationDeletionNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.LocationDeletionNotice)
-- [StatusDeletionNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.StatusDeletionNotice)
-- [StatusWithheldNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.StatusWithheldNotice)
-- [UserWithheldNotice](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.UserWithheldNotice)
-- [WarningMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.WarningMessage)
+- [Tweet](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.Tweet)
+- [DisconnectMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.DisconnectMessage)
+- [LimitNotice](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.LimitNotice)
+- [LocationDeletionNotice](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.LocationDeletionNotice)
+- [StatusDeletionNotice](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.StatusDeletionNotice)
+- [StatusWithheldNotice](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.StatusWithheldNotice)
+- [UserWithheldNotice](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.UserWithheldNotice)
+- [WarningMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.common.WarningMessage)
 
 ### User Stream
-Have a look at the complete scaladoc for the [User Stream Client](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient).
+Have a look at the complete scaladoc for the [User Stream Client](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient).
 
 #### Available streams
 - getUserEvents
 
 #### UserStreamingMessage types:
 - All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
-- [FriendsLists and FriendsListsStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsLists)
-- [SimpleEvent](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.SimpleEvent)
-- [TweetEvent](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TweetEvent)
-- [TwitterListEvent](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TwitterListEvent)
+- [FriendsLists and FriendsListsStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsLists)
+- [SimpleEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.SimpleEvent)
+- [TweetEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TweetEvent)
+- [TwitterListEvent](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TwitterListEvent)
 
 ### Site Stream
-Have a look at the complete scaladoc for the [Site Stream Client](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient).
+Have a look at the complete scaladoc for the [Site Stream Client](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient).
 
 #### Available streams
 - getSiteEvents
 
 #### SiteStreamingMessage types:
 - All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
-- [ControlMessage](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.ControlMessage)
-- [UserEnvelopTweet and UserEnvelopTweetStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweet)
-- [UserEnvelopDirectMessage and UserEnvelopDirectMessageStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopDirectMessage)
-- [UserEnvelopSimpleEvent and UserEnvelopSimpleEventStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopSimpleEvent)
-- [UserEnvelopTweetEvent and UserEnvelopTweetEventStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetEvent)
-- [UserEnvelopTwitterListEvent and UserEnvelopTwitterListEventStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTwitterListEvent)
-- [UserEnvelopFriendsLists and UserEnvelopFriendsListsEventStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopFriendsLists)
-- [UserEnvelopWarningMessage and UserEnvelopWarningMessageStringified](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopWarningMessage)
+- [ControlMessage](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.ControlMessage)
+- [UserEnvelopTweet and UserEnvelopTweetStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweet)
+- [UserEnvelopDirectMessage and UserEnvelopDirectMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopDirectMessage)
+- [UserEnvelopSimpleEvent and UserEnvelopSimpleEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopSimpleEvent)
+- [UserEnvelopTweetEvent and UserEnvelopTweetEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTweetEvent)
+- [UserEnvelopTwitterListEvent and UserEnvelopTwitterListEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopTwitterListEvent)
+- [UserEnvelopFriendsLists and UserEnvelopFriendsListsEventStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopFriendsLists)
+- [UserEnvelopWarningMessage and UserEnvelopWarningMessageStringified](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.entities.streaming.site.UserEnvelopWarningMessage)
 
 ### Documentation
-The complete scaladoc with all the available streams for the `TwitterStreamingClient` can be found [here](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient).
+The complete scaladoc with all the available streams for the `TwitterStreamingClient` can be found [here](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterStreamingClient).
 
 
 Twitter REST Client
 -------------------
 
-[TwitterRestClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient) is the client for the REST endpoints offered by the Twitter REST Api.
+[TwitterRestClient](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient) is the client for the REST endpoints offered by the Twitter REST Api.
 
 Once you have configured your consumer and access token, you can initialize an instance of `TwitterRestClient` as follows:
 ```
@@ -198,28 +198,28 @@ for {
 ```
 
 ### Documentation
-The complete scaladoc with all the available functionalities for the `TwitterRestClient` can be found [here](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient).
+The complete scaladoc with all the available functionalities for the `TwitterRestClient` can be found [here](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient).
 
-[TwitterRestClient](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient) is composed by several traits. A list of the supported resources is following:
-- [account](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient)
-- [application](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.application.TwitterApplicationClient)
-- [blocks](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.blocks.TwitterBlockClient)
-- [direct_messages](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.directmessages.TwitterDirectMessageClient)
-- [favorites](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.favorites.TwitterFavoriteClient)
-- [followers](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.followers.TwitterFollowerClient)
-- [friends](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.friends.TwitterFriendClient)
-- [friendships](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.friendships.TwitterFriendshipClient)
-- [geo](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.geo.TwitterGeoClient)
-- [help](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.help.TwitterHelpClient)
-- [lists](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.lists.TwitterListClient)
-- [mutes](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.mutes.TwitterMuteClient)
-- [saved_searches](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.savedsearches.TwitterSavedSearchClient)
-- [searches](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.search.TwitterSearchClient)
-- [statuses](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusClient)
-- [suggestions](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient)
-- [users](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient)
-- [trends](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient)
-- [media](http://danielasfregola.github.io/twitter4s/1.1/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.media.TwitterMediaClient)
+[TwitterRestClient](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.TwitterRestClient) is composed by several traits. A list of the supported resources is following:
+- [account](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient)
+- [application](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.application.TwitterApplicationClient)
+- [blocks](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.blocks.TwitterBlockClient)
+- [direct_messages](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.directmessages.TwitterDirectMessageClient)
+- [favorites](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.favorites.TwitterFavoriteClient)
+- [followers](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.followers.TwitterFollowerClient)
+- [friends](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.friends.TwitterFriendClient)
+- [friendships](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.friendships.TwitterFriendshipClient)
+- [geo](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.geo.TwitterGeoClient)
+- [help](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.help.TwitterHelpClient)
+- [lists](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.lists.TwitterListClient)
+- [mutes](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.mutes.TwitterMuteClient)
+- [saved_searches](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.savedsearches.TwitterSavedSearchClient)
+- [searches](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.search.TwitterSearchClient)
+- [statuses](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusClient)
+- [suggestions](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient)
+- [users](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient)
+- [trends](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient)
+- [media](http://danielasfregola.github.io/twitter4s/2.0/api/index.html#com.danielasfregola.twitter4s.http.clients.rest.media.TwitterMediaClient)
 
 Proxy Support
 -------------
@@ -265,6 +265,6 @@ resolver += Resolver.sonatypeRepo("snapshots")
 Then, add the library as your dependency:
 ```scala
 libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "1.2-SNAPSHOT"
+  "com.danielasfregola" %% "twitter4s" % "2.1-SNAPSHOT"
 )
 ```
