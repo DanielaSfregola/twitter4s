@@ -21,7 +21,7 @@ Setup
 If you don't have it already, make sure you add the Maven Central as resolver in your SBT settings:
 
 ```scala
-resolver += Resolver.sonatypeRepo("releases")
+resolvers += Resolver.sonatypeRepo("releases")
 ```
 
 Also, you need to include the library as your dependency:
