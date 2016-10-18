@@ -26,9 +26,7 @@ resolvers += Resolver.sonatypeRepo("releases")
 
 Also, you need to include the library as your dependency:
 ```scala
-libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "2.0"
-)
+libraryDependencies += "com.danielasfregola" %% "twitter4s" % "2.0"
 ```
 
 Usage
@@ -259,12 +257,10 @@ Snapshot Versions
 -----------------
 To use a snapshot version of this library, make sure you have the resolver for maven central (snapshot repositories) in your SBT settings:
 ```scala
-resolver += Resolver.sonatypeRepo("snapshots")
+resolvers += Resolver.sonatypeRepo("snapshots")
 ```
 
 Then, add the library as your dependency:
 ```scala
-libraryDependencies ++= Seq(
-  "com.danielasfregola" %% "twitter4s" % "2.1-SNAPSHOT"
-)
+libraryDependencies += "com.danielasfregola" %% "twitter4s" % "2.1-SNAPSHOT"
 ```
