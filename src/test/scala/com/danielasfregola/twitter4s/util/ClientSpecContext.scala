@@ -22,7 +22,7 @@ abstract class ClientSpecContext extends TestActorSystem with StreamingOAuthClie
 
   private val transport = TestProbe()
 
-  implicit val timeout: FiniteDuration = 5 seconds
+  implicit val timeout: FiniteDuration = 20 seconds
 
   override def sendReceive: spray.client.pipelining.SendReceive = {
     implicit val timeout: Timeout = self.timeout
