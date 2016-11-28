@@ -5,7 +5,7 @@ import java.util.Date
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 case class Tweet(contributors: Seq[Contributor] = Seq.empty,
-                 coordinates: Seq[Seq[Seq[Double]]] = Seq.empty,
+                 coordinates: Option[Coordinates] = None,
                  created_at: Date,
                  current_user_retweet: Option[TweetId] = None,
                  entities: Option[Entities] = None,
