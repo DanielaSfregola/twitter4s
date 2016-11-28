@@ -12,7 +12,7 @@ before_cache:
 language: scala
 
 script:
-  - travis_retry sbt clean coverage test
+  - sbt clean coverage test
 
 after_script:
   - sbt coveralls
