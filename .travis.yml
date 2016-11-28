@@ -1,11 +1,21 @@
 sudo: false
 
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/boot/
+
+before_cache:
+  - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
+  - find $HOME/.sbt -name "*.lock" -delete
+
 language: scala
 
-script: "sbt clean coverage test"
+script:
+  - travis_retry sbt clean coverage test
 
 after_script:
-  - "sbt coveralls"
+  - sbt coveralls
 
 scala:
   - 2.11.8
