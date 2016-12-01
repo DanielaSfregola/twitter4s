@@ -242,17 +242,6 @@ Examples
 --------
 Have a look at the repository [twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) for more examples on how to use `twitter4s`.
 
-Coming up Features
----------------
-- OAuth1 support
-- Query support
-- Site streaming extended support
-- Support for dump to file
-- Upgrade to Akka Http
-- ...
-
-Contributions and feature requests are always welcome!
-
 Snapshot Versions
 -----------------
 To use a snapshot version of this library, make sure you have the resolver for maven central (snapshot repositories) in your SBT settings:
@@ -264,3 +253,21 @@ Then, add the library as your dependency:
 ```scala
 libraryDependencies += "com.danielasfregola" %% "twitter4s" % "2.2-SNAPSHOT"
 ```
+
+Coming up Features
+---------------
+- OAuth1 support
+- Query support
+- Site streaming extended support
+- Support for dump to file
+- Upgrade to Akka Http
+- ...
+
+How to Contribute
+-----------------
+Contributions and feature requests are always welcome!
+
+- Fork the repo and checkout the code
+- Make sure to run sbt with jdk8+
+- Run the tests with `sbt test`
+- ...you can now do your magic and submit a PR when you are ready! :dancers:
