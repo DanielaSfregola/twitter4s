@@ -13,29 +13,6 @@ object Resolvers {
   )
 }
 
-object Dependencies {
-
-  val Typesafe = "1.3.0"
-  val Akka = "2.3.6"
-  val Spray = "1.3.3"
-  val Json4s = "3.2.11"
-  val Spec2 = "2.3.13"
-  val ScalaLogging = "3.4.0"
-
-  val dependencies = Seq(
-    "com.typesafe" % "config" % Typesafe,
-    "com.typesafe.akka" %% "akka-actor" % Akka,
-    "io.spray" %% "spray-client" % Spray,
-    "io.spray" %% "spray-http" % Spray,
-    "io.spray" %% "spray-httpx" % Spray,
-    "io.spray" %% "spray-routing" % Spray,
-    "org.json4s" %% "json4s-native" % Json4s,
-    "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
-    "org.specs2" %% "specs2-core" % Spec2 % "test",
-    "com.typesafe.akka" %% "akka-testkit" % Akka % "test"
-  )
-}
-
 object Scoverage {
 
   val settings = Seq(
@@ -99,8 +76,6 @@ object Twitter4s extends Build {
 
   lazy val root = Project(id = "twitter4s",
     base = file("."),
-    settings = standardSettings ++ Seq(
-      libraryDependencies ++= Dependencies.dependencies
-    ) ++ Scoverage.settings
+    settings = standardSettings ++ Scoverage.settings
   )
 }
