@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
+import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
 import com.danielasfregola.twitter4s.util.ClientSpec
 import spray.http.Uri.Query
@@ -13,12 +14,12 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFilter(track = Seq("trending"))(dummyProcessing)).expectRequest {
+        when(getStatusesFilter(track = Seq("trending"), language = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
             request.entity === HttpEntity(ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-              "stall_warnings=false&track=trending")
+              "language=hu%2Cbn&stall_warnings=false&track=trending")
         }.respondWithOk.await
       result.isInstanceOf[Unit] should beTrue
     }
