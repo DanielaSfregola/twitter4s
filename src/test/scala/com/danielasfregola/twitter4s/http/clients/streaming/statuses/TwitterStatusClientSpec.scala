@@ -14,7 +14,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFilter(track = Seq("trending"), language = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
+        when(getStatusesFilter(track = Seq("trending"), languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"

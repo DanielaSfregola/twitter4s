@@ -31,7 +31,7 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * @param locations : Empty by default. Specifies a set of bounding boxes to track.
     *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#locations" target="_blank">
     *                      https://dev.twitter.com/streaming/overview/request-parameters#locations</a>
-    * @param language : Empty by default. A comma separated list of 'BCP 47' language identifiers.
+    * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
     *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
     *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
@@ -40,10 +40,10 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
   def getStatusesFilter(follow: Seq[Long] = Seq.empty,
                         track: Seq[String] = Seq.empty,
                         locations: Seq[Double] = Seq.empty,
-                        language: Seq[Language] = Seq.empty,
+                        languages: Seq[Language] = Seq.empty,
                         stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
-    val parameters = StatusFilterParameters(follow, track, locations, language, stall_warnings)
+    val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]))
   }
