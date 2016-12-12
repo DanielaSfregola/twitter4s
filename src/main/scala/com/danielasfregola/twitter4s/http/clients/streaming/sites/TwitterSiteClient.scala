@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.sites
 
+import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
@@ -34,6 +35,9 @@ trait TwitterSiteClient extends TwitterStreamListenerHelper with StreamingOAuthC
     * @param stringify_friend_ids: Optional. Specifies whether to send the Friend List preamble as an array of integers or an array of strings.
     *                              For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#stringify_friend_id" tagert="_blank">
     *                                https://dev.twitter.com/streaming/overview/request-parameters#stringify_friend_id</a>
+    * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
+    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
+    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
@@ -41,9 +45,10 @@ trait TwitterSiteClient extends TwitterStreamListenerHelper with StreamingOAuthC
                     `with`: WithFilter = WithFilter.User,
                     replies: Option[Boolean] = None,
                     stringify_friend_ids: Boolean = false,
+                    languages: Seq[Language] = Seq.empty,
                     stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
-    val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, stall_warnings)
+    val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
     val listener = createSiteListener(f)
     streamingPipeline(listener, Get(s"$siteUrl/site.json", parameters))
   }

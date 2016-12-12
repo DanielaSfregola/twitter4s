@@ -57,11 +57,14 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
     *
+    * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
+    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
+    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getStatusesSample(stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
-    val parameters = StatusSampleParameters(stall_warnings)
+  def getStatusesSample(languages: Seq[Language] = Seq.empty, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
+    val parameters = StatusSampleParameters(languages, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
   }
@@ -77,13 +80,16 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * @param count: Optional. The number of messages to backfill.
     *               For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#count" target="_blank">
     *                 https://dev.twitter.com/streaming/overview/request-parameters#count</a>
+    * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
+    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
+    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages.
     */
-  def getStatusesFirehose(count: Option[Int] = None, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
+  def getStatusesFirehose(count: Option[Int] = None, languages: Seq[Language] = Seq.empty, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
-    val parameters = StatusFirehoseParameters(count, stall_warnings)
+    val parameters = StatusFirehoseParameters(languages, count, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
   }
