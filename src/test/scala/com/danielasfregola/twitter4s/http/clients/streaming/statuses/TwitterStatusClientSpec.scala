@@ -26,22 +26,22 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a sample status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesSample()(dummyProcessing)).expectRequest {
+        when(getStatusesSample(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
-            request.uri.query === Query("stall_warnings=false")
+            request.uri.query === Query("language=hu%2Cbn&stall_warnings=false")
         }.respondWithOk.await
       result.isInstanceOf[Unit] should beTrue
     }
 
     "start a firehose status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFirehose()(dummyProcessing)).expectRequest {
+        when(getStatusesFirehose(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/firehose.json"
-            request.uri.query === Query("stall_warnings=false")
+            request.uri.query === Query("language=hu%2Cbn&stall_warnings=false")
         }.respondWithOk.await
       result.isInstanceOf[Unit] should beTrue
     }
