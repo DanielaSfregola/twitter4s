@@ -12,7 +12,7 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
   "Twitter Saved Search Client" should {
 
     "get saved searches" in new TwitterSavedSearchClientSpecContext {
-      val result: Seq[SavedSearch] = when(getSavedSearches).expectRequest { request =>
+      val result: Seq[SavedSearch] = when(savedSearches).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/saved_searches/list.json"
       }.respondWith("/twitter/rest/savedsearches/list.json").await

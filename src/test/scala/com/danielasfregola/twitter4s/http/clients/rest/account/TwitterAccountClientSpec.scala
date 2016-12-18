@@ -13,7 +13,7 @@ class TwitterAccountClientSpec extends ClientSpec {
   "Twitter Account Client" should {
 
     "retrieve account settings" in new TwitterAccountClientSpecContext {
-      val result: Settings = when(getSettings).expectRequest { request =>
+      val result: Settings = when(settings).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/settings.json"
       }.respondWith("/twitter/rest/account/settings.json").await

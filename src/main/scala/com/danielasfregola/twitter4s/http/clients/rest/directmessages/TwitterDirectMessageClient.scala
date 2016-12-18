@@ -21,10 +21,14 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     * @param id : The ID of the direct message.
     * @return : The direct message.
     * */
-  def getDirectMessage(id: Long): Future[DirectMessage] = {
+  def directMessage(id: Long): Future[DirectMessage] = {
     val parameters = ShowParameters(id)
     Get(s"$directMessagesUrl/show.json", parameters).respondAs[DirectMessage]
   }
+
+  @deprecated("use directMessage instead", "2.2")
+  def getDirectMessage(id: Long): Future[DirectMessage] =
+    directMessage(id)
 
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
@@ -80,14 +84,21 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *              Specifies the number of records to retrieve. Must be less than or equal to 200.
     * @return : The sequence of sent direct messages.
     * */
+  def sentDirectMessages(since_id: Option[Long] = None,
+                         max_id: Option[Long] = None,
+                         count: Int = 200,
+                         include_entities: Boolean = true,
+                         page: Int = -1): Future[Seq[DirectMessage]] = {
+    val parameters = SentParameters(since_id, max_id, count, include_entities, page)
+    Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
+  }
+
   def getSentDirectMessages(since_id: Option[Long] = None,
                             max_id: Option[Long] = None,
                             count: Int = 200,
                             include_entities: Boolean = true,
-                            page: Int = -1): Future[Seq[DirectMessage]] = {
-    val parameters = SentParameters(since_id, max_id, count, include_entities, page)
-    Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
-  }
+                            page: Int = -1): Future[Seq[DirectMessage]] =
+    sentDirectMessages(since_id, max_id, count, include_entities, page)
 
   /** Returns the 20 most recent direct messages sent to the authenticating user.
     * Includes detailed information about the sender and recipient user.
@@ -112,14 +123,22 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The sequence of received direct messages.
     * */
+  def receivedDirectMessages(since_id: Option[Long] = None,
+                             max_id: Option[Long] = None,
+                             count: Int = 200,
+                             include_entities: Boolean = true,
+                             skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
+    val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
+    Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
+  }
+
+  @deprecated("use receivedDirectMessages instead", "2.2")
   def getReceivedDirectMessages(since_id: Option[Long] = None,
                                 max_id: Option[Long] = None,
                                 count: Int = 200,
                                 include_entities: Boolean = true,
-                                skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
-    val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
-    Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
-  }
+                                skip_status: Boolean = false): Future[Seq[DirectMessage]] =
+    receivedDirectMessages(since_id, max_id, count, include_entities, skip_status)
 
   /** Destroys the direct message specified in the required ID parameter.
     * The authenticating user must be the recipient of the specified direct message.

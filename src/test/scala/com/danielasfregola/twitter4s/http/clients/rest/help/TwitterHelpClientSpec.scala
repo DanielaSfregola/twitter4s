@@ -11,7 +11,7 @@ class TwitterHelpClientSpec extends ClientSpec {
   "Twitter Help Client" should {
 
     "get twitter configuration" in new TwitterHelpClientSpecContext {
-      val result: Configuration = when(getConfiguration()).expectRequest { request =>
+      val result: Configuration = when(configuration()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/help/configuration.json"
       }.respondWith("/twitter/rest/help/configuration.json").await
@@ -19,7 +19,7 @@ class TwitterHelpClientSpec extends ClientSpec {
     }
 
     "get supported languages" in new TwitterHelpClientSpecContext {
-      val result: Seq[LanguageDetails] = when(getSupportedLanguages()).expectRequest { request =>
+      val result: Seq[LanguageDetails] = when(supportedLanguages()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/help/languages.json"
       }.respondWith("/twitter/rest/help/languages.json").await
@@ -27,7 +27,7 @@ class TwitterHelpClientSpec extends ClientSpec {
     }
     
     "get twitter privacy policy" in new TwitterHelpClientSpecContext {
-      val result: PrivacyPolicy = when(getPrivacyPolicy()).expectRequest { request =>
+      val result: PrivacyPolicy = when(privacyPolicy()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/help/privacy.json"
       }.respondWith("/twitter/rest/help/privacy.json").await
@@ -35,7 +35,7 @@ class TwitterHelpClientSpec extends ClientSpec {
     }
 
     "get twitter terms of service" in new TwitterHelpClientSpecContext {
-      val result: TermsOfService = when(getTermsOfService()).expectRequest { request =>
+      val result: TermsOfService = when(termsOfService()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/help/tos.json"
       }.respondWith("/twitter/rest/help/tos.json").await

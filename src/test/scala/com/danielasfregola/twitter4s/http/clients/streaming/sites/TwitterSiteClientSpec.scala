@@ -14,7 +14,7 @@ class TwitterSiteClientSpec extends ClientSpec {
 
     "start a filtered site stream" in new TwitterSiteClientSpecContext {
       val result: Unit =
-        when(getSiteEvents(languages = Seq(Language.Italian))(dummyProcessing)).expectRequest { request =>
+        when(siteEvents(languages = Seq(Language.Italian))(dummyProcessing)).expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://sitestream.twitter.com/1.1/site.json"
           request.uri.query === Query("language=it&stall_warnings=false&stringify_friend_ids=false&with=user")

@@ -20,8 +20,12 @@ trait TwitterSavedSearchClient extends OAuthClient with Configurations {
     *
     * @return : The sequence of saved searches.
     */
-  def getSavedSearches(): Future[Seq[SavedSearch]] =
+  def savedSearches(): Future[Seq[SavedSearch]] =
     Get(s"$savedSearchUrl/list.json").respondAs[Seq[SavedSearch]]
+
+  @deprecated("use savedSearches instead", "2.2")
+  def getSavedSearches(): Future[Seq[SavedSearch]] =
+    savedSearches()
 
   /** Create a new saved search for the authenticated user.
     * A user may only have 25 saved searches.

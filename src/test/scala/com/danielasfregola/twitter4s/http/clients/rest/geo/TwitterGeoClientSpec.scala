@@ -13,7 +13,7 @@ class TwitterGeoClientSpec extends ClientSpec {
 
     "get a geo place by id" in new TwitterGeoClientSpecContext {
       val placeId = "df51dec6f4ee2b2c"
-      val result: GeoPlace = when(getGeoPlace(placeId)).expectRequest { request =>
+      val result: GeoPlace = when(geoPlace(placeId)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/id/$placeId.json"
       }.respondWith("/twitter/rest/geo/geo_place.json").await
