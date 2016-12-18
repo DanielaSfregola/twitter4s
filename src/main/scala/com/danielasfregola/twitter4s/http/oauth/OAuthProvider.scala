@@ -51,6 +51,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     s"$method&$baseUrl&$encodedParams"
   }
 
+  @deprecated("use signatureBase instead", "2.2")
   def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) =
     signatureBase(oauthParams)
 
