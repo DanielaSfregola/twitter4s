@@ -93,6 +93,7 @@ trait TwitterDirectMessageClient extends OAuthClient with Configurations {
     Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
   }
 
+  @deprecated("use sentDirectMessages instead", "2.2")
   def getSentDirectMessages(since_id: Option[Long] = None,
                             max_id: Option[Long] = None,
                             count: Int = 200,
