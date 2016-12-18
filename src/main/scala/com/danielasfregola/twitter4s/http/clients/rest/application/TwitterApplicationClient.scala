@@ -23,9 +23,13 @@ trait TwitterApplicationClient extends OAuthClient with Configurations {
     *                  If no resources are specified, all the resources are considered.
     * @return : The current rate limits for methods belonging to the specified resource families.
     */
-  def getRateLimits(resources: Resource*): Future[RateLimits] = {
+  def rateLimits(resources: Resource*): Future[RateLimits] = {
     val parameters = RatesParameters(Option(resources.mkString(",")).filter(_.trim.nonEmpty))
     Get(s"$applicationUrl/rate_limit_status.json", parameters).respondAs[RateLimits]
   }
+
+  @deprecated("use rateLimits instead", "2.2")
+  def getRateLimits(resources: Resource*): Future[RateLimits] =
+    rateLimits(resources:_*)
 
 }

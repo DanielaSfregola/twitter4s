@@ -12,7 +12,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
   "Twitter User Client" should {
 
     "retrieve users" in new TwitterUserClientSpecContext {
-      val result: Seq[User] = when(getUsers("marcobonzanini", "odersky")).expectRequest { request =>
+      val result: Seq[User] = when(users("marcobonzanini", "odersky")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
         request.uri.query === Query("include_entities=true&screen_name=marcobonzanini,odersky")
@@ -21,11 +21,11 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "reject request if no screen names have been provided to retreive users" in new TwitterUserClientSpecContext {
-      getUsers() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+      users() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
     }
 
     "retrieve users by user ids" in new TwitterUserClientSpecContext {
-      val result: Seq[User] = when(getUsersByIds(19018614, 17765013)).expectRequest { request =>
+      val result: Seq[User] = when(usersByIds(19018614, 17765013)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
         request.uri.query === Query("include_entities=true&user_id=19018614,17765013")
@@ -34,11 +34,11 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "reject request if no ids have been provided to retreive users by ids" in new TwitterUserClientSpecContext {
-      getUsersByIds() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+      usersByIds() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
     }
 
     "retrieve user" in new TwitterUserClientSpecContext {
-      val result: User = when(getUser("marcobonzanini")).expectRequest { request =>
+      val result: User = when(user("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
         request.uri.query === Query("include_entities=true&screen_name=marcobonzanini")
@@ -47,7 +47,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "retrieve user by id" in new TwitterUserClientSpecContext {
-      val result: User = when(getUserById(19018614)).expectRequest { request =>
+      val result: User = when(userById(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
         request.uri.query === Query("include_entities=true&user_id=19018614")
@@ -56,7 +56,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "get the profile banners of a user" in new  TwitterUserClientSpecContext {
-      val result: Banners = when(getProfileBannersForUser("DanielaSfregola")).expectRequest { request =>
+      val result: Banners = when(profileBannersForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
         request.uri.query === Query("screen_name=DanielaSfregola")
@@ -65,7 +65,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
     }
 
     "get the profile banners of a user by id" in new  TwitterUserClientSpecContext {
-      val result: Banners = when(getProfileBannersForUserId(19018614)).expectRequest { request =>
+      val result: Banners = when(profileBannersForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
         request.uri.query === Query("user_id=19018614")

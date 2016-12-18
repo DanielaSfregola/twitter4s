@@ -44,15 +44,24 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                         The parameters node will be disincluded when set to `false`.
     * @return : The sequence of tweets.
     */
+  def mentionsTimeline(count: Int = 200,
+                       since_id: Option[Long] = None,
+                       max_id: Option[Long] = None,
+                       trim_user: Boolean = false,
+                       contributor_details: Boolean = false,
+                       include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities)
+    Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAs[Seq[Tweet]]
+  }
+
+  @deprecated("use mentionsTimeline instead", "2.2")
   def getMentionsTimeline(count: Int = 200,
                           since_id: Option[Long] = None,
                           max_id: Option[Long] = None,
                           trim_user: Boolean = false,
                           contributor_details: Boolean = false,
-                          include_entities: Boolean = true): Future[Seq[Tweet]] = {
-    val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities)
-    Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAs[Seq[Tweet]]
-  }
+                          include_entities: Boolean = true): Future[Seq[Tweet]] =
+    mentionsTimeline(count, since_id, max_id, trim_user, contributor_details, include_entities)
 
   /** Returns a collection of the most recent Tweets posted by the user indicated.
     * User timelines belonging to protected users may only be requested when the authenticated user either “owns” the timeline or is an approved follower of the owner.
@@ -89,6 +98,19 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                    Note: If you’re using the `trim_user` parameter in conjunction with `include_rts`, the retweets will still contain a full user object.
     * @return : The sequence of tweets.
     */
+  def userTimelineForUser(screen_name: String,
+                          since_id: Option[Long] = None,
+                          count: Int = 200,
+                          max_id: Option[Long] = None,
+                          trim_user: Boolean = false,
+                          exclude_replies: Boolean = false,
+                          contributor_details: Boolean = false,
+                          include_rts: Boolean = true): Future[Seq[Tweet]] = {
+    val parameters = UserTimelineParameters(user_id = None, Some(screen_name), since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
+    genericGetUserTimeline(parameters)
+  }
+
+  @deprecated("use userTimelineForUser instead", "2.2")
   def getUserTimelineForUser(screen_name: String,
                              since_id: Option[Long] = None,
                              count: Int = 200,
@@ -96,10 +118,8 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                              trim_user: Boolean = false,
                              exclude_replies: Boolean = false,
                              contributor_details: Boolean = false,
-                             include_rts: Boolean = true): Future[Seq[Tweet]] = {
-    val parameters = UserTimelineParameters(user_id = None, Some(screen_name), since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
-    genericGetUserTimeline(parameters)
-  }
+                             include_rts: Boolean = true): Future[Seq[Tweet]] =
+    userTimelineForUser(screen_name, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
 
   /** Returns a collection of the most recent Tweets posted by the user id indicated.
     * User timelines belonging to protected users may only be requested when the authenticated user either “owns” the timeline or is an approved follower of the owner.
@@ -136,6 +156,19 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                    Note: If you’re using the `trim_user` parameter in conjunction with `include_rts`, the retweets will still contain a full user object.
     * @return : The sequence of tweets.
     */
+  def userTimelineForUserId(user_id: Long,
+                            since_id: Option[Long] = None,
+                            count: Int = 200,
+                            max_id: Option[Long] = None,
+                            trim_user: Boolean = false,
+                            exclude_replies: Boolean = false,
+                            contributor_details: Boolean = false,
+                            include_rts: Boolean = true): Future[Seq[Tweet]] = {
+    val parameters = UserTimelineParameters(Some(user_id), None, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
+    genericGetUserTimeline(parameters)
+  }
+
+  @deprecated("use userTimelineForUserId instead", "2.2")
   def getUserTimelineForUserId(user_id: Long,
                                since_id: Option[Long] = None,
                                count: Int = 200,
@@ -143,10 +176,8 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                                trim_user: Boolean = false,
                                exclude_replies: Boolean = false,
                                contributor_details: Boolean = false,
-                               include_rts: Boolean = true): Future[Seq[Tweet]] = {
-    val parameters = UserTimelineParameters(Some(user_id), None, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
-    genericGetUserTimeline(parameters)
-  }
+                               include_rts: Boolean = true): Future[Seq[Tweet]] =
+    userTimelineForUserId(user_id, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
 
   private def genericGetUserTimeline(parameters: UserTimelineParameters): Future[Seq[Tweet]] =
     Get(s"$statusesUrl/user_timeline.json", parameters).respondAs[Seq[Tweet]]
@@ -181,16 +212,25 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                    When set to `false`, The parameters node will be disincluded when set to false.
     * @return : The sequence of tweets.
     */
+  def homeTimeline(count: Int = 20,
+                   since_id: Option[Long] = None,
+                   max_id: Option[Long] = None,
+                   trim_user: Boolean = false,
+                   exclude_replies: Boolean = false,
+                   contributor_details: Boolean = false,
+                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    val parameters = HomeTimelineParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
+    Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Tweet]]
+  }
+
   def getHomeTimeline(count: Int = 20,
                       since_id: Option[Long] = None,
                       max_id: Option[Long] = None,
                       trim_user: Boolean = false,
                       exclude_replies: Boolean = false,
                       contributor_details: Boolean = false,
-                      include_entities: Boolean = true): Future[Seq[Tweet]] = {
-    val parameters = HomeTimelineParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
-    Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Tweet]]
-  }
+                      include_entities: Boolean = true): Future[Seq[Tweet]] =
+    homeTimeline(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
 
   /** Returns the most recent tweets authored by the authenticating user that have been retweeted by others.
     * For more information see
@@ -218,16 +258,26 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                    When set to `false`, The parameters node will be disincluded when set to false.
     * @return : The sequence of tweets.
     */
+  def retweetsOfMe(count: Int = 20,
+                   since_id: Option[Long] = None,
+                   max_id: Option[Long] = None,
+                   trim_user: Boolean = false,
+                   exclude_replies: Boolean = false,
+                   contributor_details: Boolean = false,
+                   include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    val parameters = RetweetsOfMeParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
+    Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAs[Seq[Tweet]]
+  }
+
+  @deprecated("use retweetsOfMe instead", "2.2")
   def getRetweetsOfMe(count: Int = 20,
                       since_id: Option[Long] = None,
                       max_id: Option[Long] = None,
                       trim_user: Boolean = false,
                       exclude_replies: Boolean = false,
                       contributor_details: Boolean = false,
-                      include_entities: Boolean = true): Future[Seq[Tweet]] = {
-    val parameters = RetweetsOfMeParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
-    Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAs[Seq[Tweet]]
-  }
+                      include_entities: Boolean = true): Future[Seq[Tweet]] =
+    retweetsOfMe(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
 
   /** Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
     * For more information see
@@ -242,12 +292,19 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                  Set this parameter to `false` to receive the complete user object.
     * @return : The sequence of tweets.
     */
-  def getRetweets(id: Long,
-                  count: Int = 100,
-                  trim_user: Boolean = false): Future[Seq[Tweet]] = {
+  def retweets(id: Long,
+               count: Int = 100,
+               trim_user: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = RetweetsParameters(count, trim_user)
     Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Tweet]]
   }
+
+  @deprecated("use retweets instead", "2.2")
+  def getRetweets(id: Long,
+                  count: Int = 100,
+                  trim_user: Boolean = false): Future[Seq[Tweet]] =
+    retweets(id, count, trim_user)
+
 
   /** Returns a single Tweet, specified by the id parameter. The Tweet’s author will also be embedded within the tweet.
     * For more information see
@@ -326,6 +383,20 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                  A list of media_ids to associate with the Tweet. You may include up to 4 photos or 1 animated GIF or 1 video in a Tweet.
     * @return : The representation of the created tweet.
     */
+  def createTweet(status: String,
+                  in_reply_to_status_id: Option[Long] = None,
+                  possibly_sensitive: Boolean = false,
+                  latitude: Option[Long] = None,
+                  longitude: Option[Long] = None,
+                  place_id: Option[String] = None,
+                  display_coordinates: Boolean = false,
+                  trim_user: Boolean = false,
+                  media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
+    val entity = TweetUpdate(status, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
+    Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
+  }
+
+  @deprecated("use createTweet instead", "2.2")
   def tweet(status: String,
             in_reply_to_status_id: Option[Long] = None,
             possibly_sensitive: Boolean = false,
@@ -334,10 +405,8 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
             place_id: Option[String] = None,
             display_coordinates: Boolean = false,
             trim_user: Boolean = false,
-            media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
-    val entity = TweetUpdate(status, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
-    Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
-  }
+            media_ids: Seq[Long] = Seq.empty): Future[Tweet] =
+    createTweet(status, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
 
   /** Sends a direct message to a specified user.
     * For more information see
@@ -383,7 +452,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                                  trim_user: Boolean = false,
                                  media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
     val directMessage = s"D $screen_name $message"
-    tweet(directMessage, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
+    createTweet(directMessage, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
   }
 
   /** Retweets a tweet. Returns the original tweet with retweet details embedded.
@@ -438,6 +507,21 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                   Applies to video type only. Set to `true` to link directly to the Tweet URL instead of displaying a Tweet overlay when a viewer clicks on the Twitter bird logo.
     * @return : The representation of embedded tweet.
     */
+  def oembedTweetById(id: Long,
+                      max_width: Option[Int] = None,
+                      hide_media: Boolean = false,
+                      hide_thread: Boolean = false,
+                      hide_tweet: Boolean = false,
+                      omit_script: Boolean = false,
+                      alignment: Alignment = Alignment.None,
+                      related: Seq[String] = Seq.empty,
+                      language: Language = Language.English,
+                      widget_type: Option[WidgetType] = None): Future[OEmbedTweet] = {
+    val parameters = OEmbedParameters(Some(id), url = None, max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
+    genericGetOembeddedTweet(parameters)
+  }
+
+  @deprecated("use oembedTweetById instead", "2.2")
   def getOembedTweetById(id: Long,
                          max_width: Option[Int] = None,
                          hide_media: Boolean = false,
@@ -447,10 +531,8 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                          alignment: Alignment = Alignment.None,
                          related: Seq[String] = Seq.empty,
                          language: Language = Language.English,
-                         widget_type: Option[WidgetType] = None): Future[OEmbedTweet] = {
-    val parameters = OEmbedParameters(Some(id), url = None, max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
-    genericGetOembeddedTweet(parameters)
-  }
+                         widget_type: Option[WidgetType] = None): Future[OEmbedTweet] =
+    oembedTweetById(id, max_width, hide_media, hide_thread, hide_tweet, omit_script, alignment, related, language, widget_type)
 
   /** Returns a single Tweet, specified by a Tweet web URL, in an oEmbed-compatible format.
     * The returned HTML snippet will be automatically recognized as an Embedded Tweet when Twitter’s widget JavaScript is included on the page.
@@ -488,6 +570,21 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                   Applies to video type only. Set to `true` to link directly to the Tweet URL instead of displaying a Tweet overlay when a viewer clicks on the Twitter bird logo.
     * @return : The representation of embedded tweet.
     */
+  def oembedTweetByUrl(url: String,
+                       max_width: Option[Int] = None,
+                       hide_media: Boolean = false,
+                       hide_thread: Boolean = false,
+                       hide_tweet: Boolean = false,
+                       omit_script: Boolean = false,
+                       alignment: Alignment = Alignment.None,
+                       related: Seq[String] = Seq.empty,
+                       language: Language = Language.English,
+                       widget_type: Option[WidgetType] = None): Future[OEmbedTweet] = {
+    val parameters = OEmbedParameters(id = None, Some(url), max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
+    genericGetOembeddedTweet(parameters)
+  }
+
+  @deprecated("use oembedTweetByUrl instead", "2.2")
   def getOembedTweetByUrl(url: String,
                           max_width: Option[Int] = None,
                           hide_media: Boolean = false,
@@ -497,10 +594,8 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
                           alignment: Alignment = Alignment.None,
                           related: Seq[String] = Seq.empty,
                           language: Language = Language.English,
-                          widget_type: Option[WidgetType] = None): Future[OEmbedTweet] = {
-    val parameters = OEmbedParameters(id = None, Some(url), max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
-    genericGetOembeddedTweet(parameters)
-  }
+                          widget_type: Option[WidgetType] = None): Future[OEmbedTweet] =
+    oembedTweetByUrl(url, max_width, hide_media, hide_thread, hide_tweet, omit_script, alignment, related, language, widget_type)
 
   private def genericGetOembeddedTweet(parameters: OEmbedParameters): Future[OEmbedTweet] =
     Get(s"$statusesUrl/oembed.json", parameters).respondAs[OEmbedTweet]
@@ -517,10 +612,14 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The representation of the retweeter ids.
     */
-  def getRetweeterIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIds] = {
+  def retweeterIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIds] = {
     val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = false)
     genericGetRetweeterIds[UserIds](parameters)
   }
+
+  @deprecated("use retweeterIds instead", "2.2")
+  def getRetweeterIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserIds] =
+    retweeterIds(id, count, cursor)
 
   /** Returns a collection of up to 100 user stringified IDs belonging to users who have retweeted the tweet specified by the id parameter.
     * For more information see
@@ -534,10 +633,14 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The representation of the retweeter stringified ids.
     */
-  def getRetweeterStringifiedIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserStringifiedIds] = {
+  def retweeterStringifiedIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = RetweetersIdsParameters(id, count, cursor, stringify_ids = true)
     genericGetRetweeterIds[UserStringifiedIds](parameters)
   }
+
+  @deprecated("use retweeterStringifiedIds instead", "2.2")
+  def getRetweeterStringifiedIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserStringifiedIds] =
+    retweeterStringifiedIds(id, count, cursor)
 
   private def genericGetRetweeterIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] =
     Get(s"$statusesUrl/retweeters/ids.json", parameters).respondAs[T]
@@ -552,7 +655,10 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @return : The representation of the lookup tweets.
     */
-  def getTweetLookup(ids: Long*): Future[Seq[LookupTweet]] = getTweetLookup(ids)
+  def tweetLookup(ids: Long*): Future[Seq[LookupTweet]] = tweetLookup(ids)
+
+  @deprecated("use tweetLookup instead", "2.2")
+  def getTweetLookup(ids: Long*): Future[Seq[LookupTweet]] = tweetLookup(ids:_*)
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
@@ -569,13 +675,19 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                  Set this parameter to `false` to receive the complete user object.
     * @return : The representation of the lookup tweets.
     */
-  def getTweetLookup(ids: Seq[Long],
-                     include_entities: Boolean = true,
-                     trim_user: Boolean = false): Future[Seq[LookupTweet]] = {
+  def tweetLookup(ids: Seq[Long],
+                  include_entities: Boolean = true,
+                  trim_user: Boolean = false): Future[Seq[LookupTweet]] = {
     require(!ids.isEmpty, "please, provide at least one status id to lookup")
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
     genericGetTweetLookup[Seq[LookupTweet]](parameters)
   }
+
+  @deprecated("use tweetLookup instead", "2.2")
+  def getTweetLookup(ids: Seq[Long],
+                     include_entities: Boolean = true,
+                     trim_user: Boolean = false): Future[Seq[LookupTweet]] =
+    tweetLookup(ids, include_entities, trim_user)
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
@@ -587,7 +699,10 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @return : The representation of the lookup tweets mapped by id.
     */
-  def getTweetLookupMapped(ids: Long*): Future[LookupMapped] = getTweetLookupMapped(ids)
+  def tweetLookupMapped(ids: Long*): Future[LookupMapped] = tweetLookupMapped(ids)
+
+  @deprecated("use tweetLookupMapped instead", "2.2")
+  def getTweetLookupMapped(ids: Long*): Future[LookupMapped] = tweetLookupMapped(ids:_*)
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
@@ -604,12 +719,18 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     *                  Set this parameter to `false` to receive the complete user object.
     * @return : The representation of the lookup tweets mapped by id.
     */
-  def getTweetLookupMapped(ids: Seq[Long],
-                           include_entities: Boolean = true,
-                           trim_user: Boolean = false): Future[LookupMapped] = {
+  def tweetLookupMapped(ids: Seq[Long],
+                        include_entities: Boolean = true,
+                        trim_user: Boolean = false): Future[LookupMapped] = {
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = true)
     genericGetTweetLookup[LookupMapped](parameters)
   }
+
+  @deprecated("use tweetLookupMapped instead", "2.2")
+  def getTweetLookupMapped(ids: Seq[Long],
+                           include_entities: Boolean = true,
+                           trim_user: Boolean = false): Future[LookupMapped] =
+    tweetLookupMapped(ids, include_entities, trim_user)
 
   private def genericGetTweetLookup[T: Manifest](parameters: LookupParameters): Future[T] =
     Get(s"$statusesUrl/lookup.json", parameters).respondAs[T]

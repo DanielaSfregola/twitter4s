@@ -13,7 +13,7 @@ class TwitterBlockClientSpec extends ClientSpec {
   "Twitter Block Client" should {
 
     "get blocked users" in new TwitterBlockClientSpecContext {
-      val result: Users = when(getBlockedUsers()).expectRequest { request =>
+      val result: Users = when(blockedUsers()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/list.json"
       }.respondWith("/twitter/rest/blocks/blocked_users.json").await
@@ -21,7 +21,7 @@ class TwitterBlockClientSpec extends ClientSpec {
     }
 
     "get blocked user ids" in new TwitterBlockClientSpecContext {
-      val result: UserIds = when(getBlockedUserIds()).expectRequest { request =>
+      val result: UserIds = when(blockedUserIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
         request.uri.query === Query("cursor=-1&stringify_ids=false")
@@ -30,7 +30,7 @@ class TwitterBlockClientSpec extends ClientSpec {
     }
 
     "get blocked user stringified ids" in new TwitterBlockClientSpecContext {
-      val result: UserStringifiedIds = when(getBlockedUserStringifiedIds()).expectRequest { request =>
+      val result: UserStringifiedIds = when(blockedUserStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
         request.uri.query === Query("cursor=-1&stringify_ids=true")

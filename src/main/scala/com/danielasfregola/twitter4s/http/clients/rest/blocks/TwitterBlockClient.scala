@@ -27,12 +27,18 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The cursored representation of blocked users.
     */
-  def getBlockedUsers(include_entities: Boolean = true,
-                      skip_status: Boolean = false,
-                      cursor: Long = -1): Future[Users] = {
+  def blockedUsers(include_entities: Boolean = true,
+                   skip_status: Boolean = false,
+                   cursor: Long = -1): Future[Users] = {
     val parameters = BlockedUsersParameters(include_entities, skip_status, cursor)
     Get(s"$blocksUrl/list.json", parameters).respondAs[Users]
   }
+
+  @deprecated("use blockedUsers instead", "2.2")
+  def getBlockedUsers(include_entities: Boolean = true,
+                      skip_status: Boolean = false,
+                      cursor: Long = -1): Future[Users] =
+    blockedUsers(include_entities, skip_status, cursor)
 
   /** Returns an array of user ids the authenticating user is blocking.
     * For more information see
@@ -44,10 +50,14 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The cursored representation of user ids.
     */
-  def getBlockedUserIds(cursor: Long = -1): Future[UserIds] = {
+  def blockedUserIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = false, cursor)
     genericGetBlockedUserIds[UserIds](parameters)
   }
+
+  @deprecated("use blockedUserIds instead", "2.2")
+  def getBlockedUserIds(cursor: Long = -1): Future[UserIds] =
+    blockedUserIds(cursor)
 
   /** Returns an array of user stringified ids the authenticating user is blocking.
     * For more information see
@@ -59,10 +69,14 @@ trait TwitterBlockClient extends OAuthClient with Configurations {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The cursored representation of user stringified ids with cursors.
     */
-  def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def blockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = true, cursor)
     genericGetBlockedUserIds[UserStringifiedIds](parameters)
   }
+
+  @deprecated("use blockedUserStringifiedIds instead", "2.2")
+  def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
+    blockedUserStringifiedIds(cursor)
 
   private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] =
     Get(s"$blocksUrl/ids.json", parameters).respondAs[T]

@@ -31,10 +31,13 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user ids the specified user id is following.
     * */
-  def getFriendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def friendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericGetFriendIds[UserIds](parameters)
   }
+
+  def getFriendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
+    friendIdsForUserId(user_id, cursor, count)
 
   /** Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
@@ -54,10 +57,14 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user ids the specified user is following.
     * */
-  def getFriendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def friendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericGetFriendIds[UserIds](parameters)
   }
+
+  @deprecated("use friendIdsForUser instead", "2.2")
+  def getFriendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
+    friendIdsForUser(screen_name, cursor, count)
 
   /** Returns a cursored collection of user stringified IDs for every user the specified user id is following (otherwise known as their “friends”).
     * For more information see
@@ -77,10 +84,14 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user stringified ids the specified user id is following.
     * */
-  def getFriendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def friendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
+
+  @deprecated("use friendStringifiedIdsForUserId instead", "2.2")
+  def getFriendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
+    friendStringifiedIdsForUserId(user_id, cursor, count)
 
   /** Returns a cursored collection of user stringified IDs for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
@@ -100,10 +111,14 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user stringified ids the specified user is following.
     * */
-  def getFriendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def friendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
+
+  @deprecated("use friendStringifiedIdsForUser instead", "2.2")
+  def getFriendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
+    friendStringifiedIdsForUser(screen_name, cursor, count)
 
   private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[T] =
     Get(s"$friendsUrl/ids.json", parameters).respondAs[T]
@@ -127,14 +142,22 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *                              The user object parameters node will not be included when set to false.
     * @return : The cursored representation of the users the specified user is following.
     * */
+  def friendsForUser(screen_name: String,
+                     cursor: Long = -1,
+                     count: Int = 20,
+                     skip_status: Boolean = false,
+                     include_user_entities: Boolean = true): Future[Users] = {
+    val parameters = FriendsParameters(user_id = None, Some(screen_name), cursor, count, skip_status, include_user_entities)
+    genericGetFriends(parameters)
+  }
+
+  @deprecated("use friendsForUser instead", "2.2")
   def getFriendsForUser(screen_name: String,
                         cursor: Long = -1,
                         count: Int = 20,
                         skip_status: Boolean = false,
-                        include_user_entities: Boolean = true): Future[Users] = {
-    val parameters = FriendsParameters(user_id = None, Some(screen_name), cursor, count, skip_status, include_user_entities)
-    genericGetFriends(parameters)
-  }
+                        include_user_entities: Boolean = true): Future[Users] =
+    friendsForUser(screen_name, cursor, count, skip_status, include_user_entities)
 
   /** Returns a cursored collection of user objects for every user the specified user id is following (otherwise known as their “friends”).
     * For more information see
@@ -155,14 +178,21 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     *                              The user object parameters node will not be included when set to false.
     * @return : The cursored representation of the users the specified user id is following.
     * */
+  def friendsForUserId(user_id: Long,
+                       cursor: Long = -1,
+                       count: Int = 20,
+                       skip_status: Boolean = false,
+                       include_user_entities: Boolean = true): Future[Users] = {
+    val parameters = FriendsParameters(Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
+    genericGetFriends(parameters)
+  }
+
   def getFriendsForUserId(user_id: Long,
                           cursor: Long = -1,
                           count: Int = 20,
                           skip_status: Boolean = false,
-                          include_user_entities: Boolean = true): Future[Users] = {
-    val parameters = FriendsParameters(Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
-    genericGetFriends(parameters)
-  }
+                          include_user_entities: Boolean = true): Future[Users] =
+    friendsForUserId(user_id, cursor, count, skip_status, include_user_entities)
 
   private def genericGetFriends(parameters: FriendsParameters): Future[Users] =
     Get(s"$friendsUrl/list.json", parameters).respondAs[Users]

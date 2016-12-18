@@ -41,15 +41,24 @@ trait TwitterSiteClient extends TwitterStreamListenerHelper with StreamingOAuthC
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getSiteEvents(follow: Seq[Long] = Seq.empty,
-                    `with`: WithFilter = WithFilter.User,
-                    replies: Option[Boolean] = None,
-                    stringify_friend_ids: Boolean = false,
-                    languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] = {
+  def siteEvents(follow: Seq[Long] = Seq.empty,
+                 `with`: WithFilter = WithFilter.User,
+                 replies: Option[Boolean] = None,
+                 stringify_friend_ids: Boolean = false,
+                 languages: Seq[Language] = Seq.empty,
+                 stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
     val listener = createSiteListener(f)
     streamingPipeline(listener, Get(s"$siteUrl/site.json", parameters))
   }
+
+  @deprecated("use siteEvents instead", "2.2")
+  def getSiteEvents(follow: Seq[Long] = Seq.empty,
+                    `with`: WithFilter = WithFilter.User,
+                    replies: Option[Boolean] = None,
+                    stringify_friend_ids: Boolean = false,
+                    languages: Seq[Language] = Seq.empty,
+                    stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] =
+    siteEvents(follow, `with`, replies, stringify_friend_ids, languages, stall_warnings)(f)
 }

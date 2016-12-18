@@ -14,7 +14,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFilter(track = Seq("trending"), languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
+        when(filterStatuses(track = Seq("trending"), languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
@@ -26,7 +26,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a sample status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesSample(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
+        when(sampleStatuses(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
@@ -37,7 +37,7 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a firehose status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(getStatusesFirehose(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
+        when(firehoseStatuses(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing)).expectRequest {
           request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/firehose.json"

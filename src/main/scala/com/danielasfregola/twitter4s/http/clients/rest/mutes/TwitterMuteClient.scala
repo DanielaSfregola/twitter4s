@@ -91,10 +91,14 @@ trait TwitterMuteClient extends OAuthClient with Configurations {
     *               See [node:10362, title=”Using cursors to navigate collections”] for more information.
     * @return : The representation of the muted user ids.
     */
-  def getMutedUserIds(cursor: Long = -1): Future[UserIds] = {
+  def mutedUserIds(cursor: Long = -1): Future[UserIds] = {
     val parameters = MutedUsersIdsParameters(cursor)
     Get(s"$mutesUrl/ids.json", parameters).respondAs[UserIds]
   }
+
+  @deprecated("use mutedUserIds instead", "2.2")
+  def getMutedUserIds(cursor: Long = -1): Future[UserIds] =
+    mutedUserIds(cursor)
 
   /** Returns the users representation that the authenticating user has muted.
     * For more information see
@@ -113,11 +117,17 @@ trait TwitterMuteClient extends OAuthClient with Configurations {
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The representation of the muted users.
     */
-  def getMutedUsers(cursor: Long = -1,
-                    include_entities: Boolean = true,
-                    skip_status: Boolean = false): Future[Users] = {
+  def mutedUsers(cursor: Long = -1,
+                 include_entities: Boolean = true,
+                 skip_status: Boolean = false): Future[Users] = {
     val parameters = MutedUsersParameters(cursor, include_entities, skip_status)
     Get(s"$mutesUrl/list.json", parameters).respondAs[Users]
   }
+
+  @deprecated("use mutedUsers instead", "2.2")
+  def getMutedUsers(cursor: Long = -1,
+                    include_entities: Boolean = true,
+                    skip_status: Boolean = false): Future[Users] =
+    mutedUsers(cursor, include_entities, skip_status)
 
 }

@@ -17,6 +17,9 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
 
   private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 
+  @deprecated("use settings instead", "2.2")
+  def getSettings(): Future[Settings] = settings()
+
   /** Returns settings (including current trend, geo and sleep time information) for the authenticating user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/account/settings" target="_blank">
@@ -24,7 +27,7 @@ trait TwitterAccountClient extends OAuthClient with Configurations {
     *
     * @return : The account settings for the authenticating user.
     * */
-  def getSettings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
+  def settings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
 
   /** Updates the authenticating user’s settings.
     * For more information see

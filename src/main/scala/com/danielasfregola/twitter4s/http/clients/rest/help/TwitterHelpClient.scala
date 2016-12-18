@@ -18,8 +18,12 @@ trait TwitterHelpClient extends OAuthClient with Configurations {
     *
     * @return : The current Twitter configuration.
     * */
-  def getConfiguration(): Future[Configuration] =
+  def configuration(): Future[Configuration] =
     Get(s"$helpUrl/configuration.json").respondAs[Configuration]
+
+  @deprecated("use configuration instead", "2.2")
+  def getConfiguration(): Future[Configuration] =
+    configuration()
 
   /** Returns the list of languages supported by Twitter along with the language code supported by Twitter.
     * For more information see
@@ -28,8 +32,12 @@ trait TwitterHelpClient extends OAuthClient with Configurations {
     *
     * @return : The list of languages supported by Twitter.
     * */
-  def getSupportedLanguages(): Future[Seq[LanguageDetails]] =
+  def supportedLanguages(): Future[Seq[LanguageDetails]] =
     Get(s"$helpUrl/languages.json").respondAs[Seq[LanguageDetails]]
+
+  @deprecated("use supportedLanguages instead", "2.2")
+  def getSupportedLanguages(): Future[Seq[LanguageDetails]] =
+    supportedLanguages()
 
   /** Returns Twitter’s Privacy Policy.
     * For more information see
@@ -38,8 +46,12 @@ trait TwitterHelpClient extends OAuthClient with Configurations {
     *
     * @return : The Twitter's Privacy Policy.
     * */
-  def getPrivacyPolicy(): Future[PrivacyPolicy] =
+  def privacyPolicy(): Future[PrivacyPolicy] =
     Get(s"$helpUrl/privacy.json").respondAs[PrivacyPolicy]
+
+  @deprecated("use privacyPolicy instead", "2.2")
+  def getPrivacyPolicy(): Future[PrivacyPolicy] =
+    privacyPolicy()
 
   /** Returns the Twitter Terms of Service.
     * Note: these are not the same as the Developer Policy.
@@ -49,6 +61,10 @@ trait TwitterHelpClient extends OAuthClient with Configurations {
     *
     * @return : the Twitter Terms of Service.
    * */
-  def getTermsOfService(): Future[TermsOfService] =
+  def termsOfService(): Future[TermsOfService] =
     Get(s"$helpUrl/tos.json").respondAs[TermsOfService]
+
+  @deprecated("use termsOfService instead", "2.2")
+  def getTermsOfService(): Future[TermsOfService] =
+    termsOfService()
 }
