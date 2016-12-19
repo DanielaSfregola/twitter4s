@@ -99,11 +99,11 @@ import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 
 def printTweetText: PartialFunction[StreamingMessage, Unit] = {
     case tweet: Tweet => println(tweet.text)
-  }
+}
 ```
 All  you need to do is attach your processing function to the stream:
 ```scala
-client.getStatusesSample(stall_warnings = true)(printTweetText)
+client.sampleStatuses(stall_warnings = true)(printTweetText)
 ```
 ...and you are done, happy days! :dancers:
 
@@ -113,9 +113,9 @@ Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/b
 Have a look at the complete scaladoc for the [Public Stream Client](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient).
 
 #### Available streams
-- getStatusesFilter
-- getStatusesSample
-- getStatusesFirehose
+- filterStatusesFilter
+- sampleStatusesSample
+- firehoseStatuses
 
 #### CommonStreamingMessage types:
 - [Tweet](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.entities.Tweet)
@@ -131,7 +131,7 @@ Have a look at the complete scaladoc for the [Public Stream Client](http://danie
 Have a look at the complete scaladoc for the [User Stream Client](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient).
 
 #### Available streams
-- getUserEvents
+- userEvents
 
 #### UserStreamingMessage types:
 - All the instances of `CommonStreamingMessage` -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
@@ -144,7 +144,7 @@ Have a look at the complete scaladoc for the [User Stream Client](http://daniela
 Have a look at the complete scaladoc for the [Site Stream Client](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient).
 
 #### Available streams
-- getSiteEvents
+- siteEvents
 
 #### SiteStreamingMessage types:
 - All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
@@ -175,12 +175,12 @@ val client = TwitterRestClient()
 
 For example, you can get the home timeline of the authenticated user:
 ```scala
-client.getHomeTimeline()
+client.homeTimeline()
 ```
 
 or you can get the timeline of a specific user:
 ```scala
-client.getUserTimelineForUser("DanielaSfregola")
+client.userTimelineForUser("DanielaSfregola")
 ```
 
 You can also update your tweet status:
