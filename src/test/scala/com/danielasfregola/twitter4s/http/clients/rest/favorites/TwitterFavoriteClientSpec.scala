@@ -13,7 +13,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
   "Twitter Favorite Client" should {
 
     "get favorites" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Tweet] = when(getFavoriteStatusesForUser("DanielaSfregola")).expectRequest { request =>
+      val result: Seq[Tweet] = when(favoriteStatusesForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&screen_name=DanielaSfregola")
@@ -22,7 +22,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
     }
 
     "get favorites per user id" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Tweet] = when(getFavoriteStatusesForUserId(19018614)).expectRequest { request =>
+      val result: Seq[Tweet] = when(favoriteStatusesForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.query === Query("count=20&include_entities=true&user_id=19018614")

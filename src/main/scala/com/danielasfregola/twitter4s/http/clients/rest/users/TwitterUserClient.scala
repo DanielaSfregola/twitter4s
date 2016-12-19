@@ -21,7 +21,10 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     * @param screen_names : A sequence of screen names, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
     */
-  def getUsers(screen_names: String*): Future[Seq[User]] = getUsers(screen_names)
+  def users(screen_names: String*): Future[Seq[User]] = users(screen_names)
+
+  @deprecated("use users instead", "2.2")
+  def getUsers(screen_names: String*): Future[Seq[User]] = users(screen_names:_*)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
     * For more information see
@@ -33,12 +36,16 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def getUsers(screen_names: Seq[String],
-               include_entities: Boolean = true): Future[Seq[User]] = {
+  def users(screen_names: Seq[String],
+            include_entities: Boolean = true): Future[Seq[User]] = {
     require(!screen_names.isEmpty, "please, provide at least one screen name")
     val parameters = UsersParameters(user_id = None, Some(screen_names.mkString(",")), include_entities)
     genericGetUsers(parameters)
   }
+
+  def getUsers(screen_names: Seq[String],
+               include_entities: Boolean = true): Future[Seq[User]] =
+    users(screen_names, include_entities)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
@@ -48,7 +55,10 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     * @param ids : A sequence of user ids, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
     */
-  def getUsersByIds(ids: Long*): Future[Seq[User]] = getUsersByIds(ids)
+  def usersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids)
+
+  @deprecated("use usersByIds instead", "2.2")
+  def getUsersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids:_*)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
@@ -60,12 +70,17 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def getUsersByIds(ids: Seq[Long],
-                    include_entities: Boolean = true): Future[Seq[User]] = {
+  def usersByIds(ids: Seq[Long],
+                 include_entities: Boolean = true): Future[Seq[User]] = {
     require(!ids.isEmpty, "please, provide at least one user id")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericGetUsers(parameters)
   }
+
+  @deprecated("use usersByIds instead", "2.2")
+  def getUsersByIds(ids: Seq[Long],
+                    include_entities: Boolean = true): Future[Seq[User]] =
+    usersByIds(ids, include_entities)
 
   private def genericGetUsers(parameters: UsersParameters): Future[Seq[User]] =
     Get(s"$usersUrl/lookup.json", parameters).respondAs[Seq[User]]
@@ -81,10 +96,14 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def getUser(screen_name: String, include_entities: Boolean = true): Future[User] = {
+  def user(screen_name: String, include_entities: Boolean = true): Future[User] = {
     val parameters = UserParameters(user_id = None, Some(screen_name), include_entities)
     genericGetUser(parameters)
   }
+
+  @deprecated("use user instead", "2.2")
+  def getUser(screen_name: String, include_entities: Boolean = true): Future[User] =
+    user(screen_name, include_entities)
 
   /** Returns a variety of information about the user specified by the required screen name parameter.
     * The author’s most recent Tweet will be returned inline when possible.
@@ -97,10 +116,14 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def getUserById(id: Long, include_entities: Boolean = true): Future[User] = {
+  def userById(id: Long, include_entities: Boolean = true): Future[User] = {
     val parameters = UserParameters(Some(id), screen_name = None, include_entities)
     genericGetUser(parameters)
   }
+
+  @deprecated("use userById instead", "2.2")
+  def getUserById(id: Long, include_entities: Boolean = true): Future[User] =
+    userById(id, include_entities)
 
   private def genericGetUser(parameters: UserParameters): Future[User] =
     Get(s"$usersUrl/show.json", parameters).respondAs[User]
@@ -117,10 +140,14 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
     * @return : The banners representation.
     */
-  def getProfileBannersForUser(screen_name: String): Future[Banners] = {
+  def profileBannersForUser(screen_name: String): Future[Banners] = {
     val parameters = BannersParameters(user_id = None, Some(screen_name))
     genericGetProfileBanners(parameters)
   }
+
+  @deprecated("use profileBannersForUser instead", "2.2")
+  def getProfileBannersForUser(screen_name: String): Future[Banners] =
+    profileBannersForUser(screen_name)
 
   /** Returns a map of the available size variations of the specified user’s profile banner.
     * If the user has not uploaded a profile banner, a `TwitterException` will be thrown instead.
@@ -134,10 +161,14 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return : The banners representation.
     */
-  def getProfileBannersForUserId(user_id: Long): Future[Banners] = {
+  def profileBannersForUserId(user_id: Long): Future[Banners] = {
     val parameters = BannersParameters(Some(user_id), screen_name = None)
     genericGetProfileBanners(parameters)
   }
+
+  @deprecated("use profileBannersForUserId instead", "2.2")
+  def getProfileBannersForUserId(user_id: Long): Future[Banners] =
+    profileBannersForUserId(user_id)
 
   private def genericGetProfileBanners(parameters: BannersParameters): Future[Banners] =
     Get(s"$usersUrl/profile_banner.json", parameters).respondAs[Banners]

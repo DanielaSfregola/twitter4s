@@ -13,7 +13,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
   "Twitter Follower Client" should {
 
     "get followers ids of a specific user by id" in new TwitterFollowerClientSpecContext {
-      val result: UserIds = when(getFollowerIdsForUserId(2911461333L)).expectRequest { request =>
+      val result: UserIds = when(followerIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
@@ -22,7 +22,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
     }
 
     "get followers ids of a specific user by name" in new TwitterFollowerClientSpecContext {
-      val result: UserIds = when(getFollowerIdsForUser("DanielaSfregola")).expectRequest { request =>
+      val result: UserIds = when(followerIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
@@ -32,7 +32,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
 
 
     "get followers stringified ids of a specific user by id" in new TwitterFollowerClientSpecContext {
-      val result: UserStringifiedIds = when(getFollowerStringifiedIdsForUserId(2911461333L)).expectRequest { request =>
+      val result: UserStringifiedIds = when(followerStringifiedIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
@@ -41,7 +41,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
     }
 
     "get followers stringified ids of a specific user by name" in new TwitterFollowerClientSpecContext {
-      val result: UserStringifiedIds = when(getFollowersStringifiedIdsForUser("DanielaSfregola")).expectRequest { request =>
+      val result: UserStringifiedIds = when(followersStringifiedIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
         request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
@@ -50,7 +50,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
     }
 
     "get followers of a specific user" in new TwitterFollowerClientSpecContext {
-      val result: Users = when(getFollowersForUser("DanielaSfregola")).expectRequest { request =>
+      val result: Users = when(followersForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
         request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
@@ -59,7 +59,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
     }
 
     "get followers of a specific user by user id" in new TwitterFollowerClientSpecContext {
-      val result: Users = when(getFollowersForUserId(2911461333L)).expectRequest { request =>
+      val result: Users = when(followersForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
         request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")

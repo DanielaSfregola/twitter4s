@@ -13,7 +13,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
   "Twitter Friendship Client" should {
 
     "get all blocked users" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[Long] = when(getNoRetweetsUserIds).expectRequest { request =>
+      val result: Seq[Long] = when(noRetweetsUserIds).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
         request.uri.query === Query("stringify_ids=false")
@@ -22,7 +22,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get all blocked users stringified" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[String] = when(getNoRetweetsUserStringifiedIds).expectRequest { request =>
+      val result: Seq[String] = when(noRetweetsUserStringifiedIds).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
         request.uri.query === Query("stringify_ids=true")
@@ -31,7 +31,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get incoming friendships" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(getIncomingFriendshipIds()).expectRequest { request =>
+      val result: UserIds = when(incomingFriendshipIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
         request.uri.query === Query("cursor=-1&stringify_ids=false")
@@ -40,7 +40,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get incoming friendships stringified" in new TwitterFriendshipClientSpecContext {
-      val result: UserStringifiedIds = when(getIncomingFriendshipStringifiedIds()).expectRequest { request =>
+      val result: UserStringifiedIds = when(incomingFriendshipStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
         request.uri.query === Query("cursor=-1&stringify_ids=true")
@@ -49,7 +49,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get outgoing friendships" in new TwitterFriendshipClientSpecContext {
-      val result: UserIds = when(getOutgoingFriendshipIds()).expectRequest { request =>
+      val result: UserIds = when(outgoingFriendshipIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
         request.uri.query === Query("cursor=-1&stringify_ids=false")
@@ -58,7 +58,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get outgoing friendships stringified" in new TwitterFriendshipClientSpecContext {
-      val result: UserStringifiedIds = when(getOutgoingFriendshipStringifiedIds()).expectRequest { request =>
+      val result: UserStringifiedIds = when(outgoingFriendshipStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
         request.uri.query === Query("cursor=-1&stringify_ids=true")
@@ -175,7 +175,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
     
     "get a relationship by ids" in new TwitterFriendshipClientSpecContext {
-      val result: Relationship = when(getRelationshipBetweenUserIds(2911461333L, 19018614L)).expectRequest { request =>
+      val result: Relationship = when(relationshipBetweenUserIds(2911461333L, 19018614L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
         request.uri.query === Query("source_id=2911461333&target_id=19018614")
@@ -184,7 +184,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
     
     "get a relationship by screen names" in new TwitterFriendshipClientSpecContext {
-      val result: Relationship = when(getRelationshipBetweenUsers("DanielaSfregola", "marcobonzanini")).expectRequest { request =>
+      val result: Relationship = when(relationshipBetweenUsers("DanielaSfregola", "marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
         request.uri.query === Query("source_screen_name=DanielaSfregola&target_screen_name=marcobonzanini")
@@ -193,7 +193,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get relationships with a list of users" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[LookupRelationship] = when(getRelationshipsWithUsers("marcobonzanini", "odersky")).expectRequest { request =>
+      val result: Seq[LookupRelationship] = when(relationshipsWithUsers("marcobonzanini", "odersky")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
         request.uri.query === Query("screen_name=marcobonzanini,odersky")
@@ -202,11 +202,11 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterFriendshipClientSpecContext {
-      getRelationshipsWithUsers() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
+      relationshipsWithUsers() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one screen name")
     }
 
     "get relationships with a list of users by user id" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[LookupRelationship] = when(getRelationshipsWithUserIds(2911461333L, 2911461334L)).expectRequest { request =>
+      val result: Seq[LookupRelationship] = when(relationshipsWithUserIds(2911461333L, 2911461334L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
         request.uri.query === Query("user_id=2911461333,2911461334")
@@ -215,7 +215,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterFriendshipClientSpecContext {
-      getRelationshipsWithUserIds() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
+      relationshipsWithUserIds() must throwA[IllegalArgumentException]("requirement failed: please, provide at least one user id")
     }
   }
 }

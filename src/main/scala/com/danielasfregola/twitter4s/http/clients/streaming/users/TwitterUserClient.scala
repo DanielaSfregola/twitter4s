@@ -45,16 +45,27 @@ trait TwitterUserClient extends TwitterStreamListenerHelper with StreamingOAuthC
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
+  def userEvents(`with`: WithFilter = WithFilter.Followings,
+                 replies: Option[Boolean] = None,
+                 track: Seq[String] = Seq.empty,
+                 locations: Seq[Double] = Seq.empty,
+                 stringify_friend_ids: Boolean = false,
+                 languages: Seq[Language] = Seq.empty,
+                 stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] = {
+    val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
+    val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
+    val listener = createUserListener(f)
+    streamingPipeline(listener, Get(s"$userUrl/user.json", parameters))
+  }
+
+  @deprecated("use userEvents instead", "2.2")
   def getUserEvents(`with`: WithFilter = WithFilter.Followings,
                     replies: Option[Boolean] = None,
                     track: Seq[String] = Seq.empty,
                     locations: Seq[Double] = Seq.empty,
                     stringify_friend_ids: Boolean = false,
                     languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] = {
-    val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
-    val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
-    val listener = createUserListener(f)
-    streamingPipeline(listener, Get(s"$userUrl/user.json", parameters))
-  }
+                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] =
+    userEvents(`with`, replies, track, locations, stringify_friend_ids, languages, stall_warnings)(f)
+
 }

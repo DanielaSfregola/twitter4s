@@ -20,8 +20,8 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
   }
 
   def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
-    val signatureBase = getSignatureBase(oauthParams)
-    ("oauth_signature" -> toHmacSha1(signatureBase, signingKey))
+    val baseSignature = signatureBase(oauthParams)
+    ("oauth_signature" -> toHmacSha1(baseSignature, signingKey))
   }
 
   val signingKey = {
@@ -44,12 +44,16 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken) exte
     Map(consumerKey, nonce, signatureMethod, timestamp, token, version)
   }
 
-  def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
+  def signatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) = {
     val method = request.method.toString.toAscii
     val baseUrl = request.uri.endpoint.toAscii
     val encodedParams = encodeParams(queryParams ++ oauthParams ++ bodyParams).toAscii
     s"$method&$baseUrl&$encodedParams"
   }
+
+  @deprecated("use signatureBase instead", "2.2")
+  def getSignatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) =
+    signatureBase(oauthParams)
 
   def bodyParams(implicit request: HttpRequest): Map[String, String] = {
     val body = request.entity.asString.replace("+", "%20")

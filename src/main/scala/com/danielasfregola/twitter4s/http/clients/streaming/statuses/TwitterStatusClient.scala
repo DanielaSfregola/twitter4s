@@ -37,16 +37,25 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getStatusesFilter(follow: Seq[Long] = Seq.empty,
-                        track: Seq[String] = Seq.empty,
-                        locations: Seq[Double] = Seq.empty,
-                        languages: Seq[Language] = Seq.empty,
-                        stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
+  def filterStatuses(follow: Seq[Long] = Seq.empty,
+                     track: Seq[String] = Seq.empty,
+                     locations: Seq[Double] = Seq.empty,
+                     languages: Seq[Language] = Seq.empty,
+                     stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]))
   }
+
+  @deprecated("use filterStatuses instead", "2.2")
+  def getStatusesFilter(follow: Seq[Long] = Seq.empty,
+                        track: Seq[String] = Seq.empty,
+                        locations: Seq[Double] = Seq.empty,
+                        languages: Seq[Language] = Seq.empty,
+                        stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] =
+    filterStatuses(follow, track, locations, languages, stall_warnings)(f)
+
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
     * The Tweets returned by the default access level are the same, so if two different clients connect to this endpoint, they will see the same Tweets.
@@ -63,11 +72,19 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
-  def getStatusesSample(languages: Seq[Language] = Seq.empty, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
+  def sampleStatuses(languages: Seq[Language] = Seq.empty,
+                     stall_warnings: Boolean = false)
+                    (f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val parameters = StatusSampleParameters(languages, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
   }
+
+  @deprecated("use sampleStatuses instead", "2.2")
+  def getStatusesSample(languages: Seq[Language] = Seq.empty,
+                        stall_warnings: Boolean = false)
+                       (f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] =
+    sampleStatuses(languages, stall_warnings)(f)
 
   /** Starts a streaming connection from Twitter's firehouse API of all public statuses.
     * Few applications require this level of access.
@@ -86,11 +103,21 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages.
     */
-  def getStatusesFirehose(count: Option[Int] = None, languages: Seq[Language] = Seq.empty, stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
+  def firehoseStatuses(count: Option[Int] = None,
+                       languages: Seq[Language] = Seq.empty,
+                       stall_warnings: Boolean = false)
+                      (f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(languages, count, stall_warnings)
     val listener = createCommonListener(f)
     streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
   }
+
+  @deprecated("use firehoseStatuses instead", "2.2")
+  def getStatusesFirehose(count: Option[Int] = None,
+                          languages: Seq[Language] = Seq.empty,
+                          stall_warnings: Boolean = false)
+                         (f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] =
+    firehoseStatuses(count, languages, stall_warnings)(f)
 }

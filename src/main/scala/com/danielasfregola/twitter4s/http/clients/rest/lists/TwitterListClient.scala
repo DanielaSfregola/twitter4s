@@ -26,10 +26,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                Set this to true if you would like owned lists to be returned first.
     * @return : The sequence of all lists the specified user subscribes to.
     */
-  def getListsForUser(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def listsForUser(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(user_id = None, Some(screen_name), reverse)
     genericGetLists(parameters)
   }
+
+  @deprecated("use listsForUser instead", "2.2")
+  def getListsForUser(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] =
+    listsForUser(screen_name, reverse)
 
   /** Returns all lists the specified user subscribes to, including their own.
     * For more information see
@@ -42,10 +46,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                Set this to true if you would like owned lists to be returned first.
     * @return : The sequence of all lists the specified user subscribes to.
     */
-  def getListsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def listsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
     val parameters = ListsParameters(Some(user_id), screen_name = None, reverse)
     genericGetLists(parameters)
   }
+
+  @deprecated("use listsForUserId instead", "2.2")
+  def getListsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] =
+    listsForUserId(user_id, reverse)
 
   private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] =
     Get(s"$listsUrl/list.json", parameters).respondAs[Seq[TwitterList]]
@@ -72,18 +80,28 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
     */
+  def listTimelineBySlugAndOwnerId(slug: String,
+                                   owner_id: Long,
+                                   count: Int = 20,
+                                   since_id: Option[Long] = None,
+                                   max_id: Option[Long] = None,
+                                   include_entities: Boolean = true,
+                                   include_rts: Boolean = false): Future[Seq[Tweet]] = {
+    val parameters = ListTimelineParameters(
+      slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
+      max_id = max_id, include_entities = include_entities, include_rts = include_rts)
+    genericGetListTimeline(parameters)
+  }
+
+  @deprecated("use listTimelineBySlugAndOwnerId instead", "2.2")
   def getListTimelineBySlugAndOwnerId(slug: String,
                                       owner_id: Long,
                                       count: Int = 20,
                                       since_id: Option[Long] = None,
                                       max_id: Option[Long] = None,
                                       include_entities: Boolean = true,
-                                      include_rts: Boolean = false): Future[Seq[Tweet]] = {
-    val parameters = ListTimelineParameters(
-      slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
-      max_id = max_id, include_entities = include_entities, include_rts = include_rts)
-    genericGetListTimeline(parameters)
-  }
+                                      include_rts: Boolean = false): Future[Seq[Tweet]] =
+    listTimelineBySlugAndOwnerId(slug, owner_id, count, since_id, max_id, include_entities, include_rts)
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
@@ -107,18 +125,28 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
     */
+  def listTimelineBySlugAndOwnerName(slug: String,
+                                     owner_screen_name: String,
+                                     count: Int = 20,
+                                     since_id: Option[Long] = None,
+                                     max_id: Option[Long] = None,
+                                     include_entities: Boolean = true,
+                                     include_rts: Boolean = false): Future[Seq[Tweet]] = {
+    val parameters = ListTimelineParameters(
+      slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
+      max_id = max_id, include_entities = include_entities, include_rts = include_rts)
+    genericGetListTimeline(parameters)
+  }
+
+  @deprecated("use listTimelineBySlugAndOwnerName instead", "2.2")
   def getListTimelineBySlugAndOwnerName(slug: String,
                                         owner_screen_name: String,
                                         count: Int = 20,
                                         since_id: Option[Long] = None,
                                         max_id: Option[Long] = None,
                                         include_entities: Boolean = true,
-                                        include_rts: Boolean = false): Future[Seq[Tweet]] = {
-    val parameters = ListTimelineParameters(
-      slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
-      max_id = max_id, include_entities = include_entities, include_rts = include_rts)
-    genericGetListTimeline(parameters)
-  }
+                                        include_rts: Boolean = false): Future[Seq[Tweet]] =
+    listTimelineBySlugAndOwnerName(slug, owner_screen_name, count, since_id, max_id, include_entities, include_rts)
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
@@ -141,17 +169,26 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
     * @return : The sequence of tweets for the specified list.
     */
-  def getListTimelineByListId(list_id: Long,
-                              count: Int = 20,
-                              since_id: Option[Long] = None,
-                              max_id: Option[Long] = None,
-                              include_entities: Boolean = true,
-                              include_rts: Boolean = false): Future[Seq[Tweet]] = {
+  def listTimelineByListId(list_id: Long,
+                           count: Int = 20,
+                           since_id: Option[Long] = None,
+                           max_id: Option[Long] = None,
+                           include_entities: Boolean = true,
+                           include_rts: Boolean = false): Future[Seq[Tweet]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
     genericGetListTimeline(parameters)
   }
+
+  @deprecated("use listTimelineByListId instead", "2.2")
+  def getListTimelineByListId(list_id: Long,
+                              count: Int = 20,
+                              since_id: Option[Long] = None,
+                              max_id: Option[Long] = None,
+                              include_entities: Boolean = true,
+                              include_rts: Boolean = false): Future[Seq[Tweet]] =
+    listTimelineByListId(list_id, count, since_id, max_id, include_entities, include_rts)
 
   private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] =
     Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
@@ -271,13 +308,20 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to `true`, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.
     * @return : The twitter lists the specified user has been added to.
     */
-  def getListMembershipsForUser(screen_name: String,
-                                count: Int = 20,
-                                cursor: Long = -1,
-                                filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+  def listMembershipsForUser(screen_name: String,
+                             count: Int = 20,
+                             cursor: Long = -1,
+                             filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
     val parameters = MembershipsParameters(user_id = None, Some(screen_name), count, cursor, filter_to_owned_lists)
     genericGetListMemberships(parameters)
   }
+
+  @deprecated("use listMembershipsForUser instead", "2.2")
+  def getListMembershipsForUser(screen_name: String,
+                                count: Int = 20,
+                                cursor: Long = -1,
+                                filter_to_owned_lists: Boolean = false): Future[TwitterLists] =
+    listMembershipsForUser(screen_name, count, cursor, filter_to_owned_lists)
 
   /** Returns the twitter lists the specified user has been added to.
     * For more information see
@@ -295,13 +339,21 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to `true`, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of.
     * @return : The twitter lists the specified user has been added to.
     */
-  def getListMembershipsForUserId(user_id: Long,
-                                  count: Int = 20,
-                                  cursor: Long = -1,
-                                  filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+  def listMembershipsForUserId(user_id: Long,
+                               count: Int = 20,
+                               cursor: Long = -1,
+                               filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
     val parameters = MembershipsParameters(Some(user_id), screen_name = None, count, cursor, filter_to_owned_lists)
     genericGetListMemberships(parameters)
   }
+
+  @deprecated("use listMembershipsForUserId instead", "2.2")
+  def getListMembershipsForUserId(user_id: Long,
+                                  count: Int = 20,
+                                  cursor: Long = -1,
+                                  filter_to_owned_lists: Boolean = false): Future[TwitterLists] =
+    listMembershipsForUserId(user_id, count, cursor, filter_to_owned_lists)
+
 
   private def genericGetListMemberships(parameters: MembershipsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/memberships.json", parameters).respondAs[TwitterLists]
@@ -610,11 +662,11 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.
     */
-  def getListMembersByListId(list_id: Long,
-                             count: Int = 20,
-                             cursor: Long = -1,
-                             include_entities: Boolean = true,
-                             skip_status: Boolean = false): Future[Users] = {
+  def listMembersByListId(list_id: Long,
+                          count: Int = 20,
+                          cursor: Long = -1,
+                          include_entities: Boolean = true,
+                          skip_status: Boolean = false): Future[Users] = {
     val parameters = ListMembersParameters(list_id = Some(list_id),
                                              count = count,
                                              cursor = cursor,
@@ -622,6 +674,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                              skip_status = skip_status)
     genericGetListMembers(parameters)
   }
+
+  @deprecated("use listMembersByListId instead", "2.2")
+  def getListMembersByListId(list_id: Long,
+                             count: Int = 20,
+                             cursor: Long = -1,
+                             include_entities: Boolean = true,
+                             skip_status: Boolean = false): Future[Users] =
+    listMembersByListId(list_id, count, cursor, include_entities, skip_status)
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
@@ -642,12 +702,12 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.
     */
-  def getListMembersBySlugAndOwnerName(slug: String,
-                                       owner_screen_name: String,
-                                       count: Int = 20,
-                                       cursor: Long = -1,
-                                       include_entities: Boolean = true,
-                                       skip_status: Boolean = false): Future[Users] = {
+  def listMembersBySlugAndOwnerName(slug: String,
+                                    owner_screen_name: String,
+                                    count: Int = 20,
+                                    cursor: Long = -1,
+                                    include_entities: Boolean = true,
+                                    skip_status: Boolean = false): Future[Users] = {
     val parameters = ListMembersParameters(slug = Some(slug),
                                              owner_screen_name = Some(owner_screen_name),
                                              count = count,
@@ -656,6 +716,15 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                              skip_status = skip_status)
     genericGetListMembers(parameters)
   }
+
+  @deprecated("use listMembersBySlugAndOwnerName instead", "2.2")
+  def getListMembersBySlugAndOwnerName(slug: String,
+                                       owner_screen_name: String,
+                                       count: Int = 20,
+                                       cursor: Long = -1,
+                                       include_entities: Boolean = true,
+                                       skip_status: Boolean = false): Future[Users] =
+    listMembersBySlugAndOwnerName(slug, owner_screen_name, count, cursor, include_entities, skip_status)
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
@@ -676,12 +745,12 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *                    When set to either `true`, statuses will not be included in the returned user objects.
     * @return : The users representation of the members of the list.
     */
-  def getListMembersBySlugAndOwnerId(slug: String,
-                                     owner_id: Long,
-                                     count: Int = 20,
-                                     cursor: Long = -1,
-                                     include_entities: Boolean = true,
-                                     skip_status: Boolean = false): Future[Users] = {
+  def listMembersBySlugAndOwnerId(slug: String,
+                                  owner_id: Long,
+                                  count: Int = 20,
+                                  cursor: Long = -1,
+                                  include_entities: Boolean = true,
+                                  skip_status: Boolean = false): Future[Users] = {
     val parameters = ListMembersParameters(slug = Some(slug),
                                              owner_id = Some(owner_id),
                                              count = count,
@@ -690,6 +759,15 @@ trait TwitterListClient extends OAuthClient with Configurations {
                                              skip_status = skip_status)
     genericGetListMembers(parameters)
   }
+
+  @deprecated("use listMembersBySlugAndOwnerId instead", "2.2")
+  def getListMembersBySlugAndOwnerId(slug: String,
+                                     owner_id: Long,
+                                     count: Int = 20,
+                                     cursor: Long = -1,
+                                     include_entities: Boolean = true,
+                                     skip_status: Boolean = false): Future[Users] =
+    listMembersBySlugAndOwnerId(slug, owner_id, count, cursor, include_entities, skip_status)
 
   private def genericGetListMembers(parameters: ListMembersParameters): Future[Users] =
     Get(s"$listsUrl/members.json", parameters).respondAs[Users]
@@ -1047,10 +1125,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     * @param list_id : The numerical id of the list.
     * @return : The Twitter list.
     */
-  def getListById(list_id: Long): Future[TwitterList] = {
+  def listById(list_id: Long): Future[TwitterList] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericList(parameters)
   }
+
+  @deprecated("use listById instead", "2.2")
+  def getListById(list_id: Long): Future[TwitterList] =
+    listById(list_id)
 
   /** Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
     * For more information see
@@ -1061,10 +1143,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
     * @return : The Twitter list.
     */
-  def getListBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[TwitterList] = {
+  def listBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[TwitterList] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
     genericList(parameters)
   }
+
+  @deprecated("use listBySlugAndOwnerName instead", "2.2")
+  def getListBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[TwitterList] =
+    listBySlugAndOwnerName(slug, owner_screen_name)
 
   /** Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
     * For more information see
@@ -1075,10 +1161,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
     * @return : The Twitter list.
     */
-  def getListBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] = {
+  def listBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
     genericList(parameters)
   }
+
+  @deprecated("use listBySlugAndOwnerId instead", "2.2")
+  def getListBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] =
+    listBySlugAndOwnerId(slug, owner_id)
 
   private def genericList(parameters: ListParameters): Future[TwitterList] =
     Get(s"$listsUrl/show.json", parameters).respondAs[TwitterList]
@@ -1098,12 +1188,19 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists the specified user is subscribed to.
     */
-  def getListSubscriptions(screen_name: String,
-                           count: Int = 20,
-                           cursor: Long = -1): Future[TwitterLists] = {
+  def listSubscriptions(screen_name: String,
+                        count: Int = 20,
+                        cursor: Long = -1): Future[TwitterLists] = {
     val parameters = SubscriptionsParameters(user_id = None, Some(screen_name), count, cursor)
     genericListSubscriptions(parameters)
   }
+
+  @deprecated("use listSubscriptions instead", "2.2")
+  def getListSubscriptions(screen_name: String,
+                           count: Int = 20,
+                           cursor: Long = -1): Future[TwitterLists] =
+    listSubscriptions(screen_name, count, cursor)
+
 
   /** Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default.
     * Does not include the user’s own lists.
@@ -1120,12 +1217,19 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists the specified user is subscribed to.
     */
-  def getListSubscriptionsByUserId(user_id: Long,
-                                   count: Int = 20,
-                                   cursor: Long = -1): Future[TwitterLists] = {
+  def listSubscriptionsByUserId(user_id: Long,
+                                count: Int = 20,
+                                cursor: Long = -1): Future[TwitterLists] = {
     val parameters = SubscriptionsParameters(Some(user_id), screen_name = None, count, cursor)
     genericListSubscriptions(parameters)
   }
+
+  @deprecated("use listSubscriptionsByUserId instead", "2.2")
+  def getListSubscriptionsByUserId(user_id: Long,
+                                   count: Int = 20,
+                                   cursor: Long = -1): Future[TwitterLists] =
+    listSubscriptionsByUserId(user_id, count, cursor)
+
 
   private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/subscriptions.json", parameters).respondAs[TwitterLists]
@@ -1256,10 +1360,14 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists owned by the specified user.
     */
-  def getListOwnerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+  def listOwnerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
     val parameters = OwnershipsParameters(user_id = None, Some(screen_name), count, cursor)
     genericGetListOwnerships(parameters)
   }
+
+  @deprecated("use listOwnerships instead", "2.2")
+  def getListOwnerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[TwitterLists] =
+    listOwnerships(screen_name, count, cursor)
 
   /** Returns the lists owned by the specified Twitter user.
     * Private lists will only be shown if the authenticated user is also the owner of the lists.
@@ -1275,10 +1383,13 @@ trait TwitterListClient extends OAuthClient with Configurations {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists owned by the specified user.
     */
-  def getListOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+  def listOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
     val parameters = OwnershipsParameters(Some(user_id), screen_name = None, count, cursor)
     genericGetListOwnerships(parameters)
   }
+
+  def getListOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] =
+    listOwnershipsForUserId(user_id, count, cursor)
 
   private def genericGetListOwnerships(parameters: OwnershipsParameters): Future[TwitterLists] =
     Get(s"$listsUrl/ownerships.json", parameters).respondAs[TwitterLists]

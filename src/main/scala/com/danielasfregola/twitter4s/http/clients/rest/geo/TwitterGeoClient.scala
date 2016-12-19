@@ -23,7 +23,11 @@ trait TwitterGeoClient  extends OAuthClient with Configurations {
     * @param place_id : A place id in the world.
     * @return : A set of information about place.
     * */
-  def getGeoPlace(place_id: String): Future[GeoPlace] = Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
+  def geoPlace(place_id: String): Future[GeoPlace] = Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
+
+  @deprecated("use geoPlace instead", "2.2")
+  def getGeoPlace(place_id: String): Future[GeoPlace] =
+    geoPlace(place_id)
 
   /** Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.
     * For more information see
