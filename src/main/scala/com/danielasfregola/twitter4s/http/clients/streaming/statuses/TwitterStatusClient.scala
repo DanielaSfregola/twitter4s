@@ -69,7 +69,7 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
   }
 
-  /** Starts a streaming connection from Twitter's firehouse API of all public statuses.
+  /** Starts a streaming connection from Twitter's firehose API of all public statuses.
     * Few applications require this level of access.
     * Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.
     * For more information see <a href="https://dev.twitter.com/streaming/reference/get/statuses/firehose" target="_blank">
