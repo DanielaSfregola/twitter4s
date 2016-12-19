@@ -99,7 +99,7 @@ import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 
 def printTweetText: PartialFunction[StreamingMessage, Unit] = {
     case tweet: Tweet => println(tweet.text)
-  }
+}
 ```
 All  you need to do is attach your processing function to the stream:
 ```scala
