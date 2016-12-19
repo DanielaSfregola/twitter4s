@@ -2,6 +2,7 @@ package com.danielasfregola.twitter4s.http.unmarshalling
 
 import java.time.LocalDate
 
+import com.danielasfregola.twitter4s.entities.ProfileImage
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import org.json4s.CustomSerializer
@@ -9,7 +10,7 @@ import org.json4s.JsonAST.{JInt, JNull, JString}
 
 object CustomSerializers {
 
-  val all = List(LocalDateSerializer, DisconnectionCodeSerializer)
+  val all = List(LocalDateSerializer, DisconnectionCodeSerializer, ProfileImageSerializer)
 
 }
 
@@ -33,4 +34,13 @@ case object DisconnectionCodeSerializer extends CustomSerializer[DisconnectionCo
   },
   {
     case code: DisconnectionCode => JInt(code.id)
+  }))
+
+case object ProfileImageSerializer extends CustomSerializer[ProfileImage](format =>
+  ({
+    case JString(n) => ProfileImage(n)
+    case JNull => null
+  },
+  {
+    case img: ProfileImage => JString(img.normal)
   }))

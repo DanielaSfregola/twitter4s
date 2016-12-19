@@ -134,7 +134,7 @@ Have a look at the complete scaladoc for the [User Stream Client](http://daniela
 - getUserEvents
 
 #### UserStreamingMessage types:
-- All the `CommonStreamingMessage`s -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
+- All the instances of `CommonStreamingMessage` -- see the [Public Stream Section](https://github.com/DanielaSfregola/twitter4s#public-stream)
 - [FriendsLists](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsLists) and [FriendsListsStringified](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.FriendsListsStringified)
 - [SimpleEvent](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.SimpleEvent)
 - [TweetEvent](http://danielasfregola.github.io/twitter4s/2.1/api/index.html#com.danielasfregola.twitter4s.entities.streaming.user.TweetEvent)
