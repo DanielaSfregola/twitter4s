@@ -2,7 +2,7 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 import scoverage.ScoverageSbtPlugin.ScoverageKeys._
 
 name := "twitter4s"
-version := "3.0"
+version := "3.1-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
