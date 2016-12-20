@@ -43,6 +43,7 @@ trait TwitterUserClient extends OAuthClient with Configurations {
     genericGetUsers(parameters)
   }
 
+  @deprecated("use users instead", "2.2")
   def getUsers(screen_names: Seq[String],
                include_entities: Boolean = true): Future[Seq[User]] =
     users(screen_names, include_entities)

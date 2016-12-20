@@ -36,6 +36,7 @@ trait TwitterFriendClient extends OAuthClient with Configurations {
     genericGetFriendIds[UserIds](parameters)
   }
 
+  @deprecated("use friendIdsForUserId instead", "2.2")
   def getFriendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
     friendIdsForUserId(user_id, cursor, count)
 

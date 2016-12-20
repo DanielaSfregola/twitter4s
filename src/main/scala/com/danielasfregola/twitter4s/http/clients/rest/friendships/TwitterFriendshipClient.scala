@@ -343,7 +343,7 @@ trait TwitterFriendshipClient extends OAuthClient with Configurations {
     genericGetRelationship(parameters)
   }
 
-  @deprecated("use rateLimits instead", "2.2")
+  @deprecated("use relationshipBetweenUsers instead", "2.2")
   def getRelationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[Relationship] =
     relationshipBetweenUsers(source_screen_name, target_screen_name)
 

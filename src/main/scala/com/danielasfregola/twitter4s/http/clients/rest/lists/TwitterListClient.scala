@@ -1388,6 +1388,7 @@ trait TwitterListClient extends OAuthClient with Configurations {
     genericGetListOwnerships(parameters)
   }
 
+  @deprecated("use listOwnershipsForUserId instead", "2.2")
   def getListOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] =
     listOwnershipsForUserId(user_id, count, cursor)
 
