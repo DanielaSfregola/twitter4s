@@ -223,6 +223,7 @@ trait TwitterStatusClient extends OAuthClient with Configurations {
     Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Tweet]]
   }
 
+  @deprecated("use homeTimeline instead", "2.2")
   def getHomeTimeline(count: Int = 20,
                       since_id: Option[Long] = None,
                       max_id: Option[Long] = None,
