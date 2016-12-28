@@ -2,15 +2,15 @@ package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.OldClientSpec
 import spray.http.Uri.Query
 import spray.http.{HttpEntity, _}
 
-class TwitterStatusClientSpec extends ClientSpec {
+class TwitterStatusClientSpec extends OldClientSpec {
 
   class TwitterStatusClientSpecContext extends TwitterStreamingSpecContext with TwitterStatusClient
 
-  "Twitter Status Streaming Client" should {
+  "Twitter Status Streaming OldClient" should {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =

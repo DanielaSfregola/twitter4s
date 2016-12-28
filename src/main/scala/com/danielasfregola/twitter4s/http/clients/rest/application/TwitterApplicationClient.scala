@@ -1,7 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.application
 
 import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource.Resource
 import com.danielasfregola.twitter4s.http.clients.OAuthClient

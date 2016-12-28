@@ -17,11 +17,11 @@ import com.danielasfregola.twitter4s.entities.streaming._
 import com.danielasfregola.twitter4s.entities.streaming.common._
 import com.danielasfregola.twitter4s.entities.streaming.site._
 import com.danielasfregola.twitter4s.entities.streaming.user._
-import com.danielasfregola.twitter4s.exceptions.TwitterException
+import com.danielasfregola.twitter4s.exceptions.OldTwitterException
 
 import scala.util.Success
 
-private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
+private[twitter4s] trait StreamingOAuthClient extends OldOAuthClient {
 
   def streamingPipeline = { (requester: ActorRef, request: HttpRequest) =>
     request ~> (withOAuthHeader ~> logRequest ~> sendReceiveStream(requester) ~>
@@ -29,13 +29,8 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
   }
 
   def sendReceiveStream(requester: ActorRef): SendReceive = { request: HttpRequest =>
-    val system: ActorSystem = actorRefFactory match {
-      case x: ActorSystem ⇒ x
-      case x: ActorContext ⇒ x.system
-    }
-
     val io = IO(Http)(system)
-    val processor = actorRefFactory.actorOf(StreamingActor.props(requester))
+    val processor = system.actorOf(StreamingActor.props(requester))
 
     spray.client.pipelining.sendTo(io).withResponsesReceivedBy(processor)(request)
 
@@ -150,7 +145,7 @@ private[twitter4s] trait StreamingOAuthClient extends OAuthClient {
           case StatusCodes.Unauthorized => "Make sure your consumer and access tokens are correct"
           case _ => entity.asString
         }
-        log.error(TwitterException(code = status, msg = msg), "While opening streaming connection")
+        log.error(OldTwitterException(code = status, msg = msg), "While opening streaming connection")
         sender ! PoisonPill
     }
   }

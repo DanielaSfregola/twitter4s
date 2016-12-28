@@ -24,10 +24,10 @@ trait TwitterTrendClient extends OAuthClient with Configurations {
     *                         Setting this to `true` will remove all hashtags from the trends list.
     * @return : The representation of the location trends.
     */
-  def globalTrends(exclude_hashtags: Boolean = false): Future[LocationTrends] = trends(1, exclude_hashtags)
+  def globalTrends(exclude_hashtags: Boolean = false): Future[Seq[LocationTrends]] = trends(1, exclude_hashtags)
 
   @deprecated("use globalTrends instead", "2.2")
-  def getGlobalTrends(exclude_hashtags: Boolean = false): Future[LocationTrends] = trends(1, exclude_hashtags)
+  def getGlobalTrends(exclude_hashtags: Boolean = false): Future[Seq[LocationTrends]] = trends(1, exclude_hashtags)
 
   /** Returns the top 10 trending topics for a specific <a href="https://developer.yahoo.com/geo/geoplanet/" target="_blank">WOEID</a>, if trending information is available for it.
     * The response is an array of “trend” objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.
@@ -42,14 +42,14 @@ trait TwitterTrendClient extends OAuthClient with Configurations {
     *                         Setting this to `true` will remove all hashtags from the trends list.
     * @return : The representation of the location trends.
     */
-  def trends(woeid: Long, exclude_hashtags: Boolean = false): Future[LocationTrends] = {
+  def trends(woeid: Long, exclude_hashtags: Boolean = false): Future[Seq[LocationTrends]] = {
     val exclude = if (exclude_hashtags) Some("hashtags") else None
     val parameters = TrendsParameters(woeid, exclude)
-    Get(s"$trendsUrl/place.json", parameters).respondAs[LocationTrends]
+    Get(s"$trendsUrl/place.json", parameters).respondAs[Seq[LocationTrends]]
   }
 
   @deprecated("use trends instead", "2.2")
-  def getTrends(woeid: Long, exclude_hashtags: Boolean = false): Future[LocationTrends] =
+  def getTrends(woeid: Long, exclude_hashtags: Boolean = false): Future[Seq[LocationTrends]] =
     trends(woeid, exclude_hashtags)
 
   /** Returns the locations that Twitter has trending topic information for.

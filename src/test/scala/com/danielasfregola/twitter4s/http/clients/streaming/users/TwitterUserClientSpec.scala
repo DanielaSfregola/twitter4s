@@ -2,16 +2,16 @@ package com.danielasfregola.twitter4s.http.clients.streaming.users
 
 import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.OldClientSpec
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 
 
-class TwitterUserClientSpec extends ClientSpec {
+class TwitterUserClientSpec extends OldClientSpec {
 
   class TwitterUserClientSpecContext extends TwitterStreamingSpecContext with TwitterUserClient
 
-  "Twitter User Streaming Client" should {
+  "Twitter User Streaming OldClient" should {
 
     "start a filtered user stream" in new TwitterUserClientSpecContext {
       val result: Unit =

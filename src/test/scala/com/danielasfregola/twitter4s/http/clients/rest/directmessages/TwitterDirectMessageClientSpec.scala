@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.DirectMessage
+import com.danielasfregola.twitter4s.util.ClientSpec
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
 
@@ -16,7 +15,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: DirectMessage = when(directMessage(649298254383980547L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/show.json"
-        request.uri.query === Query("id=649298254383980547")
+        request.uri.queryString() === Some("id=649298254383980547")
       }.respondWith("/twitter/rest/directmessages/show.json").await
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/show.json")
     }
@@ -25,7 +24,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: Seq[DirectMessage] = when(sentDirectMessages(count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/sent.json"
-        request.uri.query === Query("count=10&include_entities=true&page=-1")
+        request.uri.queryString() === Some("count=10&include_entities=true&page=-1")
       }.respondWith("/twitter/rest/directmessages/sent.json").await
       result === loadJsonAs[Seq[DirectMessage]]("/fixtures/rest/directmessages/sent.json")
     }
@@ -34,7 +33,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: Seq[DirectMessage] = when(receivedDirectMessages(count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages.json"
-        request.uri.query === Query("count=10&include_entities=true&skip_status=false")
+        request.uri.queryString() === Some("count=10&include_entities=true&skip_status=false")
       }.respondWith("/twitter/rest/directmessages/received.json").await
       result === loadJsonAs[Seq[DirectMessage]]("/fixtures/rest/directmessages/received.json")
     }
@@ -43,7 +42,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: DirectMessage = when(deleteDirectMessage(649298254383980547L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/destroy.json"
-        request.uri.query === Query("id=649298254383980547&include_entities=true")
+        request.uri.queryString() === Some("id=649298254383980547&include_entities=true")
       }.respondWith("/twitter/rest/directmessages/destroy.json").await
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/destroy.json")
     }
@@ -53,7 +52,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: DirectMessage = when(createDirectMessage(2911461333L, text)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
-        request.uri.query === Query("text=FUNZIONAAAAAAAAAA+:D&user_id=2911461333")
+        request.uri.queryString() === Some("text=FUNZIONAAAAAAAAAA+:D&user_id=2911461333")
       }.respondWith("/twitter/rest/directmessages/new.json").await
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/new.json")
     }
@@ -63,7 +62,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       val result: DirectMessage = when(createDirectMessage("marcobonzanini", text)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
-        request.uri.query === Query("screen_name=marcobonzanini&text=FUNZIONAAAAAAAAAA+:D")
+        request.uri.queryString() === Some("screen_name=marcobonzanini&text=FUNZIONAAAAAAAAAA+:D")
       }.respondWith("/twitter/rest/directmessages/new.json").await
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/new.json")
     }

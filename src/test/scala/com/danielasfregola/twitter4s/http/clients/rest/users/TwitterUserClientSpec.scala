@@ -1,9 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.rest.users
 
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{Banners, User}
-import com.danielasfregola.twitter4s.util.{ClientSpecContext, ClientSpec}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import com.danielasfregola.twitter4s.util.ClientSpec
 
 class TwitterUserClientSpec extends ClientSpec {
 
@@ -15,7 +14,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: Seq[User] = when(users("marcobonzanini", "odersky")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-        request.uri.query === Query("include_entities=true&screen_name=marcobonzanini,odersky")
+        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini,odersky")
       }.respondWith("/twitter/rest/users/users.json").await
       result === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }
@@ -28,7 +27,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: Seq[User] = when(usersByIds(19018614, 17765013)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-        request.uri.query === Query("include_entities=true&user_id=19018614,17765013")
+        request.uri.queryString() === Some("include_entities=true&user_id=19018614,17765013")
       }.respondWith("/twitter/rest/users/users.json").await
       result === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }
@@ -41,7 +40,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: User = when(user("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-        request.uri.query === Query("include_entities=true&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/users/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/users/user.json")
     }
@@ -50,7 +49,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: User = when(userById(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-        request.uri.query === Query("include_entities=true&user_id=19018614")
+        request.uri.queryString() === Some("include_entities=true&user_id=19018614")
       }.respondWith("/twitter/rest/users/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/users/user.json")
     }
@@ -59,7 +58,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: Banners = when(profileBannersForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-        request.uri.query === Query("screen_name=DanielaSfregola")
+        request.uri.queryString() === Some("screen_name=DanielaSfregola")
       }.respondWith("/twitter/rest/users/profile_banner.json").await
       result === loadJsonAs[Banners]("/fixtures/rest/users/profile_banner.json")
     }
@@ -68,7 +67,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: Banners = when(profileBannersForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-        request.uri.query === Query("user_id=19018614")
+        request.uri.queryString() === Some("user_id=19018614")
       }.respondWith("/twitter/rest/users/profile_banner.json").await
       result === loadJsonAs[Banners]("/fixtures/rest/users/profile_banner.json")
     }
@@ -77,7 +76,7 @@ class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserCli
       val result: Seq[User] = when(searchForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/users/search.json"
-        request.uri.query === Query("count=20&include_entities=true&page=-1&q=DanielaSfregola")
+        request.uri.queryString() === Some("count=20&include_entities=true&page=-1&q=DanielaSfregola")
       }.respondWith("/twitter/rest/users/users.json").await
       result === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }

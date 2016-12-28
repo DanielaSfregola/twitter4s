@@ -4,11 +4,13 @@ package clients.rest.media
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
 
+import akka.http.scaladsl.model.{ContentTypes, MediaType}
+import akka.http.scaladsl.model.Multipart._
+import akka.stream.scaladsl.Source
 import com.danielasfregola.twitter4s.entities.MediaDetails
 import com.danielasfregola.twitter4s.http.clients.MediaOAuthClient
 
 import scala.concurrent.Future
-import spray.http._
 import com.danielasfregola.twitter4s.http.clients.rest.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
 import org.json4s.native.Serialization
@@ -102,14 +104,15 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   }
 
   private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int): Future[Unit] = {
-    val fields: Map[String, BodyPart] = Map(
-      "command" -> BodyPart("APPEND"),
-      "media_id" -> BodyPart(mediaId.toString),
-      "segment_index" -> BodyPart(idx.toString),
-      "media_data" -> BodyPart(chunk.base64Data.mkString)
-    )
+    val formData: FormData = FormData(
+      Source(List(
+      FormData.BodyPart.Strict("command", "APPEND"),
+      FormData.BodyPart.Strict("media_id", mediaId.toString),
+        FormData.BodyPart.Strict("segment_index", idx.toString),
+      FormData.BodyPart.Strict("media_data", chunk.base64Data.mkString)
+    )))
 
-    formDataPipeline apply Post(s"$mediaUrl/upload.json", MultipartFormData(fields))
+    Post(s"$mediaUrl/upload.json", formData).respondToFormData
   }
 
   private def finalizeMedia(mediaId: Long): Future[MediaDetails] = {
@@ -142,6 +145,6 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   def createMediaDescription(media_id: Long, description: String): Future[Unit] = {
     val entity = MediaMetadataCreation(media_id.toString, description)
     val jsonEntity = Serialization.write(entity)
-    formDataPipeline apply Post(s"$mediaUrl/metadata/create.json", jsonEntity, MediaTypes.`application/json`)
+    Post(s"$mediaUrl/metadata/create.json", jsonEntity, ContentTypes.`application/json`).respondToFormData
   }
 }

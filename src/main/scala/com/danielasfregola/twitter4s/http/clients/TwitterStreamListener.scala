@@ -23,21 +23,21 @@ private[twitter4s] trait TwitterStreamListenerHelper {
   private def ignore: PartialFunction[StreamingMessage, Unit] = { case _ => }
 
   def createCommonListener(f: PartialFunction[CommonStreamingMessage, Unit]): ActorRef =
-    actorRefFactory.actorOf(Props(new TwitterStreamListener {
+    system.actorOf(Props(new TwitterStreamListener {
       def processCommonStreamingMsg: CommonStreamingMessage => Unit = f orElse ignore
       def processSiteStreamingMsg: SiteStreamingMessage => Unit = ignore
       def processUserStreamingMsg: UserStreamingMessage => Unit = ignore
     }))
 
   def createUserListener(f: PartialFunction[UserStreamingMessage, Unit]): ActorRef =
-    actorRefFactory.actorOf(Props(new TwitterStreamListener {
+    system.actorOf(Props(new TwitterStreamListener {
       def processCommonStreamingMsg: CommonStreamingMessage => Unit = processUserStreamingMsg
       def processSiteStreamingMsg: SiteStreamingMessage => Unit = ignore
       def processUserStreamingMsg: UserStreamingMessage => Unit = f orElse ignore
     }))
 
   def createSiteListener(f: PartialFunction[SiteStreamingMessage, Unit]): ActorRef =
-    actorRefFactory.actorOf(Props(new TwitterStreamListener {
+    system.actorOf(Props(new TwitterStreamListener {
       def processCommonStreamingMsg: CommonStreamingMessage => Unit = processSiteStreamingMsg
       def processSiteStreamingMsg: SiteStreamingMessage => Unit = f orElse ignore
       def processUserStreamingMsg: UserStreamingMessage => Unit = ignore

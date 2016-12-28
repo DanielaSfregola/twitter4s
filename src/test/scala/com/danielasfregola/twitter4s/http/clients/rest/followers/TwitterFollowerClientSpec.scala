@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.followers
 
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{Users, UserIds, UserStringifiedIds}
+import akka.http.scaladsl.model.HttpMethods
+import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.util.ClientSpec
 
 class TwitterFollowerClientSpec extends ClientSpec {
 
@@ -16,7 +15,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserIds = when(followerIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
+        request.uri.queryString() === Some("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
       }.respondWith("/twitter/rest/followers/followers_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/rest/followers/followers_ids.json")
     }
@@ -25,7 +24,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserIds = when(followerIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
+        request.uri.queryString() === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
       }.respondWith("/twitter/rest/followers/followers_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/rest/followers/followers_ids.json")
     }
@@ -35,7 +34,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(followerStringifiedIdsForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
+        request.uri.queryString() === Some("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
       }.respondWith("/twitter/rest/followers/followers_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/followers/followers_ids_stringified.json")
     }
@@ -44,7 +43,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(followersStringifiedIdsForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/ids.json"
-        request.uri.query === Query("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
+        request.uri.queryString() === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
       }.respondWith("/twitter/rest/followers/followers_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/followers/followers_ids_stringified.json")
     }
@@ -53,7 +52,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: Users = when(followersForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
-        request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
+        request.uri.queryString() === Some("count=20&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
       }.respondWith("/twitter/rest/followers/followers.json").await
       result === loadJsonAs[Users]("/fixtures/rest/followers/followers.json")
     }
@@ -62,7 +61,7 @@ class TwitterFollowerClientSpec extends ClientSpec {
       val result: Users = when(followersForUserId(2911461333L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/followers/list.json"
-        request.uri.query === Query("count=20&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
+        request.uri.queryString() === Some("count=20&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
       }.respondWith("/twitter/rest/followers/followers.json").await
       result === loadJsonAs[Users]("/fixtures/rest/followers/followers.json")
     }

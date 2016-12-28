@@ -2,15 +2,15 @@ package com.danielasfregola.twitter4s.http.clients.streaming.sites
 
 import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.OldClientSpec
 import spray.http.HttpMethods
 import spray.http.Uri.Query
 
-class TwitterSiteClientSpec extends ClientSpec {
+class TwitterSiteClientSpec extends OldClientSpec {
 
   class TwitterSiteClientSpecContext extends TwitterStreamingSpecContext with TwitterSiteClient
 
-  "Twitter Site Streaming Client" should {
+  "Twitter Site Streaming OldClient" should {
 
     "start a filtered site stream" in new TwitterSiteClientSpecContext {
       val result: Unit =

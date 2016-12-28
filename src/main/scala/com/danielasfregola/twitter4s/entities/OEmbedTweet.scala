@@ -1,7 +1,5 @@
 package com.danielasfregola.twitter4s.entities
 
-import spray.http.Uri
-
 case class OEmbedTweet(author_name: Option[String],
                        author_url: Option[String],
                        cache_age: Option[String],

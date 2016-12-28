@@ -5,12 +5,12 @@ import com.danielasfregola.twitter4s.entities.streaming._
 import com.danielasfregola.twitter4s.entities.streaming.common._
 import com.danielasfregola.twitter4s.entities.streaming.site.{ControlMessage, UserEnvelopFriendsLists, UserEnvelopFriendsListsStringified}
 import com.danielasfregola.twitter4s.entities.streaming.user.{FriendsLists, FriendsListsStringified, TweetEvent}
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.OldClientSpec
 import spray.http._
 
 import scala.io.Source
 
-class StreamingSerializationSpec extends ClientSpec {
+class StreamingSerializationSpec extends OldClientSpec {
 
   "StreamingActor" should {
 

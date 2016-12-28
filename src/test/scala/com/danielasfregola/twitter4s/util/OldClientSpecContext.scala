@@ -5,7 +5,7 @@ import akka.testkit.TestProbe
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.http.clients.{OAuthClient, StreamingOAuthClient}
+import com.danielasfregola.twitter4s.http.clients.{OldOAuthClient, StreamingOAuthClient}
 import org.specs2.matcher.NoConcurrentExecutionContext
 import org.specs2.specification.Scope
 import spray.client.pipelining._
@@ -14,7 +14,7 @@ import spray.http._
 import scala.concurrent.Future
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
 
-abstract class ClientSpecContext extends TestActorSystem with StreamingOAuthClient with OAuthClient with FixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
+abstract class OldClientSpecContext extends TestActorSystem with StreamingOAuthClient with OldOAuthClient with OldFixturesSupport with AwaitableFuture with NoConcurrentExecutionContext with Scope {
   self =>
 
   val consumerToken = ConsumerToken("consumer-key", "consumer-secret")

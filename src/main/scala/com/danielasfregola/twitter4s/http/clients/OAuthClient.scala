@@ -1,38 +1,54 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import spray.client.pipelining._
-import spray.http.HttpMethods._
-import spray.http._
-import spray.httpx.unmarshalling.{FromResponseUnmarshaller, Deserializer => _}
+import akka.http.scaladsl.model._
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
-import com.danielasfregola.twitter4s.providers.{ActorRefFactoryProvider, TokenProvider}
+import com.danielasfregola.twitter4s.providers.{ActorSystemProvider, TokenProvider}
+import akka.http.scaladsl.model.HttpMethods._
+import akka.http.scaladsl.client.RequestBuilding
 
-private[twitter4s] trait OAuthClient extends Client with TokenProvider with ActorRefFactoryProvider {
+import scala.concurrent.Future
+
+private[twitter4s] trait OAuthClient extends Client with TokenProvider with ActorSystemProvider with RequestBuilding {
+
+  val withLogRequest = false
+  val withLogRequestResponse = true
+
+  private[twitter4s] implicit class RichHttpRequest(val request: HttpRequest) {
+    def respondAs[T: Manifest]: Future[T] =
+      for {
+        requestWithAuth <- withOAuthHeader(request)
+        t <- sendReceiveAs[T](requestWithAuth)
+      } yield t
+
+    def respondToFormData: Future[Unit] =
+      for {
+        requestWithAuth <- withSimpleOAuthHeader(request)
+        _ <- sendReceiveAs[Any](requestWithAuth)
+      } yield ()
+  }
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 
-  def pipeline[T: FromResponseUnmarshaller] = { implicit request =>
-    request ~> (withOAuthHeader ~> logRequest ~> sendReceive ~> logResponse(System.currentTimeMillis) ~> unmarshalResponse[T])
+  def withOAuthHeader: HttpRequest => Future[HttpRequest] = { request =>
+    for {
+      authorizationHeader <- oauthProvider.oauthHeader(request)
+    } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
-  def withOAuthHeader: HttpRequest => HttpRequest = { request =>
-    val authorizationHeader = oauthProvider.oauthHeader(request)
-    request.withHeaders( request.headers :+ authorizationHeader )
+  def withSimpleOAuthHeader: HttpRequest => Future[HttpRequest] = { request =>
+    for {
+      authorizationHeader <- oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
+    } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
-  def withSimpleOAuthHeader: HttpRequest => HttpRequest = { request =>
-    val authorizationHeader = oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
-    request.withHeaders( request.headers :+ authorizationHeader )
-  }
-
-  val Get = new OAuthRequestBuilder(GET)
-  val Post = new OAuthRequestBuilder(POST)
-  val Put = new OAuthRequestBuilder(PUT)
-  val Patch = new OAuthRequestBuilder(PATCH)
-  val Delete = new OAuthRequestBuilder(DELETE)
-  val Options = new OAuthRequestBuilder(OPTIONS)
-  val Head = new OAuthRequestBuilder(HEAD)
+  override val Get = new OAuthRequestBuilder(GET)
+  override val Post = new OAuthRequestBuilder(POST)
+  override val Put = new OAuthRequestBuilder(PUT)
+  override val Patch = new OAuthRequestBuilder(PATCH)
+  override val Delete = new OAuthRequestBuilder(DELETE)
+  override val Options = new OAuthRequestBuilder(OPTIONS)
+  override val Head = new OAuthRequestBuilder(HEAD)
 
   class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
@@ -41,7 +57,8 @@ private[twitter4s] trait OAuthClient extends Client with TokenProvider with Acto
 
     def apply(uri: String, content: Product): HttpRequest = {
       val data = toBodyAsEncodedParams(content)
-      apply(uri, data, ContentType(MediaTypes.`application/x-www-form-urlencoded`))
+      val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`, HttpCharsets.`UTF-8`)
+      apply(uri, data, contentType)
     }
 
     def apply(uri: String, content: Product, contentType: ContentType): HttpRequest = {
@@ -50,10 +67,9 @@ private[twitter4s] trait OAuthClient extends Client with TokenProvider with Acto
     }
 
     def apply(uri: String, data: String, contentType: ContentType): HttpRequest =
-      apply(uri).withEntity(HttpEntity(contentType, data))
+      apply(uri).withEntity(HttpEntity(data).withContentType(contentType))
 
-
-    def apply(uri: String, multipartFormData: MultipartFormData): HttpRequest =
+    def apply(uri: String, multipartFormData: Multipart.FormData): HttpRequest =
       apply(Uri(uri), Some(multipartFormData))
 
   }
