@@ -11,24 +11,24 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Random
 
-class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken)
-                   (implicit ec: ExecutionContext, m: Materializer) extends Encoder {
+class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken)
+                    (implicit ec: ExecutionContext, m: Materializer) extends Encoder {
 
-  def oauthHeader(implicit request: HttpRequest): Future[HttpHeader] =
-    oauthParams.map { params =>
+  def oauth2Header(implicit request: HttpRequest): Future[HttpHeader] =
+    oauth2Params.map { params =>
       val authorizationValue = params.map{ case (k, v) => s"""$k="$v""""}.toList.sorted.mkString(", ")
       RawHeader("Authorization", s"OAuth $authorizationValue")
     }
 
-  def oauthParams(implicit request: HttpRequest): Future[Map[String, String]] = {
-    val params = basicOAuthParams
+  def oauth2Params(implicit request: HttpRequest): Future[Map[String, String]] = {
+    val params = basicOAuth2Params
     for {
-      signature <- oauthSignature(params)(request)
+      signature <- oauth2Signature(params)(request)
     } yield (params + signature).mapValues(_.toAscii)
   }
 
-  def oauthSignature(oauthParams: Map[String, String])(implicit request: HttpRequest) =
-    signatureBase(oauthParams).map { signatureBase =>
+  def oauth2Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest) =
+    signatureBase(oauth2Params).map { signatureBase =>
       "oauth_signature" -> toHmacSha1(signatureBase, signingKey)
     }
 
@@ -41,7 +41,7 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken)
   protected def currentSecondsFromEpoc = System.currentTimeMillis / 1000
   protected def generateNonce = Random.alphanumeric.take(42).mkString
 
-  private def basicOAuthParams: Map[String, String] = {
+  private def basicOAuth2Params: Map[String, String] = {
     val consumerKey = ("oauth_consumer_key" -> consumerToken.key)
     val signatureMethod = ("oauth_signature_method" -> "HMAC-SHA1")
     val version = ("oauth_version" -> "1.0")
@@ -52,11 +52,11 @@ class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken)
     Map(consumerKey, nonce, signatureMethod, timestamp, token, version)
   }
 
-  def signatureBase(oauthParams: Map[String, String])(implicit request: HttpRequest) =
+  def signatureBase(oauth2Params: Map[String, String])(implicit request: HttpRequest) =
     bodyParams.map { bdParams =>
       val method = request.method.name.toAscii
       val baseUrl = request.uri.endpoint.toAscii
-      val encodedParams = encodeParams(queryParams ++ oauthParams ++ bdParams).toAscii
+      val encodedParams = encodeParams(queryParams ++ oauth2Params ++ bdParams).toAscii
       s"$method&$baseUrl&$encodedParams"
     }
 

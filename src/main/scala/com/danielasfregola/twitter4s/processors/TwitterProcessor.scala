@@ -13,6 +13,6 @@ object TwitterProcessor extends LazyLogging with JsonSupport {
   }
 
   def logTweetText: PartialFunction[StreamingMessage, Unit] = {
-    case tweet: Tweet => logger.info(tweet.text)
+    case tweet: Tweet => logger.info("{}", tweet.text)
   }
 }

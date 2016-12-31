@@ -12,7 +12,7 @@ class OAuthProviderSpec extends TestActorSystem with SpecificationLike with Awai
   implicit val consumerToken = ConsumerToken("xvz1evFS4wEEPTGEFPHBog", "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw")
   implicit val accessToken = AccessToken("370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE")
 
-  val provider = new OAuthProvider(consumerToken, accessToken) {
+  val provider = new OAuth2Provider(consumerToken, accessToken) {
     override def currentSecondsFromEpoc = 1318622958
     override def generateNonce = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
   }
@@ -25,14 +25,14 @@ class OAuthProviderSpec extends TestActorSystem with SpecificationLike with Awai
     val request = HttpRequest(method = HttpMethods.POST, uri = uri, entity = entity.withContentType(contentType))
 
     "provide an Authorization token according to the OAuth standards" in {
-      val oauthHeader = provider.oauthHeader(request).await
+      val oauthHeader = provider.oauth2Header(request).await
       val expectedAuthorization = """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
       oauthHeader === RawHeader("Authorization", expectedAuthorization)
     }
 
     "provide the oauth parameters as expected" in {
 
-      val oauthParams = provider.oauthParams(request).await
+      val oauthParams = provider.oauth2Params(request).await
       oauthParams.size === 7
       oauthParams("oauth_consumer_key") === consumerToken.key
       oauthParams("oauth_signature_method") === "HMAC-SHA1"

@@ -4,24 +4,24 @@ import akka.http.scaladsl.client.RequestBuilding
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
-import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
+import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
 import com.danielasfregola.twitter4s.providers.{ActorSystemProvider, TokenProvider}
 
 import scala.concurrent.Future
 
 private[twitter4s] trait OAuthClient extends CommonClient with TokenProvider with ActorSystemProvider with RequestBuilding {
 
-  protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
+  protected lazy val oauthProvider = new OAuth2Provider(consumerToken, accessToken)
 
   def withOAuthHeader: HttpRequest => Future[HttpRequest] = { request =>
     for {
-      authorizationHeader <- oauthProvider.oauthHeader(request)
+      authorizationHeader <- oauthProvider.oauth2Header(request)
     } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
   def withSimpleOAuthHeader: HttpRequest => Future[HttpRequest] = { request =>
     for {
-      authorizationHeader <- oauthProvider.oauthHeader(request.withEntity(HttpEntity.Empty))
+      authorizationHeader <- oauthProvider.oauth2Header(request.withEntity(HttpEntity.Empty))
     } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
