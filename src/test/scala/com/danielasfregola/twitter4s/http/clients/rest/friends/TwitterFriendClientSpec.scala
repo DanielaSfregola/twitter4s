@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.friends
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterFriendClientSpec extends ClientSpec {
 

@@ -1,9 +1,7 @@
 package com.danielasfregola.twitter4s
 
-import akka.actor.{ActorRef, ActorRefFactory, ActorSystem, Props}
-import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
+import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.http.clients.TwitterStreamListener
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient

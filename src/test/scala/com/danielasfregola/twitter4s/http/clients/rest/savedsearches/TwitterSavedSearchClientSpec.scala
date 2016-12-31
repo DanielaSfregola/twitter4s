@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.SavedSearch
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterSavedSearchClientSpec extends ClientSpec {
 

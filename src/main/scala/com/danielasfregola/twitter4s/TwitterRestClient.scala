@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s
 
-import akka.actor.{ActorRefFactory, ActorSystem}
+import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.TwitterApplicationClient

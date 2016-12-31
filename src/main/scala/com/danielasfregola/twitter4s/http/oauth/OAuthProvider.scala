@@ -7,9 +7,9 @@ import akka.stream.Materializer
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.util.Encoder
 
+import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Random
-import scala.concurrent.duration._
 
 class OAuthProvider(consumerToken: ConsumerToken, accessToken: AccessToken)
                    (implicit ec: ExecutionContext, m: Materializer) extends Encoder {

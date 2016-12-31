@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterBlockClientSpec extends ClientSpec {
 

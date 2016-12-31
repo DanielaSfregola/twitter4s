@@ -1,20 +1,20 @@
 package com.danielasfregola.twitter4s.http
 package clients.rest.statuses
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType
 import com.danielasfregola.twitter4s.entities.enums.{Alignment, Language}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.statuses.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `statuses` resource.
   */
-trait TwitterStatusClient extends OAuthClient with Configurations {
+trait TwitterStatusClient extends RestClient with Configurations {
 
   private val statusesUrl = s"$apiTwitterUrl/$twitterVersion/statuses"
 

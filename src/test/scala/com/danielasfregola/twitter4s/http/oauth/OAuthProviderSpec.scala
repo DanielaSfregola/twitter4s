@@ -1,11 +1,10 @@
 package com.danielasfregola.twitter4s.http.oauth
 
+import akka.http.scaladsl.model.headers.RawHeader
 import akka.http.scaladsl.model.{HttpCharsets, _}
-import org.specs2.mutable.{Specification, SpecificationLike}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.util.{AwaitableFuture, TestActorSystem}
-import akka.http.scaladsl.model.headers.RawHeader
-import akka.stream.ActorMaterializer
+import org.specs2.mutable.SpecificationLike
 
 
 class OAuthProviderSpec extends TestActorSystem with SpecificationLike with AwaitableFuture {

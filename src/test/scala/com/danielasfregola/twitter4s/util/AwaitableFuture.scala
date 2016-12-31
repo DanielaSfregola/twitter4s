@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.util
 
-import scala.concurrent.{ Await, Future }
-import scala.concurrent.duration.{ DurationInt, FiniteDuration }
+import scala.concurrent.duration.{DurationInt, FiniteDuration}
+import scala.concurrent.{Await, Future}
 
 trait AwaitableFuture {
 

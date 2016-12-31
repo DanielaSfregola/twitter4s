@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.trends
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.{Location, LocationTrends}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.parameters.{LocationParameters, TrendsParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `trends` resource.
   */
-trait TwitterTrendClient extends OAuthClient with Configurations {
+trait TwitterTrendClient extends RestClient with Configurations {
 
   private val trendsUrl = s"$apiTwitterUrl/$twitterVersion/trends"
 

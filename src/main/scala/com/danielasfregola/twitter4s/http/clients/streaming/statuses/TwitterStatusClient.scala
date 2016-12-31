@@ -2,13 +2,13 @@ package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
-import com.danielasfregola.twitter4s.http.clients.{StreamingOAuthClient, TwitterStreamListenerHelper}
+import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAuthClient with Configurations with ActorContextExtractor {
+trait TwitterStatusClient extends StreamingClient with Configurations with ActorContextExtractor {
 
   private val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
 
@@ -44,8 +44,7 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
                      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
-    val listener = createCommonListener(f)
-    streamingPipeline(listener, Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]))
+    Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]).processStream(f)
   }
 
   @deprecated("use filterStatuses instead", "2.2")
@@ -76,8 +75,7 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
                      stall_warnings: Boolean = false)
                     (f: PartialFunction[CommonStreamingMessage, Unit]): Future[Unit] = {
     val parameters = StatusSampleParameters(languages, stall_warnings)
-    val listener = createCommonListener(f)
-    streamingPipeline(listener, Get(s"$statusUrl/sample.json", parameters))
+    Get(s"$statusUrl/sample.json", parameters).processStream(f)
   }
 
   @deprecated("use sampleStatuses instead", "2.2")
@@ -110,8 +108,7 @@ trait TwitterStatusClient extends TwitterStreamListenerHelper with StreamingOAut
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(languages, count, stall_warnings)
-    val listener = createCommonListener(f)
-    streamingPipeline(listener, Get(s"$statusUrl/firehose.json", parameters))
+    Get(s"$statusUrl/firehose.json", parameters).processStream(f)
   }
 
   @deprecated("use firehoseStatuses instead", "2.2")

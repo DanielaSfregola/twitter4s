@@ -1,15 +1,16 @@
 package com.danielasfregola.twitter4s.http.clients.rest.application
 
-import scala.concurrent.Future
 import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource.Resource
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.parameters.RatesParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `application` resource.
   */
-trait TwitterApplicationClient extends OAuthClient with Configurations {
+trait TwitterApplicationClient extends RestClient with Configurations {
 
   private val applicationUrl = s"$apiTwitterUrl/$twitterVersion/application"
 

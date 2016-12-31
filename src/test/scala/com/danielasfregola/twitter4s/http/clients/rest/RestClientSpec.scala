@@ -1,22 +1,23 @@
-package com.danielasfregola.twitter4s.http.clients
+package com.danielasfregola.twitter4s.http.clients.rest
 
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse, StatusCodes}
-import com.danielasfregola.twitter4s.util.ClientSpec
+import akka.http.scaladsl.model.{ContentTypes, HttpResponse, StatusCodes}
+import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterError, TwitterException}
+import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 import scala.concurrent.Future
-import scala.util.{Failure, Success}
-import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterError, TwitterException}
 
-class OAuthClientSpec extends ClientSpec {
+class RestClientSpec extends ClientSpec {
 
-  class OAuthClientSpecContext extends ClientSpecContext with OAuthClient {
+  class RestClientSpecContext extends ClientSpecContext with RestClient {
 
     def exampleRequest(): Future[Unit] = Get("an-example-request", ContentTypes.`application/json`).respondAs[Unit]
+
   }
 
-  "OAuth Client" should {
+  "Rest Client" should {
 
-    "throw twitter exception to twitter rejection" in new OAuthClientSpecContext {
+    "throw twitter exception to twitter rejection" in new RestClientSpecContext {
       val response = {
         val entity = """{"errors":[{"message":"Sorry, that page does not exist","code":34}]}"""
         HttpResponse(StatusCodes.NotFound, entity = entity)
@@ -27,7 +28,7 @@ class OAuthClientSpec extends ClientSpec {
       result should throwAn(expectedTwitterException).await
     }
 
-    "throw twitter exception to generic failure http response" in new OAuthClientSpecContext {
+    "throw twitter exception to generic failure http response" in new RestClientSpecContext {
       val body = "Something bad happened"
       val response = HttpResponse(StatusCodes.RequestTimeout, entity = body)
       val result = when(exampleRequest).expectRequest(identity(_)).respondWith(response)

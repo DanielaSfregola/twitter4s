@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.DirectMessage
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `direct_messages` resource.
   * */
-trait TwitterDirectMessageClient extends OAuthClient with Configurations {
+trait TwitterDirectMessageClient extends RestClient with Configurations {
 
   private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
 

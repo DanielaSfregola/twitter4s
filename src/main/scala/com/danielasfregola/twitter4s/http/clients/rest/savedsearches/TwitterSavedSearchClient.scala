@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.SavedSearch
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.savedsearches.parameters.SaveSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `saved_searches` resource.
   */
-trait TwitterSavedSearchClient extends OAuthClient with Configurations {
+trait TwitterSavedSearchClient extends RestClient with Configurations {
 
   private val savedSearchUrl = s"$apiTwitterUrl/$twitterVersion/saved_searches"
 

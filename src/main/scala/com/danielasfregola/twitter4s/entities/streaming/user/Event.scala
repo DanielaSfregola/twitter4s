@@ -6,8 +6,8 @@ import com.danielasfregola.twitter4s.entities.enums.EventCode
 import com.danielasfregola.twitter4s.entities.enums.SimpleEventCode.SimpleEventCode
 import com.danielasfregola.twitter4s.entities.enums.TweetEventCode.TweetEventCode
 import com.danielasfregola.twitter4s.entities.enums.TwitterListEventCode.TwitterListEventCode
-import com.danielasfregola.twitter4s.entities.{Tweet, TwitterList, User}
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
+import com.danielasfregola.twitter4s.entities.{Tweet, TwitterList, User}
 
 /** Notifications about non-Tweet events are also sent over a user stream.
   * The values present will be different based on the type of event.

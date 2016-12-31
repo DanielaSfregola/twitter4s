@@ -4,13 +4,13 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
+import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
-import com.danielasfregola.twitter4s.http.clients.{StreamingOAuthClient, TwitterStreamListenerHelper}
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterSiteClient extends TwitterStreamListenerHelper with StreamingOAuthClient with Configurations with ActorContextExtractor {
+trait TwitterSiteClient extends StreamingClient with Configurations with ActorContextExtractor {
 
   private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion"
 
@@ -49,8 +49,7 @@ trait TwitterSiteClient extends TwitterStreamListenerHelper with StreamingOAuthC
                  stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
-    val listener = createSiteListener(f)
-    streamingPipeline(listener, Get(s"$siteUrl/site.json", parameters))
+    Get(s"$siteUrl/site.json", parameters).processStream(f)
   }
 
   @deprecated("use siteEvents instead", "2.2")

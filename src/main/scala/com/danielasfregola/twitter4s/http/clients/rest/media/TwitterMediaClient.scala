@@ -4,20 +4,20 @@ package clients.rest.media
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
 
-import akka.http.scaladsl.model.{ContentTypes, MediaType}
 import akka.http.scaladsl.model.Multipart._
+import akka.http.scaladsl.model.{ContentTypes, MediaType}
 import akka.stream.scaladsl.Source
 import com.danielasfregola.twitter4s.entities.MediaDetails
-import com.danielasfregola.twitter4s.http.clients.MediaOAuthClient
-
-import scala.concurrent.Future
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
 import org.json4s.native.Serialization
 
+import scala.concurrent.Future
+
 /** Implements the available endpoints for the MEDIA API.
   */
-trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configurations {
+trait TwitterMediaClient extends RestClient with MediaReader with Configurations {
 
   private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 
@@ -112,7 +112,7 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
       FormData.BodyPart.Strict("media_data", chunk.base64Data.mkString)
     )))
 
-    Post(s"$mediaUrl/upload.json", formData).respondToFormData
+    Post(s"$mediaUrl/upload.json", formData).sendAsFormData
   }
 
   private def finalizeMedia(mediaId: Long): Future[MediaDetails] = {
@@ -145,6 +145,6 @@ trait TwitterMediaClient extends MediaOAuthClient with MediaReader with Configur
   def createMediaDescription(media_id: Long, description: String): Future[Unit] = {
     val entity = MediaMetadataCreation(media_id.toString, description)
     val jsonEntity = Serialization.write(entity)
-    Post(s"$mediaUrl/metadata/create.json", jsonEntity, ContentTypes.`application/json`).respondToFormData
+    Post(s"$mediaUrl/metadata/create.json", jsonEntity, ContentTypes.`application/json`).sendAsFormData
   }
 }

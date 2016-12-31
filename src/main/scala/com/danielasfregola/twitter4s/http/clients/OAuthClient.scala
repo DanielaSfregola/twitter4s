@@ -1,32 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients
 
+import akka.http.scaladsl.client.RequestBuilding
+import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuthProvider
 import com.danielasfregola.twitter4s.providers.{ActorSystemProvider, TokenProvider}
-import akka.http.scaladsl.model.HttpMethods._
-import akka.http.scaladsl.client.RequestBuilding
 
 import scala.concurrent.Future
 
-private[twitter4s] trait OAuthClient extends Client with TokenProvider with ActorSystemProvider with RequestBuilding {
-
-  val withLogRequest = false
-  val withLogRequestResponse = true
-
-  private[twitter4s] implicit class RichHttpRequest(val request: HttpRequest) {
-    def respondAs[T: Manifest]: Future[T] =
-      for {
-        requestWithAuth <- withOAuthHeader(request)
-        t <- sendReceiveAs[T](requestWithAuth)
-      } yield t
-
-    def respondToFormData: Future[Unit] =
-      for {
-        requestWithAuth <- withSimpleOAuthHeader(request)
-        _ <- sendReceiveAs[Any](requestWithAuth)
-      } yield ()
-  }
+private[twitter4s] trait OAuthClient extends CommonClient with TokenProvider with ActorSystemProvider with RequestBuilding {
 
   protected lazy val oauthProvider = new OAuthProvider(consumerToken, accessToken)
 

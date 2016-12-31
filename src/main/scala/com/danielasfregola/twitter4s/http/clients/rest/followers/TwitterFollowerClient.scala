@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.followers
 
-import scala.concurrent.Future
-
-import com.danielasfregola.twitter4s.entities.{Users, UserStringifiedIds, UserIds}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.followers.parameters.{FollowersParameters, FollowingParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `followers` resource.
   * */
-trait TwitterFollowerClient extends OAuthClient with Configurations {
+trait TwitterFollowerClient extends RestClient with Configurations {
 
   private val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
 

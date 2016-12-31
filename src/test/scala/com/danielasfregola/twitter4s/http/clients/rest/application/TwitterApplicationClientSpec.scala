@@ -4,7 +4,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.application
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterApplicationClientSpec extends ClientSpec {
 

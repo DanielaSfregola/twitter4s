@@ -1,17 +1,17 @@
 package com.danielasfregola.twitter4s.http.clients.rest.geo
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.enums.Granularity
 import com.danielasfregola.twitter4s.entities.enums.Granularity._
-import com.danielasfregola.twitter4s.entities.{GeoSearch, Accuracy, GeoPlace}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.entities.{Accuracy, GeoPlace, GeoSearch}
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.geo.parameters.{GeoSearchParameters, ReverseGeoCodeParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `geo` resource.
   * */
-trait TwitterGeoClient  extends OAuthClient with Configurations {
+trait TwitterGeoClient  extends RestClient with Configurations {
 
   private val geoUrl = s"$apiTwitterUrl/$twitterVersion/geo"
 

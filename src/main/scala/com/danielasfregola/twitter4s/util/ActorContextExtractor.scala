@@ -1,8 +1,9 @@
 package com.danielasfregola.twitter4s.util
 
-import scala.concurrent.ExecutionContext
 import akka.event.LoggingAdapter
-import com.danielasfregola.twitter4s.providers.{ExecutionContextProvider, ActorSystemProvider}
+import com.danielasfregola.twitter4s.providers.{ActorSystemProvider, ExecutionContextProvider}
+
+import scala.concurrent.ExecutionContext
 
 trait ActorContextExtractor extends ExecutionContextProvider with ActorSystemProvider {
 

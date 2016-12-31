@@ -2,19 +2,19 @@ package com.danielasfregola.twitter4s.http.clients.rest.search
 
 import java.time.LocalDate
 
-import scala.concurrent.Future
-
-import com.danielasfregola.twitter4s.entities.{StatusSearch, GeoCode}
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.ResultType
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.entities.{GeoCode, StatusSearch}
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `search` resource.
   */
-trait TwitterSearchClient extends OAuthClient with Configurations {
+trait TwitterSearchClient extends RestClient with Configurations {
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
 

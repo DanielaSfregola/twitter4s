@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities.streaming.user
 
-import com.danielasfregola.twitter4s.entities.streaming.{StreamingMessage, UserStreamingMessage}
+import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 
 /** Upon establishing a User Stream connection, Twitter will send a preamble before starting regular message delivery.
   * This preamble contains a list of the user’s friends. This is represented as an array of user ids as longs.

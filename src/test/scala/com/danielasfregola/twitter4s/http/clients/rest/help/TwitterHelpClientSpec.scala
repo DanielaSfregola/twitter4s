@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.help
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{Configuration, LanguageDetails, PrivacyPolicy, TermsOfService}
-import com.danielasfregola.twitter4s.util.ClientSpec
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterHelpClientSpec extends ClientSpec {
 
