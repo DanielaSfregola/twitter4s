@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.friends
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.clients.rest.friends.parameters.{FriendsParameters, FriendParameters}
+import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.friends.parameters.{FriendParameters, FriendsParameters}
 import com.danielasfregola.twitter4s.util.Configurations
+
+import scala.concurrent.Future
 
 /** Implements the available requests for the `friends` resource.
   * */
-trait TwitterFriendClient extends OAuthClient with Configurations {
+trait TwitterFriendClient extends RestClient with Configurations {
 
   private val friendsUrl = s"$apiTwitterUrl/$twitterVersion/friends"
 

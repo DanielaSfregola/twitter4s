@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{UserStringifiedIds, UserIds, User, Users}
+import akka.http.scaladsl.model.HttpMethods
+import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterBlockClientSpec extends ClientSpec {
 
@@ -24,7 +23,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: UserIds = when(blockedUserIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=false")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
       }.respondWith("/twitter/rest/blocks/ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/rest/blocks/ids.json")
     }
@@ -33,7 +32,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(blockedUserStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=true")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
       }.respondWith("/twitter/rest/blocks/stringified_ids.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/blocks/stringified_ids.json")
     }
@@ -42,7 +41,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: User = when(blockUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/create.json"
-        request.uri.query === Query("include_entities=true&screen_name=marcobonzanini&skip_status=false")
+        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
       }.respondWith("/twitter/rest/blocks/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/blocks/user.json")
     }
@@ -51,7 +50,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: User = when(blockUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/create.json"
-        request.uri.query === Query("include_entities=true&skip_status=false&user_id=19018614")
+        request.uri.queryString() === Some("include_entities=true&skip_status=false&user_id=19018614")
       }.respondWith("/twitter/rest/blocks/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/blocks/user.json")
     }
@@ -60,7 +59,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: User = when(unblockUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/destroy.json"
-        request.uri.query === Query("include_entities=true&screen_name=marcobonzanini&skip_status=false")
+        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
       }.respondWith("/twitter/rest/blocks/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/blocks/user.json")
     }
@@ -69,7 +68,7 @@ class TwitterBlockClientSpec extends ClientSpec {
       val result: User = when(unblockUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/destroy.json"
-        request.uri.query === Query("include_entities=true&skip_status=false&user_id=19018614")
+        request.uri.queryString() === Some("include_entities=true&skip_status=false&user_id=19018614")
       }.respondWith("/twitter/rest/blocks/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/blocks/user.json")
     }

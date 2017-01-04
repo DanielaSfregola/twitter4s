@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.users
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.{Banners, User}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{UserSearchParameters, BannersParameters, UserParameters, UsersParameters}
+import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{BannersParameters, UserParameters, UserSearchParameters, UsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
+
+import scala.concurrent.Future
 
 /** Implements the available requests for the `users` resource.
   */
-trait TwitterUserClient extends OAuthClient with Configurations {
+trait TwitterUserClient extends RestClient with Configurations {
 
   private val usersUrl = s"$apiTwitterUrl/$twitterVersion/users"
 

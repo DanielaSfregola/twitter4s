@@ -1,9 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.SavedSearch
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterSavedSearchClientSpec extends ClientSpec {
 
@@ -23,7 +22,7 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
       val result: SavedSearch = when(saveSearch("#scala")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/saved_searches/create.json"
-        request.uri.query === Query("query=%23scala")
+        request.uri.queryString() === Some("query=#scala")
       }.respondWith("/twitter/rest/savedsearches/create.json").await
       result === loadJsonAs[SavedSearch]("/fixtures/rest/savedsearches/create.json")
     }

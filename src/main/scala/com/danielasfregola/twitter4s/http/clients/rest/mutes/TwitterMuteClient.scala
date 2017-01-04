@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.mutes
 
-import scala.concurrent.Future
-
-import com.danielasfregola.twitter4s.entities.{Users, UserIds, User}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.clients.rest.mutes.parameters.{MutedUsersParameters, MutedUsersIdsParameters, MuteParameters}
+import com.danielasfregola.twitter4s.entities.{User, UserIds, Users}
+import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.mutes.parameters.{MuteParameters, MutedUsersIdsParameters, MutedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
+
+import scala.concurrent.Future
 
 /** Implements the available requests for the `mutes` resource.
   */
-trait TwitterMuteClient extends OAuthClient with Configurations {
+trait TwitterMuteClient extends RestClient with Configurations {
 
   private val mutesUrl = s"$apiTwitterUrl/$twitterVersion/mutes/users"
 

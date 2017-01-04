@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.favorites
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.Tweet
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.favorites.parameters.{FavoriteParameters, FavoritesParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `favorites` resource.
   * */
-trait TwitterFavoriteClient extends OAuthClient with Configurations {
+trait TwitterFavoriteClient extends RestClient with Configurations {
 
   private val favoritesUrl = s"$apiTwitterUrl/$twitterVersion/favorites"
 

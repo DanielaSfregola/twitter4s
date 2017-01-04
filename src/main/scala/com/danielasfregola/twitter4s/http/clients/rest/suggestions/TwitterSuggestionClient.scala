@@ -1,17 +1,17 @@
 package com.danielasfregola.twitter4s.http.clients.rest.suggestions
 
-import scala.concurrent.Future
-
-import com.danielasfregola.twitter4s.entities.{User, Category, Suggestions}
 import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.entities.{Category, Suggestions, User}
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.parameters.SuggestionsParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `suggestions` resource.
   */
-trait TwitterSuggestionClient extends OAuthClient with Configurations {
+trait TwitterSuggestionClient extends RestClient with Configurations {
 
   private val suggestionsUrl = s"$apiTwitterUrl/$twitterVersion/users/suggestions"
 

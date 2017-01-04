@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.http.unmarshalling
+package com.danielasfregola.twitter4s.http.serializers
 
 import java.time.LocalDate
 

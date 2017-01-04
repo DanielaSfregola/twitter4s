@@ -1,11 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.rest.application
 
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterApplicationClientSpec extends ClientSpec {
 
@@ -17,7 +16,7 @@ class TwitterApplicationClientSpec extends ClientSpec {
       val result: RateLimits = when(rateLimits(Resource.Account, Resource.Statuses)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
-        request.uri.query === Query("resources=account,statuses")
+        request.uri.queryString() === Some("resources=account,statuses")
       }.respondWith("/twitter/rest/application/rate_limits.json").await
       result === loadJsonAs[RateLimits]("/fixtures/rest/application/rate_limits.json")
     }
@@ -26,7 +25,7 @@ class TwitterApplicationClientSpec extends ClientSpec {
       val result: RateLimits = when(rateLimits()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
-        request.uri.query === Query()
+        request.uri.queryString() === None
       }.respondWith("/twitter/rest/application/rate_limits.json").await
       result === loadJsonAs[RateLimits]("/fixtures/rest/application/rate_limits.json")
     }

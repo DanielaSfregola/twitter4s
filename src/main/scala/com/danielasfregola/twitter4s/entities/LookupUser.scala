@@ -2,8 +2,6 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-import spray.http.Uri
-
 case class LookupUser(
                contributors_enabled: Boolean = false,
                created_at: Date,

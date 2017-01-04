@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.account
 
-
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http._
-import com.danielasfregola.twitter4s.entities.enums.{Hour, TimeZone, ContributorType}
-import com.danielasfregola.twitter4s.entities.{ProfileUpdate, User, Settings}
+import akka.http.scaladsl.model._
+import com.danielasfregola.twitter4s.entities.enums.{ContributorType, Hour, TimeZone}
+import com.danielasfregola.twitter4s.entities.{ProfileUpdate, Settings, User}
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterAccountClientSpec extends ClientSpec {
 
@@ -29,16 +28,16 @@ class TwitterAccountClientSpec extends ClientSpec {
     }
 
     "update account settings" in new TwitterAccountClientSpecContext {
-      val result: Settings = when(updateSettings(
-        allow_contributor_request = Some(ContributorType.All),
-        sleep_time_enabled = Some(true),
-        start_sleep_time = Some(Hour.TEN_PM),
-        end_sleep_time = Some(Hour.SIX_AM),
-        time_zone = Some(TimeZone.Europe_London))).expectRequest { request =>
+      val result: Settings = when(
+        updateSettings(allow_contributor_request = Some(ContributorType.All),
+                       sleep_time_enabled = Some(true),
+                       start_sleep_time = Some(Hour.TEN_PM),
+                       end_sleep_time = Some(Hour.SIX_AM),
+                       time_zone = Some(TimeZone.Europe_London))).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/settings.json"
         request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
+          `application/x-www-form-urlencoded`,
           "allow_contributor_request=all&end_sleep_time=06&sleep_time_enabled=true&start_sleep_time=22&time_zone=Europe%2FLondon")
       }.respondWith("/twitter/rest/account/settings.json").await
       result === loadJsonAs[Settings]("/fixtures/rest/account/settings.json")
@@ -48,9 +47,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfileName("Daniela Sfregola")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "include_entities=true&name=Daniela+Sfregola&skip_status=false")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "include_entities=true&name=Daniela+Sfregola&skip_status=false")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
@@ -59,9 +57,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfileUrl("http://danielasfregola.com")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
@@ -70,9 +67,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfileDescription("Nice description here")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "description=Nice+description+here&include_entities=true&skip_status=false")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "description=Nice+description+here&include_entities=true&skip_status=false")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
@@ -81,9 +77,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfileLocation("London, UK")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "include_entities=true&location=London%2C+UK&skip_status=false")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "include_entities=true&location=London%2C+UK&skip_status=false")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
@@ -92,9 +87,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfileLinkColor("0000FF")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "include_entities=true&profile_link_color=0000FF&skip_status=false")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "include_entities=true&profile_link_color=0000FF&skip_status=false")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
@@ -104,9 +98,8 @@ class TwitterAccountClientSpec extends ClientSpec {
       val result: User = when(updateProfile(profile)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
-        request.entity === HttpEntity(
-          ContentType(MediaTypes.`application/x-www-form-urlencoded`),
-          "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
+        request.entity === HttpEntity(`application/x-www-form-urlencoded`,
+                                      "include_entities=true&skip_status=false&url=http%3A%2F%2Fdanielasfregola.com")
       }.respondWith("/twitter/rest/account/user.json").await
       result === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }

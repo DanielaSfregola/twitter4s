@@ -1,17 +1,17 @@
 package com.danielasfregola.twitter4s.http.clients.rest.lists
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Mode
 import com.danielasfregola.twitter4s.entities.enums.Mode.Mode
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.lists.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `lists` resource.
   */
-trait TwitterListClient extends OAuthClient with Configurations {
+trait TwitterListClient extends RestClient with Configurations {
 
   private val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
 

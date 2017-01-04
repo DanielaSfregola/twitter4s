@@ -4,13 +4,13 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
-import com.danielasfregola.twitter4s.http.clients.{StreamingOAuthClient, TwitterStreamListenerHelper}
+import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterUserClient extends TwitterStreamListenerHelper with StreamingOAuthClient with Configurations with ActorContextExtractor {
+trait TwitterUserClient extends StreamingClient with Configurations with ActorContextExtractor {
 
   private val userUrl = s"$userStreamingTwitterUrl/$twitterVersion"
 
@@ -54,8 +54,7 @@ trait TwitterUserClient extends TwitterStreamListenerHelper with StreamingOAuthC
                  stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
-    val listener = createUserListener(f)
-    streamingPipeline(listener, Get(s"$userUrl/user.json", parameters))
+    Get(s"$userUrl/user.json", parameters).processStream(f)
   }
 
   @deprecated("use userEvents instead", "2.2")

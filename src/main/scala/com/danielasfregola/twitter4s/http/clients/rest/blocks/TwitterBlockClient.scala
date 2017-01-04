@@ -1,15 +1,15 @@
 package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
-import scala.concurrent.Future
-
-import com.danielasfregola.twitter4s.entities.{UserStringifiedIds, UserIds, User, Users}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockedUserIdsParameters, BlockParameters, BlockedUsersParameters}
+import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockParameters, BlockedUserIdsParameters, BlockedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
+
+import scala.concurrent.Future
 
 /** Implements the available requests for the `blocks` resource.
   */
-trait TwitterBlockClient extends OAuthClient with Configurations {
+trait TwitterBlockClient extends RestClient with Configurations {
 
   private val blocksUrl = s"$apiTwitterUrl/$twitterVersion/blocks"
 

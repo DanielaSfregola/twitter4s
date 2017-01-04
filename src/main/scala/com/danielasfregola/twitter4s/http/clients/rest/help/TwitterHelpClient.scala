@@ -1,13 +1,14 @@
 package com.danielasfregola.twitter4s.http.clients.rest.help
 
-import scala.concurrent.Future
-import com.danielasfregola.twitter4s.entities.{LanguageDetails, TermsOfService, PrivacyPolicy, Configuration}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.entities.{Configuration, LanguageDetails, PrivacyPolicy, TermsOfService}
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.util.Configurations
+
+import scala.concurrent.Future
 
 /** Implements the available requests for the `help` resource.
   * */
-trait TwitterHelpClient extends OAuthClient with Configurations {
+trait TwitterHelpClient extends RestClient with Configurations {
 
   private val helpUrl = s"$apiTwitterUrl/$twitterVersion/help"
 

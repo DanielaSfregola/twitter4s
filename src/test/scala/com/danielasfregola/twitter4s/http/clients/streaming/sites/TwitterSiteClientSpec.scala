@@ -1,14 +1,12 @@
 package com.danielasfregola.twitter4s.http.clients.streaming.sites
 
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.enums.Language
-import com.danielasfregola.twitter4s.http.clients.streaming.TwitterStreamingSpecContext
-import com.danielasfregola.twitter4s.util.ClientSpec
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import com.danielasfregola.twitter4s.util.streaming.ClientSpec
 
 class TwitterSiteClientSpec extends ClientSpec {
 
-  class TwitterSiteClientSpecContext extends TwitterStreamingSpecContext with TwitterSiteClient
+  class TwitterSiteClientSpecContext extends ClientSpecContext with TwitterSiteClient
 
   "Twitter Site Streaming Client" should {
 
@@ -17,7 +15,7 @@ class TwitterSiteClientSpec extends ClientSpec {
         when(siteEvents(languages = Seq(Language.Italian))(dummyProcessing)).expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://sitestream.twitter.com/1.1/site.json"
-          request.uri.query === Query("language=it&stall_warnings=false&stringify_friend_ids=false&with=user")
+          request.uri.queryString() === Some("language=it&stall_warnings=false&stringify_friend_ids=false&with=user")
         }.respondWithOk.await
       result.isInstanceOf[Unit] should beTrue
     }

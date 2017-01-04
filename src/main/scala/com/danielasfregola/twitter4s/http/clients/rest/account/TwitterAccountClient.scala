@@ -1,19 +1,19 @@
 package com.danielasfregola.twitter4s.http.clients.rest.account
 
-import scala.concurrent.Future
-
 import com.danielasfregola.twitter4s.entities.enums.ContributorType.ContributorType
 import com.danielasfregola.twitter4s.entities.enums.Hour._
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.TimeZone._
 import com.danielasfregola.twitter4s.entities.{ProfileUpdate, Settings, SettingsOptions, User}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.parameters.CredentialsParameters
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 /** Implements the available requests for the `account` resource.
   * */
-trait TwitterAccountClient extends OAuthClient with Configurations {
+trait TwitterAccountClient extends RestClient with Configurations {
 
   private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 

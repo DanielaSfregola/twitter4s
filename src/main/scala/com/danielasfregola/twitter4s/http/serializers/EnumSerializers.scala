@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.http.unmarshalling
+package com.danielasfregola.twitter4s.http.serializers
 
 import com.danielasfregola.twitter4s.entities.enums._
 import org.json4s.ext.EnumNameSerializer

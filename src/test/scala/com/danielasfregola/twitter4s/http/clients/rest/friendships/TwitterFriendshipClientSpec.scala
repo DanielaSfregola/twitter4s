@@ -1,10 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.friendships
 
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
+import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities._
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterFriendshipClientSpec extends ClientSpec {
 
@@ -16,7 +15,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Seq[Long] = when(noRetweetsUserIds).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
-        request.uri.query === Query("stringify_ids=false")
+        request.uri.queryString() === Some("stringify_ids=false")
       }.respondWith("/twitter/rest/friendships/blocked_users.json").await
       result === loadJsonAs[Seq[Long]]("/fixtures/rest/friendships/blocked_users.json")
     }
@@ -25,7 +24,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Seq[String] = when(noRetweetsUserStringifiedIds).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
-        request.uri.query === Query("stringify_ids=true")
+        request.uri.queryString() === Some("stringify_ids=true")
       }.respondWith("/twitter/rest/friendships/blocked_users_stringified.json").await
       result === loadJsonAs[Seq[String]]("/fixtures/rest/friendships/blocked_users_stringified.json")
     }
@@ -34,7 +33,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: UserIds = when(incomingFriendshipIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=false")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
       }.respondWith("/twitter/rest/friendships/incoming_friendships_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/rest/friendships/incoming_friendships_ids.json")
     }
@@ -43,7 +42,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(incomingFriendshipStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=true")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
       }.respondWith("/twitter/rest/friendships/incoming_friendships_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/friendships/incoming_friendships_ids_stringified.json")
     }
@@ -52,7 +51,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: UserIds = when(outgoingFriendshipIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=false")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
       }.respondWith("/twitter/rest/friendships/outgoing_friendships_ids.json").await
       result === loadJsonAs[UserIds]("/fixtures/rest/friendships/outgoing_friendships_ids.json")
     }
@@ -61,7 +60,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: UserStringifiedIds = when(outgoingFriendshipStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
-        request.uri.query === Query("cursor=-1&stringify_ids=true")
+        request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
       }.respondWith("/twitter/rest/friendships/outgoing_friendships_ids_stringified.json").await
       result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/friendships/outgoing_friendships_ids_stringified.json")
     }
@@ -70,7 +69,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: User = when(followUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-        request.uri.query === Query("follow=true&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("follow=true&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/follow.json").await
       result === loadJsonAs[User]("/fixtures/rest/friendships/follow.json")
     }
@@ -79,7 +78,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: User = when(followUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-        request.uri.query === Query("follow=true&user_id=19018614")
+        request.uri.queryString() === Some("follow=true&user_id=19018614")
       }.respondWith("/twitter/rest/friendships/follow.json").await
       result === loadJsonAs[User]("/fixtures/rest/friendships/follow.json")
     }
@@ -88,7 +87,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: User = when(unfollowUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
-        request.uri.query === Query("screen_name=marcobonzanini")
+        request.uri.queryString() === Some("screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/unfollow.json").await
       result === loadJsonAs[User]("/fixtures/rest/friendships/unfollow.json")
     }
@@ -97,7 +96,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: User = when(unfollowUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
-        request.uri.query === Query("user_id=19018614")
+        request.uri.queryString() === Some("user_id=19018614")
       }.respondWith("/twitter/rest/friendships/unfollow.json").await
       result === loadJsonAs[User]("/fixtures/rest/friendships/unfollow.json")
     }
@@ -106,7 +105,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(enableRetweetsNotificationsForUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("retweets=true&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("retweets=true&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -115,7 +114,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(enableRetweetsNotificationsForUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("retweets=true&user_id=19018614")
+        request.uri.queryString() === Some("retweets=true&user_id=19018614")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -124,7 +123,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(disableRetweetsNotificationsForUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("retweets=false&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("retweets=false&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -133,7 +132,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(disableRetweetsNotificationsForUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("retweets=false&user_id=19018614")
+        request.uri.queryString() === Some("retweets=false&user_id=19018614")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -142,7 +141,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(enableDeviceNotificationsForUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("device=true&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("device=true&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -151,7 +150,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(enableDeviceNotificationsForUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("device=true&user_id=19018614")
+        request.uri.queryString() === Some("device=true&user_id=19018614")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -160,7 +159,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(disableDeviceNotificationsForUser("marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("device=false&screen_name=marcobonzanini")
+        request.uri.queryString() === Some("device=false&screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -169,7 +168,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(disableDeviceNotificationsForUserId(19018614L)).expectRequest { request =>
         request.method === HttpMethods.POST
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-        request.uri.query === Query("device=false&user_id=19018614")
+        request.uri.queryString() === Some("device=false&user_id=19018614")
       }.respondWith("/twitter/rest/friendships/update.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/update.json")
     }
@@ -178,7 +177,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(relationshipBetweenUserIds(2911461333L, 19018614L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
-        request.uri.query === Query("source_id=2911461333&target_id=19018614")
+        request.uri.queryString() === Some("source_id=2911461333&target_id=19018614")
       }.respondWith("/twitter/rest/friendships/relationship.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/relationship.json")
     }
@@ -187,7 +186,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Relationship = when(relationshipBetweenUsers("DanielaSfregola", "marcobonzanini")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
-        request.uri.query === Query("source_screen_name=DanielaSfregola&target_screen_name=marcobonzanini")
+        request.uri.queryString() === Some("source_screen_name=DanielaSfregola&target_screen_name=marcobonzanini")
       }.respondWith("/twitter/rest/friendships/relationship.json").await
       result === loadJsonAs[Relationship]("/fixtures/rest/friendships/relationship.json")
     }
@@ -196,7 +195,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Seq[LookupRelationship] = when(relationshipsWithUsers("marcobonzanini", "odersky")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
-        request.uri.query === Query("screen_name=marcobonzanini,odersky")
+        request.uri.queryString() === Some("screen_name=marcobonzanini,odersky")
       }.respondWith("/twitter/rest/friendships/relationships.json").await
       result === loadJsonAs[Seq[LookupRelationship]]("/fixtures/rest/friendships/relationships.json")
     }
@@ -209,7 +208,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
       val result: Seq[LookupRelationship] = when(relationshipsWithUserIds(2911461333L, 2911461334L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
-        request.uri.query === Query("user_id=2911461333,2911461334")
+        request.uri.queryString() === Some("user_id=2911461333,2911461334")
       }.respondWith("/twitter/rest/friendships/relationships.json").await
       result === loadJsonAs[Seq[LookupRelationship]]("/fixtures/rest/friendships/relationships.json")
     }

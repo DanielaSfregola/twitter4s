@@ -1,14 +1,13 @@
 package com.danielasfregola.twitter4s.util
 
-import scala.concurrent.ExecutionContext
 import akka.event.LoggingAdapter
+import com.danielasfregola.twitter4s.providers.{ActorSystemProvider, ExecutionContextProvider}
 
-import spray.util.LoggingContext
-import com.danielasfregola.twitter4s.providers.{ExecutionContextProvider, ActorRefFactoryProvider}
+import scala.concurrent.ExecutionContext
 
-trait ActorContextExtractor extends ExecutionContextProvider with ActorRefFactoryProvider {
+trait ActorContextExtractor extends ExecutionContextProvider with ActorSystemProvider {
 
-  implicit val log: LoggingAdapter = LoggingContext.fromActorRefFactory(actorRefFactory)
-  implicit val executionContext: ExecutionContext = actorRefFactory.dispatcher
+  implicit val log: LoggingAdapter = system.log
+  implicit val executionContext: ExecutionContext = system.dispatcher
 
 }

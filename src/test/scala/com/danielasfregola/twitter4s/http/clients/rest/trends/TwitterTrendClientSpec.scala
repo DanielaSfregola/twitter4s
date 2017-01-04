@@ -1,9 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.rest.trends
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{LocationTrends, Location}
+import akka.http.scaladsl.model.HttpMethods
+import com.danielasfregola.twitter4s.entities.{Location, LocationTrends}
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterTrendClientSpec  extends ClientSpec {
 
@@ -12,30 +11,30 @@ class TwitterTrendClientSpec  extends ClientSpec {
   "Twitter Trend Client" should {
 
     "get global trends" in new TwitterTrendClientSpecContext {
-      val result: LocationTrends = when(globalTrends()).expectRequest { request =>
+      val result: Seq[LocationTrends] = when(globalTrends()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-        request.uri.query === Query("id=1")
+        request.uri.queryString() === Some("id=1")
       }.respondWith("/twitter/rest/trends/trends.json").await
-      result === loadJsonAs[LocationTrends]("/fixtures/rest/trends/trends.json")
+      result === loadJsonAs[Seq[LocationTrends]]("/fixtures/rest/trends/trends.json")
     }
 
     "get trends for a location" in new TwitterTrendClientSpecContext {
-      val result: LocationTrends = when(trends(1)).expectRequest { request =>
+      val result: Seq[LocationTrends] = when(trends(1)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-        request.uri.query === Query("id=1")
+        request.uri.queryString() === Some("id=1")
       }.respondWith("/twitter/rest/trends/trends.json").await
-      result === loadJsonAs[LocationTrends]("/fixtures/rest/trends/trends.json")
+      result === loadJsonAs[Seq[LocationTrends]]("/fixtures/rest/trends/trends.json")
     }
 
     "get trends for a location without hashtags" in new TwitterTrendClientSpecContext {
-      val result: LocationTrends = when(trends(1, true)).expectRequest { request =>
+      val result: Seq[LocationTrends] = when(trends(1, true)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-        request.uri.query === Query("exclude=hashtags&id=1")
+        request.uri.queryString() === Some("exclude=hashtags&id=1")
       }.respondWith("/twitter/rest/trends/trends.json").await
-      result === loadJsonAs[LocationTrends]("/fixtures/rest/trends/trends.json")
+      result === loadJsonAs[Seq[LocationTrends]]("/fixtures/rest/trends/trends.json")
     }
 
     "get locations with available trends" in new TwitterTrendClientSpecContext {
@@ -53,7 +52,7 @@ class TwitterTrendClientSpec  extends ClientSpec {
       }.respondWith("/twitter/rest/trends/closest_locations.json").await
       result === loadJsonAs[Seq[Location]]("/fixtures/rest/trends/closest_locations.json")
     }
-    
+
   }
 
 }

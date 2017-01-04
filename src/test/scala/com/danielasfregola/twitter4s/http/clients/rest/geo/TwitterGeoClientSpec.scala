@@ -1,9 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.rest.geo
 
-import com.danielasfregola.twitter4s.util.{ClientSpec, ClientSpecContext}
-import spray.http.HttpMethods
-import spray.http.Uri.Query
-import com.danielasfregola.twitter4s.entities.{GeoSearch, GeoPlace}
+import akka.http.scaladsl.model.HttpMethods
+import com.danielasfregola.twitter4s.entities.{GeoPlace, GeoSearch}
+import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterGeoClientSpec extends ClientSpec {
 
@@ -24,7 +23,7 @@ class TwitterGeoClientSpec extends ClientSpec {
       val result: GeoSearch = when(reverseGeocode(-122.42284884, 37.76893497)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/reverse_geocode.json"
-        request.uri.query === Query("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
+        request.uri.queryString() === Some("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
       }.respondWith("/twitter/rest/geo/reverse_geocode.json").await
       result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/reverse_geocode.json")
     }
@@ -33,7 +32,7 @@ class TwitterGeoClientSpec extends ClientSpec {
       val result: GeoSearch = when(searchGeoPlace("Creazzo")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-        request.uri.query === Query("query=Creazzo")
+        request.uri.queryString() === Some("query=Creazzo")
       }.respondWith("/twitter/rest/geo/search.json").await
       result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/search.json")
     }
@@ -42,7 +41,7 @@ class TwitterGeoClientSpec extends ClientSpec {
       val result: GeoSearch = when(advancedSearchGeoPlace(query = Some("Creazzo"), street_address = Some("Via Giotto 15"))).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-        request.uri.query === Query("attribute:street_address=Via+Giotto+15&query=Creazzo")
+        request.uri.queryString() === Some("attribute:street_address=Via+Giotto+15&query=Creazzo")
       }.respondWith("/twitter/rest/geo/advanced_search.json").await
       result === loadJsonAs[GeoSearch]("/fixtures/rest/geo/advanced_search.json")
     }
