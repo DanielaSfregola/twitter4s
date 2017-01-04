@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients
 
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
+import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse}
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import com.danielasfregola.twitter4s.providers.ActorSystemProvider
@@ -43,15 +43,25 @@ trait CommonClient extends JsonSupport with ActorContextExtractor { self: ActorS
 
   // TODO - logRequest, logRequestResponse customisable?
   def logRequest(implicit request: HttpRequest): HttpRequest = {
-    log.info("{} {}", request.method, request.uri)
-    log.debug("{} {} | {} | {}", request.method, request.uri, request.entity, request)
+    log.info("{} {}", request.method.value, request.uri)
+    if (log.isDebugEnabled) {
+      for {
+        requestBody <- toBody(request.entity)
+      } yield log.debug("{} {} | {} | {}", request.method.value, request.uri, requestBody)
+    }
     request
   }
 
   def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
     val elapsed = System.currentTimeMillis - requestStartTime
-    log.info("{} {} ({}) | {}ms", request.method, request.uri, response.status, elapsed)
-    log.debug("{} {} ({}) | {}", request.method, request.uri, response.status, response.entity)
+    log.info("{} {} ({}) | {}ms", request.method.value, request.uri, response.status, elapsed)
+    if (log.isDebugEnabled) {
+      for {
+        responseBody <- toBody(response.entity)
+      } yield log.debug(s"{} {} ({}) | {} | $responseBody ", request.method.value, request.uri, response.status, response.headers.mkString(", "))
+    }
     response
   }
+
+  private def toBody(entity: HttpEntity): Future[String] = entity.toStrict(5 seconds).map(_.data.decodeString("UTF-8"))
 }

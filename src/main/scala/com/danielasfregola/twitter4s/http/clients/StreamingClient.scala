@@ -15,22 +15,14 @@ trait StreamingClient extends OAuthClient {
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
-    private val ignore: PartialFunction[StreamingMessage, Unit] = {
-      case msg => log.debug(s"Ignoring message of type ${msg.getClass.getSimpleName}: $msg")
-    }
-
-    private def processOrIgnore[T <: StreamingMessage](f: PartialFunction[T, Unit]): StreamingMessage => Unit = { msg =>
-      f orElse ignore
-    }
-
-    def processStream[T <: StreamingMessage](f: PartialFunction[T, Unit]): Future[Unit] =
+    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[Unit] =
       for {
         requestWithAuth <- withOAuthHeader(request)
-        _ <- processStreamRequest(requestWithAuth)(processOrIgnore(f))
+        _ <- processStreamRequest(requestWithAuth)(f)
       } yield ()
   }
 
-  protected def processStreamRequest(request: HttpRequest)(f: StreamingMessage => Unit): Future[Unit] = {
+  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit]): Future[Unit] = {
     implicit val _ = request
     val requestStartTime = System.currentTimeMillis
 
@@ -45,7 +37,7 @@ trait StreamingClient extends OAuthClient {
     .runWith(Sink.head)
   }
 
-  protected def unmarshalStream(response: HttpResponse, f: StreamingMessage => Unit)(implicit request: HttpRequest): Future[Unit] = {
+  protected def unmarshalStream[T <: StreamingMessage: Manifest](response: HttpResponse, f: PartialFunction[T, Unit])(implicit request: HttpRequest): Future[Unit] = {
     response.entity.dataBytes
     .scan("")((acc, curr) => if (acc.contains("\r\n")) curr.utf8String else acc + curr.utf8String)
     .filter(_.contains("\r\n"))
@@ -53,8 +45,15 @@ trait StreamingClient extends OAuthClient {
       Try(Serialization.read[StreamingMessage](json))
     }
     .runForeach {
-      case Success(msg) => f(msg)
+      case Success(message) =>
+        message match {
+          case msg: T if f.isDefinedAt(msg) =>
+            log.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
+            f(msg)
+          case msg => log.debug("Ignoring message of type {}", msg.getClass.getSimpleName)
+        }
       case Failure(ex) => log.error(ex, s"While processing stream ${request.uri}")
     }.map { _ => () }
   }
+
 }

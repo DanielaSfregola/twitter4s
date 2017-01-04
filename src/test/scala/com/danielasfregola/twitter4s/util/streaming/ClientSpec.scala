@@ -17,12 +17,12 @@ class ClientSpec extends Spec {
 
   abstract class ClientSpecContext extends RequestDSL with StreamingClient with SpecContext {
 
-    override def processStreamRequest(request: HttpRequest)(f: StreamingMessage => Unit): Future[Unit] = {
+    override def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit]): Future[Unit] = {
       implicit val timeout: Timeout = DurationInt(20) seconds
       val responseR: Future[HttpResponse] = (transport.ref ? request).map(_.asInstanceOf[HttpResponse])
       for {
         response <- responseR
-        _ <- unmarshalStream(response, f)(request)
+        _ <- unmarshalStream(response, f)(manifest[T], request)
       } yield ()
     }
 

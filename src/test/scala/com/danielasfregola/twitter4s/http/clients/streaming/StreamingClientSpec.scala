@@ -24,8 +24,9 @@ class StreamingClientSpec extends ClientSpec {
       HttpResponse(entity = HttpEntity.Chunked(contentType, Source(chunks)))
     }
 
-    def redirectMessages(msg: StreamingMessage) =
-      transport.ref ! StreamingUpdate(msg)
+    def redirectMessages: PartialFunction[StreamingMessage, Unit] = {
+      case msg => transport.ref ! StreamingUpdate(msg)
+    }
 
     def readStreamUpdatesAs[T <: StreamingMessage: Manifest](path: String): Seq[StreamingUpdate] =
       loadJsonAs[Seq[T]](path).map(StreamingUpdate)
