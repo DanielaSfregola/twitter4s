@@ -25,7 +25,7 @@ class RestClientSpec extends ClientSpec {
       val result = when(exampleRequest).expectRequest(identity(_)).respondWith(response)
       val expectedTwitterException = TwitterException(code = StatusCodes.NotFound,
                                        errors = Errors(TwitterError("Sorry, that page does not exist", 34)))
-      result should throwAn(expectedTwitterException).await
+      result.await should throwAn(expectedTwitterException)
     }
 
     "throw twitter exception to generic failure http response" in new RestClientSpecContext {
@@ -34,7 +34,7 @@ class RestClientSpec extends ClientSpec {
       val result = when(exampleRequest).expectRequest(identity(_)).respondWith(response)
       val expectedTwitterException = TwitterException(code = StatusCodes.RequestTimeout, errors = Errors(body))
 
-      result should throwAn(expectedTwitterException).await
+      result.await should throwAn(expectedTwitterException)
     }
 
   }

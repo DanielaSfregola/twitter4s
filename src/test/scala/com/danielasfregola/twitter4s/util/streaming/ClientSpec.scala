@@ -11,7 +11,7 @@ import com.danielasfregola.twitter4s.util.{RequestDSL, Spec}
 import scala.concurrent.Future
 import scala.concurrent.duration.DurationInt
 
-class ClientSpec extends Spec {
+abstract class ClientSpec extends Spec {
 
   def dummyProcessing: PartialFunction[StreamingMessage, Unit] = { case _ => }
 
