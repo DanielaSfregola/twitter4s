@@ -12,10 +12,10 @@ before_cache:
 language: scala
 
 script:
-  - travis_retry sbt clean coverage test
+  - travis_retry sbt clean coverage test coverageReport
 
-after_script:
-  - sbt coverageReport coveralls
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 scala:
   - 2.12.1
