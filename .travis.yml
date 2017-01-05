@@ -18,13 +18,11 @@ after_script:
   - sbt coverageReport coveralls
 
 scala:
+  - 2.12.1
   - 2.11.8
 
 jdk:
   - oraclejdk8
-
-env:
-  - SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
 
 # whitelist
 branches:
