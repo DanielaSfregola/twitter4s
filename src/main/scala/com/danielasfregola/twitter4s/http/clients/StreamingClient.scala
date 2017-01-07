@@ -38,7 +38,7 @@ trait StreamingClient extends OAuthClient {
   }
 
   protected def unmarshalStream[T <: StreamingMessage: Manifest](response: HttpResponse, f: PartialFunction[T, Unit])(implicit request: HttpRequest): Future[Unit] = {
-    response.entity.dataBytes
+    response.entity.withoutSizeLimit.dataBytes
     .scan("")((acc, curr) => if (acc.contains("\r\n")) curr.utf8String else acc + curr.utf8String)
     .filter(_.contains("\r\n"))
     .map { json =>
