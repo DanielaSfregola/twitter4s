@@ -55,6 +55,7 @@ trait TwitterUserClient extends StreamingClient with Configurations with ActorCo
                  stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
+    preProcessing()
     Get(s"$userUrl/user.json", parameters).processStream(f)
   }
 
