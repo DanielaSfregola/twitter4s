@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.followers
 
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.followers.parameters.{FollowersParameters, FollowingParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

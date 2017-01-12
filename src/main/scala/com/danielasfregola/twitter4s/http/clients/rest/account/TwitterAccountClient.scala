@@ -5,7 +5,7 @@ import com.danielasfregola.twitter4s.entities.enums.Hour._
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.TimeZone._
 import com.danielasfregola.twitter4s.entities.{ProfileUpdate, Settings, SettingsOptions, User}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.parameters.CredentialsParameters
 import com.danielasfregola.twitter4s.util.Configurations
 

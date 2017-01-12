@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
 import com.danielasfregola.twitter4s.entities.SavedSearch
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.savedsearches.parameters.SaveSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations
 

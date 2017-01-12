@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.friendships
 
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.friendships.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 

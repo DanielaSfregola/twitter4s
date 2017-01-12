@@ -2,7 +2,6 @@ package com.danielasfregola.twitter4s.http.clients.rest
 
 import akka.http.scaladsl.model.{ContentTypes, HttpResponse, StatusCodes}
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterError, TwitterException}
-import com.danielasfregola.twitter4s.http.clients.RestClient
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 import scala.concurrent.Future

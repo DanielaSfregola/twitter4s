@@ -1,7 +1,8 @@
-package com.danielasfregola.twitter4s.http.clients
+package com.danielasfregola.twitter4s.http.clients.rest
 
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream.scaladsl.{Sink, Source}
+import com.danielasfregola.twitter4s.http.clients.OAuthClient
 
 import scala.concurrent.Future
 
@@ -37,9 +38,7 @@ trait RestClient extends OAuthClient {
     Source
       .single(request)
       .via(connection)
-      .mapAsync(1) { implicit response =>
-        unmarshal(requestStartTime, f)
-      }
+      .mapAsync(1)(implicit response => unmarshal(requestStartTime, f))
       .runWith(Sink.head)
   }
 

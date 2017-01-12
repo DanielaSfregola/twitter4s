@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType
 import com.danielasfregola.twitter4s.entities.enums.{Alignment, Language}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.statuses.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 

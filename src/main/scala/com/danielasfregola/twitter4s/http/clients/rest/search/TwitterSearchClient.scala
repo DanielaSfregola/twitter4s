@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.ResultType
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
 import com.danielasfregola.twitter4s.entities.{GeoCode, StatusSearch}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations
 

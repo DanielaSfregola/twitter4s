@@ -1,11 +1,12 @@
-package com.danielasfregola.twitter4s.http.clients.streaming.sites
+package com.danielasfregola.twitter4s
+package http.clients.streaming.sites
 
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
-import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
+import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
@@ -46,7 +47,7 @@ trait TwitterSiteClient extends StreamingClient with Configurations with ActorCo
                  replies: Option[Boolean] = None,
                  stringify_friend_ids: Boolean = false,
                  languages: Seq[Language] = Seq.empty,
-                 stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] = {
+                 stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
     Get(s"$siteUrl/site.json", parameters).processStream(f)
@@ -58,6 +59,6 @@ trait TwitterSiteClient extends StreamingClient with Configurations with ActorCo
                     replies: Option[Boolean] = None,
                     stringify_friend_ids: Boolean = false,
                     languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[Unit] =
+                    stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] =
     siteEvents(follow, `with`, replies, stringify_friend_ids, languages, stall_warnings)(f)
 }

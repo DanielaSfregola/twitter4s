@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.friends
 
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.friends.parameters.{FriendParameters, FriendsParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

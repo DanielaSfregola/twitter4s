@@ -29,16 +29,16 @@ trait CommonClient extends JsonSupport with ActorContextExtractor { self: ActorS
     if (withLogRequestResponse) logRequestResponse(requestStartTime)
 
     if (response.status.isSuccess) f(response)
-    else parseFailedResponse(response)
+    else parseFailedResponse(response).flatMap(Future.failed)
   }
 
-  private def parseFailedResponse(response: HttpResponse) =
+  protected def parseFailedResponse(response: HttpResponse) =
     response.entity.toStrict(50 seconds).map { sink =>
       val body = sink.data.utf8String
       val errors = Try {
         Serialization.read[Errors](body)
       } getOrElse Errors(body)
-      throw new TwitterException(response.status, errors)
+      TwitterException(response.status, errors)
     }
 
   // TODO - logRequest, logRequestResponse customisable?
