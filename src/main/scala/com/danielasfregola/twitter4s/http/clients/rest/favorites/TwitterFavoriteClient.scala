@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.favorites
 
 import com.danielasfregola.twitter4s.entities.Tweet
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.favorites.parameters.{FavoriteParameters, FavoritesParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

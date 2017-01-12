@@ -1,11 +1,12 @@
-package com.danielasfregola.twitter4s.http.clients.streaming.users
+package com.danielasfregola.twitter4s
+package http.clients.streaming.users
 
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
-import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
+import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
 import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
@@ -51,7 +52,7 @@ trait TwitterUserClient extends StreamingClient with Configurations with ActorCo
                  locations: Seq[Double] = Seq.empty,
                  stringify_friend_ids: Boolean = false,
                  languages: Seq[Language] = Seq.empty,
-                 stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] = {
+                 stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
     Get(s"$userUrl/user.json", parameters).processStream(f)
@@ -64,7 +65,7 @@ trait TwitterUserClient extends StreamingClient with Configurations with ActorCo
                     locations: Seq[Double] = Seq.empty,
                     stringify_friend_ids: Boolean = false,
                     languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[Unit] =
+                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] =
     userEvents(`with`, replies, track, locations, stringify_friend_ids, languages, stall_warnings)(f)
 
 }

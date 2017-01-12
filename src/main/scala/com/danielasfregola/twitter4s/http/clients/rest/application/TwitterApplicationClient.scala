@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.application
 
 import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource.Resource
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.parameters.RatesParameters
 import com.danielasfregola.twitter4s.util.Configurations
 

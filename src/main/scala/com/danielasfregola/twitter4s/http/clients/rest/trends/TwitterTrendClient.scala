@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.trends
 
 import com.danielasfregola.twitter4s.entities.{Location, LocationTrends}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.parameters.{LocationParameters, TrendsParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

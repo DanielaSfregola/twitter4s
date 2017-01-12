@@ -4,7 +4,7 @@ import akka.http.scaladsl.model._
 import akka.pattern.ask
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.util.{RequestDSL, Spec}
 
 import scala.concurrent.Future

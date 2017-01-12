@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.mutes
 
 import com.danielasfregola.twitter4s.entities.{User, UserIds, Users}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.mutes.parameters.{MuteParameters, MutedUsersIdsParameters, MutedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

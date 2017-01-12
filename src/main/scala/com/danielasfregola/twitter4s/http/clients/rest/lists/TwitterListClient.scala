@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.lists
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Mode
 import com.danielasfregola.twitter4s.entities.enums.Mode.Mode
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.lists.parameters._
 import com.danielasfregola.twitter4s.util.Configurations
 

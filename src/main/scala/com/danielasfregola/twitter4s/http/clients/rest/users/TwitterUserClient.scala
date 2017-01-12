@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.users
 
 import com.danielasfregola.twitter4s.entities.{Banners, User}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{BannersParameters, UserParameters, UserSearchParameters, UsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 

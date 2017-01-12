@@ -8,7 +8,7 @@ import akka.http.scaladsl.model.Multipart._
 import akka.http.scaladsl.model.{ContentTypes, MediaType}
 import akka.stream.scaladsl.Source
 import com.danielasfregola.twitter4s.entities.MediaDetails
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.media.parameters._
 import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
 import org.json4s.native.Serialization

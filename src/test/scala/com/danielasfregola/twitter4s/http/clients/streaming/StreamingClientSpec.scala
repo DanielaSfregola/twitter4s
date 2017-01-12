@@ -7,7 +7,6 @@ import com.danielasfregola.twitter4s.entities.streaming.common._
 import com.danielasfregola.twitter4s.entities.streaming.site._
 import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
-import com.danielasfregola.twitter4s.http.clients.StreamingClient
 import com.danielasfregola.twitter4s.util.streaming.ClientSpec
 
 class StreamingClientSpec extends ClientSpec {
@@ -38,7 +37,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "Tweet" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/tweets.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[Tweet]("/fixtures/streaming/common/tweets.json")
         transport.expectMsgAllOf(messages: _*)
@@ -46,7 +45,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "DirectMessage" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/direct_messages.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[DirectMessage]("/fixtures/streaming/user/direct_messages.json")
         transport.expectMsgAllOf(messages: _*)
@@ -54,7 +53,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "ControlMessage" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/control_messages.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[ControlMessage]("/fixtures/streaming/site/control_messages.json")
         transport.expectMsgAllOf(messages: _*)
@@ -62,7 +61,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "DisconnectMessage" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/disconnect_messages.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[DisconnectMessage]("/fixtures/streaming/common/disconnect_messages.json")
         transport.expectMsgAllOf(messages: _*)
@@ -70,7 +69,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "TweetEvent" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/events.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[TweetEvent]("/fixtures/streaming/user/events.json")
         transport.expectMsgAllOf(messages: _*)
@@ -78,7 +77,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "FriendsLists" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/friends_lists.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[FriendsLists]("/fixtures/streaming/user/friends_lists.json")
         transport.expectMsgAllOf(messages: _*)
@@ -86,7 +85,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "FriendsListsStringified" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/friends_lists_stringified.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[FriendsListsStringified]("/fixtures/streaming/user/friends_lists_stringified.json")
         transport.expectMsgAllOf(messages: _*)
@@ -94,7 +93,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "LimitNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/limit_notices.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[LimitNotice]("/fixtures/streaming/common/limit_notices.json")
         transport.expectMsgAllOf(messages: _*)
@@ -102,7 +101,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "LocationDeletionNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/location_deletion_notices.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[LocationDeletionNotice]("/fixtures/streaming/common/location_deletion_notices.json")
         transport.expectMsgAllOf(messages: _*)
@@ -110,7 +109,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "StatusDeletionNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/status_deletion_notices.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[StatusDeletionNotice]("/fixtures/streaming/common/status_deletion_notices.json")
         transport.expectMsgAllOf(messages: _*)
@@ -118,7 +117,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "StatusWithheldNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/status_withheld_notices.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[StatusWithheldNotice]("/fixtures/streaming/common/status_withheld_notices.json")
         transport.expectMsgAllOf(messages: _*)
@@ -126,7 +125,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "UserEnvelopFriendsLists" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelops.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops.json")
         transport.expectMsgAllOf(messages: _*)
@@ -134,7 +133,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "UserEnvelopFriendsListsStringified" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelops_stringified.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_stringified.json")
         transport.expectMsgAllOf(messages: _*)
@@ -142,7 +141,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "UserWithheldNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/user_withheld_notices.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[UserWithheldNotice]("/fixtures/streaming/common/user_withheld_notices.json")
         transport.expectMsgAllOf(messages: _*)
@@ -150,7 +149,7 @@ class StreamingClientSpec extends ClientSpec {
 
       "WarningMessage" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/warning_messages.json")
-        unmarshalStream(response, redirectMessages)
+        processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[WarningMessage]("/fixtures/streaming/common/warning_messages.json")
         transport.expectMsgAllOf(messages: _*)

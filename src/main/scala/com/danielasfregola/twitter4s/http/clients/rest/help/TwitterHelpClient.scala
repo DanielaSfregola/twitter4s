@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.help
 
 import com.danielasfregola.twitter4s.entities.{Configuration, LanguageDetails, PrivacyPolicy, TermsOfService}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.util.Configurations
 
 import scala.concurrent.Future

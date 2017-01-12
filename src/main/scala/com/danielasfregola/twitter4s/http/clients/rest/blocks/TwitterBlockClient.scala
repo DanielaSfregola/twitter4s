@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
 import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.http.clients.RestClient
+import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockParameters, BlockedUserIdsParameters, BlockedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations
 
