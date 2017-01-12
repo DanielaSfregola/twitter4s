@@ -17,7 +17,7 @@ libraryDependencies ++= {
   val AkkaHttp = "10.0.1"
   val AkkaHttpJson4s = "1.11.0"
   val Json4s = "3.5.0"
-  val Spec2Version = "3.8.6"
+  val Spec2 = "3.8.6"
   val ScalaLogging = "3.5.0"
 
   Seq(
@@ -27,7 +27,8 @@ libraryDependencies ++= {
     "org.json4s" %% "json4s-native" % Json4s,
     "org.json4s" %% "json4s-ext" % Json4s,
     "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
-    "org.specs2" %% "specs2-core" % Spec2Version % "test",
+    "org.specs2" %% "specs2-core" % Spec2 % "test",
+    "org.specs2" %% "specs2-mock" % Spec2 % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test"
   )
 }
