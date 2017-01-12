@@ -45,6 +45,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
                      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
+    preProcessing()
     Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]).processStream(f)
   }
 
@@ -76,6 +77,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
                      stall_warnings: Boolean = false)
                     (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     val parameters = StatusSampleParameters(languages, stall_warnings)
+    preProcessing()
     Get(s"$statusUrl/sample.json", parameters).processStream(f)
   }
 
@@ -109,6 +111,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(languages, count, stall_warnings)
+    preProcessing()
     Get(s"$statusUrl/firehose.json", parameters).processStream(f)
   }
 

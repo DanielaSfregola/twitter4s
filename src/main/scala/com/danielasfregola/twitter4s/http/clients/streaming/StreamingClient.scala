@@ -19,13 +19,15 @@ trait StreamingClient extends OAuthClient {
   val withLogRequest = true
   val withLogRequestResponse = false
 
+  protected def preProcessing(): Unit = ()
+
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
     def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] =
       for {
         requestWithAuth <- withOAuthHeader(request)
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
-      } yield new TwitterStream(killSwitch)
+      } yield new TwitterStream(killSwitch)(consumerToken, accessToken, system)
   }
 
   private val maxConnectionTimeMillis = 1000
