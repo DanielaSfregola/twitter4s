@@ -43,22 +43,22 @@ trait CommonClient extends JsonSupport with ActorContextExtractor { self: ActorS
 
   // TODO - logRequest, logRequestResponse customisable?
   def logRequest(implicit request: HttpRequest): HttpRequest = {
-    log.info("{} {}", request.method.value, request.uri)
-    if (log.isDebugEnabled) {
+    log.info(s"${request.method.value} ${request.uri}")
+    if (log.underlying.isDebugEnabled) {
       for {
         requestBody <- toBody(request.entity)
-      } yield log.debug("{} {} | {} | {}", request.method.value, request.uri, requestBody)
+      } yield log.debug(s"${request.method.value} ${request.uri} | $requestBody")
     }
     request
   }
 
   def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
     val elapsed = System.currentTimeMillis - requestStartTime
-    log.info("{} {} ({}) | {}ms", request.method.value, request.uri, response.status, elapsed)
-    if (log.isDebugEnabled) {
+    log.info(s"${request.method.value} ${request.uri} (${response.status}) | ${elapsed}ms")
+    if (log.underlying.isDebugEnabled) {
       for {
         responseBody <- toBody(response.entity)
-      } yield log.debug(s"{} {} ({}) | {} | $responseBody ", request.method.value, request.uri, response.status, response.headers.mkString(", "))
+      } yield log.debug(s"${request.method.value} ${request.uri} (${response.status}) | ${response.headers.mkString(", ")} | $responseBody")
     }
     response
   }
