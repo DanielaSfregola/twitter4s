@@ -1,4 +1,5 @@
-package com.danielasfregola.twitter4s.http.clients.rest.search
+package com.danielasfregola.twitter4s.http
+package clients.rest.search
 
 import java.time.LocalDate
 
@@ -72,7 +73,7 @@ trait TwitterSearchClient extends RestClient with Configurations {
                   since_id: Option[Long] = None,
                   max_id: Option[Long] = None,
                   callback: Option[String] = None): Future[StatusSearch] = {
-    val parameters = TweetSearchParameters(query, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
+    val parameters = TweetSearchParameters(query.escapeSpecialChars, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
     Get(s"$searchUrl/tweets.json", parameters).respondAs[StatusSearch]
   }
 }

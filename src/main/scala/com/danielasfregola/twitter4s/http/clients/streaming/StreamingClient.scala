@@ -81,7 +81,7 @@ trait StreamingClient extends OAuthClient {
             f(msg)
           case msg => log.debug("Ignoring message of type {}", msg.getClass.getSimpleName)
         }
-      case Failure(ex) => log.error(ex, s"While processing stream ${request.uri}")
+      case Failure(ex) => log.error(s"While processing stream ${request.uri}", ex)
     }
   }
 
