@@ -18,7 +18,7 @@ trait TwitterSearchClient extends RestClient with Configurations {
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
 
-  /** Returns the authenticated user’s saved search queries.
+  /** Returns a collection of relevant Tweets matching a specified query.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/search/tweets" target="_blank">
     *   https://dev.twitter.com/rest/reference/get/search/tweets</a>.
