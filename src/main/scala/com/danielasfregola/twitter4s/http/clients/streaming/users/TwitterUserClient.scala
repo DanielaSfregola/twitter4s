@@ -17,6 +17,8 @@ trait TwitterUserClient extends StreamingClient with Configurations with ActorCo
 
   /** Starts a streaming connection from Twitter's user API. Streams messages for a single user as
     * described in <a href="https://dev.twitter.com/streaming/userstreams" target="_blank">User streams</a>.
+    * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
+    * If there are failures in establishing the initial connection, the Future returned will be completed with a failure.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `UserStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
