@@ -16,7 +16,8 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
   /** Starts a streaming connection from Twitter's public API, filtered with the 'follow', 'track' and 'location' parameters.
     * Although all of those three params are optional, at least one must be specified.
     * The track, follow, and locations fields should be considered to be combined with an OR operator.
-    * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
+    * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
+    * If there are failures in establishing the initial connection, the Future returned will be completed with a failure.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
@@ -60,7 +61,8 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
     * The Tweets returned by the default access level are the same, so if two different clients connect to this endpoint, they will see the same Tweets.
-    * The function only returns an empty future, that can be used to track failures in establishing the initial connection.
+    * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
+    * If there are failures in establishing the initial connection, the Future returned will be completed with a failure.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
@@ -92,6 +94,8 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
     * Creative use of a combination of other resources and various access levels can satisfy nearly every application use case.
     * For more information see <a href="https://dev.twitter.com/streaming/reference/get/statuses/firehose" target="_blank">
     *   https://dev.twitter.com/streaming/reference/get/statuses/firehose</a>.
+    * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
+    * If there are failures in establishing the initial connection, the Future returned will be completed with a failure.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     *

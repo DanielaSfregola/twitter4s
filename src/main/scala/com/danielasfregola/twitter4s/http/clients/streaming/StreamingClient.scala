@@ -27,7 +27,7 @@ trait StreamingClient extends OAuthClient {
       for {
         requestWithAuth <- withOAuthHeader(request)
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
-      } yield new TwitterStream(killSwitch)(consumerToken, accessToken, system)
+      } yield new TwitterStream(killSwitch, requestWithAuth)(consumerToken, accessToken, system)
   }
 
   private val maxConnectionTimeMillis = 1000

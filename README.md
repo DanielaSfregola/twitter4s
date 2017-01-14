@@ -109,6 +109,32 @@ client.sampleStatuses(stall_warnings = true)(printTweetText)
 
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
+### Close or Replace a Stream
+Each stream function returns an `Future[TwitterStream]`. 
+`TwitterStream` represents the stream received by Twitter and it can be used to close or replace the current stream.
+
+For example, consider the following snippet:
+
+```scala
+  // TERRIBLE CODE! NEVER BLOCK! Code for demo purposes only!
+  def simulateNextActionAfterMillis(millis: Long): Future[Unit] = Future{ Thread.sleep(millis); println() }
+
+  for {
+    streamA <- client.sampleStatuses(languages = Seq(Language.English)){ case t: Tweet => print("o")}
+    _ <- simulateNextActionAfterMillis(10000)
+    streamB <- streamA.sampleStatuses(languages = Seq(Language.Spanish)){ case t: Tweet => print("+")}
+    _ <- simulateNextActionAfterMillis(10000)
+  } yield streamB.close()
+```
+
+The above code can output something similar to the following:
+ 
+ ```bash
+ oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+ +++++++++++++++
+ ```
+In this example, we can see that there are more English tweets than Spanish tweets.
+
 ### Public Stream
 Have a look at the complete scaladoc for the [Public Stream Client](http://danielasfregola.github.io/twitter4s/4.0.1/api/com/danielasfregola/twitter4s/http/clients/streaming/statuses/TwitterStatusClient).
 
