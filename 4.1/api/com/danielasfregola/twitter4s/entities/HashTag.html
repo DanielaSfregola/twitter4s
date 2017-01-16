@@ -1109,9 +1109,45 @@
       <div id="tooltip"></div>
 
       <div id="footer">  </div>
-    </body>
+    <script>
+   $( document ).ready(function() {
+      document.querySelector('#filterby .hideall').click();
+      var x = document.querySelectorAll("*[class*='out'][name^='com.danielasfregola.twitter4s.http.clients.rest']");
+      var i;
+  for (i = 0; i < x.length; i++) {
+    if (x[i].innerText != "RestClient") {
+        x[i].click();
+    }
+  }
+      var x = document.querySelectorAll("*[class*='out'][name^='com.danielasfregola.twitter4s.http.clients.streaming']");
+      var i;
+  for (i = 0; i < x.length; i++) {
+    if (x[i].innerText != "StreamingClient") {
+        x[i].click();
+      }
+  }
+   });
+</script></body>
           </div>
         </div>
       </div>
-    </body>
+    <script>
+   $( document ).ready(function() {
+      document.querySelector('#filterby .hideall').click();
+      var x = document.querySelectorAll("*[class*='out'][name^='com.danielasfregola.twitter4s.http.clients.rest']");
+      var i;
+  for (i = 0; i < x.length; i++) {
+    if (x[i].innerText != "RestClient") {
+        x[i].click();
+    }
+  }
+      var x = document.querySelectorAll("*[class*='out'][name^='com.danielasfregola.twitter4s.http.clients.streaming']");
+      var i;
+  for (i = 0; i < x.length; i++) {
+    if (x[i].innerText != "StreamingClient") {
+        x[i].click();
+      }
+  }
+   });
+</script></body>
       </html>
