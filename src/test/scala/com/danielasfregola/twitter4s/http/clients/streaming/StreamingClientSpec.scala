@@ -123,22 +123,6 @@ class StreamingClientSpec extends ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopFriendsLists" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list.json")
-        processBody(response, killSwitch)(redirectMessages)
-
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops_friends_list.json")
-        transport.expectMsgAllOf(messages: _*)
-      }
-
-      "UserEnvelopFriendsListsStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list_stringified.json")
-        processBody(response, killSwitch)(redirectMessages)
-
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_friends_list_stringified.json")
-        transport.expectMsgAllOf(messages: _*)
-      }
-
       "UserWithheldNotice" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/user_withheld_notices.json")
         processBody(response, killSwitch)(redirectMessages)
@@ -152,6 +136,22 @@ class StreamingClientSpec extends ClientSpec {
         processBody(response, killSwitch)(redirectMessages)
 
         val messages = readStreamUpdatesAs[UserEnvelopTweet]("/fixtures/streaming/site/user_envelop_tweet.json")
+        transport.expectMsgAllOf(messages: _*)
+      }
+
+      "UserEnvelopFriendsLists" in new StreamingClientSpecContext {
+        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list.json")
+        processBody(response, killSwitch)(redirectMessages)
+
+        val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops_friends_list.json")
+        transport.expectMsgAllOf(messages: _*)
+      }
+
+      "UserEnvelopFriendsListsStringified" in new StreamingClientSpecContext {
+        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list_stringified.json")
+        processBody(response, killSwitch)(redirectMessages)
+
+        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_friends_list_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
