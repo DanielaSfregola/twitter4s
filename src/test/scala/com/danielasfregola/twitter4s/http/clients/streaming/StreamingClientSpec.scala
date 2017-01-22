@@ -148,98 +148,98 @@ class StreamingClientSpec extends ClientSpec {
       }
 
       "UserEnvelopTweet" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_tweet.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_tweet.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweet]("/fixtures/streaming/user_envelop_tweet.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweet]("/fixtures/streaming/site/user_envelop_tweet.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopDirectMessage" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_direct_message.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopDirectMessage]("/fixtures/streaming/user_envelop_direct_message.json")
+        val messages = readStreamUpdatesAs[UserEnvelopDirectMessage]("/fixtures/streaming/site/user_envelop_direct_message.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopTwitterListEvent" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_twitter_list_event.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEvent]("/fixtures/streaming/user_envelop_twitter_list_event.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEvent]("/fixtures/streaming/site/user_envelop_twitter_list_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopTweetEvent" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_tweet_event.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetEvent]("/fixtures/streaming/user_envelop_tweet_event.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweetEvent]("/fixtures/streaming/site/user_envelop_tweet_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopSimpleEvent" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_simple_event.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopSimpleEvent]("/fixtures/streaming/user_envelop_simple_event.json")
+        val messages = readStreamUpdatesAs[UserEnvelopSimpleEvent]("/fixtures/streaming/site/user_envelop_simple_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopWarningMessage" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_warning_message.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopWarningMessage]("/fixtures/streaming/user_envelop_warning_message.json")
+        val messages = readStreamUpdatesAs[UserEnvelopWarningMessage]("/fixtures/streaming/site/user_envelop_warning_message.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopTweetStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_tweet_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetStringified]("/fixtures/streaming/user_envelop_tweet_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweetStringified]("/fixtures/streaming/site/user_envelop_tweet_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopDirectMessageStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_direct_message_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopDirectMessageStringified]("/fixtures/streaming/user_envelop_direct_message_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopDirectMessageStringified]("/fixtures/streaming/site/user_envelop_direct_message_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopTwitterListEventStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_twitter_list_event_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEventStringified]("/fixtures/streaming/user_envelop_twitter_list_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEventStringified]("/fixtures/streaming/site/user_envelop_twitter_list_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopTweetEventStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_tweet_event_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetEventStringified]("/fixtures/streaming/user_envelop_tweet_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweetEventStringified]("/fixtures/streaming/site/user_envelop_tweet_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopSimpleEventStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_simple_event_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopSimpleEventStringified]("/fixtures/streaming/user_envelop_simple_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopSimpleEventStringified]("/fixtures/streaming/site/user_envelop_simple_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopWarningMessageStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/user_envelop_warning_message_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopWarningMessageStringified]("/fixtures/streaming/user_envelop_warning_message_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopWarningMessageStringified]("/fixtures/streaming/site/user_envelop_warning_message_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
