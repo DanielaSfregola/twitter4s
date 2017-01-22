@@ -211,6 +211,14 @@ class StreamingClientSpec extends ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
+      "UserEnvelopTwitterListEventStringified" in new StreamingClientSpecContext {
+        val response = buildResponse("/twitter/streaming/user_envelop_twitter_list_event_stringified.json")
+        processBody(response, killSwitch)(redirectMessages)
+
+        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEventStringified]("/fixtures/streaming/user_envelop_twitter_list_event_stringified.json")
+        transport.expectMsgAllOf(messages: _*)
+      }
+
       "WarningMessage" in new StreamingClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/warning_messages.json")
         processBody(response, killSwitch)(redirectMessages)
