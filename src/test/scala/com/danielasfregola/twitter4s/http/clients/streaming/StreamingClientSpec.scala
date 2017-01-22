@@ -124,18 +124,18 @@ class StreamingClientSpec extends ClientSpec {
       }
 
       "UserEnvelopFriendsLists" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/site/user_envelops.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops.json")
+        val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops_friends_list.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
       "UserEnvelopFriendsListsStringified" in new StreamingClientSpecContext {
-        val response = buildResponse("/twitter/streaming/site/user_envelops_stringified.json")
+        val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list_stringified.json")
         processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_friends_list_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
