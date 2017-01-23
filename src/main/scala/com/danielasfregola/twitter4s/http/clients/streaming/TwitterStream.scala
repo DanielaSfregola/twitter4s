@@ -9,8 +9,11 @@ import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 /** It represent a twitter stream operation. It can be used to close the stream on demand
   * or to replace the current stream with another twitter stream.
   */
-class TwitterStream(private val killSwitch: KillSwitch, private val request: HttpRequest)
-                   (val consumerToken: ConsumerToken, val accessToken: AccessToken, val system: ActorSystem) extends StreamingClients {
+case class TwitterStream(private val killSwitch: KillSwitch, private val request: HttpRequest)(
+    val consumerToken: ConsumerToken,
+    val accessToken: AccessToken,
+    val system: ActorSystem)
+    extends StreamingClients {
 
   def close() = {
     log.info(s"${request.method.value} ${request.uri}: closing streaming")
