@@ -11,6 +11,9 @@ before_cache:
 
 language: scala
 
+env:
+  - SBT_OPTS = -XX:MaxPermSize=1024M -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
+
 script:
   - travis_retry sbt clean coverage test coverageReport
 
