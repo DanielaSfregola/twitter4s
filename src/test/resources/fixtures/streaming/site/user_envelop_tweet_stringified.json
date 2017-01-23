@@ -1,0 +1,44 @@
+[
+  {
+    "for_user": "42",
+    "message": {
+      "created_at": "Tue Oct 06 18:52:40 +0000 2015",
+      "id": 651470141381865473,
+      "id_str": "651470141381865473",
+      "text": "Thinking of Apache Spark in Terms of Legos | MapR https:\/\/t.co\/whZl0cBx05",
+      "source": "\u003ca href=\"http:\/\/twitter.com\" rel=\"nofollow\"\u003eTwitter Web Client\u003c\/a\u003e",
+      "truncated": false,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "retweet_count": 0,
+      "favorite_count": 2,
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/whZl0cBx05",
+            "expanded_url": "https:\/\/www.mapr.com\/blog\/thinking-apache-spark-terms-legos#.VhQYdfWIPyp.twitter",
+            "display_url": "mapr.com\/blog\/thinking-\u2026",
+            "indices": [
+              50,
+              73
+            ]
+          }
+        ]
+      },
+      "favorited": false,
+      "retweeted": false,
+      "possibly_sensitive": false,
+      "lang": "en"
+    }
+  }
+]
