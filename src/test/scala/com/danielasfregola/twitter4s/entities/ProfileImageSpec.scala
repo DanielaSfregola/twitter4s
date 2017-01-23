@@ -9,10 +9,10 @@ class ProfileImageSpec extends Specification {
     "generate 4 type of image sizes from the original picture url string" in {
       val profile = ProfileImage("test_size.ext")
 
-      profile.default === "text.ext"
-      profile.mini === "text_mini.ext"
-      profile.normal === "text_normal.ext"
-      profile.bigger === "text_bigger.ext"
+      profile.default === "test.ext"
+      profile.mini === "test_mini.ext"
+      profile.normal === "test_normal.ext"
+      profile.bigger === "test_bigger.ext"
     }
 
   }
