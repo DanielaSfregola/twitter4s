@@ -1,920 +1,1536 @@
-[{
-  "contributors":[],
-  "created_at":"Tue Sep 29 15:14:44 +0100 2015",
-  "entities":{
-    "hashtags":[],
-    "media":[],
-    "urls":[{
-      "indices":[15,37],
-      "url":"http://t.co/3raBctS9qh",
-      "display_url":"commitstrip.com/en/2015/09/28/\u2026",
-      "expanded_url":"http://www.commitstrip.com/en/2015/09/28/scumbag-chrome/"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":648863485888208896,
-  "id_str":"648863485888208896",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":1,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"Scumbag Chrome http://t.co/3raBctS9qh",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
-      },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+[
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 14:14:44 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/3raBctS9qh",
+          "expanded_url": "http://www.commitstrip.com/en/2015/09/28/scumbag-chrome/",
+          "display_url": "commitstrip.com/en/2015/09/28/\u2026",
+          "indices": [
+            15,
+            37
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
-  },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Mon Aug 17 19:48:39 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Spray",
-      "indices":[0,6]
-    },{
-      "text":"json4s",
-      "indices":[42,49]
-    },{
-      "text":"scala",
-      "indices":[73,79]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[50,72],
-      "url":"http://t.co/CxnHzaH9H1",
-      "display_url":"wp.me/p5uYrc-7k",
-      "expanded_url":"http://wp.me/p5uYrc-7k"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":633349736943235072,
-  "id_str":"633349736943235072",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":1,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"#Spray: how to (de)serialize objects with #json4s http://t.co/CxnHzaH9H1 #scala",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
-      },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+    "extended_entities": null,
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 648863485888208896,
+    "id_str": "648863485888208896",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
-  },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Mon Jun 29 19:07:35 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Spray",
-      "indices":[16,22]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[44,66],
-      "url":"http://t.co/KBB3hmnRoA",
-      "display_url":"danielasfregola.com/2015/06/29/how\u2026",
-      "expanded_url":"http://danielasfregola.com/2015/06/29/how-to-create-a-spray-custom-authenticator"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":615582396868509696,
-  "id_str":"615582396868509696",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":2,
-  "retweeted":false,
-  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
-  "text":"How to Create a #Spray Custom Authenticator http://t.co/KBB3hmnRoA",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+    "retweet_count": 1,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "Scumbag Chrome http://t.co/3raBctS9qh",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Thu Jun 25 06:57:44 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Scala",
-      "indices":[0,6]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[32,54],
-      "url":"http://t.co/Lcqh19jFeO",
-      "display_url":"scala-lang.org/news/2.11.7",
-      "expanded_url":"http://scala-lang.org/news/2.11.7"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":613949174871126016,
-  "id_str":"613949174871126016",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":1,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"#Scala 2.11.7 is now available! http://t.co/Lcqh19jFeO",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Mon Aug 17 18:48:39 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Spray",
+          "indices": [
+            0,
+            6
+          ]
+        },
+        {
+          "text": "json4s",
+          "indices": [
+            42,
+            49
+          ]
+        },
+        {
+          "text": "scala",
+          "indices": [
+            73,
+            79
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/CxnHzaH9H1",
+          "expanded_url": "http://wp.me/p5uYrc-7k",
+          "display_url": "wp.me/p5uYrc-7k",
+          "indices": [
+            50,
+            72
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 633349736943235072,
+    "id_str": "633349736943235072",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 1,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "#Spray: how to (de)serialize objects with #json4s http://t.co/CxnHzaH9H1 #scala",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Tue Jun 23 19:00:37 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Scala",
-      "indices":[22,28]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[29,51],
-      "url":"http://t.co/NKwO7cvsZ1",
-      "display_url":"danielasfregola.com/2015/06/23/sta\u2026",
-      "expanded_url":"http://danielasfregola.com/2015/06/23/static-duck-typing-in-scala"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":613406318406176768,
-  "id_str":"613406318406176768",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":2,
-  "retweeted":false,
-  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
-  "text":"Static Duck Typing in #Scala http://t.co/NKwO7cvsZ1",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Mon Jun 29 18:07:35 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Spray",
+          "indices": [
+            16,
+            22
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/KBB3hmnRoA",
+          "expanded_url": "http://danielasfregola.com/2015/06/29/how-to-create-a-spray-custom-authenticator",
+          "display_url": "danielasfregola.com/2015/06/29/how\u2026",
+          "indices": [
+            44,
+            66
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 615582396868509696,
+    "id_str": "615582396868509696",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 2,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+    "text": "How to Create a #Spray Custom Authenticator http://t.co/KBB3hmnRoA",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Thu Jun 18 19:13:56 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Scala",
-      "indices":[59,65]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[66,88],
-      "url":"http://t.co/6L9wl8BVoq",
-      "display_url":"wp.me/p5uYrc-6a",
-      "expanded_url":"http://wp.me/p5uYrc-6a"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":1,
-  "favorited":false,
-  "id":611597729769385984,
-  "id_str":"611597729769385984",
-  "is_quote_status":false,
-  "lang":"fr",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":1,
-  "retweeted":false,
-  "source":"<a href=\"http://mobile.twitter.com\" rel=\"nofollow\">Mobile Web</a>",
-  "text":"Performance Comparison between immutable Seq, List, Vector #Scala http://t.co/6L9wl8BVoq",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Thu Jun 25 05:57:44 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Scala",
+          "indices": [
+            0,
+            6
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/Lcqh19jFeO",
+          "expanded_url": "http://scala-lang.org/news/2.11.7",
+          "display_url": "scala-lang.org/news/2.11.7",
+          "indices": [
+            32,
+            54
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 613949174871126016,
+    "id_str": "613949174871126016",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 1,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "#Scala 2.11.7 is now available! http://t.co/Lcqh19jFeO",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Mon Jun 15 21:51:51 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"Scala",
-      "indices":[59,65]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[66,88],
-      "url":"http://t.co/SgUBcs97rj",
-      "display_url":"danielasfregola.com/2015/06/15/whi\u2026",
-      "expanded_url":"http://danielasfregola.com/2015/06/15/which-immutable-scala-collection"
-    }],
-    "user_mentions":[]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":610550305718013952,
-  "id_str":"610550305718013952",
-  "is_quote_status":false,
-  "lang":"fr",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":2,
-  "retweeted":false,
-  "source":"<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
-  "text":"Performance comparison between immutable Seq, List, Vector #Scala http://t.co/SgUBcs97rj http://t.co/XpS3nIcAh1",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Jun 23 18:00:37 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Scala",
+          "indices": [
+            22,
+            28
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/NKwO7cvsZ1",
+          "expanded_url": "http://danielasfregola.com/2015/06/23/static-duck-typing-in-scala",
+          "display_url": "danielasfregola.com/2015/06/23/sta\u2026",
+          "indices": [
+            29,
+            51
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 613406318406176768,
+    "id_str": "613406318406176768",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 2,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+    "text": "Static Duck Typing in #Scala http://t.co/NKwO7cvsZ1",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Wed Jun 10 15:15:58 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"ScalaDays",
-      "indices":[31,41]
-    },{
-      "text":"Akka",
-      "indices":[119,124]
-    }],
-    "media":[],
-    "urls":[],
-    "user_mentions":[{
-      "id":24999933,
-      "id_str":"24999933",
-      "indices":[14,27],
-      "name":"Michael Nash",
-      "screen_name":"MichaelPNash"
-    }]
-  },
-  "favorite_count":7,
-  "favorited":false,
-  "id":608638741155049472,
-  "id_str":"608638741155049472",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":8,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"Great talk by @MichaelPNash at #ScalaDays: nice case study to compare the performance between CRUD and DDDD systems... #Akka rocks! :D",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Thu Jun 18 18:13:56 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Scala",
+          "indices": [
+            59,
+            65
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/6L9wl8BVoq",
+          "expanded_url": "http://wp.me/p5uYrc-6a",
+          "display_url": "wp.me/p5uYrc-6a",
+          "indices": [
+            66,
+            88
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 1,
+    "favorited": false,
+    "filter_level": null,
+    "id": 611597729769385984,
+    "id_str": "611597729769385984",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "fr",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 1,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://mobile.twitter.com\" rel=\"nofollow\">Mobile Web</a>",
+    "text": "Performance Comparison between immutable Seq, List, Vector #Scala http://t.co/6L9wl8BVoq",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Wed Jun 10 14:46:14 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"ScalaDays",
-      "indices":[32,42]
-    }],
-    "media":[],
-    "urls":[],
-    "user_mentions":[{
-      "id":24999933,
-      "id_str":"24999933",
-      "indices":[10,23],
-      "name":"Michael Nash",
-      "screen_name":"MichaelPNash"
-    }]
-  },
-  "favorite_count":2,
-  "favorited":false,
-  "id":608631256788676608,
-  "id_str":"608631256788676608",
-  "is_quote_status":false,
-  "lang":"tl",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":3,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"Attending @MichaelPNash talk at #ScalaDays on Akka Scalability",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Mon Jun 15 20:51:51 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Scala",
+          "indices": [
+            59,
+            65
+          ]
+        }
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/XpS3nIcAh1",
+          "expanded_url": "http://twitter.com/DanielaSfregola/status/610550305718013952/photo/1",
+          "id": 610550304732418048,
+          "id_str": "610550304732418048",
+          "indices": [
+            89,
+            111
+          ],
+          "media_url": "http://pbs.twimg.com/media/CHkcRG8VEAA64MP.png",
+          "media_url_https": "https://pbs.twimg.com/media/CHkcRG8VEAA64MP.png",
+          "sizes": {
+            "thumb": {
+              "h": 101,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            },
+            "small": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            },
+            "medium": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/XpS3nIcAh1"
+        }
+      ],
+      "url": null,
+      "urls": [
+        {
+          "url": "http://t.co/SgUBcs97rj",
+          "expanded_url": "http://danielasfregola.com/2015/06/15/which-immutable-scala-collection",
+          "display_url": "danielasfregola.com/2015/06/15/whi\u2026",
+          "indices": [
+            66,
+            88
+          ]
+        }
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/XpS3nIcAh1",
+          "expanded_url": "http://twitter.com/DanielaSfregola/status/610550305718013952/photo/1",
+          "id": 610550304732418048,
+          "id_str": "610550304732418048",
+          "indices": [
+            89,
+            111
+          ],
+          "media_url": "http://pbs.twimg.com/media/CHkcRG8VEAA64MP.png",
+          "media_url_https": "https://pbs.twimg.com/media/CHkcRG8VEAA64MP.png",
+          "sizes": {
+            "thumb": {
+              "h": 101,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            },
+            "small": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            },
+            "medium": {
+              "h": 101,
+              "resize": "fit",
+              "w": 300
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/XpS3nIcAh1"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 610550305718013952,
+    "id_str": "610550305718013952",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "fr",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 2,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://publicize.wp.com/\" rel=\"nofollow\">WordPress.com</a>",
+    "text": "Performance comparison between immutable Seq, List, Vector #Scala http://t.co/SgUBcs97rj http://t.co/XpS3nIcAh1",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-},{
-  "contributors":[],
-  "created_at":"Tue Jun 09 10:54:00 +0100 2015",
-  "entities":{
-    "hashtags":[{
-      "text":"ScalaDays",
-      "indices":[61,71]
-    }],
-    "media":[],
-    "urls":[],
-    "user_mentions":[{
-      "id":98145567,
-      "id_str":"98145567",
-      "indices":[43,57],
-      "name":"Helena Edelson",
-      "screen_name":"helenaedelson"
-    }]
-  },
-  "favorite_count":1,
-  "favorited":false,
-  "id":608210429060521984,
-  "id_str":"608210429060521984",
-  "is_quote_status":false,
-  "lang":"en",
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":2,
-  "retweeted":false,
-  "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-  "text":"\"Your Data is like Candy: you want it now\" @helenaedelson at #ScalaDays",
-  "truncated":false,
-  "user":{
-    "contributors_enabled":false,
-    "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"Java / Scala Team Leader working at @OVOEnergy",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"https://t.co/0FKNGVnRwX",
-          "display_url":"danielasfregola.com",
-          "expanded_url":"https://www.danielasfregola.com/"
-        }]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Wed Jun 10 14:15:58 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "ScalaDays",
+          "indices": [
+            31,
+            41
+          ]
+        },
+        {
+          "text": "Akka",
+          "indices": [
+            119,
+            124
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+        {
+          "id": 24999933,
+          "id_str": "24999933",
+          "indices": [
+            14,
+            27
+          ],
+          "name": "Michael Nash",
+          "screen_name": "MichaelPNash"
+        }
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 7,
+    "favorited": false,
+    "filter_level": null,
+    "id": 608638741155049472,
+    "id_str": "608638741155049472",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 8,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "Great talk by @MichaelPNash at #ScalaDays: nice case study to compare the performance between CRUD and DDDD systems... #Akka rocks! :D",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":68,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":132,
-    "friends_count":93,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":2911461333,
-    "id_str":"2911461333",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":13,
-    "location":"London, United Kingdom",
-    "name":"Daniela Sfregola",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"DanielaSfregola",
-    "show_all_inline_media":false,
-    "statuses_count":186,
-    "url":"https://t.co/0FKNGVnRwX",
-    "verified":false
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-}]
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Wed Jun 10 13:46:14 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "ScalaDays",
+          "indices": [
+            32,
+            42
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+        {
+          "id": 24999933,
+          "id_str": "24999933",
+          "indices": [
+            10,
+            23
+          ],
+          "name": "Michael Nash",
+          "screen_name": "MichaelPNash"
+        }
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 2,
+    "favorited": false,
+    "filter_level": null,
+    "id": 608631256788676608,
+    "id_str": "608631256788676608",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "tl",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 3,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "Attending @MichaelPNash talk at #ScalaDays on Akka Scalability",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
+      },
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    },
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
+  },
+  {
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Jun 09 09:54:00 +0000 2015",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "ScalaDays",
+          "indices": [
+            61,
+            71
+          ]
+        }
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+        {
+          "id": 98145567,
+          "id_str": "98145567",
+          "indices": [
+            43,
+            57
+          ],
+          "name": "Helena Edelson",
+          "screen_name": "helenaedelson"
+        }
+      ],
+      "description": null
+    },
+    "extended_entities": null,
+    "favorite_count": 1,
+    "favorited": false,
+    "filter_level": null,
+    "id": 608210429060521984,
+    "id_str": "608210429060521984",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {
+    },
+    "retweet_count": 2,
+    "retweeted": false,
+    "retweeted_status": null,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "\"Your Data is like Candy: you want it now\" @helenaedelson at #ScalaDays",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "Java / Scala Team Leader working at @OVOEnergy",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/0FKNGVnRwX",
+              "expanded_url": "https://www.danielasfregola.com/",
+              "display_url": "danielasfregola.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
+      },
+      "favourites_count": 68,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 132,
+      "friends_count": 93,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 2911461333,
+      "id_str": "2911461333",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 13,
+      "location": "London, United Kingdom",
+      "muting": false,
+      "name": "Daniela Sfregola",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "DanielaSfregola",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 186,
+      "time_zone": null,
+      "url": "https://t.co/0FKNGVnRwX",
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    },
+    "withheld_copyright": false,
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
+  }
+]

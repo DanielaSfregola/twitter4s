@@ -1,18 +1,18 @@
 {
-  "allow_contributor_request":"all",
-  "allow_dm_groups_from":"following",
-  "allow_dms_from":"following",
-  "always_use_https":true,
-  "discoverable_by_email":true,
-  "discoverable_by_mobile_phone":false,
-  "geo_enabled":true,
-  "language":"en",
-  "protected":false,
-  "screen_name":"DanielaSfregola",
-  "sleep_time":{
-    "enabled":false
+  "allow_contributor_request": "all",
+  "allow_dm_groups_from": "following",
+  "allow_dms_from": "following",
+  "always_use_https": true,
+  "discoverable_by_email": true,
+  "discoverable_by_mobile_phone": false,
+  "geo_enabled": true,
+  "language": "en",
+  "protected": false,
+  "screen_name": "DanielaSfregola",
+  "sleep_time": {
+    "enabled": false
   },
-  "show_all_inline_media":false,
-  "use_cookie_personalization":true,
-  "trend_location":[]
+  "show_all_inline_media": false,
+  "use_cookie_personalization": true,
+  "trend_location": []
 }

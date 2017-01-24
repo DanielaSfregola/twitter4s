@@ -1,92 +1,101 @@
 {
-  "blocked_by":false,
-  "blocking":false,
-  "contributors_enabled":false,
-  "created_at":"Mon Dec 08 20:00:20 +0000 2014",
-  "default_profile":true,
-  "default_profile_image":false,
-  "description":"Java / Scala Team Leader working at @OVOEnergy",
-  "entities":{
-    "hashtags":[],
-    "media":[],
-    "url":{
-      "urls":[{
-        "indices":[0,23],
-        "url":"https://t.co/0FKNGVnRwX",
-        "display_url":"danielasfregola.com",
-        "expanded_url":"https://www.danielasfregola.com/"
-      }]
+  "blocked_by": false,
+  "blocking": false,
+  "contributors_enabled": false,
+  "created_at": "Mon Dec 08 20:00:20 +0000 2014",
+  "default_profile": true,
+  "default_profile_image": false,
+  "description": "Java / Scala Team Leader working at @OVOEnergy",
+  "entities": {
+    "hashtags": [],
+    "media": [],
+    "url": {
+      "urls": [
+        {
+          "indices": [
+            0,
+            23
+          ],
+          "url": "https://t.co/0FKNGVnRwX",
+          "display_url": "danielasfregola.com",
+          "expanded_url": "https://www.danielasfregola.com/"
+        }
+      ]
     },
-    "urls":[],
-    "user_mentions":[],
-    "description":{
-      "urls":[]
+    "urls": [],
+    "user_mentions": [],
+    "description": {
+      "urls": []
     }
   },
-  "favourites_count":68,
-  "follow_request_sent":false,
-  "following":false,
-  "followers_count":134,
-  "friends_count":98,
-  "geo_enabled":true,
-  "has_extended_profile":false,
-  "id":2911461333,
-  "id_str":"2911461333",
-  "is_translation_enabled":false,
-  "is_translator":false,
-  "lang":"en",
-  "listed_count":13,
-  "location":"London, United Kingdom",
-  "muting":false,
-  "name":"Daniela Sfregola",
-  "notifications":false,
-  "profile_background_color":"C0DEED",
-  "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-  "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-  "profile_background_tile":false,
-  "profile_image_url":"http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-  "profile_image_url_https":"https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
-  "profile_link_color":"0084B4",
-  "profile_sidebar_border_color":"C0DEED",
-  "profile_sidebar_fill_color":"DDEEF6",
-  "profile_text_color":"333333",
-  "profile_use_background_image":true,
-  "protected":false,
-  "screen_name":"DanielaSfregola",
-  "show_all_inline_media":false,
-  "status":{
-    "contributors":[],
-    "created_at":"Tue Oct 06 19:52:40 +0100 2015",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[{
-        "indices":[50,73],
-        "url":"https://t.co/whZl0cBx05",
-        "display_url":"mapr.com/blog/thinking-\u2026",
-        "expanded_url":"https://www.mapr.com/blog/thinking-apache-spark-terms-legos#.VhQYdfWIPyp.twitter"
-      }],
-      "user_mentions":[]
+  "favourites_count": 68,
+  "follow_request_sent": false,
+  "following": false,
+  "followers_count": 134,
+  "friends_count": 98,
+  "geo_enabled": true,
+  "has_extended_profile": false,
+  "id": 2911461333,
+  "id_str": "2911461333",
+  "is_translation_enabled": false,
+  "is_translator": false,
+  "lang": "en",
+  "listed_count": 13,
+  "location": "London, United Kingdom",
+  "muting": false,
+  "name": "Daniela Sfregola",
+  "notifications": false,
+  "profile_background_color": "C0DEED",
+  "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+  "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+  "profile_background_tile": false,
+  "profile_image_url": "http://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+  "profile_image_url_https": "https://pbs.twimg.com/profile_images/546106156582588416/26fHSIFf_normal.png",
+  "profile_link_color": "0084B4",
+  "profile_sidebar_border_color": "C0DEED",
+  "profile_sidebar_fill_color": "DDEEF6",
+  "profile_text_color": "333333",
+  "profile_use_background_image": true,
+  "protected": false,
+  "screen_name": "DanielaSfregola",
+  "show_all_inline_media": false,
+  "status": {
+    "contributors": [],
+    "created_at": "Tue Oct 06 19:52:40 +0100 2015",
+    "entities": {
+      "hashtags": [],
+      "media": [],
+      "urls": [
+        {
+          "indices": [
+            50,
+            73
+          ],
+          "url": "https://t.co/whZl0cBx05",
+          "display_url": "mapr.com/blog/thinking-\u2026",
+          "expanded_url": "https://www.mapr.com/blog/thinking-apache-spark-terms-legos#.VhQYdfWIPyp.twitter"
+        }
+      ],
+      "user_mentions": []
     },
-    "favorite_count":2,
-    "favorited":false,
-    "id":651470141381865473,
-    "id_str":"651470141381865473",
-    "is_quote_status":false,
-    "lang":"en",
-    "possibly_sensitive":false,
-    "scopes":{
-
+    "favorite_count": 2,
+    "favorited": false,
+    "id": 651470141381865473,
+    "id_str": "651470141381865473",
+    "is_quote_status": false,
+    "lang": "en",
+    "possibly_sensitive": false,
+    "scopes": {
     },
-    "retweet_count":0,
-    "retweeted":false,
-    "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-    "text":"Thinking of Apache Spark in Terms of Legos | MapR https://t.co/whZl0cBx05",
-    "truncated":false,
-    "withheld_copyright":false,
-    "withheld_in_countries":[]
+    "retweet_count": 0,
+    "retweeted": false,
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "Thinking of Apache Spark in Terms of Legos | MapR https://t.co/whZl0cBx05",
+    "truncated": false,
+    "withheld_copyright": false,
+    "withheld_in_countries": []
   },
-  "statuses_count":191,
-  "url":"https://t.co/0FKNGVnRwX",
-  "verified":false
+  "statuses_count": 191,
+  "url": "https://t.co/0FKNGVnRwX",
+  "verified": false
 }

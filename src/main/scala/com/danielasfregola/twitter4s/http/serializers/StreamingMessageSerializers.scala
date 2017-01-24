@@ -27,7 +27,6 @@ object StreamingMessageSerializers {
     ({
       case json => findOrExplode(json)(streamingMessageStream(json))
     }, {
-      case tweet: Tweet => Extraction.decompose(tweet)
       case disconnectMsg: DisconnectMessage => Extraction.decompose(disconnectMsg)
       case limitNotice: LimitNotice => Extraction.decompose(limitNotice)
       case locationDeletionNotice: LocationDeletionNotice => Extraction.decompose(locationDeletionNotice)
@@ -35,7 +34,6 @@ object StreamingMessageSerializers {
       case statusWithheldNotice: StatusWithheldNotice => Extraction.decompose(statusWithheldNotice)
       case userWithheldNotice: UserWithheldNotice => Extraction.decompose(userWithheldNotice)
       case warningMessage: WarningMessage => Extraction.decompose(warningMessage)
-      case directMessage: DirectMessage => Extraction.decompose(directMessage)
       case twitterListEvent: TwitterListEvent => Extraction.decompose(twitterListEvent)
       case tweetEvent: TweetEvent => Extraction.decompose(tweetEvent)
       case simpleEvent: SimpleEvent => Extraction.decompose(simpleEvent)

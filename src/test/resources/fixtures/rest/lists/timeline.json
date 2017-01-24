@@ -1,105 +1,130 @@
-[{
-  "contributors":[],
-  "created_at":"Mon Sep 10 15:04:58 +0100 2012",
-  "entities":{
-    "hashtags":[{
-      "text":"TorontoFC",
-      "indices":[87,97]
-    },{
-      "text":"MLS",
-      "indices":[98,102]
-    }],
-    "media":[],
-    "urls":[{
-      "indices":[41,61],
-      "url":"http://t.co/W2tON3OK",
-      "display_url":"bit.ly/MuCCDo",
-      "expanded_url":"http://bit.ly/MuCCDo"
-    }],
-    "user_mentions":[{
-      "id":210844741,
-      "id_str":"210844741",
-      "indices":[76,86],
-      "name":"Team Up Foundation",
-      "screen_name":"TeamUpFdn"
-    }]
-  },
-  "favorite_count":0,
-  "favorited":false,
-  "id":245160944223793152,
-  "id_str":"245160944223793152",
-  "is_quote_status":false,
-  "possibly_sensitive":false,
-  "scopes":{
-
-  },
-  "retweet_count":0,
-  "retweeted":false,
-  "source":"<a>TweetDeck</a>",
-  "text":"Create your own TFC ESQ by Movado Watch: http://t.co/W2tON3OK in support of @TeamUpFdn #TorontoFC #MLS",
-  "truncated":false,
-  "user":{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Fri Sep 11 16:42:26 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"Official Toronto FC Twitter by @AsifinToronto & @JonSinden. Follow us for the latest club news, links, pics & videos. Join us during matches for #TFClive",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "indices":[0,23],
-          "url":"http://www.torontofc.ca",
-          "display_url":null,
-          "expanded_url":null
-        }]
-      },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+[
+  {
+    "contributors": [],
+    "created_at": "Mon Sep 10 15:04:58 +0100 2012",
+    "entities": {
+      "hashtags": [
+        {
+          "text": "TorontoFC",
+          "indices": [
+            87,
+            97
+          ]
+        },
+        {
+          "text": "MLS",
+          "indices": [
+            98,
+            102
+          ]
+        }
+      ],
+      "media": [],
+      "urls": [
+        {
+          "indices": [
+            41,
+            61
+          ],
+          "url": "http://t.co/W2tON3OK",
+          "display_url": "bit.ly/MuCCDo",
+          "expanded_url": "http://bit.ly/MuCCDo"
+        }
+      ],
+      "user_mentions": [
+        {
+          "id": 210844741,
+          "id_str": "210844741",
+          "indices": [
+            76,
+            86
+          ],
+          "name": "Team Up Foundation",
+          "screen_name": "TeamUpFdn"
+        }
+      ]
     },
-    "favourites_count":2,
-    "follow_request_sent":false,
-    "following":true,
-    "followers_count":28281,
-    "friends_count":13947,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":73412535,
-    "id_str":"73412535",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":1078,
-    "location":"Toronto, ON",
-    "muting":false,
-    "name":"Toronto FC",
-    "notifications":false,
-    "profile_background_color":"BC1228",
-    "profile_background_image_url":"http://a0.twimg.com/profile_background_images/603424485/k9py0fm18qrjr8l22qlp.jpeg",
-    "profile_background_image_url_https":"https://si0.twimg.com/profile_background_images/603424485/k9py0fm18qrjr8l22qlp.jpeg",
-    "profile_background_tile":false,
-    "profile_image_url":"http://a0.twimg.com/profile_images/1827235104/TorontoFC1_normal.jpg",
-    "profile_image_url_https":"https://si0.twimg.com/profile_images/1827235104/TorontoFC1_normal.jpg",
-    "profile_link_color":"000000",
-    "profile_sidebar_border_color":"FFFFFF",
-    "profile_sidebar_fill_color":"EB1D31",
-    "profile_text_color":"000000",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"torontofc",
-    "show_all_inline_media":false,
-    "statuses_count":10774,
-    "time_zone":"Eastern Time (US & Canada)",
-    "url":"http://www.torontofc.ca",
-    "utc_offset":-18000,
-    "verified":true
-  },
-  "withheld_copyright":false,
-  "withheld_in_countries":[]
-}]
+    "favorite_count": 0,
+    "favorited": false,
+    "id": 245160944223793152,
+    "id_str": "245160944223793152",
+    "is_quote_status": false,
+    "possibly_sensitive": false,
+    "scopes": {
+    },
+    "retweet_count": 0,
+    "retweeted": false,
+    "source": "<a>TweetDeck</a>",
+    "text": "Create your own TFC ESQ by Movado Watch: http://t.co/W2tON3OK in support of @TeamUpFdn #TorontoFC #MLS",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Fri Sep 11 16:42:26 +0100 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "Official Toronto FC Twitter by @AsifinToronto & @JonSinden. Follow us for the latest club news, links, pics & videos. Join us during matches for #TFClive",
+      "entities": {
+        "hashtags": [],
+        "media": [],
+        "url": {
+          "urls": [
+            {
+              "indices": [
+                0,
+                23
+              ],
+              "url": "http://www.torontofc.ca",
+              "display_url": null,
+              "expanded_url": null
+            }
+          ]
+        },
+        "urls": [],
+        "user_mentions": [],
+        "description": {
+          "urls": []
+        }
+      },
+      "favourites_count": 2,
+      "follow_request_sent": false,
+      "following": true,
+      "followers_count": 28281,
+      "friends_count": 13947,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 73412535,
+      "id_str": "73412535",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 1078,
+      "location": "Toronto, ON",
+      "muting": false,
+      "name": "Toronto FC",
+      "notifications": false,
+      "profile_background_color": "BC1228",
+      "profile_background_image_url": "http://a0.twimg.com/profile_background_images/603424485/k9py0fm18qrjr8l22qlp.jpeg",
+      "profile_background_image_url_https": "https://si0.twimg.com/profile_background_images/603424485/k9py0fm18qrjr8l22qlp.jpeg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://a0.twimg.com/profile_images/1827235104/TorontoFC1_normal.jpg",
+      "profile_image_url_https": "https://si0.twimg.com/profile_images/1827235104/TorontoFC1_normal.jpg",
+      "profile_link_color": "000000",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "EB1D31",
+      "profile_text_color": "000000",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "torontofc",
+      "show_all_inline_media": false,
+      "statuses_count": 10774,
+      "time_zone": "Eastern Time (US & Canada)",
+      "url": "http://www.torontofc.ca",
+      "utc_offset": -18000,
+      "verified": true
+    },
+    "withheld_copyright": false,
+    "withheld_in_countries": []
+  }
+]
