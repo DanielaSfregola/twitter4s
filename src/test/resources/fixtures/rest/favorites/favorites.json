@@ -1,35 +1,54 @@
 [
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri Oct 09 08:33:53 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri Oct 09 07:33:53 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "https://t.co/8w6i72ZLFz",
+          "expanded_url": "https://www.youtube.com/watch?v=gqSBM_kLJaI",
+          "display_url": "youtube.com/watch?v=gqSBM_\u2026",
           "indices": [
             73,
             96
-          ],
-          "url": "https://t.co/8w6i72ZLFz",
-          "display_url": "youtube.com/watch?v=gqSBM_\u2026",
-          "expanded_url": "https://www.youtube.com/watch?v=gqSBM_kLJaI"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 57,
     "favorited": true,
+    "filter_level": null,
     "id": 652386483509297152,
     "id_str": "652386483509297152",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "is",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 24,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "The Eyjafjallajökull Lecture 2015: Things &amp; Cothings \u2014 Paul Phillips\nhttps://t.co/8w6i72ZLFz",
     "truncated": false,
@@ -37,30 +56,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sun Aug 16 14:05:09 +0100 2015",
+      "created_at": "Sun Aug 16 13:05:09 +0000 2015",
       "default_profile": true,
       "default_profile_image": false,
       "description": "The most exciting Scala event of the year!",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "https://t.co/7WqZMYNtQT",
+              "expanded_url": "https://scala.world/",
+              "display_url": "scala.world",
               "indices": [
                 0,
                 23
-              ],
-              "url": "https://t.co/7WqZMYNtQT",
-              "display_url": "scala.world",
-              "expanded_url": "https://scala.world/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 355,
@@ -84,6 +109,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/632902788217970688/rf0GE2M1_normal.png",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/632902788217970688/rf0GE2M1_normal.png",
       "profile_link_color": "0084B4",
@@ -94,44 +120,71 @@
       "protected": false,
       "screen_name": "scalaworldconf",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 205,
+      "time_zone": null,
       "url": "https://t.co/7WqZMYNtQT",
-      "verified": false
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Thu Jul 23 00:32:10 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Wed Jul 22 23:32:10 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/1VugJGLoMD",
+          "expanded_url": "http://bit.ly/1KktC4v",
+          "display_url": "bit.ly/1KktC4v",
           "indices": [
             121,
             143
-          ],
-          "url": "http://t.co/1VugJGLoMD",
-          "display_url": "bit.ly/1KktC4v",
-          "expanded_url": "http://bit.ly/1KktC4v"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 18,
     "favorited": true,
+    "filter_level": null,
     "id": 623999003886284801,
     "id_str": "623999003886284801",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 9,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
     "text": "Reactive for DevOps: Part 1 - Using Amazon EC2, Ansible, Akka and ConductR to manage &amp; deploy to the [hybrid] cloud: http://t.co/1VugJGLoMD",
     "truncated": false,
@@ -139,38 +192,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sun Oct 05 15:50:41 +0100 2008",
+      "created_at": "Sun Oct 05 14:50:41 +0000 2008",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Typesafe Reactive Platform is a production-grade JVM runtime & toolset for building Reactive Systems. Be successful: http://t.co/o1Bt6dQtgH",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/bzGTwCmOGg",
+              "expanded_url": "http://typesafe.com",
+              "display_url": "typesafe.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/bzGTwCmOGg",
-              "display_url": "typesafe.com",
-              "expanded_url": "http://typesafe.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "http://t.co/o1Bt6dQtgH",
+              "expanded_url": "http://www.typesafe.com/company/contact",
+              "display_url": "typesafe.com/company/contact",
               "indices": [
                 117,
                 139
-              ],
-              "url": "http://t.co/o1Bt6dQtgH",
-              "display_url": "typesafe.com/company/contact",
-              "expanded_url": "http://www.typesafe.com/company/contact"
+              ]
             }
           ]
         }
@@ -207,23 +265,35 @@
       "protected": false,
       "screen_name": "typesafe",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3657,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/bzGTwCmOGg",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Jul 14 10:22:51 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Jul 14 09:22:51 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 2911461333,
@@ -235,22 +305,32 @@
           "name": "Daniela Sfregola",
           "screen_name": "DanielaSfregola"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 1,
     "favorited": true,
+    "filter_level": null,
     "id": 620886161964208129,
     "id_str": "620886161964208129",
     "in_reply_to_screen_name": "DanielaSfregola",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": 2911461333,
     "in_reply_to_user_id_str": "2911461333",
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "@DanielaSfregola hy scala women :D nice to meet u :D",
     "truncated": false,
@@ -258,30 +338,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Aug 11 17:26:31 +0100 2010",
+      "created_at": "Wed Aug 11 16:26:31 +0000 2010",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Drop the mic and go release some software !!!",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/yN4qTk8K61",
+              "expanded_url": "http://adilkurniaramdan.github.io",
+              "display_url": "adilkurniaramdan.github.io",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/yN4qTk8K61",
-              "display_url": "adilkurniaramdan.github.io",
-              "expanded_url": "http://adilkurniaramdan.github.io"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 3,
@@ -305,6 +391,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/1298491494/174474_1670288542_7944926_n_normal.jpg",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/1298491494/174474_1670288542_7944926_n_normal.jpg",
       "profile_link_color": "0084B4",
@@ -315,17 +402,27 @@
       "protected": false,
       "screen_name": "SoeHokBiel",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 397,
+      "time_zone": null,
       "url": "http://t.co/yN4qTk8K61",
-      "verified": false
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Thu Jul 02 16:17:26 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Thu Jul 02 15:17:26 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -336,31 +433,134 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/VKpDq5fBAT",
+          "expanded_url": "http://twitter.com/typesafe/status/616626742300659712/photo/1",
+          "id": 616626742225186816,
+          "id_str": "616626742225186816",
+          "indices": [
+            110,
+            132
+          ],
+          "media_url": "http://pbs.twimg.com/media/CI6ywUlWsAAl7aS.png",
+          "media_url_https": "https://pbs.twimg.com/media/CI6ywUlWsAAl7aS.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 255,
+              "resize": "fit",
+              "w": 340
+            },
+            "large": {
+              "h": 438,
+              "resize": "fit",
+              "w": 584
+            },
+            "medium": {
+              "h": 438,
+              "resize": "fit",
+              "w": 584
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/VKpDq5fBAT"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/CKwnZh3Tu3",
+          "expanded_url": "http://bit.ly/1FUrsjZ",
+          "display_url": "bit.ly/1FUrsjZ",
           "indices": [
             85,
             107
-          ],
-          "url": "http://t.co/CKwnZh3Tu3",
-          "display_url": "bit.ly/1FUrsjZ",
-          "expanded_url": "http://bit.ly/1FUrsjZ"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/VKpDq5fBAT",
+          "expanded_url": "http://twitter.com/typesafe/status/616626742300659712/photo/1",
+          "id": 616626742225186816,
+          "id_str": "616626742225186816",
+          "indices": [
+            110,
+            132
+          ],
+          "media_url": "http://pbs.twimg.com/media/CI6ywUlWsAAl7aS.png",
+          "media_url_https": "https://pbs.twimg.com/media/CI6ywUlWsAAl7aS.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 255,
+              "resize": "fit",
+              "w": 340
+            },
+            "large": {
+              "h": 438,
+              "resize": "fit",
+              "w": 584
+            },
+            "medium": {
+              "h": 438,
+              "resize": "fit",
+              "w": 584
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/VKpDq5fBAT"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 37,
     "favorited": true,
+    "filter_level": null,
     "id": 616626742300659712,
     "id_str": "616626742300659712",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 20,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
     "text": "\"What Every Architect Needs To Know About Going #Reactive\" - video/slides published: http://t.co/CKwnZh3Tu3 | http://t.co/VKpDq5fBAT",
     "truncated": false,
@@ -368,38 +568,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sun Oct 05 15:50:41 +0100 2008",
+      "created_at": "Sun Oct 05 14:50:41 +0000 2008",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Typesafe Reactive Platform is a production-grade JVM runtime & toolset for building Reactive Systems. Be successful: http://t.co/o1Bt6dQtgH",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/bzGTwCmOGg",
+              "expanded_url": "http://typesafe.com",
+              "display_url": "typesafe.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/bzGTwCmOGg",
-              "display_url": "typesafe.com",
-              "expanded_url": "http://typesafe.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "http://t.co/o1Bt6dQtgH",
+              "expanded_url": "http://www.typesafe.com/company/contact",
+              "display_url": "typesafe.com/company/contact",
               "indices": [
                 117,
                 139
-              ],
-              "url": "http://t.co/o1Bt6dQtgH",
-              "display_url": "typesafe.com/company/contact",
-              "expanded_url": "http://www.typesafe.com/company/contact"
+              ]
             }
           ]
         }
@@ -436,23 +641,35 @@
       "protected": false,
       "screen_name": "typesafe",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3657,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/bzGTwCmOGg",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Jun 09 12:54:53 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Jun 09 11:54:53 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 98145567,
@@ -474,10 +691,13 @@
           "name": "Braindead McabrAdams",
           "screen_name": "rit"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 2,
     "favorited": true,
+    "filter_level": null,
     "id": 608240847512051713,
     "id_str": "608240847512051713",
     "in_reply_to_screen_name": "helenaedelson",
@@ -487,11 +707,16 @@
     "in_reply_to_user_id_str": "98145567",
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 1,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "@helenaedelson Yes. @rit needs no caption.",
     "truncated": false,
@@ -499,30 +724,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Fri Aug 12 17:16:12 +0100 2011",
+      "created_at": "Fri Aug 12 16:16:12 +0000 2011",
       "default_profile": true,
       "default_profile_image": false,
       "description": "Dabbling with Scala, Spark, ML in close proximity to good coffee. Runs @SparkAtSO",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/qT9Yd0I1ah",
+              "expanded_url": "http://about.me/huitseeker",
+              "display_url": "about.me/huitseeker",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/qT9Yd0I1ah",
-              "display_url": "about.me/huitseeker",
-              "expanded_url": "http://about.me/huitseeker"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 1381,
@@ -557,19 +788,27 @@
       "protected": false,
       "screen_name": "huitseeker",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3093,
       "time_zone": "Paris",
       "url": "http://t.co/qT9Yd0I1ah",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Jun 09 11:04:40 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Jun 09 10:04:40 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -580,21 +819,38 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
-      "user_mentions": []
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 1,
     "favorited": true,
+    "filter_level": null,
     "id": 608213112861392896,
     "id_str": "608213112861392896",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 8,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "OH \"All the sudden we have an alien attack. Cassandra is still up.\" #scaladays",
     "truncated": false,
@@ -606,26 +862,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "enjoys music, good food, coding, and talking about them.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/GNY9lk1yjB",
+              "expanded_url": "http://eed3si9n.com/",
+              "display_url": "eed3si9n.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/GNY9lk1yjB",
-              "display_url": "eed3si9n.com",
-              "expanded_url": "http://eed3si9n.com/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 690,
@@ -649,6 +911,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme9/bg.gif",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme9/bg.gif",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/1433303685/profile-2011-07-09-200px_normal.jpg",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/1433303685/profile-2011-07-09-200px_normal.jpg",
       "profile_link_color": "D6562F",
@@ -659,19 +922,27 @@
       "protected": false,
       "screen_name": "eed3si9n",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 4868,
       "time_zone": "Eastern Time (US & Canada)",
       "url": "http://t.co/GNY9lk1yjB",
       "utc_offset": -14400,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Mon Jun 08 15:58:54 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Mon Jun 08 14:58:54 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -682,8 +953,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 135180054,
@@ -695,22 +969,32 @@
           "name": "OVO Energy",
           "screen_name": "OVOEnergy"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 2,
     "favorited": true,
+    "filter_level": null,
     "id": 607924769787396096,
     "id_str": "607924769787396096",
     "in_reply_to_screen_name": "OVOEnergy",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": 135180054,
     "in_reply_to_user_id_str": "135180054",
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 1,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "@OVOEnergy crew ready for the keynote at #ScalaDays",
     "truncated": false,
@@ -718,30 +1002,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Jun 30 09:54:05 +0100 2010",
+      "created_at": "Wed Jun 30 08:54:05 +0000 2010",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Software Engineer @OVOEnergy - Working with Scala / Akka / Spray / AngularJS",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/V7x3oO9RvM",
+              "expanded_url": "http://b-fil.com",
+              "display_url": "b-fil.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/V7x3oO9RvM",
-              "display_url": "b-fil.com",
-              "expanded_url": "http://b-fil.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 0,
@@ -776,19 +1066,27 @@
       "protected": false,
       "screen_name": "BFil85",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 319,
       "time_zone": "London",
       "url": "http://t.co/V7x3oO9RvM",
       "utc_offset": 3600,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Sat Jun 06 11:53:57 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Sat Jun 06 10:53:57 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -813,8 +1111,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 2375844330,
@@ -826,19 +1127,32 @@
           "name": "Scala Days ",
           "screen_name": "scaladays"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 7,
     "favorited": true,
+    "filter_level": null,
     "id": 607138350999289856,
     "id_str": "607138350999289856",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 3,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "Fav this if you're going to @scaladays #Amsterdam next week #scala #conf. See you there!",
     "truncated": false,
@@ -846,38 +1160,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Mon Apr 22 13:58:44 +0100 2013",
+      "created_at": "Mon Apr 22 12:58:44 +0000 2013",
       "default_profile": true,
       "default_profile_image": false,
       "description": "L'unica conferenza su Scala in Italia / The only conference on Scala in Italy - https://t.co/zwWSedilj6",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/zo6utSwqJY",
+              "expanded_url": "http://scala-italy.it/",
+              "display_url": "scala-italy.it",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/zo6utSwqJY",
-              "display_url": "scala-italy.it",
-              "expanded_url": "http://scala-italy.it/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "https://t.co/zwWSedilj6",
+              "expanded_url": "https://vimeo.com/channels/932072/133344804",
+              "display_url": "vimeo.com/channels/93207\u2026",
               "indices": [
                 80,
                 103
-              ],
-              "url": "https://t.co/zwWSedilj6",
-              "display_url": "vimeo.com/channels/93207\u2026",
-              "expanded_url": "https://vimeo.com/channels/932072/133344804"
+              ]
             }
           ]
         }
@@ -914,31 +1233,42 @@
       "protected": false,
       "screen_name": "ScalaItaly",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 326,
       "time_zone": "Rome",
       "url": "http://t.co/zo6utSwqJY",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 29 17:19:15 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 29 16:19:15 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/1F4XoY9grA",
+          "expanded_url": "http://us10.campaign-archive2.com/?u=30f19e2c5b9f15cfb95906716&id=da26788923&e=9489bec169",
+          "display_url": "us10.campaign-archive2.com/?u=30f19e2c5b9\u2026",
           "indices": [
             108,
             130
-          ],
-          "url": "http://t.co/1F4XoY9grA",
-          "display_url": "us10.campaign-archive2.com/?u=30f19e2c5b9\u2026",
-          "expanded_url": "http://us10.campaign-archive2.com/?u=30f19e2c5b9f15cfb95906716&id=da26788923&e=9489bec169"
+          ]
         }
       ],
       "user_mentions": [
@@ -1002,19 +1332,32 @@
           "name": "Erlang Central",
           "screen_name": "ErlangCentral"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 4,
     "favorited": true,
+    "filter_level": null,
     "id": 604321111778664448,
     "id_str": "604321111778664448",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 4,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "Lambda #4 is out! Featuring - @OweinReese @DanielaSfregola @ptrelford @kmett @stuartsierra @ErlangCentral - http://t.co/1F4XoY9grA",
     "truncated": false,
@@ -1022,30 +1365,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Thu Apr 11 19:46:02 +0100 2013",
+      "created_at": "Thu Apr 11 18:46:02 +0000 2013",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Functional Programming Advocates. Providing Talent Solutions, Strategic Advice, Curated Events & Insight across Clojure, Scala, Erlang, Haskell, F#, OCaml,Swift",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/BXwhIYmO2c",
+              "expanded_url": "http://functionalworks.com/",
+              "display_url": "functionalworks.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/BXwhIYmO2c",
-              "display_url": "functionalworks.com",
-              "expanded_url": "http://functionalworks.com/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 4613,
@@ -1080,19 +1429,27 @@
       "protected": false,
       "screen_name": "Functionalworks",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 4191,
       "time_zone": "Amsterdam",
       "url": "http://t.co/BXwhIYmO2c",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue May 12 07:20:54 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue May 12 06:20:54 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1103,8 +1460,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 2911461333,
@@ -1136,22 +1496,32 @@
           "name": "Akka Team",
           "screen_name": "akkateam"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 1,
     "favorited": true,
+    "filter_level": null,
     "id": 598009939353829376,
     "id_str": "598009939353829376",
     "in_reply_to_screen_name": "DanielaSfregola",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
     "in_reply_to_user_id": 2911461333,
     "in_reply_to_user_id_str": "2911461333",
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "@DanielaSfregola: \"Actors are like monkeys sending emails\" that's what I call a clear definition! :-D @ScalaItaly #ScalaItaly @akkateam",
     "truncated": false,
@@ -1163,13 +1533,20 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "Passionate developer in Java and Scala. And sometimes, something else.\nCoFounder of Treviso Scala Group.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 252,
@@ -1204,22 +1581,35 @@
       "protected": false,
       "screen_name": "michelemauro",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3075,
       "time_zone": "Rome",
+      "url": null,
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Sat May 09 11:44:45 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Sat May 09 10:44:45 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 15740484,
@@ -1291,19 +1681,32 @@
           "name": "databizit",
           "screen_name": "DATABIZit"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 8,
     "favorited": true,
+    "filter_level": null,
     "id": 596989175980814336,
     "id_str": "596989175980814336",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "it",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 6,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "Grazie di nuovo a tutti ma soprattutto a @mircodotta, @DanielaSfregola, @cloudify, @buildoHQ, @aparo77, @AndreaFerrett20, @DATABIZit",
     "truncated": false,
@@ -1311,38 +1714,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Mon Apr 22 13:58:44 +0100 2013",
+      "created_at": "Mon Apr 22 12:58:44 +0000 2013",
       "default_profile": true,
       "default_profile_image": false,
       "description": "L'unica conferenza su Scala in Italia / The only conference on Scala in Italy - https://t.co/zwWSedilj6",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/zo6utSwqJY",
+              "expanded_url": "http://scala-italy.it/",
+              "display_url": "scala-italy.it",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/zo6utSwqJY",
-              "display_url": "scala-italy.it",
-              "expanded_url": "http://scala-italy.it/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "https://t.co/zwWSedilj6",
+              "expanded_url": "https://vimeo.com/channels/932072/133344804",
+              "display_url": "vimeo.com/channels/93207\u2026",
               "indices": [
                 80,
                 103
-              ],
-              "url": "https://t.co/zwWSedilj6",
-              "display_url": "vimeo.com/channels/93207\u2026",
-              "expanded_url": "https://vimeo.com/channels/932072/133344804"
+              ]
             }
           ]
         }
@@ -1379,19 +1787,27 @@
       "protected": false,
       "screen_name": "ScalaItaly",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 326,
       "time_zone": "Rome",
       "url": "http://t.co/zo6utSwqJY",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 17:30:20 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 16:30:20 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1402,24 +1818,35 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/painMMZuJt",
+          "expanded_url": "http://www.slideshare.net/federicof/fferoldi-scalaitaly2015",
+          "display_url": "slideshare.net/federicof/ffer\u2026",
           "indices": [
             86,
             108
-          ],
-          "url": "http://t.co/painMMZuJt",
-          "display_url": "slideshare.net/federicof/ffer\u2026",
-          "expanded_url": "http://www.slideshare.net/federicof/fferoldi-scalaitaly2015"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 5,
     "favorited": true,
+    "filter_level": null,
     "id": 596713757239304192,
     "id_str": "596713757239304192",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
     "place": {
@@ -1455,15 +1882,22 @@
       "name": "Milan",
       "place_type": "city",
       "url": "https://api.twitter.com/1.1/geo/id/1ea588c12abd39d7.json",
-      "contained_within": [],
-      "centroid": [],
-      "polylines": []
+      "contained_within": [
+      ],
+      "centroid": [
+      ],
+      "polylines": [
+      ]
     },
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 1,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "Slides for my presentation \"A Blueprint for Scala based Microservices\" at #scalaitaly http://t.co/painMMZuJt",
     "truncated": false,
@@ -1471,30 +1905,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Fri Aug 03 18:28:36 +0100 2007",
+      "created_at": "Fri Aug 03 17:28:36 +0000 2007",
       "default_profile": true,
       "default_profile_image": false,
       "description": "I like to code and break things. CTO at Measurence.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/uNes18ujPY",
+              "expanded_url": "http://measurence.com",
+              "display_url": "measurence.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/uNes18ujPY",
-              "display_url": "measurence.com",
-              "expanded_url": "http://measurence.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 261,
@@ -1518,6 +1958,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/491650137773445120/crK2XX5Y_normal.png",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/491650137773445120/crK2XX5Y_normal.png",
       "profile_link_color": "0084B4",
@@ -1528,19 +1969,27 @@
       "protected": false,
       "screen_name": "cloudify",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 1373,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/uNes18ujPY",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 16:41:27 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 15:41:27 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1558,8 +2007,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 1372082066,
@@ -1571,19 +2023,32 @@
           "name": "ScalaItaly",
           "screen_name": "ScalaItaly"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 4,
     "favorited": true,
+    "filter_level": null,
     "id": 596701452174778368,
     "id_str": "596701452174778368",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 3,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "And the prize for most crowd cheering goes to: #Kernal64. Lovely, lovely, lovely! Thanks for making this happen, @ScalaItaly! #ScalaItaly",
     "truncated": false,
@@ -1591,30 +2056,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sat Sep 04 09:21:19 +0100 2010",
+      "created_at": "Sat Sep 04 08:21:19 +0000 2010",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Not a teapot",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "https://t.co/hO8XoioVWi",
+              "expanded_url": "https://www.github.com/stefanobaghino",
+              "display_url": "github.com/stefanobaghino",
               "indices": [
                 0,
                 23
-              ],
-              "url": "https://t.co/hO8XoioVWi",
-              "display_url": "github.com/stefanobaghino",
-              "expanded_url": "https://www.github.com/stefanobaghino"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 5810,
@@ -1649,23 +2120,73 @@
       "protected": false,
       "screen_name": "stefanobaghino",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 17086,
       "time_zone": "Rome",
       "url": "https://t.co/hO8XoioVWi",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 16:35:27 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 15:35:27 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/0Zjj5X8IIY",
+          "expanded_url": "http://twitter.com/stefanobaghino/status/596699945626898433/photo/1",
+          "id": 596699944431525889,
+          "id_str": "596699944431525889",
+          "indices": [
+            25,
+            47
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEfncCFWIAEzJ4P.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEfncCFWIAEzJ4P.jpg",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 340,
+              "resize": "fit",
+              "w": 340
+            },
+            "large": {
+              "h": 400,
+              "resize": "fit",
+              "w": 400
+            },
+            "medium": {
+              "h": 400,
+              "resize": "fit",
+              "w": 400
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/0Zjj5X8IIY"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 86905773,
@@ -1687,10 +2208,62 @@
           "name": "Daniela Sfregola",
           "screen_name": "DanielaSfregola"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/0Zjj5X8IIY",
+          "expanded_url": "http://twitter.com/stefanobaghino/status/596699945626898433/photo/1",
+          "id": 596699944431525889,
+          "id_str": "596699944431525889",
+          "indices": [
+            25,
+            47
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEfncCFWIAEzJ4P.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEfncCFWIAEzJ4P.jpg",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 340,
+              "resize": "fit",
+              "w": 340
+            },
+            "large": {
+              "h": 400,
+              "resize": "fit",
+              "w": 400
+            },
+            "medium": {
+              "h": 400,
+              "resize": "fit",
+              "w": 400
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/0Zjj5X8IIY"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 1,
     "favorited": true,
+    "filter_level": null,
     "id": 596699945626898433,
     "id_str": "596699945626898433",
     "in_reply_to_screen_name": "mfirry",
@@ -1700,11 +2273,16 @@
     "in_reply_to_user_id_str": "86905773",
     "is_quote_status": false,
     "lang": "und",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "@mfirry @DanielaSfregola http://t.co/0Zjj5X8IIY",
     "truncated": false,
@@ -1712,30 +2290,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sat Sep 04 09:21:19 +0100 2010",
+      "created_at": "Sat Sep 04 08:21:19 +0000 2010",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Not a teapot",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "https://t.co/hO8XoioVWi",
+              "expanded_url": "https://www.github.com/stefanobaghino",
+              "display_url": "github.com/stefanobaghino",
               "indices": [
                 0,
                 23
-              ],
-              "url": "https://t.co/hO8XoioVWi",
-              "display_url": "github.com/stefanobaghino",
-              "expanded_url": "https://www.github.com/stefanobaghino"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 5810,
@@ -1770,31 +2354,42 @@
       "protected": false,
       "screen_name": "stefanobaghino",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 17086,
       "time_zone": "Rome",
       "url": "https://t.co/hO8XoioVWi",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 13:49:44 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 12:49:44 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "https://t.co/FLKnDpmDQt",
+          "expanded_url": "https://gist.github.com/DanielaSfregola/6dc52bffa2ed566de9b2",
+          "display_url": "gist.github.com/DanielaSfregol\u2026",
           "indices": [
             75,
             98
-          ],
-          "url": "https://t.co/FLKnDpmDQt",
-          "display_url": "gist.github.com/DanielaSfregol\u2026",
-          "expanded_url": "https://gist.github.com/DanielaSfregola/6dc52bffa2ed566de9b2"
+          ]
         }
       ],
       "user_mentions": [
@@ -1808,19 +2403,32 @@
           "name": "Daniela Sfregola",
           "screen_name": "DanielaSfregola"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 1,
     "favorited": true,
+    "filter_level": null,
     "id": 596658238755577856,
     "id_str": "596658238755577856",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 1,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
     "text": "Note to self: give Actors a real try after this intro by @DanielaSfregola: https://t.co/FLKnDpmDQt",
     "truncated": false,
@@ -1832,26 +2440,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "Faccio gente, vedo cose.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/smIeHDjBj7",
+              "expanded_url": "http://gabale.se",
+              "display_url": "gabale.se",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/smIeHDjBj7",
-              "display_url": "gabale.se",
-              "expanded_url": "http://gabale.se"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 355,
@@ -1886,19 +2500,27 @@
       "protected": false,
       "screen_name": "gabalese",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 19309,
       "time_zone": "Rome",
       "url": "http://t.co/smIeHDjBj7",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 13:37:38 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 12:37:38 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1916,8 +2538,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 1372082066,
@@ -1949,10 +2574,13 @@
           "name": "Sublime HQ",
           "screen_name": "sublimehq"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 2,
     "favorited": true,
+    "filter_level": null,
     "id": 596655195695816704,
     "id_str": "596655195695816704",
     "in_reply_to_screen_name": "ScalaItaly",
@@ -1962,11 +2590,16 @@
     "in_reply_to_user_id_str": "1372082066",
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 2,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "@ScalaItaly @DanielaSfregola so I'm not the only one using @sublimehq with #scala #ScalaItaly2015",
     "truncated": false,
@@ -1978,13 +2611,20 @@
       "default_profile": true,
       "default_profile_image": false,
       "description": "I code for food and glory while listening to music you haven't heard of. Hopping in and out of #Sicily because I'm worth it.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 468,
@@ -2008,6 +2648,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/1143807082/me2_normal.jpg",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/1143807082/me2_normal.jpg",
       "profile_link_color": "0084B4",
@@ -2018,18 +2659,27 @@
       "protected": false,
       "screen_name": "mfirry",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 1067,
       "time_zone": "Rome",
+      "url": null,
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 13:04:35 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 12:04:35 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -2047,8 +2697,49 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/FhVofVfJ1o",
+          "expanded_url": "http://twitter.com/ScalaItaly/status/596646879485685760/photo/1",
+          "id": 596646872502149120,
+          "id_str": "596646872502149120",
+          "indices": [
+            73,
+            95
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEe3K1vWoAAxwA7.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEe3K1vWoAAxwA7.jpg",
+          "sizes": {
+            "small": {
+              "h": 453,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 800,
+              "resize": "fit",
+              "w": 600
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 1024,
+              "resize": "fit",
+              "w": 768
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/FhVofVfJ1o"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 2911461333,
@@ -2060,19 +2751,81 @@
           "name": "Daniela Sfregola",
           "screen_name": "DanielaSfregola"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/FhVofVfJ1o",
+          "expanded_url": "http://twitter.com/ScalaItaly/status/596646879485685760/photo/1",
+          "id": 596646872502149120,
+          "id_str": "596646872502149120",
+          "indices": [
+            73,
+            95
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEe3K1vWoAAxwA7.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEe3K1vWoAAxwA7.jpg",
+          "sizes": {
+            "small": {
+              "h": 453,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 800,
+              "resize": "fit",
+              "w": 600
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 1024,
+              "resize": "fit",
+              "w": 768
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/FhVofVfJ1o"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 6,
     "favorited": true,
+    "filter_level": null,
     "id": 596646879485685760,
     "id_str": "596646879485685760",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 4,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
     "text": "#ScalaItaly2015 with @DanielaSfregola and a gentle introduction to #akka http://t.co/FhVofVfJ1o",
     "truncated": false,
@@ -2080,38 +2833,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Mon Apr 22 13:58:44 +0100 2013",
+      "created_at": "Mon Apr 22 12:58:44 +0000 2013",
       "default_profile": true,
       "default_profile_image": false,
       "description": "L'unica conferenza su Scala in Italia / The only conference on Scala in Italy - https://t.co/zwWSedilj6",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/zo6utSwqJY",
+              "expanded_url": "http://scala-italy.it/",
+              "display_url": "scala-italy.it",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/zo6utSwqJY",
-              "display_url": "scala-italy.it",
-              "expanded_url": "http://scala-italy.it/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "https://t.co/zwWSedilj6",
+              "expanded_url": "https://vimeo.com/channels/932072/133344804",
+              "display_url": "vimeo.com/channels/93207\u2026",
               "indices": [
                 80,
                 103
-              ],
-              "url": "https://t.co/zwWSedilj6",
-              "display_url": "vimeo.com/channels/93207\u2026",
-              "expanded_url": "https://vimeo.com/channels/932072/133344804"
+              ]
             }
           ]
         }
@@ -2148,19 +2906,27 @@
       "protected": false,
       "screen_name": "ScalaItaly",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 326,
       "time_zone": "Rome",
       "url": "http://t.co/zo6utSwqJY",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 11:22:51 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 10:22:51 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -2171,31 +2937,47 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/niUJ9wk65T",
+          "expanded_url": "http://www.slideshare.net/pcalcado/pcalcado-scalaitaly2015",
+          "display_url": "slideshare.net/pcalcado/pcalc\u2026",
           "indices": [
             33,
             55
-          ],
-          "url": "http://t.co/niUJ9wk65T",
-          "display_url": "slideshare.net/pcalcado/pcalc\u2026",
-          "expanded_url": "http://www.slideshare.net/pcalcado/pcalcado-scalaitaly2015"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 32,
     "favorited": true,
+    "filter_level": null,
     "id": 596621274245390337,
     "id_str": "596621274245390337",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 31,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
     "text": "Slides from my #scalaItaly talk: http://t.co/niUJ9wk65T",
     "truncated": false,
@@ -2207,26 +2989,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "I write code for @SoundCloud and for the voices inside my head. They won't leave me alone.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/YXkr6aj1Lt",
+              "expanded_url": "http://philcalcado.com",
+              "display_url": "philcalcado.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/YXkr6aj1Lt",
-              "display_url": "philcalcado.com",
-              "expanded_url": "http://philcalcado.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 810,
@@ -2261,19 +3049,27 @@
       "protected": false,
       "screen_name": "pcalcado",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 16800,
       "time_zone": "Berlin",
       "url": "http://t.co/YXkr6aj1Lt",
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 10:19:23 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 09:19:23 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -2284,8 +3080,11 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 10224712,
@@ -2307,12 +3106,20 @@
           "name": "Andrea Lattuada",
           "screen_name": "utaal"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 2,
     "favorited": true,
+    "filter_level": null,
     "id": 596605305284354048,
     "id_str": "596605305284354048",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
     "place": {
@@ -2348,15 +3155,22 @@
       "name": "Milan",
       "place_type": "city",
       "url": "https://api.twitter.com/1.1/geo/id/1ea588c12abd39d7.json",
-      "contained_within": [],
-      "centroid": [],
-      "polylines": []
+      "contained_within": [
+      ],
+      "centroid": [
+      ],
+      "polylines": [
+      ]
     },
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 6,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
     "text": "Listening to @pcalcado's talk on microservices at #ScalaItaly makes me want to start refactoring my code right now. Cool stuff! /cc @utaal",
     "truncated": false,
@@ -2364,30 +3178,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Jun 25 12:34:01 +0100 2008",
+      "created_at": "Wed Jun 25 11:34:01 +0000 2008",
       "default_profile": true,
       "default_profile_image": false,
       "description": "functional programming enthusiast. Building awesome things in scala, react and swift at buildo.io",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/LLVcnQBRC5",
+              "expanded_url": "http://buildo.io",
+              "display_url": "buildo.io",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/LLVcnQBRC5",
-              "display_url": "buildo.io",
-              "expanded_url": "http://buildo.io"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 400,
@@ -2422,19 +3242,27 @@
       "protected": false,
       "screen_name": "gabro27",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3875,
       "time_zone": "Greenland",
       "url": "http://t.co/LLVcnQBRC5",
       "utc_offset": -7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Fri May 08 08:33:59 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Fri May 08 07:33:59 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -2445,21 +3273,125 @@
           ]
         }
       ],
-      "media": [],
-      "urls": [],
-      "user_mentions": []
+      "media": [
+        {
+          "display_url": "pic.twitter.com/ArQORyug2l",
+          "expanded_url": "http://twitter.com/DATABIZit/status/596578779587354624/photo/1",
+          "id": 596578758397657088,
+          "id_str": "596578758397657088",
+          "indices": [
+            64,
+            86
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEd5OE7WAAAluZV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEd5OE7WAAAluZV.jpg",
+          "sizes": {
+            "small": {
+              "h": 255,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 450,
+              "resize": "fit",
+              "w": 600
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 768,
+              "resize": "fit",
+              "w": 1024
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/ArQORyug2l"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/ArQORyug2l",
+          "expanded_url": "http://twitter.com/DATABIZit/status/596578779587354624/photo/1",
+          "id": 596578758397657088,
+          "id_str": "596578758397657088",
+          "indices": [
+            64,
+            86
+          ],
+          "media_url": "http://pbs.twimg.com/media/CEd5OE7WAAAluZV.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CEd5OE7WAAAluZV.jpg",
+          "sizes": {
+            "small": {
+              "h": 255,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 450,
+              "resize": "fit",
+              "w": 600
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 768,
+              "resize": "fit",
+              "w": 1024
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/ArQORyug2l"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 3,
     "favorited": true,
+    "filter_level": null,
     "id": 596578779587354624,
     "id_str": "596578779587354624",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 2,
     "retweeted": true,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
     "text": "Martin on the stage. And a new logo proposal for #ScalaItaly :D http://t.co/ArQORyug2l",
     "truncated": false,
@@ -2467,17 +3399,24 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Apr 29 14:29:26 +0100 2015",
+      "created_at": "Wed Apr 29 13:29:26 +0000 2015",
       "default_profile": false,
       "default_profile_image": false,
       "description": "",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 3,
@@ -2512,12 +3451,19 @@
       "protected": false,
       "screen_name": "DATABIZit",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 259,
       "time_zone": "Rome",
+      "url": null,
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   }
 ]

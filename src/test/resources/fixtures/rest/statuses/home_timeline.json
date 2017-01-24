@@ -1,12 +1,18 @@
 [
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:48:20 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:48:20 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 2251684044,
@@ -18,19 +24,32 @@
           "name": "Deckset",
           "screen_name": "decksetapp"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648887037152620544,
     "id_str": "648887037152620544",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
     "text": "Just finished my \"daily git\" slides for tonight using @decksetapp\nEspecially with the crazy 75% discount, is really a no-brainer to get.",
     "truncated": false,
@@ -38,30 +57,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Jun 25 12:34:01 +0100 2008",
+      "created_at": "Wed Jun 25 11:34:01 +0000 2008",
       "default_profile": true,
       "default_profile_image": false,
       "description": "professional nerd, functional programming enthusiast, building awesome things in scala at buildo.io",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/LLVcnQBRC5",
+              "expanded_url": "http://buildo.io",
+              "display_url": "buildo.io",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/LLVcnQBRC5",
-              "display_url": "buildo.io",
-              "expanded_url": "http://buildo.io"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 380,
@@ -96,36 +121,62 @@
       "protected": false,
       "screen_name": "gabro27",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3812,
       "time_zone": "Greenland",
       "url": "http://t.co/LLVcnQBRC5",
       "utc_offset": -7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:44:28 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:44:28 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
-      "user_mentions": []
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648886067014311936,
     "id_str": "648886067014311936",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
     "text": "I hate busses.",
     "truncated": false,
@@ -133,17 +184,24 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Thu Jul 31 20:24:50 +0100 2008",
+      "created_at": "Thu Jul 31 19:24:50 +0000 2008",
       "default_profile": false,
       "default_profile_image": false,
       "description": "I build the web. Rails, Erlang, JS / Coffee, Android. Made in England.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 1435,
@@ -178,30 +236,80 @@
       "protected": false,
       "screen_name": "lucaspiller",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 10448,
       "time_zone": "Rome",
+      "url": null,
       "utc_offset": 7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:44:23 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:44:23 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/hIdTA3v2zE",
+          "expanded_url": "http://twitter.com/decksetapp/status/648866645855879168/photo/1",
+          "id": 648866644899573760,
+          "id_str": "648866644899573760",
+          "indices": [
+            139,
+            140
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 191,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 337,
+              "resize": "fit",
+              "w": 600
+            },
+            "large": {
+              "h": 576,
+              "resize": "fit",
+              "w": 1024
+            }
+          },
+          "source_status_id": 648866645855879168,
+          "source_status_id_str": "648866645855879168",
+          "type": "photo",
+          "url": "http://t.co/hIdTA3v2zE"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/irHM9eIN6B",
+          "expanded_url": "http://apple.co/1ig68dx",
+          "display_url": "apple.co/1ig68dx",
           "indices": [
             106,
             128
-          ],
-          "url": "http://t.co/irHM9eIN6B",
-          "display_url": "apple.co/1ig68dx",
-          "expanded_url": "http://apple.co/1ig68dx"
+          ]
         }
       ],
       "user_mentions": [
@@ -215,50 +323,217 @@
           "name": "Deckset",
           "screen_name": "decksetapp"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/hIdTA3v2zE",
+          "expanded_url": "http://twitter.com/decksetapp/status/648866645855879168/photo/1",
+          "id": 648866644899573760,
+          "id_str": "648866644899573760",
+          "indices": [
+            139,
+            140
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "small": {
+              "h": 191,
+              "resize": "fit",
+              "w": 340
+            },
+            "medium": {
+              "h": 337,
+              "resize": "fit",
+              "w": 600
+            },
+            "large": {
+              "h": 576,
+              "resize": "fit",
+              "w": 1024
+            }
+          },
+          "source_status_id": 648866645855879168,
+          "source_status_id_str": "648866645855879168",
+          "type": "photo",
+          "url": "http://t.co/hIdTA3v2zE"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648886043832401920,
     "id_str": "648886043832401920",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 55,
     "retweeted": false,
     "retweeted_status": {
-      "contributors": [],
-      "coordinates": [],
-      "created_at": "Tue Sep 29 15:27:18 +0100 2015",
+      "contributors": [
+      ],
+      "coordinates": null,
+      "created_at": "Tue Sep 29 14:27:18 +0000 2015",
+      "current_user_retweet": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+          {
+            "display_url": "pic.twitter.com/hIdTA3v2zE",
+            "expanded_url": "http://twitter.com/decksetapp/status/648866645855879168/photo/1",
+            "id": 648866644899573760,
+            "id_str": "648866644899573760",
+            "indices": [
+              113,
+              135
+            ],
+            "media_url": "http://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+            "sizes": {
+              "thumb": {
+                "h": 150,
+                "resize": "crop",
+                "w": 150
+              },
+              "small": {
+                "h": 191,
+                "resize": "fit",
+                "w": 340
+              },
+              "medium": {
+                "h": 337,
+                "resize": "fit",
+                "w": 600
+              },
+              "large": {
+                "h": 576,
+                "resize": "fit",
+                "w": 1024
+              }
+            },
+            "source_status_id": null,
+            "source_status_id_str": null,
+            "type": "photo",
+            "url": "http://t.co/hIdTA3v2zE"
+          }
+        ],
+        "url": null,
         "urls": [
           {
+            "url": "http://t.co/irHM9eIN6B",
+            "expanded_url": "http://apple.co/1ig68dx",
+            "display_url": "apple.co/1ig68dx",
             "indices": [
               90,
               112
-            ],
-            "url": "http://t.co/irHM9eIN6B",
-            "display_url": "apple.co/1ig68dx",
-            "expanded_url": "http://apple.co/1ig68dx"
+            ]
           }
         ],
-        "user_mentions": []
+        "user_mentions": [
+        ],
+        "description": null
+      },
+      "extended_entities": {
+        "hashtags": [
+        ],
+        "media": [
+          {
+            "display_url": "pic.twitter.com/hIdTA3v2zE",
+            "expanded_url": "http://twitter.com/decksetapp/status/648866645855879168/photo/1",
+            "id": 648866644899573760,
+            "id_str": "648866644899573760",
+            "indices": [
+              113,
+              135
+            ],
+            "media_url": "http://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/CQE8xpPWsAA1lj2.jpg",
+            "sizes": {
+              "thumb": {
+                "h": 150,
+                "resize": "crop",
+                "w": 150
+              },
+              "small": {
+                "h": 191,
+                "resize": "fit",
+                "w": 340
+              },
+              "medium": {
+                "h": 337,
+                "resize": "fit",
+                "w": 600
+              },
+              "large": {
+                "h": 576,
+                "resize": "fit",
+                "w": 1024
+              }
+            },
+            "source_status_id": null,
+            "source_status_id_str": null,
+            "type": "photo",
+            "url": "http://t.co/hIdTA3v2zE"
+          }
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": null
       },
       "favorite_count": 15,
       "favorited": false,
+      "filter_level": null,
       "id": 648866645855879168,
       "id_str": "648866645855879168",
+      "in_reply_to_screen_name": null,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
       "is_quote_status": false,
       "lang": "en",
+      "place": null,
       "possibly_sensitive": false,
+      "quoted_status_id": null,
+      "quoted_status_id_str": null,
+      "quoted_status": null,
       "scopes": {
       },
       "retweet_count": 55,
       "retweeted": false,
+      "retweeted_status": null,
       "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
       "text": "💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.co/hIdTA3v2zE",
       "truncated": false,
@@ -270,26 +545,32 @@
         "default_profile": false,
         "default_profile_image": false,
         "description": "Turn your notes into beautiful presentations.",
+        "email": null,
         "entities": {
-          "hashtags": [],
-          "media": [],
+          "hashtags": [
+          ],
+          "media": [
+          ],
           "url": {
             "urls": [
               {
+                "url": "http://t.co/qZdruXQkI0",
+                "expanded_url": "http://www.decksetapp.com",
+                "display_url": "decksetapp.com",
                 "indices": [
                   0,
                   22
-                ],
-                "url": "http://t.co/qZdruXQkI0",
-                "display_url": "decksetapp.com",
-                "expanded_url": "http://www.decksetapp.com"
+                ]
               }
             ]
           },
-          "urls": [],
-          "user_mentions": [],
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
           "description": {
-            "urls": []
+            "urls": [
+            ]
           }
         },
         "favourites_count": 451,
@@ -324,12 +605,20 @@
         "protected": false,
         "screen_name": "decksetapp",
         "show_all_inline_media": false,
+        "status": null,
         "statuses_count": 1218,
+        "time_zone": null,
         "url": "http://t.co/qZdruXQkI0",
-        "verified": false
+        "utc_offset": null,
+        "verified": false,
+        "withheld_in_countries": null,
+        "withheld_scope": null
       },
       "withheld_copyright": false,
-      "withheld_in_countries": []
+      "withheld_in_countries": [
+      ],
+      "withheld_scope": null,
+      "metadata": null
     },
     "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
     "text": "RT @decksetapp: 💥New version of Deckset is out now! Comes with 5 new themes and is 75% off! Limited time. http://t.co/irHM9eIN6B http://t.c\u2026",
@@ -338,30 +627,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Wed Jun 25 12:34:01 +0100 2008",
+      "created_at": "Wed Jun 25 11:34:01 +0000 2008",
       "default_profile": true,
       "default_profile_image": false,
       "description": "professional nerd, functional programming enthusiast, building awesome things in scala at buildo.io",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/LLVcnQBRC5",
+              "expanded_url": "http://buildo.io",
+              "display_url": "buildo.io",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/LLVcnQBRC5",
-              "display_url": "buildo.io",
-              "expanded_url": "http://buildo.io"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 380,
@@ -396,19 +691,27 @@
       "protected": false,
       "screen_name": "gabro27",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3812,
       "time_zone": "Greenland",
       "url": "http://t.co/LLVcnQBRC5",
       "utc_offset": -7200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:44:02 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:44:02 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -426,16 +729,18 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "https://t.co/ljj3Qbu3GH",
+          "expanded_url": "https://www.youtube.com/watch?v=lJ8ydIuPFeU",
+          "display_url": "youtube.com/watch?v=lJ8ydI\u2026",
           "indices": [
             122,
             140
-          ],
-          "url": "https://t.co/ljj3Qbu3GH",
-          "display_url": "youtube.com/watch?v=lJ8ydI\u2026",
-          "expanded_url": "https://www.youtube.com/watch?v=lJ8ydIuPFeU"
+          ]
         }
       ],
       "user_mentions": [
@@ -449,23 +754,37 @@
           "name": "Gil Tene",
           "screen_name": "giltene"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648885956364275719,
     "id_str": "648885956364275719",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 7,
     "retweeted": false,
     "retweeted_status": {
-      "contributors": [],
-      "coordinates": [],
-      "created_at": "Tue Sep 29 16:43:16 +0100 2015",
+      "contributors": [
+      ],
+      "coordinates": null,
+      "created_at": "Tue Sep 29 15:43:16 +0000 2015",
+      "current_user_retweet": null,
       "entities": {
         "hashtags": [
           {
@@ -483,31 +802,47 @@
             ]
           }
         ],
-        "media": [],
+        "media": [
+        ],
+        "url": null,
         "urls": [
           {
+            "url": "https://t.co/ljj3Qbu3GH",
+            "expanded_url": "https://www.youtube.com/watch?v=lJ8ydIuPFeU",
+            "display_url": "youtube.com/watch?v=lJ8ydI\u2026",
             "indices": [
               109,
               132
-            ],
-            "url": "https://t.co/ljj3Qbu3GH",
-            "display_url": "youtube.com/watch?v=lJ8ydI\u2026",
-            "expanded_url": "https://www.youtube.com/watch?v=lJ8ydIuPFeU"
+            ]
           }
         ],
-        "user_mentions": []
+        "user_mentions": [
+        ],
+        "description": null
       },
+      "extended_entities": null,
       "favorite_count": 4,
       "favorited": false,
+      "filter_level": null,
       "id": 648885761996034049,
       "id_str": "648885761996034049",
+      "in_reply_to_screen_name": null,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
       "is_quote_status": false,
       "lang": "en",
+      "place": null,
       "possibly_sensitive": false,
+      "quoted_status_id": null,
+      "quoted_status_id_str": null,
+      "quoted_status": null,
       "scopes": {
       },
       "retweet_count": 7,
       "retweeted": false,
+      "retweeted_status": null,
       "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
       "text": "A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3Qbu3GH",
       "truncated": false,
@@ -515,30 +850,36 @@
         "blocked_by": false,
         "blocking": false,
         "contributors_enabled": false,
-        "created_at": "Thu Jul 24 16:30:09 +0100 2008",
+        "created_at": "Thu Jul 24 15:30:09 +0000 2008",
         "default_profile": true,
         "default_profile_image": false,
         "description": "I spend time in front of computer screens, and some behind them",
+        "email": null,
         "entities": {
-          "hashtags": [],
-          "media": [],
+          "hashtags": [
+          ],
+          "media": [
+          ],
           "url": {
             "urls": [
               {
+                "url": "http://t.co/7yLslJTQoQ",
+                "expanded_url": "http://latencytipoftheday.blogspot.com/",
+                "display_url": "latencytipoftheday.blogspot.com",
                 "indices": [
                   0,
                   22
-                ],
-                "url": "http://t.co/7yLslJTQoQ",
-                "display_url": "latencytipoftheday.blogspot.com",
-                "expanded_url": "http://latencytipoftheday.blogspot.com/"
+                ]
               }
             ]
           },
-          "urls": [],
-          "user_mentions": [],
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
           "description": {
-            "urls": []
+            "urls": [
+            ]
           }
         },
         "favourites_count": 273,
@@ -573,14 +914,20 @@
         "protected": false,
         "screen_name": "giltene",
         "show_all_inline_media": false,
+        "status": null,
         "statuses_count": 1893,
         "time_zone": "Pacific Time (US & Canada)",
         "url": "http://t.co/7yLslJTQoQ",
         "utc_offset": -25200,
-        "verified": false
+        "verified": false,
+        "withheld_in_countries": null,
+        "withheld_scope": null
       },
       "withheld_copyright": false,
-      "withheld_in_countries": []
+      "withheld_in_countries": [
+      ],
+      "withheld_scope": null,
+      "metadata": null
     },
     "source": "<a href=\"http://sites.google.com/site/yorufukurou/\" rel=\"nofollow\">YoruFukurou</a>",
     "text": "RT @giltene: A recording of the #HowNOTtoMeasureLatency talk I gave at #strangeloop2015. Same old title, many new slides.\nhttps://t.co/ljj3\u2026",
@@ -589,17 +936,24 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Thu Oct 23 22:13:35 +0100 2008",
+      "created_at": "Thu Oct 23 21:13:35 +0000 2008",
       "default_profile": true,
       "default_profile_image": false,
       "description": "Senior Director of Global Services for Typesafe. Noted Lambda hater. Author of Effective Akka (O'Reilly), co-author of Reactive Design Patterns (Manning)",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 4734,
@@ -623,6 +977,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/611590139702288384/h4VNo1_p_normal.jpg",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/611590139702288384/h4VNo1_p_normal.jpg",
       "profile_link_color": "0084B4",
@@ -633,22 +988,35 @@
       "protected": false,
       "screen_name": "jamie_allen",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 19318,
       "time_zone": "Eastern Time (US & Canada)",
+      "url": null,
       "utc_offset": -14400,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:33:11 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:33:11 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
-      "urls": [],
+      "hashtags": [
+      ],
+      "media": [
+      ],
+      "url": null,
+      "urls": [
+      ],
       "user_mentions": [
         {
           "id": 16063910,
@@ -660,33 +1028,60 @@
           "name": "Λdrøn",
           "screen_name": "adron"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648883228414074880,
     "id_str": "648883228414074880",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 4,
     "retweeted": false,
     "retweeted_status": {
-      "contributors": [],
-      "coordinates": [],
-      "created_at": "Tue Sep 29 14:48:31 +0100 2015",
+      "contributors": [
+      ],
+      "coordinates": null,
+      "created_at": "Tue Sep 29 13:48:31 +0000 2015",
+      "current_user_retweet": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
-        "urls": [],
-        "user_mentions": []
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": null
       },
+      "extended_entities": null,
       "favorite_count": 4,
       "favorited": false,
+      "filter_level": null,
       "id": 648856887706939393,
       "id_str": "648856887706939393",
+      "in_reply_to_screen_name": null,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
       "is_quote_status": false,
       "lang": "en",
       "place": {
@@ -722,15 +1117,22 @@
         "name": "Krakow",
         "place_type": "city",
         "url": "https://api.twitter.com/1.1/geo/id/c458763765cea500.json",
-        "contained_within": [],
-        "centroid": [],
-        "polylines": []
+        "contained_within": [
+        ],
+        "centroid": [
+        ],
+        "polylines": [
+        ]
       },
       "possibly_sensitive": false,
+      "quoted_status_id": null,
+      "quoted_status_id_str": null,
+      "quoted_status": null,
       "scopes": {
       },
       "retweet_count": 4,
       "retweeted": false,
+      "retweeted_status": null,
       "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
       "text": "Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd read it. :D",
       "truncated": false,
@@ -738,30 +1140,36 @@
         "blocked_by": false,
         "blocking": false,
         "contributors_enabled": false,
-        "created_at": "Sun Aug 31 06:56:04 +0100 2008",
+        "created_at": "Sun Aug 31 05:56:04 +0000 2008",
         "default_profile": false,
         "default_profile_image": false,
         "description": "Coder, recon, metal, messenger, cyclist, economist, livability, urban love rural passion and whatever...",
+        "email": null,
         "entities": {
-          "hashtags": [],
-          "media": [],
+          "hashtags": [
+          ],
+          "media": [
+          ],
           "url": {
             "urls": [
               {
+                "url": "http://t.co/IPcSay6b8O",
+                "expanded_url": "http://compositecode.com",
+                "display_url": "compositecode.com",
                 "indices": [
                   0,
                   22
-                ],
-                "url": "http://t.co/IPcSay6b8O",
-                "display_url": "compositecode.com",
-                "expanded_url": "http://compositecode.com"
+                ]
               }
             ]
           },
-          "urls": [],
-          "user_mentions": [],
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
           "description": {
-            "urls": []
+            "urls": [
+            ]
           }
         },
         "favourites_count": 14715,
@@ -796,14 +1204,20 @@
         "protected": false,
         "screen_name": "adron",
         "show_all_inline_media": false,
+        "status": null,
         "statuses_count": 54154,
         "time_zone": "Pacific Time (US & Canada)",
         "url": "http://t.co/IPcSay6b8O",
         "utc_offset": -25200,
-        "verified": false
+        "verified": false,
+        "withheld_in_countries": null,
+        "withheld_scope": null
       },
       "withheld_copyright": false,
-      "withheld_in_countries": []
+      "withheld_in_countries": [
+      ],
+      "withheld_scope": null,
+      "metadata": null
     },
     "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
     "text": "RT @adron: Somebody should start a \"clueless decisions by large corporations that decimated their reputation among developers\" blog. I'd re\u2026",
@@ -816,26 +1230,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "Engineering manager @Nike. Distributed systems, functional programming, dogs, music, PNW.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/CVvC0wC3ab",
+              "expanded_url": "http://thomas.lockney.net",
+              "display_url": "thomas.lockney.net",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/CVvC0wC3ab",
-              "display_url": "thomas.lockney.net",
-              "expanded_url": "http://thomas.lockney.net"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 27377,
@@ -870,31 +1290,80 @@
       "protected": false,
       "screen_name": "tlockney",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 24724,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/CVvC0wC3ab",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:23:59 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:23:59 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/MJZgfsQUsO",
+          "expanded_url": "http://twitter.com/AWSstartups/status/648880909421182976/photo/1",
+          "id": 648880907940589568,
+          "id_str": "648880907940589568",
+          "indices": [
+            115,
+            137
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFJv3NU8AAndy9.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CQFJv3NU8AAndy9.jpg",
+          "sizes": {
+            "large": {
+              "h": 512,
+              "resize": "fit",
+              "w": 1024
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 300,
+              "resize": "fit",
+              "w": 600
+            },
+            "small": {
+              "h": 170,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/MJZgfsQUsO"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/Py6aDPQpFj",
+          "expanded_url": "http://oak.ctx.ly/r/3rway",
+          "display_url": "oak.ctx.ly/r/3rway",
           "indices": [
             92,
             114
-          ],
-          "url": "http://t.co/Py6aDPQpFj",
-          "display_url": "oak.ctx.ly/r/3rway",
-          "expanded_url": "http://oak.ctx.ly/r/3rway"
+          ]
         }
       ],
       "user_mentions": [
@@ -908,19 +1377,81 @@
           "name": "Civis Analytics",
           "screen_name": "CivisAnalytics"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/MJZgfsQUsO",
+          "expanded_url": "http://twitter.com/AWSstartups/status/648880909421182976/photo/1",
+          "id": 648880907940589568,
+          "id_str": "648880907940589568",
+          "indices": [
+            115,
+            137
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFJv3NU8AAndy9.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/CQFJv3NU8AAndy9.jpg",
+          "sizes": {
+            "large": {
+              "h": 512,
+              "resize": "fit",
+              "w": 1024
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 300,
+              "resize": "fit",
+              "w": 600
+            },
+            "small": {
+              "h": 170,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/MJZgfsQUsO"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 3,
     "favorited": false,
+    "filter_level": null,
     "id": 648880909421182976,
     "id_str": "648880909421182976",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 2,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://adobe.com\" rel=\"nofollow\">Adobe® Social</a>",
     "text": "Startup Spotlight: @CivisAnalytics, empowering the data-driven startup with Amazon Redshift http://t.co/Py6aDPQpFj http://t.co/MJZgfsQUsO",
     "truncated": false,
@@ -928,30 +1459,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Tue Jul 20 23:08:31 +0100 2010",
+      "created_at": "Tue Jul 20 22:08:31 +0000 2010",
       "default_profile": false,
       "default_profile_image": false,
       "description": "AWS startup updates, resources, events, & news about #AWSActivate",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/7Oaf2nvqPa",
+              "expanded_url": "http://aws.amazon.com/start-ups/",
+              "display_url": "aws.amazon.com/start-ups/",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/7Oaf2nvqPa",
-              "display_url": "aws.amazon.com/start-ups/",
-              "expanded_url": "http://aws.amazon.com/start-ups/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 160,
@@ -986,19 +1523,27 @@
       "protected": false,
       "screen_name": "AWSstartups",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3776,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/7Oaf2nvqPa",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:17:09 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:17:09 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1023,16 +1568,18 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/rDnd7S3AEU",
+          "expanded_url": "http://bit.ly/1NZ7Rr0",
+          "display_url": "bit.ly/1NZ7Rr0",
           "indices": [
             98,
             120
-          ],
-          "url": "http://t.co/rDnd7S3AEU",
-          "display_url": "bit.ly/1NZ7Rr0",
-          "expanded_url": "http://bit.ly/1NZ7Rr0"
+          ]
         }
       ],
       "user_mentions": [
@@ -1046,19 +1593,32 @@
           "name": "DataStax",
           "screen_name": "DataStax"
         }
-      ]
+      ],
+      "description": null
     },
+    "extended_entities": null,
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648879193216917504,
     "id_str": "648879193216917504",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 1,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
     "text": "Good news! #Typesafe and @DataStax Partner to Bring Reactive Data Infrastructure to Enterprises | http://t.co/rDnd7S3AEU #cassandra #akka",
     "truncated": false,
@@ -1066,38 +1626,43 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Sun Oct 05 15:50:41 +0100 2008",
+      "created_at": "Sun Oct 05 14:50:41 +0000 2008",
       "default_profile": false,
       "default_profile_image": false,
       "description": "Typesafe Reactive Platform is a production-grade JVM runtime & toolset for building Reactive Systems. Be successful: http://t.co/o1Bt6dQtgH",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/bzGTwCmOGg",
+              "expanded_url": "http://typesafe.com",
+              "display_url": "typesafe.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/bzGTwCmOGg",
-              "display_url": "typesafe.com",
-              "expanded_url": "http://typesafe.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
           "urls": [
             {
+              "url": "http://t.co/o1Bt6dQtgH",
+              "expanded_url": "http://www.typesafe.com/company/contact",
+              "display_url": "typesafe.com/company/contact",
               "indices": [
                 117,
                 139
-              ],
-              "url": "http://t.co/o1Bt6dQtgH",
-              "display_url": "typesafe.com/company/contact",
-              "expanded_url": "http://www.typesafe.com/company/contact"
+              ]
             }
           ]
         }
@@ -1134,46 +1699,158 @@
       "protected": false,
       "screen_name": "typesafe",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 3620,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/bzGTwCmOGg",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:16:32 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:16:32 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
-      "hashtags": [],
-      "media": [],
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/zytXLkyndk",
+          "expanded_url": "http://twitter.com/ManningBooks/status/648879035741798400/photo/1",
+          "id": 648879035179769856,
+          "id_str": "648879035179769856",
+          "indices": [
+            103,
+            125
+          ],
+          "media_url": "http://pbs.twimg.com/tweet_video_thumb/CQFIC2oWoAAVUNK.png",
+          "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/CQFIC2oWoAAVUNK.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 512,
+              "resize": "fit",
+              "w": 900
+            },
+            "medium": {
+              "h": 341,
+              "resize": "fit",
+              "w": 600
+            },
+            "small": {
+              "h": 193,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/zytXLkyndk"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/oFvRE7bvdf",
+          "expanded_url": "http://manning.com/books/practical-probabilistic-programming",
+          "display_url": "manning.com/books/practica\u2026",
           "indices": [
             80,
             102
-          ],
-          "url": "http://t.co/oFvRE7bvdf",
-          "display_url": "manning.com/books/practica\u2026",
-          "expanded_url": "http://manning.com/books/practical-probabilistic-programming"
+          ]
         }
       ],
-      "user_mentions": []
+      "user_mentions": [
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/zytXLkyndk",
+          "expanded_url": "http://twitter.com/ManningBooks/status/648879035741798400/photo/1",
+          "id": 648879035179769856,
+          "id_str": "648879035179769856",
+          "indices": [
+            103,
+            125
+          ],
+          "media_url": "http://pbs.twimg.com/tweet_video_thumb/CQFIC2oWoAAVUNK.png",
+          "media_url_https": "https://pbs.twimg.com/tweet_video_thumb/CQFIC2oWoAAVUNK.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "large": {
+              "h": 512,
+              "resize": "fit",
+              "w": 900
+            },
+            "medium": {
+              "h": 341,
+              "resize": "fit",
+              "w": 600
+            },
+            "small": {
+              "h": 193,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "animated_gif",
+          "url": "http://t.co/zytXLkyndk"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648879035741798400,
     "id_str": "648879035741798400",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
     "text": "How a probabilistic reasoning system predicts the outcome of a corner kick from http://t.co/oFvRE7bvdf http://t.co/zytXLkyndk",
     "truncated": false,
@@ -1185,26 +1862,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "Follow Manning Publications on Twitter and get exclusive discounts, product announcements, author news, and great content.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/hoWlwoEP88",
+              "expanded_url": "http://www.manning.com",
+              "display_url": "manning.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/hoWlwoEP88",
-              "display_url": "manning.com",
-              "expanded_url": "http://www.manning.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 1527,
@@ -1228,6 +1911,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme18/bg.gif",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme18/bg.gif",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/386363365/uglyguy_normal.jpg",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/386363365/uglyguy_normal.jpg",
       "profile_link_color": "038543",
@@ -1238,19 +1922,27 @@
       "protected": false,
       "screen_name": "ManningBooks",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 19670,
       "time_zone": "Eastern Time (US & Canada)",
       "url": "http://t.co/hoWlwoEP88",
       "utc_offset": -14400,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:01:29 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:01:29 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1261,16 +1953,56 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/BDrHG8cpfj",
+          "expanded_url": "http://twitter.com/mamund/status/648875249824567296/photo/1",
+          "id": 648875249585553408,
+          "id_str": "648875249585553408",
+          "indices": [
+            108,
+            130
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFEmgMXAAAfULX.png",
+          "media_url_https": "https://pbs.twimg.com/media/CQFEmgMXAAAfULX.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 714,
+              "resize": "fit",
+              "w": 583
+            },
+            "large": {
+              "h": 714,
+              "resize": "fit",
+              "w": 583
+            },
+            "small": {
+              "h": 416,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/BDrHG8cpfj"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/4GmQKpvN5A",
+          "expanded_url": "http://b.mamund.com/1MynXGo",
+          "display_url": "b.mamund.com/1MynXGo",
           "indices": [
             77,
             99
-          ],
-          "url": "http://t.co/4GmQKpvN5A",
-          "display_url": "b.mamund.com/1MynXGo",
-          "expanded_url": "http://b.mamund.com/1MynXGo"
+          ]
         }
       ],
       "user_mentions": [
@@ -1294,19 +2026,81 @@
           "name": "API Academy",
           "screen_name": "apiacademy"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/BDrHG8cpfj",
+          "expanded_url": "http://twitter.com/mamund/status/648875249824567296/photo/1",
+          "id": 648875249585553408,
+          "id_str": "648875249585553408",
+          "indices": [
+            108,
+            130
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFEmgMXAAAfULX.png",
+          "media_url_https": "https://pbs.twimg.com/media/CQFEmgMXAAAfULX.png",
+          "sizes": {
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 714,
+              "resize": "fit",
+              "w": 583
+            },
+            "large": {
+              "h": 714,
+              "resize": "fit",
+              "w": 583
+            },
+            "small": {
+              "h": 416,
+              "resize": "fit",
+              "w": 340
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/BDrHG8cpfj"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 1,
     "favorited": false,
+    "filter_level": null,
     "id": 648875249824567296,
     "id_str": "648875249824567296",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 2,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://bufferapp.com\" rel=\"nofollow\">Buffer</a>",
     "text": "Download the eBook \"Description, Discovery, and Profiles\" @InfoQ @apiacademy http://t.co/4GmQKpvN5A #DDandP http://t.co/BDrHG8cpfj",
     "truncated": false,
@@ -1318,26 +2112,32 @@
       "default_profile": false,
       "default_profile_image": false,
       "description": "Director of API Architecture, API Academy at CA Technologies || Working to improve the quality and usability of information on the Web.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/sVYacwmB4U",
+              "expanded_url": "http://amundsen.com/blog/",
+              "display_url": "amundsen.com/blog/",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/sVYacwmB4U",
-              "display_url": "amundsen.com/blog/",
-              "expanded_url": "http://amundsen.com/blog/"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 270,
@@ -1372,17 +2172,27 @@
       "protected": false,
       "screen_name": "mamund",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 27223,
+      "time_zone": null,
       "url": "http://t.co/sVYacwmB4U",
-      "verified": false
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   },
   {
-    "contributors": [],
-    "coordinates": [],
-    "created_at": "Tue Sep 29 16:00:54 +0100 2015",
+    "contributors": [
+    ],
+    "coordinates": null,
+    "created_at": "Tue Sep 29 15:00:54 +0000 2015",
+    "current_user_retweet": null,
     "entities": {
       "hashtags": [
         {
@@ -1393,16 +2203,56 @@
           ]
         }
       ],
-      "media": [],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/fvGjyot6zu",
+          "expanded_url": "http://twitter.com/databricks/status/648875102084427776/photo/1",
+          "id": 648875101975367680,
+          "id_str": "648875101975367680",
+          "indices": [
+            83,
+            105
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFEd6TWUAAyVY0.png",
+          "media_url_https": "https://pbs.twimg.com/media/CQFEd6TWUAAyVY0.png",
+          "sizes": {
+            "large": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "small": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "medium": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "thumb": {
+              "h": 22,
+              "resize": "crop",
+              "w": 139
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/fvGjyot6zu"
+        }
+      ],
+      "url": null,
       "urls": [
         {
+          "url": "http://t.co/jF4axxJU8j",
+          "expanded_url": "http://dbricks.co/1WvvQRz",
+          "display_url": "dbricks.co/1WvvQRz",
           "indices": [
             60,
             82
-          ],
-          "url": "http://t.co/jF4axxJU8j",
-          "display_url": "dbricks.co/1WvvQRz",
-          "expanded_url": "http://dbricks.co/1WvvQRz"
+          ]
         }
       ],
       "user_mentions": [
@@ -1416,19 +2266,81 @@
           "name": "Databricks",
           "screen_name": "databricks"
         }
-      ]
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/fvGjyot6zu",
+          "expanded_url": "http://twitter.com/databricks/status/648875102084427776/photo/1",
+          "id": 648875101975367680,
+          "id_str": "648875101975367680",
+          "indices": [
+            83,
+            105
+          ],
+          "media_url": "http://pbs.twimg.com/media/CQFEd6TWUAAyVY0.png",
+          "media_url_https": "https://pbs.twimg.com/media/CQFEd6TWUAAyVY0.png",
+          "sizes": {
+            "large": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "small": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "medium": {
+              "h": 22,
+              "resize": "fit",
+              "w": 139
+            },
+            "thumb": {
+              "h": 22,
+              "resize": "crop",
+              "w": 139
+            }
+          },
+          "source_status_id": null,
+          "source_status_id_str": null,
+          "type": "photo",
+          "url": "http://t.co/fvGjyot6zu"
+        }
+      ],
+      "url": null,
+      "urls": [
+      ],
+      "user_mentions": [
+      ],
+      "description": null
     },
     "favorite_count": 0,
     "favorited": false,
+    "filter_level": null,
     "id": 648875102084427776,
     "id_str": "648875102084427776",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
     "is_quote_status": false,
     "lang": "en",
+    "place": null,
     "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
     "scopes": {
     },
     "retweet_count": 0,
     "retweeted": false,
+    "retweeted_status": null,
     "source": "<a href=\"http://www.hubspot.com/\" rel=\"nofollow\">HubSpot</a>",
     "text": "Meet @Databricks at Booth 550 in #StrataHadoop World in NYC http://t.co/jF4axxJU8j http://t.co/fvGjyot6zu",
     "truncated": false,
@@ -1436,30 +2348,36 @@
       "blocked_by": false,
       "blocking": false,
       "contributors_enabled": false,
-      "created_at": "Tue Jul 02 08:28:36 +0100 2013",
+      "created_at": "Tue Jul 02 07:28:36 +0000 2013",
       "default_profile": true,
       "default_profile_image": false,
       "description": "Through the Apache Spark platform, we're working to revolutionize data processing.",
+      "email": null,
       "entities": {
-        "hashtags": [],
-        "media": [],
+        "hashtags": [
+        ],
+        "media": [
+        ],
         "url": {
           "urls": [
             {
+              "url": "http://t.co/PoQGTE0sky",
+              "expanded_url": "http://databricks.com",
+              "display_url": "databricks.com",
               "indices": [
                 0,
                 22
-              ],
-              "url": "http://t.co/PoQGTE0sky",
-              "display_url": "databricks.com",
-              "expanded_url": "http://databricks.com"
+              ]
             }
           ]
         },
-        "urls": [],
-        "user_mentions": [],
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
         "description": {
-          "urls": []
+          "urls": [
+          ]
         }
       },
       "favourites_count": 17,
@@ -1483,6 +2401,7 @@
       "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
       "profile_background_tile": false,
+      "profile_banner_url": null,
       "profile_image_url": "http://pbs.twimg.com/profile_images/509756469000937472/tMI4Tn2p_normal.png",
       "profile_image_url_https": "https://pbs.twimg.com/profile_images/509756469000937472/tMI4Tn2p_normal.png",
       "profile_link_color": "0084B4",
@@ -1493,13 +2412,19 @@
       "protected": false,
       "screen_name": "databricks",
       "show_all_inline_media": false,
+      "status": null,
       "statuses_count": 439,
       "time_zone": "Pacific Time (US & Canada)",
       "url": "http://t.co/PoQGTE0sky",
       "utc_offset": -25200,
-      "verified": false
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
     "withheld_copyright": false,
-    "withheld_in_countries": []
+    "withheld_in_countries": [
+    ],
+    "withheld_scope": null,
+    "metadata": null
   }
 ]

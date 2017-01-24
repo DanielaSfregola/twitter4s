@@ -1,63 +1,63 @@
 [
   {
-    "as_of":"2015-10-18T14:26:53Z",
-    "created_at":"2015-10-18T14:25:04Z",
-    "locations":[
+    "as_of": "2015-10-18T14:26:53Z",
+    "created_at": "2015-10-18T14:25:04Z",
+    "locations": [
       {
-        "name":"Worldwide",
-        "woeid":1
+        "name": "Worldwide",
+        "woeid": 1
       }
     ],
-    "trends":[
+    "trends": [
       {
-        "name":"#vamospumas",
-        "query":"%23vamospumas",
-        "url":"http://twitter.com/search?q=%23vamospumas"
+        "name": "#vamospumas",
+        "query": "%23vamospumas",
+        "url": "http://twitter.com/search?q=%23vamospumas"
       },
       {
-        "name":"#EMABiggesrFans1D",
-        "query":"%23EMABiggesrFans1D",
-        "url":"http://twitter.com/search?q=%23EMABiggesrFans1D"
+        "name": "#EMABiggesrFans1D",
+        "query": "%23EMABiggesrFans1D",
+        "url": "http://twitter.com/search?q=%23EMABiggesrFans1D"
       },
       {
-        "name":"#PersibDay",
-        "query":"%23PersibDay",
-        "url":"http://twitter.com/search?q=%23PersibDay"
+        "name": "#PersibDay",
+        "query": "%23PersibDay",
+        "url": "http://twitter.com/search?q=%23PersibDay"
       },
       {
-        "name":"#みなさん小中高のクラブは何でしたか",
-        "query":"%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B",
-        "url":"http://twitter.com/search?q=%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B"
+        "name": "#みなさん小中高のクラブは何でしたか",
+        "query": "%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B",
+        "url": "http://twitter.com/search?q=%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B"
       },
       {
-        "name":"PurposeJustinBieber",
-        "query":"PurposeJustinBieber",
-        "url":"http://twitter.com/search?q=PurposeJustinBieber"
+        "name": "PurposeJustinBieber",
+        "query": "PurposeJustinBieber",
+        "url": "http://twitter.com/search?q=PurposeJustinBieber"
       },
       {
-        "name":"Irlanda",
-        "query":"Irlanda",
-        "url":"http://twitter.com/search?q=Irlanda"
+        "name": "Irlanda",
+        "query": "Irlanda",
+        "url": "http://twitter.com/search?q=Irlanda"
       },
       {
-        "name":"#ساحكي_للاحفاد_باني_عاصرت",
-        "query":"%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA",
-        "url":"http://twitter.com/search?q=%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA"
+        "name": "#ساحكي_للاحفاد_باني_عاصرت",
+        "query": "%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA",
+        "url": "http://twitter.com/search?q=%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA"
       },
       {
-        "name":"Griezmann",
-        "query":"Griezmann",
-        "url":"http://twitter.com/search?q=Griezmann"
+        "name": "Griezmann",
+        "query": "Griezmann",
+        "url": "http://twitter.com/search?q=Griezmann"
       },
       {
-        "name":"abraham mateo - old school",
-        "query":"%22abraham+mateo+-+old+school%22",
-        "url":"http://twitter.com/search?q=%22abraham+mateo+-+old+school%22"
+        "name": "abraham mateo - old school",
+        "query": "%22abraham+mateo+-+old+school%22",
+        "url": "http://twitter.com/search?q=%22abraham+mateo+-+old+school%22"
       },
       {
-        "name":"nico sanchez",
-        "query":"%22nico+sanchez%22",
-        "url":"http://twitter.com/search?q=%22nico+sanchez%22"
+        "name": "nico sanchez",
+        "query": "%22nico+sanchez%22",
+        "url": "http://twitter.com/search?q=%22nico+sanchez%22"
       }
     ]
   }

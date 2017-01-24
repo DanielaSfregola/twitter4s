@@ -1,965 +1,1530 @@
 {
-  "users":[{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Thu Feb 18 16:00:11 +0000 2010",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":27,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":312,
-    "friends_count":287,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":115417677,
-    "id_str":"115417677",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"es",
-    "listed_count":2,
-    "location":"",
-    "muting":false,
-    "name":"vianel",
-    "notifications":false,
-    "profile_background_color":"022330",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme15/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme15/bg.png",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/115417677/1402527744",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/476864639511580672/pjCo_hqX_normal.jpeg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/476864639511580672/pjCo_hqX_normal.jpeg",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"A8C7F7",
-    "profile_sidebar_fill_color":"C0DFEC",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"vianeltxt",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Thu Oct 08 03:35:08 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[]
+  "users": [
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Thu Feb 18 16:00:11 +0000 2010",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "favorite_count":0,
-      "favorited":false,
-      "id":651948913981816832,
-      "id_str":"651948913981816832",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
-      },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-      "text":"Just a bad day",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
-    },
-    "statuses_count":15400,
-    "time_zone":"Caracas",
-    "utc_offset":-16200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Fri Jun 12 23:15:51 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":90,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":103,
-    "friends_count":158,
-    "geo_enabled":false,
-    "has_extended_profile":true,
-    "id":46762206,
-    "id_str":"46762206",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":2,
-    "location":"Egypt",
-    "muting":false,
-    "name":"Eman Shaaban",
-    "notifications":false,
-    "profile_background_color":"BADFCD",
-    "profile_background_image_url":"http://pbs.twimg.com/profile_background_images/460273362/xc93e90571a9a3fb42d63c0c96cd7400.png",
-    "profile_background_image_url_https":"https://pbs.twimg.com/profile_background_images/460273362/xc93e90571a9a3fb42d63c0c96cd7400.png",
-    "profile_background_tile":true,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/46762206/1397952631",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/620634983/_1__normal.jpg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/620634983/_1__normal.jpg",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"464E52",
-    "profile_sidebar_fill_color":"171B1C",
-    "profile_text_color":"ED710C",
-    "profile_use_background_image":true,
-    "protected":true,
-    "screen_name":"eman_sha3ban",
-    "show_all_inline_media":false,
-    "statuses_count":126,
-    "time_zone":"Cairo",
-    "utc_offset":7200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Tue Nov 20 20:06:19 +0000 2007",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"Restless learner, curiosity driven being who likes to build things on top of things. Maps, schedules, urbanism, user experience, visualisation, open data...",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "url":"http://t.co/ftcV3ISCdx",
-          "expanded_url":"http://www.hibaiunzueta.com",
-          "display_url":"hibaiunzueta.com",
-          "indices":[0,22]
-        }]
-      },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":1493,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":316,
-    "friends_count":881,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":10422372,
-    "id_str":"10422372",
-    "is_translation_enabled":true,
-    "is_translator":false,
-    "lang":"eu",
-    "listed_count":27,
-    "location":"Bilbao",
-    "muting":false,
-    "name":"Hibai Unzueta",
-    "notifications":false,
-    "profile_background_color":"303B3A",
-    "profile_background_image_url":"http://pbs.twimg.com/profile_background_images/378800000014647504/afc6c9c095a1ecb82c64641182bd9e5d.png",
-    "profile_background_image_url_https":"https://pbs.twimg.com/profile_background_images/378800000014647504/afc6c9c095a1ecb82c64641182bd9e5d.png",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/10422372/1402680057",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/477501971897671681/iMcbVCyF_normal.jpeg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/477501971897671681/iMcbVCyF_normal.jpeg",
-    "profile_link_color":"FFCC4D",
-    "profile_sidebar_border_color":"000000",
-    "profile_sidebar_fill_color":"FFFFFF",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"hanbzu",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Thu Oct 08 15:14:36 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[{
-          "id":18239001,
-          "id_str":"18239001",
-          "indices":[0,6],
-          "name":"sabik",
-          "screen_name":"sabik"
-        },{
-          "id":610659001,
-          "id_str":"610659001",
-          "indices":[7,17],
-          "name":"Max Roser",
-          "screen_name":"MaxCRoser"
-        },{
-          "id":23508925,
-          "id_str":"23508925",
-          "indices":[18,29],
-          "name":"Ryan Croft",
-          "screen_name":"ryankcroft"
-        }]
-      },
-      "favorite_count":0,
-      "favorited":false,
-      "id":652124939898781697,
-      "id_str":"652124939898781697",
-      "in_reply_to_screen_name":"sabik",
-      "in_reply_to_status_id":652082286456803328,
-      "in_reply_to_status_id_str":"652082286456803328",
-      "in_reply_to_user_id":18239001,
-      "in_reply_to_user_id_str":"18239001",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
-      },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
-      "text":"@sabik @MaxCRoser @ryankcroft Great. Let's make them get better faster.",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
-    },
-    "statuses_count":3567,
-    "time_zone":"Bern",
-    "url":"http://t.co/ftcV3ISCdx",
-    "utc_offset":7200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Thu Apr 10 14:43:50 +0100 2008",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":11,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":40,
-    "friends_count":380,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":14351119,
-    "id_str":"14351119",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":1,
-    "location":"Amsterdam",
-    "muting":false,
-    "name":"patrickmcgloin",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://pbs.twimg.com/profile_images/510836130158489601/ff7Pk4vw_normal.jpeg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/510836130158489601/ff7Pk4vw_normal.jpeg",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"patrickmcgloin",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Fri Sep 18 12:32:10 +0100 2015",
-      "entities":{
-        "hashtags":[{
-          "text":"refugeeswelcome",
-          "indices":[87,103]
-        }],
-        "media":[],
-        "urls":[],
-        "user_mentions":[{
-          "id":19398524,
-          "id_str":"19398524",
-          "indices":[3,14],
-          "name":"Amanda",
-          "screen_name":"Hamperlady"
-        }]
-      },
-      "favorite_count":0,
-      "favorited":false,
-      "id":644836303998160896,
-      "id_str":"644836303998160896",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
-      },
-      "retweet_count":124,
-      "retweeted":false,
-      "retweeted_status":{
-        "contributors":[],
-        "coordinates":[],
-        "created_at":"Sun Sep 13 00:44:06 +0100 2015",
-        "entities":{
-          "hashtags":[{
-            "text":"refugeeswelcome",
-            "indices":[71,87]
-          }],
-          "media":[],
-          "urls":[],
-          "user_mentions":[]
+      "favourites_count": 27,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 312,
+      "friends_count": 287,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 115417677,
+      "id_str": "115417677",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "es",
+      "listed_count": 2,
+      "location": "",
+      "muting": false,
+      "name": "vianel",
+      "notifications": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/115417677/1402527744",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/476864639511580672/pjCo_hqX_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/476864639511580672/pjCo_hqX_normal.jpeg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "A8C7F7",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "vianeltxt",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Thu Oct 08 02:35:08 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
+          "description": null
         },
-        "favorite_count":60,
-        "favorited":false,
-        "id":642846175687741440,
-        "id_str":"642846175687741440",
-        "is_quote_status":false,
-        "lang":"en",
-        "possibly_sensitive":false,
-        "scopes":{
-
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 651948913981816832,
+        "id_str": "651948913981816832",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
         },
-        "retweet_count":124,
-        "retweeted":false,
-        "source":"<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
-        "text":"Spotted in Boston today at the Irish famine monument. Sounds familiar? #refugeeswelcome http://t.co/UNs0HkfWDM",
-        "truncated":false,
-        "withheld_copyright":false,
-        "withheld_in_countries":[]
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+        "text": "Just a bad day",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
       },
-      "source":"<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-      "text":"RT @Hamperlady: Spotted in Boston today at the Irish famine monument. Sounds familiar? #refugeeswelcome http://t.co/UNs0HkfWDM",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
+      "statuses_count": 15400,
+      "time_zone": "Caracas",
+      "url": null,
+      "utc_offset": -16200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "statuses_count":78,
-    "time_zone":"Greenland",
-    "utc_offset":-7200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Wed Jul 15 21:10:49 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "url":"http://t.co/HUvDLSOdhW",
-          "expanded_url":"http://about.me/tomz85",
-          "display_url":"about.me/tomz85",
-          "indices":[0,22]
-        }]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Fri Jun 12 22:15:51 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 90,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 103,
+      "friends_count": 158,
+      "geo_enabled": false,
+      "has_extended_profile": true,
+      "id": 46762206,
+      "id_str": "46762206",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 2,
+      "location": "Egypt",
+      "muting": false,
+      "name": "Eman Shaaban",
+      "notifications": false,
+      "profile_background_color": "BADFCD",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/460273362/xc93e90571a9a3fb42d63c0c96cd7400.png",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/460273362/xc93e90571a9a3fb42d63c0c96cd7400.png",
+      "profile_background_tile": true,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/46762206/1397952631",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/620634983/_1__normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/620634983/_1__normal.jpg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "464E52",
+      "profile_sidebar_fill_color": "171B1C",
+      "profile_text_color": "ED710C",
+      "profile_use_background_image": true,
+      "protected": true,
+      "screen_name": "eman_sha3ban",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 126,
+      "time_zone": "Cairo",
+      "url": null,
+      "utc_offset": 7200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":25,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":92,
-    "friends_count":466,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":57122539,
-    "id_str":"57122539",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"it",
-    "listed_count":3,
-    "location":"Bologna, Italy",
-    "muting":false,
-    "name":"Andrea Tomasello",
-    "notifications":false,
-    "profile_background_color":"022330",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme15/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme15/bg.png",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/57122539/1441112921",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/638699520281444352/wqy7U3QN_normal.jpg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/638699520281444352/wqy7U3QN_normal.jpg",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"A8C7F7",
-    "profile_sidebar_fill_color":"C0DFEC",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"TomZ85",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Fri Sep 25 14:03:04 +0100 2015",
-      "entities":{
-        "hashtags":[{
-          "text":"scala",
-          "indices":[131,137]
-        }],
-        "media":[],
-        "urls":[{
-          "url":"http://t.co/PxgydyRARy",
-          "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
-          "display_url":"slideshare.net/GiampaoloTrapa\u2026",
-          "indices":[108,130]
-        }],
-        "user_mentions":[{
-          "id":22006274,
-          "id_str":"22006274",
-          "indices":[3,18],
-          "name":"Giampaolo Trapasso",
-          "screen_name":"supergiampaolo"
-        }]
-      },
-      "favorite_count":0,
-      "favorited":false,
-      "id":647395896540442625,
-      "id_str":"647395896540442625",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
-      },
-      "retweet_count":14,
-      "retweeted":false,
-      "retweeted_status":{
-        "contributors":[],
-        "coordinates":[],
-        "created_at":"Thu Sep 24 23:47:33 +0100 2015",
-        "entities":{
-          "hashtags":[{
-            "text":"scala",
-            "indices":[111,117]
-          }],
-          "media":[],
-          "urls":[{
-            "url":"http://t.co/PxgydyRARy",
-            "expanded_url":"http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
-            "display_url":"slideshare.net/GiampaoloTrapa\u2026",
-            "indices":[88,110]
-          }],
-          "user_mentions":[]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Tue Nov 20 20:06:19 +0000 2007",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "Restless learner, curiosity driven being who likes to build things on top of things. Maps, schedules, urbanism, user experience, visualisation, open data...",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/ftcV3ISCdx",
+              "expanded_url": "http://www.hibaiunzueta.com",
+              "display_url": "hibaiunzueta.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
         },
-        "favorite_count":16,
-        "favorited":false,
-        "id":647180599153819652,
-        "id_str":"647180599153819652",
-        "is_quote_status":false,
-        "lang":"en",
-        "place":{
-          "attributes":{
-
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
+      },
+      "favourites_count": 1493,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 316,
+      "friends_count": 881,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 10422372,
+      "id_str": "10422372",
+      "is_translation_enabled": true,
+      "is_translator": false,
+      "lang": "eu",
+      "listed_count": 27,
+      "location": "Bilbao",
+      "muting": false,
+      "name": "Hibai Unzueta",
+      "notifications": false,
+      "profile_background_color": "303B3A",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/378800000014647504/afc6c9c095a1ecb82c64641182bd9e5d.png",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/378800000014647504/afc6c9c095a1ecb82c64641182bd9e5d.png",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/10422372/1402680057",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/477501971897671681/iMcbVCyF_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/477501971897671681/iMcbVCyF_normal.jpeg",
+      "profile_link_color": "FFCC4D",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "FFFFFF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "hanbzu",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Thu Oct 08 14:14:36 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+            {
+              "id": 18239001,
+              "id_str": "18239001",
+              "indices": [
+                0,
+                6
+              ],
+              "name": "sabik",
+              "screen_name": "sabik"
+            },
+            {
+              "id": 610659001,
+              "id_str": "610659001",
+              "indices": [
+                7,
+                17
+              ],
+              "name": "Max Roser",
+              "screen_name": "MaxCRoser"
+            },
+            {
+              "id": 23508925,
+              "id_str": "23508925",
+              "indices": [
+                18,
+                29
+              ],
+              "name": "Ryan Croft",
+              "screen_name": "ryankcroft"
+            }
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 652124939898781697,
+        "id_str": "652124939898781697",
+        "in_reply_to_screen_name": "sabik",
+        "in_reply_to_status_id": 652082286456803328,
+        "in_reply_to_status_id_str": "652082286456803328",
+        "in_reply_to_user_id": 18239001,
+        "in_reply_to_user_id_str": "18239001",
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+        "text": "@sabik @MaxCRoser @ryankcroft Great. Let's make them get better faster.",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
+      },
+      "statuses_count": 3567,
+      "time_zone": "Bern",
+      "url": "http://t.co/ftcV3ISCdx",
+      "utc_offset": 7200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    },
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Thu Apr 10 13:43:50 +0000 2008",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
+      },
+      "favourites_count": 11,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 40,
+      "friends_count": 380,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 14351119,
+      "id_str": "14351119",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 1,
+      "location": "Amsterdam",
+      "muting": false,
+      "name": "patrickmcgloin",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/510836130158489601/ff7Pk4vw_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/510836130158489601/ff7Pk4vw_normal.jpeg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "patrickmcgloin",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Fri Sep 18 11:32:10 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "refugeeswelcome",
+              "indices": [
+                87,
+                103
+              ]
+            }
+          ],
+          "media": [
+            {
+              "display_url": "pic.twitter.com/UNs0HkfWDM",
+              "expanded_url": "http://twitter.com/Hamperlady/status/642846175687741440/photo/1",
+              "id": 642846141629927424,
+              "id_str": "642846141629927424",
+              "indices": [
+                104,
+                126
+              ],
+              "media_url": "http://pbs.twimg.com/media/COvZKO0VEAAtmhf.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/COvZKO0VEAAtmhf.jpg",
+              "sizes": {
+                "small": {
+                  "h": 340,
+                  "resize": "fit",
+                  "w": 340
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                },
+                "medium": {
+                  "h": 600,
+                  "resize": "fit",
+                  "w": 600
+                },
+                "large": {
+                  "h": 1024,
+                  "resize": "fit",
+                  "w": 1024
+                }
+              },
+              "source_status_id": 642846175687741440,
+              "source_status_id_str": "642846175687741440",
+              "type": "photo",
+              "url": "http://t.co/UNs0HkfWDM"
+            }
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+            {
+              "id": 19398524,
+              "id_str": "19398524",
+              "indices": [
+                3,
+                14
+              ],
+              "name": "Amanda",
+              "screen_name": "Hamperlady"
+            }
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 644836303998160896,
+        "id_str": "644836303998160896",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 124,
+        "retweeted": false,
+        "retweeted_status": {
+          "contributors": [
+          ],
+          "coordinates": null,
+          "created_at": "Sat Sep 12 23:44:06 +0000 2015",
+          "current_user_retweet": null,
+          "entities": {
+            "hashtags": [
+              {
+                "text": "refugeeswelcome",
+                "indices": [
+                  71,
+                  87
+                ]
+              }
+            ],
+            "media": [
+              {
+                "display_url": "pic.twitter.com/UNs0HkfWDM",
+                "expanded_url": "http://twitter.com/Hamperlady/status/642846175687741440/photo/1",
+                "id": 642846141629927424,
+                "id_str": "642846141629927424",
+                "indices": [
+                  88,
+                  110
+                ],
+                "media_url": "http://pbs.twimg.com/media/COvZKO0VEAAtmhf.jpg",
+                "media_url_https": "https://pbs.twimg.com/media/COvZKO0VEAAtmhf.jpg",
+                "sizes": {
+                  "small": {
+                    "h": 340,
+                    "resize": "fit",
+                    "w": 340
+                  },
+                  "thumb": {
+                    "h": 150,
+                    "resize": "crop",
+                    "w": 150
+                  },
+                  "medium": {
+                    "h": 600,
+                    "resize": "fit",
+                    "w": 600
+                  },
+                  "large": {
+                    "h": 1024,
+                    "resize": "fit",
+                    "w": 1024
+                  }
+                },
+                "source_status_id": null,
+                "source_status_id_str": null,
+                "type": "photo",
+                "url": "http://t.co/UNs0HkfWDM"
+              }
+            ],
+            "url": null,
+            "urls": [
+            ],
+            "user_mentions": [
+            ],
+            "description": null
           },
-          "bounding_box":{
-            "coordinates":[[[13.6683593,45.6067875],[13.8985003,45.6067875],[13.8985003,45.7467022],[13.6683593,45.7467022]]],
-            "type":"Polygon"
+          "extended_entities": null,
+          "favorite_count": 60,
+          "favorited": false,
+          "filter_level": null,
+          "id": 642846175687741440,
+          "id_str": "642846175687741440",
+          "in_reply_to_screen_name": null,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "is_quote_status": false,
+          "lang": "en",
+          "place": null,
+          "possibly_sensitive": false,
+          "quoted_status_id": null,
+          "quoted_status_id_str": null,
+          "quoted_status": null,
+          "scopes": {
           },
-          "country":"Italia",
-          "country_code":"IT",
-          "full_name":"Trieste, Friuli-Venezia Giulia",
-          "id":"cf5d106c94750000",
-          "name":"Trieste",
-          "place_type":"city",
-          "url":"https://api.twitter.com/1.1/geo/id/cf5d106c94750000.json",
-          "contained_within":[],
-          "centroid":[],
-          "polylines":[]
+          "retweet_count": 124,
+          "retweeted": false,
+          "retweeted_status": null,
+          "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+          "text": "Spotted in Boston today at the Irish famine monument. Sounds familiar? #refugeeswelcome http://t.co/UNs0HkfWDM",
+          "truncated": false,
+          "user": null,
+          "withheld_copyright": false,
+          "withheld_in_countries": [
+          ],
+          "withheld_scope": null,
+          "metadata": null
         },
-        "possibly_sensitive":false,
-        "scopes":{
-
+        "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+        "text": "RT @Hamperlady: Spotted in Boston today at the Irish famine monument. Sounds familiar? #refugeeswelcome http://t.co/UNs0HkfWDM",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
+      },
+      "statuses_count": 78,
+      "time_zone": "Greenland",
+      "url": null,
+      "utc_offset": -7200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    },
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Wed Jul 15 20:10:49 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/HUvDLSOdhW",
+              "expanded_url": "http://about.me/tomz85",
+              "display_url": "about.me/tomz85",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
         },
-        "retweet_count":14,
-        "retweeted":false,
-        "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-        "text":"Slides of my talk on Scala at Treviso Scala Group: \"Scala 101, first steps with Scala\": http://t.co/PxgydyRARy #scala",
-        "truncated":false,
-        "withheld_copyright":false,
-        "withheld_in_countries":[]
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-      "text":"RT @supergiampaolo: Slides of my talk on Scala at Treviso Scala Group: \"Scala 101, first steps with Scala\": http://t.co/PxgydyRARy #scala",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
+      "favourites_count": 25,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 92,
+      "friends_count": 466,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 57122539,
+      "id_str": "57122539",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "it",
+      "listed_count": 3,
+      "location": "Bologna, Italy",
+      "muting": false,
+      "name": "Andrea Tomasello",
+      "notifications": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/57122539/1441112921",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/638699520281444352/wqy7U3QN_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/638699520281444352/wqy7U3QN_normal.jpg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "A8C7F7",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "TomZ85",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Fri Sep 25 13:03:04 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+            {
+              "text": "scala",
+              "indices": [
+                131,
+                137
+              ]
+            }
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+            {
+              "url": "http://t.co/PxgydyRARy",
+              "expanded_url": "http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
+              "display_url": "slideshare.net/GiampaoloTrapa\u2026",
+              "indices": [
+                108,
+                130
+              ]
+            }
+          ],
+          "user_mentions": [
+            {
+              "id": 22006274,
+              "id_str": "22006274",
+              "indices": [
+                3,
+                18
+              ],
+              "name": "Giampaolo Trapasso",
+              "screen_name": "supergiampaolo"
+            }
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 647395896540442625,
+        "id_str": "647395896540442625",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 14,
+        "retweeted": false,
+        "retweeted_status": {
+          "contributors": [
+          ],
+          "coordinates": null,
+          "created_at": "Thu Sep 24 22:47:33 +0000 2015",
+          "current_user_retweet": null,
+          "entities": {
+            "hashtags": [
+              {
+                "text": "scala",
+                "indices": [
+                  111,
+                  117
+                ]
+              }
+            ],
+            "media": [
+            ],
+            "url": null,
+            "urls": [
+              {
+                "url": "http://t.co/PxgydyRARy",
+                "expanded_url": "http://www.slideshare.net/GiampaoloTrapasso/scala101-first-steps-with-scala",
+                "display_url": "slideshare.net/GiampaoloTrapa\u2026",
+                "indices": [
+                  88,
+                  110
+                ]
+              }
+            ],
+            "user_mentions": [
+            ],
+            "description": null
+          },
+          "extended_entities": null,
+          "favorite_count": 16,
+          "favorited": false,
+          "filter_level": null,
+          "id": 647180599153819652,
+          "id_str": "647180599153819652",
+          "in_reply_to_screen_name": null,
+          "in_reply_to_status_id": null,
+          "in_reply_to_status_id_str": null,
+          "in_reply_to_user_id": null,
+          "in_reply_to_user_id_str": null,
+          "is_quote_status": false,
+          "lang": "en",
+          "place": {
+            "attributes": {
+            },
+            "bounding_box": {
+              "coordinates": [
+                [
+                  [
+                    13.6683593,
+                    45.6067875
+                  ],
+                  [
+                    13.8985003,
+                    45.6067875
+                  ],
+                  [
+                    13.8985003,
+                    45.7467022
+                  ],
+                  [
+                    13.6683593,
+                    45.7467022
+                  ]
+                ]
+              ],
+              "type": "Polygon"
+            },
+            "country": "Italia",
+            "country_code": "IT",
+            "full_name": "Trieste, Friuli-Venezia Giulia",
+            "id": "cf5d106c94750000",
+            "name": "Trieste",
+            "place_type": "city",
+            "url": "https://api.twitter.com/1.1/geo/id/cf5d106c94750000.json",
+            "contained_within": [
+            ],
+            "centroid": [
+            ],
+            "polylines": [
+            ]
+          },
+          "possibly_sensitive": false,
+          "quoted_status_id": null,
+          "quoted_status_id_str": null,
+          "quoted_status": null,
+          "scopes": {
+          },
+          "retweet_count": 14,
+          "retweeted": false,
+          "retweeted_status": null,
+          "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+          "text": "Slides of my talk on Scala at Treviso Scala Group: \"Scala 101, first steps with Scala\": http://t.co/PxgydyRARy #scala",
+          "truncated": false,
+          "user": null,
+          "withheld_copyright": false,
+          "withheld_in_countries": [
+          ],
+          "withheld_scope": null,
+          "metadata": null
+        },
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+        "text": "RT @supergiampaolo: Slides of my talk on Scala at Treviso Scala Group: \"Scala 101, first steps with Scala\": http://t.co/PxgydyRARy #scala",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
+      },
+      "statuses_count": 188,
+      "time_zone": "Rome",
+      "url": "http://t.co/HUvDLSOdhW",
+      "utc_offset": 7200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "statuses_count":188,
-    "time_zone":"Rome",
-    "url":"http://t.co/HUvDLSOdhW",
-    "utc_offset":7200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Sat Jul 11 03:11:55 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"Primary actions: Research & Content Development. 2015: The machine becomes conscious, humans segment by heart interests, IoT takes off on a mass scale.",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "url":{
-        "urls":[{
-          "url":"http://t.co/1TBURBFHqg",
-          "expanded_url":"http://www.thesocializers.com",
-          "display_url":"thesocializers.com",
-          "indices":[0,22]
-        }]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Sat Jul 11 02:11:55 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "Primary actions: Research & Content Development. 2015: The machine becomes conscious, humans segment by heart interests, IoT takes off on a mass scale.",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/1TBURBFHqg",
+              "expanded_url": "http://www.thesocializers.com",
+              "display_url": "thesocializers.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
+      "favourites_count": 1916,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 2422,
+      "friends_count": 2647,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 55730801,
+      "id_str": "55730801",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 158,
+      "location": "Global",
+      "muting": false,
+      "name": "Nathaniel Hansen",
+      "notifications": false,
+      "profile_background_color": "030101",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/68826143/socializersbackground.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/68826143/socializersbackground.jpg",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/55730801/1399985316",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/3565637784/d3ccedf8ef387ec79bb7a0e0b6af9f1f_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/3565637784/d3ccedf8ef387ec79bb7a0e0b6af9f1f_normal.png",
+      "profile_link_color": "2B7E9C",
+      "profile_sidebar_border_color": "0D0808",
+      "profile_sidebar_fill_color": "A9B2C2",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "Nat_Hansen",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Thu Oct 08 14:27:25 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+            {
+              "id": 6202252,
+              "id_str": "6202252",
+              "indices": [
+                138,
+                146
+              ],
+              "name": "Giles Palmer",
+              "screen_name": "joodoo9"
+            }
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 1,
+        "favorited": false,
+        "filter_level": null,
+        "id": 652128166966898688,
+        "id_str": "652128166966898688",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 1,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+        "text": "We wanted to help cut through the mess &amp; lack of structure for businesses. Enter, intent-based data sets &amp; use-case dashboards. ~ @joodoo9",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
+      },
+      "statuses_count": 10376,
+      "time_zone": "London",
+      "url": "http://t.co/1TBURBFHqg",
+      "utc_offset": 3600,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "favourites_count":1916,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":2422,
-    "friends_count":2647,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":55730801,
-    "id_str":"55730801",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":158,
-    "location":"Global",
-    "muting":false,
-    "name":"Nathaniel Hansen",
-    "notifications":false,
-    "profile_background_color":"030101",
-    "profile_background_image_url":"http://pbs.twimg.com/profile_background_images/68826143/socializersbackground.jpg",
-    "profile_background_image_url_https":"https://pbs.twimg.com/profile_background_images/68826143/socializersbackground.jpg",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/55730801/1399985316",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/3565637784/d3ccedf8ef387ec79bb7a0e0b6af9f1f_normal.png",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/3565637784/d3ccedf8ef387ec79bb7a0e0b6af9f1f_normal.png",
-    "profile_link_color":"2B7E9C",
-    "profile_sidebar_border_color":"0D0808",
-    "profile_sidebar_fill_color":"A9B2C2",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"Nat_Hansen",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Thu Oct 08 15:27:25 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[{
-          "id":6202252,
-          "id_str":"6202252",
-          "indices":[138,146],
-          "name":"Giles Palmer",
-          "screen_name":"joodoo9"
-        }]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Fri Jun 26 22:42:24 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "Consultant/Developer",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "favorite_count":1,
-      "favorited":false,
-      "id":652128166966898688,
-      "id_str":"652128166966898688",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
+      "favourites_count": 3,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 104,
+      "friends_count": 135,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 51259426,
+      "id_str": "51259426",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 6,
+      "location": "Sao Paulo, SP, Brasil ",
+      "muting": false,
+      "name": "Michel Azevedo",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/51259426/1398200111",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/584104169029656577/noZNU6Lc_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/584104169029656577/noZNU6Lc_normal.jpg",
+      "profile_link_color": "105670",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "sou3",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Fri Jun 12 18:21:42 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+            {
+              "url": "http://t.co/GlJI9xP6Bj",
+              "expanded_url": "http://spoti.fi/Nfwqh7",
+              "display_url": "spoti.fi/Nfwqh7",
+              "indices": [
+                105,
+                127
+              ]
+            }
+          ],
+          "user_mentions": [
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 609425357238874112,
+        "id_str": "609425357238874112",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "pt",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://spotify.com\" rel=\"nofollow\">Spotify</a>",
+        "text": "Um coração que morre por dar amor e que não conhece o fim, Um coração que bate por você, minha rebeka. ♫ http://t.co/GlJI9xP6Bj",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
       },
-      "retweet_count":1,
-      "retweeted":false,
-      "source":"<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
-      "text":"We wanted to help cut through the mess &amp; lack of structure for businesses. Enter, intent-based data sets &amp; use-case dashboards. ~ @joodoo9",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
+      "statuses_count": 523,
+      "time_zone": "Pacific Time (US & Canada)",
+      "url": null,
+      "utc_offset": -25200,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "statuses_count":10376,
-    "time_zone":"London",
-    "url":"http://t.co/1TBURBFHqg",
-    "utc_offset":3600,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Fri Jun 26 23:42:24 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":false,
-    "description":"Consultant/Developer",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":3,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":104,
-    "friends_count":135,
-    "geo_enabled":true,
-    "has_extended_profile":false,
-    "id":51259426,
-    "id_str":"51259426",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":6,
-    "location":"Sao Paulo, SP, Brasil ",
-    "muting":false,
-    "name":"Michel Azevedo",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/51259426/1398200111",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/584104169029656577/noZNU6Lc_normal.jpg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/584104169029656577/noZNU6Lc_normal.jpg",
-    "profile_link_color":"105670",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"sou3",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Fri Jun 12 19:21:42 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[{
-          "url":"http://t.co/GlJI9xP6Bj",
-          "expanded_url":"http://spoti.fi/Nfwqh7",
-          "display_url":"spoti.fi/Nfwqh7",
-          "indices":[105,127]
-        }],
-        "user_mentions":[]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Mon Nov 10 11:10:31 +0000 2014",
+      "default_profile": true,
+      "default_profile_image": false,
+      "description": "El agua hace flotar ew barco, pero tambien puedevhundirlo.",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "favorite_count":0,
-      "favorited":false,
-      "id":609425357238874112,
-      "id_str":"609425357238874112",
-      "is_quote_status":false,
-      "lang":"pt",
-      "possibly_sensitive":false,
-      "scopes":{
-
+      "favourites_count": 0,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 102,
+      "friends_count": 1328,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 2870412833,
+      "id_str": "2870412833",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "es",
+      "listed_count": 0,
+      "location": "",
+      "muting": false,
+      "name": "norma",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/2870412833/1427020053",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/579590212394835968/xLSP0WN9_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/579590212394835968/xLSP0WN9_normal.jpg",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "godnorma173",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Fri Oct 09 03:20:32 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 652322725923540992,
+        "id_str": "652322725923540992",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "es",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://www.9wodrzlbhqfgx5yp8mtj2ku3nvc16si074a.com\" rel=\"nofollow\">dsjlcovx9q87ank2hbwiz134pygr50u6</a>",
+        "text": "El mensaje que recibes cada manana no solo significa buenos dias, tambien cuantoqpienso en ti yuando me levanto.",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
       },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"http://spotify.com\" rel=\"nofollow\">Spotify</a>",
-      "text":"Um coração que morre por dar amor e que não conhece o fim, Um coração que bate por você, minha rebeka. ♫ http://t.co/GlJI9xP6Bj",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
+      "statuses_count": 885,
+      "time_zone": null,
+      "url": null,
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "statuses_count":523,
-    "time_zone":"Pacific Time (US & Canada)",
-    "utc_offset":-25200,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Mon Nov 10 11:10:31 +0000 2014",
-    "default_profile":true,
-    "default_profile_image":false,
-    "description":"El agua hace flotar ew barco, pero tambien puedevhundirlo.",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":0,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":102,
-    "friends_count":1328,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":2870412833,
-    "id_str":"2870412833",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"es",
-    "listed_count":0,
-    "location":"",
-    "muting":false,
-    "name":"norma",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_banner_url":"https://pbs.twimg.com/profile_banners/2870412833/1427020053",
-    "profile_image_url":"http://pbs.twimg.com/profile_images/579590212394835968/xLSP0WN9_normal.jpg",
-    "profile_image_url_https":"https://pbs.twimg.com/profile_images/579590212394835968/xLSP0WN9_normal.jpg",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"godnorma173",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Fri Oct 09 04:20:32 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Fri May 04 01:09:15 +0000 2012",
+      "default_profile": true,
+      "default_profile_image": true,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "favorite_count":0,
-      "favorited":false,
-      "id":652322725923540992,
-      "id_str":"652322725923540992",
-      "is_quote_status":false,
-      "lang":"es",
-      "possibly_sensitive":false,
-      "scopes":{
-
+      "favourites_count": 31,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 11,
+      "friends_count": 113,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 570504804,
+      "id_str": "570504804",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 0,
+      "location": "Singapore",
+      "muting": false,
+      "name": "BalaB",
+      "notifications": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
+      "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "BbalajiSg",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Tue Apr 14 14:45:28 +0000 2015",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+            {
+              "id": 266786132,
+              "id_str": "266786132",
+              "indices": [
+                0,
+                11
+              ],
+              "name": "Ben Uretsky",
+              "screen_name": "benuretsky"
+            },
+            {
+              "id": 457033547,
+              "id_str": "457033547",
+              "indices": [
+                12,
+                25
+              ],
+              "name": "DigitalOcean",
+              "screen_name": "digitalocean"
+            }
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 587990058164060160,
+        "id_str": "587990058164060160",
+        "in_reply_to_screen_name": "benuretsky",
+        "in_reply_to_status_id": 587978947293483009,
+        "in_reply_to_status_id_str": "587978947293483009",
+        "in_reply_to_user_id": 266786132,
+        "in_reply_to_user_id_str": "266786132",
+        "is_quote_status": false,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+        "text": "@benuretsky @digitalocean  \n\nAll Dell's got Deleted",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
       },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"http://www.9wodrzlbhqfgx5yp8mtj2ku3nvc16si074a.com\" rel=\"nofollow\">dsjlcovx9q87ank2hbwiz134pygr50u6</a>",
-      "text":"El mensaje que recibes cada manana no solo significa buenos dias, tambien cuantoqpienso en ti yuando me levanto.",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
+      "statuses_count": 1,
+      "time_zone": null,
+      "url": null,
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
     },
-    "statuses_count":885,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Fri May 04 02:09:15 +0100 2012",
-    "default_profile":true,
-    "default_profile_image":true,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":31,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":11,
-    "friends_count":113,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":570504804,
-    "id_str":"570504804",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":0,
-    "location":"Singapore",
-    "muting":false,
-    "name":"BalaB",
-    "notifications":false,
-    "profile_background_color":"C0DEED",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme1/bg.png",
-    "profile_background_tile":false,
-    "profile_image_url":"http://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
-    "profile_image_url_https":"https://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png",
-    "profile_link_color":"0084B4",
-    "profile_sidebar_border_color":"C0DEED",
-    "profile_sidebar_fill_color":"DDEEF6",
-    "profile_text_color":"333333",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"BbalajiSg",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Tue Apr 14 15:45:28 +0100 2015",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[{
-          "id":266786132,
-          "id_str":"266786132",
-          "indices":[0,11],
-          "name":"Ben Uretsky",
-          "screen_name":"benuretsky"
-        },{
-          "id":457033547,
-          "id_str":"457033547",
-          "indices":[12,25],
-          "name":"DigitalOcean",
-          "screen_name":"digitalocean"
-        }]
+    {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Wed Jul 22 12:42:28 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": true,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [
+        ],
+        "media": [
+        ],
+        "url": null,
+        "urls": [
+        ],
+        "user_mentions": [
+        ],
+        "description": {
+          "urls": [
+          ]
+        }
       },
-      "favorite_count":0,
-      "favorited":false,
-      "id":587990058164060160,
-      "id_str":"587990058164060160",
-      "in_reply_to_screen_name":"benuretsky",
-      "in_reply_to_status_id":587978947293483009,
-      "in_reply_to_status_id_str":"587978947293483009",
-      "in_reply_to_user_id":266786132,
-      "in_reply_to_user_id_str":"266786132",
-      "is_quote_status":false,
-      "lang":"en",
-      "possibly_sensitive":false,
-      "scopes":{
-
+      "favourites_count": 3,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 16,
+      "friends_count": 14,
+      "geo_enabled": false,
+      "has_extended_profile": false,
+      "id": 59114784,
+      "id_str": "59114784",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 0,
+      "location": "-23.581337,-46.634343",
+      "muting": false,
+      "name": "Marcos Kikuti",
+      "notifications": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_banner_url": null,
+      "profile_image_url": "http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+      "profile_image_url_https": "https://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "protected": false,
+      "screen_name": "kikutim",
+      "show_all_inline_media": false,
+      "status": {
+        "contributors": [
+        ],
+        "coordinates": null,
+        "created_at": "Sat Sep 14 22:44:47 +0000 2013",
+        "current_user_retweet": null,
+        "entities": {
+          "hashtags": [
+          ],
+          "media": [
+            {
+              "display_url": "pic.twitter.com/MS47cDC7Dq",
+              "expanded_url": "http://twitter.com/kikutim/status/379012882819592192/photo/1",
+              "id": 379012882718928896,
+              "id_str": "379012882718928896",
+              "indices": [
+                0,
+                22
+              ],
+              "media_url": "http://pbs.twimg.com/media/BUKGNW_CMAA8l2t.jpg",
+              "media_url_https": "https://pbs.twimg.com/media/BUKGNW_CMAA8l2t.jpg",
+              "sizes": {
+                "large": {
+                  "h": 960,
+                  "resize": "fit",
+                  "w": 716
+                },
+                "small": {
+                  "h": 455,
+                  "resize": "fit",
+                  "w": 340
+                },
+                "thumb": {
+                  "h": 150,
+                  "resize": "crop",
+                  "w": 150
+                },
+                "medium": {
+                  "h": 804,
+                  "resize": "fit",
+                  "w": 600
+                }
+              },
+              "source_status_id": null,
+              "source_status_id_str": null,
+              "type": "photo",
+              "url": "http://t.co/MS47cDC7Dq"
+            }
+          ],
+          "url": null,
+          "urls": [
+          ],
+          "user_mentions": [
+          ],
+          "description": null
+        },
+        "extended_entities": null,
+        "favorite_count": 0,
+        "favorited": false,
+        "filter_level": null,
+        "id": 379012882819592192,
+        "id_str": "379012882819592192",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "is_quote_status": false,
+        "lang": "und",
+        "place": null,
+        "possibly_sensitive": false,
+        "quoted_status_id": null,
+        "quoted_status_id_str": null,
+        "quoted_status": null,
+        "scopes": {
+        },
+        "retweet_count": 0,
+        "retweeted": false,
+        "retweeted_status": null,
+        "source": "<a href=\"http://www.apple.com\" rel=\"nofollow\">Camera on iOS</a>",
+        "text": "http://t.co/MS47cDC7Dq",
+        "truncated": false,
+        "user": null,
+        "withheld_copyright": false,
+        "withheld_in_countries": [
+        ],
+        "withheld_scope": null,
+        "metadata": null
       },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
-      "text":"@benuretsky @digitalocean  \n\nAll Dell's got Deleted",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
-    },
-    "statuses_count":1,
-    "verified":false
-  },{
-    "blocked_by":false,
-    "blocking":false,
-    "contributors_enabled":false,
-    "created_at":"Wed Jul 22 13:42:28 +0100 2009",
-    "default_profile":false,
-    "default_profile_image":true,
-    "description":"",
-    "entities":{
-      "hashtags":[],
-      "media":[],
-      "urls":[],
-      "user_mentions":[],
-      "description":{
-        "urls":[]
-      }
-    },
-    "favourites_count":3,
-    "follow_request_sent":false,
-    "following":false,
-    "followers_count":16,
-    "friends_count":14,
-    "geo_enabled":false,
-    "has_extended_profile":false,
-    "id":59114784,
-    "id_str":"59114784",
-    "is_translation_enabled":false,
-    "is_translator":false,
-    "lang":"en",
-    "listed_count":0,
-    "location":"-23.581337,-46.634343",
-    "muting":false,
-    "name":"Marcos Kikuti",
-    "notifications":false,
-    "profile_background_color":"C6E2EE",
-    "profile_background_image_url":"http://abs.twimg.com/images/themes/theme2/bg.gif",
-    "profile_background_image_url_https":"https://abs.twimg.com/images/themes/theme2/bg.gif",
-    "profile_background_tile":false,
-    "profile_image_url":"http://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
-    "profile_image_url_https":"https://abs.twimg.com/sticky/default_profile_images/default_profile_1_normal.png",
-    "profile_link_color":"1F98C7",
-    "profile_sidebar_border_color":"C6E2EE",
-    "profile_sidebar_fill_color":"DAECF4",
-    "profile_text_color":"663B12",
-    "profile_use_background_image":true,
-    "protected":false,
-    "screen_name":"kikutim",
-    "show_all_inline_media":false,
-    "status":{
-      "contributors":[],
-      "coordinates":[],
-      "created_at":"Sat Sep 14 23:44:47 +0100 2013",
-      "entities":{
-        "hashtags":[],
-        "media":[],
-        "urls":[],
-        "user_mentions":[]
-      },
-      "favorite_count":0,
-      "favorited":false,
-      "id":379012882819592192,
-      "id_str":"379012882819592192",
-      "is_quote_status":false,
-      "lang":"und",
-      "possibly_sensitive":false,
-      "scopes":{
-
-      },
-      "retweet_count":0,
-      "retweeted":false,
-      "source":"<a href=\"http://www.apple.com\" rel=\"nofollow\">Camera on iOS</a>",
-      "text":"http://t.co/MS47cDC7Dq",
-      "truncated":false,
-      "withheld_copyright":false,
-      "withheld_in_countries":[]
-    },
-    "statuses_count":4,
-    "verified":false
-  }],
-  "next_cursor":1509804826596207566,
-  "previous_cursor":0
+      "statuses_count": 4,
+      "time_zone": null,
+      "url": null,
+      "utc_offset": null,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    }
+  ],
+  "next_cursor": 1509804826596207566,
+  "previous_cursor": 0
 }
