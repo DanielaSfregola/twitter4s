@@ -71,8 +71,8 @@ import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 val consumerToken = ConsumerToken(key = "my-consumer-key", secret = "my-consumer-secret")
 val accessToken = AccessToken(key = "my-access-key", secret = "my-access-secret")  
 
-val restClient = new TwitterRestClient(consumerToken, accessToken)
-val streamingClient = new TwitterStreamingClient(consumerToken, accessToken)
+val restClient = TwitterRestClient(consumerToken, accessToken)
+val streamingClient = TwitterStreamingClient(consumerToken, accessToken)
 ```
 
 Once you have instantiated your client you are ready to use it! :smile:
