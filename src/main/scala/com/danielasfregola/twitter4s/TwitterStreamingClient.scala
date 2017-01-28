@@ -9,8 +9,18 @@ import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStat
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
+import scala.concurrent.Future
+
 class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                            (implicit val system: ActorSystem) extends StreamingClients
+                            (val system: ActorSystem) extends StreamingClients {
+
+  /** Terminates the actor system associated to the client.
+    *
+    * @return : Future that will be completed with Unit once the system has been shut down.
+    * */
+  def close(): Future[Unit] = system.terminate.map(_ => (): Unit)
+
+}
 
 trait StreamingClients
   extends TwitterStatusClient

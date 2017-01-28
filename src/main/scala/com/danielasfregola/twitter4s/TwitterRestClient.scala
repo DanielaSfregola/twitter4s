@@ -25,9 +25,18 @@ import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
-    implicit val system: ActorSystem)
-    extends RestClients
+import scala.concurrent.Future
+
+class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
+                       (val system: ActorSystem) extends RestClients {
+
+  /** Terminates the actor system associated to the client.
+    *
+    * @return : Future that will be completed with Unit once the system has been shut down.
+    * */
+  def close(): Future[Unit] = system.terminate.map(_ => (): Unit)
+
+}
 
 trait RestClients
     extends TwitterAccountClient
