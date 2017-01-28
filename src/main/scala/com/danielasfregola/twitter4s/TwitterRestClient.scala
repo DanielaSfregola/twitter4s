@@ -1,5 +1,7 @@
 package com.danielasfregola.twitter4s
 
+import java.util.UUID
+
 import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient
@@ -23,34 +25,42 @@ import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
-                       (implicit val system: ActorSystem = ActorSystem("twitter4s-rest")) extends RestClients
+class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
+    implicit val system: ActorSystem)
+    extends RestClients
 
-trait RestClients extends TwitterAccountClient
-  with TwitterApplicationClient
-  with TwitterBlockClient
-  with TwitterDirectMessageClient
-  with TwitterFavoriteClient
-  with TwitterFollowerClient
-  with TwitterFriendClient
-  with TwitterFriendshipClient
-  with TwitterGeoClient
-  with TwitterHelpClient
-  with TwitterListClient
-  with TwitterMediaClient
-  with TwitterMuteClient
-  with TwitterSavedSearchClient
-  with TwitterSearchClient
-  with TwitterStatusClient
-  with TwitterSuggestionClient
-  with TwitterTrendClient
-  with TwitterUserClient
+trait RestClients
+    extends TwitterAccountClient
+    with TwitterApplicationClient
+    with TwitterBlockClient
+    with TwitterDirectMessageClient
+    with TwitterFavoriteClient
+    with TwitterFollowerClient
+    with TwitterFriendClient
+    with TwitterFriendshipClient
+    with TwitterGeoClient
+    with TwitterHelpClient
+    with TwitterListClient
+    with TwitterMediaClient
+    with TwitterMuteClient
+    with TwitterSavedSearchClient
+    with TwitterSearchClient
+    with TwitterStatusClient
+    with TwitterSuggestionClient
+    with TwitterTrendClient
+    with TwitterUserClient
 
 object TwitterRestClient extends Configurations {
 
-  def apply(): TwitterRestClient = {
+  def apply(system: ActorSystem = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")): TwitterRestClient = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
     val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
-    new TwitterRestClient(consumerToken, accessToken)
+    apply(consumerToken, accessToken, system)
   }
+
+  def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestClient =
+    apply(consumerToken, accessToken, ActorSystem(s"twitter4s-rest-${UUID.randomUUID}"))
+
+  def apply(consumerToken: ConsumerToken, accessToken: AccessToken, system: ActorSystem): TwitterRestClient =
+    new TwitterRestClient(consumerToken, accessToken)(system)
 }
