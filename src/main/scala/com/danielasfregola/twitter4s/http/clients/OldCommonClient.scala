@@ -1,26 +1,23 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse}
-import akka.stream.Materializer
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
-import com.typesafe.scalalogging.Logger
+import com.danielasfregola.twitter4s.providers.ActorSystemProvider
+import com.danielasfregola.twitter4s.util.ActorContextExtractor
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Try
 
-private[twitter4s] trait CommonClient extends JsonSupport {
-
+trait OldCommonClient extends JsonSupport with ActorContextExtractor { self: ActorSystemProvider =>
+  
   def withLogRequest: Boolean
   def withLogRequestResponse: Boolean
 
-  @volatile protected lazy val log: Logger = Logger("twitter4s")
-
-  protected def connection(implicit request: HttpRequest, system: ActorSystem) = {
+  protected def connection(implicit request: HttpRequest) = {
     val scheme = request.uri.scheme
     val host = request.uri.authority.host.toString
     val port = request.uri.effectivePort
@@ -28,17 +25,14 @@ private[twitter4s] trait CommonClient extends JsonSupport {
     else Http().outgoingConnection(host, port)
   }
 
-  protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])
-                            (implicit request: HttpRequest, response: HttpResponse, materializer: Materializer) = {
-    implicit val ec = materializer.executionContext
+  protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])(implicit request: HttpRequest, response: HttpResponse) = {
     if (withLogRequestResponse) logRequestResponse(requestStartTime)
 
     if (response.status.isSuccess) f(response)
     else parseFailedResponse(response).flatMap(Future.failed)
   }
 
-  protected def parseFailedResponse(response: HttpResponse)(implicit materializer: Materializer) = {
-    implicit val ec = materializer.executionContext
+  protected def parseFailedResponse(response: HttpResponse) =
     response.entity.toStrict(50 seconds).map { sink =>
       val body = sink.data.utf8String
       val errors = Try {
@@ -46,11 +40,9 @@ private[twitter4s] trait CommonClient extends JsonSupport {
       } getOrElse Errors(body)
       TwitterException(response.status, errors)
     }
-  }
 
   // TODO - logRequest, logRequestResponse customisable?
-  def logRequest(implicit request: HttpRequest, materializer: Materializer): HttpRequest = {
-    implicit val ec = materializer.executionContext
+  def logRequest(implicit request: HttpRequest): HttpRequest = {
     log.info(s"${request.method.value} ${request.uri}")
     if (log.underlying.isDebugEnabled) {
       for {
@@ -60,8 +52,7 @@ private[twitter4s] trait CommonClient extends JsonSupport {
     request
   }
 
-  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest, materializer: Materializer): HttpResponse => HttpResponse = { response =>
-    implicit val ec = materializer.executionContext
+  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest): HttpResponse => HttpResponse = { response =>
     val elapsed = System.currentTimeMillis - requestStartTime
     log.info(s"${request.method.value} ${request.uri} (${response.status}) | ${elapsed}ms")
     if (log.underlying.isDebugEnabled) {
@@ -72,8 +63,5 @@ private[twitter4s] trait CommonClient extends JsonSupport {
     response
   }
 
-  private def toBody(entity: HttpEntity)(implicit materializer: Materializer): Future[String] = {
-    implicit val ec = materializer.executionContext
-    entity.toStrict(5 seconds).map(_.data.decodeString("UTF-8"))
-  }
+  private def toBody(entity: HttpEntity): Future[String] = entity.toStrict(5 seconds).map(_.data.decodeString("UTF-8"))
 }

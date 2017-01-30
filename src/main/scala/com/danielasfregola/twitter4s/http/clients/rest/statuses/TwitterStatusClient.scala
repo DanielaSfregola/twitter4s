@@ -1,5 +1,4 @@
-package com.danielasfregola.twitter4s.http
-package clients.rest.statuses
+package com.danielasfregola.twitter4s.http.clients.rest.statuses
 
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment
@@ -8,13 +7,15 @@ import com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType
 import com.danielasfregola.twitter4s.entities.enums.{Alignment, Language}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.statuses.parameters._
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `statuses` resource.
   */
-trait TwitterStatusClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterStatusClient {
+
+  protected val restClient: RestClient
 
   private val statusesUrl = s"$apiTwitterUrl/$twitterVersion/statuses"
 
@@ -50,6 +51,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
                        trim_user: Boolean = false,
                        contributor_details: Boolean = false,
                        include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    import restClient._
     val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities)
     Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAs[Seq[Tweet]]
   }
@@ -179,8 +181,10 @@ trait TwitterStatusClient extends RestClient with Configurations {
                                include_rts: Boolean = true): Future[Seq[Tweet]] =
     userTimelineForUserId(user_id, since_id, count, max_id, trim_user, exclude_replies, contributor_details, include_rts)
 
-  private def genericGetUserTimeline(parameters: UserTimelineParameters): Future[Seq[Tweet]] =
+  private def genericGetUserTimeline(parameters: UserTimelineParameters): Future[Seq[Tweet]] = {
+    import restClient._
     Get(s"$statusesUrl/user_timeline.json", parameters).respondAs[Seq[Tweet]]
+  }
 
   /** Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow.
     * The home timeline is central to how most users interact with the Twitter service.
@@ -219,6 +223,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
                    include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    import restClient._
     val parameters = HomeTimelineParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
     Get(s"$statusesUrl/home_timeline.json", parameters).respondAs[Seq[Tweet]]
   }
@@ -266,6 +271,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
                    include_entities: Boolean = true): Future[Seq[Tweet]] = {
+    import restClient._
     val parameters = RetweetsOfMeParameters(count, since_id, max_id, trim_user, exclude_replies, contributor_details, include_entities)
     Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAs[Seq[Tweet]]
   }
@@ -296,6 +302,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
   def retweets(id: Long,
                count: Int = 100,
                trim_user: Boolean = false): Future[Seq[Tweet]] = {
+    import restClient._
     val parameters = RetweetsParameters(count, trim_user)
     Get(s"$statusesUrl/retweets/$id.json", parameters).respondAs[Seq[Tweet]]
   }
@@ -326,6 +333,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
                trim_user: Boolean = false,
                include_my_retweet: Boolean = false,
                include_entities: Boolean = true): Future[Tweet] = {
+    import restClient._
     val parameters = ShowParameters(id, trim_user, include_my_retweet, include_entities)
     Get(s"$statusesUrl/show.json", parameters).respondAs[Tweet]
   }
@@ -346,6 +354,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
     */
   def deleteTweet(id: Long,
                   trim_user: Boolean = false): Future[Tweet] = {
+    import restClient._
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Tweet]
   }
@@ -393,6 +402,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
                   display_coordinates: Boolean = false,
                   trim_user: Boolean = false,
                   media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
+    import restClient._
     val entity = TweetUpdate(status, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
     Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
   }
@@ -468,6 +478,7 @@ trait TwitterStatusClient extends RestClient with Configurations {
     * @return : The representation of the original tweet with retweet details embedded.
     */
   def retweet(id: Long, trim_user: Boolean = false): Future[Tweet] = {
+    import restClient._
     val parameters = PostParameters(trim_user)
     Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]
   }
@@ -598,8 +609,10 @@ trait TwitterStatusClient extends RestClient with Configurations {
                           widget_type: Option[WidgetType] = None): Future[OEmbedTweet] =
     oembedTweetByUrl(url, max_width, hide_media, hide_thread, hide_tweet, omit_script, alignment, related, language, widget_type)
 
-  private def genericGetOembeddedTweet(parameters: OEmbedParameters): Future[OEmbedTweet] =
+  private def genericGetOembeddedTweet(parameters: OEmbedParameters): Future[OEmbedTweet] = {
+    import restClient._
     Get(s"$statusesUrl/oembed.json", parameters).respondAs[OEmbedTweet]
+  }
 
   /** Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.
     * For more information see
@@ -643,8 +656,10 @@ trait TwitterStatusClient extends RestClient with Configurations {
   def getRetweeterStringifiedIds(id: Long, count: Int = 100, cursor: Long = -1): Future[UserStringifiedIds] =
     retweeterStringifiedIds(id, count, cursor)
 
-  private def genericGetRetweeterIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] =
+  private def genericGetRetweeterIds[T: Manifest](parameters: RetweetersIdsParameters): Future[T] = {
+    import restClient._
     Get(s"$statusesUrl/retweeters/ids.json", parameters).respondAs[T]
+  }
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
@@ -733,8 +748,10 @@ trait TwitterStatusClient extends RestClient with Configurations {
                            trim_user: Boolean = false): Future[LookupMapped] =
     tweetLookupMapped(ids, include_entities, trim_user)
 
-  private def genericGetTweetLookup[T: Manifest](parameters: LookupParameters): Future[T] =
+  private def genericGetTweetLookup[T: Manifest](parameters: LookupParameters): Future[T] = {
+    import restClient._
     Get(s"$statusesUrl/lookup.json", parameters).respondAs[T]
+  }
 }
 
 

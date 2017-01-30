@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.mutes
 import com.danielasfregola.twitter4s.entities.{User, UserIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.mutes.parameters.{MuteParameters, MutedUsersIdsParameters, MutedUsersParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `mutes` resource.
   */
-trait TwitterMuteClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterMuteClient {
+
+  protected val restClient: RestClient
 
   private val mutesUrl = s"$apiTwitterUrl/$twitterVersion/mutes/users"
 
@@ -43,8 +45,10 @@ trait TwitterMuteClient extends RestClient with Configurations {
     genericMuteUser(parameters)
   }
 
-  private def genericMuteUser(parameters: MuteParameters): Future[User] =
+  private def genericMuteUser(parameters: MuteParameters): Future[User] = {
+    import restClient._
     Post(s"$mutesUrl/create.json", parameters).respondAs[User]
+  }
 
   /** Un-mutes the user specified for the authenticating user.
     * Actions taken in this method are asynchronous and changes will be eventually consistent.
@@ -76,8 +80,10 @@ trait TwitterMuteClient extends RestClient with Configurations {
     genericUnmuteUser(parameters)
   }
 
-  private def genericUnmuteUser(parameters: MuteParameters): Future[User] =
+  private def genericUnmuteUser(parameters: MuteParameters): Future[User] = {
+    import restClient._
     Post(s"$mutesUrl/destroy.json", parameters).respondAs[User]
+  }
 
   /** Returns an array of numeric user ids the authenticating user has muted.
     * For more information see
@@ -92,6 +98,7 @@ trait TwitterMuteClient extends RestClient with Configurations {
     * @return : The representation of the muted user ids.
     */
   def mutedUserIds(cursor: Long = -1): Future[UserIds] = {
+    import restClient._
     val parameters = MutedUsersIdsParameters(cursor)
     Get(s"$mutesUrl/ids.json", parameters).respondAs[UserIds]
   }
@@ -120,6 +127,7 @@ trait TwitterMuteClient extends RestClient with Configurations {
   def mutedUsers(cursor: Long = -1,
                  include_entities: Boolean = true,
                  skip_status: Boolean = false): Future[Users] = {
+    import restClient._
     val parameters = MutedUsersParameters(cursor, include_entities, skip_status)
     Get(s"$mutesUrl/list.json", parameters).respondAs[Users]
   }

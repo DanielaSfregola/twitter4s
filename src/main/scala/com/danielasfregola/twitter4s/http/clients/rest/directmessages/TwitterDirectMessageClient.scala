@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 import com.danielasfregola.twitter4s.entities.DirectMessage
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `direct_messages` resource.
   * */
-trait TwitterDirectMessageClient extends RestClient with Configurations {
+trait TwitterDirectMessageClient {
+
+  protected val restClient: RestClient
 
   private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
 
@@ -22,6 +24,7 @@ trait TwitterDirectMessageClient extends RestClient with Configurations {
     * @return : The direct message.
     * */
   def directMessage(id: Long): Future[DirectMessage] = {
+    import restClient._
     val parameters = ShowParameters(id)
     Get(s"$directMessagesUrl/show.json", parameters).respondAs[DirectMessage]
   }
@@ -64,8 +67,10 @@ trait TwitterDirectMessageClient extends RestClient with Configurations {
     genericCreateDirectMessage(parameters)
   }
 
-  private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] =
+  private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] = {
+    import restClient._
     Get(s"$directMessagesUrl/new.json", parameters).respondAs[DirectMessage]
+  }
 
   /** Returns the 20 most recent direct messages sent by the authenticating user.
     * Includes detailed information about the sender and recipient user.
@@ -89,6 +94,7 @@ trait TwitterDirectMessageClient extends RestClient with Configurations {
                          count: Int = 200,
                          include_entities: Boolean = true,
                          page: Int = -1): Future[Seq[DirectMessage]] = {
+    import restClient._
     val parameters = SentParameters(since_id, max_id, count, include_entities, page)
     Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
   }
@@ -129,6 +135,7 @@ trait TwitterDirectMessageClient extends RestClient with Configurations {
                              count: Int = 200,
                              include_entities: Boolean = true,
                              skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
+    import restClient._
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
     Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
   }
@@ -153,6 +160,7 @@ trait TwitterDirectMessageClient extends RestClient with Configurations {
     * @return : The deleted direct message.
     * */
   def deleteDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
+    import restClient._
     val parameters = DestroyParameters(id, include_entities)
     Post(s"$directMessagesUrl/destroy.json", parameters).respondAs[DirectMessage]
   }

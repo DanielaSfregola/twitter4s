@@ -8,13 +8,13 @@ import akka.stream.scaladsl.{Framing, Sink, Source}
 import akka.util.ByteString
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 import com.danielasfregola.twitter4s.exceptions.TwitterException
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.OldOAuthClient
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
-trait StreamingClient extends OAuthClient {
+trait StreamingClient extends OldOAuthClient {
 
   val withLogRequest = true
   val withLogRequestResponse = false

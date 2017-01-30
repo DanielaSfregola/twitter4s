@@ -11,7 +11,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
   implicit val consumerToken = ConsumerToken("xvz1evFS4wEEPTGEFPHBog", "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw")
   implicit val accessToken = AccessToken("370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE")
 
-  val provider = new OAuth2Provider(consumerToken, accessToken) {
+  val provider = new OldOAuth2Provider(consumerToken, accessToken) {
     override def currentSecondsFromEpoc = 1318622958
     override def generateNonce = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
   }

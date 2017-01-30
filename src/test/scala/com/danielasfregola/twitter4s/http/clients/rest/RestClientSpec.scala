@@ -8,10 +8,10 @@ import scala.concurrent.Future
 
 class RestClientSpec extends ClientSpec {
 
-  class RestClientSpecContext extends ClientSpecContext with RestClient {
+  class RestClientSpecContext extends ClientSpecContext {
+    import restClient._
 
     def exampleRequest(): Future[Unit] = Get("an-example-request", ContentTypes.`application/json`).respondAs[Unit]
-
   }
 
   "Rest Client" should {

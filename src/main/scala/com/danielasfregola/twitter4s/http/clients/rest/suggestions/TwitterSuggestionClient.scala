@@ -5,13 +5,15 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.{Category, Suggestions, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.parameters.SuggestionsParameters
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `suggestions` resource.
   */
-trait TwitterSuggestionClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterSuggestionClient {
+
+  protected val restClient: RestClient
 
   private val suggestionsUrl = s"$apiTwitterUrl/$twitterVersion/users/suggestions"
 
@@ -27,6 +29,7 @@ trait TwitterSuggestionClient extends RestClient with Configurations {
     * @return : The representation of the user suggestions.
     */
   def suggestions(slug: String, language: Language = Language.English): Future[Suggestions] = {
+    import restClient._
     val parameters = SuggestionsParameters(language)
     Get(s"$suggestionsUrl/$slug.json", parameters).respondAs[Suggestions]
   }
@@ -46,6 +49,7 @@ trait TwitterSuggestionClient extends RestClient with Configurations {
     * @return : The representation of the category suggestions.
     */
   def suggestedCategories(language: Language = Language.English): Future[Seq[Category]] = {
+    import restClient._
     val parameters = SuggestionsParameters(language)
     Get(s"$suggestionsUrl.json", parameters).respondAs[Seq[Category]]
   }
@@ -62,8 +66,10 @@ trait TwitterSuggestionClient extends RestClient with Configurations {
     * @param slug : The short name of list or a category.
     * @return : The representation of the suggested users.
     */
-  def suggestionsMembers(slug: String): Future[Seq[User]] =
+  def suggestionsMembers(slug: String): Future[Seq[User]] = {
+    import restClient._
     Get(s"$suggestionsUrl/$slug/members.json").respondAs[Seq[User]]
+  }
 
   @deprecated("use suggestionsMembers instead", "2.2")
   def getSuggestionsMembers(slug: String): Future[Seq[User]] =

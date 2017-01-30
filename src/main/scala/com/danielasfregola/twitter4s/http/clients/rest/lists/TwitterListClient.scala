@@ -5,13 +5,15 @@ import com.danielasfregola.twitter4s.entities.enums.Mode
 import com.danielasfregola.twitter4s.entities.enums.Mode.Mode
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.lists.parameters._
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `lists` resource.
   */
-trait TwitterListClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterListClient {
+
+  protected val restClient: RestClient
 
   private val listsUrl = s"$apiTwitterUrl/$twitterVersion/lists"
 
@@ -55,8 +57,10 @@ trait TwitterListClient extends RestClient with Configurations {
   def getListsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] =
     listsForUserId(user_id, reverse)
 
-  private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] =
+  private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] = {
+    import restClient._
     Get(s"$listsUrl/list.json", parameters).respondAs[Seq[TwitterList]]
+  }
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
@@ -190,8 +194,10 @@ trait TwitterListClient extends RestClient with Configurations {
                               include_rts: Boolean = false): Future[Seq[Tweet]] =
     listTimelineByListId(list_id, count, since_id, max_id, include_entities, include_rts)
 
-  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] =
+  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] = {
+    import restClient._
     Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
+  }
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
@@ -289,8 +295,10 @@ trait TwitterListClient extends RestClient with Configurations {
     genericRemoveListMember(parameters)
   }
 
-  private def genericRemoveListMember(parameters: RemoveMemberParameters): Future[Unit] =
+  private def genericRemoveListMember(parameters: RemoveMemberParameters): Future[Unit] = {
+    import restClient._
     Post(s"$listsUrl/members/destroy.json", parameters).respondAs[Unit]
+  }
 
   /** Returns the twitter lists the specified user has been added to.
     * For more information see
@@ -355,8 +363,10 @@ trait TwitterListClient extends RestClient with Configurations {
     listMembershipsForUserId(user_id, count, cursor, filter_to_owned_lists)
 
 
-  private def genericGetListMemberships(parameters: MembershipsParameters): Future[TwitterLists] =
+  private def genericGetListMemberships(parameters: MembershipsParameters): Future[TwitterLists] = {
+    import restClient._
     Get(s"$listsUrl/memberships.json", parameters).respondAs[TwitterLists]
+  }
 
   /** Adds multiple members to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists can’t have more than 5,000 members, and you are limited to adding up to 100 members to a list at a time with this method.
@@ -370,7 +380,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param user_ids : The list of user IDs to add, up to 100 are allowed in a single request.
     */
   def addListMemberIdsByListId(list_id: Long, user_ids: Seq[Long]): Future[Unit] = {
-    require(!user_ids.isEmpty, "please, provide at least one user id")
+    require(user_ids.nonEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(list_id = Some(list_id), user_id = Some(user_ids.mkString(",")))
     genericAddListMembers(parameters)
   }
@@ -388,7 +398,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param user_ids : The list of user IDs to add, up to 100 are allowed in a single request.
     */
   def addListMemberIdsBySlugAndOwnerName(slug: String, owner_screen_name: String, user_ids: Seq[Long]): Future[Unit] = {
-    require(!user_ids.isEmpty, "please, provide at least one user id")
+    require(user_ids.nonEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(user_ids.mkString(",")))
     genericAddListMembers(parameters)
   }
@@ -406,7 +416,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param user_ids : The list of user IDs to add, up to 100 are allowed in a single request.
     */
   def addListMemberIdsBySlugAndOwnerId(slug: String, owner_id: Long, user_ids: Seq[Long]): Future[Unit] = {
-    require(!user_ids.isEmpty, "please, provide at least one user id")
+    require(user_ids.nonEmpty, "please, provide at least one user id")
     val parameters = MembersParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(user_ids.mkString(",")))
     genericAddListMembers(parameters)
   }
@@ -423,7 +433,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param screen_names : The list of user screen names to add, up to 100 are allowed in a single request.
     */
   def addListMembersByListId(list_id: Long, screen_names: Seq[String]): Future[Unit] = {
-    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = MembersParameters(list_id = Some(list_id), screen_name = Some(screen_names.mkString(",")))
     genericAddListMembers(parameters)
   }
@@ -441,7 +451,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param screen_names : The list of user screen names to add, up to 100 are allowed in a single request.
     */
   def addListMembersBySlugAndOwnerName(slug: String, owner_screen_name: String, screen_names: Seq[String]): Future[Unit] = {
-    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = MembersParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), screen_name = Some(screen_names.mkString(",")))
     genericAddListMembers(parameters)
   }
@@ -459,13 +469,15 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param screen_names : The list of user screen names to add, up to 100 are allowed in a single request.
     */
   def addListMembersBySlugAndOwnerId(slug: String, owner_id: Long, screen_names: Seq[String]): Future[Unit] = {
-    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = MembersParameters(slug = Some(slug), owner_id = Some(owner_id), screen_name = Some(screen_names.mkString(",")))
     genericAddListMembers(parameters)
   }
 
-  private def genericAddListMembers(parameters: MembersParameters): Future[Unit] =
+  private def genericAddListMembers(parameters: MembersParameters): Future[Unit] = {
+    import restClient._
     Post(s"$listsUrl/members/create_all.json", parameters).respondAs[Unit]
+  }
 
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
@@ -641,8 +653,10 @@ trait TwitterListClient extends RestClient with Configurations {
     genericCheckListMember(parameters)
   }
 
-  private def genericCheckListMember(parameters: MemberParameters): Future[User] =
+  private def genericCheckListMember(parameters: MemberParameters): Future[User] = {
+    import restClient._
     Get(s"$listsUrl/members/show.json", parameters).respondAs[User]
+  }
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
@@ -769,8 +783,10 @@ trait TwitterListClient extends RestClient with Configurations {
                                      skip_status: Boolean = false): Future[Users] =
     listMembersBySlugAndOwnerId(slug, owner_id, count, cursor, include_entities, skip_status)
 
-  private def genericGetListMembers(parameters: ListMembersParameters): Future[Users] =
+  private def genericGetListMembers(parameters: ListMembersParameters): Future[Users] = {
+    import restClient._
     Get(s"$listsUrl/members.json", parameters).respondAs[Users]
+  }
 
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
@@ -867,8 +883,10 @@ trait TwitterListClient extends RestClient with Configurations {
     genericAddListMember(parameters)
   }
 
-  private def genericAddListMember(parameters: AddMemberParameters): Future[Unit] =
+  private def genericAddListMember(parameters: AddMemberParameters): Future[Unit] = {
+    import restClient._
     Post(s"$listsUrl/members/create.json", parameters).respondAs[Unit]
+  }
 
   /** Deletes the specified list. The authenticated user must own the list to be able to destroy it.
     * For more information see
@@ -911,8 +929,10 @@ trait TwitterListClient extends RestClient with Configurations {
     genericDeleteList(parameters)
   }
 
-  private def genericDeleteList(parameters: ListParameters): Future[TwitterList] =
+  private def genericDeleteList(parameters: ListParameters): Future[TwitterList] = {
+    import restClient._
     Post(s"$listsUrl/destroy.json", parameters).respondAs[TwitterList]
+  }
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
@@ -1088,6 +1108,7 @@ trait TwitterListClient extends RestClient with Configurations {
   }
 
   private def genericUpdateList(parameters: ListParameters, update: TwitterListUpdate): Future[Unit] = {
+    import restClient._
     val listUpdate = UpdateListParameters(
       list_id = parameters.list_id,
       slug = parameters.slug,
@@ -1113,6 +1134,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @return : The new created Twitter list.
     */
   def createList(name: String, mode: Mode = Mode.Public, description: Option[String] = None): Future[TwitterList] = {
+    import restClient._
     val parameters = CreateListParameters(name, mode, description)
     Post(s"$listsUrl/create.json", parameters).respondAs[TwitterList]
   }
@@ -1170,8 +1192,10 @@ trait TwitterListClient extends RestClient with Configurations {
   def getListBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] =
     listBySlugAndOwnerId(slug, owner_id)
 
-  private def genericList(parameters: ListParameters): Future[TwitterList] =
+  private def genericList(parameters: ListParameters): Future[TwitterList] = {
+    import restClient._
     Get(s"$listsUrl/show.json", parameters).respondAs[TwitterList]
+  }
 
   /** Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default.
     * Does not include the user’s own lists.
@@ -1231,8 +1255,10 @@ trait TwitterListClient extends RestClient with Configurations {
     listSubscriptionsByUserId(user_id, count, cursor)
 
 
-  private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] =
+  private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] = {
+    import restClient._
     Get(s"$listsUrl/subscriptions.json", parameters).respondAs[TwitterLists]
+  }
 
   /** Removes multiple members from a list. The authenticated user must own the list to be able to remove members from it.
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
@@ -1245,7 +1271,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembers(list_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
-    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    require(members_screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RemoveMembersParameters(list_id = Some(list_id), screen_name = Some(members_screen_names.mkString(",")))
     genericRemoveMembers(parameters)
   }
@@ -1262,7 +1288,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembersBySlugAndOwnerName(slug: String, owner_screen_name: String, members_screen_names: Seq[String]): Future[Unit] = {
-    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    require(members_screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RemoveMembersParameters(slug = Some(slug),
       owner_screen_name = Some(owner_screen_name),
       screen_name = Some(members_screen_names.mkString(",")))
@@ -1281,7 +1307,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembersBySlugAndOwnerId(slug: String, owner_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
-    require(!members_screen_names.isEmpty, "please, provide at least one screen name")
+    require(members_screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RemoveMembersParameters(slug = Some(slug),
       owner_id = Some(owner_id),
       screen_name = Some(members_screen_names.mkString(",")))
@@ -1299,7 +1325,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_ids : A sequence of user ids to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembersIds(list_id: Long, members_ids: Seq[Long]): Future[Unit] = {
-    require(!members_ids.isEmpty, "please, provide at least one user id")
+    require(members_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RemoveMembersParameters(list_id = Some(list_id), user_id = Some(members_ids.mkString(",")))
     genericRemoveMembers(parameters)
   }
@@ -1316,7 +1342,7 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_ids : A sequence of user ids to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembersIdsBySlugAndOwnerName(slug: String, owner_screen_name: String, members_ids: Seq[Long]): Future[Unit] = {
-    require(!members_ids.isEmpty, "please, provide at least one user id")
+    require(members_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RemoveMembersParameters(slug = Some(slug),
       owner_screen_name = Some(owner_screen_name),
       user_id = Some(members_ids.mkString(",")))
@@ -1335,15 +1361,17 @@ trait TwitterListClient extends RestClient with Configurations {
     * @param members_ids : A sequence of user ids to remove from the list, up to 100 are allowed in a single request.
     */
   def removeListMembersIdsBySlugAndOwnerId(slug: String, owner_id: Long, members_ids: Seq[Long]): Future[Unit] = {
-    require(!members_ids.isEmpty, "please, provide at least one user id")
+    require(members_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RemoveMembersParameters(slug = Some(slug),
       owner_id = Some(owner_id),
       user_id = Some(members_ids.mkString(",")))
     genericRemoveMembers(parameters)
   }
 
-  private def genericRemoveMembers(parameters: RemoveMembersParameters): Future[Unit] =
+  private def genericRemoveMembers(parameters: RemoveMembersParameters): Future[Unit] = {
+    import restClient._
     Post(s"$listsUrl/members/destroy_all.json", parameters).respondAs[Unit]
+  }
 
   /** Returns the lists owned by the specified Twitter user.
     * Private lists will only be shown if the authenticated user is also the owner of the lists.
@@ -1392,6 +1420,8 @@ trait TwitterListClient extends RestClient with Configurations {
   def getListOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] =
     listOwnershipsForUserId(user_id, count, cursor)
 
-  private def genericGetListOwnerships(parameters: OwnershipsParameters): Future[TwitterLists] =
+  private def genericGetListOwnerships(parameters: OwnershipsParameters): Future[TwitterLists] = {
+    import restClient._
     Get(s"$listsUrl/ownerships.json", parameters).respondAs[TwitterLists]
+  }
 }

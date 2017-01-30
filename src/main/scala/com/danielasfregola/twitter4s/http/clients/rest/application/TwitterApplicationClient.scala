@@ -4,13 +4,15 @@ import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource.Resource
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.parameters.RatesParameters
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `application` resource.
   */
-trait TwitterApplicationClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterApplicationClient {
+
+  protected val restClient: RestClient
 
   private val applicationUrl = s"$apiTwitterUrl/$twitterVersion/application"
 
@@ -24,6 +26,7 @@ trait TwitterApplicationClient extends RestClient with Configurations {
     * @return : The current rate limits for methods belonging to the specified resource families.
     */
   def rateLimits(resources: Resource*): Future[RateLimits] = {
+    import restClient._
     val parameters = RatesParameters(Option(resources.mkString(",")).filter(_.trim.nonEmpty))
     Get(s"$applicationUrl/rate_limit_status.json", parameters).respondAs[RateLimits]
   }

@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.favorites
 import com.danielasfregola.twitter4s.entities.Tweet
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.favorites.parameters.{FavoriteParameters, FavoritesParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `favorites` resource.
   * */
-trait TwitterFavoriteClient extends RestClient with Configurations {
+trait TwitterFavoriteClient {
+
+  protected val restClient: RestClient
 
   private val favoritesUrl = s"$apiTwitterUrl/$twitterVersion/favorites"
 
@@ -91,8 +93,10 @@ trait TwitterFavoriteClient extends RestClient with Configurations {
                                    include_entities: Boolean = true): Future[Seq[Tweet]] =
     favoriteStatusesForUserId(user_id, count, since_id, max_id, include_entities)
 
-  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Tweet]] =
+  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Tweet]] = {
+    import restClient._
     Get(s"$favoritesUrl/list.json", parameters).respondAs[Seq[Tweet]]
+  }
 
   /** Likes the status specified in the ID parameter as the authenticating user.
     * Note: the like action was known as favorite before November 3, 2015;
@@ -107,6 +111,7 @@ trait TwitterFavoriteClient extends RestClient with Configurations {
     * @return : The liked status.
     * */
   def favoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {
+    import restClient._
     val parameters = FavoriteParameters(id, include_entities)
     Post(s"$favoritesUrl/create.json", parameters).respondAs[Tweet]
   }
@@ -124,6 +129,7 @@ trait TwitterFavoriteClient extends RestClient with Configurations {
     * @return : The un-liked status.
     * */
   def unfavoriteStatus(id: Long, include_entities: Boolean = true): Future[Tweet] = {
+    import restClient._
     val parameters = FavoriteParameters(id, include_entities)
     Post(s"$favoritesUrl/destroy.json", parameters).respondAs[Tweet]
   }

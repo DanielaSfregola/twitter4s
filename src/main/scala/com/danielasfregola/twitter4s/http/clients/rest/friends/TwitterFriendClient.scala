@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.friends
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.friends.parameters.{FriendParameters, FriendsParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `friends` resource.
   * */
-trait TwitterFriendClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterFriendClient {
+
+  protected val restClient: RestClient
 
   private val friendsUrl = s"$apiTwitterUrl/$twitterVersion/friends"
 
@@ -121,8 +123,10 @@ trait TwitterFriendClient extends RestClient with Configurations {
   def getFriendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
     friendStringifiedIdsForUser(screen_name, cursor, count)
 
-  private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[T] =
+  private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[T] = {
+    import restClient._
     Get(s"$friendsUrl/ids.json", parameters).respondAs[T]
+  }
 
   /** Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
@@ -196,6 +200,8 @@ trait TwitterFriendClient extends RestClient with Configurations {
                           include_user_entities: Boolean = true): Future[Users] =
     friendsForUserId(user_id, cursor, count, skip_status, include_user_entities)
 
-  private def genericGetFriends(parameters: FriendsParameters): Future[Users] =
+  private def genericGetFriends(parameters: FriendsParameters): Future[Users] = {
+    import restClient._
     Get(s"$friendsUrl/list.json", parameters).respondAs[Users]
+  }
 }

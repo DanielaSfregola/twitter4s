@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.blocks
 import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockParameters, BlockedUserIdsParameters, BlockedUsersParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `blocks` resource.
   */
-trait TwitterBlockClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterBlockClient {
+
+  protected val restClient: RestClient
 
   private val blocksUrl = s"$apiTwitterUrl/$twitterVersion/blocks"
 
@@ -30,6 +32,7 @@ trait TwitterBlockClient extends RestClient with Configurations {
   def blockedUsers(include_entities: Boolean = true,
                    skip_status: Boolean = false,
                    cursor: Long = -1): Future[Users] = {
+    import restClient._
     val parameters = BlockedUsersParameters(include_entities, skip_status, cursor)
     Get(s"$blocksUrl/list.json", parameters).respondAs[Users]
   }
@@ -78,8 +81,10 @@ trait TwitterBlockClient extends RestClient with Configurations {
   def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
     blockedUserStringifiedIds(cursor)
 
-  private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] =
+  private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] = {
+    import restClient._
     Get(s"$blocksUrl/ids.json", parameters).respondAs[T]
+  }
 
   /** Blocks the specified user from following the authenticating user.
     * In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
@@ -125,8 +130,10 @@ trait TwitterBlockClient extends RestClient with Configurations {
     genericBlock(parameters)
   }
 
-  private def genericBlock(parameters: BlockParameters): Future[User] =
+  private def genericBlock(parameters: BlockParameters): Future[User] = {
+    import restClient._
     Post(s"$blocksUrl/create.json", parameters).respondAs[User]
+  }
 
   /** Un-blocks the user for the authenticating user.
     * Returns the un-blocked user in the requested format when successful.
@@ -172,6 +179,8 @@ trait TwitterBlockClient extends RestClient with Configurations {
     genericUnblock(parameters)
   }
 
-  private def genericUnblock(parameters: BlockParameters): Future[User] =
+  private def genericUnblock(parameters: BlockParameters): Future[User] = {
+    import restClient._
     Post(s"$blocksUrl/destroy.json", parameters).respondAs[User]
+  }
 }

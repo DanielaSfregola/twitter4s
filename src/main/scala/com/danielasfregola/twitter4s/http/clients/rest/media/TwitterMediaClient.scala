@@ -3,21 +3,26 @@ package clients.rest.media
 
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
+import java.util.UUID
 
+import akka.actor.ActorSystem
 import akka.http.scaladsl.model.Multipart._
 import akka.http.scaladsl.model.{ContentTypes, MediaType}
 import akka.stream.scaladsl.Source
 import com.danielasfregola.twitter4s.entities.MediaDetails
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.media.parameters._
-import com.danielasfregola.twitter4s.util.{Chunk, Configurations, MediaReader}
+import com.danielasfregola.twitter4s.util.Configurations._
+import com.danielasfregola.twitter4s.util.{Chunk, MediaReader}
 import org.json4s.native.Serialization
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 /** Implements the available endpoints for the MEDIA API.
   */
-trait TwitterMediaClient extends RestClient with MediaReader with Configurations {
+private[twitter4s] trait TwitterMediaClient extends MediaReader {
+
+  protected val restClient: RestClient
 
   private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 
@@ -84,26 +89,34 @@ trait TwitterMediaClient extends RestClient with MediaReader with Configurations
       filename.getOrElse(s"twitter4s-$mediaId.$extension")
     }
 
+    val system = ActorSystem(s"twitter4s-media-${UUID.randomUUID}")
+    implicit val ec = system.dispatcher
+
     for {
       details <- initMedia(size, media_type, additional_owners)
       uploads <- appendMedia(details.media_id, inputStream, filenameBuilder(details.media_id))
       finalize <- finalizeMedia(details.media_id)
+      _ <- system.terminate
     } yield finalize
   }
 
   private def initMedia(size: Long,
                         media_type: String,
                         additional_owners: Seq[Long]): Future[MediaDetails] = {
+    import restClient._
     val parameters = MediaInitParameters(size, media_type.toAscii, Some(additional_owners.mkString(",")))
     Post(s"$mediaUrl/upload.json", parameters).respondAs[MediaDetails]
   }
 
-  private def appendMedia(mediaId: Long, inputStream: InputStream, filename: String): Future[Seq[Unit]] = {
+  private def appendMedia(mediaId: Long, inputStream: InputStream, filename: String)
+                         (implicit ec: ExecutionContext): Future[Seq[Unit]] = {
     val appendMediaById = appendMediaChunk(mediaId, filename)_
     Future.sequence(processAsChunks(inputStream, appendMediaById))
   }
 
-  private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int): Future[Unit] = {
+  private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int)
+                              (implicit ec: ExecutionContext): Future[Unit] = {
+    import restClient._
     val formData: FormData = FormData(
       Source(List(
       FormData.BodyPart.Strict("command", "APPEND"),
@@ -116,6 +129,7 @@ trait TwitterMediaClient extends RestClient with MediaReader with Configurations
   }
 
   private def finalizeMedia(mediaId: Long): Future[MediaDetails] = {
+    import restClient._
     val entity = MediaFinalizeParameters(mediaId)
     Post(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
@@ -129,6 +143,7 @@ trait TwitterMediaClient extends RestClient with MediaReader with Configurations
     * @return : The media details
     * */
   def statusMedia(media_id: Long): Future[MediaDetails] = {
+    import restClient._
     val entity = MediaStatusParameters(media_id)
     Get(s"$mediaUrl/upload.json", entity).respondAs[MediaDetails]
   }
@@ -143,6 +158,7 @@ trait TwitterMediaClient extends RestClient with MediaReader with Configurations
     * @param description : The description of the media
     * */
   def createMediaDescription(media_id: Long, description: String): Future[Unit] = {
+    import restClient._
     val entity = MediaMetadataCreation(media_id.toString, description)
     val jsonEntity = Serialization.write(entity)
     Post(s"$mediaUrl/metadata/create.json", jsonEntity, ContentTypes.`application/json`).sendAsFormData
