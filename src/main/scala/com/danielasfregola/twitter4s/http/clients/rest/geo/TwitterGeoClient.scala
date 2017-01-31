@@ -30,10 +30,6 @@ private[twitter4s] trait TwitterGeoClient {
     Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
   }
 
-  @deprecated("use geoPlace instead", "2.2")
-  def getGeoPlace(place_id: String): Future[GeoPlace] =
-    geoPlace(place_id)
-
   /** Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/geo/reverse_geocode" target="_blank">

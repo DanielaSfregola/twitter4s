@@ -31,8 +31,4 @@ private[twitter4s] trait TwitterApplicationClient {
     Get(s"$applicationUrl/rate_limit_status.json", parameters).respondAs[RateLimits]
   }
 
-  @deprecated("use rateLimits instead", "2.2")
-  def getRateLimits(resources: Resource*): Future[RateLimits] =
-    rateLimits(resources:_*)
-
 }

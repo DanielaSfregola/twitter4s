@@ -103,10 +103,6 @@ private[twitter4s] trait TwitterMuteClient {
     Get(s"$mutesUrl/ids.json", parameters).respondAs[UserIds]
   }
 
-  @deprecated("use mutedUserIds instead", "2.2")
-  def getMutedUserIds(cursor: Long = -1): Future[UserIds] =
-    mutedUserIds(cursor)
-
   /** Returns the users representation that the authenticating user has muted.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/mutes/users/list" target="_blank">
@@ -131,11 +127,4 @@ private[twitter4s] trait TwitterMuteClient {
     val parameters = MutedUsersParameters(cursor, include_entities, skip_status)
     Get(s"$mutesUrl/list.json", parameters).respondAs[Users]
   }
-
-  @deprecated("use mutedUsers instead", "2.2")
-  def getMutedUsers(cursor: Long = -1,
-                    include_entities: Boolean = true,
-                    skip_status: Boolean = false): Future[Users] =
-    mutedUsers(cursor, include_entities, skip_status)
-
 }

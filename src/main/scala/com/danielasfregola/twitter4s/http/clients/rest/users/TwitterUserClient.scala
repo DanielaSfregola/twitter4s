@@ -25,9 +25,6 @@ private[twitter4s] trait TwitterUserClient {
     */
   def users(screen_names: String*): Future[Seq[User]] = users(screen_names)
 
-  @deprecated("use users instead", "2.2")
-  def getUsers(screen_names: String*): Future[Seq[User]] = users(screen_names:_*)
-
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
@@ -45,11 +42,6 @@ private[twitter4s] trait TwitterUserClient {
     genericGetUsers(parameters)
   }
 
-  @deprecated("use users instead", "2.2")
-  def getUsers(screen_names: Seq[String],
-               include_entities: Boolean = true): Future[Seq[User]] =
-    users(screen_names, include_entities)
-
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
@@ -59,9 +51,6 @@ private[twitter4s] trait TwitterUserClient {
     * @return : The sequence of user representations.
     */
   def usersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids)
-
-  @deprecated("use usersByIds instead", "2.2")
-  def getUsersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids:_*)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
@@ -79,11 +68,6 @@ private[twitter4s] trait TwitterUserClient {
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericGetUsers(parameters)
   }
-
-  @deprecated("use usersByIds instead", "2.2")
-  def getUsersByIds(ids: Seq[Long],
-                    include_entities: Boolean = true): Future[Seq[User]] =
-    usersByIds(ids, include_entities)
 
   private def genericGetUsers(parameters: UsersParameters): Future[Seq[User]] = {
     import restClient._
@@ -106,10 +90,6 @@ private[twitter4s] trait TwitterUserClient {
     genericGetUser(parameters)
   }
 
-  @deprecated("use user instead", "2.2")
-  def getUser(screen_name: String, include_entities: Boolean = true): Future[User] =
-    user(screen_name, include_entities)
-
   /** Returns a variety of information about the user specified by the required screen name parameter.
     * The author’s most recent Tweet will be returned inline when possible.
     * For more information see
@@ -125,10 +105,6 @@ private[twitter4s] trait TwitterUserClient {
     val parameters = UserParameters(Some(id), screen_name = None, include_entities)
     genericGetUser(parameters)
   }
-
-  @deprecated("use userById instead", "2.2")
-  def getUserById(id: Long, include_entities: Boolean = true): Future[User] =
-    userById(id, include_entities)
 
   private def genericGetUser(parameters: UserParameters): Future[User] = {
     import restClient._
@@ -152,10 +128,6 @@ private[twitter4s] trait TwitterUserClient {
     genericGetProfileBanners(parameters)
   }
 
-  @deprecated("use profileBannersForUser instead", "2.2")
-  def getProfileBannersForUser(screen_name: String): Future[Banners] =
-    profileBannersForUser(screen_name)
-
   /** Returns a map of the available size variations of the specified user’s profile banner.
     * If the user has not uploaded a profile banner, a `TwitterException` will be thrown instead.
     * This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
@@ -172,10 +144,6 @@ private[twitter4s] trait TwitterUserClient {
     val parameters = BannersParameters(Some(user_id), screen_name = None)
     genericGetProfileBanners(parameters)
   }
-
-  @deprecated("use profileBannersForUserId instead", "2.2")
-  def getProfileBannersForUserId(user_id: Long): Future[Banners] =
-    profileBannersForUserId(user_id)
 
   private def genericGetProfileBanners(parameters: BannersParameters): Future[Banners] = {
     import restClient._

@@ -38,10 +38,6 @@ private[twitter4s] trait TwitterFriendClient {
     genericGetFriendIds[UserIds](parameters)
   }
 
-  @deprecated("use friendIdsForUserId instead", "2.2")
-  def getFriendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
-    friendIdsForUserId(user_id, cursor, count)
-
   /** Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
@@ -64,10 +60,6 @@ private[twitter4s] trait TwitterFriendClient {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericGetFriendIds[UserIds](parameters)
   }
-
-  @deprecated("use friendIdsForUser instead", "2.2")
-  def getFriendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
-    friendIdsForUser(screen_name, cursor, count)
 
   /** Returns a cursored collection of user stringified IDs for every user the specified user id is following (otherwise known as their “friends”).
     * For more information see
@@ -92,10 +84,6 @@ private[twitter4s] trait TwitterFriendClient {
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
 
-  @deprecated("use friendStringifiedIdsForUserId instead", "2.2")
-  def getFriendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
-    friendStringifiedIdsForUserId(user_id, cursor, count)
-
   /** Returns a cursored collection of user stringified IDs for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friends/ids" target="_blank">
@@ -118,10 +106,6 @@ private[twitter4s] trait TwitterFriendClient {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
-
-  @deprecated("use friendStringifiedIdsForUser instead", "2.2")
-  def getFriendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
-    friendStringifiedIdsForUser(screen_name, cursor, count)
 
   private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[T] = {
     import restClient._
@@ -156,14 +140,6 @@ private[twitter4s] trait TwitterFriendClient {
     genericGetFriends(parameters)
   }
 
-  @deprecated("use friendsForUser instead", "2.2")
-  def getFriendsForUser(screen_name: String,
-                        cursor: Long = -1,
-                        count: Int = 20,
-                        skip_status: Boolean = false,
-                        include_user_entities: Boolean = true): Future[Users] =
-    friendsForUser(screen_name, cursor, count, skip_status, include_user_entities)
-
   /** Returns a cursored collection of user objects for every user the specified user id is following (otherwise known as their “friends”).
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friends/list" target="_blank">
@@ -191,14 +167,6 @@ private[twitter4s] trait TwitterFriendClient {
     val parameters = FriendsParameters(Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
     genericGetFriends(parameters)
   }
-
-  @deprecated("use friendsForUserId instead", "2.2")
-  def getFriendsForUserId(user_id: Long,
-                          cursor: Long = -1,
-                          count: Int = 20,
-                          skip_status: Boolean = false,
-                          include_user_entities: Boolean = true): Future[Users] =
-    friendsForUserId(user_id, cursor, count, skip_status, include_user_entities)
 
   private def genericGetFriends(parameters: FriendsParameters): Future[Users] = {
     import restClient._

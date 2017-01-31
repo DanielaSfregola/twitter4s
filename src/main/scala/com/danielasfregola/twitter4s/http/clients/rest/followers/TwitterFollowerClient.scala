@@ -38,10 +38,6 @@ trait TwitterFollowerClient {
     genericFollowerIds[UserIds](parameters)
   }
 
-  @deprecated("use followerIdsForUserId instead", "2.2")
-  def getFollowerIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
-    followerIdsForUserId(user_id, cursor, count)
-
   /** Returns a cursored collection of user IDs for every user following the specified user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/followers/ids" target="_blank">
@@ -64,10 +60,6 @@ trait TwitterFollowerClient {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericFollowerIds[UserIds](parameters)
   }
-
-  @deprecated("use followerIdsForUser instead", "2.2")
-  def getFollowerIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] =
-    followerIdsForUser(screen_name, cursor, count)
 
   /** Returns a cursored collection of user stringified IDs for every user following the specified user id.
     * For more information see
@@ -92,10 +84,6 @@ trait TwitterFollowerClient {
     genericFollowerIds[UserStringifiedIds](parameters)
   }
 
-  @deprecated("use followerStringifiedIdsForUserId instead", "2.2")
-  def getFollowerStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
-    followerStringifiedIdsForUserId(user_id, cursor, count)
-
   /** Returns a cursored collection of user stringified IDs for every user following the specified user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/followers/ids" target="_blank">
@@ -118,10 +106,6 @@ trait TwitterFollowerClient {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericFollowerIds[UserStringifiedIds](parameters)
   }
-
-  @deprecated("use followersStringifiedIdsForUser instead", "2.2")
-  def getFollowersStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
-    followersStringifiedIdsForUser(screen_name, cursor, count)
 
   private def genericFollowerIds[T: Manifest](parameters: FollowingParameters): Future[T] = {
     import restClient._
@@ -156,14 +140,6 @@ trait TwitterFollowerClient {
     genericGetFollowers(parameters)
   }
 
-  @deprecated("use getFollowersForUser instead", "2.2")
-  def getFollowersForUser(screen_name: String,
-                          cursor: Long = -1,
-                          count: Int = 20,
-                          skip_status: Boolean = false,
-                          include_user_entities: Boolean = true): Future[Users] =
-    followersForUser(screen_name, cursor, count, skip_status, include_user_entities)
-
   /** Returns a cursored collection of user objects for users following the specified user id.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/followers/list" target="_blank">
@@ -191,14 +167,6 @@ trait TwitterFollowerClient {
     val parameters = FollowersParameters(user_id = Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
     genericGetFollowers(parameters)
   }
-
-  @deprecated("use followersForUserId instead", "2.2")
-  def getFollowersForUserId(user_id: Long,
-                            cursor: Long = -1,
-                            count: Int = 20,
-                            skip_status: Boolean = false,
-                            include_user_entities: Boolean = true): Future[Users] =
-    followersForUserId(user_id, cursor, count, skip_status, include_user_entities)
 
   private def genericGetFollowers(parameters: FollowersParameters): Future[Users] = {
     import restClient._

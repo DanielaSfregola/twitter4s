@@ -46,14 +46,6 @@ trait TwitterFavoriteClient {
     genericGetFavoriteStatuses(parameters)
   }
 
-  @deprecated("use favoriteStatusesForUser instead", "2.2")
-  def getFavoriteStatusesForUser(screen_name: String,
-                                 count: Int = 20,
-                                 since_id: Option[Long] = None,
-                                 max_id: Option[Long] = None,
-                                 include_entities: Boolean = true): Future[Seq[Tweet]] =
-    favoriteStatusesForUser(screen_name, count, since_id, max_id, include_entities)
-
   /** Returns the 20 most recent Tweets liked by the specified user id.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/favorites/list" target="_blank">
@@ -84,14 +76,6 @@ trait TwitterFavoriteClient {
     val parameters = FavoritesParameters(Some(user_id), screen_name = None, count, since_id, max_id, include_entities)
     genericGetFavoriteStatuses(parameters)
   }
-
-  @deprecated("use favoriteStatusesForUserId instead", "2.2")
-  def getFavoriteStatusesForUserId(user_id: Long,
-                                   count: Int = 20,
-                                   since_id: Option[Long] = None,
-                                   max_id: Option[Long] = None,
-                                   include_entities: Boolean = true): Future[Seq[Tweet]] =
-    favoriteStatusesForUserId(user_id, count, since_id, max_id, include_entities)
 
   private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Tweet]] = {
     import restClient._

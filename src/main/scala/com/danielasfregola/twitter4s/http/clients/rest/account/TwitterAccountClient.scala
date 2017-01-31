@@ -19,9 +19,6 @@ private[twitter4s] trait TwitterAccountClient {
 
   private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 
-  @deprecated("use settings instead", "2.2")
-  def getSettings(): Future[Settings] = settings()
-
   /** Returns settings (including current trend, geo and sleep time information) for the authenticating user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/account/settings" target="_blank">

@@ -29,10 +29,6 @@ trait TwitterDirectMessageClient {
     Get(s"$directMessagesUrl/show.json", parameters).respondAs[DirectMessage]
   }
 
-  @deprecated("use directMessage instead", "2.2")
-  def getDirectMessage(id: Long): Future[DirectMessage] =
-    directMessage(id)
-
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/post/direct_messages/new" target="_blank">
@@ -99,14 +95,6 @@ trait TwitterDirectMessageClient {
     Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
   }
 
-  @deprecated("use sentDirectMessages instead", "2.2")
-  def getSentDirectMessages(since_id: Option[Long] = None,
-                            max_id: Option[Long] = None,
-                            count: Int = 200,
-                            include_entities: Boolean = true,
-                            page: Int = -1): Future[Seq[DirectMessage]] =
-    sentDirectMessages(since_id, max_id, count, include_entities, page)
-
   /** Returns the 20 most recent direct messages sent to the authenticating user.
     * Includes detailed information about the sender and recipient user.
     * You can request up to 200 direct messages per call, and only the most recent 200 DMs will be available using this endpoint.
@@ -139,14 +127,6 @@ trait TwitterDirectMessageClient {
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
     Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
   }
-
-  @deprecated("use receivedDirectMessages instead", "2.2")
-  def getReceivedDirectMessages(since_id: Option[Long] = None,
-                                max_id: Option[Long] = None,
-                                count: Int = 200,
-                                include_entities: Boolean = true,
-                                skip_status: Boolean = false): Future[Seq[DirectMessage]] =
-    receivedDirectMessages(since_id, max_id, count, include_entities, skip_status)
 
   /** Destroys the direct message specified in the required ID parameter.
     * The authenticating user must be the recipient of the specified direct message.
