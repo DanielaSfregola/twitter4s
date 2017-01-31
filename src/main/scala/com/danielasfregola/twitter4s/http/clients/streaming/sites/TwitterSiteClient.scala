@@ -1,17 +1,19 @@
 package com.danielasfregola.twitter4s
 package http.clients.streaming.sites
 
+import com.danielasfregola.twitter4s.util.Configurations._
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
 import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
-import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
 
 import scala.concurrent.Future
 
-trait TwitterSiteClient extends StreamingClient with Configurations with ActorContextExtractor {
+private[twitter4s] trait TwitterSiteClient {
+
+  protected val streamingClient: StreamingClient
 
   private val siteUrl = s"$siteStreamingTwitterUrl/$twitterVersion"
 
@@ -50,6 +52,7 @@ trait TwitterSiteClient extends StreamingClient with Configurations with ActorCo
                  stringify_friend_ids: Boolean = false,
                  languages: Seq[Language] = Seq.empty,
                  stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] = {
+    import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
     preProcessing()

@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.trends
 import com.danielasfregola.twitter4s.entities.{Location, LocationTrends}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.parameters.{LocationParameters, TrendsParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `trends` resource.
   */
-trait TwitterTrendClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterTrendClient {
+
+  protected val restClient: RestClient
 
   private val trendsUrl = s"$apiTwitterUrl/$twitterVersion/trends"
 
@@ -43,6 +45,7 @@ trait TwitterTrendClient extends RestClient with Configurations {
     * @return : The representation of the location trends.
     */
   def trends(woeid: Long, exclude_hashtags: Boolean = false): Future[Seq[LocationTrends]] = {
+    import restClient._
     val exclude = if (exclude_hashtags) Some("hashtags") else None
     val parameters = TrendsParameters(woeid, exclude)
     Get(s"$trendsUrl/place.json", parameters).respondAs[Seq[LocationTrends]]
@@ -61,8 +64,10 @@ trait TwitterTrendClient extends RestClient with Configurations {
     *
     * @return : The sequence of locations that Twitter has trending topic information for.
     */
-  def locationTrends(): Future[Seq[Location]] =
+  def locationTrends(): Future[Seq[Location]] = {
+    import restClient._
     Get(s"$trendsUrl/available.json").respondAs[Seq[Location]]
+  }
 
   @deprecated("use locationTrends instead", "2.2")
   def getLocationTrends(): Future[Seq[Location]] =
@@ -82,6 +87,7 @@ trait TwitterTrendClient extends RestClient with Configurations {
     * @return : The sequence of locations that Twitter has trending topic information for.
     */
   def closestLocationTrends(latitude: Double, longitude: Double): Future[Seq[Location]] = {
+    import restClient._
     val parameters = LocationParameters(latitude, longitude)
     Get(s"$trendsUrl/closest.json", parameters).respondAs[Seq[Location]]
   }

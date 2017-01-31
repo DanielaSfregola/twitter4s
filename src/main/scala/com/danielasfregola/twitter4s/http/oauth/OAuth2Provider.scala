@@ -7,30 +7,34 @@ import akka.stream.Materializer
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.util.Encoder
 
+import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Random
 
-class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken)
-                    (implicit ec: ExecutionContext, m: Materializer) extends Encoder {
+private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken) extends Encoder {
 
-  def oauth2Header(implicit request: HttpRequest): Future[HttpHeader] =
+  def oauth2Header(implicit request: HttpRequest, materializer: Materializer): Future[HttpHeader] = {
+    implicit val ec = materializer.executionContext
     oauth2Params.map { params =>
-      val authorizationValue = params.map{ case (k, v) => s"""$k="$v""""}.toList.sorted.mkString(", ")
+      val authorizationValue = params.map { case (k, v) => s"""$k="$v"""" }.toList.sorted.mkString(", ")
       RawHeader("Authorization", s"OAuth $authorizationValue")
     }
+  }
 
-  def oauth2Params(implicit request: HttpRequest): Future[Map[String, String]] = {
+  def oauth2Params(implicit request: HttpRequest, materializer: Materializer): Future[Map[String, String]] = {
+    implicit val ec = materializer.executionContext
     val params = basicOAuth2Params
     for {
-      signature <- oauth2Signature(params)(request)
+      signature <- oauth2Signature(params)
     } yield (params + signature).mapValues(_.toAscii)
   }
 
-  def oauth2Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest) =
+  def oauth2Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
+    implicit val ec = materializer.executionContext
     signatureBase(oauth2Params).map { signatureBase =>
       "oauth_signature" -> toHmacSha1(signatureBase, signingKey)
     }
+  }
 
   val signingKey = {
     val encodedConsumerSecret = consumerToken.secret.toAscii
@@ -52,23 +56,29 @@ class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken)
     Map(consumerKey, nonce, signatureMethod, timestamp, token, version)
   }
 
-  def signatureBase(oauth2Params: Map[String, String])(implicit request: HttpRequest) =
+  def signatureBase(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
+    implicit val ec = materializer.executionContext
     bodyParams.map { bdParams =>
       val method = request.method.name.toAscii
       val baseUrl = request.uri.endpoint.toAscii
       val encodedParams = encodeParams(queryParams ++ oauth2Params ++ bdParams).toAscii
       s"$method&$baseUrl&$encodedParams"
     }
+  }
 
-  def bodyParams(implicit request: HttpRequest): Future[Map[String, String]] =
+  def bodyParams(implicit request: HttpRequest, materializer: Materializer): Future[Map[String, String]] = {
+    implicit val ec = materializer.executionContext
     extractRequestBody.map { body =>
       val cleanBody = body.replace("+", "%20")
       if (!cleanBody.isEmpty) {
         val entities = cleanBody.split("&")
-        val bodyTokens = entities.flatMap {_.split("=", 2)}.toList
-        bodyTokens.grouped(2).map { case List(k, v) => k -> v}.toMap
+        val bodyTokens = entities.flatMap {
+          _.split("=", 2)
+        }.toList
+        bodyTokens.grouped(2).map { case List(k, v) => k -> v }.toMap
       } else Map()
     }
+  }
 
   def queryParams(implicit request: HttpRequest) = request.uri.query().toMap.mapValues(_.toAscii)
 
@@ -78,8 +88,10 @@ class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken)
       s"$key=$value"
     }.mkString("&")
 
-  private def extractRequestBody(implicit request: HttpRequest): Future[String] =
+  private def extractRequestBody(implicit request: HttpRequest, materializer: Materializer): Future[String] = {
+    implicit val ec = materializer.executionContext
     request.entity.withoutSizeLimit.toStrict(5 seconds).map(_.data.utf8String)
+  }
 
 
 

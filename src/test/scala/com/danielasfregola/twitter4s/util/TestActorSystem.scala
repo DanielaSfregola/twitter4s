@@ -1,11 +1,10 @@
 package com.danielasfregola.twitter4s.util
 
 import akka.actor.ActorSystem
+import akka.stream.ActorMaterializer
 import akka.testkit.TestKit
-import com.danielasfregola.twitter4s.providers.ActorSystemProvider
 
-abstract class TestActorSystem extends TestKit(TestActorSystem.system) with ActorSystemProvider
+abstract class TestActorSystem extends TestKit(ActorSystem()) {
 
-object TestActorSystem {
-  lazy val system = ActorSystem("twitter4s-unit-tests")
+  implicit val materializer = ActorMaterializer()
 }

@@ -2,13 +2,14 @@ package com.danielasfregola.twitter4s.util
 
 import java.io.InputStream
 
+import scala.concurrent.ExecutionContext
+
 private[twitter4s] case class Chunk(base64Data: Seq[String])
 
-trait MediaReader extends Encoder {
+private[twitter4s] class MediaReader(val chunkSize: Int) extends Encoder {
 
-  protected val chunkSize: Int
-
-  private[twitter4s] def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T): Seq[T] = {
+  def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T)
+                                  (implicit ec: ExecutionContext): Seq[T] = {
     val chunks = readChunks(inputStream).zipWithIndex
     chunks.map{ case (chunk, idx) => f(chunk, idx) }
   }

@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.friendships
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.friendships.parameters._
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `friendships` resource.
   * */
-trait TwitterFriendshipClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterFriendshipClient {
+
+  protected val restClient: RestClient
 
   private val friendshipsUrl = s"$apiTwitterUrl/$twitterVersion/friendships"
 
@@ -45,8 +47,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
   def getNoRetweetsUserStringifiedIds(): Future[Seq[String]] =
     noRetweetsUserStringifiedIds()
 
-  private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[T] =
+  private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[T] = {
+    import restClient._
     Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAs[T]
+  }
 
   /** Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
     * For more information see
@@ -86,8 +90,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
   def getIncomingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
     incomingFriendshipStringifiedIds(cursor)
 
-  private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
+  private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
+    import restClient._
     Get(s"$friendshipsUrl/incoming.json", parameters).respondAs[T]
+  }
 
   /** Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.
     * For more information see
@@ -127,8 +133,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
   def getOutgoingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
     outgoingFriendshipStringifiedIds(cursor)
 
-  private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] =
+  private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
+    import restClient._
     Get(s"$friendshipsUrl/outgoing.json", parameters).respondAs[T]
+  }
 
   /** Allows the authenticating users to follow the specified user id.
     * For more information see
@@ -162,8 +170,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
     genericFollow(parameters)
   }
 
-  private def genericFollow(parameters: FollowParameters): Future[User] =
+  private def genericFollow(parameters: FollowParameters): Future[User] = {
+    import restClient._
     Post(s"$friendshipsUrl/create.json", parameters).respondAs[User]
+  }
 
   /** Allows the authenticating users to unfollow the specified user id.
     * For more information see
@@ -193,8 +203,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
     genericUnfollow(parameters)
   }
 
-  private def genericUnfollow(parameters: UnfollowParameters): Future[User] =
+  private def genericUnfollow(parameters: UnfollowParameters): Future[User] = {
+    import restClient._
     Post(s"$friendshipsUrl/destroy.json", parameters).respondAs[User]
+  }
 
   /** Allows one to enable retweets from the specified user.
     * For more information see
@@ -308,8 +320,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
     genericNotifications(parameters)
   }
 
-  private def genericNotifications(parameters: NotificationParameters): Future[Relationship] =
+  private def genericNotifications(parameters: NotificationParameters): Future[Relationship] = {
+    import restClient._
     Post(s"$friendshipsUrl/update.json", parameters).respondAs[Relationship]
+  }
 
   /** Returns detailed information about the relationship between two arbitrary users ids.
     * For more information see
@@ -347,8 +361,10 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
   def getRelationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[Relationship] =
     relationshipBetweenUsers(source_screen_name, target_screen_name)
 
-  private def genericGetRelationship(parameters: RelationshipParameters): Future[Relationship] =
+  private def genericGetRelationship(parameters: RelationshipParameters): Future[Relationship] = {
+    import restClient._
     Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
+  }
 
   /** Returns the relationships of the authenticating user of up to 100 user screen names.
     * Values for connections can be: `following`, `following_requested`, `followed_by`, `none`, `blocking`, `muting`.
@@ -362,7 +378,7 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
     * @return :  The sequence of the lookup relationships.
     * */
   def relationshipsWithUsers(screen_names: String*): Future[Seq[LookupRelationship]] = {
-    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RelationshipsParameters(user_id = None, screen_name = Some(screen_names.mkString(",")))
     genericGetRelationships(parameters)
   }
@@ -383,7 +399,7 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
     * @return :  The sequence of the lookup relationships.
     * */
   def relationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
-    require(!user_ids.isEmpty, "please, provide at least one user id")
+    require(user_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
     genericGetRelationships(parameters)
   }
@@ -392,6 +408,8 @@ trait TwitterFriendshipClient extends RestClient with Configurations {
   def getRelationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] =
     relationshipsWithUserIds(user_ids:_*)
 
-  private def genericGetRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] =
+  private def genericGetRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] = {
+    import restClient._
     Get(s"$friendshipsUrl/lookup.json", parameters).respondAs[Seq[LookupRelationship]]
+  }
 }

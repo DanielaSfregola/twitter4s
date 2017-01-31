@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 import com.danielasfregola.twitter4s.entities.SavedSearch
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.savedsearches.parameters.SaveSearchParameters
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `saved_searches` resource.
   */
-trait TwitterSavedSearchClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterSavedSearchClient {
+
+  protected val restClient: RestClient
 
   private val savedSearchUrl = s"$apiTwitterUrl/$twitterVersion/saved_searches"
 
@@ -20,8 +22,10 @@ trait TwitterSavedSearchClient extends RestClient with Configurations {
     *
     * @return : The sequence of saved searches.
     */
-  def savedSearches(): Future[Seq[SavedSearch]] =
+  def savedSearches(): Future[Seq[SavedSearch]] = {
+    import restClient._
     Get(s"$savedSearchUrl/list.json").respondAs[Seq[SavedSearch]]
+  }
 
   @deprecated("use savedSearches instead", "2.2")
   def getSavedSearches(): Future[Seq[SavedSearch]] =
@@ -37,6 +41,7 @@ trait TwitterSavedSearchClient extends RestClient with Configurations {
     * @return : The saved search representation.
     */
   def saveSearch(query: String): Future[SavedSearch] = {
+    import restClient._
     val parameters = SaveSearchParameters(query)
     Post(s"$savedSearchUrl/create.json", parameters).respondAs[SavedSearch]
   }
@@ -49,8 +54,10 @@ trait TwitterSavedSearchClient extends RestClient with Configurations {
     *
     * @return : The deleted search representation.
     */
-  def deleteSavedSearch(id: Long): Future[SavedSearch] =
+  def deleteSavedSearch(id: Long): Future[SavedSearch] = {
+    import restClient._
     Post(s"$savedSearchUrl/destroy/$id.json").respondAs[SavedSearch]
+  }
 
   /** Retrieve the information for the saved search represented by the given id.
     * The authenticating user must be the owner of saved search ID being requested.
@@ -60,7 +67,9 @@ trait TwitterSavedSearchClient extends RestClient with Configurations {
     *
     * @return : The saved search representation.
     */
-  def savedSearch(id: Long): Future[SavedSearch] =
+  def savedSearch(id: Long): Future[SavedSearch] = {
+    import restClient._
     Get(s"$savedSearchUrl/show/$id.json").respondAs[SavedSearch]
+  }
   
 }

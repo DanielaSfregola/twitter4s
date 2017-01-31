@@ -2,13 +2,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.help
 
 import com.danielasfregola.twitter4s.entities.{Configuration, LanguageDetails, PrivacyPolicy, TermsOfService}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `help` resource.
   * */
-trait TwitterHelpClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterHelpClient {
+
+  protected val restClient: RestClient
 
   private val helpUrl = s"$apiTwitterUrl/$twitterVersion/help"
 
@@ -19,8 +21,10 @@ trait TwitterHelpClient extends RestClient with Configurations {
     *
     * @return : The current Twitter configuration.
     * */
-  def configuration(): Future[Configuration] =
+  def configuration(): Future[Configuration] = {
+    import restClient._
     Get(s"$helpUrl/configuration.json").respondAs[Configuration]
+  }
 
   @deprecated("use configuration instead", "2.2")
   def getConfiguration(): Future[Configuration] =
@@ -33,8 +37,10 @@ trait TwitterHelpClient extends RestClient with Configurations {
     *
     * @return : The list of languages supported by Twitter.
     * */
-  def supportedLanguages(): Future[Seq[LanguageDetails]] =
+  def supportedLanguages(): Future[Seq[LanguageDetails]] = {
+    import restClient._
     Get(s"$helpUrl/languages.json").respondAs[Seq[LanguageDetails]]
+  }
 
   @deprecated("use supportedLanguages instead", "2.2")
   def getSupportedLanguages(): Future[Seq[LanguageDetails]] =
@@ -47,8 +53,10 @@ trait TwitterHelpClient extends RestClient with Configurations {
     *
     * @return : The Twitter's Privacy Policy.
     * */
-  def privacyPolicy(): Future[PrivacyPolicy] =
+  def privacyPolicy(): Future[PrivacyPolicy] = {
+    import restClient._
     Get(s"$helpUrl/privacy.json").respondAs[PrivacyPolicy]
+  }
 
   @deprecated("use privacyPolicy instead", "2.2")
   def getPrivacyPolicy(): Future[PrivacyPolicy] =
@@ -62,8 +70,10 @@ trait TwitterHelpClient extends RestClient with Configurations {
     *
     * @return : the Twitter Terms of Service.
    * */
-  def termsOfService(): Future[TermsOfService] =
+  def termsOfService(): Future[TermsOfService] = {
+    import restClient._
     Get(s"$helpUrl/tos.json").respondAs[TermsOfService]
+  }
 
   @deprecated("use termsOfService instead", "2.2")
   def getTermsOfService(): Future[TermsOfService] =

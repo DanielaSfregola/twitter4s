@@ -5,13 +5,15 @@ import com.danielasfregola.twitter4s.entities.enums.Granularity._
 import com.danielasfregola.twitter4s.entities.{Accuracy, GeoPlace, GeoSearch}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.geo.parameters.{GeoSearchParameters, ReverseGeoCodeParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `geo` resource.
   * */
-trait TwitterGeoClient  extends RestClient with Configurations {
+private[twitter4s] trait TwitterGeoClient {
+
+  protected val restClient: RestClient
 
   private val geoUrl = s"$apiTwitterUrl/$twitterVersion/geo"
 
@@ -23,7 +25,10 @@ trait TwitterGeoClient  extends RestClient with Configurations {
     * @param place_id : A place id in the world.
     * @return : A set of information about place.
     * */
-  def geoPlace(place_id: String): Future[GeoPlace] = Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
+  def geoPlace(place_id: String): Future[GeoPlace] = {
+    import restClient._
+    Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
+  }
 
   @deprecated("use geoPlace instead", "2.2")
   def getGeoPlace(place_id: String): Future[GeoPlace] =
@@ -59,6 +64,7 @@ trait TwitterGeoClient  extends RestClient with Configurations {
                      granularity: Granularity = Granularity.Neighborhood,
                      max_results: Option[Int] = None,
                      callback: Option[String] = None): Future[GeoSearch] = {
+    import restClient._
     val parameters = ReverseGeoCodeParameters(latitude, longitude, accuracy, granularity, max_results, callback)
     Get(s"$geoUrl/reverse_geocode.json", parameters).respondAs[GeoSearch]
   }
@@ -119,6 +125,7 @@ trait TwitterGeoClient  extends RestClient with Configurations {
                              contained_within: Option[String] = None,
                              street_address: Option[String] = None,
                              callback: Option[String] = None): Future[GeoSearch] = {
+    import restClient._
     require(latitude.isDefined || longitude.isDefined || ip.isDefined || query.isDefined,
             "please, provide at least one of the following: 'latitude', 'longitude', 'query', 'ip'")
     val parameters = GeoSearchParameters(latitude, longitude, query, ip, granularity, accuracy, max_results, contained_within, street_address, callback)

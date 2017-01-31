@@ -2,10 +2,12 @@ package com.danielasfregola.twitter4s.http.clients.streaming
 
 import java.util.UUID
 
+import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream._
 import akka.stream.scaladsl.{Framing, Sink, Source}
 import akka.util.ByteString
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
@@ -14,35 +16,43 @@ import org.json4s.native.Serialization
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
-trait StreamingClient extends OAuthClient {
+private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends OAuthClient {
 
   val withLogRequest = true
   val withLogRequestResponse = false
 
-  protected def preProcessing(): Unit = ()
+  def preProcessing(): Unit = ()
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
-    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] =
+    def processStream[T <: StreamingMessage : Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
+      implicit val system = ActorSystem(s"twitter4s-streaming-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
       for {
-        requestWithAuth <- withOAuthHeader(request)
+        requestWithAuth <- withOAuthHeader(materializer)(request)
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
-      } yield new TwitterStream(killSwitch, requestWithAuth)(consumerToken, accessToken, system)
+      } yield new TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
+    }
   }
 
   private val maxConnectionTimeMillis = 1000
 
   // TODO - can we do better?
-  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit]): Future[SharedKillSwitch] = {
+  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit])
+                                                                         (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+    implicit val ec = materializer.executionContext
     val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
     val processing = processStreamRequest(request, killSwitch)(f)
     val switch = Future { Thread.sleep(maxConnectionTimeMillis); killSwitch }
     Future.firstCompletedOf(Seq(processing, switch))
   }
 
-  protected def processStreamRequest[T <: StreamingMessage: Manifest](
-      request: HttpRequest, killSwitch: SharedKillSwitch)(f: PartialFunction[T, Unit]): Future[SharedKillSwitch] = {
-    implicit val _ = request
+  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest, killSwitch: SharedKillSwitch)
+                                                                     (f: PartialFunction[T, Unit])
+                                                                     (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+    implicit val ec = materializer.executionContext
+    implicit val rqt = request
 
     if (withLogRequest) logRequest
     Source.single(request)
@@ -61,8 +71,9 @@ trait StreamingClient extends OAuthClient {
       .map(_ => killSwitch)
   }
 
-  protected def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)(
-      f: PartialFunction[T, Unit])(implicit request: HttpRequest): Unit =
+  def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)
+                                        (f: PartialFunction[T, Unit])
+                                        (implicit request: HttpRequest, materializer: Materializer): Unit =
     response.entity.withoutSizeLimit.dataBytes
       .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
       .filter(_.nonEmpty)

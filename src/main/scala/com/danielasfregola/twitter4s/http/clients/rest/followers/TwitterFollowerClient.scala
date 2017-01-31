@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.followers
 import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.followers.parameters.{FollowersParameters, FollowingParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `followers` resource.
   * */
-trait TwitterFollowerClient extends RestClient with Configurations {
+trait TwitterFollowerClient {
+
+  protected val restClient: RestClient
 
   private val followersUrl = s"$apiTwitterUrl/$twitterVersion/followers"
 
@@ -121,8 +123,10 @@ trait TwitterFollowerClient extends RestClient with Configurations {
   def getFollowersStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] =
     followersStringifiedIdsForUser(screen_name, cursor, count)
 
-  private def genericFollowerIds[T: Manifest](parameters: FollowingParameters): Future[T] =
+  private def genericFollowerIds[T: Manifest](parameters: FollowingParameters): Future[T] = {
+    import restClient._
     Get(s"$followersUrl/ids.json", parameters).respondAs[T]
+  }
 
   /** Returns a cursored collection of user objects for users following the specified user.
     * For more information see
@@ -196,6 +200,8 @@ trait TwitterFollowerClient extends RestClient with Configurations {
                             include_user_entities: Boolean = true): Future[Users] =
     followersForUserId(user_id, cursor, count, skip_status, include_user_entities)
 
-  private def genericGetFollowers(parameters: FollowersParameters): Future[Users] =
+  private def genericGetFollowers(parameters: FollowersParameters): Future[Users] = {
+    import restClient._
     Get(s"$followersUrl/list.json", parameters).respondAs[Users]
+  }
 }

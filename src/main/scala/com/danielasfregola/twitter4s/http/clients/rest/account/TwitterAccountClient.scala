@@ -1,19 +1,21 @@
 package com.danielasfregola.twitter4s.http.clients.rest.account
 
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.ContributorType.ContributorType
 import com.danielasfregola.twitter4s.entities.enums.Hour._
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.TimeZone._
-import com.danielasfregola.twitter4s.entities.{ProfileUpdate, Settings, SettingsOptions, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.parameters.CredentialsParameters
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `account` resource.
   * */
-trait TwitterAccountClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterAccountClient {
+
+  protected val restClient: RestClient
 
   private val accountUrl = s"$apiTwitterUrl/$twitterVersion/account"
 
@@ -27,7 +29,10 @@ trait TwitterAccountClient extends RestClient with Configurations {
     *
     * @return : The account settings for the authenticating user.
     * */
-  def settings(): Future[Settings] = Get(s"$accountUrl/settings.json").respondAs[Settings]
+  def settings(): Future[Settings] = {
+    import restClient._
+    Get(s"$accountUrl/settings.json").respondAs[Settings]
+  }
 
   /** Updates the authenticating user’s settings.
     * For more information see
@@ -76,8 +81,10 @@ trait TwitterAccountClient extends RestClient with Configurations {
     * @param settings_options : The setting options to update. Only the parameters specified will be updated.
     * @return : The updated settings.
     * */
-  def updateSettings(settings_options: SettingsOptions): Future[Settings] =
+  def updateSettings(settings_options: SettingsOptions): Future[Settings] = {
+    import restClient._
     Post(s"$accountUrl/settings.json", settings_options).respondAs[Settings]
+  }
 
   /** Returns a representation of the requesting user if authentication was successful; it throws a [[com.danielasfregola.twitter4s.exceptions.TwitterException]] if not.
     * Use this method to test if supplied user credentials are valid.
@@ -97,6 +104,7 @@ trait TwitterAccountClient extends RestClient with Configurations {
   def verifyCredentials(include_entities: Boolean = true,
                         skip_status: Boolean = false,
                         include_email: Boolean = false): Future[User] = {
+    import restClient._
     val parameters = CredentialsParameters(include_entities, skip_status, include_email)
     Get(s"$accountUrl/verify_credentials.json", parameters).respondAs[User]
   }
@@ -207,15 +215,20 @@ trait TwitterAccountClient extends RestClient with Configurations {
     * @param update : The profile values to update.
     * @return : The user representation.
     * */
-  def updateProfile(update: ProfileUpdate): Future[User] =
+  def updateProfile(update: ProfileUpdate): Future[User] = {
+    import restClient._
     Post(s"$accountUrl/update_profile.json", update).respondAs[User]
+  }
 
   /** Removes the uploaded profile banner for the authenticating user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/post/account/remove_profile_banner" target="_blank">
     *   https://dev.twitter.com/rest/reference/post/account/remove_profile_banner</a>.
     * */
-  def removeProfileBanner(): Future[Unit] = Post(s"$accountUrl/remove_profile_banner.json").respondAs[Unit]
+  def removeProfileBanner(): Future[Unit] = {
+    import restClient._
+    Post(s"$accountUrl/remove_profile_banner.json").respondAs[Unit]
+  }
 
   // TODO - support update_profile_backgroung_image
   // TODO - support update_profile_image

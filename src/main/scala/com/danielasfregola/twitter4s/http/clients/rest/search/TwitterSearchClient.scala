@@ -9,13 +9,15 @@ import com.danielasfregola.twitter4s.entities.enums.ResultType._
 import com.danielasfregola.twitter4s.entities.{GeoCode, StatusSearch}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `search` resource.
   */
-trait TwitterSearchClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterSearchClient {
+
+  protected val restClient: RestClient
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
 
@@ -73,6 +75,7 @@ trait TwitterSearchClient extends RestClient with Configurations {
                   since_id: Option[Long] = None,
                   max_id: Option[Long] = None,
                   callback: Option[String] = None): Future[StatusSearch] = {
+    import restClient._
     val parameters = TweetSearchParameters(query.escapeSpecialChars, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
     Get(s"$searchUrl/tweets.json", parameters).respondAs[StatusSearch]
   }

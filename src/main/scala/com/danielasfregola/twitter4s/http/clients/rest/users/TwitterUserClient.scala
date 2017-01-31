@@ -3,13 +3,15 @@ package com.danielasfregola.twitter4s.http.clients.rest.users
 import com.danielasfregola.twitter4s.entities.{Banners, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{BannersParameters, UserParameters, UserSearchParameters, UsersParameters}
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
 /** Implements the available requests for the `users` resource.
   */
-trait TwitterUserClient extends RestClient with Configurations {
+private[twitter4s] trait TwitterUserClient {
+
+  protected val restClient: RestClient
 
   private val usersUrl = s"$apiTwitterUrl/$twitterVersion/users"
 
@@ -38,7 +40,7 @@ trait TwitterUserClient extends RestClient with Configurations {
     */
   def users(screen_names: Seq[String],
             include_entities: Boolean = true): Future[Seq[User]] = {
-    require(!screen_names.isEmpty, "please, provide at least one screen name")
+    require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = UsersParameters(user_id = None, Some(screen_names.mkString(",")), include_entities)
     genericGetUsers(parameters)
   }
@@ -73,7 +75,7 @@ trait TwitterUserClient extends RestClient with Configurations {
     */
   def usersByIds(ids: Seq[Long],
                  include_entities: Boolean = true): Future[Seq[User]] = {
-    require(!ids.isEmpty, "please, provide at least one user id")
+    require(ids.nonEmpty, "please, provide at least one user id")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericGetUsers(parameters)
   }
@@ -83,8 +85,10 @@ trait TwitterUserClient extends RestClient with Configurations {
                     include_entities: Boolean = true): Future[Seq[User]] =
     usersByIds(ids, include_entities)
 
-  private def genericGetUsers(parameters: UsersParameters): Future[Seq[User]] =
+  private def genericGetUsers(parameters: UsersParameters): Future[Seq[User]] = {
+    import restClient._
     Get(s"$usersUrl/lookup.json", parameters).respondAs[Seq[User]]
+  }
 
   /** Returns a variety of information about the user specified by the required screen name parameter.
     * The author’s most recent Tweet will be returned inline when possible.
@@ -126,8 +130,10 @@ trait TwitterUserClient extends RestClient with Configurations {
   def getUserById(id: Long, include_entities: Boolean = true): Future[User] =
     userById(id, include_entities)
 
-  private def genericGetUser(parameters: UserParameters): Future[User] =
+  private def genericGetUser(parameters: UserParameters): Future[User] = {
+    import restClient._
     Get(s"$usersUrl/show.json", parameters).respondAs[User]
+  }
 
   /** Returns a map of the available size variations of the specified user’s profile banner.
     * If the user has not uploaded a profile banner, a `TwitterException` will be thrown instead.
@@ -171,8 +177,10 @@ trait TwitterUserClient extends RestClient with Configurations {
   def getProfileBannersForUserId(user_id: Long): Future[Banners] =
     profileBannersForUserId(user_id)
 
-  private def genericGetProfileBanners(parameters: BannersParameters): Future[Banners] =
+  private def genericGetProfileBanners(parameters: BannersParameters): Future[Banners] = {
+    import restClient._
     Get(s"$usersUrl/profile_banner.json", parameters).respondAs[Banners]
+  }
 
   /** Provides a simple, relevance-based search interface to public user accounts on Twitter.
     * Try querying by topical interest, full name, company name, location, or other criteria.
@@ -195,6 +203,7 @@ trait TwitterUserClient extends RestClient with Configurations {
                     page: Int = -1,
                     count: Int = 20,
                     include_entities: Boolean = true): Future[Seq[User]] = {
+    import restClient._
     val parameters = UserSearchParameters(query, page, count, include_entities)
     Get(s"$usersUrl/search.json", parameters).respondAs[Seq[User]]
   }

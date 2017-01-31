@@ -11,7 +11,7 @@ class TwitterStreamSpec extends ClientSpec with Mockito {
       val switch = mock[KillSwitch]
       val request = HttpRequest()
       doNothing when switch shutdown
-      val stream = new TwitterStream(switch, request)(consumerToken, accessToken, system)
+      val stream = new TwitterStream(consumerToken, accessToken)(switch, request, system)
   }
 
   "Twitter Stream" should {
