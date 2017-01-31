@@ -42,7 +42,7 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
   private[twitter4s] class OAuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
     def apply(uri: String, parameters: Parameters): HttpRequest =
-      if (!parameters.toString.isEmpty) apply(s"$uri?$parameters") else apply(uri)
+      if (parameters.toString.nonEmpty) apply(s"$uri?$parameters") else apply(uri)
 
     def apply(uri: String, content: Product): HttpRequest = {
       val data = toBodyAsEncodedParams(content)

@@ -37,12 +37,6 @@ private[twitter4s] trait TwitterBlockClient {
     Get(s"$blocksUrl/list.json", parameters).respondAs[Users]
   }
 
-  @deprecated("use blockedUsers instead", "2.2")
-  def getBlockedUsers(include_entities: Boolean = true,
-                      skip_status: Boolean = false,
-                      cursor: Long = -1): Future[Users] =
-    blockedUsers(include_entities, skip_status, cursor)
-
   /** Returns an array of user ids the authenticating user is blocking.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
@@ -58,10 +52,6 @@ private[twitter4s] trait TwitterBlockClient {
     genericGetBlockedUserIds[UserIds](parameters)
   }
 
-  @deprecated("use blockedUserIds instead", "2.2")
-  def getBlockedUserIds(cursor: Long = -1): Future[UserIds] =
-    blockedUserIds(cursor)
-
   /** Returns an array of user stringified ids the authenticating user is blocking.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
@@ -76,10 +66,6 @@ private[twitter4s] trait TwitterBlockClient {
     val parameters = BlockedUserIdsParameters(stringify_ids = true, cursor)
     genericGetBlockedUserIds[UserStringifiedIds](parameters)
   }
-
-  @deprecated("use blockedUserStringifiedIds instead", "2.2")
-  def getBlockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
-    blockedUserStringifiedIds(cursor)
 
   private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] = {
     import restClient._

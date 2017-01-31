@@ -27,10 +27,6 @@ private[twitter4s] trait TwitterSavedSearchClient {
     Get(s"$savedSearchUrl/list.json").respondAs[Seq[SavedSearch]]
   }
 
-  @deprecated("use savedSearches instead", "2.2")
-  def getSavedSearches(): Future[Seq[SavedSearch]] =
-    savedSearches()
-
   /** Create a new saved search for the authenticated user.
     * A user may only have 25 saved searches.
     * For more information see

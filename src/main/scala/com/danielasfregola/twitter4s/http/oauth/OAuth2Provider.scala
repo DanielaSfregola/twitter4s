@@ -70,7 +70,7 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
     implicit val ec = materializer.executionContext
     extractRequestBody.map { body =>
       val cleanBody = body.replace("+", "%20")
-      if (!cleanBody.isEmpty) {
+      if (cleanBody.nonEmpty) {
         val entities = cleanBody.split("&")
         val bodyTokens = entities.flatMap {
           _.split("=", 2)

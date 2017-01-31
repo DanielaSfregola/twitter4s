@@ -53,15 +53,6 @@ private[twitter4s] trait TwitterStatusClient {
     Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]).processStream(f)
   }
 
-  @deprecated("use filterStatuses instead", "2.2")
-  def getStatusesFilter(follow: Seq[Long] = Seq.empty,
-                        track: Seq[String] = Seq.empty,
-                        locations: Seq[Double] = Seq.empty,
-                        languages: Seq[Language] = Seq.empty,
-                        stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] =
-    filterStatuses(follow, track, locations, languages, stall_warnings)(f)
-
-
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
     * The Tweets returned by the default access level are the same, so if two different clients connect to this endpoint, they will see the same Tweets.
     * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
@@ -86,12 +77,6 @@ private[twitter4s] trait TwitterStatusClient {
     preProcessing()
     Get(s"$statusUrl/sample.json", parameters).processStream(f)
   }
-
-  @deprecated("use sampleStatuses instead", "2.2")
-  def getStatusesSample(languages: Seq[Language] = Seq.empty,
-                        stall_warnings: Boolean = false)
-                       (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] =
-    sampleStatuses(languages, stall_warnings)(f)
 
   /** Starts a streaming connection from Twitter's firehose API of all public statuses.
     * Few applications require this level of access.
@@ -123,11 +108,4 @@ private[twitter4s] trait TwitterStatusClient {
     preProcessing()
     Get(s"$statusUrl/firehose.json", parameters).processStream(f)
   }
-
-  @deprecated("use firehoseStatuses instead", "2.2")
-  def getStatusesFirehose(count: Option[Int] = None,
-                          languages: Seq[Language] = Seq.empty,
-                          stall_warnings: Boolean = false)
-                         (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] =
-    firehoseStatuses(count, languages, stall_warnings)(f)
 }

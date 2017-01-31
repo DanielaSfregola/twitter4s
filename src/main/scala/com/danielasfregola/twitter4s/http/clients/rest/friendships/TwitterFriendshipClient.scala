@@ -27,10 +27,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     genericGetNoRetweetsUserIds[Seq[Long]](parameters)
   }
 
-  @deprecated("use noRetweetsUserIds instead", "2.2")
-  def getNoRetweetsUserIds(): Future[Seq[Long]]  =
-    noRetweetsUserIds()
-
   /** Returns a collection of user stringified ids that the currently authenticated user does not want to receive retweets from.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids" target="_blank">
@@ -42,10 +38,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     val parameters = BlockedParameters(stringify_ids = true)
     genericGetNoRetweetsUserIds[Seq[String]](parameters)
   }
-
-  @deprecated("use noRetweetsUserStringifiedIds instead", "2.2")
-  def getNoRetweetsUserStringifiedIds(): Future[Seq[String]] =
-    noRetweetsUserStringifiedIds()
 
   private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[T] = {
     import restClient._
@@ -67,10 +59,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     genericGetIncomingFriendships[UserIds](parameters)
   }
 
-  @deprecated("use incomingFriendshipIds instead", "2.2")
-  def getIncomingFriendshipIds(cursor: Long = -1): Future[UserIds] =
-    incomingFriendshipIds(cursor)
-
   /** Returns a collection of numeric stringified IDs for every user who has a pending request to follow the authenticating user.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friendships/incoming" target="_blank">
@@ -85,10 +73,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
     genericGetIncomingFriendships[UserStringifiedIds](parameters)
   }
-
-  @deprecated("use incomingFriendshipStringifiedIds instead", "2.2")
-  def getIncomingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
-    incomingFriendshipStringifiedIds(cursor)
 
   private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
     import restClient._
@@ -110,10 +94,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     genericOutgoingFriendships[UserIds](parameters)
   }
 
-  @deprecated("use outgoingFriendshipIds instead", "2.2")
-  def getOutgoingFriendshipIds(cursor: Long = -1): Future[UserIds] =
-    outgoingFriendshipIds(cursor)
-
   /** Returns a collection of numeric stringified IDs for every protected user for whom the authenticating user has a pending follow request.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friendships/outgoing" target="_blank">
@@ -128,10 +108,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
     genericOutgoingFriendships[UserStringifiedIds](parameters)
   }
-
-  @deprecated("use outgoingFriendshipStringifiedIds instead", "2.2")
-  def getOutgoingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] =
-    outgoingFriendshipStringifiedIds(cursor)
 
   private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
     import restClient._
@@ -339,10 +315,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     genericGetRelationship(parameters)
   }
 
-  @deprecated("use relationshipBetweenUserIds instead", "2.2")
-  def getRelationshipBetweenUserIds(source_id: Long, target_id: Long): Future[Relationship] =
-    relationshipBetweenUserIds(source_id, target_id)
-
   /** Returns detailed information about the relationship between two arbitrary users.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/friendships/show" target="_blank">
@@ -356,10 +328,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     val parameters = RelationshipParametersByNames(source_screen_name, target_screen_name)
     genericGetRelationship(parameters)
   }
-
-  @deprecated("use relationshipBetweenUsers instead", "2.2")
-  def getRelationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[Relationship] =
-    relationshipBetweenUsers(source_screen_name, target_screen_name)
 
   private def genericGetRelationship(parameters: RelationshipParameters): Future[Relationship] = {
     import restClient._
@@ -383,10 +351,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     genericGetRelationships(parameters)
   }
 
-  @deprecated("use relationshipsWithUsers instead", "2.2")
-  def getRelationshipsWithUsers(screen_names: String*): Future[Seq[LookupRelationship]] =
-    relationshipsWithUsers(screen_names:_*)
-
   /** Returns the relationships of the authenticating user of up to 100 user ids.
     * Values for connections can be: `following`, `following_requested`, `followed_by`, `none`, `blocking`, `muting`.
     * For more information see
@@ -403,10 +367,6 @@ private[twitter4s] trait TwitterFriendshipClient {
     val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
     genericGetRelationships(parameters)
   }
-
-  @deprecated("use relationshipsWithUserIds instead", "2.2")
-  def getRelationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] =
-    relationshipsWithUserIds(user_ids:_*)
 
   private def genericGetRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] = {
     import restClient._

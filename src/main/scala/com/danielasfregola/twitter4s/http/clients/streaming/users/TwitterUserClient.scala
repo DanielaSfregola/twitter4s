@@ -63,15 +63,4 @@ private[twitter4s] trait TwitterUserClient {
     preProcessing()
     Get(s"$userUrl/user.json", parameters).processStream(f)
   }
-
-  @deprecated("use userEvents instead", "2.2")
-  def getUserEvents(`with`: WithFilter = WithFilter.Followings,
-                    replies: Option[Boolean] = None,
-                    track: Seq[String] = Seq.empty,
-                    locations: Seq[Double] = Seq.empty,
-                    stringify_friend_ids: Boolean = false,
-                    languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] =
-    userEvents(`with`, replies, track, locations, stringify_friend_ids, languages, stall_warnings)(f)
-
 }

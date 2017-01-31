@@ -26,10 +26,6 @@ private[twitter4s] trait TwitterHelpClient {
     Get(s"$helpUrl/configuration.json").respondAs[Configuration]
   }
 
-  @deprecated("use configuration instead", "2.2")
-  def getConfiguration(): Future[Configuration] =
-    configuration()
-
   /** Returns the list of languages supported by Twitter along with the language code supported by Twitter.
     * For more information see
     * <a href="https://dev.twitter.com/rest/reference/get/help/languages" target="_blank">
@@ -41,10 +37,6 @@ private[twitter4s] trait TwitterHelpClient {
     import restClient._
     Get(s"$helpUrl/languages.json").respondAs[Seq[LanguageDetails]]
   }
-
-  @deprecated("use supportedLanguages instead", "2.2")
-  def getSupportedLanguages(): Future[Seq[LanguageDetails]] =
-    supportedLanguages()
 
   /** Returns Twitter’s Privacy Policy.
     * For more information see
@@ -58,10 +50,6 @@ private[twitter4s] trait TwitterHelpClient {
     Get(s"$helpUrl/privacy.json").respondAs[PrivacyPolicy]
   }
 
-  @deprecated("use privacyPolicy instead", "2.2")
-  def getPrivacyPolicy(): Future[PrivacyPolicy] =
-    privacyPolicy()
-
   /** Returns the Twitter Terms of Service.
     * Note: these are not the same as the Developer Policy.
     * For more information see
@@ -74,8 +62,4 @@ private[twitter4s] trait TwitterHelpClient {
     import restClient._
     Get(s"$helpUrl/tos.json").respondAs[TermsOfService]
   }
-
-  @deprecated("use termsOfService instead", "2.2")
-  def getTermsOfService(): Future[TermsOfService] =
-    termsOfService()
 }

@@ -58,13 +58,4 @@ private[twitter4s] trait TwitterSiteClient {
     preProcessing()
     Get(s"$siteUrl/site.json", parameters).processStream(f)
   }
-
-  @deprecated("use siteEvents instead", "2.2")
-  def getSiteEvents(follow: Seq[Long] = Seq.empty,
-                    `with`: WithFilter = WithFilter.User,
-                    replies: Option[Boolean] = None,
-                    stringify_friend_ids: Boolean = false,
-                    languages: Seq[Language] = Seq.empty,
-                    stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] =
-    siteEvents(follow, `with`, replies, stringify_friend_ids, languages, stall_warnings)(f)
 }
