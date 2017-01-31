@@ -19,14 +19,8 @@ class TwitterStreamingClientSpec extends Specification with Mockito with Awaitab
       val client = TwitterStreamingClient() 
       
       client should not(beNull)
-      client.system.name should startingWith("twitter4s-streaming")
-    }
-
-    "be created from an actor system" in new SpecContext {
-      val client = TwitterStreamingClient(system) 
-      
-      client should not(beNull)
-      client.system === system
+      client.consumerToken === ConsumerToken("my-consumer-key", "my-consumer-secret")
+      client.accessToken === AccessToken("my-access-key", "my-access-secret")
     }
 
 
@@ -37,26 +31,8 @@ class TwitterStreamingClientSpec extends Specification with Mockito with Awaitab
       val client = TwitterStreamingClient(consumerToken, accessToken) 
       
       client should not(beNull)
-      client.system.name should startingWith("twitter4s-streaming")
-    }
-
-    "be created from a consumer token, an access token and an actor system" in new SpecContext {
-      val consumerToken = mock[ConsumerToken]
-      val accessToken = mock[AccessToken]
-      
-      val client = TwitterStreamingClient(consumerToken, accessToken, system)
-      
-      client should not(beNull)
-      client.system === system
-    }
-
-    "be closable" in new SpecContext {
-      val client = TwitterStreamingClient(system)
-
-      val result = client.close()
-
-      result.await should not(throwAn[Exception])
-      system.whenTerminated.await should not(throwAn[Exception])
+      client.consumerToken === consumerToken
+      client.accessToken === accessToken
     }
   }
 }

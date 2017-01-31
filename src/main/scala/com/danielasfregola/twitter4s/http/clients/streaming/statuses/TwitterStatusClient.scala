@@ -5,11 +5,13 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
 import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
-import com.danielasfregola.twitter4s.util.{ActorContextExtractor, Configurations}
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
-trait TwitterStatusClient extends StreamingClient with Configurations with ActorContextExtractor {
+private[twitter4s] trait TwitterStatusClient {
+
+  protected val streamingClient: StreamingClient
 
   private val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
 
@@ -44,6 +46,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
                      locations: Seq[Double] = Seq.empty,
                      languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+    import streamingClient._
     require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
     val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
     preProcessing()
@@ -78,6 +81,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
   def sampleStatuses(languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false)
                     (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+    import streamingClient._
     val parameters = StatusSampleParameters(languages, stall_warnings)
     preProcessing()
     Get(s"$statusUrl/sample.json", parameters).processStream(f)
@@ -112,6 +116,7 @@ trait TwitterStatusClient extends StreamingClient with Configurations with Actor
                        languages: Seq[Language] = Seq.empty,
                        stall_warnings: Boolean = false)
                       (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+    import streamingClient._
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(languages, count, stall_warnings)

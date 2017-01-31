@@ -6,19 +6,17 @@ import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse}
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
-import com.typesafe.scalalogging.Logger
+import com.danielasfregola.twitter4s.util.Logger
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Try
 
-private[twitter4s] trait CommonClient extends JsonSupport {
+private[twitter4s] trait CommonClient extends JsonSupport with Logger {
 
   def withLogRequest: Boolean
   def withLogRequestResponse: Boolean
-
-  @volatile protected lazy val log: Logger = Logger("twitter4s")
 
   protected def connection(implicit request: HttpRequest, system: ActorSystem) = {
     val scheme = request.uri.scheme
