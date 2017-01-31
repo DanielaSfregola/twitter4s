@@ -20,13 +20,14 @@ import scala.concurrent.{ExecutionContext, Future}
 
 /** Implements the available endpoints for the MEDIA API.
   */
-private[twitter4s] trait TwitterMediaClient extends MediaReader {
+private[twitter4s] trait TwitterMediaClient {
 
   protected val restClient: RestClient
 
   private val mediaUrl = s"$mediaTwitterUrl/$twitterVersion/media"
 
-  protected val chunkSize = 5 * 1024 * 1024   // 5 MB
+  private val chunkSize = 5 * 1024 * 1024   // 5 MB
+  private val mediaReader = new MediaReader(chunkSize)
 
   /** Uploads media asynchronously from an absolute file path.
     * For more information see
@@ -111,7 +112,7 @@ private[twitter4s] trait TwitterMediaClient extends MediaReader {
   private def appendMedia(mediaId: Long, inputStream: InputStream, filename: String)
                          (implicit ec: ExecutionContext): Future[Seq[Unit]] = {
     val appendMediaById = appendMediaChunk(mediaId, filename)_
-    Future.sequence(processAsChunks(inputStream, appendMediaById))
+    Future.sequence(mediaReader.processAsChunks(inputStream, appendMediaById))
   }
 
   private def appendMediaChunk(mediaId: Long, filename: String)(chunk: Chunk, idx: Int)

@@ -6,11 +6,9 @@ import scala.concurrent.ExecutionContext
 
 private[twitter4s] case class Chunk(base64Data: Seq[String])
 
-private[twitter4s] trait MediaReader extends Encoder {
+private[twitter4s] class MediaReader(val chunkSize: Int) extends Encoder {
 
-  protected val chunkSize: Int
-
-  protected def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T)
+  def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T)
                                   (implicit ec: ExecutionContext): Seq[T] = {
     val chunks = readChunks(inputStream).zipWithIndex
     chunks.map{ case (chunk, idx) => f(chunk, idx) }
