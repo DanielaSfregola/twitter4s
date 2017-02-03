@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.favorites
 
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.Tweet
+import com.danielasfregola.twitter4s.entities.{RatedData, Tweet}
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterFavoriteClientSpec extends ClientSpec {
@@ -12,21 +12,23 @@ class TwitterFavoriteClientSpec extends ClientSpec {
   "Twitter Favorite Client" should {
 
     "get favorites" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Tweet] = when(favoriteStatusesForUser("DanielaSfregola")).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(favoriteStatusesForUser("DanielaSfregola")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.queryString() === Some("count=20&include_entities=true&screen_name=DanielaSfregola")
-      }.respondWith("/twitter/rest/favorites/favorites.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
+      }.respondWithRated("/twitter/rest/favorites/favorites.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
     }
 
     "get favorites per user id" in new TwitterFavoriteClientSpecContext {
-      val result: Seq[Tweet] = when(favoriteStatusesForUserId(19018614)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(favoriteStatusesForUserId(19018614)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
         request.uri.queryString() === Some("count=20&include_entities=true&user_id=19018614")
-      }.respondWith("/twitter/rest/favorites/favorites.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
+      }.respondWithRated("/twitter/rest/favorites/favorites.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/favorites/favorites.json")
     }
 
     "favorite a tweet" in new TwitterFavoriteClientSpecContext {
