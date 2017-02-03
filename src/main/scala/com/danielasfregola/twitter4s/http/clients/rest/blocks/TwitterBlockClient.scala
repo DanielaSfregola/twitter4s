@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
-import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockParameters, BlockedUserIdsParameters, BlockedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -31,10 +31,10 @@ private[twitter4s] trait TwitterBlockClient {
     */
   def blockedUsers(include_entities: Boolean = true,
                    skip_status: Boolean = false,
-                   cursor: Long = -1): Future[Users] = {
+                   cursor: Long = -1): Future[RatedData[Users]] = {
     import restClient._
     val parameters = BlockedUsersParameters(include_entities, skip_status, cursor)
-    Get(s"$blocksUrl/list.json", parameters).respondAs[Users]
+    Get(s"$blocksUrl/list.json", parameters).respondAsRated[Users]
   }
 
   /** Returns an array of user ids the authenticating user is blocking.
@@ -47,7 +47,7 @@ private[twitter4s] trait TwitterBlockClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The cursored representation of user ids.
     */
-  def blockedUserIds(cursor: Long = -1): Future[UserIds] = {
+  def blockedUserIds(cursor: Long = -1): Future[RatedData[UserIds]] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = false, cursor)
     genericGetBlockedUserIds[UserIds](parameters)
   }
@@ -62,14 +62,14 @@ private[twitter4s] trait TwitterBlockClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The cursored representation of user stringified ids with cursors.
     */
-  def blockedUserStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def blockedUserStringifiedIds(cursor: Long = -1): Future[RatedData[UserStringifiedIds]] = {
     val parameters = BlockedUserIdsParameters(stringify_ids = true, cursor)
     genericGetBlockedUserIds[UserStringifiedIds](parameters)
   }
 
-  private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[T] = {
+  private def genericGetBlockedUserIds[T: Manifest](parameters: BlockedUserIdsParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$blocksUrl/ids.json", parameters).respondAs[T]
+    Get(s"$blocksUrl/ids.json", parameters).respondAsRated[T]
   }
 
   /** Blocks the specified user from following the authenticating user.

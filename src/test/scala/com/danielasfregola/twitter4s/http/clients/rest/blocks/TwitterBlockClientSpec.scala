@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.{User, UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterBlockClientSpec extends ClientSpec {
@@ -12,29 +12,32 @@ class TwitterBlockClientSpec extends ClientSpec {
   "Twitter Block Client" should {
 
     "get blocked users" in new TwitterBlockClientSpecContext {
-      val result: Users = when(blockedUsers()).expectRequest { request =>
+      val result: RatedData[Users] = when(blockedUsers()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/list.json"
-      }.respondWith("/twitter/rest/blocks/blocked_users.json").await
-      result === loadJsonAs[Users]("/fixtures/rest/blocks/blocked_users.json")
+      }.respondWithRated("/twitter/rest/blocks/blocked_users.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Users]("/fixtures/rest/blocks/blocked_users.json")
     }
 
     "get blocked user ids" in new TwitterBlockClientSpecContext {
-      val result: UserIds = when(blockedUserIds()).expectRequest { request =>
+      val result: RatedData[UserIds] = when(blockedUserIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
         request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
-      }.respondWith("/twitter/rest/blocks/ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/rest/blocks/ids.json")
+      }.respondWithRated("/twitter/rest/blocks/ids.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[UserIds]("/fixtures/rest/blocks/ids.json")
     }
 
     "get blocked user stringified ids" in new TwitterBlockClientSpecContext {
-      val result: UserStringifiedIds = when(blockedUserStringifiedIds()).expectRequest { request =>
+      val result: RatedData[UserStringifiedIds] = when(blockedUserStringifiedIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
         request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
-      }.respondWith("/twitter/rest/blocks/stringified_ids.json").await
-      result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/blocks/stringified_ids.json")
+      }.respondWithRated("/twitter/rest/blocks/stringified_ids.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[UserStringifiedIds]("/fixtures/rest/blocks/stringified_ids.json")
     }
 
     "block user"  in new TwitterBlockClientSpecContext {
