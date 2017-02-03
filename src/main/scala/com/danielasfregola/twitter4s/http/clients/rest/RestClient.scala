@@ -6,7 +6,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream.scaladsl.{Sink, Source}
 import akka.stream.{ActorMaterializer, Materializer}
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RateLimitData}
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
 
 import scala.concurrent.Future
@@ -29,6 +29,17 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       } yield t
     }
 
+    def respondAsRated[T: Manifest]: Future[RateLimitData[T]] = {
+      implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
+      for {
+        requestWithAuth <- withOAuthHeader(materializer)(request)
+        t <- sendReceiveAsRated[T](requestWithAuth)
+        _ <- system.terminate
+      } yield t
+    }
+
     def sendAsFormData: Future[Unit] = {
       implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
@@ -45,6 +56,17 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
                                 (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
     implicit val ec = materializer.executionContext
     sendAndReceive(httpRequest, response => json4sUnmarshaller[T].apply(response.entity))
+  }
+
+  def sendReceiveAsRated[T: Manifest](httpRequest: HttpRequest)
+                                (implicit system: ActorSystem, materializer: Materializer): Future[RateLimitData[T]] = {
+    implicit val ec = materializer.executionContext
+    val unmarshallRated: HttpResponse => Future[RateLimitData[T]] = { response =>
+      val rate = RateLimit(response.headers)
+      val data = json4sUnmarshaller[T].apply(response.entity)
+      data.map(d => RateLimitData(rate, d))
+    }
+    sendAndReceive(httpRequest, unmarshallRated)
   }
 
   protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])

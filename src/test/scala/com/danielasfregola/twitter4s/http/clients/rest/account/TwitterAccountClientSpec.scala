@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.account
 
 import akka.http.scaladsl.model._
 import com.danielasfregola.twitter4s.entities.enums.{ContributorType, Hour, TimeZone}
-import com.danielasfregola.twitter4s.entities.{ProfileUpdate, Settings, User}
+import com.danielasfregola.twitter4s.entities.{ProfileUpdate, RateLimitData, Settings, User}
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterAccountClientSpec extends ClientSpec {
@@ -12,19 +12,21 @@ class TwitterAccountClientSpec extends ClientSpec {
   "Twitter Account Client" should {
 
     "retrieve account settings" in new TwitterAccountClientSpecContext {
-      val result: Settings = when(settings).expectRequest { request =>
+      val result: RateLimitData[Settings] = when(settings).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/settings.json"
-      }.respondWith("/twitter/rest/account/settings.json").await
-      result === loadJsonAs[Settings]("/fixtures/rest/account/settings.json")
+      }.respondWithRated("/twitter/rest/account/settings.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Settings]("/fixtures/rest/account/settings.json")
     }
 
     "verify credentials" in new TwitterAccountClientSpecContext {
-      val result: User = when(verifyCredentials(include_email = true)).expectRequest { request =>
+      val result: RateLimitData[User] = when(verifyCredentials(include_email = true)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/account/verify_credentials.json"
-      }.respondWith("/twitter/rest/account/user.json").await
-      result === loadJsonAs[User]("/fixtures/rest/account/user.json")
+      }.respondWithRated("/twitter/rest/account/user.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[User]("/fixtures/rest/account/user.json")
     }
 
     "update account settings" in new TwitterAccountClientSpecContext {
