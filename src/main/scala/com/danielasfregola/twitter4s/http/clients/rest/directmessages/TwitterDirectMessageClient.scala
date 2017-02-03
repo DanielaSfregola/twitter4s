@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import com.danielasfregola.twitter4s.entities.DirectMessage
+import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -23,10 +23,10 @@ trait TwitterDirectMessageClient {
     * @param id : The ID of the direct message.
     * @return : The direct message.
     * */
-  def directMessage(id: Long): Future[DirectMessage] = {
+  def directMessage(id: Long): Future[RatedData[DirectMessage]] = {
     import restClient._
     val parameters = ShowParameters(id)
-    Get(s"$directMessagesUrl/show.json", parameters).respondAs[DirectMessage]
+    Get(s"$directMessagesUrl/show.json", parameters).respondAsRated[DirectMessage]
   }
 
   /** Sends a new direct message to the specified user from the authenticating user.
@@ -65,7 +65,7 @@ trait TwitterDirectMessageClient {
 
   private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] = {
     import restClient._
-    Get(s"$directMessagesUrl/new.json", parameters).respondAs[DirectMessage]
+    Post(s"$directMessagesUrl/new.json", parameters).respondAs[DirectMessage]
   }
 
   /** Returns the 20 most recent direct messages sent by the authenticating user.
@@ -89,10 +89,10 @@ trait TwitterDirectMessageClient {
                          max_id: Option[Long] = None,
                          count: Int = 200,
                          include_entities: Boolean = true,
-                         page: Int = -1): Future[Seq[DirectMessage]] = {
+                         page: Int = -1): Future[RatedData[Seq[DirectMessage]]] = {
     import restClient._
     val parameters = SentParameters(since_id, max_id, count, include_entities, page)
-    Get(s"$directMessagesUrl/sent.json", parameters).respondAs[Seq[DirectMessage]]
+    Get(s"$directMessagesUrl/sent.json", parameters).respondAsRated[Seq[DirectMessage]]
   }
 
   /** Returns the 20 most recent direct messages sent to the authenticating user.
@@ -122,10 +122,10 @@ trait TwitterDirectMessageClient {
                              max_id: Option[Long] = None,
                              count: Int = 200,
                              include_entities: Boolean = true,
-                             skip_status: Boolean = false): Future[Seq[DirectMessage]] = {
+                             skip_status: Boolean = false): Future[RatedData[Seq[DirectMessage]]] = {
     import restClient._
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
-    Get(s"$directMessagesUrl.json", parameters).respondAs[Seq[DirectMessage]]
+    Get(s"$directMessagesUrl.json", parameters).respondAsRated[Seq[DirectMessage]]
   }
 
   /** Destroys the direct message specified in the required ID parameter.

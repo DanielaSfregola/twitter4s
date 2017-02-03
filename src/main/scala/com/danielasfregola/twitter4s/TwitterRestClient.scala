@@ -23,7 +23,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends TwitterClients {
+final class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends TwitterClients {
 
   protected val restClient = new RestClient(consumerToken, accessToken)
 
