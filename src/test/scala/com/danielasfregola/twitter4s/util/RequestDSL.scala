@@ -1,12 +1,12 @@
 package com.danielasfregola.twitter4s.util
 
 import java.text.SimpleDateFormat
-import java.util.{Date, Locale}
+import java.util.Locale
 
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
 import akka.testkit.TestProbe
-import com.danielasfregola.twitter4s.entities.{RateLimit, RatedData}
+import com.danielasfregola.twitter4s.entities.RateLimit
 
 import scala.concurrent.Future
 

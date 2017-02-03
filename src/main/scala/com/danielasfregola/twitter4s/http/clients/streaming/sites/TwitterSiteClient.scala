@@ -1,13 +1,13 @@
 package com.danielasfregola.twitter4s
 package http.clients.streaming.sites
 
-import com.danielasfregola.twitter4s.util.Configurations._
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
 import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
+import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
