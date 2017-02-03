@@ -26,7 +26,7 @@ private[twitter4s] trait TwitterAccountClient {
     *
     * @return : The account settings for the authenticating user.
     * */
-  def settings(): Future[RateLimitData[Settings]] = {
+  def settings(): Future[RatedData[Settings]] = {
     import restClient._
     Get(s"$accountUrl/settings.json").respondAsRated[Settings]
   }
@@ -100,7 +100,7 @@ private[twitter4s] trait TwitterAccountClient {
     * */
   def verifyCredentials(include_entities: Boolean = true,
                         skip_status: Boolean = false,
-                        include_email: Boolean = false): Future[RateLimitData[User]] = {
+                        include_email: Boolean = false): Future[RatedData[User]] = {
     import restClient._
     val parameters = CredentialsParameters(include_entities, skip_status, include_email)
     Get(s"$accountUrl/verify_credentials.json", parameters).respondAsRated[User]

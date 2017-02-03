@@ -6,7 +6,7 @@ import java.util.{Date, Locale}
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
 import akka.testkit.TestProbe
-import com.danielasfregola.twitter4s.entities.{RateLimit, RateLimitData}
+import com.danielasfregola.twitter4s.entities.{RateLimit, RatedData}
 
 import scala.concurrent.Future
 
