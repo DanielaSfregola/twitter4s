@@ -11,67 +11,74 @@ class TwitterStatusClientSpec extends ClientSpec {
   "Twitter Status Client" should {
 
     "perform a mentions timeline request" in new TwitterStatusClientSpecContext {
-      val result: Seq[Tweet] = when(mentionsTimeline(count = 10)).expectRequest { request =>
-                    request.method === HttpMethods.GET
-                    request.uri.endpoint === "https://api.twitter.com/1.1/statuses/mentions_timeline.json"
-                    request.uri.queryString() === Some("contributor_details=false&count=10&include_entities=true&trim_user=false")
-                  }.respondWith("/twitter/rest/statuses/mentions_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/mentions_timeline.json")
+      val result: RatedData[Seq[Tweet]] = when(mentionsTimeline(count = 10)).expectRequest { request =>
+        request.method === HttpMethods.GET
+        request.uri.endpoint === "https://api.twitter.com/1.1/statuses/mentions_timeline.json"
+        request.uri.queryString() === Some("contributor_details=false&count=10&include_entities=true&trim_user=false")
+      }.respondWithRated("/twitter/rest/statuses/mentions_timeline.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/mentions_timeline.json")
     }
 
     "perform a user timeline request by screen name" in new TwitterStatusClientSpecContext {
-      val result: Seq[Tweet] = when(userTimelineForUser(screen_name = "DanielaSfregola", count = 10)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(userTimelineForUser(screen_name = "DanielaSfregola", count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/user_timeline.json"
         request.uri.queryString() === Some("contributor_details=false&count=10&exclude_replies=false&include_rts=true&screen_name=DanielaSfregola&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/user_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/user_timeline.json")
+      }.respondWithRated("/twitter/rest/statuses/user_timeline.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/user_timeline.json")
     }
 
     "perform a user timeline request by user id" in new TwitterStatusClientSpecContext {
-      val result: Seq[Tweet] = when(userTimelineForUserId(user_id = 123456L , count = 10)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(userTimelineForUserId(user_id = 123456L , count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/user_timeline.json"
         request.uri.queryString() === Some("contributor_details=false&count=10&exclude_replies=false&include_rts=true&trim_user=false&user_id=123456")
-      }.respondWith("/twitter/rest/statuses/user_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/user_timeline.json")
+      }.respondWithRated("/twitter/rest/statuses/user_timeline.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/user_timeline.json")
     }
 
     "perform a home timeline request" in new TwitterStatusClientSpecContext {
-      val result: Seq[Tweet] = when(homeTimeline(count = 10)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(homeTimeline(count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/home_timeline.json"
         request.uri.queryString() === Some("contributor_details=false&count=10&exclude_replies=false&include_entities=true&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/home_timeline.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/home_timeline.json")
+      }.respondWithRated("/twitter/rest/statuses/home_timeline.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/home_timeline.json")
     }
 
     "perform a retweets of me request" in new TwitterStatusClientSpecContext {
-      val result: Seq[Tweet] = when(retweetsOfMe(count = 10)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(retweetsOfMe(count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweets_of_me.json"
         request.uri.queryString() === Some("contributor_details=false&count=10&exclude_replies=false&include_entities=true&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/retweets_of_me.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/retweets_of_me.json")
+      }.respondWithRated("/twitter/rest/statuses/retweets_of_me.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/retweets_of_me.json")
     }
 
     "perform a retweets request" in new TwitterStatusClientSpecContext {
       val id = 648866645855879168L
-      val result: Seq[Tweet] = when(retweets(id, count = 10)).expectRequest { request =>
+      val result: RatedData[Seq[Tweet]] = when(retweets(id, count = 10)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/retweets/$id.json"
         request.uri.queryString() === Some("count=10&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/retweets.json").await
-      result === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/retweets.json")
+      }.respondWithRated("/twitter/rest/statuses/retweets.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/retweets.json")
     }
 
     "perform a show tweet request" in new TwitterStatusClientSpecContext {
-      val result: Tweet = when(getTweet(648866645855879168L)).expectRequest { request =>
+      val result: RatedData[Tweet] = when(getTweet(648866645855879168L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/show.json"
         request.uri.queryString() === Some("id=648866645855879168&include_entities=true&include_my_retweet=false&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/show.json").await
-      result === loadJsonAs[Tweet]("/fixtures/rest/statuses/show.json")
+      }.respondWithRated("/twitter/rest/statuses/show.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Tweet]("/fixtures/rest/statuses/show.json")
     }
 
     "send a status update" in new TwitterStatusClientSpecContext {
@@ -128,49 +135,54 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "get a tweet by id in oembed format " in new TwitterStatusClientSpecContext {
-      val result: OEmbedTweet = when(oembedTweetById(648866645855879168L)).expectRequest { request =>
+      val result: RatedData[OEmbedTweet] = when(oembedTweetById(648866645855879168L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.queryString() === Some("align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")
-      }.respondWith("/twitter/rest/statuses/oembed.json").await
-      result === loadJsonAs[OEmbedTweet]("/fixtures/rest/statuses/oembed.json")
+      }.respondWithRated("/twitter/rest/statuses/oembed.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[OEmbedTweet]("/fixtures/rest/statuses/oembed.json")
     }
 
     "get a tweet by url in oembed format " in new TwitterStatusClientSpecContext {
       val url = s"https://twitter.com/Interior/status/648866645855879168"
-      val result: OEmbedTweet = when(oembedTweetByUrl(url)).expectRequest { request =>
+      val result: RatedData[OEmbedTweet] = when(oembedTweetByUrl(url)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
         request.uri.queryString() === Some("align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https://twitter.com/Interior/status/648866645855879168")
-      }.respondWith("/twitter/rest/statuses/oembed.json").await
-      result === loadJsonAs[OEmbedTweet]("/fixtures/rest/statuses/oembed.json")
+      }.respondWithRated("/twitter/rest/statuses/oembed.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[OEmbedTweet]("/fixtures/rest/statuses/oembed.json")
     }
 
     "get retweeters ids" in new TwitterStatusClientSpecContext {
-      val result: UserIds = when(retweeterIds(327473909412814850L)).expectRequest { request =>
+      val result: RatedData[UserIds] = when(retweeterIds(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
         request.uri.queryString() === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=false")
-      }.respondWith("/twitter/rest/statuses/retweeters_ids.json").await
-      result === loadJsonAs[UserIds]("/fixtures/rest/statuses/retweeters_ids.json")
+      }.respondWithRated("/twitter/rest/statuses/retweeters_ids.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[UserIds]("/fixtures/rest/statuses/retweeters_ids.json")
     }
 
     "get retweeters ids stringified" in new TwitterStatusClientSpecContext {
-      val result: UserStringifiedIds = when(retweeterStringifiedIds(327473909412814850L)).expectRequest { request =>
+      val result: RatedData[UserStringifiedIds] = when(retweeterStringifiedIds(327473909412814850L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
         request.uri.queryString() === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
-      }.respondWith("/twitter/rest/statuses/retweeters_ids_stringified.json").await
-      result === loadJsonAs[UserStringifiedIds]("/fixtures/rest/statuses/retweeters_ids_stringified.json")
+      }.respondWithRated("/twitter/rest/statuses/retweeters_ids_stringified.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[UserStringifiedIds]("/fixtures/rest/statuses/retweeters_ids_stringified.json")
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
-      val result: Seq[LookupTweet] = when(tweetLookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+      val result: RatedData[Seq[LookupTweet]] = when(tweetLookup(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
         request.uri.queryString() === Some("id=327473909412814850,327473909412814851&include_entities=true&map=false&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/lookup.json").await
-      result === loadJsonAs[Seq[LookupTweet]]("/fixtures/rest/statuses/lookup.json")
+      }.respondWithRated("/twitter/rest/statuses/lookup.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[LookupTweet]]("/fixtures/rest/statuses/lookup.json")
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterStatusClientSpecContext {
@@ -178,12 +190,13 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a mapped lookup" in new TwitterStatusClientSpecContext {
-      val result: LookupMapped = when(tweetLookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
+      val result: RatedData[LookupMapped] = when(tweetLookupMapped(327473909412814850L, 327473909412814851L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
         request.uri.queryString() === Some("id=327473909412814850,327473909412814851&include_entities=true&map=true&trim_user=false")
-      }.respondWith("/twitter/rest/statuses/lookup_mapped.json").await
-      result === loadJsonAs[LookupMapped]("/fixtures/rest/statuses/lookup_mapped.json")
+      }.respondWithRated("/twitter/rest/statuses/lookup_mapped.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[LookupMapped]("/fixtures/rest/statuses/lookup_mapped.json")
     }
   }
 }

@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.users
 
-import com.danielasfregola.twitter4s.entities.{Banners, User}
+import com.danielasfregola.twitter4s.entities.{Banners, RatedData, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{BannersParameters, UserParameters, UserSearchParameters, UsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -23,7 +23,7 @@ private[twitter4s] trait TwitterUserClient {
     * @param screen_names : A sequence of screen names, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
     */
-  def users(screen_names: String*): Future[Seq[User]] = users(screen_names)
+  def users(screen_names: String*): Future[RatedData[Seq[User]]] = users(screen_names)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
     * For more information see
@@ -36,7 +36,7 @@ private[twitter4s] trait TwitterUserClient {
     * @return : The sequence of user representations.
     */
   def users(screen_names: Seq[String],
-            include_entities: Boolean = true): Future[Seq[User]] = {
+            include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
     require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = UsersParameters(user_id = None, Some(screen_names.mkString(",")), include_entities)
     genericGetUsers(parameters)
@@ -50,7 +50,7 @@ private[twitter4s] trait TwitterUserClient {
     * @param ids : A sequence of user ids, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
     */
-  def usersByIds(ids: Long*): Future[Seq[User]] = usersByIds(ids)
+  def usersByIds(ids: Long*): Future[RatedData[Seq[User]]] = usersByIds(ids)
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
@@ -63,15 +63,15 @@ private[twitter4s] trait TwitterUserClient {
     * @return : The sequence of user representations.
     */
   def usersByIds(ids: Seq[Long],
-                 include_entities: Boolean = true): Future[Seq[User]] = {
+                 include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
     require(ids.nonEmpty, "please, provide at least one user id")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericGetUsers(parameters)
   }
 
-  private def genericGetUsers(parameters: UsersParameters): Future[Seq[User]] = {
+  private def genericGetUsers(parameters: UsersParameters): Future[RatedData[Seq[User]]] = {
     import restClient._
-    Get(s"$usersUrl/lookup.json", parameters).respondAs[Seq[User]]
+    Get(s"$usersUrl/lookup.json", parameters).respondAsRated[Seq[User]]
   }
 
   /** Returns a variety of information about the user specified by the required screen name parameter.
@@ -85,7 +85,7 @@ private[twitter4s] trait TwitterUserClient {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def user(screen_name: String, include_entities: Boolean = true): Future[User] = {
+  def user(screen_name: String, include_entities: Boolean = true): Future[RatedData[User]] = {
     val parameters = UserParameters(user_id = None, Some(screen_name), include_entities)
     genericGetUser(parameters)
   }
@@ -101,14 +101,14 @@ private[twitter4s] trait TwitterUserClient {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def userById(id: Long, include_entities: Boolean = true): Future[User] = {
+  def userById(id: Long, include_entities: Boolean = true): Future[RatedData[User]] = {
     val parameters = UserParameters(Some(id), screen_name = None, include_entities)
     genericGetUser(parameters)
   }
 
-  private def genericGetUser(parameters: UserParameters): Future[User] = {
+  private def genericGetUser(parameters: UserParameters): Future[RatedData[User]] = {
     import restClient._
-    Get(s"$usersUrl/show.json", parameters).respondAs[User]
+    Get(s"$usersUrl/show.json", parameters).respondAsRated[User]
   }
 
   /** Returns a map of the available size variations of the specified user’s profile banner.
@@ -123,7 +123,7 @@ private[twitter4s] trait TwitterUserClient {
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
     * @return : The banners representation.
     */
-  def profileBannersForUser(screen_name: String): Future[Banners] = {
+  def profileBannersForUser(screen_name: String): Future[RatedData[Banners]] = {
     val parameters = BannersParameters(user_id = None, Some(screen_name))
     genericGetProfileBanners(parameters)
   }
@@ -140,14 +140,14 @@ private[twitter4s] trait TwitterUserClient {
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return : The banners representation.
     */
-  def profileBannersForUserId(user_id: Long): Future[Banners] = {
+  def profileBannersForUserId(user_id: Long): Future[RatedData[Banners]] = {
     val parameters = BannersParameters(Some(user_id), screen_name = None)
     genericGetProfileBanners(parameters)
   }
 
-  private def genericGetProfileBanners(parameters: BannersParameters): Future[Banners] = {
+  private def genericGetProfileBanners(parameters: BannersParameters): Future[RatedData[Banners]] = {
     import restClient._
-    Get(s"$usersUrl/profile_banner.json", parameters).respondAs[Banners]
+    Get(s"$usersUrl/profile_banner.json", parameters).respondAsRated[Banners]
   }
 
   /** Provides a simple, relevance-based search interface to public user accounts on Twitter.
@@ -170,9 +170,9 @@ private[twitter4s] trait TwitterUserClient {
   def searchForUser(query: String,
                     page: Int = -1,
                     count: Int = 20,
-                    include_entities: Boolean = true): Future[Seq[User]] = {
+                    include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
     import restClient._
     val parameters = UserSearchParameters(query, page, count, include_entities)
-    Get(s"$usersUrl/search.json", parameters).respondAs[Seq[User]]
+    Get(s"$usersUrl/search.json", parameters).respondAsRated[Seq[User]]
   }
 }

@@ -1,8 +1,5 @@
 package com.danielasfregola.twitter4s
 
-import java.util.UUID
-
-import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.streaming.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient
@@ -10,6 +7,8 @@ import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStat
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
+/** Represents the functionalities offered by the Twitter Streaming API
+  */
 class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends StreamingClients {
 
   protected val streamingClient = new StreamingClient(consumerToken, accessToken)

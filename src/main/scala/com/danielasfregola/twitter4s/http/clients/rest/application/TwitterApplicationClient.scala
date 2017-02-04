@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.application
 
-import com.danielasfregola.twitter4s.entities.RateLimits
 import com.danielasfregola.twitter4s.entities.enums.Resource.Resource
+import com.danielasfregola.twitter4s.entities.{RateLimits, RatedData}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.parameters.RatesParameters
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -25,10 +25,10 @@ private[twitter4s] trait TwitterApplicationClient {
     *                  If no resources are specified, all the resources are considered.
     * @return : The current rate limits for methods belonging to the specified resource families.
     */
-  def rateLimits(resources: Resource*): Future[RateLimits] = {
+  def rateLimits(resources: Resource*): Future[RatedData[RateLimits]] = {
     import restClient._
     val parameters = RatesParameters(Option(resources.mkString(",")).filter(_.trim.nonEmpty))
-    Get(s"$applicationUrl/rate_limit_status.json", parameters).respondAs[RateLimits]
+    Get(s"$applicationUrl/rate_limit_status.json", parameters).respondAsRated[RateLimits]
   }
 
 }

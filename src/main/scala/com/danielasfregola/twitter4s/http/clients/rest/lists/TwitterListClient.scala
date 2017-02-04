@@ -28,7 +28,7 @@ private[twitter4s] trait TwitterListClient {
     *                Set this to true if you would like owned lists to be returned first.
     * @return : The sequence of all lists the specified user subscribes to.
     */
-  def listsForUser(screen_name: String, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def listsForUser(screen_name: String, reverse: Boolean = false): Future[RatedData[Seq[TwitterList]]] = {
     val parameters = ListsParameters(user_id = None, Some(screen_name), reverse)
     genericGetLists(parameters)
   }
@@ -44,14 +44,14 @@ private[twitter4s] trait TwitterListClient {
     *                Set this to true if you would like owned lists to be returned first.
     * @return : The sequence of all lists the specified user subscribes to.
     */
-  def listsForUserId(user_id: Long, reverse: Boolean = false): Future[Seq[TwitterList]] = {
+  def listsForUserId(user_id: Long, reverse: Boolean = false): Future[RatedData[Seq[TwitterList]]] = {
     val parameters = ListsParameters(Some(user_id), screen_name = None, reverse)
     genericGetLists(parameters)
   }
 
-  private def genericGetLists(parameters: ListsParameters): Future[Seq[TwitterList]] = {
+  private def genericGetLists(parameters: ListsParameters): Future[RatedData[Seq[TwitterList]]] = {
     import restClient._
-    Get(s"$listsUrl/list.json", parameters).respondAs[Seq[TwitterList]]
+    Get(s"$listsUrl/list.json", parameters).respondAsRated[Seq[TwitterList]]
   }
 
   /** Returns a timeline of tweets authored by members of the specified list.
@@ -82,7 +82,7 @@ private[twitter4s] trait TwitterListClient {
                                    since_id: Option[Long] = None,
                                    max_id: Option[Long] = None,
                                    include_entities: Boolean = true,
-                                   include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                                   include_rts: Boolean = false): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -117,7 +117,7 @@ private[twitter4s] trait TwitterListClient {
                                      since_id: Option[Long] = None,
                                      max_id: Option[Long] = None,
                                      include_entities: Boolean = true,
-                                     include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                                     include_rts: Boolean = false): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
@@ -150,16 +150,16 @@ private[twitter4s] trait TwitterListClient {
                            since_id: Option[Long] = None,
                            max_id: Option[Long] = None,
                            include_entities: Boolean = true,
-                           include_rts: Boolean = false): Future[Seq[Tweet]] = {
+                           include_rts: Boolean = false): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts)
     genericGetListTimeline(parameters)
   }
 
-  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[Seq[Tweet]] = {
+  private def genericGetListTimeline(parameters: ListTimelineParameters): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
-    Get(s"$listsUrl/statuses.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$listsUrl/statuses.json", parameters).respondAsRated[Seq[Tweet]]
   }
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
@@ -282,7 +282,7 @@ private[twitter4s] trait TwitterListClient {
   def listMembershipsForUser(screen_name: String,
                              count: Int = 20,
                              cursor: Long = -1,
-                             filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+                             filter_to_owned_lists: Boolean = false): Future[RatedData[TwitterLists]] = {
     val parameters = MembershipsParameters(user_id = None, Some(screen_name), count, cursor, filter_to_owned_lists)
     genericGetListMemberships(parameters)
   }
@@ -306,14 +306,14 @@ private[twitter4s] trait TwitterListClient {
   def listMembershipsForUserId(user_id: Long,
                                count: Int = 20,
                                cursor: Long = -1,
-                               filter_to_owned_lists: Boolean = false): Future[TwitterLists] = {
+                               filter_to_owned_lists: Boolean = false): Future[RatedData[TwitterLists]] = {
     val parameters = MembershipsParameters(Some(user_id), screen_name = None, count, cursor, filter_to_owned_lists)
     genericGetListMemberships(parameters)
   }
 
-  private def genericGetListMemberships(parameters: MembershipsParameters): Future[TwitterLists] = {
+  private def genericGetListMemberships(parameters: MembershipsParameters): Future[RatedData[TwitterLists]] = {
     import restClient._
-    Get(s"$listsUrl/memberships.json", parameters).respondAs[TwitterLists]
+    Get(s"$listsUrl/memberships.json", parameters).respondAsRated[TwitterLists]
   }
 
   /** Adds multiple members to a list. The authenticated user must own the list to be able to add members to it.
@@ -446,7 +446,7 @@ private[twitter4s] trait TwitterListClient {
   def checkListMemberByUserIdAndListId(list_id: Long,
                                        user_id: Long,
                                        include_entities: Boolean = true,
-                                       skip_status: Boolean = false): Future[User] = {
+                                       skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(list_id = Some(list_id),
                                       user_id = Some(user_id),
                                       include_entities = include_entities,
@@ -475,7 +475,7 @@ private[twitter4s] trait TwitterListClient {
                                               owner_screen_name: String,
                                               user_id: Long,
                                               include_entities: Boolean = true,
-                                              skip_status: Boolean = false): Future[User] = {
+                                              skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_screen_name = Some(owner_screen_name),
                                       user_id = Some(user_id),
@@ -505,7 +505,7 @@ private[twitter4s] trait TwitterListClient {
                                             owner_id: Long,
                                             user_id: Long,
                                             include_entities: Boolean = true,
-                                            skip_status: Boolean = false): Future[User] = {
+                                            skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_id = Some(owner_id),
                                       user_id = Some(user_id),
@@ -533,7 +533,7 @@ private[twitter4s] trait TwitterListClient {
   def checkListMemberByUserAndListId(list_id: Long,
                                      screen_name: String,
                                      include_entities: Boolean = true,
-                                     skip_status: Boolean = false): Future[User] = {
+                                     skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(list_id = Some(list_id),
                                       screen_name = Some(screen_name),
                                       include_entities = include_entities,
@@ -562,7 +562,7 @@ private[twitter4s] trait TwitterListClient {
                                             owner_screen_name: String,
                                             screen_name: String,
                                             include_entities: Boolean = true,
-                                            skip_status: Boolean = false): Future[User] = {
+                                            skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_screen_name = Some(owner_screen_name),
                                       screen_name = Some(screen_name),
@@ -592,7 +592,7 @@ private[twitter4s] trait TwitterListClient {
                                           owner_id: Long,
                                           screen_name: String,
                                           include_entities: Boolean = true,
-                                          skip_status: Boolean = false): Future[User] = {
+                                          skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
                                       owner_id = Some(owner_id),
                                       screen_name = Some(screen_name),
@@ -601,9 +601,9 @@ private[twitter4s] trait TwitterListClient {
     genericCheckListMember(parameters)
   }
 
-  private def genericCheckListMember(parameters: MemberParameters): Future[User] = {
+  private def genericCheckListMember(parameters: MemberParameters): Future[RatedData[User]] = {
     import restClient._
-    Get(s"$listsUrl/members/show.json", parameters).respondAs[User]
+    Get(s"$listsUrl/members/show.json", parameters).respondAsRated[User]
   }
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
@@ -628,7 +628,7 @@ private[twitter4s] trait TwitterListClient {
                           count: Int = 20,
                           cursor: Long = -1,
                           include_entities: Boolean = true,
-                          skip_status: Boolean = false): Future[Users] = {
+                          skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(list_id = Some(list_id),
                                              count = count,
                                              cursor = cursor,
@@ -661,7 +661,7 @@ private[twitter4s] trait TwitterListClient {
                                     count: Int = 20,
                                     cursor: Long = -1,
                                     include_entities: Boolean = true,
-                                    skip_status: Boolean = false): Future[Users] = {
+                                    skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(slug = Some(slug),
                                              owner_screen_name = Some(owner_screen_name),
                                              count = count,
@@ -695,7 +695,7 @@ private[twitter4s] trait TwitterListClient {
                                   count: Int = 20,
                                   cursor: Long = -1,
                                   include_entities: Boolean = true,
-                                  skip_status: Boolean = false): Future[Users] = {
+                                  skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(slug = Some(slug),
                                              owner_id = Some(owner_id),
                                              count = count,
@@ -705,9 +705,9 @@ private[twitter4s] trait TwitterListClient {
     genericGetListMembers(parameters)
   }
 
-  private def genericGetListMembers(parameters: ListMembersParameters): Future[Users] = {
+  private def genericGetListMembers(parameters: ListMembersParameters): Future[RatedData[Users]] = {
     import restClient._
-    Get(s"$listsUrl/members.json", parameters).respondAs[Users]
+    Get(s"$listsUrl/members.json", parameters).respondAsRated[Users]
   }
 
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
@@ -1069,7 +1069,7 @@ private[twitter4s] trait TwitterListClient {
     * @param list_id : The numerical id of the list.
     * @return : The Twitter list.
     */
-  def listById(list_id: Long): Future[TwitterList] = {
+  def listById(list_id: Long): Future[RatedData[TwitterList]] = {
     val parameters = ListParameters(list_id = Some(list_id))
     genericList(parameters)
   }
@@ -1083,7 +1083,7 @@ private[twitter4s] trait TwitterListClient {
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
     * @return : The Twitter list.
     */
-  def listBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[TwitterList] = {
+  def listBySlugAndOwnerName(slug: String, owner_screen_name: String): Future[RatedData[TwitterList]] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
     genericList(parameters)
   }
@@ -1097,14 +1097,14 @@ private[twitter4s] trait TwitterListClient {
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
     * @return : The Twitter list.
     */
-  def listBySlugAndOwnerId(slug: String, owner_id: Long): Future[TwitterList] = {
+  def listBySlugAndOwnerId(slug: String, owner_id: Long): Future[RatedData[TwitterList]] = {
     val parameters = ListParameters(slug = Some(slug), owner_id = Some(owner_id))
     genericList(parameters)
   }
 
-  private def genericList(parameters: ListParameters): Future[TwitterList] = {
+  private def genericList(parameters: ListParameters): Future[RatedData[TwitterList]] = {
     import restClient._
-    Get(s"$listsUrl/show.json", parameters).respondAs[TwitterList]
+    Get(s"$listsUrl/show.json", parameters).respondAsRated[TwitterList]
   }
 
   /** Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default.
@@ -1124,7 +1124,7 @@ private[twitter4s] trait TwitterListClient {
     */
   def listSubscriptions(screen_name: String,
                         count: Int = 20,
-                        cursor: Long = -1): Future[TwitterLists] = {
+                        cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = SubscriptionsParameters(user_id = None, Some(screen_name), count, cursor)
     genericListSubscriptions(parameters)
   }
@@ -1146,14 +1146,14 @@ private[twitter4s] trait TwitterListClient {
     */
   def listSubscriptionsByUserId(user_id: Long,
                                 count: Int = 20,
-                                cursor: Long = -1): Future[TwitterLists] = {
+                                cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = SubscriptionsParameters(Some(user_id), screen_name = None, count, cursor)
     genericListSubscriptions(parameters)
   }
 
-  private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[TwitterLists] = {
+  private def genericListSubscriptions(parameters: SubscriptionsParameters): Future[RatedData[TwitterLists]] = {
     import restClient._
-    Get(s"$listsUrl/subscriptions.json", parameters).respondAs[TwitterLists]
+    Get(s"$listsUrl/subscriptions.json", parameters).respondAsRated[TwitterLists]
   }
 
   /** Removes multiple members from a list. The authenticated user must own the list to be able to remove members from it.
@@ -1284,7 +1284,7 @@ private[twitter4s] trait TwitterListClient {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists owned by the specified user.
     */
-  def listOwnerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+  def listOwnerships(screen_name: String, count: Int = 20, cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = OwnershipsParameters(user_id = None, Some(screen_name), count, cursor)
     genericGetListOwnerships(parameters)
   }
@@ -1303,13 +1303,13 @@ private[twitter4s] trait TwitterListClient {
     *               Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists owned by the specified user.
     */
-  def listOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[TwitterLists] = {
+  def listOwnershipsForUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = OwnershipsParameters(Some(user_id), screen_name = None, count, cursor)
     genericGetListOwnerships(parameters)
   }
 
-  private def genericGetListOwnerships(parameters: OwnershipsParameters): Future[TwitterLists] = {
+  private def genericGetListOwnerships(parameters: OwnershipsParameters): Future[RatedData[TwitterLists]] = {
     import restClient._
-    Get(s"$listsUrl/ownerships.json", parameters).respondAs[TwitterLists]
+    Get(s"$listsUrl/ownerships.json", parameters).respondAsRated[TwitterLists]
   }
 }

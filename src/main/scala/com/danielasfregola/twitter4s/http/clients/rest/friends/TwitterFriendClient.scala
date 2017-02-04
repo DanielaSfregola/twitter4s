@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.friends
 
-import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.entities.{RatedData, UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.friends.parameters.{FriendParameters, FriendsParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -33,7 +33,7 @@ private[twitter4s] trait TwitterFriendClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user ids the specified user id is following.
     * */
-  def friendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def friendIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserIds]] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericGetFriendIds[UserIds](parameters)
   }
@@ -56,7 +56,7 @@ private[twitter4s] trait TwitterFriendClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user ids the specified user is following.
     * */
-  def friendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def friendIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserIds]] = {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericGetFriendIds[UserIds](parameters)
   }
@@ -79,7 +79,7 @@ private[twitter4s] trait TwitterFriendClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user stringified ids the specified user id is following.
     * */
-  def friendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def friendStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FriendParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
@@ -102,14 +102,14 @@ private[twitter4s] trait TwitterFriendClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the user stringified ids the specified user is following.
     * */
-  def friendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def friendStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FriendParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericGetFriendIds[UserStringifiedIds](parameters)
   }
 
-  private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[T] = {
+  private def genericGetFriendIds[T: Manifest](parameters: FriendParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$friendsUrl/ids.json", parameters).respondAs[T]
+    Get(s"$friendsUrl/ids.json", parameters).respondAsRated[T]
   }
 
   /** Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).
@@ -135,7 +135,7 @@ private[twitter4s] trait TwitterFriendClient {
                      cursor: Long = -1,
                      count: Int = 20,
                      skip_status: Boolean = false,
-                     include_user_entities: Boolean = true): Future[Users] = {
+                     include_user_entities: Boolean = true): Future[RatedData[Users]] = {
     val parameters = FriendsParameters(user_id = None, Some(screen_name), cursor, count, skip_status, include_user_entities)
     genericGetFriends(parameters)
   }
@@ -163,13 +163,13 @@ private[twitter4s] trait TwitterFriendClient {
                        cursor: Long = -1,
                        count: Int = 20,
                        skip_status: Boolean = false,
-                       include_user_entities: Boolean = true): Future[Users] = {
+                       include_user_entities: Boolean = true): Future[RatedData[Users]] = {
     val parameters = FriendsParameters(Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
     genericGetFriends(parameters)
   }
 
-  private def genericGetFriends(parameters: FriendsParameters): Future[Users] = {
+  private def genericGetFriends(parameters: FriendsParameters): Future[RatedData[Users]] = {
     import restClient._
-    Get(s"$friendsUrl/list.json", parameters).respondAs[Users]
+    Get(s"$friendsUrl/list.json", parameters).respondAsRated[Users]
   }
 }

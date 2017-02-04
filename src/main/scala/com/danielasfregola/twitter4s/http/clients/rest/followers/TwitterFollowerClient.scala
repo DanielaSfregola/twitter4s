@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.followers
 
-import com.danielasfregola.twitter4s.entities.{UserIds, UserStringifiedIds, Users}
+import com.danielasfregola.twitter4s.entities.{RatedData, UserIds, UserStringifiedIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.followers.parameters.{FollowersParameters, FollowingParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -33,7 +33,7 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users ids following the specified user.
     * */
-  def followerIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def followerIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserIds]] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = false)
     genericFollowerIds[UserIds](parameters)
   }
@@ -56,7 +56,7 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users ids following the specified user.
     * */
-  def followerIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserIds] = {
+  def followerIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserIds]] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = false)
     genericFollowerIds[UserIds](parameters)
   }
@@ -79,7 +79,7 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users stringified ids following the specified user.
     * */
-  def followerStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def followerStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericFollowerIds[UserStringifiedIds](parameters)
   }
@@ -102,14 +102,14 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users stringified ids following the specified user.
     * */
-  def followersStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[UserStringifiedIds] = {
+  def followersStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericFollowerIds[UserStringifiedIds](parameters)
   }
 
-  private def genericFollowerIds[T: Manifest](parameters: FollowingParameters): Future[T] = {
+  private def genericFollowerIds[T: Manifest](parameters: FollowingParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$followersUrl/ids.json", parameters).respondAs[T]
+    Get(s"$followersUrl/ids.json", parameters).respondAsRated[T]
   }
 
   /** Returns a cursored collection of user objects for users following the specified user.
@@ -135,7 +135,7 @@ trait TwitterFollowerClient {
                        cursor: Long = -1,
                        count: Int = 20,
                        skip_status: Boolean = false,
-                       include_user_entities: Boolean = true): Future[Users] = {
+                       include_user_entities: Boolean = true): Future[RatedData[Users]] = {
     val parameters = FollowersParameters(user_id = None, screen_name = Some(screen_name), cursor, count, skip_status, include_user_entities)
     genericGetFollowers(parameters)
   }
@@ -163,13 +163,13 @@ trait TwitterFollowerClient {
                          cursor: Long = -1,
                          count: Int = 20,
                          skip_status: Boolean = false,
-                         include_user_entities: Boolean = true): Future[Users] = {
+                         include_user_entities: Boolean = true): Future[RatedData[Users]] = {
     val parameters = FollowersParameters(user_id = Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
     genericGetFollowers(parameters)
   }
 
-  private def genericGetFollowers(parameters: FollowersParameters): Future[Users] = {
+  private def genericGetFollowers(parameters: FollowersParameters): Future[RatedData[Users]] = {
     import restClient._
-    Get(s"$followersUrl/list.json", parameters).respondAs[Users]
+    Get(s"$followersUrl/list.json", parameters).respondAsRated[Users]
   }
 }

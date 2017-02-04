@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.favorites
 
-import com.danielasfregola.twitter4s.entities.Tweet
+import com.danielasfregola.twitter4s.entities.{RatedData, Tweet}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.favorites.parameters.{FavoriteParameters, FavoritesParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -41,7 +41,7 @@ trait TwitterFavoriteClient {
                               count: Int = 20,
                               since_id: Option[Long] = None,
                               max_id: Option[Long] = None,
-                              include_entities: Boolean = true): Future[Seq[Tweet]] = {
+                              include_entities: Boolean = true): Future[RatedData[Seq[Tweet]]] = {
     val parameters = FavoritesParameters(user_id = None, Some(screen_name), count, since_id, max_id, include_entities)
     genericGetFavoriteStatuses(parameters)
   }
@@ -72,14 +72,14 @@ trait TwitterFavoriteClient {
                                 count: Int = 20,
                                 since_id: Option[Long] = None,
                                 max_id: Option[Long] = None,
-                                include_entities: Boolean = true): Future[Seq[Tweet]] = {
+                                include_entities: Boolean = true): Future[RatedData[Seq[Tweet]]] = {
     val parameters = FavoritesParameters(Some(user_id), screen_name = None, count, since_id, max_id, include_entities)
     genericGetFavoriteStatuses(parameters)
   }
 
-  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[Seq[Tweet]] = {
+  private def genericGetFavoriteStatuses(parameters: FavoritesParameters): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
-    Get(s"$favoritesUrl/list.json", parameters).respondAs[Seq[Tweet]]
+    Get(s"$favoritesUrl/list.json", parameters).respondAsRated[Seq[Tweet]]
   }
 
   /** Likes the status specified in the ID parameter as the authenticating user.
