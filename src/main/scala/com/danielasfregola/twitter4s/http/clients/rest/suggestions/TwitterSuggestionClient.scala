@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.suggestions
 
 import com.danielasfregola.twitter4s.entities.enums.Language
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
-import com.danielasfregola.twitter4s.entities.{Category, Suggestions, User}
+import com.danielasfregola.twitter4s.entities.{Category, RatedData, Suggestions, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.parameters.SuggestionsParameters
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -28,10 +28,10 @@ private[twitter4s] trait TwitterSuggestionClient {
     *                  Restricts the suggested categories to the requested language.
     * @return : The representation of the user suggestions.
     */
-  def suggestions(slug: String, language: Language = Language.English): Future[Suggestions] = {
+  def suggestions(slug: String, language: Language = Language.English): Future[RatedData[Suggestions]]= {
     import restClient._
     val parameters = SuggestionsParameters(language)
-    Get(s"$suggestionsUrl/$slug.json", parameters).respondAs[Suggestions]
+    Get(s"$suggestionsUrl/$slug.json", parameters).respondAsRated[Suggestions]
   }
 
   /** Access to Twitter’s suggested user list. This returns the list of suggested user categories.
@@ -44,10 +44,10 @@ private[twitter4s] trait TwitterSuggestionClient {
     *                  Restricts the suggested categories to the requested language.
     * @return : The representation of the category suggestions.
     */
-  def suggestedCategories(language: Language = Language.English): Future[Seq[Category]] = {
+  def suggestedCategories(language: Language = Language.English): Future[RatedData[Seq[Category]]] = {
     import restClient._
     val parameters = SuggestionsParameters(language)
-    Get(s"$suggestionsUrl.json", parameters).respondAs[Seq[Category]]
+    Get(s"$suggestionsUrl.json", parameters).respondAsRated[Seq[Category]]
   }
 
   /** Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.
@@ -58,8 +58,8 @@ private[twitter4s] trait TwitterSuggestionClient {
     * @param slug : The short name of list or a category.
     * @return : The representation of the suggested users.
     */
-  def suggestionsMembers(slug: String): Future[Seq[User]] = {
+  def suggestionsMembers(slug: String): Future[RatedData[Seq[User]]] = {
     import restClient._
-    Get(s"$suggestionsUrl/$slug/members.json").respondAs[Seq[User]]
+    Get(s"$suggestionsUrl/$slug/members.json").respondAsRated[Seq[User]]
   }
 }
