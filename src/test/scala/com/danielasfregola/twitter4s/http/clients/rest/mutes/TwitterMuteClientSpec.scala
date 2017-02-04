@@ -53,7 +53,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.uri.queryString() === Some("cursor=-1")
       }.respondWithRated("/twitter/rest/mutes/muted_users_ids.json").await
       result.rate_limit === rateLimit
-      result === loadJsonAs[UserIds]("/fixtures/rest/mutes/muted_users_ids.json")
+      result.data === loadJsonAs[UserIds]("/fixtures/rest/mutes/muted_users_ids.json")
     }
 
     "get muted users" in new TwitterMuteClientSpecContext {
@@ -63,7 +63,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         request.uri.queryString() === Some("cursor=-1&include_entities=true&skip_status=false")
       }.respondWithRated("/twitter/rest/mutes/users.json").await
       result.rate_limit === rateLimit
-      result === loadJsonAs[Users]("/fixtures/rest/mutes/users.json")
+      result.data === loadJsonAs[Users]("/fixtures/rest/mutes/users.json")
     }
   }
 }

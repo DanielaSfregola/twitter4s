@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
-import com.danielasfregola.twitter4s.entities.SavedSearch
+import com.danielasfregola.twitter4s.entities.{RatedData, SavedSearch}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.savedsearches.parameters.SaveSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -22,9 +22,9 @@ private[twitter4s] trait TwitterSavedSearchClient {
     *
     * @return : The sequence of saved searches.
     */
-  def savedSearches(): Future[Seq[SavedSearch]] = {
+  def savedSearches(): Future[RatedData[Seq[SavedSearch]]] = {
     import restClient._
-    Get(s"$savedSearchUrl/list.json").respondAs[Seq[SavedSearch]]
+    Get(s"$savedSearchUrl/list.json").respondAsRated[Seq[SavedSearch]]
   }
 
   /** Create a new saved search for the authenticated user.
@@ -63,9 +63,9 @@ private[twitter4s] trait TwitterSavedSearchClient {
     *
     * @return : The saved search representation.
     */
-  def savedSearch(id: Long): Future[SavedSearch] = {
+  def savedSearch(id: Long): Future[RatedData[SavedSearch]] = {
     import restClient._
-    Get(s"$savedSearchUrl/show/$id.json").respondAs[SavedSearch]
+    Get(s"$savedSearchUrl/show/$id.json").respondAsRated[SavedSearch]
   }
   
 }

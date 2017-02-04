@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.savedsearches
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.SavedSearch
+import com.danielasfregola.twitter4s.entities.{RatedData, SavedSearch}
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterSavedSearchClientSpec extends ClientSpec {
@@ -11,11 +11,12 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
   "Twitter Saved Search Client" should {
 
     "get saved searches" in new TwitterSavedSearchClientSpecContext {
-      val result: Seq[SavedSearch] = when(savedSearches).expectRequest { request =>
+      val result: RatedData[Seq[SavedSearch]] = when(savedSearches).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/saved_searches/list.json"
-      }.respondWith("/twitter/rest/savedsearches/list.json").await
-      result === loadJsonAs[Seq[SavedSearch]]("/fixtures/rest/savedsearches/list.json")
+      }.respondWithRated("/twitter/rest/savedsearches/list.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[SavedSearch]]("/fixtures/rest/savedsearches/list.json")
     }
 
     "save a search" in new TwitterSavedSearchClientSpecContext {
@@ -38,11 +39,12 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
 
     "get saved search by id" in new TwitterSavedSearchClientSpecContext {
       val id = 9569704
-      val result: SavedSearch = when(savedSearch(id)).expectRequest { request =>
+      val result: RatedData[SavedSearch] = when(savedSearch(id)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === s"https://api.twitter.com/1.1/saved_searches/show/$id.json"
-      }.respondWith("/twitter/rest/savedsearches/show.json").await
-      result === loadJsonAs[SavedSearch]("/fixtures/rest/savedsearches/show.json")
+      }.respondWithRated("/twitter/rest/savedsearches/show.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[SavedSearch]("/fixtures/rest/savedsearches/show.json")
     }
   }
 
