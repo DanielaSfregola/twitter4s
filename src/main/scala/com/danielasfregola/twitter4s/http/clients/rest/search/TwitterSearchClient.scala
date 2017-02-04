@@ -6,7 +6,7 @@ import java.time.LocalDate
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.ResultType
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
-import com.danielasfregola.twitter4s.entities.{GeoCode, StatusSearch}
+import com.danielasfregola.twitter4s.entities.{GeoCode, RatedData, StatusSearch}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -74,9 +74,9 @@ private[twitter4s] trait TwitterSearchClient {
                   until: Option[LocalDate] = None,
                   since_id: Option[Long] = None,
                   max_id: Option[Long] = None,
-                  callback: Option[String] = None): Future[StatusSearch] = {
+                  callback: Option[String] = None): Future[RatedData[StatusSearch]] = {
     import restClient._
     val parameters = TweetSearchParameters(query.escapeSpecialChars, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
-    Get(s"$searchUrl/tweets.json", parameters).respondAs[StatusSearch]
+    Get(s"$searchUrl/tweets.json", parameters).respondAsRated[StatusSearch]
   }
 }
