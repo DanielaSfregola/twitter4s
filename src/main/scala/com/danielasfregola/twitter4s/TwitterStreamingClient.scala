@@ -7,7 +7,9 @@ import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStat
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations
 
-final class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends StreamingClients {
+/** Represents the functionalities offered by the Twitter Streaming API
+  */
+class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends StreamingClients {
 
   protected val streamingClient = new StreamingClient(consumerToken, accessToken)
 

@@ -9,10 +9,10 @@ import com.danielasfregola.twitter4s.util.Logger
 
 import scala.concurrent.{ExecutionContext, Future}
 
-/** It represent a twitter stream operation. It can be used to close the stream on demand
+/** Represents a twitter stream operation. It can be used to close the stream on demand
   * or to replace the current stream with another twitter stream.
   */
-final case class TwitterStream(consumerToken: ConsumerToken, accessToken: AccessToken)
+case class TwitterStream(consumerToken: ConsumerToken, accessToken: AccessToken)
                               (private val killSwitch: KillSwitch,
                                private val request: HttpRequest,
                                private val system: ActorSystem) extends StreamingClients with Logger {
