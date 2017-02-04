@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.help
 
-import com.danielasfregola.twitter4s.entities.{Configuration, LanguageDetails, PrivacyPolicy, TermsOfService}
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.util.Configurations._
 
@@ -21,9 +21,9 @@ private[twitter4s] trait TwitterHelpClient {
     *
     * @return : The current Twitter configuration.
     * */
-  def configuration(): Future[Configuration] = {
+  def configuration(): Future[RatedData[Configuration]] = {
     import restClient._
-    Get(s"$helpUrl/configuration.json").respondAs[Configuration]
+    Get(s"$helpUrl/configuration.json").respondAsRated[Configuration]
   }
 
   /** Returns the list of languages supported by Twitter along with the language code supported by Twitter.
@@ -33,9 +33,9 @@ private[twitter4s] trait TwitterHelpClient {
     *
     * @return : The list of languages supported by Twitter.
     * */
-  def supportedLanguages(): Future[Seq[LanguageDetails]] = {
+  def supportedLanguages(): Future[RatedData[Seq[LanguageDetails]]] = {
     import restClient._
-    Get(s"$helpUrl/languages.json").respondAs[Seq[LanguageDetails]]
+    Get(s"$helpUrl/languages.json").respondAsRated[Seq[LanguageDetails]]
   }
 
   /** Returns Twitter’s Privacy Policy.
@@ -45,9 +45,9 @@ private[twitter4s] trait TwitterHelpClient {
     *
     * @return : The Twitter's Privacy Policy.
     * */
-  def privacyPolicy(): Future[PrivacyPolicy] = {
+  def privacyPolicy(): Future[RatedData[PrivacyPolicy]] = {
     import restClient._
-    Get(s"$helpUrl/privacy.json").respondAs[PrivacyPolicy]
+    Get(s"$helpUrl/privacy.json").respondAsRated[PrivacyPolicy]
   }
 
   /** Returns the Twitter Terms of Service.
@@ -58,8 +58,8 @@ private[twitter4s] trait TwitterHelpClient {
     *
     * @return : the Twitter Terms of Service.
    * */
-  def termsOfService(): Future[TermsOfService] = {
+  def termsOfService(): Future[RatedData[TermsOfService]] = {
     import restClient._
-    Get(s"$helpUrl/tos.json").respondAs[TermsOfService]
+    Get(s"$helpUrl/tos.json").respondAsRated[TermsOfService]
   }
 }
