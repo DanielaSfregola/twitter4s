@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.mutes
 
-import com.danielasfregola.twitter4s.entities.{User, UserIds, Users}
+import com.danielasfregola.twitter4s.entities.{RatedData, User, UserIds, Users}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.mutes.parameters.{MuteParameters, MutedUsersIdsParameters, MutedUsersParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -97,10 +97,10 @@ private[twitter4s] trait TwitterMuteClient {
     *               See [node:10362, title=”Using cursors to navigate collections”] for more information.
     * @return : The representation of the muted user ids.
     */
-  def mutedUserIds(cursor: Long = -1): Future[UserIds] = {
+  def mutedUserIds(cursor: Long = -1): Future[RatedData[UserIds]] = {
     import restClient._
     val parameters = MutedUsersIdsParameters(cursor)
-    Get(s"$mutesUrl/ids.json", parameters).respondAs[UserIds]
+    Get(s"$mutesUrl/ids.json", parameters).respondAsRated[UserIds]
   }
 
   /** Returns the users representation that the authenticating user has muted.
@@ -122,9 +122,9 @@ private[twitter4s] trait TwitterMuteClient {
     */
   def mutedUsers(cursor: Long = -1,
                  include_entities: Boolean = true,
-                 skip_status: Boolean = false): Future[Users] = {
+                 skip_status: Boolean = false): Future[RatedData[Users]] = {
     import restClient._
     val parameters = MutedUsersParameters(cursor, include_entities, skip_status)
-    Get(s"$mutesUrl/list.json", parameters).respondAs[Users]
+    Get(s"$mutesUrl/list.json", parameters).respondAsRated[Users]
   }
 }

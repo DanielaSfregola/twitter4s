@@ -218,7 +218,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&list_id=8044403&skip_status=false&user_id=2911461333")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -228,7 +228,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301&user_id=2911461333")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -238,7 +238,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301&user_id=2911461333")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -248,7 +248,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&list_id=8044403&screen_name=DanielaSfregola&skip_status=false")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -258,7 +258,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&owner_screen_name=twitterapi&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -268,7 +268,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members/show.json"
         request.uri.queryString() === Some("include_entities=true&owner_id=6253282&screen_name=DanielaSfregola&skip_status=false&slug=meetup-20100301")
-      }respondWithRated h("/twitter/rest/lists/member.json").await
+      }.respondWithRated("/twitter/rest/lists/member.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/lists/member.json")
     }
@@ -278,7 +278,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.queryString() === Some("count=20&cursor=-1&include_entities=true&list_id=8044403&skip_status=false")
-      }respondWithRated h("/twitter/rest/lists/members.json").await
+      }.respondWithRated("/twitter/rest/lists/members.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Users]("/fixtures/rest/lists/members.json")
     }
@@ -288,7 +288,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.queryString() === Some("count=20&cursor=-1&include_entities=true&owner_screen_name=twitterapi&skip_status=false&slug=meetup-20100301")
-      }respondWithRated h("/twitter/rest/lists/members.json").await
+      }.respondWithRated("/twitter/rest/lists/members.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Users]("/fixtures/rest/lists/members.json")
     }
@@ -298,7 +298,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/members.json"
         request.uri.queryString() === Some("count=20&cursor=-1&include_entities=true&owner_id=6253282&skip_status=false&slug=meetup-20100301")
-      }respondWithRated h("/twitter/rest/lists/members.json").await
+      }.respondWithRated("/twitter/rest/lists/members.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Users]("/fixtures/rest/lists/members.json")
     }
@@ -509,7 +509,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
         request.uri.queryString() === Some("list_id=222669735")
-      }respondWithRated h("/twitter/rest/lists/show.json").await
+      }.respondWithRated("/twitter/rest/lists/show.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[TwitterList]("/fixtures/rest/lists/show.json")
     }
@@ -519,7 +519,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
         request.uri.queryString() === Some("owner_screen_name=Daniela+Sfregola&slug=my-list")
-      }respondWithRated h("/twitter/rest/lists/show.json").await
+      }.respondWithRated("/twitter/rest/lists/show.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[TwitterList]("/fixtures/rest/lists/show.json")
     }
@@ -529,7 +529,7 @@ class TwitterListClientSpec extends ClientSpec {
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
         request.uri.queryString() === Some("owner_id=2911461333&slug=my-list")
-      }respondWithRated h("/twitter/rest/lists/show.json").await
+      }.respondWithRated("/twitter/rest/lists/show.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[TwitterList]("/fixtures/rest/lists/show.json")
     }

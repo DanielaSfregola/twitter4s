@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.mutes
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.{User, UserIds, Users}
+import com.danielasfregola.twitter4s.entities.{RatedData, User, UserIds, Users}
 import com.danielasfregola.twitter4s.util.rest.ClientSpec
 
 class TwitterMuteClientSpec extends ClientSpec {
@@ -47,20 +47,22 @@ class TwitterMuteClientSpec extends ClientSpec {
     }
 
     "get muted users ids" in new TwitterMuteClientSpecContext {
-      val result: UserIds = when(mutedUserIds()).expectRequest { request =>
+      val result: RatedData[UserIds] = when(mutedUserIds()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/ids.json"
         request.uri.queryString() === Some("cursor=-1")
-      }.respondWith("/twitter/rest/mutes/muted_users_ids.json").await
+      }.respondWithRated("/twitter/rest/mutes/muted_users_ids.json").await
+      result.rate_limit === rateLimit
       result === loadJsonAs[UserIds]("/fixtures/rest/mutes/muted_users_ids.json")
     }
 
     "get muted users" in new TwitterMuteClientSpecContext {
-      val result: Users = when(mutedUsers()).expectRequest { request =>
+      val result: RatedData[Users] = when(mutedUsers()).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/list.json"
         request.uri.queryString() === Some("cursor=-1&include_entities=true&skip_status=false")
-      }.respondWith("/twitter/rest/mutes/users.json").await
+      }.respondWithRated("/twitter/rest/mutes/users.json").await
+      result.rate_limit === rateLimit
       result === loadJsonAs[Users]("/fixtures/rest/mutes/users.json")
     }
   }
