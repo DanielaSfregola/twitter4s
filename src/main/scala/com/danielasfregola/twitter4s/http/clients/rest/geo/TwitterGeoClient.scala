@@ -2,11 +2,10 @@ package com.danielasfregola.twitter4s.http.clients.rest.geo
 
 import com.danielasfregola.twitter4s.entities.enums.Granularity
 import com.danielasfregola.twitter4s.entities.enums.Granularity._
-import com.danielasfregola.twitter4s.entities.{Accuracy, GeoPlace, GeoSearch}
+import com.danielasfregola.twitter4s.entities.{Accuracy, GeoPlace, GeoSearch, RatedData}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.geo.parameters.{GeoSearchParameters, ReverseGeoCodeParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
-import com.danielasfregola.twitter4s.entities.RatedData
 
 import scala.concurrent.Future
 
