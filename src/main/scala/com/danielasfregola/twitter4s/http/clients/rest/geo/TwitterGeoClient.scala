@@ -6,6 +6,7 @@ import com.danielasfregola.twitter4s.entities.{Accuracy, GeoPlace, GeoSearch}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.geo.parameters.{GeoSearchParameters, ReverseGeoCodeParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
+import com.danielasfregola.twitter4s.entities.RatedData
 
 import scala.concurrent.Future
 
@@ -25,9 +26,9 @@ private[twitter4s] trait TwitterGeoClient {
     * @param place_id : A place id in the world.
     * @return : A set of information about place.
     * */
-  def geoPlace(place_id: String): Future[GeoPlace] = {
+  def geoPlace(place_id: String): Future[RatedData[GeoPlace]] = {
     import restClient._
-    Get(s"$geoUrl/id/$place_id.json").respondAs[GeoPlace]
+    Get(s"$geoUrl/id/$place_id.json").respondAsRated[GeoPlace]
   }
 
   /** Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.
@@ -59,10 +60,10 @@ private[twitter4s] trait TwitterGeoClient {
                      accuracy: Accuracy = Accuracy.Default,
                      granularity: Granularity = Granularity.Neighborhood,
                      max_results: Option[Int] = None,
-                     callback: Option[String] = None): Future[GeoSearch] = {
+                     callback: Option[String] = None): Future[RatedData[GeoSearch]] = {
     import restClient._
     val parameters = ReverseGeoCodeParameters(latitude, longitude, accuracy, granularity, max_results, callback)
-    Get(s"$geoUrl/reverse_geocode.json", parameters).respondAs[GeoSearch]
+    Get(s"$geoUrl/reverse_geocode.json", parameters).respondAsRated[GeoSearch]
   }
 
   /** Search for places that can be attached to a statuses/update.
@@ -73,7 +74,7 @@ private[twitter4s] trait TwitterGeoClient {
     * @param query : Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name.
     * @return : The geo search result.
     * */
-  def searchGeoPlace(query: String): Future[GeoSearch] = advancedSearchGeoPlace(query = Some(query))
+  def searchGeoPlace(query: String): Future[RatedData[GeoSearch]] = advancedSearchGeoPlace(query = Some(query))
 
   /** Advanced search for places that can be attached to a statuses/update.
     * Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.
@@ -120,12 +121,12 @@ private[twitter4s] trait TwitterGeoClient {
                              max_results: Option[Int] = None,
                              contained_within: Option[String] = None,
                              street_address: Option[String] = None,
-                             callback: Option[String] = None): Future[GeoSearch] = {
+                             callback: Option[String] = None): Future[RatedData[GeoSearch]] = {
     import restClient._
     require(latitude.isDefined || longitude.isDefined || ip.isDefined || query.isDefined,
             "please, provide at least one of the following: 'latitude', 'longitude', 'query', 'ip'")
     val parameters = GeoSearchParameters(latitude, longitude, query, ip, granularity, accuracy, max_results, contained_within, street_address, callback)
-    Get(s"$geoUrl/search.json", parameters).respondAs[GeoSearch]
+    Get(s"$geoUrl/search.json", parameters).respondAsRated[GeoSearch]
   }
 
 

@@ -214,12 +214,13 @@ class TwitterFriendshipClientSpec extends ClientSpec {
     }
 
     "get relationships with a list of users by user id" in new TwitterFriendshipClientSpecContext {
-      val result: Seq[LookupRelationship] = when(relationshipsWithUserIds(2911461333L, 2911461334L)).expectRequest { request =>
+      val result: RatedData[Seq[LookupRelationship]] = when(relationshipsWithUserIds(2911461333L, 2911461334L)).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
         request.uri.queryString() === Some("user_id=2911461333,2911461334")
-      }.respondWith("/twitter/rest/friendships/relationships.json").await
-      result === loadJsonAs[Seq[LookupRelationship]]("/fixtures/rest/friendships/relationships.json")
+      }.respondWithRated("/twitter/rest/friendships/relationships.json").await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[LookupRelationship]]("/fixtures/rest/friendships/relationships.json")
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterFriendshipClientSpecContext {
