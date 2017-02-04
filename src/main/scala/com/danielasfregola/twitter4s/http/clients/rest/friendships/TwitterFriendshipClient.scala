@@ -22,7 +22,7 @@ private[twitter4s] trait TwitterFriendshipClient {
     *
     * @return : The sequence of user ids the currently authenticated user does not want to receive retweets from.
     * */
-  def noRetweetsUserIds(): Future[Seq[Long]] = {
+  def noRetweetsUserIds(): Future[RatedData[Seq[Long]]] = {
     val parameters = BlockedParameters(stringify_ids = false)
     genericGetNoRetweetsUserIds[Seq[Long]](parameters)
   }
@@ -34,14 +34,14 @@ private[twitter4s] trait TwitterFriendshipClient {
     *
     * @return : The sequence of the user stringified ids the currently authenticated user does not want to receive retweets from.
     * */
-  def noRetweetsUserStringifiedIds(): Future[Seq[String]] = {
+  def noRetweetsUserStringifiedIds(): Future[RatedData[Seq[String]]] = {
     val parameters = BlockedParameters(stringify_ids = true)
     genericGetNoRetweetsUserIds[Seq[String]](parameters)
   }
 
-  private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[T] = {
+  private def genericGetNoRetweetsUserIds[T: Manifest](parameters: BlockedParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAs[T]
+    Get(s"$friendshipsUrl/no_retweets/ids.json", parameters).respondAsRated[T]
   }
 
   /** Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
@@ -54,7 +54,7 @@ private[twitter4s] trait TwitterFriendshipClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return : The sequence of the user ids that have a pending request to follow the authenticating user.
     * */
-  def incomingFriendshipIds(cursor: Long = -1): Future[UserIds] = {
+  def incomingFriendshipIds(cursor: Long = -1): Future[RatedData[UserIds]] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
     genericGetIncomingFriendships[UserIds](parameters)
   }
@@ -69,14 +69,14 @@ private[twitter4s] trait TwitterFriendshipClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return :  The sequence of the user stringified ids that have a pending request to follow the authenticating user.
     * */
-  def incomingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def incomingFriendshipStringifiedIds(cursor: Long = -1): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
     genericGetIncomingFriendships[UserStringifiedIds](parameters)
   }
 
-  private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
+  private def genericGetIncomingFriendships[T: Manifest](parameters: FriendshipParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$friendshipsUrl/incoming.json", parameters).respondAs[T]
+    Get(s"$friendshipsUrl/incoming.json", parameters).respondAsRated[T]
   }
 
   /** Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.
@@ -89,7 +89,7 @@ private[twitter4s] trait TwitterFriendshipClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return :  The sequence of the user ids that have a pending follow request from the authenticating user.
     * */
-  def outgoingFriendshipIds(cursor: Long = -1): Future[UserIds] = {
+  def outgoingFriendshipIds(cursor: Long = -1): Future[RatedData[UserIds]] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = false)
     genericOutgoingFriendships[UserIds](parameters)
   }
@@ -104,14 +104,14 @@ private[twitter4s] trait TwitterFriendshipClient {
     *               The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried.
     * @return :  The sequence of the user stringified ids that have a pending follow request from the authenticating user.
     * */
-  def outgoingFriendshipStringifiedIds(cursor: Long = -1): Future[UserStringifiedIds] = {
+  def outgoingFriendshipStringifiedIds(cursor: Long = -1): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FriendshipParameters(cursor, stringify_ids = true)
     genericOutgoingFriendships[UserStringifiedIds](parameters)
   }
 
-  private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[T] = {
+  private def genericOutgoingFriendships[T: Manifest](parameters: FriendshipParameters): Future[RatedData[T]] = {
     import restClient._
-    Get(s"$friendshipsUrl/outgoing.json", parameters).respondAs[T]
+    Get(s"$friendshipsUrl/outgoing.json", parameters).respondAsRated[T]
   }
 
   /** Allows the authenticating users to follow the specified user id.
@@ -310,7 +310,7 @@ private[twitter4s] trait TwitterFriendshipClient {
     * @param target_id : The user id of the target user.
     * @return :  The representation of the relationship between the two users.
     * */
-  def relationshipBetweenUserIds(source_id: Long, target_id: Long): Future[Relationship] = {
+  def relationshipBetweenUserIds(source_id: Long, target_id: Long): Future[RatedData[Relationship]] = {
     val parameters = RelationshipParametersByIds(source_id, target_id)
     genericGetRelationship(parameters)
   }
@@ -324,14 +324,14 @@ private[twitter4s] trait TwitterFriendshipClient {
     * @param target_screen_name : The screen name of the target user.
     * @return :  The representation of the relationship between the two users.
     * */
-  def relationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[Relationship] = {
+  def relationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[RatedData[Relationship]] = {
     val parameters = RelationshipParametersByNames(source_screen_name, target_screen_name)
     genericGetRelationship(parameters)
   }
 
-  private def genericGetRelationship(parameters: RelationshipParameters): Future[Relationship] = {
+  private def genericGetRelationship(parameters: RelationshipParameters): Future[RatedData[Relationship]] = {
     import restClient._
-    Get(s"$friendshipsUrl/show.json", parameters).respondAs[Relationship]
+    Get(s"$friendshipsUrl/show.json", parameters).respondAsRated[Relationship]
   }
 
   /** Returns the relationships of the authenticating user of up to 100 user screen names.
@@ -345,7 +345,7 @@ private[twitter4s] trait TwitterFriendshipClient {
     *                     Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The sequence of the lookup relationships.
     * */
-  def relationshipsWithUsers(screen_names: String*): Future[Seq[LookupRelationship]] = {
+  def relationshipsWithUsers(screen_names: String*): Future[RatedData[Seq[LookupRelationship]]] = {
     require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RelationshipsParameters(user_id = None, screen_name = Some(screen_names.mkString(",")))
     genericGetRelationships(parameters)
@@ -362,14 +362,14 @@ private[twitter4s] trait TwitterFriendshipClient {
     *                 Helpful for disambiguating when a valid user ID is also a valid screen name.
     * @return :  The sequence of the lookup relationships.
     * */
-  def relationshipsWithUserIds(user_ids: Long*): Future[Seq[LookupRelationship]] = {
+  def relationshipsWithUserIds(user_ids: Long*): Future[RatedData[Seq[LookupRelationship]]] = {
     require(user_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RelationshipsParameters(user_id = Some(user_ids.mkString(",")), screen_name = None)
     genericGetRelationships(parameters)
   }
 
-  private def genericGetRelationships(parameters: RelationshipsParameters): Future[Seq[LookupRelationship]] = {
+  private def genericGetRelationships(parameters: RelationshipsParameters): Future[RatedData[Seq[LookupRelationship]]] = {
     import restClient._
-    Get(s"$friendshipsUrl/lookup.json", parameters).respondAs[Seq[LookupRelationship]]
+    Get(s"$friendshipsUrl/lookup.json", parameters).respondAsRated[Seq[LookupRelationship]]
   }
 }
