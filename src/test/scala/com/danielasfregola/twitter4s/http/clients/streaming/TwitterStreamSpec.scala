@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming
 
 import akka.http.scaladsl.model.HttpRequest
 import akka.stream.KillSwitch
-import com.danielasfregola.twitter4s.util.streaming.ClientSpec
+import com.danielasfregola.twitter4s.helpers.streaming.ClientSpec
 import org.specs2.mock.Mockito
 
 class TwitterStreamSpec extends ClientSpec with Mockito {

@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.oauth
 import akka.http.scaladsl.model.headers.RawHeader
 import akka.http.scaladsl.model.{HttpCharsets, _}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.util.{AwaitableFuture, TestActorSystem, TestExecutionContext}
+import com.danielasfregola.twitter4s.helpers.{AwaitableFuture, TestActorSystem, TestExecutionContext}
 import org.specs2.mutable.SpecificationLike
 
 class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with AwaitableFuture with TestExecutionContext {

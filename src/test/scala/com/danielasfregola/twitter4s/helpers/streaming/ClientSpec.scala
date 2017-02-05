@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util.streaming
+package com.danielasfregola.twitter4s.helpers.streaming
 
 import java.util.UUID
 
@@ -9,8 +9,8 @@ import akka.stream.{KillSwitches, Materializer, SharedKillSwitch}
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
+import com.danielasfregola.twitter4s.helpers.{RequestDSL, Spec}
 import com.danielasfregola.twitter4s.http.clients.streaming.StreamingClient
-import com.danielasfregola.twitter4s.util.{RequestDSL, Spec}
 
 import scala.concurrent.Future
 import scala.concurrent.duration.DurationInt

@@ -5,7 +5,7 @@ import com.danielasfregola.twitter4s.http.clients.streaming.StreamingClient
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.TwitterSiteClient
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.TwitterStatusClient
 import com.danielasfregola.twitter4s.http.clients.streaming.users.TwitterUserClient
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 /** Represents the functionalities offered by the Twitter Streaming API
   */
@@ -20,7 +20,7 @@ trait StreamingClients
   with TwitterUserClient
   with TwitterSiteClient
 
-object TwitterStreamingClient extends Configurations {
+object TwitterStreamingClient {
 
   def apply(): TwitterStreamingClient = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)

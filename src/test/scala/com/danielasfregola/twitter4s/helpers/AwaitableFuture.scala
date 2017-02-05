@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util
+package com.danielasfregola.twitter4s.helpers
 
 import scala.concurrent.duration.{DurationInt, FiniteDuration}
 import scala.concurrent.{Await, Future}

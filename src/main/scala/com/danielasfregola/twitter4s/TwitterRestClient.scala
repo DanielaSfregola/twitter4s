@@ -21,7 +21,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusCli
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
-import com.danielasfregola.twitter4s.util.Configurations
+import com.danielasfregola.twitter4s.util.Configurations._
 
 /** Represents the functionalities offered by the Twitter REST API
   */
@@ -52,7 +52,7 @@ trait TwitterClients
     with TwitterTrendClient
     with TwitterUserClient
 
-object TwitterRestClient extends Configurations {
+object TwitterRestClient {
 
   def apply(): TwitterRestClient = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)

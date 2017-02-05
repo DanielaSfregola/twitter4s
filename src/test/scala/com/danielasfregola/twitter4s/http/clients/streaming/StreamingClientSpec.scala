@@ -7,8 +7,8 @@ import com.danielasfregola.twitter4s.entities.streaming.common._
 import com.danielasfregola.twitter4s.entities.streaming.site._
 import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
-import com.danielasfregola.twitter4s.util.TestActorSystem
-import com.danielasfregola.twitter4s.util.streaming.ClientSpec
+import com.danielasfregola.twitter4s.helpers.TestActorSystem
+import com.danielasfregola.twitter4s.helpers.streaming.ClientSpec
 
 class StreamingClientSpec extends TestActorSystem with ClientSpec {
 

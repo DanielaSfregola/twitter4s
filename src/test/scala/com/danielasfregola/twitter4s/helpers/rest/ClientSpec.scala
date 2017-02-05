@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util.rest
+package com.danielasfregola.twitter4s.helpers.rest
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model._
@@ -6,8 +6,8 @@ import akka.pattern.ask
 import akka.stream.Materializer
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
+import com.danielasfregola.twitter4s.helpers.{RequestDSL, Spec}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.util.{RequestDSL, Spec}
 
 import scala.concurrent.Future
 import scala.concurrent.duration.DurationInt
