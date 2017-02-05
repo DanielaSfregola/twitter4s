@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util
+package com.danielasfregola.twitter4s.helpers
 
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import org.json4s.native.Serialization

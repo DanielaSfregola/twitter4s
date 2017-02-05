@@ -1,28 +1,10 @@
 package com.danielasfregola.twitter4s.util
 
-import com.typesafe.config.ConfigFactory
+import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.util.Properties
 
-trait Configurations {
-
-  val twitterVersion = Configurations.twitterVersion
-
-  val apiTwitterUrl = Configurations.apiTwitterUrl
-  val mediaTwitterUrl = Configurations.mediaTwitterUrl
-
-  val statusStreamingTwitterUrl = Configurations.statusStreamingTwitterUrl
-  val userStreamingTwitterUrl = Configurations.userStreamingTwitterUrl
-  val siteStreamingTwitterUrl = Configurations.siteStreamingTwitterUrl
-
-  lazy val consumerTokenKey = Configurations.consumerTokenKey
-  lazy val consumerTokenSecret = Configurations.consumerTokenSecret
-
-  lazy val accessTokenKey = Configurations.accessTokenKey
-  lazy val accessTokenSecret = Configurations.accessTokenSecret
-}
-
-object Configurations {
+object Configurations extends ConfigurationDetector {
 
   val config = ConfigFactory.load
 
@@ -39,15 +21,25 @@ object Configurations {
   lazy val statusStreamingTwitterUrl = config.getString("twitter.streaming.public")
   lazy val userStreamingTwitterUrl = config.getString("twitter.streaming.user")
   lazy val siteStreamingTwitterUrl = config.getString("twitter.streaming.site")
+}
 
-  private def envVarOrConfig(envVar: String, configName: String): String = {
+trait ConfigurationDetector {
+
+  def config: Config
+
+  protected def envVarOrConfig(envVar: String, configName: String): String =
     try {
-      Properties.envOrNone(envVar).getOrElse(config.getString(configName))
+      environmentVariable(envVar) getOrElse configuration(configName)
     } catch {
-      case ex: Throwable =>
-        val msg =
-          s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
+      case _: Throwable =>
+        val msg = s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
         throw new RuntimeException(msg)
     }
-  }
+
+  protected def environmentVariable(name: String): Option[String] = Properties.envOrNone(name)
+
+  protected def configuration(path: String): String = config.getString(path)
+
 }
+
+

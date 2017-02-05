@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.streaming.statuses
 
 import akka.http.scaladsl.model.{HttpEntity, HttpMethods}
 import com.danielasfregola.twitter4s.entities.enums.Language
-import com.danielasfregola.twitter4s.util.streaming.ClientSpec
+import com.danielasfregola.twitter4s.helpers.streaming.ClientSpec
 
 class TwitterStatusClientSpec extends ClientSpec {
 

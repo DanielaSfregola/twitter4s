@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util
+package com.danielasfregola.twitter4s.helpers
 
 import akka.http.scaladsl.model.{HttpCharsets, MediaTypes}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}

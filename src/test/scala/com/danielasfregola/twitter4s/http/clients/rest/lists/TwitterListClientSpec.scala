@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.lists
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Mode
-import com.danielasfregola.twitter4s.util.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
 
 class TwitterListClientSpec extends ClientSpec {
 

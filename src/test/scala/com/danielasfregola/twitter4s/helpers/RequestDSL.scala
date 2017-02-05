@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.util
+package com.danielasfregola.twitter4s.helpers
 
 import java.text.SimpleDateFormat
 import java.util.Locale
