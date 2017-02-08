@@ -11,6 +11,7 @@ import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
@@ -23,6 +24,8 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
 
   def preProcessing(): Unit = ()
 
+  lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
+
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
     def processStream[T <: StreamingMessage : Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
@@ -30,7 +33,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
       for {
-        requestWithAuth <- withOAuthHeader(materializer)(request)
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
       } yield new TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
     }

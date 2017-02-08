@@ -12,22 +12,19 @@ import scala.concurrent.{ExecutionContext, Future}
 
 private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
 
-  def consumerToken: ConsumerToken
-  def accessToken: AccessToken
+  def oauthProvider: OAuth2Provider
 
-  protected lazy val oauthProvider = new OAuth2Provider(consumerToken, accessToken)
-
-  def withOAuthHeader(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
+  def withOAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
     implicit val ec = materializer.executionContext
     for {
-      authorizationHeader <- oauthProvider.oauth2Header(request, materializer)
+      authorizationHeader <- oauthProvider.oauth2Header(callback)(request, materializer)
     } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
-  def withSimpleOAuthHeader(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
+  def withSimpleOAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
     implicit val ec = materializer.executionContext
     for {
-      authorizationHeader <- oauthProvider.oauth2Header(request.withEntity(HttpEntity.Empty), materializer)
+      authorizationHeader <- oauthProvider.oauth2Header(callback)(request.withEntity(HttpEntity.Empty), materializer)
     } yield request.withHeaders( request.headers :+ authorizationHeader )
   }
 
