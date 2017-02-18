@@ -1,10 +1,70 @@
 package com.danielasfregola.twitter4s.http.clients.rest
 
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+import java.util.UUID
+
+import akka.actor.ActorSystem
+import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
+import akka.stream.{ActorMaterializer, Materializer}
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RatedData}
 import com.danielasfregola.twitter4s.http.clients.Client
 import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
+
+import scala.concurrent.Future
 
 private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends Client {
 
   lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
+
+  private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
+
+    def respondAs[T: Manifest]: Future[T] = {
+      implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
+      for {
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
+        t <- sendReceiveAs[T](requestWithAuth)
+        _ <- system.terminate
+      } yield t
+    }
+
+    def respondAsRated[T: Manifest]: Future[RatedData[T]] = {
+      implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
+      for {
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
+        t <- sendReceiveAsRated[T](requestWithAuth)
+        _ <- system.terminate
+      } yield t
+    }
+
+    def sendAsFormData: Future[Unit] = {
+      implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
+      for {
+        requestWithAuth <- withSimpleOAuthHeader(None)(materializer)(request)
+        _ <- sendReceiveAs[Any](requestWithAuth)
+        _ <- system.terminate
+      } yield ()
+    }
+  }
+
+  def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)
+                                (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
+    implicit val ec = materializer.executionContext
+    sendAndReceive(httpRequest, response => json4sUnmarshaller[T].apply(response.entity))
+  }
+
+  def sendReceiveAsRated[T: Manifest](httpRequest: HttpRequest)
+                                     (implicit system: ActorSystem, materializer: Materializer): Future[RatedData[T]] = {
+    implicit val ec = materializer.executionContext
+    val unmarshallRated: HttpResponse => Future[RatedData[T]] = { response =>
+      val rate = RateLimit(response.headers)
+      val data = json4sUnmarshaller[T].apply(response.entity)
+      data.map(d => RatedData(rate, d))
+    }
+    sendAndReceive(httpRequest, unmarshallRated)
+  }
 }
