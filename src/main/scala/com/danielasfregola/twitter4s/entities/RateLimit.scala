@@ -25,8 +25,7 @@ object RateLimit {
       headers
         .find(_.lowercaseName == name)
         .map(h => f(h.value))
-        .getOrElse(
-          throw TwitterException(StatusCodes.InternalServerError, errorMsg))
+        .getOrElse(throw TwitterException(StatusCodes.InternalServerError, errorMsg))
 
     val limit = extractHeaderValue("x-rate-limit-limit")(_.toInt)
     val remaining = extractHeaderValue("x-rate-limit-remaining")(_.toInt)
