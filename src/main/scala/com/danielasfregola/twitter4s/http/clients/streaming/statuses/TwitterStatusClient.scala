@@ -29,7 +29,7 @@ private[twitter4s] trait TwitterStatusClient {
     * @param follow : Empty by default. A comma separated list of user IDs, indicating the users to return statuses for in the stream.
     *                 For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#follow" target="_blank">
     *                   https://dev.twitter.com/streaming/overview/request-parameters#follow</a>
-    * @param track : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
+    * @param tracks : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
     *                For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#track" target="_blank">
     *                  https://dev.twitter.com/streaming/overview/request-parameters#track</a>
     * @param locations : Empty by default. Specifies a set of bounding boxes to track.
@@ -42,15 +42,15 @@ private[twitter4s] trait TwitterStatusClient {
     * @param f: the function that defines how to process the received messages
     */
   def filterStatuses(follow: Seq[Long] = Seq.empty,
-                     track: Seq[String] = Seq.empty,
+                     tracks: Seq[String] = Seq.empty,
                      locations: Seq[Double] = Seq.empty,
                      languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
-    require(follow.nonEmpty || track.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'track' or 'locations' needs to be non empty")
-    val parameters = StatusFilterParameters(follow, track, locations, languages, stall_warnings)
+    require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
+    val filters = StatusFilters(follow, tracks, locations, languages, stall_warnings)
     preProcessing()
-    Post(s"$statusUrl/filter.json", parameters.asInstanceOf[Product]).processStream(f)
+    Post(s"$statusUrl/filter.json", filters).processStream(f)
   }
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.

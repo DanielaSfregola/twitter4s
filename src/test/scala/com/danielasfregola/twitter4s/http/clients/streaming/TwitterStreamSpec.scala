@@ -32,7 +32,7 @@ class TwitterStreamSpec extends ClientSpec with Mockito {
     }
 
     "close previous stream when filterStatuses" in new TwitterStreamSpecContext {
-      stream.filterStatuses(track = Seq("Whatever"))(dummyProcessing)
+      stream.filterStatuses(tracks = Seq("Whatever"))(dummyProcessing)
       there was one(switch).shutdown
     }
 
