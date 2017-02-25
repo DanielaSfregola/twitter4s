@@ -12,14 +12,14 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a filtered status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(
-          filterStatuses(track = Seq("trending"), languages = Seq(Language.Hungarian, Language.Bengali))(
-            dummyProcessing))
+        when(filterStatuses(follow = Seq(1L, 2L, 3L),
+                            tracks = Seq("trending", "other"),
+                            languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing))
           .expectRequest { request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
             request.entity === HttpEntity(`application/x-www-form-urlencoded`,
-                                          "language=hu%2Cbn&stall_warnings=false&track=trending")
+                                          "follow=1%2C2%2C3&language=hu%2Cbn&stall_warnings=false&track=trending%2Cother")
           }
           .respondWithOk
           .await

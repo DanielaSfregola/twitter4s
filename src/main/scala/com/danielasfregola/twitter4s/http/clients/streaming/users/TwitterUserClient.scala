@@ -35,7 +35,7 @@ private[twitter4s] trait TwitterUserClient {
     *                 To receive all the replies, set the argument to `true`.
     *                 For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#replies" target="_blank">
     *                   https://dev.twitter.com/streaming/overview/request-parameters#replies</a>
-    * @param track : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
+    * @param tracks : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
     *                For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#track" target="_blank">
     *                  https://dev.twitter.com/streaming/overview/request-parameters#track</a>
     * @param locations : Empty by default. Specifies a set of bounding boxes to track.
@@ -52,14 +52,14 @@ private[twitter4s] trait TwitterUserClient {
     */
   def userEvents(`with`: WithFilter = WithFilter.Followings,
                  replies: Option[Boolean] = None,
-                 track: Seq[String] = Seq.empty,
+                 tracks: Seq[String] = Seq.empty,
                  locations: Seq[Double] = Seq.empty,
                  stringify_friend_ids: Boolean = false,
                  languages: Seq[Language] = Seq.empty,
                  stall_warnings: Boolean = false)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
-    val parameters = UserParameters(`with`, repliesAll, track, locations, stringify_friend_ids, languages, stall_warnings)
+    val parameters = UserParameters(`with`, repliesAll, tracks, locations, stringify_friend_ids, languages, stall_warnings)
     preProcessing()
     Get(s"$userUrl/user.json", parameters).processStream(f)
   }
