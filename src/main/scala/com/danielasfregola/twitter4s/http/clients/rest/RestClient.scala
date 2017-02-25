@@ -22,33 +22,36 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
-      for {
+      val response = for {
         requestWithAuth <- withOAuthHeader(materializer)(request)
         t <- sendReceiveAs[T](requestWithAuth)
-        _ <- system.terminate
       } yield t
+      response.onComplete(_ => system.terminate)
+      response
     }
 
     def respondAsRated[T: Manifest]: Future[RatedData[T]] = {
       implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
-      for {
+      val response = for {
         requestWithAuth <- withOAuthHeader(materializer)(request)
         t <- sendReceiveAsRated[T](requestWithAuth)
-        _ <- system.terminate
       } yield t
+      response.onComplete(_ => system.terminate)
+      response
     }
 
     def sendAsFormData: Future[Unit] = {
       implicit val system = ActorSystem(s"twitter4s-rest-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
-      for {
+      val response = for {
         requestWithAuth <- withSimpleOAuthHeader(materializer)(request)
         _ <- sendReceiveAs[Any](requestWithAuth)
-        _ <- system.terminate
       } yield ()
+      response.onComplete(_ => system.terminate)
+      response
     }
   }
 
