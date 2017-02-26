@@ -11,7 +11,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `geo` resource.
   * */
-private[twitter4s] trait TwitterGeoClient {
+trait TwitterGeoClient {
 
   protected val restClient: RestClient
 

@@ -16,7 +16,7 @@ Rate Limits
 -----------
 Be aware that the Twitter REST Api has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
 
-For all the endpoints that are affected these limitations, information on the current rates together with the requested data is provided by the `RatedData` case class.
+For all the endpoints that are affected these limitations, information on the current rates together with the requested data is provided by the [RatedData](http://danielasfregola.github.io/twitter4s/5.0/api/com/danielasfregola/twitter4s/entities/RatedData.html) case class.
 
 Setup
 -----

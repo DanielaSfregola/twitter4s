@@ -9,7 +9,7 @@ import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
-private[twitter4s] trait TwitterStatusClient {
+trait TwitterStatusClient {
 
   protected val streamingClient: StreamingClient
 

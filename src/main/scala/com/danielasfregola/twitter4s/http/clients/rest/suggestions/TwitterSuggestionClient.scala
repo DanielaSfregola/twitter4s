@@ -11,7 +11,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `suggestions` resource.
   */
-private[twitter4s] trait TwitterSuggestionClient {
+trait TwitterSuggestionClient {
 
   protected val restClient: RestClient
 

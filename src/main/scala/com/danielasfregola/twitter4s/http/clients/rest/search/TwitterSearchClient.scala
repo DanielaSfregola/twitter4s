@@ -15,7 +15,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `search` resource.
   */
-private[twitter4s] trait TwitterSearchClient {
+trait TwitterSearchClient {
 
   protected val restClient: RestClient
 

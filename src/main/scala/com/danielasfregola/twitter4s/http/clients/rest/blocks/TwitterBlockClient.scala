@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `blocks` resource.
   */
-private[twitter4s] trait TwitterBlockClient {
+trait TwitterBlockClient {
 
   protected val restClient: RestClient
 

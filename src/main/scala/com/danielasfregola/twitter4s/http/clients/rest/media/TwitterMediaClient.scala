@@ -20,7 +20,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 /** Implements the available endpoints for the MEDIA API.
   */
-private[twitter4s] trait TwitterMediaClient {
+trait TwitterMediaClient {
 
   protected val restClient: RestClient
 

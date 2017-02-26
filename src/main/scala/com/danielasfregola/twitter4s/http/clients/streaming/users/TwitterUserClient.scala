@@ -11,7 +11,7 @@ import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
-private[twitter4s] trait TwitterUserClient {
+trait TwitterUserClient {
 
   protected val streamingClient: StreamingClient
 
