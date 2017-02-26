@@ -16,6 +16,8 @@ Rate Limits
 -----------
 Be aware that the Twitter REST Api has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://dev.twitter.com/rest/public/rate-limits).
 
+For all the endpoints that are affected these limitations, information on the current rates together with the requested data is provided by the `RatedData` case class.
+
 Setup
 -----
 If you don't have it already, make sure you add the Maven Central as resolver in your SBT settings:
@@ -110,7 +112,7 @@ client.sampleStatuses(stall_warnings = true)(printTweetText)
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
 ### Close or Replace a Stream
-Each stream function returns an `Future[TwitterStream]`. 
+Each stream function returns a `Future[TwitterStream]`.
 `TwitterStream` represents the stream received by Twitter and it can be used to close or replace the current stream.
 
 For example, consider the following snippet:
@@ -128,7 +130,7 @@ For example, consider the following snippet:
 ```
 
 The above code can output something similar to the following:
- 
+
  ```bash
  oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
  +++++++++++++++
