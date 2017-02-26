@@ -195,7 +195,7 @@ Twitter REST Client
 [TwitterRestClient](http://danielasfregola.github.io/twitter4s/5.0/api/com/danielasfregola/twitter4s/TwitterRestClient) is the client for the REST endpoints offered by the Twitter REST Api.
 
 Once you have configured your consumer and access token, you can initialize an instance of `TwitterRestClient` as follows:
-```
+```scala
 import com.danielasfregola.twitter4s.TwitterRestClient
 
 val client = TwitterRestClient()
