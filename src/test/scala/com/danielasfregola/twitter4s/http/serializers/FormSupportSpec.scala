@@ -2,9 +2,9 @@ package com.danielasfregola.twitter4s.http.serializers
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
-import org.specs2.specification.Scope
 import com.danielasfregola.twitter4s.helpers.{AwaitableFuture, TestActorSystem, TestExecutionContext}
 import org.specs2.mutable.SpecificationLike
+import org.specs2.specification.Scope
 
 import scala.concurrent.Future
 

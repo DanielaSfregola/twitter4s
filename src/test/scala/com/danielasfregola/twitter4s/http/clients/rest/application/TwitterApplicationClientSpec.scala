@@ -4,11 +4,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.application
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.enums.Resource
 import com.danielasfregola.twitter4s.entities.{RateLimits, RatedData}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterApplicationClientSpec extends ClientSpec {
 
-  class TwitterApplicationClientSpecContext extends ClientSpecContext with TwitterApplicationClient
+  class TwitterApplicationClientSpecContext extends RestClientSpecContext with TwitterApplicationClient
 
   "Twitter Application Client" should {
 

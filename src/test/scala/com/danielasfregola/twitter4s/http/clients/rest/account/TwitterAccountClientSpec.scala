@@ -3,11 +3,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.account
 import akka.http.scaladsl.model._
 import com.danielasfregola.twitter4s.entities.enums.{ContributorType, Hour, TimeZone}
 import com.danielasfregola.twitter4s.entities.{ProfileUpdate, RatedData, Settings, User}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterAccountClientSpec extends ClientSpec {
 
-  class TwitterAccountClientSpecContext extends ClientSpecContext with TwitterAccountClient
+  class TwitterAccountClientSpecContext extends RestClientSpecContext with TwitterAccountClient
 
   "Twitter Account Client" should {
 

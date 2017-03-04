@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.geo
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{GeoPlace, GeoSearch, RatedData}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterGeoClientSpec extends ClientSpec {
 
-  class TwitterGeoClientSpecContext extends ClientSpecContext with TwitterGeoClient
+  class TwitterGeoClientSpecContext extends RestClientSpecContext with TwitterGeoClient
 
   "Twitter Geo Client" should {
 

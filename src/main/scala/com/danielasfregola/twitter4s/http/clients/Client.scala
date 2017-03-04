@@ -1,12 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients
 
-import java.util.UUID
-
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
-import akka.stream.{ActorMaterializer, Materializer}
+import akka.stream.Materializer
 import akka.stream.scaladsl.{Sink, Source}
-import com.danielasfregola.twitter4s.entities.{RateLimit, RatedData}
 import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
 
 import scala.concurrent.Future

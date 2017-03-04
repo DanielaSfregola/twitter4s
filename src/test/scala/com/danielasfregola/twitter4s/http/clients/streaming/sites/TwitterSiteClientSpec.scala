@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.streaming.sites
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.enums.Language
-import com.danielasfregola.twitter4s.helpers.streaming.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterSiteClientSpec extends ClientSpec {
 
-  class TwitterSiteClientSpecContext extends ClientSpecContext with TwitterSiteClient
+  class TwitterSiteClientSpecContext extends StreamingClientSpecContext with TwitterSiteClient
 
   "Twitter Site Streaming Client" should {
 

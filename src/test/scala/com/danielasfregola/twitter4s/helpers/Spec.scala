@@ -8,6 +8,7 @@ import org.specs2.mutable.SpecificationLike
 trait Spec extends SpecificationLike {
 
   val `application/x-www-form-urlencoded` = MediaTypes.`application/x-www-form-urlencoded` withCharset HttpCharsets.`UTF-8`
+  val `text/plain` = MediaTypes.`text/plain` withCharset HttpCharsets.`UTF-8`
 
   trait SpecContext extends FixturesSupport with AwaitableFuture with Scope {
 

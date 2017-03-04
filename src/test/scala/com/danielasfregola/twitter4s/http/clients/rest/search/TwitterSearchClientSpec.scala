@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.search
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{RatedData, StatusSearch}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterSearchClientSpec extends ClientSpec {
 
-  class TwitterSearchClientSpecContext extends ClientSpecContext with TwitterSearchClient
+  class TwitterSearchClientSpecContext extends RestClientSpecContext with TwitterSearchClient
 
   "Twitter Search Client" should {
 

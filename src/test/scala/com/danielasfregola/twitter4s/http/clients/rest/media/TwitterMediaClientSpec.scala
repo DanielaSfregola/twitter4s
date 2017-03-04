@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.media
 
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpMethods}
 import com.danielasfregola.twitter4s.entities.MediaDetails
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterMediaClientSpec extends ClientSpec {
 
-  class TwitterMediaClientSpecContext extends ClientSpecContext with TwitterMediaClient
+  class TwitterMediaClientSpecContext extends RestClientSpecContext with TwitterMediaClient
 
   "Twitter Media Client" should {
 
