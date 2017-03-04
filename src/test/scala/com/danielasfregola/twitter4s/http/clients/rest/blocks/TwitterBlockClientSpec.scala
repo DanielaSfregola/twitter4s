@@ -1,13 +1,12 @@
 package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
-
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterBlockClientSpec extends ClientSpec {
 
-  class TwitterBlockClientSpecContext extends ClientSpecContext with TwitterBlockClient
+  class TwitterBlockClientSpecContext extends RestClientSpecContext with TwitterBlockClient
 
   "Twitter Block Client" should {
 

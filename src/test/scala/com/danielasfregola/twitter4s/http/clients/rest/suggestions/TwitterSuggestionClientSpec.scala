@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.suggestions
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{Category, RatedData, Suggestions, User}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterSuggestionClientSpec extends ClientSpec {
 
-  class TwitterSuggestionClientSpecContext extends ClientSpecContext with TwitterSuggestionClient
+  class TwitterSuggestionClientSpecContext extends RestClientSpecContext with TwitterSuggestionClient
 
   "Twitter Suggestion Client" should {
 

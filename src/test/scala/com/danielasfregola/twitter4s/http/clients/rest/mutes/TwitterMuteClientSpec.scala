@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.mutes
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{RatedData, User, UserIds, Users}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterMuteClientSpec extends ClientSpec {
 
-  class TwitterMuteClientSpecContext extends ClientSpecContext with TwitterMuteClient
+  class TwitterMuteClientSpecContext extends RestClientSpecContext with TwitterMuteClient
 
   "Twitter Mute Client" should {
 

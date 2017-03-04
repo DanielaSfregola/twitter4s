@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.statuses
 
 import akka.http.scaladsl.model.{HttpEntity, HttpMethods}
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterStatusClientSpec extends ClientSpec {
 
-  class TwitterStatusClientSpecContext extends ClientSpecContext with TwitterStatusClient
+  class TwitterStatusClientSpecContext extends RestClientSpecContext with TwitterStatusClient
 
   "Twitter Status Client" should {
 

@@ -3,11 +3,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.friendships
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterFriendshipClientSpec extends ClientSpec {
 
-  class TwitterFriendshipClientSpecContext extends ClientSpecContext with TwitterFriendshipClient
+  class TwitterFriendshipClientSpecContext extends RestClientSpecContext with TwitterFriendshipClient
 
   "Twitter Friendship Client" should {
 
