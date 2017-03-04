@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `trends` resource.
   */
-private[twitter4s] trait TwitterTrendClient {
+trait TwitterTrendClient {
 
   protected val restClient: RestClient
 

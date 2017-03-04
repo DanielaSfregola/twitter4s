@@ -13,7 +13,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `statuses` resource.
   */
-private[twitter4s] trait TwitterStatusClient {
+trait TwitterStatusClient {
 
   protected val restClient: RestClient
 

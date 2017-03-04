@@ -8,7 +8,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `help` resource.
   * */
-private[twitter4s] trait TwitterHelpClient {
+trait TwitterHelpClient {
 
   protected val restClient: RestClient
 

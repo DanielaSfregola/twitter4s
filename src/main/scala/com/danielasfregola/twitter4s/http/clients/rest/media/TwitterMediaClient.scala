@@ -20,7 +20,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 /** Implements the available endpoints for the MEDIA API.
   */
-private[twitter4s] trait TwitterMediaClient {
+trait TwitterMediaClient {
 
   protected val restClient: RestClient
 
@@ -93,12 +93,13 @@ private[twitter4s] trait TwitterMediaClient {
     val system = ActorSystem(s"twitter4s-media-${UUID.randomUUID}")
     implicit val ec = system.dispatcher
 
-    for {
+    val response = for {
       details <- initMedia(size, media_type, additional_owners)
       uploads <- appendMedia(details.media_id, inputStream, filenameBuilder(details.media_id))
       finalize <- finalizeMedia(details.media_id)
-      _ <- system.terminate
     } yield finalize
+    response.onComplete(_ => system.terminate)
+    response
   }
 
   private def initMedia(size: Long,

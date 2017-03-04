@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `mutes` resource.
   */
-private[twitter4s] trait TwitterMuteClient {
+trait TwitterMuteClient {
 
   protected val restClient: RestClient
 

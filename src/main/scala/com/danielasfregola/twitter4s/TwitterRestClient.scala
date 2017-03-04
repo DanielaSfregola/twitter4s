@@ -25,13 +25,13 @@ import com.danielasfregola.twitter4s.util.Configurations._
 
 /** Represents the functionalities offered by the Twitter REST API
   */
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends TwitterClients {
+class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends RestClients {
 
   protected val restClient = new RestClient(consumerToken, accessToken)
 
 }
 
-trait TwitterClients
+trait RestClients
     extends TwitterAccountClient
     with TwitterApplicationClient
     with TwitterBlockClient

@@ -10,7 +10,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `application` resource.
   */
-private[twitter4s] trait TwitterApplicationClient {
+trait TwitterApplicationClient {
 
   protected val restClient: RestClient
 

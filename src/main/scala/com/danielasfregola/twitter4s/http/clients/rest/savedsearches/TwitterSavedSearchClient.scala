@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 /** Implements the available requests for the `saved_searches` resource.
   */
-private[twitter4s] trait TwitterSavedSearchClient {
+trait TwitterSavedSearchClient {
 
   protected val restClient: RestClient
 
