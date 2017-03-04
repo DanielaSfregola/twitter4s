@@ -28,7 +28,6 @@ libraryDependencies ++= {
     "org.json4s" %% "json4s-native" % Json4s,
     "org.json4s" %% "json4s-ext" % Json4s,
     "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
-    "com.chuusai" %% "shapeless" % Shapeless,
     "org.specs2" %% "specs2-core" % Spec2 % "test",
     "org.specs2" %% "specs2-mock" % Spec2 % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test"
