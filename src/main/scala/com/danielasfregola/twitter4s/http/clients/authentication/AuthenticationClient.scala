@@ -8,8 +8,7 @@ import akka.stream.{ActorMaterializer, Materializer}
 import com.danielasfregola.twitter4s.entities.ConsumerToken
 import com.danielasfregola.twitter4s.http.clients.Client
 import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
-import com.danielasfregola.twitter4s.http.serializers.FormSupport
-import shapeless.{HList, LabelledGeneric}
+import com.danielasfregola.twitter4s.http.serializers.{FormSupport, FromMap}
 
 import scala.concurrent.Future
 
@@ -19,24 +18,23 @@ private[twitter4s] class AuthenticationClient(val consumerToken: ConsumerToken) 
 
   private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
 
-    def respondAs[T: Manifest, R <: HList](implicit gen: LabelledGeneric.Aux[T, R], fromMap: FormSupport.FromMap[R]): Future[T] = respondAs[T, R](None)
+    def respondAs[T: Manifest](implicit fromMap: FromMap[T]): Future[T] = respondAs[T](None)
 
-    def respondAs[T: Manifest, R <: HList](callback: Option[String])(implicit gen: LabelledGeneric.Aux[T, R], fromMap: FormSupport.FromMap[R]): Future[T] = {
+    def respondAs[T: Manifest](callback: Option[String])(implicit fromMap: FromMap[T]): Future[T] = {
       implicit val system = ActorSystem(s"twitter4s-authentication-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
       for {
         requestWithAuth <- withOAuthHeader(callback)(materializer)(request)
-        t <- sendReceiveAs[T, R](requestWithAuth)
+        t <- sendReceiveAs[T](requestWithAuth)
         _ <- system.terminate
       } yield t
     }
   }
 
-  def sendReceiveAs[T: Manifest, R <: HList](httpRequest: HttpRequest)(implicit system: ActorSystem,
+  def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)(implicit system: ActorSystem,
                                                                        materializer: Materializer,
-                                                                       gen: LabelledGeneric.Aux[T, R],
-                                                                       fromMap: FormSupport.FromMap[R]): Future[T] = {
+                                                                       fromMap: FromMap[T]): Future[T] = {
     implicit val ec = materializer.executionContext
     sendAndReceive(httpRequest, response => FormSupport.unmarshallText(response))
   }

@@ -7,7 +7,6 @@ import com.danielasfregola.twitter4s.entities.{RatedData, StatusSearch}
 import com.danielasfregola.twitter4s.http.clients.authentication.AuthenticationClient
 import com.danielasfregola.twitter4s.http.clients.authentication.oauth.parameters.{AuthenticateParameters, RequestTokenParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
-import shapeless.LabelledGeneric
 
 import scala.concurrent.Future
 
@@ -19,9 +18,8 @@ private[twitter4s] trait TwitterOAuthClient {
 
   def requestToken(oauth_callback: Option[String] = None, x_auth_access_type: Option[AccessType] = None): Future[OAuthToken] = {
     import authenticationClient._
-    implicit val lgen = LabelledGeneric[OAuthToken]
     val parameters = RequestTokenParameters(x_auth_access_type)
-    Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthToken, lgen.Repr](oauth_callback)
+    Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthToken](oauth_callback)
   }
 
 //  def authenticate(screen_name: Option[String] = None, force_login: Boolean = false): Future[RatedData[StatusSearch]] = {
