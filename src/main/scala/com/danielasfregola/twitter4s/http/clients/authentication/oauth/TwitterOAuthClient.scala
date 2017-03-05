@@ -49,6 +49,10 @@ trait TwitterOAuthClient {
     * for applications using the callback authentication flow.
     * The method will use the currently logged in user as the account for access authorization unless
     * the `force_login` parameter is set to true.
+    * This method differs from [[authorizeUrl]] in that if the user has already granted the application permission,
+    * the redirect will occur without the user having to re-approve the application.
+    * To realize this behavior, you must enable the `Use Sign in with Twitter` setting on your
+    * <a href="https://apps.twitter.com/">application record</a>.
     * For more information see
     * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
     *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
@@ -58,15 +62,36 @@ trait TwitterOAuthClient {
     *                      enter their credentials to ensure the correct users account is authorized.
     * @param screen_name : Optional, by default it is `None`.
     *                      It prefills the username input box of the OAuth login screen with the given value.
-    * @return : The authentication url to use in a web browser for the user to grant access to the application.
+    * @return : The authentication url to use in a web browser for the user to complete the authentication process.
     * */
-  def authenticationUrl(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String = {
+  def authenticateUrl(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String =
+    genericOAuthUrl("authenticate")(oauth_token, force_login, screen_name)
+
+  /** Allows a Consumer application to use an OAuth Request Token to request user authorization.
+    * This method fulfills <a href="http://oauth.net/core/1.0/#auth_step2">Section 6.2</a>
+    * of the <a href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
+    * Desktop applications must use this method (and cannot use [[authenticateUrl]]).
+    * For more information see
+    * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
+    *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
+    *
+    * @param oauth_token : The `OAuthToken.oauth_token` obtained from [[requestToken]]
+    * @param force_login : By default is `false`. When set to `true`, it forces the user to
+    *                      enter their credentials to ensure the correct users account is authorized.
+    * @param screen_name : Optional, by default it is `None`.
+    *                      It prefills the username input box of the OAuth login screen with the given value.
+    * @return : The url to use in a web browser for the user to complete the authorization process.
+    * */
+  def authorizeUrl(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String =
+    genericOAuthUrl("authorize")(oauth_token, force_login, screen_name)
+
+  private def genericOAuthUrl(path: String)(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String = {
     val params = {
       val queryParams = List(Some("oauth_token" -> oauth_token),
-                             Some("force_login" -> force_login),
-                             screen_name.map(n => "screen_name" -> n))
+        Some("force_login" -> force_login),
+        screen_name.map(n => "screen_name" -> n))
       queryParams.flatten.map { case (key, value) => s"$key=$value"}.mkString("&")
     }
-    s"$oauthUrl/authenticate?$params"
+    s"$oauthUrl/$path?$params"
   }
 }
