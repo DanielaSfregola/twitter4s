@@ -38,9 +38,15 @@ class TwitterOAuthClientSpec extends ClientSpec {
     }
 
     "generate an authentication url" in new TwitterOAuthClientSpecContext {
-      val url: String = authenticationUrl(oauth_token = "my-auth-token", force_login = true, screen_name = Some("DanielaSfregola"))
+      val url: String = authenticateUrl(oauth_token = "my-auth-token", force_login = true, screen_name = Some("DanielaSfregola"))
       val params = "oauth_token=my-auth-token&force_login=true&screen_name=DanielaSfregola"
       url === s"https://api.twitter.com/oauth/authenticate?$params"
+    }
+
+    "generate an authorization url" in new TwitterOAuthClientSpecContext {
+      val url: String = authorizeUrl(oauth_token = "my-auth-token", force_login = true, screen_name = Some("DanielaSfregola"))
+      val params = "oauth_token=my-auth-token&force_login=true&screen_name=DanielaSfregola"
+      url === s"https://api.twitter.com/oauth/authorize?$params"
     }
   }
 }
