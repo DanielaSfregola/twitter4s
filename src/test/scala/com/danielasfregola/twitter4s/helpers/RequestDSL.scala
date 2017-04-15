@@ -7,10 +7,13 @@ import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
 import akka.testkit.TestProbe
 import com.danielasfregola.twitter4s.entities.RateLimit
+import org.specs2.specification.AfterEach
 
 import scala.concurrent.Future
 
-abstract class RequestDSL extends TestActorSystem with FixturesSupport {
+abstract class RequestDSL extends TestActorSystem with FixturesSupport with AfterEach {
+
+  def after = system.terminate
 
   val headers = List(RawHeader("x-rate-limit-limit", "15"),
                      RawHeader("x-rate-limit-remaining", "14"),
@@ -44,7 +47,8 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport {
 
   class Responder[T](future: Future[T]) {
     def respondWith(response: HttpResponse): Future[T] = {
-      transport.reply(response); future
+      transport.reply(response)
+      future
     }
 
     def respondWith(resourcePath: String): Future[T] =
@@ -57,13 +61,7 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport {
     def respondWithOk: Future[Unit] = {
       val response = HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, """{"code": "OK"}"""))
       transport.reply(response)
-      Future.successful(())
+      Future.successful((): Unit)
     }
   }
-
-  implicit class RichUri(val uri: Uri) {
-
-    def endpoint = s"${uri.scheme}:${uri.authority}${uri.path}"
-  }
-
 }
