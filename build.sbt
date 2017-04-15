@@ -1,7 +1,7 @@
 import com.typesafe.sbt.SbtGit.{GitKeys => git}
 
 name := "twitter4s"
-version := "5.1-SNAPSHOT"
+version := "5.1"
 
 scalaVersion := "2.12.1"
 
