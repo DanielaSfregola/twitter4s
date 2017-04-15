@@ -5,13 +5,13 @@ import akka.http.scaladsl.model.headers.RawHeader
 import akka.http.scaladsl.model.{HttpHeader, HttpRequest}
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.util.Encoder
+import com.danielasfregola.twitter4s.util.{Encoder, UriHelpers}
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Random
 
-private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken) extends Encoder {
+private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: AccessToken) extends Encoder with UriHelpers {
 
   def oauth2Header(implicit request: HttpRequest, materializer: Materializer): Future[HttpHeader] = {
     implicit val ec = materializer.executionContext

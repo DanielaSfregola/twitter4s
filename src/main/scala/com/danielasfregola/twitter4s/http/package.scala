@@ -2,8 +2,6 @@ package com.danielasfregola.twitter4s
 
 import java.net.URLEncoder
 
-import akka.http.scaladsl.model.Uri
-
 package object http {
 
   private val SpecialEncodings = Map("+" -> "%20", "." -> "%2E", "-" -> "%2D", "*" -> "%2A", "_" -> "%5F")
@@ -17,12 +15,6 @@ package object http {
     def escapeSpecialChars = SpecialEncodings.foldRight(urlEncoded) {
       case ((char, encoding), acc) => acc.replace(char, encoding)
     }
-
-  }
-
-  implicit class RichUri(val uri: Uri) extends AnyVal {
-
-    def endpoint = s"${uri.scheme}:${uri.authority}${uri.path}"
   }
 
 }
