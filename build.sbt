@@ -19,7 +19,6 @@ libraryDependencies ++= {
   val Json4s = "3.5.0"
   val Spec2 = "3.8.6"
   val ScalaLogging = "3.5.0"
-  val Shapeless = "2.3.2"
 
   Seq(
     "com.typesafe" % "config" % Typesafe,

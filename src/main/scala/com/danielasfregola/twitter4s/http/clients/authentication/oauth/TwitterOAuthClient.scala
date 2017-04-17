@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.http
 package clients.authentication.oauth
 
-import com.danielasfregola.twitter4s.entities.authentication.OAuthToken
+import com.danielasfregola.twitter4s.entities.authentication.{OAuthAccessToken, OAuthRequestToken, RequestToken}
 import com.danielasfregola.twitter4s.entities.enums.AccessType.AccessType
 import com.danielasfregola.twitter4s.http.clients.authentication.AuthenticationClient
-import com.danielasfregola.twitter4s.http.clients.authentication.oauth.parameters.RequestTokenParameters
+import com.danielasfregola.twitter4s.http.clients.authentication.oauth.parameters.{AccessTokenParameters, RequestTokenParameters}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -35,12 +35,12 @@ trait TwitterOAuthClient {
     *                             Supported values are read or write . This parameter is intended to
     *                             allow a developer to register a read/write application but also request
     *                             read only access when appropriate.
-    * @return : The authentication token.
+    * @return : The authentication request token.
     * */
-  def requestToken(oauth_callback: Option[String] = None, x_auth_access_type: Option[AccessType] = None): Future[OAuthToken] = {
+  def requestToken(oauth_callback: Option[String] = None, x_auth_access_type: Option[AccessType] = None): Future[OAuthRequestToken] = {
     import authenticationClient._
     val parameters = RequestTokenParameters(x_auth_access_type)
-    Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthToken](oauth_callback)
+    Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthRequestToken](oauth_callback)
   }
 
   /** Allows a Consumer application to use an OAuth request_token to request user authorization.
@@ -57,15 +57,15 @@ trait TwitterOAuthClient {
     * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
     *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
     *
-    * @param oauth_token : The `OAuthToken.oauth_token` obtained from [[requestToken]]
+    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
     *                      enter their credentials to ensure the correct users account is authorized.
     * @param screen_name : Optional, by default it is `None`.
     *                      It prefills the username input box of the OAuth login screen with the given value.
     * @return : The authentication url to use in a web browser for the user to complete the authentication process.
     * */
-  def authenticateUrl(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String =
-    genericOAuthUrl("authenticate")(oauth_token, force_login, screen_name)
+  def authenticateUrl(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String =
+    genericOAuthUrl("authenticate")(token, force_login, screen_name)
 
   /** Allows a Consumer application to use an OAuth Request Token to request user authorization.
     * This method fulfills <a href="http://oauth.net/core/1.0/#auth_step2">Section 6.2</a>
@@ -75,23 +75,60 @@ trait TwitterOAuthClient {
     * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
     *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
     *
-    * @param oauth_token : The `OAuthToken.oauth_token` obtained from [[requestToken]]
+    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
     *                      enter their credentials to ensure the correct users account is authorized.
     * @param screen_name : Optional, by default it is `None`.
     *                      It prefills the username input box of the OAuth login screen with the given value.
     * @return : The url to use in a web browser for the user to complete the authorization process.
     * */
-  def authorizeUrl(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String =
-    genericOAuthUrl("authorize")(oauth_token, force_login, screen_name)
+  def authorizeUrl(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String =
+    genericOAuthUrl("authorize")(token, force_login, screen_name)
 
-  private def genericOAuthUrl(path: String)(oauth_token: String, force_login: Boolean = false, screen_name: Option[String] = None): String = {
+  private def genericOAuthUrl(path: String)(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String = {
     val params = {
-      val queryParams = List(Some("oauth_token" -> oauth_token),
+      val queryParams = List(Some("oauth_token" -> token.key),
         Some("force_login" -> force_login),
         screen_name.map(n => "screen_name" -> n))
       queryParams.flatten.map { case (key, value) => s"$key=$value"}.mkString("&")
     }
     s"$oauthUrl/$path?$params"
+  }
+
+  /** Allows a Consumer application to exchange the OAuth Request Token for an OAuth Access Token using xAuth.
+    * This method fulfills <a class="reference external" href="http://oauth.net/core/1.0/#auth_step3">Section 6.3</a>
+    * of the <a class="reference external" href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
+    * For more information see
+    * <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token" target="_blank">
+    *   https://dev.twitter.com/oauth/reference/post/oauth/access_token</a>.
+    *
+    * @param x_auth_username : The username of the user to obtain a token for.
+    * @param x_auth_password : The password of the user for which to obtain a token for.
+    * @return : The access token for the requested user.
+    * */
+  def accessToken(x_auth_username: String, x_auth_password: String): Future[OAuthAccessToken] = {
+    val parameters = AccessTokenParameters(x_auth_username = Some(x_auth_username),
+                                           x_auth_password = Some(x_auth_password),
+                                           x_auth_mode = Some("client_auth"))
+    import authenticationClient._
+    Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
+  }
+
+  /** Allows a Consumer application to exchange the OAuth Request Token for an OAuth Access Token using OAuth 1.0.
+    * This method fulfills <a class="reference external" href="http://oauth.net/core/1.0/#auth_step3">Section 6.3</a>
+    * of the <a class="reference external" href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
+    * For more information see
+    * <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token" target="_blank">
+    *   https://dev.twitter.com/oauth/reference/post/oauth/access_token</a>.
+    *
+    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
+    * @param oauth_verifier : the `oauth_verifier` returned in the callback of the URL
+    *                         provided by [[authenticateUrl]] or [[authorizeUrl]].
+    * @return : The access token for the requested user.
+    * */
+  def accessToken(token: RequestToken, oauth_verifier: String): Future[OAuthAccessToken] = {
+    val parameters = AccessTokenParameters(oauth_token = Some(token.key), oauth_verifier = Some(oauth_verifier))
+    import authenticationClient._
+    Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
   }
 }

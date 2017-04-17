@@ -24,11 +24,12 @@ private[twitter4s] class AuthenticationClient(val consumerToken: ConsumerToken) 
       implicit val system = ActorSystem(s"twitter4s-authentication-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
-      for {
+      val response = for {
         requestWithAuth <- withOAuthHeader(callback)(materializer)(request)
         t <- sendReceiveAs[T](requestWithAuth)
-        _ <- system.terminate
       } yield t
+      response.onComplete(_ => system.terminate)
+      response
     }
   }
 

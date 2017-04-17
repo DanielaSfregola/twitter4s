@@ -23,7 +23,7 @@ class FormSupportSpec
       b <- m.get("b")
       c <- m.get("c")
       d <- m.get("d")
-    } yield MyTest(a, b, c, d)
+    } yield MyTest(a, b, c, toBoolean(d))
   }
 
   abstract class FormSupportContext extends Scope

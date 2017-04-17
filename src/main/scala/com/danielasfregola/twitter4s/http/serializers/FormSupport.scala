@@ -10,7 +10,7 @@ import scala.concurrent.duration._
 private[twitter4s] trait FromMap[T] {
   def apply(m: Map[String, String]): Option[T]
 
-  implicit def toBoolean(text: String): Boolean = text.toLowerCase.trim == "true"
+  def toBoolean(text: String): Boolean = text.trim.toLowerCase == "true"
 }
 
 private[twitter4s] object FormSupport {
@@ -26,14 +26,14 @@ private[twitter4s] object FormSupport {
   private def asMap(body: String): Map[String, String] =
     body.split("&").map { fields =>
       val tokens = fields.split("=", 2)
-      tokens.head -> tokens.tail.mkString
+      tokens.head -> tokens.tail.mkString.trim
     }.toMap
 
   private def unmarshallError[T: Manifest](body: String): TwitterException = {
     val errorMsg =
       s"""Could not serialise body to ${manifest[T].runtimeClass.getSimpleName}.
          |
-           |Please report it at https://github.com/DanielaSfregola/twitter4s/issues/new
+         |Please report it at https://github.com/DanielaSfregola/twitter4s/issues/new
          |Body was: $body""".stripMargin
     TwitterException(StatusCodes.InternalServerError, errorMsg)
   }

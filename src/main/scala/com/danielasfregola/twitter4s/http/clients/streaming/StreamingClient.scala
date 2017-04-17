@@ -82,7 +82,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .filter(_.nonEmpty)
       .via(killSwitch.flow)
       .map(data => unmarshalStream(data, f))
-      .runWith(Sink.foreach(_ => ()))
+      .runWith(Sink.foreach(_ => (): Unit))
 
   private def unmarshalStream[T <: StreamingMessage: Manifest](data: ByteString, f: PartialFunction[T, Unit])(
       implicit request: HttpRequest): Unit = {
