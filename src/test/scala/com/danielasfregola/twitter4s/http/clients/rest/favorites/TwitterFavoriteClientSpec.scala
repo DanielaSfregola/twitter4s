@@ -3,11 +3,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.favorites
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{RatedData, Tweet}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterFavoriteClientSpec extends ClientSpec {
 
-  class TwitterFavoriteClientSpecContext extends ClientSpecContext with TwitterFavoriteClient
+  class TwitterFavoriteClientSpecContext extends RestClientSpecContext with TwitterFavoriteClient
 
   "Twitter Favorite Client" should {
 

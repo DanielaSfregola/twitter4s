@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.trends
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{Location, LocationTrends, RatedData}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterTrendClientSpec  extends ClientSpec {
 
-  class TwitterTrendClientSpecContext extends ClientSpecContext with TwitterTrendClient
+  class TwitterTrendClientSpecContext extends RestClientSpecContext with TwitterTrendClient
 
   "Twitter Trend Client" should {
 

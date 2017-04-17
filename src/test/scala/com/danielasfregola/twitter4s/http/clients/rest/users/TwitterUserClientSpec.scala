@@ -2,11 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.users
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{Banners, RatedData, User}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterUserClientSpec extends ClientSpec {
 
-class TwitterUserClientSpecContext extends ClientSpecContext with TwitterUserClient
+class TwitterUserClientSpecContext extends RestClientSpecContext with TwitterUserClient
 
   "Twitter User Client" should {
 

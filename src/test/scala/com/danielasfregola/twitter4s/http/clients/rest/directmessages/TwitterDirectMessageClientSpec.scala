@@ -3,11 +3,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
 
-  class TwitterDirectMessageClientSpecContext extends ClientSpecContext with TwitterDirectMessageClient
+  class TwitterDirectMessageClientSpecContext extends RestClientSpecContext with TwitterDirectMessageClient
 
   "Twitter Direct Message Client" should {
 

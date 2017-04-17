@@ -4,17 +4,16 @@ import java.util.UUID
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
-import akka.stream.scaladsl.{Sink, Source}
 import akka.stream.{ActorMaterializer, Materializer}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RatedData}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
+import com.danielasfregola.twitter4s.http.clients.Client
+import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
 
 import scala.concurrent.Future
 
-private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends OAuthClient {
+private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends Client {
 
-  val withLogRequest = false
-  val withLogRequestResponse = true
+  lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
 
   private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
 
@@ -23,7 +22,7 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
       val response = for {
-        requestWithAuth <- withOAuthHeader(materializer)(request)
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
         t <- sendReceiveAs[T](requestWithAuth)
       } yield t
       response.onComplete(_ => system.terminate)
@@ -35,7 +34,7 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
       val response = for {
-        requestWithAuth <- withOAuthHeader(materializer)(request)
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
         t <- sendReceiveAsRated[T](requestWithAuth)
       } yield t
       response.onComplete(_ => system.terminate)
@@ -47,7 +46,7 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
       val response = for {
-        requestWithAuth <- withSimpleOAuthHeader(materializer)(request)
+        requestWithAuth <- withSimpleOAuthHeader(None)(materializer)(request)
         _ <- sendReceiveAs[Any](requestWithAuth)
       } yield ()
       response.onComplete(_ => system.terminate)
@@ -62,7 +61,7 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
   }
 
   def sendReceiveAsRated[T: Manifest](httpRequest: HttpRequest)
-                                (implicit system: ActorSystem, materializer: Materializer): Future[RatedData[T]] = {
+                                     (implicit system: ActorSystem, materializer: Materializer): Future[RatedData[T]] = {
     implicit val ec = materializer.executionContext
     val unmarshallRated: HttpResponse => Future[RatedData[T]] = { response =>
       val rate = RateLimit(response.headers)
@@ -71,19 +70,4 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
     }
     sendAndReceive(httpRequest, unmarshallRated)
   }
-
-  protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])
-                                 (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
-    implicit val _ = request
-    val requestStartTime = System.currentTimeMillis
-
-    if (withLogRequest) logRequest
-
-    Source
-      .single(request)
-      .via(connection)
-      .mapAsync(1)(implicit response => unmarshal(requestStartTime, f))
-      .runWith(Sink.head)
-  }
-
 }

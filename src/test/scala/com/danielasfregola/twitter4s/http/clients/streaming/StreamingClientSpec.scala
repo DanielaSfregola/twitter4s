@@ -7,12 +7,11 @@ import com.danielasfregola.twitter4s.entities.streaming.common._
 import com.danielasfregola.twitter4s.entities.streaming.site._
 import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
-import com.danielasfregola.twitter4s.helpers.TestActorSystem
-import com.danielasfregola.twitter4s.helpers.streaming.ClientSpec
+import com.danielasfregola.twitter4s.helpers.{ClientSpec, TestActorSystem}
 
 class StreamingClientSpec extends TestActorSystem with ClientSpec {
 
-  abstract class StreamingClientSpecContext extends ClientSpecContext {
+  abstract class ClientSpecContext extends StreamingClientSpecContext {
     import streamingClient._
 
     implicit val exampleRequest: HttpRequest = Get("an-example-request", ContentTypes.`application/json`)
@@ -37,7 +36,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
 
     "parse a stream of data and output the corresponding entities of type" in {
 
-      "Tweet" in new StreamingClientSpecContext {
+      "Tweet" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/tweets.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -45,7 +44,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "DirectMessage" in new StreamingClientSpecContext {
+      "DirectMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/direct_messages.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -53,7 +52,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "ControlMessage" in new StreamingClientSpecContext {
+      "ControlMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/control_messages.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -61,7 +60,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "DisconnectMessage" in new StreamingClientSpecContext {
+      "DisconnectMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/disconnect_messages.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -69,7 +68,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "TweetEvent" in new StreamingClientSpecContext {
+      "TweetEvent" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/events.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -77,7 +76,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "FriendsLists" in new StreamingClientSpecContext {
+      "FriendsLists" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/friends_lists.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -85,7 +84,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "FriendsListsStringified" in new StreamingClientSpecContext {
+      "FriendsListsStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/user/friends_lists_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -93,7 +92,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "LimitNotice" in new StreamingClientSpecContext {
+      "LimitNotice" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/limit_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -101,7 +100,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "LocationDeletionNotice" in new StreamingClientSpecContext {
+      "LocationDeletionNotice" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/location_deletion_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -109,7 +108,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "StatusDeletionNotice" in new StreamingClientSpecContext {
+      "StatusDeletionNotice" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/status_deletion_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -117,7 +116,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "StatusWithheldNotice" in new StreamingClientSpecContext {
+      "StatusWithheldNotice" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/status_withheld_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -125,7 +124,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserWithheldNotice" in new StreamingClientSpecContext {
+      "UserWithheldNotice" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/user_withheld_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -133,7 +132,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTweet" in new StreamingClientSpecContext {
+      "UserEnvelopTweet" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -141,7 +140,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopFriendsLists" in new StreamingClientSpecContext {
+      "UserEnvelopFriendsLists" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -149,7 +148,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopFriendsListsStringified" in new StreamingClientSpecContext {
+      "UserEnvelopFriendsListsStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -157,7 +156,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopDirectMessage" in new StreamingClientSpecContext {
+      "UserEnvelopDirectMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -165,7 +164,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTwitterListEvent" in new StreamingClientSpecContext {
+      "UserEnvelopTwitterListEvent" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -173,7 +172,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTweetEvent" in new StreamingClientSpecContext {
+      "UserEnvelopTweetEvent" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -181,7 +180,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopSimpleEvent" in new StreamingClientSpecContext {
+      "UserEnvelopSimpleEvent" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -189,7 +188,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopWarningMessage" in new StreamingClientSpecContext {
+      "UserEnvelopWarningMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -197,7 +196,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTweetStringified" in new StreamingClientSpecContext {
+      "UserEnvelopTweetStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -205,7 +204,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopDirectMessageStringified" in new StreamingClientSpecContext {
+      "UserEnvelopDirectMessageStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -213,7 +212,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTwitterListEventStringified" in new StreamingClientSpecContext {
+      "UserEnvelopTwitterListEventStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -221,7 +220,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopTweetEventStringified" in new StreamingClientSpecContext {
+      "UserEnvelopTweetEventStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -229,7 +228,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopSimpleEventStringified" in new StreamingClientSpecContext {
+      "UserEnvelopSimpleEventStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -237,7 +236,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "UserEnvelopWarningMessageStringified" in new StreamingClientSpecContext {
+      "UserEnvelopWarningMessageStringified" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
@@ -245,7 +244,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         transport.expectMsgAllOf(messages: _*)
       }
 
-      "WarningMessage" in new StreamingClientSpecContext {
+      "WarningMessage" in new ClientSpecContext {
         val response = buildResponse("/twitter/streaming/common/warning_messages.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 

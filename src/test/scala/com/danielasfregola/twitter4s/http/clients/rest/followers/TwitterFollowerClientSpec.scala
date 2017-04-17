@@ -3,11 +3,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.followers
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.{RatedData, UserIds, UserStringifiedIds, Users}
-import com.danielasfregola.twitter4s.helpers.rest.ClientSpec
+import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterFollowerClientSpec extends ClientSpec {
 
-  class TwitterFollowerClientSpecContext extends ClientSpecContext with TwitterFollowerClient
+  class TwitterFollowerClientSpecContext extends RestClientSpecContext with TwitterFollowerClient
 
   "Twitter Follower Client" should {
 
