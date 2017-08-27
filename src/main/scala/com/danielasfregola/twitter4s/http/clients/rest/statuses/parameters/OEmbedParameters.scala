@@ -5,7 +5,7 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] case class OEmbedParameters(id: Option[Long],
+private[twitter4s] final case class OEmbedParameters(id: Option[Long],
                                                url: Option[String],
                                                maxwidth: Option[Int],
                                                hide_media: Boolean,

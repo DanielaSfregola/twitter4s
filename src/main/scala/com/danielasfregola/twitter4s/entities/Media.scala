@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Media(display_url: String,
+final case class Media(display_url: String,
                  expanded_url: String,
                  id: Long,
                  id_str: String,

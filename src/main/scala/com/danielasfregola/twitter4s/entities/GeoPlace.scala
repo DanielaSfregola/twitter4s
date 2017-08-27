@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class GeoPlace(attributes: Map[String, String],
+final case class GeoPlace(attributes: Map[String, String],
                     bounding_box: Area,
                     country: String,
                     country_code: String,

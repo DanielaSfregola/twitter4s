@@ -4,7 +4,7 @@ import java.io.InputStream
 
 import scala.concurrent.ExecutionContext
 
-private[twitter4s] case class Chunk(base64Data: Seq[String])
+private[twitter4s] final case class Chunk(base64Data: Seq[String])
 
 private[twitter4s] class MediaReader(val chunkSize: Int) extends Encoder {
 

@@ -2,9 +2,9 @@ package com.danielasfregola.twitter4s.entities.authentication
 
 import com.danielasfregola.twitter4s.http.serializers.FromMap
 
-case class OAuthRequestToken(token: RequestToken, oauth_callback_confirmed: Boolean)
+final case class OAuthRequestToken(token: RequestToken, oauth_callback_confirmed: Boolean)
 
-case class RequestToken(key: String, secret: String)
+final case class RequestToken(key: String, secret: String)
 
 object OAuthRequestToken {
 

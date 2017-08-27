@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Suggestions(name: String,
+final case class Suggestions(name: String,
                        slug: String,
                        size: Int,
                        users: Seq[User] = Seq.empty)

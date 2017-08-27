@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-case class User(blocked_by: Boolean = false,
+final case class User(blocked_by: Boolean = false,
                 blocking: Boolean = false,
                 contributors_enabled: Boolean = false,
                 created_at: Date,

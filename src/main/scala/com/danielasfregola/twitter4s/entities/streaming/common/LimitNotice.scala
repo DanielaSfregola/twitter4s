@@ -11,8 +11,8 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#limit_notices" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#limit_notices</a>.
   */
-case class LimitNotice(limit: LimitTrack) extends CommonStreamingMessage
+final case class LimitNotice(limit: LimitTrack) extends CommonStreamingMessage
 
-case class LimitTrack(track: Long)
+final case class LimitTrack(track: Long)
 
 

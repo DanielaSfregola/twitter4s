@@ -1,3 +1,3 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Size(h: Int, resize: String, w: Int)
+final case class Size(h: Int, resize: String, w: Int)

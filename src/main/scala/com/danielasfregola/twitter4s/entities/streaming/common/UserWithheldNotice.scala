@@ -8,6 +8,6 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#withheld_content_notices" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#withheld_content_notices</a>.
   */
-case class UserWithheldNotice(user_withheld: UserWithheldId) extends CommonStreamingMessage
+final case class UserWithheldNotice(user_withheld: UserWithheldId) extends CommonStreamingMessage
 
-case class UserWithheldId(id: Long, withheld_in_countries: List[String])
+final case class UserWithheldId(id: Long, withheld_in_countries: List[String])

@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.statuses.parameters
 
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] case class UserTimelineParameters(user_id: Option[Long],
+private[twitter4s] final case class UserTimelineParameters(user_id: Option[Long],
                                                      screen_name: Option[String],
                                                      since_id: Option[Long],
                                                      count: Int,

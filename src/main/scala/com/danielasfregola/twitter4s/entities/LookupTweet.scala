@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-case class LookupTweet(
+final case class LookupTweet(
                  contributors: Seq[Contributor],
                  coordinates: Seq[Seq[Seq[Double]]] = Seq.empty,
                  created_at: Date,

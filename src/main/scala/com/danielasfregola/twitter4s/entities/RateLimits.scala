@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.entities
 
-case class RateLimits(rate_limit_context: RateLimitContext, resources: Resources)
+final case class RateLimits(rate_limit_context: RateLimitContext, resources: Resources)
 
-case class RateLimitContext(access_token: String)
+final case class RateLimitContext(access_token: String)
 
-case class Resources(lists: Map[String, RateLimit] = Map.empty,
+final case class Resources(lists: Map[String, RateLimit] = Map.empty,
                      application: Map[String, RateLimit] = Map.empty,
                      mutes: Map[String, RateLimit] = Map.empty,
                      friendships: Map[String, RateLimit] = Map.empty,

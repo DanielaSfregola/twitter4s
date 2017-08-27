@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class ProfileUpdate(name: Option[String] = None,
+final case class ProfileUpdate(name: Option[String] = None,
                          url: Option[String] = None,
                          description: Option[String] = None,
                          location: Option[String] = None,
