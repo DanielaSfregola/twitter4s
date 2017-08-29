@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class ProfileImage(mini: String, normal: String, bigger: String, default: String)
+final case class ProfileImage(mini: String, normal: String, bigger: String, default: String)
 
 object ProfileImage {
 

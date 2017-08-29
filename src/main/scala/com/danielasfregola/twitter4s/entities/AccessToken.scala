@@ -1,3 +1,3 @@
 package com.danielasfregola.twitter4s.entities
 
-case class AccessToken(key: String, secret: String)
+final case class AccessToken(key: String, secret: String)

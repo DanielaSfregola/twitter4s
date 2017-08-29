@@ -10,9 +10,9 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#Location_deletion_notices_scrub_geo" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#Location_deletion_notices_scrub_geo</a>.
   */
-case class LocationDeletionNotice(scrub_geo: LocationDeletionId) extends CommonStreamingMessage
+final case class LocationDeletionNotice(scrub_geo: LocationDeletionId) extends CommonStreamingMessage
 
-case class LocationDeletionId(user_id: Long,
+final case class LocationDeletionId(user_id: Long,
                               user_id_str: String,
                               up_to_status_id: Long,
                               up_to_status_id_str: String)

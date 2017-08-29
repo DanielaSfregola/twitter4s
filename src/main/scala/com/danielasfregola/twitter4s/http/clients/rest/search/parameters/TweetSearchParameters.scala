@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.ResultType.ResultType
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] case class TweetSearchParameters(q: String,
+private[twitter4s] final case class TweetSearchParameters(q: String,
                                                     count: Int,
                                                     include_entities: Boolean,
                                                     result_type: ResultType,

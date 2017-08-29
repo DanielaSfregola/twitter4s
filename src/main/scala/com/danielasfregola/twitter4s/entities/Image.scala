@@ -1,3 +1,3 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Image(w: Int, h: Int, image_type: String)
+final case class Image(w: Int, h: Int, image_type: String)

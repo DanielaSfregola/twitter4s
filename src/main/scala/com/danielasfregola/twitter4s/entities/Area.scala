@@ -1,3 +1,3 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Area(coordinates: Seq[Seq[Seq[Double]]], `type`: String)
+final case class Area(coordinates: Seq[Seq[Seq[Double]]], `type`: String)

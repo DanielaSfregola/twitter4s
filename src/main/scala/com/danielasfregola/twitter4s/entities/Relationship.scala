@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Relationship(relationship: RelationshipOverview)
+final case class Relationship(relationship: RelationshipOverview)
 
-case class RelationshipOverview(source: RelationshipSource, target: RelationshipTarget)
+final case class RelationshipOverview(source: RelationshipSource, target: RelationshipTarget)
 
-case class RelationshipSource(id: Long,
+final case class RelationshipSource(id: Long,
                               id_str: String,
                               screen_name: String,
                               following: Boolean = false,
@@ -20,7 +20,7 @@ case class RelationshipSource(id: Long,
                               all_replies: Boolean = false,
                               marked_spam: Boolean =false)
 
-case class RelationshipTarget(id: Long,
+final case class RelationshipTarget(id: Long,
                               id_str: String,
                               screen_name: String,
                               following: Boolean = false,

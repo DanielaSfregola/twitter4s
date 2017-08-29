@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.entities.authentication
 import com.danielasfregola.twitter4s.entities.AccessToken
 import com.danielasfregola.twitter4s.http.serializers.FromMap
 
-case class OAuthAccessToken(accessToken: AccessToken, user_id: Long, screen_name: String)
+final case class OAuthAccessToken(accessToken: AccessToken, user_id: Long, screen_name: String)
 
 object OAuthAccessToken {
 

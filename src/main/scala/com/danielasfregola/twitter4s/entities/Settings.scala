@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Settings(allow_contributor_request: String,
+final case class Settings(allow_contributor_request: String,
                     allow_dm_groups_from: String,
                     allow_dms_from: String,
                     always_use_https: Boolean = false,
@@ -16,10 +16,10 @@ case class Settings(allow_contributor_request: String,
                     time_zone: Option[TimeZoneRecord] = None,
                     trend_location: Seq[Location] = Seq.empty)
 
-case class SleepTime(enabled: Boolean = false,
+final case class SleepTime(enabled: Boolean = false,
                      end_time: Option[String] = None,
                      start_time: Option[String] = None)
 
-case class TimeZoneRecord(name: String, tzinfo_name: String, utc_offset: Int)
+final case class TimeZoneRecord(name: String, tzinfo_name: String, utc_offset: Int)
 
-case class PlaceType(code: String, name: String)
+final case class PlaceType(code: String, name: String)

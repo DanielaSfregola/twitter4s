@@ -10,8 +10,8 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#status_deletion_notices_delete" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#status_deletion_notices_delete</a>.
   */
-case class StatusDeletionNotice(delete: StatusDeletionNoticeInfo) extends CommonStreamingMessage
+final case class StatusDeletionNotice(delete: StatusDeletionNoticeInfo) extends CommonStreamingMessage
 
-case class StatusDeletionNoticeInfo(status: StatusDeletionId)
+final case class StatusDeletionNoticeInfo(status: StatusDeletionId)
 
-case class StatusDeletionId(id: Long, id_str: String, user_id: Long, user_id_str: String)
+final case class StatusDeletionId(id: Long, id_str: String, user_id: Long, user_id_str: String)

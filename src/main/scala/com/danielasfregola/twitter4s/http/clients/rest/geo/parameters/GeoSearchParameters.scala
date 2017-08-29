@@ -4,7 +4,7 @@ import com.danielasfregola.twitter4s.entities.Accuracy
 import com.danielasfregola.twitter4s.entities.enums.Granularity._
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] case class GeoSearchParameters(lat: Option[Double],
+private[twitter4s] final case class GeoSearchParameters(lat: Option[Double],
                                                   long: Option[Double],
                                                   query: Option[String],
                                                   ip: Option[String],

@@ -11,8 +11,8 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages</a>.
   */
-case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends CommonStreamingMessage
+final case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends CommonStreamingMessage
 
-case class DisconnectMessageInfo(code: DisconnectionCode,
+final case class DisconnectMessageInfo(code: DisconnectionCode,
                                  stream_name: String,
                                  reason: String)

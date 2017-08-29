@@ -5,7 +5,7 @@ import java.util.Date
 import akka.http.scaladsl.model.{HttpHeader, StatusCodes}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 
-case class RateLimit(limit: Int, remaining: Int, reset: Date)
+final case class RateLimit(limit: Int, remaining: Int, reset: Date)
 
 object RateLimit {
 

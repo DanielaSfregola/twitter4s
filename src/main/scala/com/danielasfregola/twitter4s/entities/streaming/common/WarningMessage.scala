@@ -8,9 +8,9 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * <a href="https://dev.twitter.com/streaming/overview/messages-types#stall_warnings" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#stall_warnings</a>.
   */
-case class WarningMessage(warning: WarningMessageInfo) extends CommonStreamingMessage
+final case class WarningMessage(warning: WarningMessageInfo) extends CommonStreamingMessage
 
-case class WarningMessageInfo(code: String,
+final case class WarningMessageInfo(code: String,
                               message: String,
                               percent_full: Option[Int] = None,
                               user_id: Option[Long] = None)

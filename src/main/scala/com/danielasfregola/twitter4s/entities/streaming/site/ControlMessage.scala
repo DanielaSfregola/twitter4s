@@ -7,6 +7,6 @@ import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
   * For more information see <a href="https://dev.twitter.com/streaming/overview/messages-types#control_messages_control" target="_blank">
   *   https://dev.twitter.com/streaming/overview/messages-types#control_messages_control</a>
   */
-case class ControlMessage(control: ControlMessageInfo) extends SiteStreamingMessage
+final case class ControlMessage(control: ControlMessageInfo) extends SiteStreamingMessage
 
-case class ControlMessageInfo(control_uri: String)
+final case class ControlMessageInfo(control_uri: String)

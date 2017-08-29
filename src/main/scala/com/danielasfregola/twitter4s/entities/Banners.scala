@@ -1,5 +1,5 @@
 package com.danielasfregola.twitter4s.entities
 
-case class Banners(sizes: Map[String, Banner] = Map.empty)
+final case class Banners(sizes: Map[String, Banner] = Map.empty)
 
-case class Banner(h: Int, w: Int, url: String)
+final case class Banner(h: Int, w: Int, url: String)

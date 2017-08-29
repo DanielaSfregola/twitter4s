@@ -4,7 +4,7 @@ import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] case class UserParameters(`with`: WithFilter,
+private[twitter4s] final case class UserParameters(`with`: WithFilter,
                                              replies: Option[String],
                                              track: Seq[String],
                                              locations: Seq[Double],

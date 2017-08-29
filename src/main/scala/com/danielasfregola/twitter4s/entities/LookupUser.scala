@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.entities
 
 import java.util.Date
 
-case class LookupUser(
+final case class LookupUser(
                contributors_enabled: Boolean = false,
                created_at: Date,
                default_profile: Boolean = false,

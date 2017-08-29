@@ -4,7 +4,7 @@ import java.util.Date
 
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 
-case class DirectMessage(created_at: Date,
+final case class DirectMessage(created_at: Date,
                          entities: Option[Entities],
                          id: Long,
                          id_str: String,

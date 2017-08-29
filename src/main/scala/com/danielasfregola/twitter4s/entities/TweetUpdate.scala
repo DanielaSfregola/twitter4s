@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-case class TweetUpdate(status: String,
+final case class TweetUpdate(status: String,
                        in_reply_to_status_id: Option[Long] = None,
                        possibly_sensitive: Boolean = false,
                        lat: Option[Long] = None,
