@@ -83,7 +83,7 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
     }
   }
 
-  def queryParams(implicit request: HttpRequest) = request.uri.query().toMap
+  def queryParams(implicit request: HttpRequest) = request.uri.query().toMap.mapValues(_.toAscii)
 
   private def encodeParams(params: Map[String, String]) =
     params.keySet.toList.sorted
