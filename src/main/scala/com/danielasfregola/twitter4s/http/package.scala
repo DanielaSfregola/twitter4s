@@ -4,7 +4,7 @@ import java.net.URLEncoder
 
 package object http {
 
-  private val SpecialEncodings = Map("+" -> "%20", "." -> "%2E", "-" -> "%2D", "*" -> "%2A", "_" -> "%5F")
+  private val SpecialEncodings = Map("+" -> "%20", "*" -> "%2A", "~" -> "%7E")
 
   implicit class RichString(val value: String) extends AnyVal {
 
