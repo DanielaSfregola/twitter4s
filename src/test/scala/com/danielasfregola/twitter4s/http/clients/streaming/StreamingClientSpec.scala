@@ -9,6 +9,8 @@ import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
 import com.danielasfregola.twitter4s.helpers.{ClientSpec, TestActorSystem}
 
+import scala.io.Codec
+
 class StreamingClientSpec extends TestActorSystem with ClientSpec {
 
   abstract class ClientSpecContext extends StreamingClientSpecContext {
@@ -19,7 +21,7 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
     def buildResponse(resourcePath: String): HttpResponse = {
       val contentType = ContentTypes.`application/json`
       val streamInput = getClass.getResourceAsStream(resourcePath)
-      val data = scala.io.Source.fromInputStream(streamInput).getLines.filter(_.nonEmpty)
+      val data = scala.io.Source.fromInputStream(streamInput)(Codec.UTF8).getLines.filter(_.nonEmpty)
       val chunks = data.map(d => HttpEntity.ChunkStreamPart(s"$d\r\n")).toList
       HttpResponse(entity = HttpEntity.Chunked(contentType, Source(chunks)))
     }
