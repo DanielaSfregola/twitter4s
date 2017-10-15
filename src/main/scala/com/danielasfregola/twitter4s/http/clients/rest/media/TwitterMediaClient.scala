@@ -121,12 +121,11 @@ trait TwitterMediaClient {
     import restClient._
     val formData: FormData = FormData(
       Source(List(
-      FormData.BodyPart.Strict("command", "APPEND"),
-      FormData.BodyPart.Strict("media_id", mediaId.toString),
+        FormData.BodyPart.Strict("command", "APPEND"),
+        FormData.BodyPart.Strict("media_id", mediaId.toString),
         FormData.BodyPart.Strict("segment_index", idx.toString),
-      FormData.BodyPart.Strict("media_data", chunk.base64Data.mkString)
-    )))
-
+        FormData.BodyPart.Strict("media_data", chunk.base64Data.mkString)
+      )))
     Post(s"$mediaUrl/upload.json", formData).sendAsFormData
   }
 
