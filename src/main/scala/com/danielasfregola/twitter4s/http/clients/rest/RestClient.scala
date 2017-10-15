@@ -47,22 +47,30 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
       implicit val ec = materializer.executionContext
       val response = for {
         requestWithAuth <- withSimpleOAuthHeader(None)(materializer)(request)
-        _ <- sendReceiveAs[Any](requestWithAuth)
+        _ <- sendIgnoreResponse(requestWithAuth)
       } yield ()
       response.onComplete(_ => system.terminate)
       response
     }
   }
 
+  def sendIgnoreResponse(httpRequest: HttpRequest)
+                        (implicit system: ActorSystem, materializer: Materializer): Future[Unit] = {
+    implicit val ec = materializer.executionContext
+    sendAndReceive(httpRequest, _ => Future.unit)
+  }
+
   def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)
                                 (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
     implicit val ec = materializer.executionContext
+    implicit val jsonSerialization = serialization
     sendAndReceive(httpRequest, response => json4sUnmarshaller[T].apply(response.entity))
   }
 
   def sendReceiveAsRated[T: Manifest](httpRequest: HttpRequest)
                                      (implicit system: ActorSystem, materializer: Materializer): Future[RatedData[T]] = {
     implicit val ec = materializer.executionContext
+    implicit val jsonSerialization = serialization
     val unmarshallRated: HttpResponse => Future[RatedData[T]] = { response =>
       val rate = RateLimit(response.headers)
       val data = json4sUnmarshaller[T].apply(response.entity)
