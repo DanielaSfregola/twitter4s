@@ -23,8 +23,8 @@ trait TwitterStatusClient {
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
-    * <a href="https://dev.twitter.com/streaming/reference/post/statuses/filter" target="_blank">
-    *   https://dev.twitter.com/streaming/reference/post/statuses/filter</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>.
     *
     * @param follow : Empty by default. A comma separated list of user IDs, indicating the users to return statuses for in the stream.
     *                 For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#follow" target="_blank">
@@ -60,8 +60,8 @@ trait TwitterStatusClient {
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `CommonStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
-    * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
-    *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/GET_statuse_sample" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/GET_statuse_sample</a>.
     *
     * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
     *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
