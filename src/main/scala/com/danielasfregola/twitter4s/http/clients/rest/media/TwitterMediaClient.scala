@@ -31,8 +31,8 @@ trait TwitterMediaClient {
 
   /** Uploads media asynchronously from an absolute file path.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
-    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    * <a href="https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload" target="_blank">
+    *   https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload</a>.
     *
     * @param filePath : the absolute path of the file to upload.
     * @param additional_owners : By default is empty.
@@ -47,8 +47,8 @@ trait TwitterMediaClient {
 
   /** Uploads media asynchronously from a file.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
-    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    * <a href="https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload" target="_blank">
+    *   https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload</a>.
     *
     * @param file : the file to upload.
     * @param additional_owners : By default is empty.
@@ -67,8 +67,8 @@ trait TwitterMediaClient {
 
   /** Uploads media asynchronously from an input stream.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/media/uploading-media" target="_blank">
-    *   https://dev.twitter.com/rest/media/uploading-media</a>.
+    * <a href="https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload" target="_blank">
+    *   https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload</a>.
     *
     * @param inputStream : the input stream to upload.
     * @param size : the size of the data to upload.
@@ -137,8 +137,8 @@ trait TwitterMediaClient {
 
   /** Returns the status of a media upload for pulling purposes.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/media/upload-status" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/media/upload-status</a>.
+    * <a href="https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status" target="_blank">
+    *   https://developer.twitter.com/en/docs/media/upload-media/api-reference/get-media-upload-status</a>.
     *
     * @param media_id : The id of the media.
     * @return : The media details
@@ -152,8 +152,8 @@ trait TwitterMediaClient {
   /** This endpoint can be used to provide additional information about the uploaded media_id.
     * This feature is currently only supported for images and GIFs.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/media/metadata/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/media/metadata/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-metadata-create</a>.
     *
     * @param media_id : The id of the media.
     * @param description : The description of the media
