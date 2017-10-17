@@ -18,8 +18,8 @@ trait TwitterApplicationClient {
 
   /** Returns the current rate limits for methods belonging to the specified resource families.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/application/rate_limit_status" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/application/rate_limit_status</a>.
+    * <a href="https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status" target="_blank">
+    *   https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status</a>.
     *
     * @param resources : A comma-separated list of resource families you want to know the current rate limit disposition for.
     *                  If no resources are specified, all the resources are considered.
