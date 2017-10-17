@@ -23,8 +23,8 @@ trait TwitterStatusClient {
     * The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com.
     * This method can only return up to 800 tweets.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/mentions_timeline</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-mentions_timeline" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-mentions_timeline</a>.
     *
     * @param count : By default it is `200`.
     *              Specifies the number of tweets to try and retrieve, up to a maximum of 200.
@@ -62,8 +62,8 @@ trait TwitterStatusClient {
     * This method can only return up to 3,200 of a user’s most recent Tweets.
     * Native retweets of other statuses by the user is included in this total, regardless of whether `include_rts` is set to false when requesting this resource.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/user_timeline" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/user_timeline</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     * @param since_id : Optional, by default it is `None`.
@@ -109,8 +109,8 @@ trait TwitterStatusClient {
     * This method can only return up to 3,200 of a user’s most recent Tweets.
     * Native retweets of other statuses by the user is included in this total, regardless of whether `include_rts` is set to false when requesting this resource.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/user_timeline" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/user_timeline</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     * @param since_id : Optional, by default it is `None`.
@@ -160,8 +160,8 @@ trait TwitterStatusClient {
     * Up to 800 Tweets are obtainable on the home timeline.
     * It is more volatile for users that follow many users or follow users who tweet frequently.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/home_timeline" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/home_timeline</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline</a>.
     *
     * @param count : By default it is `20`.
     *              Specifies the number of records to retrieve. Must be less than or equal to 200.
@@ -199,8 +199,8 @@ trait TwitterStatusClient {
 
   /** Returns the most recent tweets authored by the authenticating user that have been retweeted by others.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/retweets_of_me" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/retweets_of_me</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets_of_me</a>.
     *
     * @param count : By default it is `20`.
     *              Specifies the number of records to retrieve. Must be less than or equal to 100.
@@ -237,8 +237,8 @@ trait TwitterStatusClient {
 
   /** Returns a collection of the 100 most recent retweets of the tweet specified by the id parameter.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/retweets/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/retweets/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param count : By default it is `100`.
@@ -258,8 +258,8 @@ trait TwitterStatusClient {
 
   /** Returns a single Tweet, specified by the id parameter. The Tweet’s author will also be embedded within the tweet.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/show/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param trim_user : By default it is `false`.
@@ -285,8 +285,8 @@ trait TwitterStatusClient {
     * The authenticating user must be the author of the specified status.
     * Returns the destroyed status if successful.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/statuses/destroy/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/statuses/destroy/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param trim_user : By default it is `false`.
@@ -306,8 +306,8 @@ trait TwitterStatusClient {
     * Any attempt that would result in duplication will be blocked, resulting in a `TwitterException` error.
     * Therefore, a user cannot submit the same status twice in a row.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/statuses/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/statuses/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update</a>.
     *
     * @param status : The text of your status update, typically up to 140 characters.
     * @param in_reply_to_status_id : Optional, by default it is `None`.
@@ -351,8 +351,8 @@ trait TwitterStatusClient {
 
   /** Sends a direct message to a specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/statuses/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/statuses/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update</a>.
     *
     * @param message : The text of your direct message.
     * @param screen_name : : The screen name of the user that should receive the message.
@@ -398,8 +398,8 @@ trait TwitterStatusClient {
 
   /** Retweets a tweet. Returns the original tweet with retweet details embedded.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/statuses/retweet/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/statuses/retweet/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweets-id</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param trim_user : By default it is `false`.
@@ -419,8 +419,8 @@ trait TwitterStatusClient {
     * The format of the returned markup may change over time as Twitter adds new features or adjusts its Tweet representation.
     * The Tweet fallback markup is meant to be cached on your servers for up to the suggested cache lifetime specified in the cache_age.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/oembed" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/oembed</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param max_width : Optional, by default it is `None`.
@@ -469,8 +469,8 @@ trait TwitterStatusClient {
     * The format of the returned markup may change over time as Twitter adds new features or adjusts its Tweet representation.
     * The Tweet fallback markup is meant to be cached on your servers for up to the suggested cache lifetime specified in the cache_age.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/oembed" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/oembed</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-oembed</a>.
     *
     * @param url : The URL of the Tweet to be embedded.
     * @param max_width : Optional, by default it is `None`.
@@ -520,8 +520,8 @@ trait TwitterStatusClient {
 
   /** Returns a collection of up to 100 user IDs belonging to users who have retweeted the tweet specified by the id parameter.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param count : By default, it is `100`.
@@ -537,8 +537,8 @@ trait TwitterStatusClient {
 
   /** Returns a collection of up to 100 user stringified IDs belonging to users who have retweeted the tweet specified by the id parameter.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/retweeters/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-retweeters-ids</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param count : By default, it is `100`.
@@ -561,8 +561,8 @@ trait TwitterStatusClient {
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
     * Tweets that do not exist or cannot be viewed by the current user will not be returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup</a>.
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @return : The representation of the lookup tweets.
@@ -573,8 +573,8 @@ trait TwitterStatusClient {
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
     * Tweets that do not exist or cannot be viewed by the current user will not be returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup</a>.
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
@@ -596,8 +596,8 @@ trait TwitterStatusClient {
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
     * Tweets ids will be used to create a map using the tweet id as key and tweet as corresponding body.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup</a>.
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @return : The representation of the lookup tweets mapped by id.
@@ -608,8 +608,8 @@ trait TwitterStatusClient {
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
     * Tweets ids will be used to create a map using the tweet id as key and tweet as corresponding body.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/statuses/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/statuses/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-lookup</a>.
     *
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
