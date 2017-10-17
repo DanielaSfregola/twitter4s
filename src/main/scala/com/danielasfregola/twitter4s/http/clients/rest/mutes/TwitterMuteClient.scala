@@ -18,8 +18,8 @@ trait TwitterMuteClient {
   /** Mutes the user specified for the authenticating user.
     * Actions taken in this method are asynchronous and changes will be eventually consistent.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/mutes/users/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/mutes/users/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-create</a>.
     *
     * @param screen_name : The screen name of the potentially muted user.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
@@ -33,8 +33,8 @@ trait TwitterMuteClient {
   /** Mutes the user ID specified for the authenticating user.
     * Actions taken in this method are asynchronous and changes will be eventually consistent.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/mutes/users/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/mutes/users/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-create"_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-create</a>.
     *
     * @param user_id : The ID of the potentially muted user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -68,8 +68,8 @@ trait TwitterMuteClient {
   /** Un-mutes the user ID specified for the authenticating user.
     * Actions taken in this method are asynchronous and changes will be eventually consistent.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/mutes/users/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/mutes/users/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-destroy"_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-destroy</a>.
     *
     * @param user_id : The ID of the potentially muted user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -87,8 +87,8 @@ trait TwitterMuteClient {
 
   /** Returns an array of numeric user ids the authenticating user has muted.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/mutes/users/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/mutes/users/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-ids</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time.
@@ -105,8 +105,8 @@ trait TwitterMuteClient {
 
   /** Returns the users representation that the authenticating user has muted.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/mutes/users/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/mutes/users/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-list"_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-mutes-users-list</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of IDs to be broken into pages of no more than 5000 IDs at a time.
