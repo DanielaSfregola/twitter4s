@@ -17,8 +17,8 @@ trait TwitterBlockClient {
 
   /** Returns the users that the authenticating user is blocking.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/blocks/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/blocks/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-list</a>.
     *
     * @param include_entities : By default it is `true`.
     *                         The parameters node will not be included when set to false.
@@ -39,8 +39,8 @@ trait TwitterBlockClient {
 
   /** Returns an array of user ids the authenticating user is blocking.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-ids</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -54,8 +54,8 @@ trait TwitterBlockClient {
 
   /** Returns an array of user stringified ids the authenticating user is blocking.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/blocks/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/blocks/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/get-blocks-ids</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -76,8 +76,8 @@ trait TwitterBlockClient {
     * In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
     * If a follow or friend relationship exists it is destroyed.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -98,8 +98,8 @@ trait TwitterBlockClient {
     * In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user).
     * If a follow or friend relationship exists it is destroyed.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/blocks/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/blocks/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-create</a>.
     *
     * @param user_id : The ID of the potentially blocked user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -125,8 +125,8 @@ trait TwitterBlockClient {
     * Returns the un-blocked user in the requested format when successful.
     * If relationships existed before the block was instated, they will not be restored.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-destroy</a>.
     *
     * @param screen_name : The screen name of the potentially blocked user.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -147,8 +147,8 @@ trait TwitterBlockClient {
     * Returns the un-blocked user in the requested format when successful.
     * If relationships existed before the block was instated, they will not be restored.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/blocks/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/blocks/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-blocks-destroy</a>.
     *
     * @param user_id : The ID of the potentially blocked user.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
