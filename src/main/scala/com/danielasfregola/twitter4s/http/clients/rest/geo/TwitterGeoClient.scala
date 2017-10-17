@@ -19,8 +19,8 @@ trait TwitterGeoClient {
 
   /** Returns all the information about a known place.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/geo/id/%3Aplace_id" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/geo/id/%3Aplace_id</a>.
+    * <a href="https://developer.twitter.com/en/docs/geo/place-information/api-reference/get-geo-id-place_id" target="_blank">
+    *   https://developer.twitter.com/en/docs/geo/place-information/api-reference/get-geo-id-place_id</a>.
     *
     * @param place_id : A place id in the world.
     * @return : A set of information about place.
@@ -32,8 +32,8 @@ trait TwitterGeoClient {
 
   /** Given a latitude and a longitude, searches for up to 20 places that can be used as a place id when updating a status.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/geo/reverse_geocode" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/geo/reverse_geocode</a>.
+    * <a href="https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-reverse_geocode" target="_blank">
+    *   https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-reverse_geocode</a>.
     *
     * @param latitude : The latitude to search around. 
     *                 This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. 
@@ -67,8 +67,8 @@ trait TwitterGeoClient {
 
   /** Search for places that can be attached to a statuses/update.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/geo/search" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/geo/search</a>.
+    * <a href="https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-search" target="_blank">
+    *   https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-search</a>.
     *
     * @param query : Free-form text to match against while executing a geo-based query, best suited for finding nearby locations by name.
     * @return : The geo search result.
@@ -78,8 +78,8 @@ trait TwitterGeoClient {
   /** Advanced search for places that can be attached to a statuses/update.
     * Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/geo/search" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/geo/search</a>.
+    * <a href="https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-search" target="_blank">
+    *   https://developer.twitter.com/en/docs/geo/places-near-location/api-reference/get-geo-search</a>.
     *
     * @param latitude : Optional, by default it is `None`.
     *                 The latitude to search around.
