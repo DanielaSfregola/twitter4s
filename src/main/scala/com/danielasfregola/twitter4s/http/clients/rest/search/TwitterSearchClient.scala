@@ -23,8 +23,8 @@ trait TwitterSearchClient {
 
   /** Returns a collection of relevant Tweets matching a specified query.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/search/tweets" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/search/tweets</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets</a>.
     *
     * @param query : The search query of 500 characters maximum, including operators.
     *              Queries may additionally be limited by complexity.

@@ -17,8 +17,8 @@ trait TwitterSavedSearchClient {
 
   /** Returns the authenticated user’s saved search queries.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/saved_searches/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/saved_searches/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-saved_searches-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/search/api-reference/get-saved_searches-list</a>.
     *
     * @return : The sequence of saved searches.
     */
@@ -30,8 +30,8 @@ trait TwitterSavedSearchClient {
   /** Create a new saved search for the authenticated user.
     * A user may only have 25 saved searches.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/saved_searches/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/saved_searches/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/post-saved_searches-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/search/api-reference/post-saved_searches-create</a>.
     *
     * @param query : The query of the search the user would like to save.
     * @return : The saved search representation.
@@ -45,8 +45,8 @@ trait TwitterSavedSearchClient {
   /** Destroys a saved search for the authenticating user.
     * The authenticating user must be the owner of saved search id being destroyed.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/saved_searches/destroy/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/saved_searches/destroy/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/post-saved_searches-destroy-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/search/api-reference/post-saved_searches-destroy-id</a>.
     *
     * @return : The deleted search representation.
     */
@@ -58,8 +58,8 @@ trait TwitterSavedSearchClient {
   /** Retrieve the information for the saved search represented by the given id.
     * The authenticating user must be the owner of saved search ID being requested.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/saved_searches/show/%3Aid</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/search/api-reference/get-saved_searches-show-id" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/search/api-reference/get-saved_searches-show-id</a>.
     *
     * @return : The saved search representation.
     */
