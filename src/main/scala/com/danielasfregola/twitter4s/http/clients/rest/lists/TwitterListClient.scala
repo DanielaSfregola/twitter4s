@@ -164,8 +164,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param member_screen_name : The screen name of the user for whom to remove from the list.
@@ -178,8 +178,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -195,8 +195,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -212,8 +212,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param member_id : The ID of the user to remove from the list.
@@ -226,8 +226,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -243,8 +243,8 @@ trait TwitterListClient {
 
   /** Removes the specified member from the list. The authenticated user must be the list’s owner to remove members from the list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -321,8 +321,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param user_ids : The list of user IDs to add, up to 100 are allowed in a single request.
@@ -338,8 +338,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -356,8 +356,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -374,8 +374,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param screen_names : The list of user screen names to add, up to 100 are allowed in a single request.
@@ -391,8 +391,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -409,8 +409,8 @@ trait TwitterListClient {
     * Please note that there can be issues with lists that rapidly remove and add memberships.
     * Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -713,8 +713,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param user_id : The ID of the user for whom to return results for.
@@ -728,8 +728,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -745,8 +745,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -761,8 +761,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param screen_name : The screen name of the user for whom to return results for.
@@ -776,8 +776,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -792,8 +792,8 @@ trait TwitterListClient {
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-create</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -812,8 +812,8 @@ trait TwitterListClient {
 
   /** Deletes the specified list. The authenticated user must own the list to be able to destroy it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy</a>.
     *
     * @param list_id : The numerical id of the list.
     * @return : The representation of the deleted twitter list
@@ -825,8 +825,8 @@ trait TwitterListClient {
 
   /** Deletes the specified list. The authenticated user must own the list to be able to destroy it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -839,8 +839,8 @@ trait TwitterListClient {
 
   /** Deletes the specified list. The authenticated user must own the list to be able to destroy it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-destroy</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -858,8 +858,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param mode : Whether your list is public or private.
@@ -872,8 +872,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -887,8 +887,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -902,8 +902,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param name : The name for the list.
@@ -916,8 +916,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -931,8 +931,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *  https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id: The user ID of the user who owns the list being requested by a `slug`.
@@ -946,8 +946,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param description : The description to give the list.
@@ -960,8 +960,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -975,8 +975,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id: The user ID of the user who owns the list being requested by a `slug`.
@@ -990,8 +990,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param update : The updates to perform on the list.
@@ -1003,8 +1003,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -1017,8 +1017,8 @@ trait TwitterListClient {
 
   /** Updates the specified list. The authenticated user must own the list to be able to update it.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-update</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id: The user ID of the user who owns the list being requested by a `slug`.
@@ -1044,8 +1044,8 @@ trait TwitterListClient {
 
   /** Creates a new list for the authenticated user. Note that you can create up to 1000 lists per account.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-create</a>.
     *
     * @param name : The name for the list.
     *             A list’s name must start with a letter and can consist only of 25 or fewer letters, numbers, “-“, or “_” characters.
@@ -1160,8 +1160,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
@@ -1176,8 +1176,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -1195,8 +1195,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -1214,8 +1214,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param members_ids : A sequence of user ids to remove from the list, up to 100 are allowed in a single request.
@@ -1230,8 +1230,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -1249,8 +1249,8 @@ trait TwitterListClient {
     * Note that lists can’t have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method.
     * Please note that there can be issues with lists that rapidly remove and add memberships. Take care when using these methods such that you are not too rapidly switching between removals and adds on the same list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/lists/members/destroy_all" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/lists/members/destroy_all</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/post-lists-members-destroy_all</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
