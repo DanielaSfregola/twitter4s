@@ -21,8 +21,8 @@ trait TwitterOAuthClient {
     * This method fulfills <a href="http://oauth.net/core/1.0/#auth_step1">Section 6.1</a> of the
     * <a href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
     * For more information see
-    * <a href="https://dev.twitter.com/oauth/reference/post/oauth/request_token" target="_blank">
-    *   https://dev.twitter.com/oauth/reference/post/oauth/request_token</a>.
+    * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token" target="_blank">
+    *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/request_token</a>.
     *
     * @param oauth_callback : Optional, by default is `None`.
     *                         For OAuth 1.0a compliance this parameter is required.
@@ -54,8 +54,8 @@ trait TwitterOAuthClient {
     * To realize this behavior, you must enable the `Use Sign in with Twitter` setting on your
     * <a href="https://apps.twitter.com/">application record</a>.
     * For more information see
-    * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
-    *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
+    * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate" target="_blank">
+    *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate</a>.
     *
     * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
@@ -72,8 +72,8 @@ trait TwitterOAuthClient {
     * of the <a href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
     * Desktop applications must use this method (and cannot use [[authenticateUrl]]).
     * For more information see
-    * <a href="https://dev.twitter.com/oauth/reference/get/oauth/authenticate" target="_blank">
-    *   https://dev.twitter.com/oauth/reference/get/oauth/authenticate</a>.
+    * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate" target="_blank">
+    *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate</a>.
     *
     * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
@@ -99,8 +99,8 @@ trait TwitterOAuthClient {
     * This method fulfills <a class="reference external" href="http://oauth.net/core/1.0/#auth_step3">Section 6.3</a>
     * of the <a class="reference external" href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
     * For more information see
-    * <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token" target="_blank">
-    *   https://dev.twitter.com/oauth/reference/post/oauth/access_token</a>.
+    * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token" target="_blank">
+    *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token</a>.
     *
     * @param x_auth_username : The username of the user to obtain a token for.
     * @param x_auth_password : The password of the user for which to obtain a token for.
@@ -118,8 +118,8 @@ trait TwitterOAuthClient {
     * This method fulfills <a class="reference external" href="http://oauth.net/core/1.0/#auth_step3">Section 6.3</a>
     * of the <a class="reference external" href="http://oauth.net/core/1.0/#anchor9">OAuth 1.0 authentication flow</a>.
     * For more information see
-    * <a href="https://dev.twitter.com/oauth/reference/post/oauth/access_token" target="_blank">
-    *   https://dev.twitter.com/oauth/reference/post/oauth/access_token</a>.
+    * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token" target="_blank">
+    *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token</a>.
     *
     * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
     * @param oauth_verifier : the `oauth_verifier` returned in the callback of the URL
