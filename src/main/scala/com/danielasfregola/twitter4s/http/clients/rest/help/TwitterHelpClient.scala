@@ -16,8 +16,8 @@ trait TwitterHelpClient {
 
   /** Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co shortened URL length.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/help/configuration" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/help/configuration</a>.
+    * <a href="https://developer.twitter.com/en/docs/developer-utilities/configuration/api-reference/get-help-configuration" target="_blank">
+    *   https://developer.twitter.com/en/docs/developer-utilities/configuration/api-reference/get-help-configuration</a>.
     *
     * @return : The current Twitter configuration.
     * */
@@ -28,8 +28,8 @@ trait TwitterHelpClient {
 
   /** Returns the list of languages supported by Twitter along with the language code supported by Twitter.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/help/languages" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/help/languages</a>.
+    * <a href="https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages" target="_blank">
+    *   https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages</a>.
     *
     * @return : The list of languages supported by Twitter.
     * */
@@ -40,8 +40,8 @@ trait TwitterHelpClient {
 
   /** Returns Twitter’s Privacy Policy.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/help/privacy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/help/privacy</a>.
+    * <a href="https://developer.twitter.com/en/docs/developer-utilities/privacy-policy/api-reference/get-help-privacy" target="_blank">
+    *   https://developer.twitter.com/en/docs/developer-utilities/privacy-policy/api-reference/get-help-privacy</a>.
     *
     * @return : The Twitter's Privacy Policy.
     * */
@@ -53,8 +53,8 @@ trait TwitterHelpClient {
   /** Returns the Twitter Terms of Service.
     * Note: these are not the same as the Developer Policy.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/help/tos" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/help/tos</a>.
+    * <a href="https://developer.twitter.com/en/docs/developer-utilities/terms-of-service/api-reference/get-help-tos" target="_blank">
+    *   https://developer.twitter.com/en/docs/developer-utilities/terms-of-service/api-reference/get-help-tos</a>.
     *
     * @return : the Twitter Terms of Service.
    * */
