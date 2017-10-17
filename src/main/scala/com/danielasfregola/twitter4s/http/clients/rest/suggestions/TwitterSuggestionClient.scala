@@ -20,8 +20,8 @@ trait TwitterSuggestionClient {
   /** Access the users in a given category of the Twitter suggested user list.
     * It is recommended that applications cache this data for no more than one hour.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions-slug" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions-slug</a>.
     *
     * @param slug : The short name of list or a category.
     * @param language : By default it is `English`.
@@ -37,8 +37,8 @@ trait TwitterSuggestionClient {
   /** Access to Twitter’s suggested user list. This returns the list of suggested user categories.
     * It is recommended that applications cache this data for no more than one hour.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/suggestions" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/suggestions</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions</a>.
     *
     * @param language : By default it is `English`.
     *                  Restricts the suggested categories to the requested language.
@@ -52,8 +52,8 @@ trait TwitterSuggestionClient {
 
   /** Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug/members" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/suggestions/%3Aslug/members</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions-slug-members" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-suggestions-slug-members</a>.
     *
     * @param slug : The short name of list or a category.
     * @return : The representation of the suggested users.
