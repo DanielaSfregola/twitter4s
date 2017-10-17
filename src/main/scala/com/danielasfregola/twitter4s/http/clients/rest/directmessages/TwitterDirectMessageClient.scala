@@ -17,8 +17,8 @@ trait TwitterDirectMessageClient {
 
   /** Returns a single direct message, specified by an id parameter.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/direct_messages/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/direct_messages/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-message" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-message</a>.
     *
     * @param id : The ID of the direct message.
     * @return : The direct message.
@@ -31,8 +31,8 @@ trait TwitterDirectMessageClient {
 
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/direct_messages/new" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/direct_messages/new</a>.
+    * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message</a>.
     *
     * @param user_id : The ID of the user who should receive the direct message.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -48,8 +48,8 @@ trait TwitterDirectMessageClient {
 
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/direct_messages/new" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/direct_messages/new</a>.
+    * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message</a>.
     *
     * @param screen_name : The screen name of the user who should receive the direct message.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -72,8 +72,8 @@ trait TwitterDirectMessageClient {
     * Includes detailed information about the sender and recipient user.
     * You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/direct_messages/sent" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/direct_messages/sent</a>.
+    * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-sent-message" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-sent-message</a>.
     *
     * @param since_id : Optional, by default it is `None`.
     *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
@@ -99,8 +99,8 @@ trait TwitterDirectMessageClient {
     * Includes detailed information about the sender and recipient user.
     * You can request up to 200 direct messages per call, and only the most recent 200 DMs will be available using this endpoint.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/direct_messages" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/direct_messages</a>.
+    * <a https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-messages" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-messages</a>.
     *
     * @param since_id : Optional, by default it is `None`.
     *                 Returns results with an ID greater than (that is, more recent than) the specified ID.
@@ -131,8 +131,8 @@ trait TwitterDirectMessageClient {
   /** Destroys the direct message specified in the required ID parameter.
     * The authenticating user must be the recipient of the specified direct message.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/direct_messages/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/direct_messages/destroy</a>.
+    * <a https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/delete-message" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/delete-message</a>.
     *
     * @param id : The ID of the direct message to delete.
     * @param include_entities : By default it is `true`.
