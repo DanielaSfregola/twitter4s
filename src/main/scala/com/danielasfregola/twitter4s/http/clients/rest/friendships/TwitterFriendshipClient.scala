@@ -132,8 +132,8 @@ trait TwitterFriendshipClient {
 
   /** Allows the authenticating users to follow the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -153,8 +153,8 @@ trait TwitterFriendshipClient {
 
   /** Allows the authenticating users to unfollow the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy</a>.
     *
     * @param user_id : The ID of the user for whom to unfollow.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -167,8 +167,8 @@ trait TwitterFriendshipClient {
 
   /** Allows the authenticating users to unfollow the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-destroy</a>.
     *
     * @param screen_name : The screen name of the user for whom to unfollow.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -186,8 +186,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to enable retweets from the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -200,8 +200,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to enable retweets from the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -214,8 +214,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to disable retweets from the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -228,8 +228,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to disable retweets from the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -242,8 +242,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to enable device notifications from the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -256,8 +256,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to enable device notifications from the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -270,8 +270,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to disable device notifications from the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param screen_name : The screen name of the user for whom to befriend.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -284,8 +284,8 @@ trait TwitterFriendshipClient {
 
   /** Allows one to disable device notifications from the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/update" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/update</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-update</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
