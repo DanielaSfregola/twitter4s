@@ -35,7 +35,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       for {
         requestWithAuth <- withOAuthHeader(None)(materializer)(request)
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
-      } yield new TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
+      } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
     }
   }
 
