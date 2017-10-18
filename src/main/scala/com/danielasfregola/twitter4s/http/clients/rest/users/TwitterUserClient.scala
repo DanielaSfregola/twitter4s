@@ -17,8 +17,8 @@ trait TwitterUserClient {
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup</a>.
     *
     * @param screen_names : A sequence of screen names, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
@@ -27,8 +27,8 @@ trait TwitterUserClient {
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of screen name parameters.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup</a>.
     *
     * @param screen_names : A sequence of screen names, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
@@ -44,8 +44,8 @@ trait TwitterUserClient {
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup</a>.
     *
     * @param ids : A sequence of user ids, up to 100 are allowed in a single request.
     * @return : The sequence of user representations.
@@ -54,8 +54,8 @@ trait TwitterUserClient {
 
   /** Returns fully-hydrated user objects for up to 100 users per request, as specified by the sequence of user id parameters.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-lookup</a>.
     *
     * @param ids : A sequence of user ids, up to 100 are allowed in a single request.
     * @param include_entities : By default it is `true`.
@@ -77,8 +77,8 @@ trait TwitterUserClient {
   /** Returns a variety of information about the user specified by the required screen name parameter.
     * The author’s most recent Tweet will be returned inline when possible.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     * @param include_entities : By default it is `true`.
@@ -93,8 +93,8 @@ trait TwitterUserClient {
   /** Returns a variety of information about the user specified by the required screen name parameter.
     * The author’s most recent Tweet will be returned inline when possible.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-show</a>.
     *
     * @param id : The ID of the user for whom to return results for.
     * @param include_entities : By default it is `true`.
@@ -116,8 +116,8 @@ trait TwitterUserClient {
     * This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
     * The profile banner data available at each size variant’s URL is in PNG format.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/profile_banner" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/profile_banner</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
@@ -133,8 +133,8 @@ trait TwitterUserClient {
     * This method can be used instead of string manipulation on the profile_banner_url returned in user objects as described in Profile Images and Banners.
     * The profile banner data available at each size variant’s URL is in PNG format.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/profile_banner" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/profile_banner</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-users-profile_banner</a>.
     *
     * @param user_id : The ID of the user for whom to return results.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -154,8 +154,8 @@ trait TwitterUserClient {
     * Try querying by topical interest, full name, company name, location, or other criteria.
     * Exact match searches are not supported. Only the first 1,000 matching results are available.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/users/search" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/users/search</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-users-search</a>.
     *
     * @param query : The search query to run against people search.
     * @param page : By default it is `-1`, which is the first "page".
