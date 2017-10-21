@@ -19,7 +19,7 @@ class TwitterStatusClientSpec extends ClientSpec {
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
             request.entity === HttpEntity(`application/x-www-form-urlencoded`,
-                                          "follow=1%2C2%2C3&language=hu%2Cbn&stall_warnings=false&track=trending%2Cother")
+                                          "filter_level=none&follow=1%2C2%2C3&language=hu%2Cbn&stall_warnings=false&track=trending%2Cother")
           }
           .respondWithOk
           .await
@@ -32,7 +32,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
-            request.uri.queryString() === Some("language=hu,bn&stall_warnings=false")
+            request.uri.queryString() === Some("filter_level=none&language=hu,bn&stall_warnings=false")
           }
           .respondWithOk
           .await
