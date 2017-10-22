@@ -17,8 +17,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of user ids that the currently authenticated user does not want to receive retweets from.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids</a>.
     *
     * @return : The sequence of user ids the currently authenticated user does not want to receive retweets from.
     * */
@@ -29,8 +29,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of user stringified ids that the currently authenticated user does not want to receive retweets from.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/no_retweets/ids</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-no_retweets-ids</a>.
     *
     * @return : The sequence of the user stringified ids the currently authenticated user does not want to receive retweets from.
     * */
@@ -46,8 +46,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of numeric IDs for every user who has a pending request to follow the authenticating user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/incoming" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/incoming</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -61,8 +61,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of numeric stringified IDs for every user who has a pending request to follow the authenticating user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/incoming" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/incoming</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-incoming</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -81,8 +81,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/outgoing" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/outgoing</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -96,8 +96,8 @@ trait TwitterFriendshipClient {
 
   /** Returns a collection of numeric stringified IDs for every protected user for whom the authenticating user has a pending follow request.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/outgoing" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/outgoing</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-outgoing</a>.
     *
     * @param cursor : By default it is `-1`,  which is the first “page”.
     *               Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time.
@@ -116,8 +116,8 @@ trait TwitterFriendshipClient {
 
   /** Allows the authenticating users to follow the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/friendships/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/friendships/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/post-friendships-create</a>.
     *
     * @param user_id : The ID of the user for whom to befriend.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -303,8 +303,8 @@ trait TwitterFriendshipClient {
 
   /** Returns detailed information about the relationship between two arbitrary users ids.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show</a>.
     *
     * @param source_id : The user id of the subject user.
     * @param target_id : The user id of the target user.
@@ -317,8 +317,8 @@ trait TwitterFriendshipClient {
 
   /** Returns detailed information about the relationship between two arbitrary users.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-show</a>.
     *
     * @param source_screen_name : The screen name of the subject user.
     * @param target_screen_name : The screen name of the target user.
@@ -337,8 +337,8 @@ trait TwitterFriendshipClient {
   /** Returns the relationships of the authenticating user of up to 100 user screen names.
     * Values for connections can be: `following`, `following_requested`, `followed_by`, `none`, `blocking`, `muting`.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup</a>.
     *
     * @param screen_names :  The list of screen names.
     *                     At least 1 screen name needs to be provided. Up to 100 are allowed in a single request.
@@ -354,8 +354,8 @@ trait TwitterFriendshipClient {
   /** Returns the relationships of the authenticating user of up to 100 user ids.
     * Values for connections can be: `following`, `following_requested`, `followed_by`, `none`, `blocking`, `muting`.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friendships/lookup" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friendships/lookup</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friendships-lookup</a>.
     *
     * @param user_ids :  The list of user ids.
     *                 At least 1 user id needs to be provided. Up to 100 are allowed in a single request.

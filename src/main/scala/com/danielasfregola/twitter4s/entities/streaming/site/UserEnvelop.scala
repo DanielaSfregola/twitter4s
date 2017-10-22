@@ -8,8 +8,8 @@ import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
 /** Site Streams are sent the same messages as User Streams (including friends lists in the preamble),
   * but for multiple users instead of a single user.The same types of messages are streamed, but to identify the target of each message,
   * an additional wrapper is placed around every message, except for blank keep-alive lines.
-  * For more information see <a href="https://dev.twitter.com/streaming/overview/messages-types#envelopes_for_user" target="_blank">
-  *   https://dev.twitter.com/streaming/overview/messages-types#envelopes_for_user</a>
+  * For more information see <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types" target="_blank">
+  *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>
   */
 abstract class UserEnvelop[T <: StreamingMessage](for_user: Long, message: T) extends SiteStreamingMessage
 
@@ -30,8 +30,8 @@ final case class UserEnvelopWarningMessage(for_user: Long, message: WarningMessa
 /** Site Streams are sent the same messages as User Streams (including friends lists in the preamble),
   * but for multiple users instead of a single user.The same types of messages are streamed, but to identify the target of each message,
   * an additional wrapper is placed around every message, except for blank keep-alive lines.
-  * For more information see <a href="https://dev.twitter.com/streaming/overview/messages-types#envelopes_for_user" target="_blank">
-  *   https://dev.twitter.com/streaming/overview/messages-types#envelopes_for_user</a>
+  * For more information see <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types" target="_blank">
+  *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>
   */
 abstract class UserEnvelopStringified[T <: StreamingMessage](for_user: String, message: StreamingMessage) extends SiteStreamingMessage
 
