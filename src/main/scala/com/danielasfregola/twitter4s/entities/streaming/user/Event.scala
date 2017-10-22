@@ -12,8 +12,8 @@ import com.danielasfregola.twitter4s.entities.{Tweet, TwitterList, User}
 /** Notifications about non-Tweet events are also sent over a user stream.
   * The values present will be different based on the type of event.
   * For more information see
-  * <a href="https://dev.twitter.com/streaming/overview/messages-types#Events_event" target="_blank">
-  *   https://dev.twitter.com/streaming/overview/messages-types#Events_event</a>.
+  * <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types" target="_blank">
+  *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>.
   */
 abstract class Event[T](created_at: Date, event: EventCode#Value, target: User, source: User, target_object: Option[T])
     extends UserStreamingMessage

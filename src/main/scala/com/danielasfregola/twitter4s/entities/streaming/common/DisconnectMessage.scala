@@ -8,8 +8,8 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   * Note that if the disconnect was due to network issues or a client reading too slowly,
   * it is possible that this message will not be received.
   * For more information see
-  * <a href="https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages" target="_blank">
-  *   https://dev.twitter.com/streaming/overview/messages-types#disconnect_messages</a>.
+  * <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types" target="_blank">
+  *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>.
   */
 final case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends CommonStreamingMessage
 
