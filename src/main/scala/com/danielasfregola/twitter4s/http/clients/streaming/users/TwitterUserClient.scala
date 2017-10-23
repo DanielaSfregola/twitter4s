@@ -18,7 +18,7 @@ trait TwitterUserClient {
   private val userUrl = s"$userStreamingTwitterUrl/$twitterVersion"
 
   /** Starts a streaming connection from Twitter's user API. Streams messages for a single user as
-    * described in <a href="https://dev.twitter.com/streaming/userstreams" target="_blank">User streams</a>.
+    * described in <a href="https://developer.twitter.com/en/docs/tutorials/consuming-streaming-data" target="_blank">User streams</a>.
     * The function returns a future of a `TwitterStream` that can be use to close or replace the stream when needed.
     * If there are failures in establishing the initial connection, the Future returned will be completed with a failure.
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `UserStreamingMessage`
@@ -29,24 +29,24 @@ trait TwitterUserClient {
     *
     * @param with: `Followings` by default. Specifies whether to return information for just the authenticating user,
     *              or include messages from accounts the user follows.
-    *              For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters" target="_blank">
-    *                https://dev.twitter.com/streaming/overview/request-parameters</a>
+    *              For more information see <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *                https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param replies: Optional. By default @replies are only sent if the current user follows both the sender and receiver of the reply.
     *                 To receive all the replies, set the argument to `true`.
-    *                 For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#replies" target="_blank">
-    *                   https://dev.twitter.com/streaming/overview/request-parameters#replies</a>
+    *                 For more information see <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *                   https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param tracks : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
-    *                For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#track" target="_blank">
-    *                  https://dev.twitter.com/streaming/overview/request-parameters#track</a>
+    *                For more information see <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *                  https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param locations : Empty by default. Specifies a set of bounding boxes to track.
-    *                    For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#locations" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#locations</a>
+    *                    For more information see <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *                      https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param stringify_friend_ids: Optional. Specifies whether to send the Friend List preamble as an array of integers or an array of strings.
-    *                              For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#stringify_friend_id" tagert="_blank">
-    *                                https://dev.twitter.com/streaming/overview/request-parameters#stringify_friend_id</a>
+    *                              For more information see <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" tagert="_blank">
+    *                                https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
-    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
+    *                    For more information <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *                      https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
