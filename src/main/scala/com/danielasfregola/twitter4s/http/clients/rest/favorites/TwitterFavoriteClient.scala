@@ -17,8 +17,8 @@ trait TwitterFavoriteClient {
 
   /** Returns the 20 most recent Tweets liked by the specified user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/favorites/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -48,8 +48,8 @@ trait TwitterFavoriteClient {
 
   /** Returns the 20 most recent Tweets liked by the specified user id.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/favorites/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/favorites/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-favorites-list</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -86,8 +86,8 @@ trait TwitterFavoriteClient {
     * Note: the like action was known as favorite before November 3, 2015;
     * the historical naming remains in API methods and object properties.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/favorites/create" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/favorites/create</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-create</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param include_entities : By default it is `true`.
@@ -104,8 +104,8 @@ trait TwitterFavoriteClient {
     * Note: the like action was known as favorite before November 3, 2015;
     * the historical naming remains in API methods and object properties.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/favorites/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/favorites/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-favorites-destroy</a>.
     *
     * @param id : The numerical ID of the desired status.
     * @param include_entities : By default it is `true`.
