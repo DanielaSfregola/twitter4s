@@ -24,8 +24,8 @@ trait TwitterUserClient {
     * Since it's an asynchronous event stream, all the events will be parsed as entities of type `UserStreamingMessage`
     * and processed accordingly to the partial function `f`. All the messages that do not match `f` are automatically ignored.
     * For more information see
-    * <a href="https://dev.twitter.com/streaming/reference/get/statuses/sample" target="_blank">
-    *   https://dev.twitter.com/streaming/reference/get/statuses/sample</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/subscribe-account-activity/api-reference/user-stream</a>.
     *
     * @param with: `Followings` by default. Specifies whether to return information for just the authenticating user,
     *              or include messages from accounts the user follows.
