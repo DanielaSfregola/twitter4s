@@ -27,17 +27,17 @@ trait TwitterStatusClient {
     *   https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>.
     *
     * @param follow : Empty by default. A comma separated list of user IDs, indicating the users to return statuses for in the stream.
-    *                 For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#follow" target="_blank">
-    *                   https://dev.twitter.com/streaming/overview/request-parameters#follow</a>
+    *                 For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html" target="_blank">
+    *                   https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>
     * @param tracks : Empty by default. Keywords to track. Phrases of keywords are specified by a comma-separated list.
-    *                For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#track" target="_blank">
-    *                  https://dev.twitter.com/streaming/overview/request-parameters#track</a>
+    *                For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html" target="_blank">
+    *                  https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>
     * @param locations : Empty by default. Specifies a set of bounding boxes to track.
-    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#locations" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#locations</a>
+    *                    For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html" target="_blank">
+    *                      https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>
     * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
-    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
+    *                    For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters" target="_blank">
+    *                      https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
@@ -64,8 +64,8 @@ trait TwitterStatusClient {
     *   https://developer.twitter.com/en/docs/tweets/sample-realtime/overview/GET_statuse_sample</a>.
     *
     * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
-    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
+    *                    For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters" target="_blank">
+    *                      https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages
     */
@@ -92,8 +92,8 @@ trait TwitterStatusClient {
     *               For more information see <a href="https://dev.twitter.com/streaming/overview/request-parameters#count" target="_blank">
     *                 https://dev.twitter.com/streaming/overview/request-parameters#count</a>
     * @param languages : Empty by default. A comma separated list of 'BCP 47' language identifiers.
-    *                    For more information <a href="https://dev.twitter.com/streaming/overview/request-parameters#language" target="_blank">
-    *                      https://dev.twitter.com/streaming/overview/request-parameters#language</a>
+    *                    For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters" target="_blank">
+    *                      https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters</a>
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f: the function that defines how to process the received messages.
     */
