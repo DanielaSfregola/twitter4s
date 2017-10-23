@@ -53,8 +53,8 @@ trait TwitterMuteClient {
   /** Un-mutes the user specified for the authenticating user.
     * Actions taken in this method are asynchronous and changes will be eventually consistent.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/post/mutes/users/destroy" target="_blank">
-    *   https://dev.twitter.com/rest/reference/post/mutes/users/destroy</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-destroy" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/mute-block-report-users/api-reference/post-mutes-users-destroy</a>.
     *
     * @param screen_name : The screen name of the potentially muted user.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
