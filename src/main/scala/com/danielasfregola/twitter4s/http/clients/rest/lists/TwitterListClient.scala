@@ -265,8 +265,8 @@ trait TwitterListClient {
 
   /** Returns the twitter lists the specified user has been added to.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/memberships" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/memberships</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-memberships" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-memberships</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
@@ -289,8 +289,8 @@ trait TwitterListClient {
 
   /** Returns the twitter lists the specified user has been added to.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/memberships" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/memberships</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-memberships" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-memberships</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -430,8 +430,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param user_id : The ID of the user for whom to return results for.
@@ -457,8 +457,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -487,8 +487,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -517,8 +517,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param screen_name : The screen name of the user for whom to return results for.
@@ -544,8 +544,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -574,8 +574,8 @@ trait TwitterListClient {
   /** Check if the specified user is a member of the specified list.
     * If the user is a member of the specified list, his user representation is returned.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -608,8 +608,8 @@ trait TwitterListClient {
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param count : By default it is `20`.
@@ -639,8 +639,8 @@ trait TwitterListClient {
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -673,8 +673,8 @@ trait TwitterListClient {
 
   /** Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/members" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/members</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-members</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -1063,8 +1063,8 @@ trait TwitterListClient {
 
   /** Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show</a>.
     *
     * @param list_id : The numerical id of the list.
     * @return : The Twitter list.
@@ -1076,8 +1076,8 @@ trait TwitterListClient {
 
   /** Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
@@ -1090,8 +1090,8 @@ trait TwitterListClient {
 
   /** Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/show" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/show</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-show</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -1110,8 +1110,8 @@ trait TwitterListClient {
   /** Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default.
     * Does not include the user’s own lists.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/subscriptions" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/subscriptions</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
@@ -1132,8 +1132,8 @@ trait TwitterListClient {
   /** Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default.
     * Does not include the user’s own lists.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/subscriptions" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/subscriptions</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-subscriptions</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -1272,8 +1272,8 @@ trait TwitterListClient {
   /** Returns the lists owned by the specified Twitter user.
     * Private lists will only be shown if the authenticated user is also the owner of the lists.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/ownerships" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/ownerships</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-ownerships" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-ownerships</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid screen name is also a user ID.
@@ -1292,8 +1292,8 @@ trait TwitterListClient {
   /** Returns the lists owned by the specified Twitter user.
     * Private lists will only be shown if the authenticated user is also the owner of the lists.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/ownerships" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/ownerships</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-ownerships" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-ownerships</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     * @param count : By default it is `20`.
