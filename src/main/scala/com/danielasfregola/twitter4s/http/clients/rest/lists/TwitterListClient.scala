@@ -19,8 +19,8 @@ trait TwitterListClient {
 
   /** Returns all lists the specified user subscribes to, including their own.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -35,8 +35,8 @@ trait TwitterListClient {
 
   /** Returns all lists the specified user subscribes to, including their own.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-list</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -56,8 +56,8 @@ trait TwitterListClient {
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_id : The user ID of the user who owns the list being requested by a `slug`.
@@ -91,8 +91,8 @@ trait TwitterListClient {
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses</a>.
     *
     * @param slug : You can identify a list by its slug instead of its numerical id.
     * @param owner_screen_name : TThe screen name of the user who owns the list being requested by a `slug`.
@@ -126,8 +126,8 @@ trait TwitterListClient {
 
   /** Returns a timeline of tweets authored by members of the specified list.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/lists/statuses" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/lists/statuses</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/create-manage-lists/api-reference/get-lists-statuses</a>.
     *
     * @param list_id : The numerical id of the list.
     * @param count : By default it is `20`.
