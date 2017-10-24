@@ -21,8 +21,8 @@ trait TwitterAccountClient {
 
   /** Returns settings (including current trend, geo and sleep time information) for the authenticating user.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/account/settings" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/account/settings</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-settings" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-settings</a>.
     *
     * @return : The account settings for the authenticating user.
     * */
@@ -86,8 +86,8 @@ trait TwitterAccountClient {
   /** Returns a representation of the requesting user if authentication was successful; it throws a [[com.danielasfregola.twitter4s.exceptions.TwitterException]] if not.
     * Use this method to test if supplied user credentials are valid.
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/account/verify_credentials" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/account/verify_credentials</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/get-account-verify_credentials</a>.
     *
     * @param include_entities : By default it is `true`.
     *                         The parameters node will not be included when set to false.

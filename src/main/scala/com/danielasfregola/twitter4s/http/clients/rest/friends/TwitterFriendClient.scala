@@ -114,8 +114,8 @@ trait TwitterFriendClient {
 
   /** Returns a cursored collection of user objects for every user the specified user is following (otherwise known as their “friends”).
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friends/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friends/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list</a>.
     *
     * @param screen_name : The screen name of the user for whom to return results for.
     *                    Helpful for disambiguating when a valid user ID is also a valid screen name.
@@ -142,8 +142,8 @@ trait TwitterFriendClient {
 
   /** Returns a cursored collection of user objects for every user the specified user id is following (otherwise known as their “friends”).
     * For more information see
-    * <a href="https://dev.twitter.com/rest/reference/get/friends/list" target="_blank">
-    *   https://dev.twitter.com/rest/reference/get/friends/list</a>.
+    * <a href="https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list" target="_blank">
+    *   https://developer.twitter.com/en/docs/accounts-and-users/follow-search-get-users/api-reference/get-friends-list</a>.
     *
     * @param user_id : The ID of the user for whom to return results for.
     *                Helpful for disambiguating when a valid user ID is also a valid screen name.
