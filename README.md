@@ -31,6 +31,15 @@ Also, you need to include the library as your dependency:
 libraryDependencies += "com.danielasfregola" %% "twitter4s" % "5.1"
 ```
 
+Giter8
+------
+
+If you are starting from scratch, you can use [`twitter4s.g8`](https://github.com/DanielaSfregola/twitter4s.g8) template to start your project. This template contains examples for both REST and Streaming client.
+
+```bash
+> sbt new DanielaSfregola/twitter4s.g8
+```
+
 Usage
 -----
 
