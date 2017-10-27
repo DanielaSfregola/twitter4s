@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.http.marshalling.Parameters
 private[twitter4s] final case class UserParameters(`with`: WithFilter,
                                                    replies: Option[String],
                                                    track: Seq[String],
-                                                   locations: Seq[Double],
+                                                   locations: Seq[(Double, Double)],
                                                    stringify_friend_ids: Boolean,
                                                    language: Seq[Language],
                                                    stall_warnings: Boolean,

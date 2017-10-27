@@ -27,13 +27,16 @@ trait BodyEncoder {
 
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).flatMap {
-      case (_, Seq())                         => None
-      case (k, s @ Seq(_*))                   => Some(k -> s.mkString("", ",", ""))
-      case (_, None)                          => None
-      case (_, Some(v)) if v.toString.isEmpty => None
-      case (k, Some(v))                       => Some(k -> v.toString)
-      case (k, v) if v.toString.isEmpty       => None
-      case (k, v)                             => Some(k -> v.toString)
+      case (k, (v1, v2) :: tail) =>
+        val rest = tail.map { case (a, b) => s"$a,$b" }
+        val flattened = s"$v1,$v2" :: rest
+        Some(k -> flattened.mkString(","))
+      case (k, head :: tail) => Some(k -> (head +: tail).mkString(","))
+      case (_, Nil)          => None
+      case (_, None)         => None
+      case (_, Some(""))     => None
+      case (k, Some(v))      => Some(k -> v.toString)
+      case (k, v)            => Some(k -> v.toString)
     }
 
   // TODO - improve performance with Macros?
