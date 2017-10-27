@@ -6,14 +6,14 @@ import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse}
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
-import com.danielasfregola.twitter4s.util.Logger
+import com.typesafe.scalalogging.LazyLogging
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Try
 
-private[twitter4s] trait CommonClient extends JsonSupport with Logger {
+private[twitter4s] trait CommonClient extends JsonSupport with LazyLogging {
 
   def withLogRequest: Boolean
   def withLogRequestResponse: Boolean
@@ -49,25 +49,26 @@ private[twitter4s] trait CommonClient extends JsonSupport with Logger {
   // TODO - logRequest, logRequestResponse customisable?
   def logRequest(implicit request: HttpRequest, materializer: Materializer): HttpRequest = {
     implicit val ec = materializer.executionContext
-    log.info(s"${request.method.value} ${request.uri}")
-    if (log.underlying.isDebugEnabled) {
+    logger.info(s"${request.method.value} ${request.uri}")
+    if (logger.underlying.isDebugEnabled) {
       for {
         requestBody <- toBody(request.entity)
-      } yield log.debug(s"${request.method.value} ${request.uri} | $requestBody")
+      } yield logger.debug(s"${request.method.value} ${request.uri} | $requestBody")
     }
     request
   }
 
-  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest, materializer: Materializer): HttpResponse => HttpResponse = { response =>
-    implicit val ec = materializer.executionContext
-    val elapsed = System.currentTimeMillis - requestStartTime
-    log.info(s"${request.method.value} ${request.uri} (${response.status}) | ${elapsed}ms")
-    if (log.underlying.isDebugEnabled) {
-      for {
-        responseBody <- toBody(response.entity)
-      } yield log.debug(s"${request.method.value} ${request.uri} (${response.status}) | ${response.headers.mkString(", ")} | $responseBody")
-    }
-    response
+  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest, materializer: Materializer): HttpResponse => HttpResponse = {
+    response =>
+      implicit val ec = materializer.executionContext
+      val elapsed = System.currentTimeMillis - requestStartTime
+      logger.info(s"${request.method.value} ${request.uri} (${response.status}) | ${elapsed}ms")
+      if (logger.underlying.isDebugEnabled) {
+        for {
+          responseBody <- toBody(response.entity)
+        } yield logger.debug(s"${request.method.value} ${request.uri} (${response.status}) | ${response.headers.mkString(", ")} | $responseBody")
+      }
+      response
   }
 
   private def toBody(entity: HttpEntity)(implicit materializer: Materializer): Future[String] = {

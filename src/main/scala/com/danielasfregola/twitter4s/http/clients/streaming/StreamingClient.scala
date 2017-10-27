@@ -67,7 +67,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
         case failureResponse =>
           val statusCode = failureResponse.status
           val msg = "Stream could not be opened"
-          parseFailedResponse(failureResponse).map(ex => log.error(s"$msg: $ex"))
+          parseFailedResponse(failureResponse).map(ex => logger.error(s"$msg: $ex"))
           Source.failed(TwitterException(statusCode, s"$msg. Check the logs for more details"))
       }
       .runWith(Sink.ignore)
@@ -91,11 +91,11 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       case Success(message) =>
         message match {
           case msg: T if f.isDefinedAt(msg) =>
-            log.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
+            logger.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
             f(msg)
-          case msg => log.debug("Ignoring message of type {}", msg.getClass.getSimpleName)
+          case msg => logger.debug("Ignoring message of type {}", msg.getClass.getSimpleName)
         }
-      case Failure(ex) => log.error(s"While processing stream ${request.uri}", ex)
+      case Failure(ex) => logger.error(s"While processing stream ${request.uri}", ex)
     }
   }
 
