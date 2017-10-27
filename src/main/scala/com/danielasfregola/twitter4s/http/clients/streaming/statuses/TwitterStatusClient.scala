@@ -1,6 +1,8 @@
 package com.danielasfregola.twitter4s
 package http.clients.streaming.statuses
 
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox.toLngLatPairs
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
@@ -48,7 +50,7 @@ trait TwitterStatusClient {
     */
   def filterStatuses(follow: Seq[Long] = Seq.empty,
                      tracks: Seq[String] = Seq.empty,
-                     locations: Seq[Double] = Seq.empty,
+                     locations: Seq[GeoBoundingBox] = Seq.empty,
                      languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false,
                      filter_level: FilterLevel = FilterLevel.None)(
@@ -56,7 +58,7 @@ trait TwitterStatusClient {
     import streamingClient._
     require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty,
             "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
-    val filters = StatusFilters(follow, tracks, locations, languages, stall_warnings, filter_level)
+    val filters = StatusFilters(follow, tracks, toLngLatPairs(locations), languages, stall_warnings, filter_level)
     preProcessing()
     Post(s"$statusUrl/filter.json", filters).processStream(f)
   }
