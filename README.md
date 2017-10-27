@@ -275,6 +275,13 @@ twitter {
 }
 ```
 
+Logging
+-------
+Twitter4s uses [scala-logging](https://github.com/typesafehub/scala-logging) and can be used in your `twitter4s` application.
+
+In your application you will need a logging backend (logback, logstash). [logback-classic](https://github.com/qos-ch/logback) is easy to use and will suit most needs.
+You can find a sample configuration in [twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) and in the Giter8 template [twitter4s.g8](https://github.com/DanielaSfregola/twitter4s.g8)
+
 Examples
 --------
 Have a look at the repository [twitter4s-demo](https://github.com/DanielaSfregola/twitter4s-demo) for more examples on how to use `twitter4s`.
