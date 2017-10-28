@@ -57,7 +57,7 @@ trait TwitterOAuthClient {
     * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate" target="_blank">
     *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate</a>.
     *
-    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
+    * @param token : The OAuthRequestToken.token obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
     *                      enter their credentials to ensure the correct users account is authorized.
     * @param screen_name : Optional, by default it is `None`.
@@ -75,7 +75,7 @@ trait TwitterOAuthClient {
     * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate" target="_blank">
     *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate</a>.
     *
-    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
+    * @param token : The OAuthRequestToken.token obtained from [[requestToken]]
     * @param force_login : By default is `false`. When set to `true`, it forces the user to
     *                      enter their credentials to ensure the correct users account is authorized.
     * @param screen_name : Optional, by default it is `None`.
@@ -121,7 +121,7 @@ trait TwitterOAuthClient {
     * <a href="https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token" target="_blank">
     *   https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token</a>.
     *
-    * @param token : The [[OAuthRequestToken.token]] obtained from [[requestToken]]
+    * @param token : The OAuthRequestToken.token obtained from [[requestToken]]
     * @param oauth_verifier : the `oauth_verifier` returned in the callback of the URL
     *                         provided by [[authenticateUrl]] or [[authorizeUrl]].
     * @return : The access token for the requested user.
