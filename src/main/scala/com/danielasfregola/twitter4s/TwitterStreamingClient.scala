@@ -17,8 +17,8 @@ class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: 
 
 trait StreamingClients
   extends TwitterStatusClient
-  with TwitterUserClient
-  with TwitterSiteClient
+    with TwitterUserClient
+    with TwitterSiteClient
 
 object TwitterStreamingClient {
 
