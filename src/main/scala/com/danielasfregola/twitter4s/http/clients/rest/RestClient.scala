@@ -57,7 +57,7 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
   def sendIgnoreResponse(httpRequest: HttpRequest)
                         (implicit system: ActorSystem, materializer: Materializer): Future[Unit] = {
     implicit val ec = materializer.executionContext
-    sendAndReceive(httpRequest, _ => Future.unit)
+    sendAndReceive(httpRequest, _ => Future.successful((): Unit))
   }
 
   def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)
