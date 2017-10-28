@@ -10,10 +10,13 @@ import com.danielasfregola.twitter4s.entities.RateLimit
 import org.specs2.specification.AfterEach
 
 import scala.concurrent.Future
+import scala.concurrent.duration._
 
 abstract class RequestDSL extends TestActorSystem with FixturesSupport with AfterEach {
 
   def after = system.terminate
+
+  private val timeout = 10 seconds
 
   val headers = List(RawHeader("x-rate-limit-limit", "15"),
                      RawHeader("x-rate-limit-remaining", "14"),
@@ -33,12 +36,12 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport with Afte
     protected def responder = new Responder(future)
 
     def expectRequest(req: HttpRequest): Responder[T] = {
-      transport.expectMsg(req)
+      transport.expectMsg(timeout, req)
       responder
     }
 
     def expectRequest(fn: HttpRequest => Unit) = {
-      transport.expectMsgPF() {
+      transport.expectMsgPF(timeout) {
         case req: HttpRequest => fn(req)
       }
       responder
