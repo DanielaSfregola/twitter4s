@@ -9,7 +9,7 @@ import akka.testkit.TestProbe
 import com.danielasfregola.twitter4s.entities.RateLimit
 import org.specs2.specification.AfterEach
 
-import scala.concurrent.Future
+import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._
 
 abstract class RequestDSL extends TestActorSystem with FixturesSupport with AfterEach {
@@ -49,22 +49,32 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport with Afte
   }
 
   class Responder[T](future: Future[T]) {
-    def respondWith(response: HttpResponse): Future[T] = {
+    def respondWith(response: HttpResponse): Await[T] = {
       transport.reply(response)
-      future
+      new Await(future)
     }
 
-    def respondWith(resourcePath: String): Future[T] =
+    def respondWith(resourcePath: String): Await[T] =
       respondWith(HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, load(resourcePath))))
 
-    def respondWithRated(resourcePath: String): Future[T] =
+    def respondWithRated(resourcePath: String): Await[T] =
       respondWith(HttpResponse(StatusCodes.OK, headers = headers, entity = HttpEntity(MediaTypes.`application/json`, load(resourcePath))))
 
-
-    def respondWithOk: Future[Unit] = {
+    def respondWithOk: Await[Unit] = {
       val response = HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, """{"code": "OK"}"""))
       transport.reply(response)
-      Future.successful((): Unit)
+      new Await(Future.successful((): Unit))
     }
   }
+
+  class Await[T](future: Future[T]) {
+    private[helpers] val underlyingFuture = future
+
+    def await(implicit duration: FiniteDuration = 20 seconds) =
+      Await.result(future, duration)
+  }
+
+  implicit def awaitToReqMatcher[T](await: Await[T]) =
+    new RequestMatcher(await.underlyingFuture)
+
 }
