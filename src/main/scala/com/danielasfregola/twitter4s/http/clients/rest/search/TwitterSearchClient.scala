@@ -76,7 +76,9 @@ trait TwitterSearchClient {
                   max_id: Option[Long] = None,
                   callback: Option[String] = None): Future[RatedData[StatusSearch]] = {
     import restClient._
-    val parameters = TweetSearchParameters(query.escapeSpecialChars, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
+
+    val parameters = TweetSearchParameters(query, count, include_entities, result_type, geocode, language, locale, until, since_id, max_id, callback)
     Get(s"$searchUrl/tweets.json", parameters).respondAsRated[StatusSearch]
   }
+
 }
