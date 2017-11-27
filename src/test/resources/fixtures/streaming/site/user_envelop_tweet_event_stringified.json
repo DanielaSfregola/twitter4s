@@ -305,7 +305,8 @@
               "source_status_id": 780422808518086656,
               "source_status_id_str": "780422808518086656",
               "source_user_id": 13458372,
-              "source_user_id_str": "13458372"
+              "source_user_id_str": "13458372",
+              "video_info": null
             }
           ]
         },
@@ -446,7 +447,8 @@
                     "h": 680,
                     "resize": "fit"
                   }
-                }
+                },
+                "video_info": null
               }
             ]
           },

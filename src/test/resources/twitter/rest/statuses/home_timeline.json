@@ -33,7 +33,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 258,
@@ -117,7 +119,11 @@
       "location": "Rome, Italy",
       "description": "I build the web. Rails, Erlang, JS \/ Coffee, Android. Made in England.",
       "url": null,
-      "entities": {"description": {"urls": []}},
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
       "protected": false,
       "followers_count": 270,
       "friends_count": 247,
@@ -203,7 +209,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 258,
@@ -277,7 +285,9 @@
               }
             ]
           },
-          "description": {"urls": []}
+          "description": {
+            "urls": []
+          }
         },
         "protected": false,
         "followers_count": 1821,
@@ -562,7 +572,11 @@
       "location": "Bay Area",
       "description": "Senior Director of Global Services for Typesafe. Noted Lambda hater. Author of Effective Akka (O'Reilly), co-author of Reactive Design Patterns (Manning)",
       "url": null,
-      "entities": {"description": {"urls": []}},
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
       "protected": false,
       "followers_count": 3854,
       "friends_count": 527,
@@ -634,7 +648,9 @@
               }
             ]
           },
-          "description": {"urls": []}
+          "description": {
+            "urls": []
+          }
         },
         "protected": false,
         "followers_count": 2582,
@@ -799,7 +815,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 2418,
@@ -873,7 +891,9 @@
               }
             ]
           },
-          "description": {"urls": []}
+          "description": {
+            "urls": []
+          }
         },
         "protected": false,
         "followers_count": 6453,
@@ -1017,7 +1037,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 58493,
@@ -1349,7 +1371,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 12952,
@@ -1538,7 +1562,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 7067,
@@ -1744,7 +1770,9 @@
             }
           ]
         },
-        "description": {"urls": []}
+        "description": {
+          "urls": []
+        }
       },
       "protected": false,
       "followers_count": 9449,
@@ -1903,6 +1931,485 @@
     "retweeted": false,
     "possibly_sensitive": false,
     "possibly_sensitive_appealable": false,
+    "lang": "en"
+  },
+  {
+    "created_at": "Mon Nov 27 15:26:22 +0000 2017",
+    "id": 935167925786480600,
+    "id_str": "935167925786480640",
+    "text": "RT @Disney: On March 9, be a warrior. The new trailer for A #WrinkleInTime is here. https://t.co/UBUiRZWiAc",
+    "truncated": false,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "WrinkleInTime",
+          "indices": [
+            60,
+            74
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [
+        {
+          "screen_name": "Disney",
+          "name": "Disney",
+          "id": 67418441,
+          "id_str": "67418441",
+          "indices": [
+            3,
+            10
+          ]
+        }
+      ],
+      "urls": [],
+      "media": [
+        {
+          "id": 932389855874621400,
+          "id_str": "932389855874621440",
+          "indices": [
+            84,
+            107
+          ],
+          "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "url": "https://t.co/UBUiRZWiAc",
+          "display_url": "pic.twitter.com/UBUiRZWiAc",
+          "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+          "type": "photo",
+          "sizes": {
+            "small": {
+              "w": 680,
+              "h": 283,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 2048,
+              "h": 853,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 500,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 932418695854305300,
+          "source_status_id_str": "932418695854305281",
+          "source_user_id": 67418441,
+          "source_user_id_str": "67418441"
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 932389855874621400,
+          "id_str": "932389855874621440",
+          "indices": [
+            84,
+            107
+          ],
+          "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "url": "https://t.co/UBUiRZWiAc",
+          "display_url": "pic.twitter.com/UBUiRZWiAc",
+          "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+          "type": "video",
+          "sizes": {
+            "small": {
+              "w": 680,
+              "h": 283,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 2048,
+              "h": 853,
+              "resize": "fit"
+            },
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 500,
+              "resize": "fit"
+            }
+          },
+          "source_status_id": 932418695854305300,
+          "source_status_id_str": "932418695854305281",
+          "source_user_id": 67418441,
+          "source_user_id_str": "67418441",
+          "video_info": {
+            "aspect_ratio": [
+              320,
+              133
+            ],
+            "duration_millis": 144645,
+            "variants": [
+              {
+                "bitrate": 832000,
+                "content_type": "video/mp4",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/866x360/4zQMTKefAozX5GAR.mp4"
+              },
+              {
+                "bitrate": 320000,
+                "content_type": "video/mp4",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/432x180/UsPQIopmeg_Q3RSr.mp4"
+              },
+              {
+                "content_type": "application/x-mpegURL",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/pl/bwoRE3FyURJd8yTl.m3u8"
+              }
+            ]
+          },
+          "additional_media_info": {
+            "title": "",
+            "description": "",
+            "embeddable": true,
+            "monetizable": false,
+            "source_user": {
+              "id": 67418441,
+              "id_str": "67418441",
+              "name": "Disney",
+              "screen_name": "Disney",
+              "location": "",
+              "description": "The official Twitter for Disney. Don’t miss a minute of the magic.",
+              "url": "https://t.co/m5jwysh10i",
+              "entities": {
+                "url": {
+                  "urls": [
+                    {
+                      "url": "https://t.co/m5jwysh10i",
+                      "expanded_url": "http://www.disney.com/",
+                      "display_url": "disney.com",
+                      "indices": [
+                        0,
+                        23
+                      ]
+                    }
+                  ]
+                },
+                "description": {
+                  "urls": []
+                }
+              },
+              "protected": false,
+              "followers_count": 5748846,
+              "friends_count": 47,
+              "listed_count": 13388,
+              "created_at": "Thu Aug 20 20:40:59 +0000 2009",
+              "favourites_count": 26,
+              "utc_offset": -28800,
+              "time_zone": "Pacific Time (US & Canada)",
+              "geo_enabled": false,
+              "verified": true,
+              "statuses_count": 9518,
+              "lang": "en",
+              "contributors_enabled": false,
+              "is_translator": false,
+              "is_translation_enabled": false,
+              "profile_background_color": "FCFCFC",
+              "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+              "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+              "profile_background_tile": false,
+              "profile_image_url": "http://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+              "profile_image_url_https": "https://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+              "profile_banner_url": "https://pbs.twimg.com/profile_banners/67418441/1510603344",
+              "profile_link_color": "0E5A82",
+              "profile_sidebar_border_color": "FFFFFF",
+              "profile_sidebar_fill_color": "CFE6FF",
+              "profile_text_color": "000000",
+              "profile_use_background_image": false,
+              "has_extended_profile": false,
+              "default_profile": false,
+              "default_profile_image": false,
+              "following": false,
+              "follow_request_sent": false,
+              "notifications": false,
+              "translator_type": "none"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 90044663,
+      "id_str": "90044663",
+      "name": "Bruno Rossi",
+      "screen_name": "bob_kkk",
+      "location": "Sao Paulo, Brazil",
+      "description": "",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 69,
+      "friends_count": 32,
+      "listed_count": 6,
+      "created_at": "Sat Nov 14 23:21:21 +0000 2009",
+      "favourites_count": 8,
+      "utc_offset": -10800,
+      "time_zone": "Greenland",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 344,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme9/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme9/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1154583440/70369_1560623900_8089403_q_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1154583440/70369_1560623900_8089403_q_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/90044663/1419423391",
+      "profile_link_color": "C2BC42",
+      "profile_sidebar_border_color": "101202",
+      "profile_sidebar_fill_color": "DBE6D8",
+      "profile_text_color": "050500",
+      "profile_use_background_image": false,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "retweeted_status": {
+      "created_at": "Mon Nov 20 01:21:55 +0000 2017",
+      "id": 932418695854305300,
+      "id_str": "932418695854305281",
+      "text": "On March 9, be a warrior. The new trailer for A #WrinkleInTime is here. https://t.co/UBUiRZWiAc",
+      "truncated": false,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "WrinkleInTime",
+            "indices": [
+              48,
+              62
+            ]
+          }
+        ],
+        "symbols": [],
+        "user_mentions": [],
+        "urls": [],
+        "media": [
+          {
+            "id": 932389855874621400,
+            "id_str": "932389855874621440",
+            "indices": [
+              72,
+              95
+            ],
+            "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "url": "https://t.co/UBUiRZWiAc",
+            "display_url": "pic.twitter.com/UBUiRZWiAc",
+            "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+            "type": "photo",
+            "sizes": {
+              "small": {
+                "w": 680,
+                "h": 283,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 2048,
+                "h": 853,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 500,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 932389855874621400,
+            "id_str": "932389855874621440",
+            "indices": [
+              72,
+              95
+            ],
+            "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "url": "https://t.co/UBUiRZWiAc",
+            "display_url": "pic.twitter.com/UBUiRZWiAc",
+            "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+            "type": "video",
+            "sizes": {
+              "small": {
+                "w": 680,
+                "h": 283,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 2048,
+                "h": 853,
+                "resize": "fit"
+              },
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 500,
+                "resize": "fit"
+              }
+            },
+            "video_info": {
+              "aspect_ratio": [
+                320,
+                133
+              ],
+              "duration_millis": 144645,
+              "variants": [
+                {
+                  "bitrate": 832000,
+                  "content_type": "video/mp4",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/866x360/4zQMTKefAozX5GAR.mp4"
+                },
+                {
+                  "bitrate": 320000,
+                  "content_type": "video/mp4",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/432x180/UsPQIopmeg_Q3RSr.mp4"
+                },
+                {
+                  "content_type": "application/x-mpegURL",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/pl/bwoRE3FyURJd8yTl.m3u8"
+                }
+              ]
+            },
+            "additional_media_info": {
+              "title": "",
+              "description": "",
+              "embeddable": true,
+              "monetizable": false
+            }
+          }
+        ]
+      },
+      "source": "<a href=\"https://studio.twitter.com\" rel=\"nofollow\">Media Studio</a>",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 67418441,
+        "id_str": "67418441",
+        "name": "Disney",
+        "screen_name": "Disney",
+        "location": "",
+        "description": "The official Twitter for Disney. Don’t miss a minute of the magic.",
+        "url": "https://t.co/m5jwysh10i",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/m5jwysh10i",
+                "expanded_url": "http://www.disney.com/",
+                "display_url": "disney.com",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 5748846,
+        "friends_count": 47,
+        "listed_count": 13388,
+        "created_at": "Thu Aug 20 20:40:59 +0000 2009",
+        "favourites_count": 26,
+        "utc_offset": -28800,
+        "time_zone": "Pacific Time (US & Canada)",
+        "geo_enabled": false,
+        "verified": true,
+        "statuses_count": 9518,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FCFCFC",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+        "profile_background_tile": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/67418441/1510603344",
+        "profile_link_color": "0E5A82",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "CFE6FF",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 1071,
+      "favorite_count": 2968,
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "is_quote_status": false,
+    "retweet_count": 1071,
+    "favorite_count": 0,
+    "favorited": false,
+    "retweeted": true,
+    "possibly_sensitive": false,
     "lang": "en"
   }
 ]

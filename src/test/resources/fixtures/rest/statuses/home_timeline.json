@@ -366,7 +366,8 @@
           "source_status_id": 648866645855879168,
           "source_status_id_str": "648866645855879168",
           "type": "photo",
-          "url": "http://t.co/hIdTA3v2zE"
+          "url": "http://t.co/hIdTA3v2zE",
+          "video_info": null
         }
       ],
       "url": null,
@@ -502,7 +503,8 @@
             "source_status_id": null,
             "source_status_id_str": null,
             "type": "photo",
-            "url": "http://t.co/hIdTA3v2zE"
+            "url": "http://t.co/hIdTA3v2zE",
+            "video_info": null
           }
         ],
         "url": null,
@@ -1420,7 +1422,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/MJZgfsQUsO"
+          "url": "http://t.co/MJZgfsQUsO",
+          "video_info": null
         }
       ],
       "url": null,
@@ -1819,7 +1822,21 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "animated_gif",
-          "url": "http://t.co/zytXLkyndk"
+          "url": "http://t.co/zytXLkyndk",
+          "video_info": {
+            "aspect_ratio": [
+              225,
+              128
+            ],
+            "duration_millis": null,
+            "variants": [
+              {
+                "bitrate": 0,
+                "content_type": "video/mp4",
+                "url": "https://pbs.twimg.com/tweet_video/CQFIC2oWoAAVUNK.mp4"
+              }
+            ]
+          }
         }
       ],
       "url": null,
@@ -2069,7 +2086,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/BDrHG8cpfj"
+          "url": "http://t.co/BDrHG8cpfj",
+          "video_info": null
         }
       ],
       "url": null,
@@ -2309,7 +2327,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/fvGjyot6zu"
+          "url": "http://t.co/fvGjyot6zu",
+          "video_info": null
         }
       ],
       "url": null,
@@ -2424,6 +2443,424 @@
     "withheld_copyright": false,
     "withheld_in_countries": [
     ],
+    "withheld_scope": null,
+    "metadata": null
+  },
+  {
+    "contributors": [],
+    "coordinates": null,
+    "created_at": "Mon Nov 27 15:26:22 +0000 2017",
+    "current_user_retweet": null,
+    "entities": {
+      "hashtags": [
+        {
+          "text": "WrinkleInTime",
+          "indices": [
+            60,
+            74
+          ]
+        }
+      ],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/UBUiRZWiAc",
+          "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+          "id": 932389855874621400,
+          "id_str": "932389855874621440",
+          "indices": [
+            84,
+            107
+          ],
+          "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "sizes": {
+            "small": {
+              "h": 283,
+              "resize": "fit",
+              "w": 680
+            },
+            "large": {
+              "h": 853,
+              "resize": "fit",
+              "w": 2048
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 500,
+              "resize": "fit",
+              "w": 1200
+            }
+          },
+          "source_status_id": 932418695854305300,
+          "source_status_id_str": "932418695854305281",
+          "type": "photo",
+          "url": "https://t.co/UBUiRZWiAc",
+          "video_info": null
+        }
+      ],
+      "url": null,
+      "urls": [],
+      "user_mentions": [
+        {
+          "id": 67418441,
+          "id_str": "67418441",
+          "indices": [
+            3,
+            10
+          ],
+          "name": "Disney",
+          "screen_name": "Disney"
+        }
+      ],
+      "description": null
+    },
+    "extended_entities": {
+      "hashtags": [],
+      "media": [
+        {
+          "display_url": "pic.twitter.com/UBUiRZWiAc",
+          "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+          "id": 932389855874621400,
+          "id_str": "932389855874621440",
+          "indices": [
+            84,
+            107
+          ],
+          "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+          "sizes": {
+            "small": {
+              "h": 283,
+              "resize": "fit",
+              "w": 680
+            },
+            "large": {
+              "h": 853,
+              "resize": "fit",
+              "w": 2048
+            },
+            "thumb": {
+              "h": 150,
+              "resize": "crop",
+              "w": 150
+            },
+            "medium": {
+              "h": 500,
+              "resize": "fit",
+              "w": 1200
+            }
+          },
+          "source_status_id": 932418695854305300,
+          "source_status_id_str": "932418695854305281",
+          "type": "video",
+          "url": "https://t.co/UBUiRZWiAc",
+          "video_info": null
+        }
+      ],
+      "url": null,
+      "urls": [],
+      "user_mentions": [],
+      "description": null
+    },
+    "favorite_count": 0,
+    "favorited": false,
+    "filter_level": null,
+    "id": 935167925786480600,
+    "id_str": "935167925786480640",
+    "in_reply_to_screen_name": null,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "is_quote_status": false,
+    "lang": "en",
+    "place": null,
+    "possibly_sensitive": false,
+    "quoted_status_id": null,
+    "quoted_status_id_str": null,
+    "quoted_status": null,
+    "scopes": {},
+    "retweet_count": 1071,
+    "retweeted": true,
+    "retweeted_status": {
+      "contributors": [],
+      "coordinates": null,
+      "created_at": "Mon Nov 20 01:21:55 +0000 2017",
+      "current_user_retweet": null,
+      "entities": {
+        "hashtags": [
+          {
+            "text": "WrinkleInTime",
+            "indices": [
+              48,
+              62
+            ]
+          }
+        ],
+        "media": [
+          {
+            "display_url": "pic.twitter.com/UBUiRZWiAc",
+            "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+            "id": 932389855874621400,
+            "id_str": "932389855874621440",
+            "indices": [
+              72,
+              95
+            ],
+            "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "sizes": {
+              "small": {
+                "h": 283,
+                "resize": "fit",
+                "w": 680
+              },
+              "large": {
+                "h": 853,
+                "resize": "fit",
+                "w": 2048
+              },
+              "thumb": {
+                "h": 150,
+                "resize": "crop",
+                "w": 150
+              },
+              "medium": {
+                "h": 500,
+                "resize": "fit",
+                "w": 1200
+              }
+            },
+            "source_status_id": null,
+            "source_status_id_str": null,
+            "type": "photo",
+            "url": "https://t.co/UBUiRZWiAc",
+            "video_info": null
+          }
+        ],
+        "url": null,
+        "urls": [],
+        "user_mentions": [],
+        "description": null
+      },
+      "extended_entities": {
+        "hashtags": [],
+        "media": [
+          {
+            "display_url": "pic.twitter.com/UBUiRZWiAc",
+            "expanded_url": "https://twitter.com/Disney/status/932418695854305281/video/1",
+            "id": 932389855874621400,
+            "id_str": "932389855874621440",
+            "indices": [
+              72,
+              95
+            ],
+            "media_url": "http://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "media_url_https": "https://pbs.twimg.com/media/DPCGOwRV4AA0oya.jpg",
+            "sizes": {
+              "small": {
+                "h": 283,
+                "resize": "fit",
+                "w": 680
+              },
+              "large": {
+                "h": 853,
+                "resize": "fit",
+                "w": 2048
+              },
+              "thumb": {
+                "h": 150,
+                "resize": "crop",
+                "w": 150
+              },
+              "medium": {
+                "h": 500,
+                "resize": "fit",
+                "w": 1200
+              }
+            },
+            "source_status_id": null,
+            "source_status_id_str": null,
+            "type": "video",
+            "url": "https://t.co/UBUiRZWiAc",
+            "video_info": null
+          }
+        ],
+        "url": null,
+        "urls": [],
+        "user_mentions": [],
+        "description": null
+      },
+      "favorite_count": 2968,
+      "favorited": false,
+      "filter_level": null,
+      "id": 932418695854305300,
+      "id_str": "932418695854305281",
+      "in_reply_to_screen_name": null,
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "is_quote_status": false,
+      "lang": "en",
+      "place": null,
+      "possibly_sensitive": false,
+      "quoted_status_id": null,
+      "quoted_status_id_str": null,
+      "quoted_status": null,
+      "scopes": {},
+      "retweet_count": 1071,
+      "retweeted": true,
+      "retweeted_status": null,
+      "source": "<a href=\"https://studio.twitter.com\" rel=\"nofollow\">Media Studio</a>",
+      "text": "On March 9, be a warrior. The new trailer for A #WrinkleInTime is here. https://t.co/UBUiRZWiAc",
+      "truncated": false,
+      "user": {
+        "blocked_by": false,
+        "blocking": false,
+        "contributors_enabled": false,
+        "created_at": "Thu Aug 20 21:40:59 +0100 2009",
+        "default_profile": false,
+        "default_profile_image": false,
+        "description": "The official Twitter for Disney. Don\u2019t miss a minute of the magic.",
+        "email": null,
+        "entities": {
+          "hashtags": [],
+          "media": [],
+          "url": {
+            "urls": [
+              {
+                "url": "https://t.co/m5jwysh10i",
+                "expanded_url": "http://www.disney.com/",
+                "display_url": "disney.com",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "urls": [],
+          "user_mentions": [],
+          "description": {
+            "urls": []
+          }
+        },
+        "favourites_count": 26,
+        "follow_request_sent": false,
+        "following": false,
+        "followers_count": 5748846,
+        "friends_count": 47,
+        "geo_enabled": false,
+        "has_extended_profile": false,
+        "id": 67418441,
+        "id_str": "67418441",
+        "is_translation_enabled": false,
+        "is_translator": false,
+        "lang": "en",
+        "listed_count": 13388,
+        "location": "",
+        "muting": false,
+        "name": "Disney",
+        "notifications": false,
+        "profile_background_color": "FCFCFC",
+        "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+        "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/648548100672323585/vVeGkWy3.jpg",
+        "profile_background_tile": false,
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/67418441/1510603344",
+        "profile_image_url": "http://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/851861956591927296/ArujktQe_normal.jpg",
+        "profile_link_color": "0E5A82",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "CFE6FF",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "protected": false,
+        "screen_name": "Disney",
+        "show_all_inline_media": false,
+        "status": null,
+        "statuses_count": 9518,
+        "time_zone": "Pacific Time (US & Canada)",
+        "url": "https://t.co/m5jwysh10i",
+        "utc_offset": -28800,
+        "verified": true,
+        "withheld_in_countries": null,
+        "withheld_scope": null
+      },
+      "withheld_copyright": false,
+      "withheld_in_countries": [],
+      "withheld_scope": null,
+      "metadata": null
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "text": "RT @Disney: On March 9, be a warrior. The new trailer for A #WrinkleInTime is here. https://t.co/UBUiRZWiAc",
+    "truncated": false,
+    "user": {
+      "blocked_by": false,
+      "blocking": false,
+      "contributors_enabled": false,
+      "created_at": "Sat Nov 14 23:21:21 +0000 2009",
+      "default_profile": false,
+      "default_profile_image": false,
+      "description": "",
+      "email": null,
+      "entities": {
+        "hashtags": [],
+        "media": [],
+        "url": null,
+        "urls": [],
+        "user_mentions": [],
+        "description": {
+          "urls": []
+        }
+      },
+      "favourites_count": 8,
+      "follow_request_sent": false,
+      "following": false,
+      "followers_count": 69,
+      "friends_count": 32,
+      "geo_enabled": true,
+      "has_extended_profile": false,
+      "id": 90044663,
+      "id_str": "90044663",
+      "is_translation_enabled": false,
+      "is_translator": false,
+      "lang": "en",
+      "listed_count": 6,
+      "location": "Sao Paulo, Brazil",
+      "muting": false,
+      "name": "Bruno Rossi",
+      "notifications": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme9/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme9/bg.gif",
+      "profile_background_tile": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/90044663/1419423391",
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1154583440/70369_1560623900_8089403_q_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1154583440/70369_1560623900_8089403_q_normal.jpg",
+      "profile_link_color": "C2BC42",
+      "profile_sidebar_border_color": "101202",
+      "profile_sidebar_fill_color": "DBE6D8",
+      "profile_text_color": "050500",
+      "profile_use_background_image": false,
+      "protected": false,
+      "screen_name": "bob_kkk",
+      "show_all_inline_media": false,
+      "status": null,
+      "statuses_count": 344,
+      "time_zone": "Greenland",
+      "url": null,
+      "utc_offset": -10800,
+      "verified": false,
+      "withheld_in_countries": null,
+      "withheld_scope": null
+    },
+    "withheld_copyright": false,
+    "withheld_in_countries": [],
     "withheld_scope": null,
     "metadata": null
   }

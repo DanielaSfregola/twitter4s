@@ -2629,7 +2629,8 @@
           "source_status_id": 634312275638267904,
           "source_status_id_str": "634312275638267904",
           "type": "photo",
-          "url": "http://t.co/6OOYZfryYU"
+          "url": "http://t.co/6OOYZfryYU",
+          "video_info": null
         }
       ],
       "url": null,
@@ -2807,7 +2808,8 @@
             "source_status_id": null,
             "source_status_id_str": null,
             "type": "photo",
-            "url": "http://t.co/6OOYZfryYU"
+            "url": "http://t.co/6OOYZfryYU",
+            "video_info": null
           }
         ],
         "url": null,
