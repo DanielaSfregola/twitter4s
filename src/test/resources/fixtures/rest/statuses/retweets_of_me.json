@@ -976,7 +976,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/XpS3nIcAh1"
+          "url": "http://t.co/XpS3nIcAh1",
+          "video_info": null
         }
       ],
       "url": null,

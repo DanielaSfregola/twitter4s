@@ -529,7 +529,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/VKpDq5fBAT"
+          "url": "http://t.co/VKpDq5fBAT",
+          "video_info": null
         }
       ],
       "url": null,
@@ -2251,7 +2252,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/0Zjj5X8IIY"
+          "url": "http://t.co/0Zjj5X8IIY",
+          "video_info": null
         }
       ],
       "url": null,
@@ -2794,7 +2796,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/FhVofVfJ1o"
+          "url": "http://t.co/FhVofVfJ1o",
+          "video_info": null
         }
       ],
       "url": null,
@@ -3360,7 +3363,8 @@
           "source_status_id": null,
           "source_status_id_str": null,
           "type": "photo",
-          "url": "http://t.co/ArQORyug2l"
+          "url": "http://t.co/ArQORyug2l",
+          "video_info": null
         }
       ],
       "url": null,
