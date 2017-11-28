@@ -2558,7 +2558,30 @@
           "source_status_id_str": "932418695854305281",
           "type": "video",
           "url": "https://t.co/UBUiRZWiAc",
-          "video_info": null
+          "video_info": {
+            "aspect_ratio": [
+              320,
+              133
+            ],
+            "duration_millis": 144645,
+            "variants": [
+              {
+                "bitrate": 832000,
+                "content_type": "video/mp4",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/866x360/4zQMTKefAozX5GAR.mp4"
+              },
+              {
+                "bitrate": 320000,
+                "content_type": "video/mp4",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/432x180/UsPQIopmeg_Q3RSr.mp4"
+              },
+              {
+                "bitrate": null,
+                "content_type": "application/x-mpegURL",
+                "url": "https://video.twimg.com/amplify_video/932389855874621440/pl/bwoRE3FyURJd8yTl.m3u8"
+              }
+            ]
+          }
         }
       ],
       "url": null,
@@ -2687,7 +2710,30 @@
             "source_status_id_str": null,
             "type": "video",
             "url": "https://t.co/UBUiRZWiAc",
-            "video_info": null
+            "video_info": {
+              "aspect_ratio": [
+                320,
+                133
+              ],
+              "duration_millis": 144645,
+              "variants": [
+                {
+                  "bitrate": 832000,
+                  "content_type": "video/mp4",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/866x360/4zQMTKefAozX5GAR.mp4"
+                },
+                {
+                  "bitrate": 320000,
+                  "content_type": "video/mp4",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/vid/432x180/UsPQIopmeg_Q3RSr.mp4"
+                },
+                {
+                  "bitrate": null,
+                  "content_type": "application/x-mpegURL",
+                  "url": "https://video.twimg.com/amplify_video/932389855874621440/pl/bwoRE3FyURJd8yTl.m3u8"
+                }
+              ]
+            }
           }
         ],
         "url": null,
