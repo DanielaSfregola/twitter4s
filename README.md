@@ -296,7 +296,7 @@ resolvers += Resolver.sonatypeRepo("snapshots")
 
 Then, add the library as your dependency:
 ```scala
-libraryDependencies += "com.danielasfregola" %% "twitter4s" % "5.3-SNAPSHOT"
+libraryDependencies += "com.danielasfregola" %% "twitter4s" % "6.0-SNAPSHOT"
 ```
 
 Coming up Features
