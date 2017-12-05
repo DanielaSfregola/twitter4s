@@ -12,7 +12,7 @@ import org.specs2.specification.core.Fragment
 
 import scala.reflect._
 
-class SerializationSpec extends Specification with RandomDataGenerator with JsonSupport {
+class SerializationRoundtripSpec extends Specification with RandomDataGenerator with JsonSupport {
 
   // We serialize dates to second precision
   implicit val arbitraryDate: Arbitrary[Date] = Arbitrary {

@@ -4,6 +4,7 @@
   "name": "Daniela Sfregola",
   "screen_name": "DanielaSfregola",
   "location": "London, United Kingdom",
+  "profile_location": null,
   "description": "Java \/ Scala Team Leader working at @OVOEnergy",
   "url": "https:\/\/t.co\/0FKNGVnRwX",
   "entities": {
@@ -94,5 +95,6 @@
   "default_profile_image": false,
   "following": false,
   "follow_request_sent": false,
-  "notifications": false
+  "notifications": false,
+  "translator_type": "regular"
 }
