@@ -19,6 +19,7 @@ libraryDependencies ++= {
   val Json4s = "3.5.0"
   val Spec2 = "3.8.6"
   val ScalaLogging = "3.5.0"
+  val RandomDataGenerator = "2.3"
 
   Seq(
     "com.typesafe" % "config" % Typesafe,
@@ -29,7 +30,8 @@ libraryDependencies ++= {
     "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
     "org.specs2" %% "specs2-core" % Spec2 % "test",
     "org.specs2" %% "specs2-mock" % Spec2 % "test",
-    "com.typesafe.akka" %% "akka-testkit" % Akka % "test"
+    "com.typesafe.akka" %% "akka-testkit" % Akka % "test",
+    "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test"
   )
 }
 
