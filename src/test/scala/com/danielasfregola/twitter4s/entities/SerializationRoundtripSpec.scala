@@ -14,24 +14,6 @@ import scala.reflect._
 
 class SerializationRoundtripSpec extends Specification with RandomDataGenerator with JsonSupport {
 
-  // We serialize dates to second precision
-  implicit val arbitraryDate: Arbitrary[Date] = Arbitrary {
-    for {
-      timeInMicroseconds: Long <- Gen.chooseNum(1142899200L, 1512442349L)
-    } yield {
-      new Date(timeInMicroseconds * 1000)
-    }
-  }
-
-  implicit val arbitraryProfileImage: Arbitrary[ProfileImage] = Arbitrary {
-    for {
-      prefix: String <- Gen.nonEmptyListOf(alphaChar).map(_.mkString)
-      suffix: String <- Gen.oneOf("_mini", "_normal", "_bigger", "")
-    } yield {
-      ProfileImage(s"${prefix}_$suffix.jpg")
-    }
-  }
-
   "JSON serialization" should {
 
     def roundtripTest[T <: AnyRef : Manifest : Arbitrary]: Fragment = {
@@ -50,5 +32,23 @@ class SerializationRoundtripSpec extends Specification with RandomDataGenerator 
     }
 
     roundtripTest[User]
+  }
+
+  // We serialize dates to second precision
+  implicit val arbitraryDate: Arbitrary[Date] = Arbitrary {
+    for {
+      timeInMicroseconds: Long <- Gen.chooseNum(1142899200L, 1512442349L)
+    } yield {
+      new Date(timeInMicroseconds * 1000)
+    }
+  }
+
+  implicit val arbitraryProfileImage: Arbitrary[ProfileImage] = Arbitrary {
+    for {
+      prefix: String <- Gen.nonEmptyListOf(alphaChar).map(_.mkString)
+      suffix: String <- Gen.oneOf("_mini", "_normal", "_bigger", "")
+    } yield {
+      ProfileImage(s"${prefix}_$suffix.jpg")
+    }
   }
 }

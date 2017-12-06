@@ -12,6 +12,26 @@ import scala.reflect._
 
 class DeserializationRoundtripSpec extends Specification with FixturesSupport with JsonDiffSupport {
 
+   "JSON deserialization" should {
+
+     def roundtripTest[T <: AnyRef : Manifest](jsonFile: String): Fragment = {
+
+       val className = classTag[T].runtimeClass.getSimpleName
+
+       s"round-trip successfully for $className" in {
+         val originalJson = load(jsonFile)
+
+         val deserializedEntity = Serialization.read[T](originalJson)
+
+         val serializedJson = Serialization.writePretty[T](deserializedEntity)
+
+         originalJson must beASubsetOfJson(serializedJson)
+       }
+     }
+
+     roundtripTest[User]("/twitter/rest/users/user.json")
+  }
+
   def beASubsetOfJson(otherJson: String): Matcher[String] = new Matcher[String] {
 
     def apply[S <: String](t: Expectable[S]) = {
@@ -57,26 +77,5 @@ class DeserializationRoundtripSpec extends Specification with FixturesSupport wi
 
       (changed ++ deleted ++ added).mkString
     }
-  }
-
-
-   "JSON deserialization" should {
-
-     def roundtripTest[T <: AnyRef : Manifest](jsonFile: String): Fragment = {
-
-       val className = classTag[T].runtimeClass.getSimpleName
-
-       s"round-trip successfully for $className" in {
-         val originalJson = load(jsonFile)
-
-         val deserializedEntity = Serialization.read[T](originalJson)
-
-         val serializedJson = Serialization.writePretty[T](deserializedEntity)
-
-         originalJson must beASubsetOfJson(serializedJson)
-       }
-     }
-
-     roundtripTest[User]("/twitter/rest/users/user.json")
   }
 }
