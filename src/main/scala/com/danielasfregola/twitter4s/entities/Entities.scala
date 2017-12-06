@@ -5,6 +5,7 @@ package com.danielasfregola.twitter4s.entities
 
 final case class Entities(hashtags: Seq[HashTag] = Seq.empty,
                     media: Seq[Media] = Seq.empty,
+                    symbols: Seq[Symbol] = Seq.empty,
                     url: Option[Urls] = None,
                     urls: Seq[UrlDetails] = Seq.empty,
                     user_mentions: Seq[UserMention] = Seq.empty,

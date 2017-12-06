@@ -2339,6 +2339,13 @@
           45.466736
         ]
       },
+      "geo": {
+        "type": "Point",
+        "coordinates": [
+          45.466736,
+          9.189618
+        ]
+      },
       "created_at": "Sun Oct 25 09:00:31 +0000 2015",
       "entities": {
         "hashtags": [
