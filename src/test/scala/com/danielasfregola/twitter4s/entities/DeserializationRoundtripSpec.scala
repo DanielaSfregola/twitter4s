@@ -18,7 +18,7 @@ class DeserializationRoundtripSpec extends Specification with FixturesSupport wi
 
        val className = classTag[T].runtimeClass.getSimpleName
 
-       s"round-trip successfully for $className" in {
+       s"round-trip successfully for $className in $jsonFile" in {
          val originalJson = load(jsonFile)
 
          val deserializedEntity = Serialization.read[T](originalJson)

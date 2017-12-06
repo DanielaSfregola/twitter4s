@@ -38,17 +38,13 @@ class SerializationRoundtripSpec extends Specification with RandomDataGenerator 
   implicit val arbitraryDate: Arbitrary[Date] = Arbitrary {
     for {
       timeInMicroseconds: Long <- Gen.chooseNum(1142899200L, 1512442349L)
-    } yield {
-      new Date(timeInMicroseconds * 1000)
-    }
+    } yield new Date(timeInMicroseconds * 1000)
   }
 
   implicit val arbitraryProfileImage: Arbitrary[ProfileImage] = Arbitrary {
     for {
       prefix: String <- Gen.nonEmptyListOf(alphaChar).map(_.mkString)
       suffix: String <- Gen.oneOf("_mini", "_normal", "_bigger", "")
-    } yield {
-      ProfileImage(s"${prefix}_$suffix.jpg")
-    }
+    } yield ProfileImage(s"${prefix}_$suffix.jpg")
   }
 }
