@@ -15,9 +15,6 @@ trait JsonDiffSupport { this: JsonSupport =>
 
   /** A difference between two JSONs (j1 diff j2).
    *
-   * This is based on [[org.json4s.Diff]], but modify to be tolerant
-   * of equivalent dates in different time-zones, or of empty arrays replacing nulls.
-   *
    * @param changed what has changed from j1 to j2
    * @param added   what has been added to j2
    * @param deleted what has been deleted from j1
