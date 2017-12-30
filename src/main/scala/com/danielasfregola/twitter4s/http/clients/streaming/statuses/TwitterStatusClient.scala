@@ -11,6 +11,9 @@ import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
+// https://github.com/krasserm/streamz/blob/master/streamz-converter/README.md
+
+
 trait TwitterStatusClient {
 
   protected val streamingClient: StreamingClient
