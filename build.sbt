@@ -39,6 +39,7 @@ libraryDependencies ++= {
     "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test",
     // https://github.com/krasserm/streamz
     "com.github.krasserm" %% "streamz-converter" % "0.9-M1" // uses FS2 0.9.5
+    // "io.packagecloud.maven.wagon" % "maven-packagecloud-wagon" % "0.0.6"
   )
 }
 
