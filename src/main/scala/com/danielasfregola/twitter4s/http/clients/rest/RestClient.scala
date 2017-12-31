@@ -6,6 +6,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.{ActorMaterializer, Materializer}
+import de.heikoseeberger.akkahttpjson4s.Json4sSupport.unmarshaller
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RatedData}
 import com.danielasfregola.twitter4s.http.clients.Client
 import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
