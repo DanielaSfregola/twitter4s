@@ -3,7 +3,7 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 
 name := "twitter4s"
-version := "5.4-SNAPSHOT"
+version := "5.4-SNAPSHOT-FS2"
 
 scalaVersion := "2.12.4"
 
@@ -17,10 +17,10 @@ libraryDependencies ++= {
 
   val Typesafe = "1.3.2"
   val Akka = "2.5.8"
-  val AkkaHttp = "10.0.10"
+  val AkkaHttp = "10.0.11"
   val AkkaHttpJson4s = "1.18.1"
   val Json4s = "3.5.3"
-  val Specs2 = "4.0.1"
+  val Specs2 = "4.0.2"
   val ScalaLogging = "3.7.2"
   val RandomDataGenerator = "2.3"
 
