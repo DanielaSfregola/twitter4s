@@ -28,6 +28,6 @@ jdk:
   - oraclejdk8
 
 # whitelist
-branches:
-  only:
-    - master
+# branches:
+  # only:
+  #   - master
