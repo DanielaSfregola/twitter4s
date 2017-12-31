@@ -125,4 +125,29 @@ trait TwitterStatusClient {
     preProcessing()
     Get(s"$statusUrl/firehose.json", parameters).processStream(f)
   }
+
+
+  object FS2 {
+    import fs2._
+    import cats.effect.IO
+
+    /** Emits an FS2 Stream
+      * 
+      * 
+      */
+    def sampleStatusesStream(languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false,
+      tracks: Seq[String] = Seq.empty,
+      filter_level: FilterLevel = FilterLevel.None): Stream[IO, TwitterStream] = {
+      import streamingClient._
+      // val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
+      preProcessing()
+      // Get(s"$statusUrl/sample.json", parameters)
+      ???
+    }
+  
+
+
+
+  }
 }
