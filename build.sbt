@@ -50,6 +50,8 @@ scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
   "-feature",
   "-deprecation")
 
+ensimeScalaVersion in ThisBuild := "2.12.4"
+
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
   licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
