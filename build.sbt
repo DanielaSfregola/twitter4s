@@ -3,7 +3,8 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 
 name := "twitter4s"
-version := "5.4-SNAPSHOT-FS2"
+// version := "5.4-SNAPSHOT-FS2"
+version := "5.5-FS2"
 
 scalaVersion := "2.12.4"
 
@@ -37,7 +38,7 @@ libraryDependencies ++= {
     "org.specs2" %% "specs2-core" % Specs2 % "test",
     "org.specs2" %% "specs2-mock" % Specs2 % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test",
-    "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test",
+    "me.peterbecich" %% "random-data-generator" % RandomDataGenerator % "test",
     // https://github.com/krasserm/streamz
     // "com.github.krasserm" %% "streamz-converter" % "0.9-M1", // uses FS2 0.10.0-M3
     "co.fs2" %% "fs2-core" % "0.10.0-M10",
@@ -59,19 +60,19 @@ scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
 import aether.AetherKeys._
 
 lazy val standardSettings = Seq(
-  organization := "com.danielasfregola",
+  organization := "me.peterbecich",
   licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
-  homepage := Some(url("https://github.com/DanielaSfregola/twitter4s")),
+  homepage := Some(url("https://github.com/peterbecich/twitter4s")),
   scmInfo := Some(
-    ScmInfo(url("https://github.com/DanielaSfregola/twitter4s"),
-            "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),
+    ScmInfo(url("https://github.com/peterbecich/twitter4s"),
+            "scm:git:git@github.com:peterbecich/twitter4s.git")),
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
   crossScalaVersions := Seq("2.12.4", "2.11.12"),
   pomExtra := (
     <developers>
     <developer>
-      <id>DanielaSfregola</id>
-      <name>Daniela Sfregola</name>
+      <id>peterbecich</id>
+      <name>Peter Becich (Daniela Sfregola)</name>
       <url>http://danielasfregola.com/</url>
     </developer>
   </developers>
@@ -94,23 +95,23 @@ lazy val standardSettings = Seq(
   ),
   scalacOptions in (Compile, doc) ++= Seq("-sourcepath", baseDirectory.value.getAbsolutePath),
   autoAPIMappings := true,
-  apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/")),
+  apiURL := Some(url("http://peterbecich.github.io/twitter4s/")),
   scalacOptions in (Compile, doc) ++= {
     val branch = if (version.value.trim.endsWith("SNAPSHOT")) "master" else version.value
     Seq(
       "-doc-source-url",
-      "https://github.com/DanielaSfregola/twitter4s/tree/" + branch + "€{FILE_PATH}.scala"
+      "https://github.com/peterbecich/twitter4s/tree/" + branch + "€{FILE_PATH}.scala"
     )
   },
   credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
-  // aetherWagons := Seq(aether.WagonWrapper("packagecloud+https", "io.packagecloud.maven.wagon.PackagecloudWagon")),
+  // aether.AetherKeys.aetherWagons := Seq(aether.WagonWrapper("packagecloud+https", "io.packagecloud.maven.wagon.PackagecloudWagon")),
   publishTo := {
     Some("packagecloud+https" at "packagecloud+https://packagecloud.io/peterbecich/twitter4s")
   }
 )
 
 lazy val coverageSettings = Seq(
-  coverageExcludedPackages := "com.danielasfregola.twitter4s.processors.*;com.danielasfregola.twitter4s.Twitter*Client",
+  coverageExcludedPackages := "me.peterbecich.twitter4s.processors.*;me.peterbecich.twitter4s.Twitter*Client",
   coverageMinimum := 85
 )
 
