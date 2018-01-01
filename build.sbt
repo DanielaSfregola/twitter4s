@@ -41,8 +41,8 @@ libraryDependencies ++= {
     // https://github.com/krasserm/streamz
     // "com.github.krasserm" %% "streamz-converter" % "0.9-M1", // uses FS2 0.10.0-M3
     "co.fs2" %% "fs2-core" % "0.10.0-M10",
-    "org.typelevel" %% "cats-core" % "1.0.0"
-    // "io.packagecloud.maven.wagon" % "maven-packagecloud-wagon" % "0.0.6"
+    "org.typelevel" %% "cats-core" % "1.0.0",
+    "io.packagecloud.maven.wagon" % "maven-packagecloud-wagon" % "0.0.6"
   )
 }
 
