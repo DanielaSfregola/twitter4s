@@ -54,6 +54,10 @@ scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
 
 // ensimeScalaVersion in ThisBuild := "2.12.4"
 
+// https://packagecloud.io/docs#sbt_deploy
+
+import aether.AetherKeys._
+
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
   licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
@@ -97,6 +101,11 @@ lazy val standardSettings = Seq(
       "-doc-source-url",
       "https://github.com/DanielaSfregola/twitter4s/tree/" + branch + "€{FILE_PATH}.scala"
     )
+  },
+  credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
+  aetherWagons := Seq(aether.WagonWrapper("packagecloud+https", "io.packagecloud.maven.wagon.PackagecloudWagon")),
+  publishTo := {
+    Some("packagecloud+https" at "packagecloud+https://packagecloud.io/peterbecich/twitter4s")
   }
 )
 
