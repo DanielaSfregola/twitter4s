@@ -103,7 +103,7 @@ lazy val standardSettings = Seq(
     )
   },
   credentials += Credentials(Path.userHome / ".ivy2" / ".credentials"),
-  aetherWagons := Seq(aether.WagonWrapper("packagecloud+https", "io.packagecloud.maven.wagon.PackagecloudWagon")),
+  // aetherWagons := Seq(aether.WagonWrapper("packagecloud+https", "io.packagecloud.maven.wagon.PackagecloudWagon")),
   publishTo := {
     Some("packagecloud+https" at "packagecloud+https://packagecloud.io/peterbecich/twitter4s")
   }
