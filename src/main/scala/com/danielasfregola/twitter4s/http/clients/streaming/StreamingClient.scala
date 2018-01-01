@@ -44,7 +44,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       implicit val ec = materializer.executionContext
       for {
         requestWithAuth <- withOAuthHeader(None)(materializer)(request)
-        (stream, killSwitch) <- FS2.processOrFailStreamRequest(requestWithAuth)(f)
+        killSwitch <- FS2.processOrFailStreamRequest(requestWithAuth)(f)
       } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
     }
 
@@ -103,29 +103,37 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .runWith(Sink.foreach(_ => (): Unit))
 
   protected object FS2 {
-    // import fs2 as 
+    // import fs2
     import cats.effect._
+    import streamz.converter
+    // import streamz.converter._
+
+    val fs2PrintSink: fs2.Sink[IO, String] = fs2.Sink(s => IO(println(s)))
 
     def processOrFailStreamRequest[T <: StreamingMessage: Manifest]
       (request: HttpRequest)
       (f: PartialFunction[T, Unit])
       (implicit system: ActorSystem, materializer: Materializer):
-        Future[(fs2.Stream[IO, Int], SharedKillSwitch)] = {
+        Future[SharedKillSwitch] = {
       implicit val ec = materializer.executionContext
       val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
-      val processing: Future[(fs2.Stream[IO, Int], SharedKillSwitch)] =
+      val processing: Future[SharedKillSwitch] =
         FS2.processStreamRequest(request, killSwitch)(f)
-      val switch = Future { Thread.sleep(maxConnectionTimeMillis); (fs2.Stream.eval(IO(1)), killSwitch) }
+      val switch = Future { Thread.sleep(maxConnectionTimeMillis); killSwitch }
       Future.firstCompletedOf(Seq(processing, switch))
     }
 
+    // https://github.com/krasserm/streamz/blob/master/streamz-converter/README.md#conversions-from-akka-stream-to-fs2
+    // convert to FS2 stream in here:
     protected def processStreamRequest[T <: StreamingMessage: Manifest]
       (request: HttpRequest, killSwitch: SharedKillSwitch)
       (f: PartialFunction[T, Unit])
       (implicit system: ActorSystem, materializer: Materializer):
-        Future[(fs2.Stream[IO, Int], SharedKillSwitch)] = {
+        Future[SharedKillSwitch] = {
       implicit val ec = materializer.executionContext
       implicit val rqt = request
+
+      val akkaPrintSink = converter.fs2SinkToAkkaSink(fs2PrintSink)
 
       if (withLogRequest) logRequest
       Source.single(request)
@@ -140,11 +148,10 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
             parseFailedResponse(failureResponse).map(ex => logger.error(s"$msg: $ex"))
             Source.failed(TwitterException(statusCode, s"$msg. Check the logs for more details"))
         }
-        .runWith(Sink.ignore)
-        .map(_ => (???, killSwitch))
+        .runWith(akkaPrintSink)
+        .map(_ => killSwitch)
     }
 
-    // https://github.com/krasserm/streamz/blob/master/streamz-converter/README.md#conversions-from-akka-stream-to-fs2
     def processBody[T: Manifest]
       (response: HttpResponse, killSwitch: SharedKillSwitch)
       (f: PartialFunction[T, Unit])
@@ -156,6 +163,20 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
         .map(data => unmarshalStream(data, f))
         .runWith(Sink.foreach(_ => (): Unit))
 
+    private def unmarshalStream[T <: StreamingMessage: Manifest]
+      (data: ByteString, fs2Sink: fs2.Sink[IO, T])
+      (implicit request: HttpRequest): Unit = {
+      val json = data.utf8String
+      Try(Serialization.read[StreamingMessage](json)) match {
+        case Success(message) =>
+          message match {
+            case msg: T =>
+              logger.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
+              
+          }
+        case Failure(ex) => logger.error(s"While processing stream ${request.uri}", ex)
+      }
+    }
 
   }
 
