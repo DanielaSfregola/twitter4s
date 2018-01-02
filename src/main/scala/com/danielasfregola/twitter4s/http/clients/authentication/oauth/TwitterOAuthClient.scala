@@ -85,7 +85,7 @@ trait TwitterOAuthClient {
   def authorizeUrl(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String =
     genericOAuthUrl("authorize")(token, force_login, screen_name)
 
-  private def genericOAuthUrl(path: String)(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String = {
+  private def genericOAuthUrl(path: String)(token: RequestToken, force_login: Boolean, screen_name: Option[String]): String = {
     val params = {
       val queryParams = List(Some("oauth_token" -> token.key),
         Some("force_login" -> force_login),

@@ -4,7 +4,7 @@ import java.util.Date
 
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import org.json4s.JsonAST._
-import org.json4s.{Diff, JField, JNothing, JObject}
+import org.json4s.{JField, JNothing, JObject}
 
 /**
  * This is a copy of [[org.json4s.Diff]], with modifications to make it
