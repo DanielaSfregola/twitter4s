@@ -128,8 +128,8 @@ trait TwitterStatusClient {
 
 
   object FS2 {
-    import fs2._
     import cats.effect.IO
+    import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 
     /** Emits an FS2 Stream
       * 
@@ -138,12 +138,12 @@ trait TwitterStatusClient {
     def sampleStatusesStream(languages: Seq[Language] = Seq.empty,
       stall_warnings: Boolean = false,
       tracks: Seq[String] = Seq.empty,
-      filter_level: FilterLevel = FilterLevel.None): Stream[IO, TwitterStream] = {
+      filter_level: FilterLevel = FilterLevel.None)
+      (fs2Sink: fs2.Sink[IO, StreamingMessage]): Future[TwitterStream] = {
       import streamingClient._
-      // val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
+      val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
       preProcessing()
-      // Get(s"$statusUrl/sample.json", parameters)
-      ???
+      Get(s"$statusUrl/sample.json", parameters).processStreamFS2(fs2Sink)
     }
   
 

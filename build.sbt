@@ -38,7 +38,7 @@ libraryDependencies ++= {
     "org.specs2" %% "specs2-core" % Specs2 % "test",
     "org.specs2" %% "specs2-mock" % Specs2 % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test",
-    "me.peterbecich" %% "random-data-generator" % RandomDataGenerator % "test",
+    "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test",
     // https://github.com/krasserm/streamz
     // "com.github.krasserm" %% "streamz-converter" % "0.9-M1", // uses FS2 0.10.0-M3
     "co.fs2" %% "fs2-core" % "0.10.0-M10",
