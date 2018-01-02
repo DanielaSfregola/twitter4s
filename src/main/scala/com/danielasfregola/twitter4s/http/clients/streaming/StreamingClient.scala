@@ -170,7 +170,11 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
             case msg: T =>
               logger.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
               val eq: IO[Unit] = fs2.Stream.emit(msg).observe(fs2Sink).drain.run
-              eq.unsafeRunSync()
+              //eq.unsafeRunSync()
+              eq.unsafeRunAsync {
+                case Left(err) => println("failed to enqueue Tweet: "+err.toString())
+                case Right(_) => ()
+              }
           }
         case Failure(ex) => logger.error(s"While processing stream ${request.uri}", ex)
       }
