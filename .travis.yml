@@ -21,11 +21,10 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 scala:
-  - 2.12.3
-  - 2.11.11
+  - 2.12.4
+  - 2.11.12
 
 jdk:
-  - oraclejdk7
   - oraclejdk8
 
 # whitelist
