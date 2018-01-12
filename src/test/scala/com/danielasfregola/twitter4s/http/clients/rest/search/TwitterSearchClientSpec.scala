@@ -14,7 +14,7 @@ class TwitterSearchClientSpec extends ClientSpec {
       val result: RatedData[StatusSearch] = when(searchTweet("#scala")).expectRequest { request =>
         request.method === HttpMethods.GET
         request.uri.endpoint === "https://api.twitter.com/1.1/search/tweets.json"
-        request.uri.queryString() === Some("count=15&include_entities=true&q=%23scala&result_type=mixed")
+        request.uri.queryString() === Some("count=15&include_entities=true&q=%23scala&result_type=mixed&tweet_mode=extended")
       }.respondWithRated("/twitter/rest/search/tweets.json").await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[StatusSearch]("/fixtures/rest/search/tweets.json")
