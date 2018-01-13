@@ -65,8 +65,6 @@ private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val access
 
   def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)
                                 (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
-    implicit val ec = materializer.executionContext
-    implicit val jsonSerialization = serialization
     sendAndReceive(httpRequest, response => Unmarshal(response.entity).to[T])
   }
 
