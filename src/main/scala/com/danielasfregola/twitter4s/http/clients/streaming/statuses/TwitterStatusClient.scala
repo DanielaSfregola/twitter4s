@@ -11,9 +11,6 @@ import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
 
-// https://github.com/krasserm/streamz/blob/master/streamz-converter/README.md
-
-
 trait TwitterStatusClient {
 
   protected val streamingClient: StreamingClient
@@ -131,19 +128,29 @@ trait TwitterStatusClient {
     import cats.effect.IO
     import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 
-    /** Emits an FS2 Stream
-      * 
+    /** Feeds `StreamingMessage`s into a Functional Streams for Scala (FS2) `Sink`.
+      * @param languages : Empty by default. List of 'BCP 47' language identifiers.
+      *                    For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters" target="_blank">
+      *                      https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters</a>
+      * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
+      * @param tracks : Empty by default. List of phrases which will be used to determine what Tweets will be delivered on the stream.
+      *                 Each phrase must be between 1 and 60 bytes, inclusive.
+      *                 For more information <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html" target="_blank">
+      *                  https://developer.twitter.com/en/docs/tweets/filter-realtime/api-reference/post-statuses-filter.html</a>
+      * @param filter_level : Default value is none, which includes all available Tweets.
+      *                       Set the minimum value of the filter_level Tweet attribute required to be included in the stream.
+      * @param sink : Provide a `Sink[IO, StreamingMessage]` that `StreamingMessage`s will be fed into.  <a href="https://github.com/peterbecich/BannoDemo/blob/ebf0598b9d8eb73fb4796850ad3b91d7d9bf4b20/src/main/scala/me/peterbecich/bannodemo/twitter/TwitterSource.scala#L63-L65"> Usage example </a>
       * 
       */
     def sampleStatusesStream(languages: Seq[Language] = Seq.empty,
       stall_warnings: Boolean = false,
       tracks: Seq[String] = Seq.empty,
       filter_level: FilterLevel = FilterLevel.None)
-      (fs2Sink: fs2.Sink[IO, StreamingMessage]): Future[TwitterStream] = {
+      (sink: fs2.Sink[IO, StreamingMessage]): Future[TwitterStream] = {
       import streamingClient._
       val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
       preProcessing()
-      Get(s"$statusUrl/sample.json", parameters).processStreamFS2(fs2Sink)
+      Get(s"$statusUrl/sample.json", parameters).processStreamFS2(sink)
     }
   
 

@@ -103,14 +103,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .runWith(Sink.foreach(_ => (): Unit))
 
   protected object FS2 {
-    // import fs2
     import cats.effect._
-    // import streamz.converter
-    // import streamz.converter._
-
-    // val fs2PrintSink: fs2.Sink[IO, String] = fs2.Sink(s => IO(println("FS2: "+s)))
-
-    // https://github.com/krasserm/streamz/blob/master/streamz-converter/README.md#conversions-from-akka-stream-to-fs2
 
     def processOrFailStreamRequest[T <: StreamingMessage: Manifest]
       (request: HttpRequest)

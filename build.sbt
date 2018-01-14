@@ -38,8 +38,7 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test",
     "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test",
     "co.fs2" %% "fs2-core" % "0.10.0-M10",
-    "org.typelevel" %% "cats-core" % "1.0.0",
-    "io.packagecloud.maven.wagon" % "maven-packagecloud-wagon" % "0.0.6"
+    "org.typelevel" %% "cats-core" % "1.0.0"
   )
 }
 

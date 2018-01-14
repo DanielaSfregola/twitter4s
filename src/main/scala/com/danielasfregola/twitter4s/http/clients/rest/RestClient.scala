@@ -14,7 +14,6 @@ import org.json4s.native.Serialization
 import scala.concurrent.Future
 
 private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends Client {
-
   override implicit val serialization = Serialization
 
   lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
