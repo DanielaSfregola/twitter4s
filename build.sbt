@@ -50,7 +50,7 @@ scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
   "-deprecation")
 
 lazy val standardSettings = Seq(
-  organization := "me.danielasfregola",
+  organization := "com.danielasfregola",
   licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0.html")),
   homepage := Some(url("https://github.com/DanielaSfregola/twitter4s")),
   scmInfo := Some(
@@ -96,7 +96,7 @@ lazy val standardSettings = Seq(
 )
 
 lazy val coverageSettings = Seq(
-  coverageExcludedPackages := "me.DanielaSfregola.twitter4s.processors.*;me.DanielaSfregola.twitter4s.Twitter*Client",
+  coverageExcludedPackages := "com.danielasfregola.twitter4s.processors.*;com.danielasfregola.twitter4s.Twitter*Client",
   coverageMinimum := 85
 )
 
