@@ -121,7 +121,7 @@ client.sampleStatuses(stall_warnings = true)(printTweetText)
 
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
-# [FS2](https://github.com/functional-streams-for-scala/fs2) compatibility
+#### [FS2](https://github.com/functional-streams-for-scala/fs2) compatibility
 
 Sample statuses can be fed into an FS2 [`Sink`](https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-core_2.12/0.10.0-M10/fs2-core_2.12-0.10.0-M10-javadoc.jar/!/fs2/index.html#Sink[F[_],-I]=fs2.package.Pipe[F,I,Unit]).
 
