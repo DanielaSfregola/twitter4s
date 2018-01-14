@@ -121,6 +121,22 @@ client.sampleStatuses(stall_warnings = true)(printTweetText)
 
 Have a look at [TwitterProcessor](https://github.com/DanielaSfregola/twitter4s/blob/master/src/main/scala/com/danielasfregola/twitter4s/processors/TwitterProcessor.scala) for some predefined processing functions.
 
+# [FS2](https://github.com/functional-streams-for-scala/fs2) compatibility
+
+Sample statuses can be fed into an FS2 [`Sink`](https://oss.sonatype.org/service/local/repositories/releases/archive/co/fs2/fs2-core_2.12/0.10.0-M10/fs2-core_2.12-0.10.0-M10-javadoc.jar/!/fs2/index.html#Sink[F[_],-I]=fs2.package.Pipe[F,I,Unit]).
+
+The `Sink` you provide must take [`StreamingMessage`s](http://danielasfregola.github.io/twitter4s/5.3/api/com/danielasfregola/twitter4s/entities/streaming/StreamingMessage.html) as input: `Sink[IO, StreamingMessage]`
+
+```
+val sink: Sink[IO, StreamingMessage] = ???
+
+client.FS2.sampleStatuses()(sink)
+```
+
+[Example](https://github.com/peterbecich/BannoDemo/blob/ebf0598b9d8eb73fb4796850ad3b91d7d9bf4b20/src/main/scala/me/peterbecich/bannodemo/twitter/TwitterSource.scala#L63-L65)
+
+Find `FS2.sampleStatusesStream` in `twitter4s/src/main/scala/com/danielasfregola/twitter4s/http/clients/streaming/statuses/TwitterStatusClient.scala` for more details.
+
 ### Close or Replace a Stream
 Each stream function returns a `Future[TwitterStream]`.
 `TwitterStream` represents the stream received by Twitter and it can be used to close or replace the current stream.
