@@ -27,7 +27,7 @@ scala:
 jdk:
   - oraclejdk8
 
-# whitelist
-# branches:
-  # only:
-  #   - master
+#whitelist
+branches:
+  only:
+    - master
