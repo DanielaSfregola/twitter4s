@@ -7,6 +7,7 @@ import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.ResultType
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
+import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -76,7 +77,7 @@ trait TwitterSearchClient {
                   since_id: Option[Long] = None,
                   max_id: Option[Long] = None,
                   callback: Option[String] = None,
-                  tweet_mode: Option[String] = Some("extended")): Future[RatedData[StatusSearch]] = {
+                  tweet_mode: Option[TweetMode] = None): Future[RatedData[StatusSearch]] = {
     import restClient._
     val parameters = TweetSearchParameters(
       query.escapeSpecialChars, count, include_entities, result_type, geocode,

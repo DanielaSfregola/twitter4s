@@ -5,6 +5,7 @@ import java.time.LocalDate
 import com.danielasfregola.twitter4s.entities.GeoCode
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.ResultType.ResultType
+import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
 private[twitter4s] final case class TweetSearchParameters(q: String,
@@ -18,4 +19,4 @@ private[twitter4s] final case class TweetSearchParameters(q: String,
                                                           since_id: Option[Long],
                                                           max_id: Option[Long],
                                                           callback: Option[String],
-                                                          tweet_mode: Option[String]) extends Parameters
+                                                          tweet_mode: Option[TweetMode]) extends Parameters
