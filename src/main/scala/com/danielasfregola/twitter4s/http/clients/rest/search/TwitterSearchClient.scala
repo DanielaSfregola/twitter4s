@@ -63,7 +63,8 @@ trait TwitterSearchClient {
     * @param callback         : Optional, by default it is `None`.
     *                         If supplied, the response will use the JSONP format with a callback of the given name.
     *                         The usefulness of this parameter is somewhat diminished by the requirement of authentication for requests to this endpoint.
-    * @param tweet_mode       : Selector, when set to Some("extended") prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode       : Optional, by default it is `None`.
+    *                         When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the search results.
     */
   def searchTweet(query: String,
