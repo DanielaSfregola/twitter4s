@@ -5,61 +5,72 @@
         "name": "#vamospumas",
         "query": "%23vamospumas",
         "url": "http:\/\/twitter.com\/search?q=%23vamospumas",
-        "promoted_content": null
+        "promoted_content": null,,
+        "tweet_volume":26634
+
       },
       {
         "name": "#EMABiggesrFans1D",
         "query": "%23EMABiggesrFans1D",
         "url": "http:\/\/twitter.com\/search?q=%23EMABiggesrFans1D",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":26633
       },
       {
         "name": "#PersibDay",
         "query": "%23PersibDay",
         "url": "http:\/\/twitter.com\/search?q=%23PersibDay",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "#\u307F\u306A\u3055\u3093\u5C0F\u4E2D\u9AD8\u306E\u30AF\u30E9\u30D6\u306F\u4F55\u3067\u3057\u305F\u304B",
         "query": "%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B",
         "url": "http:\/\/twitter.com\/search?q=%23%E3%81%BF%E3%81%AA%E3%81%95%E3%82%93%E5%B0%8F%E4%B8%AD%E9%AB%98%E3%81%AE%E3%82%AF%E3%83%A9%E3%83%96%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%81%9F%E3%81%8B",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "PurposeJustinBieber",
         "query": "PurposeJustinBieber",
         "url": "http:\/\/twitter.com\/search?q=PurposeJustinBieber",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "Irlanda",
         "query": "Irlanda",
         "url": "http:\/\/twitter.com\/search?q=Irlanda",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "#\u0633\u0627\u062D\u0643\u064A_\u0644\u0644\u0627\u062D\u0641\u0627\u062F_\u0628\u0627\u0646\u064A_\u0639\u0627\u0635\u0631\u062A",
         "query": "%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA",
         "url": "http:\/\/twitter.com\/search?q=%23%D8%B3%D8%A7%D8%AD%D9%83%D9%8A_%D9%84%D9%84%D8%A7%D8%AD%D9%81%D8%A7%D8%AF_%D8%A8%D8%A7%D9%86%D9%8A_%D8%B9%D8%A7%D8%B5%D8%B1%D8%AA",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":26632
       },
       {
         "name": "Griezmann",
         "query": "Griezmann",
         "url": "http:\/\/twitter.com\/search?q=Griezmann",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "abraham mateo - old school",
         "query": "%22abraham+mateo+-+old+school%22",
         "url": "http:\/\/twitter.com\/search?q=%22abraham+mateo+-+old+school%22",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":null
       },
       {
         "name": "nico sanchez",
         "query": "%22nico+sanchez%22",
         "url": "http:\/\/twitter.com\/search?q=%22nico+sanchez%22",
-        "promoted_content": null
+        "promoted_content": null,
+        "tweet_volume":26631
       }
     ],
     "as_of": "2015-10-18T14:26:53Z",
