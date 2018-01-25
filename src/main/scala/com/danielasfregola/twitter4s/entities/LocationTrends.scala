@@ -8,4 +8,4 @@ final case class LocationTrends(as_of: String, // TODO - convert to Date? Differ
 final case class LocationOverview(name: String, woeid: Long)
 
 // TODO - support 'promoted_content' and 'events'
-final case class Trend(name: String, query: String, url: String)
+final case class Trend(name: String, query: String, url: String,tweet_volume:Option[Long])
