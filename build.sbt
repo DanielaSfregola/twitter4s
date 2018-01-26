@@ -64,6 +64,10 @@ lazy val standardSettings = Seq(
   </developers>
   ),
   publishMavenStyle := true,
+  publishTo := {
+    if (version.value.trim.endsWith("SNAPSHOT")) Some(Opts.resolver.sonatypeSnapshots)
+    else Some(Opts.resolver.sonatypeStaging)
+  },
   git.gitRemoteRepo := "git@github.com:DanielaSfregola/twitter4s.git",
   scalacOptions ++= Seq(
     "-encoding",
