@@ -16,10 +16,10 @@ libraryDependencies ++= {
 
   val Typesafe = "1.3.2"
   val Akka = "2.5.8"
-  val AkkaHttp = "10.0.10"
+  val AkkaHttp = "10.0.11"
   val AkkaHttpJson4s = "1.18.1"
   val Json4s = "3.5.3"
-  val Specs2 = "4.0.1"
+  val Specs2 = "4.0.2"
   val ScalaLogging = "3.7.2"
   val RandomDataGenerator = "2.3"
 
@@ -29,13 +29,16 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-stream" % Akka,
     "com.typesafe.akka" %% "akka-http" % AkkaHttp,
     "de.heikoseeberger" %% "akka-http-json4s" % AkkaHttpJson4s,
+    "de.heikoseeberger" %% "akka-http-circe" % AkkaHttpJson4s,
     "org.json4s" %% "json4s-native" % Json4s,
     "org.json4s" %% "json4s-ext" % Json4s,
     "com.typesafe.scala-logging" %% "scala-logging" % ScalaLogging,
     "org.specs2" %% "specs2-core" % Specs2 % "test",
     "org.specs2" %% "specs2-mock" % Specs2 % "test",
     "com.typesafe.akka" %% "akka-testkit" % Akka % "test",
-    "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test"
+    "com.danielasfregola" %% "random-data-generator" % RandomDataGenerator % "test",
+    "co.fs2" %% "fs2-core" % "0.10.0-M10",
+    "org.typelevel" %% "cats-core" % "1.0.0"
   )
 }
 

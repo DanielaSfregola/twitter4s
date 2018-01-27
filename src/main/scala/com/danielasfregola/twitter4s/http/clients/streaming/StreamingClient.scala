@@ -28,7 +28,10 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
-    def processStream[T <: StreamingMessage : Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
+    import cats.effect._
+
+    def processStream[T <: StreamingMessage : Manifest]
+      (f: PartialFunction[T, Unit]): Future[TwitterStream] = {
       implicit val system = ActorSystem(s"twitter4s-streaming-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
@@ -37,13 +40,26 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
         killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
       } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
     }
+
+    def processStreamFS2[T <: StreamingMessage : Manifest]
+      (fs2Sink: fs2.Sink[IO, T]): Future[TwitterStream] = {
+      implicit val system = ActorSystem(s"twitter4s-streaming-${UUID.randomUUID}")
+      implicit val materializer = ActorMaterializer()
+      implicit val ec = materializer.executionContext
+      for {
+        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
+        killSwitch <- FS2.processOrFailStreamRequest(requestWithAuth)(fs2Sink)
+      } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
+    }
   }
 
   private val maxConnectionTimeMillis = 1000
 
   // TODO - can we do better?
-  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit])
-                                                                         (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest]
+    (request: HttpRequest)
+    (f: PartialFunction[T, Unit])
+    (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
     val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
     val processing = processStreamRequest(request, killSwitch)(f)
@@ -51,9 +67,10 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
     Future.firstCompletedOf(Seq(processing, switch))
   }
 
-  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest, killSwitch: SharedKillSwitch)
-                                                                     (f: PartialFunction[T, Unit])
-                                                                     (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+  protected def processStreamRequest[T <: StreamingMessage: Manifest]
+    (request: HttpRequest, killSwitch: SharedKillSwitch)
+    (f: PartialFunction[T, Unit])
+    (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
     implicit val rqt = request
 
@@ -74,9 +91,10 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .map(_ => killSwitch)
   }
 
-  def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)
-                                        (f: PartialFunction[T, Unit])
-                                        (implicit request: HttpRequest, materializer: Materializer): Unit =
+  def processBody[T: Manifest]
+    (response: HttpResponse, killSwitch: SharedKillSwitch)
+    (f: PartialFunction[T, Unit])
+    (implicit request: HttpRequest, materializer: Materializer): Unit =
     response.entity.withoutSizeLimit.dataBytes
       .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
       .filter(_.nonEmpty)
@@ -84,8 +102,82 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .map(data => unmarshalStream(data, f))
       .runWith(Sink.foreach(_ => (): Unit))
 
-  private def unmarshalStream[T <: StreamingMessage: Manifest](data: ByteString, f: PartialFunction[T, Unit])(
-      implicit request: HttpRequest): Unit = {
+  protected object FS2 {
+    import cats.effect._
+
+    def processOrFailStreamRequest[T <: StreamingMessage: Manifest]
+      (request: HttpRequest)
+      (fs2Sink: fs2.Sink[IO, T])
+      (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+      implicit val ec = materializer.executionContext
+      val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
+      val processing = FS2.processStreamRequest(request, killSwitch)(fs2Sink)
+      val switch = Future { Thread.sleep(maxConnectionTimeMillis); killSwitch }
+      Future.firstCompletedOf(Seq(processing, switch))
+    }
+
+    protected def processStreamRequest[T <: StreamingMessage: Manifest]
+      (request: HttpRequest, killSwitch: SharedKillSwitch)
+      (fs2Sink: fs2.Sink[IO, T])
+      (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+      implicit val ec = materializer.executionContext
+      implicit val rqt = request
+
+      if (withLogRequest) logRequest
+      Source.single(request)
+        .via(connection)
+        .flatMapConcat {
+          case response if response.status.isSuccess =>
+            Future(FS2.processBody(response, killSwitch)(fs2Sink))
+            Source.empty
+          case failureResponse =>
+            val statusCode = failureResponse.status
+            val msg = "Stream could not be opened"
+            parseFailedResponse(failureResponse).map(ex => logger.error(s"$msg: $ex"))
+            Source.failed(TwitterException(statusCode, s"$msg. Check the logs for more details"))
+        }
+        .runWith(Sink.ignore)
+        .map(_ => killSwitch)
+    }
+
+    def processBody[T: Manifest]
+      (response: HttpResponse, killSwitch: SharedKillSwitch)
+      (fs2Sink: fs2.Sink[IO, T])
+      (implicit request: HttpRequest, materializer: Materializer): Unit =
+      response.entity.withoutSizeLimit.dataBytes
+        .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
+        .filter(_.nonEmpty)
+        .via(killSwitch.flow)
+        .map(data => FS2.unmarshalStream(data, fs2Sink))
+        .runWith(Sink.foreach(_ => (): Unit))
+
+    private def unmarshalStream[T <: StreamingMessage: Manifest]
+      (data: ByteString, fs2Sink: fs2.Sink[IO, T])
+      (implicit request: HttpRequest, materializer: Materializer): Unit = {
+      implicit val ec = materializer.executionContext
+      
+      val json = data.utf8String
+      Try(Serialization.read[StreamingMessage](json)) match {
+        case Success(message) =>
+          message match {
+            case msg: T =>
+              logger.debug("Processing message of type {}: {}", msg.getClass.getSimpleName, msg)
+              val eq: IO[Unit] = fs2.Stream.emit(msg).observe(fs2Sink).drain.run
+              //eq.unsafeRunSync()
+              eq.unsafeRunAsync {
+                case Left(err) => println("failed to enqueue Tweet: "+err.toString())
+                case Right(_) => ()
+              }
+          }
+        case Failure(ex) => logger.error(s"While processing stream ${request.uri}", ex)
+      }
+    }
+    
+  }
+
+  private def unmarshalStream[T <: StreamingMessage: Manifest]
+    (data: ByteString, f: PartialFunction[T, Unit])
+    (implicit request: HttpRequest): Unit = {
     val json = data.utf8String
     Try(Serialization.read[StreamingMessage](json)) match {
       case Success(message) =>
