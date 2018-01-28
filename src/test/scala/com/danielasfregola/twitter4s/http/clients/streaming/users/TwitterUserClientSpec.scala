@@ -12,11 +12,15 @@ class TwitterUserClientSpec extends ClientSpec {
 
     "start a filtered user stream" in new TwitterUserClientSpecContext {
       val result: Unit =
-        when(userEvents(tracks = Seq("trending"), languages = Seq(Language.English))(dummyProcessing)).expectRequest { request =>
-          request.method === HttpMethods.GET
-          request.uri.endpoint === "https://userstream.twitter.com/1.1/user.json"
-          request.uri.queryString() === Some("filter_level=none&language=en&stall_warnings=false&stringify_friend_ids=false&track=trending&with=followings")
-        }.respondWithOk.await
+        when(userEvents(tracks = Seq("trending"), languages = Seq(Language.English))(dummyProcessing))
+          .expectRequest { request =>
+            request.method === HttpMethods.GET
+            request.uri.endpoint === "https://userstream.twitter.com/1.1/user.json"
+            request.uri.queryString() === Some(
+              "filter_level=none&language=en&stall_warnings=false&stringify_friend_ids=false&track=trending&with=followings")
+          }
+          .respondWithOk
+          .await
       result.isInstanceOf[Unit] should beTrue
     }
   }

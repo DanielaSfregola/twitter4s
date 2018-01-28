@@ -14,5 +14,3 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 final case class LimitNotice(limit: LimitTrack) extends CommonStreamingMessage
 
 final case class LimitTrack(track: Long)
-
-

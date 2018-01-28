@@ -17,7 +17,8 @@ import org.json4s.native.Serialization
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
-private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends OAuthClient {
+private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
+    extends OAuthClient {
 
   val withLogRequest = true
   val withLogRequestResponse = false
@@ -28,7 +29,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
-    def processStream[T <: StreamingMessage : Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
+    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
       implicit val system = ActorSystem(s"twitter4s-streaming-${UUID.randomUUID}")
       implicit val materializer = ActorMaterializer()
       implicit val ec = materializer.executionContext
@@ -42,8 +43,9 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
   private val maxConnectionTimeMillis = 1000
 
   // TODO - can we do better?
-  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(f: PartialFunction[T, Unit])
-                                                                         (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
+      f: PartialFunction[T, Unit])(implicit system: ActorSystem,
+                                   materializer: Materializer): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
     val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
     val processing = processStreamRequest(request, killSwitch)(f)
@@ -51,14 +53,17 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
     Future.firstCompletedOf(Seq(processing, switch))
   }
 
-  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest, killSwitch: SharedKillSwitch)
-                                                                     (f: PartialFunction[T, Unit])
-                                                                     (implicit system: ActorSystem, materializer: Materializer): Future[SharedKillSwitch] = {
+  protected def processStreamRequest[T <: StreamingMessage: Manifest](
+      request: HttpRequest,
+      killSwitch: SharedKillSwitch)(f: PartialFunction[T, Unit])(
+      implicit system: ActorSystem,
+      materializer: Materializer): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
     implicit val rqt = request
 
     if (withLogRequest) logRequest
-    Source.single(request)
+    Source
+      .single(request)
       .via(connection)
       .flatMapConcat {
         case response if response.status.isSuccess =>
@@ -74,9 +79,8 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .map(_ => killSwitch)
   }
 
-  def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)
-                                        (f: PartialFunction[T, Unit])
-                                        (implicit request: HttpRequest, materializer: Materializer): Unit =
+  def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)(
+      f: PartialFunction[T, Unit])(implicit request: HttpRequest, materializer: Materializer): Unit =
     response.entity.withoutSizeLimit.dataBytes
       .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
       .filter(_.nonEmpty)

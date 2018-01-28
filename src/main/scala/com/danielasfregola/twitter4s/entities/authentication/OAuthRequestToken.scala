@@ -10,10 +10,11 @@ object OAuthRequestToken {
 
   implicit val oAuthRequestTokenFromMap = new FromMap[OAuthRequestToken] {
 
-    def apply(m: Map[String, String]): Option[OAuthRequestToken] = for {
-      key <- m.get("oauth_token")
-      secret <- m.get("oauth_token_secret")
-      callbackConfirmed <- m.get("oauth_callback_confirmed")
-    } yield OAuthRequestToken(RequestToken(key, secret), toBoolean(callbackConfirmed))
+    def apply(m: Map[String, String]): Option[OAuthRequestToken] =
+      for {
+        key <- m.get("oauth_token")
+        secret <- m.get("oauth_token_secret")
+        callbackConfirmed <- m.get("oauth_callback_confirmed")
+      } yield OAuthRequestToken(RequestToken(key, secret), toBoolean(callbackConfirmed))
   }
 }

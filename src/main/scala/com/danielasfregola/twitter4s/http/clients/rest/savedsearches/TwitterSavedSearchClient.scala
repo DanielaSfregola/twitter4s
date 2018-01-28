@@ -67,5 +67,5 @@ trait TwitterSavedSearchClient {
     import restClient._
     Get(s"$savedSearchUrl/show/$id.json").respondAsRated[SavedSearch]
   }
-  
+
 }

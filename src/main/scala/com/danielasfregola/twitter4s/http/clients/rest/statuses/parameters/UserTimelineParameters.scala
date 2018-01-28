@@ -12,4 +12,5 @@ private[twitter4s] final case class UserTimelineParameters(user_id: Option[Long]
                                                            exclude_replies: Boolean,
                                                            contributor_details: Boolean,
                                                            include_rts: Boolean,
-                                                           tweet_mode: TweetMode) extends Parameters
+                                                           tweet_mode: TweetMode)
+    extends Parameters

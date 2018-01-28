@@ -33,7 +33,9 @@ private[twitter4s] class AuthenticationClient(val consumerToken: ConsumerToken) 
     }
   }
 
-  def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)(implicit system: ActorSystem, materializer: Materializer, fromMap: FromMap[T]): Future[T] = {
+  def sendReceiveAs[T: Manifest](httpRequest: HttpRequest)(implicit system: ActorSystem,
+                                                           materializer: Materializer,
+                                                           fromMap: FromMap[T]): Future[T] = {
     sendAndReceive(httpRequest, response => FormSupport.unmarshallText(response))
   }
 

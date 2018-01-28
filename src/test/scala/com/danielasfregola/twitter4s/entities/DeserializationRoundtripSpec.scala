@@ -12,24 +12,24 @@ import scala.reflect._
 
 class DeserializationRoundtripSpec extends Specification with FixturesSupport with JsonDiffSupport {
 
-   "JSON deserialization" should {
+  "JSON deserialization" should {
 
-     def roundtripTest[T <: AnyRef : Manifest](jsonFile: String): Fragment = {
+    def roundtripTest[T <: AnyRef: Manifest](jsonFile: String): Fragment = {
 
-       val className = classTag[T].runtimeClass.getSimpleName
+      val className = classTag[T].runtimeClass.getSimpleName
 
-       s"round-trip successfully for $className in $jsonFile" in {
-         val originalJson = load(jsonFile)
+      s"round-trip successfully for $className in $jsonFile" in {
+        val originalJson = load(jsonFile)
 
-         val deserializedEntity = Serialization.read[T](originalJson)
+        val deserializedEntity = Serialization.read[T](originalJson)
 
-         val serializedJson = Serialization.writePretty[T](deserializedEntity)
+        val serializedJson = Serialization.writePretty[T](deserializedEntity)
 
-         originalJson must beASubsetOfJson(serializedJson)
-       }
-     }
+        originalJson must beASubsetOfJson(serializedJson)
+      }
+    }
 
-     roundtripTest[User]("/twitter/rest/users/user.json")
+    roundtripTest[User]("/twitter/rest/users/user.json")
   }
 
   def beASubsetOfJson(otherJson: String): Matcher[String] = new Matcher[String] {
@@ -40,21 +40,19 @@ class DeserializationRoundtripSpec extends Specification with FixturesSupport wi
 
       jsonDiff(alpha, beta) match {
         case diff @ JsonDiff(JNothing, _, JNothing) =>
-          success(
-            s"""${t.value}
+          success(s"""${t.value}
                |is a subset of
                |$otherJson
                |${renderDiff(diff)}
              """.stripMargin,
-            t)
+                  t)
         case diff =>
-          failure(
-            s"""${t.value}
+          failure(s"""${t.value}
                |is not a subset of
                |$otherJson
                |${renderDiff(diff)}
              """.stripMargin,
-            t)
+                  t)
       }
     }
 

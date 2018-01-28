@@ -61,7 +61,8 @@ class TwitterOAuthClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/oauth/access_token"
-          request.uri.queryString() === Some("x_auth_mode=client_auth&x_auth_password=my-secret-password&x_auth_username=twitterapi")
+          request.uri.queryString() === Some(
+            "x_auth_mode=client_auth&x_auth_password=my-secret-password&x_auth_username=twitterapi")
         }
         .respondWith("/twitter/authentication/access_token.txt")
         .await
@@ -76,16 +77,16 @@ class TwitterOAuthClientSpec extends ClientSpec {
 
     "request an access token for oauth authentication" in new TwitterOAuthClientSpecContext {
       val result: OAuthAccessToken = when(accessToken(token = token, oauth_verifier = "my-token-verifier"))
-      .expectRequest { request =>
-        request.method === HttpMethods.POST
-        request.uri.endpoint === "https://api.twitter.com/oauth/access_token"
-        request.uri.queryString() === Some("oauth_token=my-oauth-token&oauth_verifier=my-token-verifier")
-      }
-      .respondWith("/twitter/authentication/access_token.txt")
-      .await
+        .expectRequest { request =>
+          request.method === HttpMethods.POST
+          request.uri.endpoint === "https://api.twitter.com/oauth/access_token"
+          request.uri.queryString() === Some("oauth_token=my-oauth-token&oauth_verifier=my-token-verifier")
+        }
+        .respondWith("/twitter/authentication/access_token.txt")
+        .await
       val expectedResult = OAuthAccessToken(
         accessToken = AccessToken(key = "6253282-eWudHldSbIaelX7swmsiHImEL4KinwaGloHANdrY",
-          secret = "2EEfA6BG3ly3sR3RjE0IBSnlQu4ZrUzPiYKmrkVU"),
+                                  secret = "2EEfA6BG3ly3sR3RjE0IBSnlQu4ZrUzPiYKmrkVU"),
         user_id = 6253282,
         screen_name = "twitterapi"
       )

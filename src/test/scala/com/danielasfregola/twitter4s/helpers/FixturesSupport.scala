@@ -13,4 +13,3 @@ trait FixturesSupport extends JsonSupport {
   def readJsonAs[T: Manifest](json: String): T = Serialization.read[T](json)
   def printAsJson[T <: AnyRef](value: T): Unit = println(Serialization.writePretty(value))
 }
-

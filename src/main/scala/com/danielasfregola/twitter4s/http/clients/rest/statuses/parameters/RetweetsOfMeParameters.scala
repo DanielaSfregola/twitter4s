@@ -10,4 +10,5 @@ private[twitter4s] final case class RetweetsOfMeParameters(count: Int,
                                                            exclude_replies: Boolean,
                                                            contributor_details: Boolean,
                                                            include_entities: Boolean,
-                                                           tweet_mode: TweetMode) extends Parameters
+                                                           tweet_mode: TweetMode)
+    extends Parameters

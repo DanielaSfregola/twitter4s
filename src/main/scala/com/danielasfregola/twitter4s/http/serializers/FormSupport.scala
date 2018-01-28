@@ -24,10 +24,13 @@ private[twitter4s] object FormSupport {
   }
 
   private def asMap(body: String): Map[String, String] =
-    body.split("&").map { fields =>
-      val tokens = fields.split("=", 2)
-      tokens.head -> tokens.tail.mkString.trim
-    }.toMap
+    body
+      .split("&")
+      .map { fields =>
+        val tokens = fields.split("=", 2)
+        tokens.head -> tokens.tail.mkString.trim
+      }
+      .toMap
 
   private def unmarshallError[T: Manifest](body: String): TwitterException = {
     val errorMsg =

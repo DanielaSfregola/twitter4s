@@ -40,10 +40,10 @@ libraryDependencies ++= {
 }
 
 scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
-  "-language:implicitConversions",
-  "-language:existentials",
-  "-feature",
-  "-deprecation")
+                                   "-language:implicitConversions",
+                                   "-language:existentials",
+                                   "-feature",
+                                   "-deprecation")
 
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
@@ -95,6 +95,9 @@ lazy val coverageSettings = Seq(
   coverageExcludedPackages := "com.danielasfregola.twitter4s.processors.*;com.danielasfregola.twitter4s.Twitter*Client",
   coverageMinimum := 85
 )
+
+scalafmtOnCompile in ThisBuild := true
+scalafmtTestOnCompile in ThisBuild := true
 
 siteSubdirName in SiteScaladoc := version + "/api"
 

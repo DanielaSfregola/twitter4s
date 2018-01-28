@@ -2,7 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.rest.blocks
 
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{BlockParameters, BlockedUserIdsParameters, BlockedUsersParameters}
+import com.danielasfregola.twitter4s.http.clients.rest.blocks.parameters.{
+  BlockParameters,
+  BlockedUserIdsParameters,
+  BlockedUsersParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -87,9 +91,7 @@ trait TwitterBlockClient {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
     */
-  def blockUser(screen_name: String,
-                include_entities: Boolean = true,
-                skip_status: Boolean = false): Future[User] = {
+  def blockUser(screen_name: String, include_entities: Boolean = true, skip_status: Boolean = false): Future[User] = {
     val parameters = BlockParameters(user_id = None, Some(screen_name), include_entities, skip_status)
     genericBlock(parameters)
   }
@@ -109,9 +111,7 @@ trait TwitterBlockClient {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the blocked user.
     */
-  def blockUserId(user_id: Long,
-                  include_entities: Boolean = true,
-                  skip_status: Boolean = false): Future[User] = {
+  def blockUserId(user_id: Long, include_entities: Boolean = true, skip_status: Boolean = false): Future[User] = {
     val parameters = BlockParameters(Some(user_id), screen_name = None, include_entities, skip_status)
     genericBlock(parameters)
   }
@@ -136,9 +136,7 @@ trait TwitterBlockClient {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.
     */
-  def unblockUser(screen_name: String,
-                  include_entities: Boolean = true,
-                  skip_status: Boolean = false): Future[User] = {
+  def unblockUser(screen_name: String, include_entities: Boolean = true, skip_status: Boolean = false): Future[User] = {
     val parameters = BlockParameters(user_id = None, Some(screen_name), include_entities, skip_status)
     genericUnblock(parameters)
   }
@@ -158,9 +156,7 @@ trait TwitterBlockClient {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The representation of the unblocked user.
     */
-  def unblockUserId(user_id: Long,
-                  include_entities: Boolean = true,
-                  skip_status: Boolean = false): Future[User] = {
+  def unblockUserId(user_id: Long, include_entities: Boolean = true, skip_status: Boolean = false): Future[User] = {
     val parameters = BlockParameters(Some(user_id), screen_name = None, include_entities, skip_status)
     genericUnblock(parameters)
   }

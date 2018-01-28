@@ -28,8 +28,7 @@ private[twitter4s] trait Encoder {
 
     val stringBuffer = new StringBuffer
     bytes.foreach { byte =>
-      stringBuffer.append(
-        Integer.toString((byte & 0xff) + 0x100, 16).substring(1))
+      stringBuffer.append(Integer.toString((byte & 0xff) + 0x100, 16).substring(1))
     }
     stringBuffer.toString
   }

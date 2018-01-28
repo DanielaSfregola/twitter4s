@@ -8,9 +8,16 @@ class UserTimelineParametersSpec extends SpecificationLike {
   "UserTimelineParameters" should {
     "correctly represents each field as the respective request parameter" in {
       UserTimelineParameters(
-        user_id = Some(10L), screen_name = Some("NaMe"), count = 20, since_id = Some(100L), max_id = Some(200L),
-        trim_user = true, exclude_replies = true, contributor_details = true,
-        include_rts = true, tweet_mode = TweetMode.Extended
+        user_id = Some(10L),
+        screen_name = Some("NaMe"),
+        count = 20,
+        since_id = Some(100L),
+        max_id = Some(200L),
+        trim_user = true,
+        exclude_replies = true,
+        contributor_details = true,
+        include_rts = true,
+        tweet_mode = TweetMode.Extended
       ).toString shouldEqual
         """contributor_details=true&
           |count=20&
@@ -25,9 +32,16 @@ class UserTimelineParametersSpec extends SpecificationLike {
     }
     "doesn't provide request parameter if the respective field is empty (tweet_mode is classic)" in {
       UserTimelineParameters(
-        user_id = None, screen_name = None, count = 20, since_id = None, max_id = None,
-        trim_user = false, exclude_replies = false, contributor_details = false,
-        include_rts = false, tweet_mode = TweetMode.Classic
+        user_id = None,
+        screen_name = None,
+        count = 20,
+        since_id = None,
+        max_id = None,
+        trim_user = false,
+        exclude_replies = false,
+        contributor_details = false,
+        include_rts = false,
+        tweet_mode = TweetMode.Classic
       ).toString shouldEqual
         """contributor_details=false&
           |count=20&

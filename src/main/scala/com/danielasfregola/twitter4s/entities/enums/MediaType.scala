@@ -8,7 +8,6 @@ object MediaType extends Enumeration {
   val GIF = Value("image/gif")
   val WEBP = Value("image/webp")
 
-
   val MP4 = Value("video/mp4")
   val MOV = Value("video/quicktime")
 }

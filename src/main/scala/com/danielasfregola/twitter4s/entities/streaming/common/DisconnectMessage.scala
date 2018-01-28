@@ -13,6 +13,4 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   */
 final case class DisconnectMessage(disconnect: DisconnectMessageInfo) extends CommonStreamingMessage
 
-final case class DisconnectMessageInfo(code: DisconnectionCode,
-                                 stream_name: String,
-                                 reason: String)
+final case class DisconnectMessageInfo(code: DisconnectionCode, stream_name: String, reason: String)

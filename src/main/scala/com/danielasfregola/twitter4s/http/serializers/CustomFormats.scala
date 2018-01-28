@@ -15,30 +15,33 @@ object CustomFormats extends FormatsComposer {
 
 }
 
-case object LocalDateSerializer extends CustomSerializer[LocalDate](format =>
-  ( {
-    case JString(dateString) =>
-      dateString.split("-") match {
-        case Array(year, month, date) => LocalDate.of(year.toInt, month.toInt, date.toInt)
-        case _ => null
-      }
-    case JNull => null
-  }, {
-    case date: LocalDate => JString(date.toString)
-  }))
+case object LocalDateSerializer
+    extends CustomSerializer[LocalDate](format =>
+      ({
+        case JString(dateString) =>
+          dateString.split("-") match {
+            case Array(year, month, date) => LocalDate.of(year.toInt, month.toInt, date.toInt)
+            case _                        => null
+          }
+        case JNull => null
+      }, {
+        case date: LocalDate => JString(date.toString)
+      }))
 
-case object DisconnectionCodeSerializer extends CustomSerializer[DisconnectionCode](format =>
-  ( {
-    case JInt(n) => DisconnectionCode(n.toInt)
-    case JNull => null
-  }, {
-    case code: DisconnectionCode => JInt(code.id)
-  }))
+case object DisconnectionCodeSerializer
+    extends CustomSerializer[DisconnectionCode](format =>
+      ({
+        case JInt(n) => DisconnectionCode(n.toInt)
+        case JNull   => null
+      }, {
+        case code: DisconnectionCode => JInt(code.id)
+      }))
 
-case object ProfileImageSerializer extends CustomSerializer[ProfileImage](format =>
-  ( {
-    case JString(n) => ProfileImage(n)
-    case JNull => null
-  }, {
-    case img: ProfileImage => JString(img.normal)
-  }))
+case object ProfileImageSerializer
+    extends CustomSerializer[ProfileImage](format =>
+      ({
+        case JString(n) => ProfileImage(n)
+        case JNull      => null
+      }, {
+        case img: ProfileImage => JString(img.normal)
+      }))

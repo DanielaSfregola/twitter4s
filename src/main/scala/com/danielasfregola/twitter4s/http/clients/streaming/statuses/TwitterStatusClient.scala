@@ -51,9 +51,11 @@ trait TwitterStatusClient {
                      locations: Seq[Double] = Seq.empty,
                      languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false,
-                     filter_level: FilterLevel = FilterLevel.None)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+                     filter_level: FilterLevel = FilterLevel.None)(
+      f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
-    require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty, "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
+    require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty,
+            "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
     val filters = StatusFilters(follow, tracks, locations, languages, stall_warnings, filter_level)
     preProcessing()
     Post(s"$statusUrl/filter.json", filters).processStream(f)
@@ -84,8 +86,8 @@ trait TwitterStatusClient {
   def sampleStatuses(languages: Seq[Language] = Seq.empty,
                      stall_warnings: Boolean = false,
                      tracks: Seq[String] = Seq.empty,
-                     filter_level: FilterLevel = FilterLevel.None)
-                    (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+                     filter_level: FilterLevel = FilterLevel.None)(
+      f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
     val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
     preProcessing()
@@ -111,10 +113,10 @@ trait TwitterStatusClient {
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f : Function that defines how to process the received messages.
     */
-  def firehoseStatuses(count: Option[Int] = None,
-                       languages: Seq[Language] = Seq.empty,
-                       stall_warnings: Boolean = false)
-                      (f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+  def firehoseStatuses(
+      count: Option[Int] = None,
+      languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")

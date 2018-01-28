@@ -57,7 +57,7 @@ trait TwitterHelpClient {
     *   https://developer.twitter.com/en/docs/developer-utilities/terms-of-service/api-reference/get-help-tos</a>.
     *
     * @return : the Twitter Terms of Service.
-   * */
+    * */
   def termsOfService(): Future[RatedData[TermsOfService]] = {
     import restClient._
     Get(s"$helpUrl/tos.json").respondAsRated[TermsOfService]

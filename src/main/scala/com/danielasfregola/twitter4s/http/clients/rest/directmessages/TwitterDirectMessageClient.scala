@@ -40,9 +40,8 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
-  def createDirectMessage(user_id: Long,
-                          text: String): Future[DirectMessage] = {
-    val parameters = CreateParameters(user_id = Some(user_id),text = text)
+  def createDirectMessage(user_id: Long, text: String): Future[DirectMessage] = {
+    val parameters = CreateParameters(user_id = Some(user_id), text = text)
     genericCreateDirectMessage(parameters)
   }
 
@@ -57,9 +56,8 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
-  def createDirectMessage(screen_name: String,
-                          text: String): Future[DirectMessage] = {
-    val parameters = CreateParameters(screen_name = Some(screen_name),text = text)
+  def createDirectMessage(screen_name: String, text: String): Future[DirectMessage] = {
+    val parameters = CreateParameters(screen_name = Some(screen_name), text = text)
     genericCreateDirectMessage(parameters)
   }
 

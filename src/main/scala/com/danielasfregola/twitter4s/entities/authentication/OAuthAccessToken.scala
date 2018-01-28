@@ -9,11 +9,12 @@ object OAuthAccessToken {
 
   implicit val oAuthAccessTokenFromMap = new FromMap[OAuthAccessToken] {
 
-    def apply(m: Map[String, String]): Option[OAuthAccessToken] = for {
-      key <- m.get("oauth_token")
-      secret <- m.get("oauth_token_secret")
-      userId <- m.get("user_id")
-      screenName <- m.get("screen_name")
-    } yield OAuthAccessToken(AccessToken(key, secret), userId.toLong, screenName)
+    def apply(m: Map[String, String]): Option[OAuthAccessToken] =
+      for {
+        key <- m.get("oauth_token")
+        secret <- m.get("oauth_token_secret")
+        userId <- m.get("user_id")
+        screenName <- m.get("screen_name")
+      } yield OAuthAccessToken(AccessToken(key, secret), userId.toLong, screenName)
   }
 }

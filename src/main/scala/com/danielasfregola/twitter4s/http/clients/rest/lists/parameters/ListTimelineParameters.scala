@@ -12,4 +12,5 @@ private[twitter4s] final case class ListTimelineParameters(list_id: Option[Long]
                                                            max_id: Option[Long] = None,
                                                            include_entities: Boolean,
                                                            include_rts: Boolean,
-                                                           tweet_mode: TweetMode) extends Parameters
+                                                           tweet_mode: TweetMode)
+    extends Parameters

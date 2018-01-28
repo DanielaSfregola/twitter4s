@@ -40,7 +40,5 @@ final case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                        withheld_copyright: Boolean = false,
                        withheld_in_countries: Seq[String] = Seq.empty,
                        withheld_scope: Option[String] = None,
-                       metadata: Option[StatusMetadata] = None) extends CommonStreamingMessage
-
-
-
+                       metadata: Option[StatusMetadata] = None)
+    extends CommonStreamingMessage

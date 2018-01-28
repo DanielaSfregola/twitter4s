@@ -13,6 +13,6 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 final case class LocationDeletionNotice(scrub_geo: LocationDeletionId) extends CommonStreamingMessage
 
 final case class LocationDeletionId(user_id: Long,
-                              user_id_str: String,
-                              up_to_status_id: Long,
-                              up_to_status_id_str: String)
+                                    user_id_str: String,
+                                    up_to_status_id: Long,
+                                    up_to_status_id_str: String)

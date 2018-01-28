@@ -2,7 +2,12 @@ package com.danielasfregola.twitter4s.http.clients.rest.users
 
 import com.danielasfregola.twitter4s.entities.{Banners, RatedData, User}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{BannersParameters, UserParameters, UserSearchParameters, UsersParameters}
+import com.danielasfregola.twitter4s.http.clients.rest.users.parameters.{
+  BannersParameters,
+  UserParameters,
+  UserSearchParameters,
+  UsersParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -35,8 +40,7 @@ trait TwitterUserClient {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def users(screen_names: Seq[String],
-            include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
+  def users(screen_names: Seq[String], include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
     require(screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = UsersParameters(user_id = None, Some(screen_names.mkString(",")), include_entities)
     genericGetUsers(parameters)
@@ -62,8 +66,7 @@ trait TwitterUserClient {
     *                         The parameters node that may appear within embedded statuses will be disincluded when set to `false`.
     * @return : The sequence of user representations.
     */
-  def usersByIds(ids: Seq[Long],
-                 include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
+  def usersByIds(ids: Seq[Long], include_entities: Boolean = true): Future[RatedData[Seq[User]]] = {
     require(ids.nonEmpty, "please, provide at least one user id")
     val parameters = UsersParameters(Some(ids.mkString(",")), screen_name = None, include_entities)
     genericGetUsers(parameters)
