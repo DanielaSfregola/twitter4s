@@ -5,7 +5,7 @@ import java.time.LocalDate
 
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Language._
-import com.danielasfregola.twitter4s.entities.enums.ResultType
+import com.danielasfregola.twitter4s.entities.enums.{ResultType, TweetMode}
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
 import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
@@ -63,8 +63,8 @@ trait TwitterSearchClient {
     * @param callback         : Optional, by default it is `None`.
     *                         If supplied, the response will use the JSONP format with a callback of the given name.
     *                         The usefulness of this parameter is somewhat diminished by the requirement of authentication for requests to this endpoint.
-    * @param tweet_mode       : Optional, by default it is `None`.
-    *                         When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode       : Optional, by default it is `Classic`.
+    *                         When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the search results.
     */
   def searchTweet(query: String,
@@ -78,7 +78,7 @@ trait TwitterSearchClient {
                   since_id: Option[Long] = None,
                   max_id: Option[Long] = None,
                   callback: Option[String] = None,
-                  tweet_mode: Option[TweetMode] = None): Future[RatedData[StatusSearch]] = {
+                  tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[StatusSearch]] = {
     import restClient._
     val parameters = TweetSearchParameters(
       query.escapeSpecialChars, count, include_entities, result_type, geocode,

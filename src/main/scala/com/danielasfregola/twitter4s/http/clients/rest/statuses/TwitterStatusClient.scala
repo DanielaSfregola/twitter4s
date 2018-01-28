@@ -5,7 +5,7 @@ import com.danielasfregola.twitter4s.entities.enums.Alignment.Alignment
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.entities.enums.WidgetType.WidgetType
-import com.danielasfregola.twitter4s.entities.enums.{Alignment, Language}
+import com.danielasfregola.twitter4s.entities.enums.{Alignment, Language, TweetMode}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.statuses.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -44,8 +44,8 @@ trait TwitterStatusClient {
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities    : By default it is `true`.
     *                            The parameters node will be disincluded when set to `false`.
-    * @param tweet_mode          : Optional, by default it is `None`.
-    *                            When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode          : Optional, by default it is `Classic`.
+    *                            When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def mentionsTimeline(count: Int = 200,
@@ -54,7 +54,7 @@ trait TwitterStatusClient {
                        trim_user: Boolean = false,
                        contributor_details: Boolean = false,
                        include_entities: Boolean = true,
-                       tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                       tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities, tweet_mode)
     Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAsRated[Seq[Tweet]]
@@ -93,8 +93,8 @@ trait TwitterStatusClient {
     * @param include_rts         : By default it is `true`.
     *                            When set to `false`, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter).
     *                            Note: If you’re using the `trim_user` parameter in conjunction with `include_rts`, the retweets will still contain a full user object.
-    * @param tweet_mode          : Optional, by default it is `None`.
-    *                            When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode          : Optional, by default it is `Classic`.
+    *                            When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def userTimelineForUser(screen_name: String,
@@ -105,7 +105,7 @@ trait TwitterStatusClient {
                           exclude_replies: Boolean = false,
                           contributor_details: Boolean = false,
                           include_rts: Boolean = true,
-                          tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                          tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = UserTimelineParameters(
       user_id = None, Some(screen_name), since_id, count, max_id, trim_user,
       exclude_replies, contributor_details, include_rts, tweet_mode
@@ -146,8 +146,8 @@ trait TwitterStatusClient {
     * @param include_rts         : By default it is `true`.
     *                            When set to `false`, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter).
     *                            Note: If you’re using the `trim_user` parameter in conjunction with `include_rts`, the retweets will still contain a full user object.
-    * @param tweet_mode          : Optional, by default it is `None`.
-    *                            When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode          : Optional, by default it is `Classic`.
+    *                            When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def userTimelineForUserId(user_id: Long,
@@ -158,7 +158,7 @@ trait TwitterStatusClient {
                             exclude_replies: Boolean = false,
                             contributor_details: Boolean = false,
                             include_rts: Boolean = true,
-                            tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                            tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = UserTimelineParameters(
       Some(user_id), None, since_id, count, max_id, trim_user,
       exclude_replies, contributor_details, include_rts, tweet_mode
@@ -199,8 +199,8 @@ trait TwitterStatusClient {
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities    : By default it is `true`.
     *                            When set to `false`, The parameters node will be disincluded when set to false.
-    * @param tweet_mode          : Optional, by default it is `None`.
-    *                            When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode          : Optional, by default it is `Classic`.
+    *                            When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def homeTimeline(count: Int = 20,
@@ -210,7 +210,7 @@ trait TwitterStatusClient {
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
                    include_entities: Boolean = true,
-                   tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                   tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = HomeTimelineParameters(
       count, since_id, max_id, trim_user, exclude_replies,
@@ -243,8 +243,8 @@ trait TwitterStatusClient {
     *                            When set to `false`, only the user_id of the contributor is included.
     * @param include_entities    : By default it is `true`.
     *                            When set to `false`, The parameters node will be disincluded when set to false.
-    * @param tweet_mode          : Optional, by default it is `None`.
-    *                            When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode          : Optional, by default it is `Classic`.
+    *                            When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def retweetsOfMe(count: Int = 20,
@@ -254,7 +254,7 @@ trait TwitterStatusClient {
                    exclude_replies: Boolean = false,
                    contributor_details: Boolean = false,
                    include_entities: Boolean = true,
-                   tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                   tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = RetweetsOfMeParameters(
       count, since_id, max_id, trim_user, exclude_replies,
@@ -274,14 +274,14 @@ trait TwitterStatusClient {
     * @param trim_user  : By default it is `false`.
     *                   When set to `true`, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
     *                   Set this parameter to `false` to receive the complete user object.
-    * @param tweet_mode : Optional, by default it is `None`.
-    *                   When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode : Optional, by default it is `Classic`.
+    *                   When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets.
     */
   def retweets(id: Long,
                count: Int = 100,
                trim_user: Boolean = false,
-               tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+               tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = RetweetsParameters(count, trim_user, tweet_mode)
     Get(s"$statusesUrl/retweets/$id.json", parameters).respondAsRated[Seq[Tweet]]
@@ -300,15 +300,15 @@ trait TwitterStatusClient {
     *                           When set to `true`, any Tweets returned that have been retweeted by the authenticating user will include an additional `current_user_retweet` node, containing the ID of the source status for the retweet.
     * @param include_entities   : By default it is `true`.
     *                           When set to `false`, The parameters node will be disincluded when set to false.
-    * @param tweet_mode         : Optional, by default it is `None`.
-    *                           When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode         : Optional, by default it is `Classic`.
+    *                           When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the tweet.
     */
   def getTweet(id: Long,
                trim_user: Boolean = false,
                include_my_retweet: Boolean = false,
                include_entities: Boolean = true,
-               tweet_mode: Option[TweetMode] = None): Future[RatedData[Tweet]] = {
+               tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Tweet]] = {
     import restClient._
     val parameters = ShowParameters(id, trim_user, include_my_retweet, include_entities, tweet_mode)
     Get(s"$statusesUrl/show.json", parameters).respondAsRated[Tweet]
@@ -326,13 +326,13 @@ trait TwitterStatusClient {
     * @param trim_user  : By default it is `false`.
     *                   When set to `true`, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
     *                   Set this parameter to `false` to receive the complete user object.
-    * @param tweet_mode : Optional, by default it is `None`.
-    *                   When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode : Optional, by default it is `Classic`.
+    *                   When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the deleted tweet.
     */
   def deleteTweet(id: Long,
                   trim_user: Boolean = false,
-                  tweet_mode: Option[TweetMode] = None): Future[Tweet] = {
+                  tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
     import restClient._
     val parameters = PostParameters(trim_user, tweet_mode)
     Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Tweet]
@@ -443,13 +443,13 @@ trait TwitterStatusClient {
     * @param trim_user  : By default it is `false`.
     *                   When set to `true`, each tweet returned in a timeline will include a user object including only the status authors numerical ID.
     *                   Set this parameter to `false` to receive the complete user object.
-    * @param tweet_mode : Optional, by default it is `None`.
-    *                   When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode : Optional, by default it is `Classic`.
+    *                   When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the original tweet with retweet details embedded.
     */
   def retweet(id: Long,
               trim_user: Boolean = false,
-              tweet_mode: Option[TweetMode] = None): Future[Tweet] = {
+              tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
     import restClient._
     val parameters = PostParameters(trim_user, tweet_mode)
     Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]

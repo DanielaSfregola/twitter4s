@@ -9,4 +9,4 @@ private[twitter4s] final case class MentionsParameters(count: Int,
                                                        trim_user: Boolean,
                                                        contributor_details: Boolean,
                                                        include_entities: Boolean,
-                                                       tweet_mode: Option[TweetMode] = None) extends Parameters
+                                                       tweet_mode: TweetMode) extends Parameters

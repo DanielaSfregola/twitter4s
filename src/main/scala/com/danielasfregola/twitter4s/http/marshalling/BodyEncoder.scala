@@ -10,7 +10,7 @@ trait BodyEncoder {
     }.toList.sorted.mkString("&")
 
   def toBodyAsEncodedParams(cc: Product): String =
-    toBodyAsMap(cc).map{ case (k, v) =>
+    toBodyAsMap(cc).map { case (k, v) =>
       val key = k.replace("$colon", ":")
       s"$key=${v.urlEncoded}"
     }.toList.sorted.mkString("&")
@@ -20,8 +20,9 @@ trait BodyEncoder {
       case (k, head :: tail) => Some(k -> (head +: tail).mkString(","))
       case (_, Nil) => None
       case (_, None) => None
-      case (_, Some("")) => None
+      case (_, Some(v)) if v.toString.isEmpty => None
       case (k, Some(v)) => Some(k -> v.toString)
+      case (k, v) if v.toString.isEmpty => None
       case (k, v) => Some(k -> v.toString)
     }
 

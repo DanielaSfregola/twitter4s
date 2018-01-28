@@ -10,4 +10,4 @@ private[twitter4s] final case class HomeTimelineParameters(count: Int,
                                                            exclude_replies: Boolean,
                                                            contributor_details: Boolean,
                                                            include_entities: Boolean,
-                                                           tweet_mode: Option[TweetMode] = None) extends Parameters
+                                                           tweet_mode: TweetMode) extends Parameters

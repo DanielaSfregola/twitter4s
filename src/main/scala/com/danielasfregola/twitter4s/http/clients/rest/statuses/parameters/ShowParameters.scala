@@ -7,4 +7,4 @@ private[twitter4s] final case class ShowParameters(id: Long,
                                                    trim_user: Boolean,
                                                    include_my_retweet: Boolean,
                                                    include_entities: Boolean,
-                                                   tweet_mode: Option[TweetMode] = None) extends Parameters
+                                                   tweet_mode: TweetMode) extends Parameters

@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.lists
 
 import com.danielasfregola.twitter4s.entities._
-import com.danielasfregola.twitter4s.entities.enums.Mode
+import com.danielasfregola.twitter4s.entities.enums.{Mode, TweetMode}
 import com.danielasfregola.twitter4s.entities.enums.Mode.Mode
 import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
@@ -75,8 +75,8 @@ trait TwitterListClient {
     *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts      : By default it is `false`.
     *                         When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
-    * @param tweet_mode       : Optional, by default it is `None`.
-    *                         When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode       : Optional, by default it is `Classic`.
+    *                         When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets for the specified list.
     */
   def listTimelineBySlugAndOwnerId(slug: String,
@@ -86,7 +86,7 @@ trait TwitterListClient {
                                    max_id: Option[Long] = None,
                                    include_entities: Boolean = true,
                                    include_rts: Boolean = false,
-                                   tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                                   tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)
@@ -113,8 +113,8 @@ trait TwitterListClient {
     *                          You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts       : By default it is `false`.
     *                          When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
-    * @param tweet_mode        : Optional, by default it is `None`.
-    *                          When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode        : Optional, by default it is `Classic`.
+    *                          When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets for the specified list.
     */
   def listTimelineBySlugAndOwnerName(slug: String,
@@ -124,7 +124,7 @@ trait TwitterListClient {
                                      max_id: Option[Long] = None,
                                      include_entities: Boolean = true,
                                      include_rts: Boolean = false,
-                                     tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                                     tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)
@@ -150,8 +150,8 @@ trait TwitterListClient {
     *                         You can omit parameters from the result by setting `include_entities` to `false`.
     * @param include_rts      : By default it is `false`.
     *                         When set to `true`, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets.
-    * @param tweet_mode       : Optional, by default it is `None`.
-    *                         When set to Some(TweetMode.Extended) prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
+    * @param tweet_mode       : Optional, by default it is `Classic`.
+    *                         When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The sequence of tweets for the specified list.
     */
   def listTimelineByListId(list_id: Long,
@@ -160,7 +160,7 @@ trait TwitterListClient {
                            max_id: Option[Long] = None,
                            include_entities: Boolean = true,
                            include_rts: Boolean = false,
-                           tweet_mode: Option[TweetMode] = None): Future[RatedData[Seq[Tweet]]] = {
+                           tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
       list_id = Some(list_id), count = count, since_id = since_id,
       max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)

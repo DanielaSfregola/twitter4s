@@ -5,4 +5,4 @@ import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
 private[twitter4s] final case class RetweetsParameters(count: Int,
                                                        trim_user: Boolean,
-                                                       tweet_mode: Option[TweetMode] = None) extends Parameters
+                                                       tweet_mode: TweetMode) extends Parameters

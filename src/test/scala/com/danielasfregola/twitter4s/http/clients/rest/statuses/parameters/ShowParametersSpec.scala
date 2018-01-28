@@ -9,7 +9,7 @@ class ShowParametersSpec extends SpecificationLike {
     "correctly represents each field as the respective request parameter" in {
       ShowParameters(
         id = 10L, trim_user = true, include_my_retweet = true,
-        include_entities = true, tweet_mode = Some(TweetMode.Extended)
+        include_entities = true, tweet_mode = TweetMode.Extended
       ).toString shouldEqual
         """id=10&
           |include_entities=true&
@@ -17,10 +17,10 @@ class ShowParametersSpec extends SpecificationLike {
           |trim_user=true&
           |tweet_mode=extended""".stripMargin.replace("\n", "")
     }
-    "doesn't provide request parameter if the respective optional field is empty" in {
+    "doesn't provide request parameter if the respective field is empty (tweet_mode is classic)" in {
       ShowParameters(
         id = 10L, trim_user = false, include_my_retweet = false,
-        include_entities = false, tweet_mode = None
+        include_entities = false, tweet_mode = TweetMode.Classic
       ).toString shouldEqual
         """id=10&
           |include_entities=false&
