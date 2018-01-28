@@ -6,14 +6,22 @@ import com.danielasfregola.twitter4s.entities.streaming.user._
 import com.danielasfregola.twitter4s.entities.streaming.{CommonStreamingMessage, SiteStreamingMessage, StreamingMessage, UserStreamingMessage}
 import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
 import org.json4s.JsonAST.JValue
-import org.json4s.{CustomSerializer, Extraction, Formats, MappingException}
+import org.json4s.{CustomSerializer, Extraction, FieldSerializer, Formats, MappingException}
 
-object StreamingMessageSerializers {
+object StreamingMessageFormats extends FormatsComposer {
 
-  val all = List(StreamingMessageSerializer)
+  override def compose(f: Formats): Formats =
+    f + StreamingMessageSerializer + tweetUnmarshaller
 
-  def findOrExplode[T <: StreamingMessage: Manifest](json: JValue)(ops: Stream[() => Option[T]])(
-      implicit formats: Formats): T = {
+  private val tweetUnmarshaller = FieldSerializer[Tweet](deserializer = FieldSerializer.renameFrom("full_text", "text"))
+
+  private def withCustomUnmarshaller[T <: StreamingMessage : Manifest](json: JValue, formatter: Formats): Option[T] = {
+    implicit val _ : Formats = formatter
+    Extraction.extractOpt[T](json)
+  }
+
+  def findOrExplode[T <: StreamingMessage : Manifest](json: JValue)(ops: Stream[() => Option[T]])(
+    implicit formats: Formats): T = {
     val maybeT = ops.map(f => f()).filter(opt => opt.isDefined).head
     maybeT match {
       case Some(t) => t
@@ -24,8 +32,8 @@ object StreamingMessageSerializers {
   }
 
   object StreamingMessageSerializer extends CustomSerializer[StreamingMessage](implicit format =>
-    ({
-      case json => findOrExplode(json)(streamingMessageStream(json))
+    ( {
+      case json => findOrExplode(json)(streamingMessageStream(json)(format + tweetUnmarshaller))
     }, {
       case disconnectMsg: DisconnectMessage => Extraction.decompose(disconnectMsg)
       case limitNotice: LimitNotice => Extraction.decompose(limitNotice)
@@ -58,19 +66,19 @@ object StreamingMessageSerializers {
 
   def streamingMessageStream(json: JValue)(implicit formats: Formats): Stream[() => Option[StreamingMessage]] = {
     commonStreamingMessageStream(json) ++
-    userStreamingMessageStream(json) ++
-    siteStreamingMessageStream(json) ++
-    Stream(
-      () => Extraction.extractOpt[UserEnvelopFriendsLists](json),
-      () => Extraction.extractOpt[UserEnvelopFriendsListsStringified](json),
-      () => Extraction.extractOpt[FriendsLists](json),
-      () => Extraction.extractOpt[FriendsListsStringified](json)
-    )
+      userStreamingMessageStream(json) ++
+      siteStreamingMessageStream(json) ++
+      Stream(
+        () => Extraction.extractOpt[UserEnvelopFriendsLists](json),
+        () => Extraction.extractOpt[UserEnvelopFriendsListsStringified](json),
+        () => Extraction.extractOpt[FriendsLists](json),
+        () => Extraction.extractOpt[FriendsListsStringified](json)
+      )
   }
 
   private def commonStreamingMessageStream(json: JValue)(implicit formats: Formats): Stream[() => Option[CommonStreamingMessage]] =
     Stream(
-      () => Extraction.extractOpt[Tweet](json),
+      () => withCustomUnmarshaller[Tweet](json, formats + tweetUnmarshaller),
       () => Extraction.extractOpt[DisconnectMessage](json),
       () => Extraction.extractOpt[LimitNotice](json),
       () => Extraction.extractOpt[LocationDeletionNotice](json),
