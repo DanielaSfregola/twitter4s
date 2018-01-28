@@ -26,7 +26,8 @@ trait TwitterTrendClient {
     *                         Setting this to `true` will remove all hashtags from the trends list.
     * @return : The representation of the location trends.
     */
-  def globalTrends(exclude_hashtags: Boolean = false): Future[RatedData[Seq[LocationTrends]]] = trends(1, exclude_hashtags)
+  def globalTrends(exclude_hashtags: Boolean = false): Future[RatedData[Seq[LocationTrends]]] =
+    trends(1, exclude_hashtags)
 
   /** Returns the top 10 trending topics for a specific <a href="https://developer.yahoo.com/geo/geoplanet/" target="_blank">WOEID</a>, if trending information is available for it.
     * The response is an array of “trend” objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL.

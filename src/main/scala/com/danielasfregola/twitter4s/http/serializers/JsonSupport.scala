@@ -10,7 +10,7 @@ trait JsonSupport extends Json4sSupport {
 
   val serialization: Serialization = native.Serialization
 
-  private implicit class FormatsLifter(f: Formats){
+  private implicit class FormatsLifter(f: Formats) {
     def +(fc: FormatsComposer): Formats =
       fc.compose(f)
   }

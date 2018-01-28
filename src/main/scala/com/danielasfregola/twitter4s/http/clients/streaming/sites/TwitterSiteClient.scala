@@ -46,12 +46,13 @@ trait TwitterSiteClient {
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f : Function that defines how to process the received messages.
     */
-  def siteEvents(follow: Seq[Long] = Seq.empty,
-                 `with`: WithFilter = WithFilter.User,
-                 replies: Option[Boolean] = None,
-                 stringify_friend_ids: Boolean = false,
-                 languages: Seq[Language] = Seq.empty,
-                 stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] = {
+  def siteEvents(
+      follow: Seq[Long] = Seq.empty,
+      `with`: WithFilter = WithFilter.User,
+      replies: Option[Boolean] = None,
+      stringify_friend_ids: Boolean = false,
+      languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)

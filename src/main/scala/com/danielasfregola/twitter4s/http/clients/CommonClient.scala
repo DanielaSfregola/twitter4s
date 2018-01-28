@@ -26,8 +26,9 @@ private[twitter4s] trait CommonClient extends JsonSupport with LazyLogging {
     else Http().outgoingConnection(host, port)
   }
 
-  protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])
-                            (implicit request: HttpRequest, response: HttpResponse, materializer: Materializer) = {
+  protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])(implicit request: HttpRequest,
+                                                                                   response: HttpResponse,
+                                                                                   materializer: Materializer) = {
     implicit val ec = materializer.executionContext
     if (withLogRequestResponse) logRequestResponse(requestStartTime)
 
@@ -58,7 +59,8 @@ private[twitter4s] trait CommonClient extends JsonSupport with LazyLogging {
     request
   }
 
-  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest, materializer: Materializer): HttpResponse => HttpResponse = {
+  def logRequestResponse(requestStartTime: Long)(implicit request: HttpRequest,
+                                                 materializer: Materializer): HttpResponse => HttpResponse = {
     response =>
       implicit val ec = materializer.executionContext
       val elapsed = System.currentTimeMillis - requestStartTime
@@ -66,7 +68,9 @@ private[twitter4s] trait CommonClient extends JsonSupport with LazyLogging {
       if (logger.underlying.isDebugEnabled) {
         for {
           responseBody <- toBody(response.entity)
-        } yield logger.debug(s"${request.method.value} ${request.uri} (${response.status}) | ${response.headers.mkString(", ")} | $responseBody")
+        } yield
+          logger.debug(
+            s"${request.method.value} ${request.uri} (${response.status}) | ${response.headers.mkString(", ")} | $responseBody")
       }
       response
   }

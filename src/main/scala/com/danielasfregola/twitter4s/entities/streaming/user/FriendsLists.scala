@@ -15,5 +15,3 @@ final case class FriendsLists(friends: Seq[Long]) extends UserStreamingMessage
   *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>
   */
 final case class FriendsListsStringified(friends: Seq[String]) extends UserStreamingMessage
-
-

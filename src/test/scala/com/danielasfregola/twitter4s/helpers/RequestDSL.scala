@@ -58,10 +58,14 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport with Afte
       respondWith(HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, load(resourcePath))))
 
     def respondWithRated(resourcePath: String): Await[T] =
-      respondWith(HttpResponse(StatusCodes.OK, headers = headers, entity = HttpEntity(MediaTypes.`application/json`, load(resourcePath))))
+      respondWith(
+        HttpResponse(StatusCodes.OK,
+                     headers = headers,
+                     entity = HttpEntity(MediaTypes.`application/json`, load(resourcePath))))
 
     def respondWithOk: Await[Unit] = {
-      val response = HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, """{"code": "OK"}"""))
+      val response =
+        HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, """{"code": "OK"}"""))
       transport.reply(response)
       new Await(Future.successful((): Unit))
     }

@@ -59,10 +59,18 @@ trait TwitterUserClient {
                  stringify_friend_ids: Boolean = false,
                  languages: Seq[Language] = Seq.empty,
                  stall_warnings: Boolean = false,
-                 filter_level: FilterLevel = FilterLevel.None)(f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
+                 filter_level: FilterLevel = FilterLevel.None)(
+      f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
-    val parameters = UserParameters(`with`, repliesAll, tracks, locations, stringify_friend_ids, languages, stall_warnings, filter_level)
+    val parameters = UserParameters(`with`,
+                                    repliesAll,
+                                    tracks,
+                                    locations,
+                                    stringify_friend_ids,
+                                    languages,
+                                    stall_warnings,
+                                    filter_level)
     preProcessing()
     Get(s"$userUrl/user.json", parameters).processStream(f)
   }

@@ -1,8 +1,8 @@
 package com.danielasfregola.twitter4s.entities.enums
 
-object Hour  extends Enumeration {
+object Hour extends Enumeration {
   type Hour = Value
-  
+
   val MIDNIGHT = Value("00")
   val ONE_AM = Value("01")
   val TWO_AM = Value("02")

@@ -16,7 +16,7 @@ class SerializationRoundtripSpec extends Specification with RandomDataGenerator 
 
   "JSON serialization" should {
 
-    def roundtripTest[T <: AnyRef : Manifest : Arbitrary]: Fragment = {
+    def roundtripTest[T <: AnyRef: Manifest: Arbitrary]: Fragment = {
 
       val className = classTag[T].runtimeClass.getSimpleName
 

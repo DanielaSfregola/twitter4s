@@ -12,13 +12,11 @@ class RateLimitSpec extends Specification {
   "RateLimit" should {
 
     "be created from http headers" in {
-      val headers = Seq(
-        RawHeader("x-rate-limit-limit", "15"),
-        RawHeader("x-rate-limit-remaining", "14"),
-        RawHeader("x-rate-limit-reset", "1445181993"))
+      val headers = Seq(RawHeader("x-rate-limit-limit", "15"),
+                        RawHeader("x-rate-limit-remaining", "14"),
+                        RawHeader("x-rate-limit-reset", "1445181993"))
 
       val rateLimit = RateLimit(headers)
-
 
       val expectedDate = {
         val dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy", Locale.ENGLISH)

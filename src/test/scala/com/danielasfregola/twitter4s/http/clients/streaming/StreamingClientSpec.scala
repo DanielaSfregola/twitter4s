@@ -90,7 +90,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/user/friends_lists_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[FriendsListsStringified]("/fixtures/streaming/user/friends_lists_stringified.json")
+        val messages =
+          readStreamUpdatesAs[FriendsListsStringified]("/fixtures/streaming/user/friends_lists_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -106,7 +107,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/common/location_deletion_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[LocationDeletionNotice]("/fixtures/streaming/common/location_deletion_notices.json")
+        val messages =
+          readStreamUpdatesAs[LocationDeletionNotice]("/fixtures/streaming/common/location_deletion_notices.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -114,7 +116,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/common/status_deletion_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[StatusDeletionNotice]("/fixtures/streaming/common/status_deletion_notices.json")
+        val messages =
+          readStreamUpdatesAs[StatusDeletionNotice]("/fixtures/streaming/common/status_deletion_notices.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -122,7 +125,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/common/status_withheld_notices.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[StatusWithheldNotice]("/fixtures/streaming/common/status_withheld_notices.json")
+        val messages =
+          readStreamUpdatesAs[StatusWithheldNotice]("/fixtures/streaming/common/status_withheld_notices.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -146,7 +150,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops_friends_list.json")
+        val messages =
+          readStreamUpdatesAs[UserEnvelopFriendsLists]("/fixtures/streaming/site/user_envelops_friends_list.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -154,7 +159,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelops_friends_list_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified]("/fixtures/streaming/site/user_envelops_friends_list_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopFriendsListsStringified](
+          "/fixtures/streaming/site/user_envelops_friends_list_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -162,7 +168,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopDirectMessage]("/fixtures/streaming/site/user_envelop_direct_message.json")
+        val messages =
+          readStreamUpdatesAs[UserEnvelopDirectMessage]("/fixtures/streaming/site/user_envelop_direct_message.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -170,7 +177,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEvent]("/fixtures/streaming/site/user_envelop_twitter_list_event.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEvent](
+          "/fixtures/streaming/site/user_envelop_twitter_list_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -178,7 +186,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetEvent]("/fixtures/streaming/site/user_envelop_tweet_event.json")
+        val messages =
+          readStreamUpdatesAs[UserEnvelopTweetEvent]("/fixtures/streaming/site/user_envelop_tweet_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -186,7 +195,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopSimpleEvent]("/fixtures/streaming/site/user_envelop_simple_event.json")
+        val messages =
+          readStreamUpdatesAs[UserEnvelopSimpleEvent]("/fixtures/streaming/site/user_envelop_simple_event.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -194,7 +204,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopWarningMessage]("/fixtures/streaming/site/user_envelop_warning_message.json")
+        val messages =
+          readStreamUpdatesAs[UserEnvelopWarningMessage]("/fixtures/streaming/site/user_envelop_warning_message.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -202,7 +213,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetStringified]("/fixtures/streaming/site/user_envelop_tweet_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweetStringified](
+          "/fixtures/streaming/site/user_envelop_tweet_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -210,7 +222,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_direct_message_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopDirectMessageStringified]("/fixtures/streaming/site/user_envelop_direct_message_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopDirectMessageStringified](
+          "/fixtures/streaming/site/user_envelop_direct_message_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -218,7 +231,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_twitter_list_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEventStringified]("/fixtures/streaming/site/user_envelop_twitter_list_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTwitterListEventStringified](
+          "/fixtures/streaming/site/user_envelop_twitter_list_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -226,7 +240,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_tweet_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopTweetEventStringified]("/fixtures/streaming/site/user_envelop_tweet_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopTweetEventStringified](
+          "/fixtures/streaming/site/user_envelop_tweet_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -234,7 +249,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_simple_event_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopSimpleEventStringified]("/fixtures/streaming/site/user_envelop_simple_event_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopSimpleEventStringified](
+          "/fixtures/streaming/site/user_envelop_simple_event_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 
@@ -242,7 +258,8 @@ class StreamingClientSpec extends TestActorSystem with ClientSpec {
         val response = buildResponse("/twitter/streaming/site/user_envelop_warning_message_stringified.json")
         streamingClient.processBody(response, killSwitch)(redirectMessages)
 
-        val messages = readStreamUpdatesAs[UserEnvelopWarningMessageStringified]("/fixtures/streaming/site/user_envelop_warning_message_stringified.json")
+        val messages = readStreamUpdatesAs[UserEnvelopWarningMessageStringified](
+          "/fixtures/streaming/site/user_envelop_warning_message_stringified.json")
         transport.expectMsgAllOf(messages: _*)
       }
 

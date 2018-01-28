@@ -8,10 +8,10 @@ import org.specs2.mock.Mockito
 class TwitterStreamSpec extends ClientSpec with Mockito {
 
   class TwitterStreamSpecContext extends StreamingClientSpecContext {
-      val switch = mock[KillSwitch]
-      val request = HttpRequest()
-      doNothing when switch shutdown
-      val stream = new TwitterStream(consumerToken, accessToken)(switch, request, system)
+    val switch = mock[KillSwitch]
+    val request = HttpRequest()
+    doNothing when switch shutdown
+    val stream = new TwitterStream(consumerToken, accessToken)(switch, request, system)
   }
 
   "Twitter Stream" should {

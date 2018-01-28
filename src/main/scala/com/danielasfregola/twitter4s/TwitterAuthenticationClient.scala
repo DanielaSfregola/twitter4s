@@ -13,8 +13,7 @@ class TwitterAuthenticationClient(val consumerToken: ConsumerToken) extends Twit
 
 }
 
-trait TwitterAuthClients
-    extends TwitterOAuthClient
+trait TwitterAuthClients extends TwitterOAuthClient
 
 object TwitterAuthenticationClient {
 

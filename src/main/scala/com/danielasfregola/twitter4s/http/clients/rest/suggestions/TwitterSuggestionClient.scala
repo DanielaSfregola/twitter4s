@@ -28,7 +28,7 @@ trait TwitterSuggestionClient {
     *                  Restricts the suggested categories to the requested language.
     * @return : The representation of the user suggestions.
     */
-  def suggestions(slug: String, language: Language = Language.English): Future[RatedData[Suggestions]]= {
+  def suggestions(slug: String, language: Language = Language.English): Future[RatedData[Suggestions]] = {
     import restClient._
     val parameters = SuggestionsParameters(language)
     Get(s"$suggestionsUrl/$slug.json", parameters).respondAsRated[Suggestions]

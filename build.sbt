@@ -40,10 +40,10 @@ libraryDependencies ++= {
 }
 
 scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
-  "-language:implicitConversions",
-  "-language:existentials",
-  "-feature",
-  "-deprecation")
+                                   "-language:implicitConversions",
+                                   "-language:existentials",
+                                   "-feature",
+                                   "-deprecation")
 
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",

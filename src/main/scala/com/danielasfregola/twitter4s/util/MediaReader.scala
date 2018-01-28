@@ -8,7 +8,7 @@ private[twitter4s] class MediaReader(val chunkSize: Int) extends Encoder {
 
   def processAsChunks[T](inputStream: InputStream, f: (Chunk, Int) => T): Seq[T] = {
     val chunks = readChunks(inputStream).zipWithIndex
-    chunks.map{ case (chunk, idx) => f(chunk, idx) }
+    chunks.map { case (chunk, idx) => f(chunk, idx) }
   }
 
   private def readChunks(inputStream: InputStream): Stream[Chunk] = {

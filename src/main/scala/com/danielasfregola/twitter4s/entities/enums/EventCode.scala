@@ -3,7 +3,7 @@ package com.danielasfregola.twitter4s.entities.enums
 abstract class EventCode extends Enumeration
 
 object SimpleEventCode extends EventCode {
-   type SimpleEventCode = Value
+  type SimpleEventCode = Value
 
   val AccessRevoked = Value("access_revoked")
   val Block = Value("block")

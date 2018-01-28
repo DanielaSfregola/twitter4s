@@ -4,7 +4,10 @@ package clients.authentication.oauth
 import com.danielasfregola.twitter4s.entities.authentication.{OAuthAccessToken, OAuthRequestToken, RequestToken}
 import com.danielasfregola.twitter4s.entities.enums.AccessType.AccessType
 import com.danielasfregola.twitter4s.http.clients.authentication.AuthenticationClient
-import com.danielasfregola.twitter4s.http.clients.authentication.oauth.parameters.{AccessTokenParameters, RequestTokenParameters}
+import com.danielasfregola.twitter4s.http.clients.authentication.oauth.parameters.{
+  AccessTokenParameters,
+  RequestTokenParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -37,7 +40,8 @@ trait TwitterOAuthClient {
     *                             read only access when appropriate.
     * @return : The authentication request token.
     * */
-  def requestToken(oauth_callback: Option[String] = None, x_auth_access_type: Option[AccessType] = None): Future[OAuthRequestToken] = {
+  def requestToken(oauth_callback: Option[String] = None,
+                   x_auth_access_type: Option[AccessType] = None): Future[OAuthRequestToken] = {
     import authenticationClient._
     val parameters = RequestTokenParameters(x_auth_access_type)
     Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthRequestToken](oauth_callback)
@@ -85,12 +89,13 @@ trait TwitterOAuthClient {
   def authorizeUrl(token: RequestToken, force_login: Boolean = false, screen_name: Option[String] = None): String =
     genericOAuthUrl("authorize")(token, force_login, screen_name)
 
-  private def genericOAuthUrl(path: String)(token: RequestToken, force_login: Boolean, screen_name: Option[String]): String = {
+  private def genericOAuthUrl(
+      path: String)(token: RequestToken, force_login: Boolean, screen_name: Option[String]): String = {
     val params = {
       val queryParams = List(Some("oauth_token" -> token.key),
-        Some("force_login" -> force_login),
-        screen_name.map(n => "screen_name" -> n))
-      queryParams.flatten.map { case (key, value) => s"$key=$value"}.mkString("&")
+                             Some("force_login" -> force_login),
+                             screen_name.map(n => "screen_name" -> n))
+      queryParams.flatten.map { case (key, value) => s"$key=$value" }.mkString("&")
     }
     s"$oauthUrl/$path?$params"
   }

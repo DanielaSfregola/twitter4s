@@ -13,18 +13,20 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
 
   def oauthProvider: OAuth2Provider
 
-  def withOAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
+  def withOAuthHeader(callback: Option[String])(
+      implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
     implicit val ec = materializer.executionContext
     for {
       authorizationHeader <- oauthProvider.oauth2Header(callback)(request, materializer)
-    } yield request.withHeaders( request.headers :+ authorizationHeader )
+    } yield request.withHeaders(request.headers :+ authorizationHeader)
   }
 
-  def withSimpleOAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
+  def withSimpleOAuthHeader(callback: Option[String])(
+      implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
     implicit val ec = materializer.executionContext
     for {
       authorizationHeader <- oauthProvider.oauth2Header(callback)(request.withEntity(HttpEntity.Empty), materializer)
-    } yield request.withHeaders( request.headers :+ authorizationHeader )
+    } yield request.withHeaders(request.headers :+ authorizationHeader)
   }
 
   override val Get = new OAuthRequestBuilder(GET)
@@ -60,5 +62,3 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
   }
 
 }
-
-

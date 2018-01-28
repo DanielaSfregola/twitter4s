@@ -23,7 +23,8 @@ class RestClientSpec extends ClientSpec {
       }
       val result = when(exampleRequest).expectRequest(identity(_)).respondWith(response)
       val expectedTwitterException = TwitterException(code = StatusCodes.NotFound,
-                                       errors = Errors(TwitterError("Sorry, that page does not exist", 34)))
+                                                      errors =
+                                                        Errors(TwitterError("Sorry, that page does not exist", 34)))
       result.await should throwAn(expectedTwitterException)
     }
 

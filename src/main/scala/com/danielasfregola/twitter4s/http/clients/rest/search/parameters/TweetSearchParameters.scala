@@ -19,4 +19,5 @@ private[twitter4s] final case class TweetSearchParameters(q: String,
                                                           since_id: Option[Long],
                                                           max_id: Option[Long],
                                                           callback: Option[String],
-                                                          tweet_mode: TweetMode) extends Parameters
+                                                          tweet_mode: TweetMode)
+    extends Parameters

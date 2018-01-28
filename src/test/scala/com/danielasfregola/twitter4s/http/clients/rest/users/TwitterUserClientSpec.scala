@@ -6,16 +6,19 @@ import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterUserClientSpec extends ClientSpec {
 
-class TwitterUserClientSpecContext extends RestClientSpecContext with TwitterUserClient
+  class TwitterUserClientSpecContext extends RestClientSpecContext with TwitterUserClient
 
   "Twitter User Client" should {
 
     "retrieve users" in new TwitterUserClientSpecContext {
-      val result: RatedData[Seq[User]] = when(users("marcobonzanini", "odersky")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini,odersky")
-      }.respondWithRated("/twitter/rest/users/users.json").await
+      val result: RatedData[Seq[User]] = when(users("marcobonzanini", "odersky"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
+          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini,odersky")
+        }
+        .respondWithRated("/twitter/rest/users/users.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }
@@ -25,11 +28,14 @@ class TwitterUserClientSpecContext extends RestClientSpecContext with TwitterUse
     }
 
     "retrieve users by user ids" in new TwitterUserClientSpecContext {
-      val result: RatedData[Seq[User]] = when(usersByIds(19018614, 17765013)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-        request.uri.queryString() === Some("include_entities=true&user_id=19018614,17765013")
-      }.respondWithRated("/twitter/rest/users/users.json").await
+      val result: RatedData[Seq[User]] = when(usersByIds(19018614, 17765013))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
+          request.uri.queryString() === Some("include_entities=true&user_id=19018614,17765013")
+        }
+        .respondWithRated("/twitter/rest/users/users.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }
@@ -39,51 +45,66 @@ class TwitterUserClientSpecContext extends RestClientSpecContext with TwitterUse
     }
 
     "retrieve user" in new TwitterUserClientSpecContext {
-      val result: RatedData[User] = when(user("marcobonzanini")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-        request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini")
-      }.respondWithRated("/twitter/rest/users/user.json").await
+      val result: RatedData[User] = when(user("marcobonzanini"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
+          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini")
+        }
+        .respondWithRated("/twitter/rest/users/user.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/users/user.json")
     }
 
     "retrieve user by id" in new TwitterUserClientSpecContext {
-      val result: RatedData[User] = when(userById(19018614)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-        request.uri.queryString() === Some("include_entities=true&user_id=19018614")
-      }.respondWithRated("/twitter/rest/users/user.json").await
+      val result: RatedData[User] = when(userById(19018614))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
+          request.uri.queryString() === Some("include_entities=true&user_id=19018614")
+        }
+        .respondWithRated("/twitter/rest/users/user.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[User]("/fixtures/rest/users/user.json")
     }
 
-    "get the profile banners of a user" in new  TwitterUserClientSpecContext {
-      val result: RatedData[Banners] = when(profileBannersForUser("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-        request.uri.queryString() === Some("screen_name=DanielaSfregola")
-      }.respondWithRated("/twitter/rest/users/profile_banner.json").await
+    "get the profile banners of a user" in new TwitterUserClientSpecContext {
+      val result: RatedData[Banners] = when(profileBannersForUser("DanielaSfregola"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
+          request.uri.queryString() === Some("screen_name=DanielaSfregola")
+        }
+        .respondWithRated("/twitter/rest/users/profile_banner.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Banners]("/fixtures/rest/users/profile_banner.json")
     }
 
-    "get the profile banners of a user by id" in new  TwitterUserClientSpecContext {
-      val result: RatedData[Banners] = when(profileBannersForUserId(19018614)).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-        request.uri.queryString() === Some("user_id=19018614")
-      }.respondWithRated("/twitter/rest/users/profile_banner.json").await
+    "get the profile banners of a user by id" in new TwitterUserClientSpecContext {
+      val result: RatedData[Banners] = when(profileBannersForUserId(19018614))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
+          request.uri.queryString() === Some("user_id=19018614")
+        }
+        .respondWithRated("/twitter/rest/users/profile_banner.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Banners]("/fixtures/rest/users/profile_banner.json")
     }
 
     "search for a user" in new TwitterUserClientSpecContext {
-      val result: RatedData[Seq[User]] = when(searchForUser("DanielaSfregola")).expectRequest { request =>
-        request.method === HttpMethods.GET
-        request.uri.endpoint === "https://api.twitter.com/1.1/users/search.json"
-        request.uri.queryString() === Some("count=20&include_entities=true&page=-1&q=DanielaSfregola")
-      }.respondWithRated("/twitter/rest/users/users.json").await
+      val result: RatedData[Seq[User]] = when(searchForUser("DanielaSfregola"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/users/search.json"
+          request.uri.queryString() === Some("count=20&include_entities=true&page=-1&q=DanielaSfregola")
+        }
+        .respondWithRated("/twitter/rest/users/users.json")
+        .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[Seq[User]]("/fixtures/rest/users/users.json")
     }

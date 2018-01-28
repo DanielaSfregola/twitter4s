@@ -12,7 +12,8 @@ class TwitterMediaClientSpec extends ClientSpec {
 
     "upload a media" in new TwitterMediaClientSpecContext {
       val initMediaResponse = {
-        val json = """{"media_id":925706675478151168,"media_id_string":"925706675478151168","expires_after_secs":86400}"""
+        val json =
+          """{"media_id":925706675478151168,"media_id_string":"925706675478151168","expires_after_secs":86400}"""
         HttpResponse(StatusCodes.OK, entity = HttpEntity(MediaTypes.`application/json`, json))
       }
       val imgPath = getClass.getResource("/imgs/twitter.png").getPath

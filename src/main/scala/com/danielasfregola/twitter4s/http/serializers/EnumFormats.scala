@@ -6,21 +6,22 @@ import org.json4s.ext.EnumNameSerializer
 
 object EnumFormats extends FormatsComposer {
 
-  override def compose(f: Formats): Formats = f +
-    new EnumNameSerializer(Alignment) +
-    new EnumNameSerializer(ContributorType) +
-    new EnumNameSerializer(DisconnectionCode) +
-    new EnumNameSerializer(SimpleEventCode) +
-    new EnumNameSerializer(TweetEventCode) +
-    new EnumNameSerializer(TwitterListEventCode) +
-    new EnumNameSerializer(Granularity) +
-    new EnumNameSerializer(Hour) +
-    new EnumNameSerializer(Language) +
-    new EnumNameSerializer(Measure) +
-    new EnumNameSerializer(Mode) +
-    new EnumNameSerializer(Resource) +
-    new EnumNameSerializer(ResultType) +
-    new EnumNameSerializer(TimeZone) +
-    new EnumNameSerializer(WidgetType) +
-    new EnumNameSerializer(WithFilter)
+  override def compose(f: Formats): Formats =
+    f +
+      new EnumNameSerializer(Alignment) +
+      new EnumNameSerializer(ContributorType) +
+      new EnumNameSerializer(DisconnectionCode) +
+      new EnumNameSerializer(SimpleEventCode) +
+      new EnumNameSerializer(TweetEventCode) +
+      new EnumNameSerializer(TwitterListEventCode) +
+      new EnumNameSerializer(Granularity) +
+      new EnumNameSerializer(Hour) +
+      new EnumNameSerializer(Language) +
+      new EnumNameSerializer(Measure) +
+      new EnumNameSerializer(Mode) +
+      new EnumNameSerializer(Resource) +
+      new EnumNameSerializer(ResultType) +
+      new EnumNameSerializer(TimeZone) +
+      new EnumNameSerializer(WidgetType) +
+      new EnumNameSerializer(WithFilter)
 }

@@ -56,7 +56,8 @@ trait TwitterStatusClient {
                        include_entities: Boolean = true,
                        tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
-    val parameters = MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities, tweet_mode)
+    val parameters =
+      MentionsParameters(count, since_id, max_id, trim_user, contributor_details, include_entities, tweet_mode)
     Get(s"$statusesUrl/mentions_timeline.json", parameters).respondAsRated[Seq[Tweet]]
   }
 
@@ -107,8 +108,16 @@ trait TwitterStatusClient {
                           include_rts: Boolean = true,
                           tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = UserTimelineParameters(
-      user_id = None, Some(screen_name), since_id, count, max_id, trim_user,
-      exclude_replies, contributor_details, include_rts, tweet_mode
+      user_id = None,
+      Some(screen_name),
+      since_id,
+      count,
+      max_id,
+      trim_user,
+      exclude_replies,
+      contributor_details,
+      include_rts,
+      tweet_mode
     )
     genericGetUserTimeline(parameters)
   }
@@ -160,8 +169,16 @@ trait TwitterStatusClient {
                             include_rts: Boolean = true,
                             tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = UserTimelineParameters(
-      Some(user_id), None, since_id, count, max_id, trim_user,
-      exclude_replies, contributor_details, include_rts, tweet_mode
+      Some(user_id),
+      None,
+      since_id,
+      count,
+      max_id,
+      trim_user,
+      exclude_replies,
+      contributor_details,
+      include_rts,
+      tweet_mode
     )
     genericGetUserTimeline(parameters)
   }
@@ -213,8 +230,14 @@ trait TwitterStatusClient {
                    tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = HomeTimelineParameters(
-      count, since_id, max_id, trim_user, exclude_replies,
-      contributor_details, include_entities, tweet_mode
+      count,
+      since_id,
+      max_id,
+      trim_user,
+      exclude_replies,
+      contributor_details,
+      include_entities,
+      tweet_mode
     )
     Get(s"$statusesUrl/home_timeline.json", parameters).respondAsRated[Seq[Tweet]]
   }
@@ -257,8 +280,14 @@ trait TwitterStatusClient {
                    tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     import restClient._
     val parameters = RetweetsOfMeParameters(
-      count, since_id, max_id, trim_user, exclude_replies,
-      contributor_details, include_entities, tweet_mode
+      count,
+      since_id,
+      max_id,
+      trim_user,
+      exclude_replies,
+      contributor_details,
+      include_entities,
+      tweet_mode
     )
     Get(s"$statusesUrl/retweets_of_me.json", parameters).respondAsRated[Seq[Tweet]]
   }
@@ -314,7 +343,6 @@ trait TwitterStatusClient {
     Get(s"$statusesUrl/show.json", parameters).respondAsRated[Tweet]
   }
 
-
   /** Destroys the status specified by the required ID parameter.
     * The authenticating user must be the author of the specified status.
     * Returns the destroyed status if successful.
@@ -330,9 +358,7 @@ trait TwitterStatusClient {
     *                   When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the deleted tweet.
     */
-  def deleteTweet(id: Long,
-                  trim_user: Boolean = false,
-                  tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
+  def deleteTweet(id: Long, trim_user: Boolean = false, tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
     import restClient._
     val parameters = PostParameters(trim_user, tweet_mode)
     Post(s"$statusesUrl/destroy/$id.json", parameters).respondAs[Tweet]
@@ -383,7 +409,15 @@ trait TwitterStatusClient {
                   trim_user: Boolean = false,
                   media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
     import restClient._
-    val entity = TweetUpdate(status, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
+    val entity = TweetUpdate(status,
+                             in_reply_to_status_id,
+                             possibly_sensitive,
+                             latitude,
+                             longitude,
+                             place_id,
+                             display_coordinates,
+                             trim_user,
+                             media_ids)
     Post(s"$statusesUrl/update.json", entity).respondAs[Tweet]
   }
 
@@ -431,7 +465,15 @@ trait TwitterStatusClient {
                                  trim_user: Boolean = false,
                                  media_ids: Seq[Long] = Seq.empty): Future[Tweet] = {
     val directMessage = s"D $screen_name $message"
-    createTweet(directMessage, in_reply_to_status_id, possibly_sensitive, latitude, longitude, place_id, display_coordinates, trim_user, media_ids)
+    createTweet(directMessage,
+                in_reply_to_status_id,
+                possibly_sensitive,
+                latitude,
+                longitude,
+                place_id,
+                display_coordinates,
+                trim_user,
+                media_ids)
   }
 
   /** Retweets a tweet. Returns the original tweet with retweet details embedded.
@@ -447,9 +489,7 @@ trait TwitterStatusClient {
     *                   When set to `Extended` prevents tweet text truncating, see https://developer.twitter.com/en/docs/tweets/tweet-updates
     * @return : The representation of the original tweet with retweet details embedded.
     */
-  def retweet(id: Long,
-              trim_user: Boolean = false,
-              tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
+  def retweet(id: Long, trim_user: Boolean = false, tweet_mode: TweetMode = TweetMode.Classic): Future[Tweet] = {
     import restClient._
     val parameters = PostParameters(trim_user, tweet_mode)
     Post(s"$statusesUrl/retweet/$id.json", parameters).respondAs[Tweet]
@@ -501,7 +541,17 @@ trait TwitterStatusClient {
                       related: Seq[String] = Seq.empty,
                       language: Language = Language.English,
                       widget_type: Option[WidgetType] = None): Future[RatedData[OEmbedTweet]] = {
-    val parameters = OEmbedParameters(Some(id), url = None, max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
+    val parameters = OEmbedParameters(Some(id),
+                                      url = None,
+                                      max_width,
+                                      hide_media,
+                                      hide_thread,
+                                      omit_script,
+                                      alignment,
+                                      related,
+                                      language,
+                                      widget_type,
+                                      hide_tweet)
     genericGetOembeddedTweet(parameters)
   }
 
@@ -551,7 +601,17 @@ trait TwitterStatusClient {
                        related: Seq[String] = Seq.empty,
                        language: Language = Language.English,
                        widget_type: Option[WidgetType] = None): Future[RatedData[OEmbedTweet]] = {
-    val parameters = OEmbedParameters(id = None, Some(url), max_width, hide_media, hide_thread, omit_script, alignment, related, language, widget_type, hide_tweet)
+    val parameters = OEmbedParameters(id = None,
+                                      Some(url),
+                                      max_width,
+                                      hide_media,
+                                      hide_thread,
+                                      omit_script,
+                                      alignment,
+                                      related,
+                                      language,
+                                      widget_type,
+                                      hide_tweet)
     genericGetOembeddedTweet(parameters)
   }
 

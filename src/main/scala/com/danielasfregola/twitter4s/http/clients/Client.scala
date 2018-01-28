@@ -15,18 +15,19 @@ trait Client extends OAuthClient {
 
   def oauthProvider: OAuth2Provider
 
-  protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])
-                                 (implicit system: ActorSystem, materializer: Materializer): Future[T] = {
+  protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(
+      implicit system: ActorSystem,
+      materializer: Materializer): Future[T] = {
     implicit val _ = request
     val requestStartTime = System.currentTimeMillis
 
     if (withLogRequest) logRequest
 
     Source
-    .single(request)
-    .via(connection)
-    .mapAsync(1)(implicit response => unmarshal(requestStartTime, f))
-    .runWith(Sink.head)
+      .single(request)
+      .via(connection)
+      .mapAsync(1)(implicit response => unmarshal(requestStartTime, f))
+      .runWith(Sink.head)
   }
 
 }

@@ -324,7 +324,8 @@ trait TwitterFriendshipClient {
     * @param target_screen_name : The screen name of the target user.
     * @return :  The representation of the relationship between the two users.
     * */
-  def relationshipBetweenUsers(source_screen_name: String, target_screen_name: String): Future[RatedData[Relationship]] = {
+  def relationshipBetweenUsers(source_screen_name: String,
+                               target_screen_name: String): Future[RatedData[Relationship]] = {
     val parameters = RelationshipParametersByNames(source_screen_name, target_screen_name)
     genericGetRelationship(parameters)
   }
@@ -368,7 +369,8 @@ trait TwitterFriendshipClient {
     genericGetRelationships(parameters)
   }
 
-  private def genericGetRelationships(parameters: RelationshipsParameters): Future[RatedData[Seq[LookupRelationship]]] = {
+  private def genericGetRelationships(
+      parameters: RelationshipsParameters): Future[RatedData[Seq[LookupRelationship]]] = {
     import restClient._
     Get(s"$friendshipsUrl/lookup.json", parameters).respondAsRated[Seq[LookupRelationship]]
   }

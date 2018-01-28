@@ -81,8 +81,18 @@ trait TwitterSearchClient {
                   tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[StatusSearch]] = {
     import restClient._
     val parameters = TweetSearchParameters(
-      query.escapeSpecialChars, count, include_entities, result_type, geocode,
-      language, locale, until, since_id, max_id, callback, tweet_mode
+      query.escapeSpecialChars,
+      count,
+      include_entities,
+      result_type,
+      geocode,
+      language,
+      locale,
+      until,
+      since_id,
+      max_id,
+      callback,
+      tweet_mode
     )
     Get(s"$searchUrl/tweets.json", parameters).respondAsRated[StatusSearch]
   }

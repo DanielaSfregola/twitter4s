@@ -32,7 +32,8 @@ trait ConfigurationDetector {
       environmentVariable(envVar) getOrElse configuration(configName)
     } catch {
       case _: Throwable =>
-        val msg = s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
+        val msg =
+          s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
         throw new RuntimeException(msg)
     }
 
@@ -41,5 +42,3 @@ trait ConfigurationDetector {
   protected def configuration(path: String): String = config.getString(path)
 
 }
-
-

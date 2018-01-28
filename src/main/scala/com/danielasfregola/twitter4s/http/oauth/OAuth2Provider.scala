@@ -11,9 +11,12 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Random
 
-private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: Option[AccessToken]) extends Encoder with UriHelpers {
+private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: Option[AccessToken])
+    extends Encoder
+    with UriHelpers {
 
-  def oauth2Header(callback: Option[String])(implicit request: HttpRequest, materializer: Materializer): Future[HttpHeader] = {
+  def oauth2Header(callback: Option[String])(implicit request: HttpRequest,
+                                             materializer: Materializer): Future[HttpHeader] = {
     implicit val ec = materializer.executionContext
     oauth2Params(callback).map { params =>
       val authorizationValue = params.map { case (k, v) => s"""$k="$v"""" }.toList.sorted.mkString(", ")
@@ -21,7 +24,8 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
     }
   }
 
-  def oauth2Params(callback: Option[String])(implicit request: HttpRequest, materializer: Materializer): Future[Map[String, String]] = {
+  def oauth2Params(callback: Option[String])(implicit request: HttpRequest,
+                                             materializer: Materializer): Future[Map[String, String]] = {
     implicit val ec = materializer.executionContext
     val params = basicOAuth2Params(callback)
     for {
@@ -62,9 +66,10 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
     bodyParams.map { bdParams =>
       val method = request.method.name.toAscii
       val baseUrl = request.uri.endpoint.toAscii
-      val oauthParams = oauth2Params.map { case (k,v) =>
-        if (k == "oauth_callback") k -> v.toAscii
-        else k -> v
+      val oauthParams = oauth2Params.map {
+        case (k, v) =>
+          if (k == "oauth_callback") k -> v.toAscii
+          else k -> v
       }
       val encodedParams = encodeParams(queryParams ++ oauthParams ++ bdParams).toAscii
       s"$method&$baseUrl&$encodedParams"
@@ -90,7 +95,8 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
       .map { key =>
         val value = params(key)
         s"$key=$value"
-      }.mkString("&")
+      }
+      .mkString("&")
 
   private def extractRequestBody(implicit request: HttpRequest, materializer: Materializer): Future[String] = {
     implicit val ec = materializer.executionContext

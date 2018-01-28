@@ -79,7 +79,9 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users stringified ids following the specified user.
     * */
-  def followerStringifiedIdsForUserId(user_id: Long, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
+  def followerStringifiedIdsForUserId(user_id: Long,
+                                      cursor: Long = -1,
+                                      count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FollowingParameters(Some(user_id), screen_name = None, cursor, count, stringify_ids = true)
     genericFollowerIds[UserStringifiedIds](parameters)
   }
@@ -102,7 +104,9 @@ trait TwitterFollowerClient {
     *              Usage of this parameter is encouraged in environments where all 5,000 IDs constitutes too large of a response.
     * @return : The cursored representation of the users stringified ids following the specified user.
     * */
-  def followersStringifiedIdsForUser(screen_name: String, cursor: Long = -1, count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
+  def followersStringifiedIdsForUser(screen_name: String,
+                                     cursor: Long = -1,
+                                     count: Int = 5000): Future[RatedData[UserStringifiedIds]] = {
     val parameters = FollowingParameters(user_id = None, Some(screen_name), cursor, count, stringify_ids = true)
     genericFollowerIds[UserStringifiedIds](parameters)
   }
@@ -136,7 +140,12 @@ trait TwitterFollowerClient {
                        count: Int = 20,
                        skip_status: Boolean = false,
                        include_user_entities: Boolean = true): Future[RatedData[Users]] = {
-    val parameters = FollowersParameters(user_id = None, screen_name = Some(screen_name), cursor, count, skip_status, include_user_entities)
+    val parameters = FollowersParameters(user_id = None,
+                                         screen_name = Some(screen_name),
+                                         cursor,
+                                         count,
+                                         skip_status,
+                                         include_user_entities)
     genericGetFollowers(parameters)
   }
 
@@ -164,7 +173,12 @@ trait TwitterFollowerClient {
                          count: Int = 20,
                          skip_status: Boolean = false,
                          include_user_entities: Boolean = true): Future[RatedData[Users]] = {
-    val parameters = FollowersParameters(user_id = Some(user_id), screen_name = None, cursor, count, skip_status, include_user_entities)
+    val parameters = FollowersParameters(user_id = Some(user_id),
+                                         screen_name = None,
+                                         cursor,
+                                         count,
+                                         skip_status,
+                                         include_user_entities)
     genericGetFollowers(parameters)
   }
 

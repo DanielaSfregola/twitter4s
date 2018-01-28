@@ -10,7 +10,4 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
   */
 final case class StatusWithheldNotice(status_withheld: StatusWithheldId) extends CommonStreamingMessage
 
-final case class StatusWithheldId(id: Long,
-                            user_id: Long,
-                            withheld_in_countries: List[String])
-
+final case class StatusWithheldId(id: Long, user_id: Long, withheld_in_countries: List[String])

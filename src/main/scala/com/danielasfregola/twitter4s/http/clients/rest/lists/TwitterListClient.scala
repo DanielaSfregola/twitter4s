@@ -88,8 +88,15 @@ trait TwitterListClient {
                                    include_rts: Boolean = false,
                                    tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
-      slug = Some(slug), owner_id = Some(owner_id), count = count, since_id = since_id,
-      max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)
+      slug = Some(slug),
+      owner_id = Some(owner_id),
+      count = count,
+      since_id = since_id,
+      max_id = max_id,
+      include_entities = include_entities,
+      include_rts = include_rts,
+      tweet_mode = tweet_mode
+    )
     genericGetListTimeline(parameters)
   }
 
@@ -126,8 +133,15 @@ trait TwitterListClient {
                                      include_rts: Boolean = false,
                                      tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
     val parameters = ListTimelineParameters(
-      slug = Some(slug), owner_screen_name = Some(owner_screen_name), count = count, since_id = since_id,
-      max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)
+      slug = Some(slug),
+      owner_screen_name = Some(owner_screen_name),
+      count = count,
+      since_id = since_id,
+      max_id = max_id,
+      include_entities = include_entities,
+      include_rts = include_rts,
+      tweet_mode = tweet_mode
+    )
     genericGetListTimeline(parameters)
   }
 
@@ -161,9 +175,13 @@ trait TwitterListClient {
                            include_entities: Boolean = true,
                            include_rts: Boolean = false,
                            tweet_mode: TweetMode = TweetMode.Classic): Future[RatedData[Seq[Tweet]]] = {
-    val parameters = ListTimelineParameters(
-      list_id = Some(list_id), count = count, since_id = since_id,
-      max_id = max_id, include_entities = include_entities, include_rts = include_rts, tweet_mode = tweet_mode)
+    val parameters = ListTimelineParameters(list_id = Some(list_id),
+                                            count = count,
+                                            since_id = since_id,
+                                            max_id = max_id,
+                                            include_entities = include_entities,
+                                            include_rts = include_rts,
+                                            tweet_mode = tweet_mode)
     genericGetListTimeline(parameters)
   }
 
@@ -196,10 +214,12 @@ trait TwitterListClient {
     * @param member_screen_name : The screen name of the user for whom to remove from the list.
     *                           Helpful for disambiguating when a valid screen name is also a user ID.
     */
-  def removeListMemberBySlugAndOwnerName(slug: String, owner_screen_name: String, member_screen_name: String): Future[Unit] = {
+  def removeListMemberBySlugAndOwnerName(slug: String,
+                                         owner_screen_name: String,
+                                         member_screen_name: String): Future[Unit] = {
     val parameters = RemoveMemberParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      screen_name = Some(member_screen_name))
+                                            owner_screen_name = Some(owner_screen_name),
+                                            screen_name = Some(member_screen_name))
     genericRemoveListMember(parameters)
   }
 
@@ -214,9 +234,8 @@ trait TwitterListClient {
     *                           Helpful for disambiguating when a valid screen name is also a user ID.
     */
   def removeListMemberBySlugAndOwnerId(slug: String, owner_id: Long, member_screen_name: String): Future[Unit] = {
-    val parameters = RemoveMemberParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      screen_name = Some(member_screen_name))
+    val parameters =
+      RemoveMemberParameters(slug = Some(slug), owner_id = Some(owner_id), screen_name = Some(member_screen_name))
     genericRemoveListMember(parameters)
   }
 
@@ -245,9 +264,8 @@ trait TwitterListClient {
     *                          Helpful for disambiguating when a valid user ID is also a valid screen name.
     */
   def removeListMemberIdBySlugAndOwnerName(slug: String, owner_screen_name: String, member_id: Long): Future[Unit] = {
-    val parameters = RemoveMemberParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      user_id = Some(member_id))
+    val parameters =
+      RemoveMemberParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(member_id))
     genericRemoveListMember(parameters)
   }
 
@@ -262,9 +280,7 @@ trait TwitterListClient {
     *                  Helpful for disambiguating when a valid user ID is also a valid screen name.
     */
   def removeListMemberIdBySlugAndOwnerId(slug: String, owner_id: Long, member_id: Long): Future[Unit] = {
-    val parameters = RemoveMemberParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      user_id = Some(member_id))
+    val parameters = RemoveMemberParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(member_id))
     genericRemoveListMember(parameters)
   }
 
@@ -357,7 +373,9 @@ trait TwitterListClient {
     */
   def addListMemberIdsBySlugAndOwnerName(slug: String, owner_screen_name: String, user_ids: Seq[Long]): Future[Unit] = {
     require(user_ids.nonEmpty, "please, provide at least one user id")
-    val parameters = MembersParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(user_ids.mkString(",")))
+    val parameters = MembersParameters(slug = Some(slug),
+                                       owner_screen_name = Some(owner_screen_name),
+                                       user_id = Some(user_ids.mkString(",")))
     genericAddListMembers(parameters)
   }
 
@@ -375,7 +393,8 @@ trait TwitterListClient {
     */
   def addListMemberIdsBySlugAndOwnerId(slug: String, owner_id: Long, user_ids: Seq[Long]): Future[Unit] = {
     require(user_ids.nonEmpty, "please, provide at least one user id")
-    val parameters = MembersParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(user_ids.mkString(",")))
+    val parameters =
+      MembersParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(user_ids.mkString(",")))
     genericAddListMembers(parameters)
   }
 
@@ -408,9 +427,13 @@ trait TwitterListClient {
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
     * @param screen_names      : The list of user screen names to add, up to 100 are allowed in a single request.
     */
-  def addListMembersBySlugAndOwnerName(slug: String, owner_screen_name: String, screen_names: Seq[String]): Future[Unit] = {
+  def addListMembersBySlugAndOwnerName(slug: String,
+                                       owner_screen_name: String,
+                                       screen_names: Seq[String]): Future[Unit] = {
     require(screen_names.nonEmpty, "please, provide at least one screen name")
-    val parameters = MembersParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), screen_name = Some(screen_names.mkString(",")))
+    val parameters = MembersParameters(slug = Some(slug),
+                                       owner_screen_name = Some(owner_screen_name),
+                                       screen_name = Some(screen_names.mkString(",")))
     genericAddListMembers(parameters)
   }
 
@@ -428,7 +451,8 @@ trait TwitterListClient {
     */
   def addListMembersBySlugAndOwnerId(slug: String, owner_id: Long, screen_names: Seq[String]): Future[Unit] = {
     require(screen_names.nonEmpty, "please, provide at least one screen name")
-    val parameters = MembersParameters(slug = Some(slug), owner_id = Some(owner_id), screen_name = Some(screen_names.mkString(",")))
+    val parameters =
+      MembersParameters(slug = Some(slug), owner_id = Some(owner_id), screen_name = Some(screen_names.mkString(",")))
     genericAddListMembers(parameters)
   }
 
@@ -458,9 +482,9 @@ trait TwitterListClient {
                                        include_entities: Boolean = true,
                                        skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(list_id = Some(list_id),
-      user_id = Some(user_id),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -487,10 +511,10 @@ trait TwitterListClient {
                                               include_entities: Boolean = true,
                                               skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      user_id = Some(user_id),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      owner_screen_name = Some(owner_screen_name),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -517,10 +541,10 @@ trait TwitterListClient {
                                             include_entities: Boolean = true,
                                             skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      user_id = Some(user_id),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      owner_id = Some(owner_id),
+                                      user_id = Some(user_id),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -545,9 +569,9 @@ trait TwitterListClient {
                                      include_entities: Boolean = true,
                                      skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(list_id = Some(list_id),
-      screen_name = Some(screen_name),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -574,10 +598,10 @@ trait TwitterListClient {
                                             include_entities: Boolean = true,
                                             skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      screen_name = Some(screen_name),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      owner_screen_name = Some(owner_screen_name),
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -604,10 +628,10 @@ trait TwitterListClient {
                                           include_entities: Boolean = true,
                                           skip_status: Boolean = false): Future[RatedData[User]] = {
     val parameters = MemberParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      screen_name = Some(screen_name),
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                      owner_id = Some(owner_id),
+                                      screen_name = Some(screen_name),
+                                      include_entities = include_entities,
+                                      skip_status = skip_status)
     genericCheckListMember(parameters)
   }
 
@@ -640,10 +664,10 @@ trait TwitterListClient {
                           include_entities: Boolean = true,
                           skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(list_id = Some(list_id),
-      count = count,
-      cursor = cursor,
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                           count = count,
+                                           cursor = cursor,
+                                           include_entities = include_entities,
+                                           skip_status = skip_status)
     genericGetListMembers(parameters)
   }
 
@@ -673,11 +697,11 @@ trait TwitterListClient {
                                     include_entities: Boolean = true,
                                     skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      count = count,
-      cursor = cursor,
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                           owner_screen_name = Some(owner_screen_name),
+                                           count = count,
+                                           cursor = cursor,
+                                           include_entities = include_entities,
+                                           skip_status = skip_status)
     genericGetListMembers(parameters)
   }
 
@@ -707,11 +731,11 @@ trait TwitterListClient {
                                   include_entities: Boolean = true,
                                   skip_status: Boolean = false): Future[RatedData[Users]] = {
     val parameters = ListMembersParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      count = count,
-      cursor = cursor,
-      include_entities = include_entities,
-      skip_status = skip_status)
+                                           owner_id = Some(owner_id),
+                                           count = count,
+                                           cursor = cursor,
+                                           include_entities = include_entities,
+                                           skip_status = skip_status)
     genericGetListMembers(parameters)
   }
 
@@ -747,10 +771,10 @@ trait TwitterListClient {
     *                          Helpful for disambiguating when a valid user ID is also a valid screen name.
     */
   def addListMemberIdBySlugAndOwnerName(slug: String, owner_screen_name: String, user_id: Long): Future[Unit] = {
-    val parameters = AddMemberParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(user_id))
+    val parameters =
+      AddMemberParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), user_id = Some(user_id))
     genericAddListMember(parameters)
   }
-
 
   /** Add a member to a list. The authenticated user must own the list to be able to add members to it.
     * Note that lists cannot have more than 5,000 members.
@@ -795,7 +819,9 @@ trait TwitterListClient {
     *                          Helpful for disambiguating when a valid screen name is also a user ID.
     */
   def addListMemberBySlugAndOwnerName(slug: String, owner_screen_name: String, screen_name: String): Future[Unit] = {
-    val parameters = AddMemberParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name), screen_name = Some(screen_name))
+    val parameters = AddMemberParameters(slug = Some(slug),
+                                         owner_screen_name = Some(owner_screen_name),
+                                         screen_name = Some(screen_name))
     genericAddListMember(parameters)
   }
 
@@ -977,7 +1003,9 @@ trait TwitterListClient {
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
     * @param description       : The description to give the list.
     */
-  def updateListDescriptionBySlugAndOwnerName(slug: String, owner_screen_name: String, description: String): Future[Unit] = {
+  def updateListDescriptionBySlugAndOwnerName(slug: String,
+                                              owner_screen_name: String,
+                                              description: String): Future[Unit] = {
     val parameters = ListParameters(slug = Some(slug), owner_screen_name = Some(owner_screen_name))
     val update = TwitterListUpdate(description = Some(description))
     genericUpdateList(parameters, update)
@@ -1048,7 +1076,8 @@ trait TwitterListClient {
       owner_id = parameters.owner_id,
       description = update.description,
       name = update.name,
-      mode = update.mode)
+      mode = update.mode
+    )
     Post(s"$listsUrl/update.json", listUpdate).respondAs[Unit]
   }
 
@@ -1132,9 +1161,7 @@ trait TwitterListClient {
     *                    Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists the specified user is subscribed to.
     */
-  def listSubscriptions(screen_name: String,
-                        count: Int = 20,
-                        cursor: Long = -1): Future[RatedData[TwitterLists]] = {
+  def listSubscriptions(screen_name: String, count: Int = 20, cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = SubscriptionsParameters(user_id = None, Some(screen_name), count, cursor)
     genericListSubscriptions(parameters)
   }
@@ -1154,9 +1181,7 @@ trait TwitterListClient {
     *                Breaks the results into pages. Provide values as returned in the response body’s `next_cursor` and `previous_cursor` attributes to page back and forth in the list.
     * @return : The Twitter lists the specified user is subscribed to.
     */
-  def listSubscriptionsByUserId(user_id: Long,
-                                count: Int = 20,
-                                cursor: Long = -1): Future[RatedData[TwitterLists]] = {
+  def listSubscriptionsByUserId(user_id: Long, count: Int = 20, cursor: Long = -1): Future[RatedData[TwitterLists]] = {
     val parameters = SubscriptionsParameters(Some(user_id), screen_name = None, count, cursor)
     genericListSubscriptions(parameters)
   }
@@ -1178,7 +1203,8 @@ trait TwitterListClient {
     */
   def removeListMembers(list_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
     require(members_screen_names.nonEmpty, "please, provide at least one screen name")
-    val parameters = RemoveMembersParameters(list_id = Some(list_id), screen_name = Some(members_screen_names.mkString(",")))
+    val parameters =
+      RemoveMembersParameters(list_id = Some(list_id), screen_name = Some(members_screen_names.mkString(",")))
     genericRemoveMembers(parameters)
   }
 
@@ -1193,11 +1219,13 @@ trait TwitterListClient {
     * @param owner_screen_name    : The screen name of the user who owns the list being requested by a `slug`.
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
     */
-  def removeListMembersBySlugAndOwnerName(slug: String, owner_screen_name: String, members_screen_names: Seq[String]): Future[Unit] = {
+  def removeListMembersBySlugAndOwnerName(slug: String,
+                                          owner_screen_name: String,
+                                          members_screen_names: Seq[String]): Future[Unit] = {
     require(members_screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RemoveMembersParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      screen_name = Some(members_screen_names.mkString(",")))
+                                             owner_screen_name = Some(owner_screen_name),
+                                             screen_name = Some(members_screen_names.mkString(",")))
     genericRemoveMembers(parameters)
   }
 
@@ -1212,11 +1240,13 @@ trait TwitterListClient {
     * @param owner_id             : The user ID of the user who owns the list being requested by a `slug`.
     * @param members_screen_names : A sequence of screen names to remove from the list, up to 100 are allowed in a single request.
     */
-  def removeListMembersBySlugAndOwnerId(slug: String, owner_id: Long, members_screen_names: Seq[String]): Future[Unit] = {
+  def removeListMembersBySlugAndOwnerId(slug: String,
+                                        owner_id: Long,
+                                        members_screen_names: Seq[String]): Future[Unit] = {
     require(members_screen_names.nonEmpty, "please, provide at least one screen name")
     val parameters = RemoveMembersParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      screen_name = Some(members_screen_names.mkString(",")))
+                                             owner_id = Some(owner_id),
+                                             screen_name = Some(members_screen_names.mkString(",")))
     genericRemoveMembers(parameters)
   }
 
@@ -1247,11 +1277,13 @@ trait TwitterListClient {
     * @param owner_screen_name : The screen name of the user who owns the list being requested by a `slug`.
     * @param members_ids       : A sequence of user ids to remove from the list, up to 100 are allowed in a single request.
     */
-  def removeListMembersIdsBySlugAndOwnerName(slug: String, owner_screen_name: String, members_ids: Seq[Long]): Future[Unit] = {
+  def removeListMembersIdsBySlugAndOwnerName(slug: String,
+                                             owner_screen_name: String,
+                                             members_ids: Seq[Long]): Future[Unit] = {
     require(members_ids.nonEmpty, "please, provide at least one user id")
     val parameters = RemoveMembersParameters(slug = Some(slug),
-      owner_screen_name = Some(owner_screen_name),
-      user_id = Some(members_ids.mkString(",")))
+                                             owner_screen_name = Some(owner_screen_name),
+                                             user_id = Some(members_ids.mkString(",")))
     genericRemoveMembers(parameters)
   }
 
@@ -1268,9 +1300,8 @@ trait TwitterListClient {
     */
   def removeListMembersIdsBySlugAndOwnerId(slug: String, owner_id: Long, members_ids: Seq[Long]): Future[Unit] = {
     require(members_ids.nonEmpty, "please, provide at least one user id")
-    val parameters = RemoveMembersParameters(slug = Some(slug),
-      owner_id = Some(owner_id),
-      user_id = Some(members_ids.mkString(",")))
+    val parameters =
+      RemoveMembersParameters(slug = Some(slug), owner_id = Some(owner_id), user_id = Some(members_ids.mkString(",")))
     genericRemoveMembers(parameters)
   }
 

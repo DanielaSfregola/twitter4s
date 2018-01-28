@@ -11,6 +11,6 @@ import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 final case class WarningMessage(warning: WarningMessageInfo) extends CommonStreamingMessage
 
 final case class WarningMessageInfo(code: String,
-                              message: String,
-                              percent_full: Option[Int] = None,
-                              user_id: Option[Long] = None)
+                                    message: String,
+                                    percent_full: Option[Int] = None,
+                                    user_id: Option[Long] = None)

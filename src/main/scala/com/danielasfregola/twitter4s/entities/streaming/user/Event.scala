@@ -18,11 +18,19 @@ import com.danielasfregola.twitter4s.entities.{Tweet, TwitterList, User}
 abstract class Event[T](created_at: Date, event: EventCode#Value, target: User, source: User, target_object: Option[T])
     extends UserStreamingMessage
 
-final case class SimpleEvent(created_at: Date, event: SimpleEventCode, target: User, source: User, target_object: Option[String])
+final case class SimpleEvent(created_at: Date,
+                             event: SimpleEventCode,
+                             target: User,
+                             source: User,
+                             target_object: Option[String])
     extends Event(created_at, event, target, source, target_object)
 
 final case class TweetEvent(created_at: Date, event: TweetEventCode, target: User, source: User, target_object: Tweet)
     extends Event(created_at, event, target, source, Some(target_object))
 
-final case class TwitterListEvent(created_at: Date, event: TwitterListEventCode, target: User, source: User, target_object: TwitterList)
+final case class TwitterListEvent(created_at: Date,
+                                  event: TwitterListEventCode,
+                                  target: User,
+                                  source: User,
+                                  target_object: TwitterList)
     extends Event(created_at, event, target, source, Some(target_object))
