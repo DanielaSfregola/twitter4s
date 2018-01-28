@@ -15,6 +15,7 @@ env:
   - SBT_OPTS = -XX:MaxPermSize=1024M -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
 
 script:
+  - sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test  # check files are formatted correctly
   - travis_retry sbt clean coverage test coverageReport
 
 after_success:
