@@ -27,7 +27,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/blocks/ids.json")
         .await
@@ -40,7 +40,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/ids.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/blocks/stringified_ids.json")
         .await
@@ -53,7 +53,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/create.json"
-          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
+          request.uri.rawQueryString === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
         }
         .respondWith("/twitter/rest/blocks/user.json")
         .await
@@ -65,7 +65,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/create.json"
-          request.uri.queryString() === Some("include_entities=true&skip_status=false&user_id=19018614")
+          request.uri.rawQueryString === Some("include_entities=true&skip_status=false&user_id=19018614")
         }
         .respondWith("/twitter/rest/blocks/user.json")
         .await
@@ -77,7 +77,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/destroy.json"
-          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
+          request.uri.rawQueryString === Some("include_entities=true&screen_name=marcobonzanini&skip_status=false")
         }
         .respondWith("/twitter/rest/blocks/user.json")
         .await
@@ -89,7 +89,7 @@ class TwitterBlockClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/blocks/destroy.json"
-          request.uri.queryString() === Some("include_entities=true&skip_status=false&user_id=19018614")
+          request.uri.rawQueryString === Some("include_entities=true&skip_status=false&user_id=19018614")
         }
         .respondWith("/twitter/rest/blocks/user.json")
         .await

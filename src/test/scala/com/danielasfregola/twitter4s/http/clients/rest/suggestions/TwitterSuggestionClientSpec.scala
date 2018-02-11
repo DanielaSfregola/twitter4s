@@ -16,7 +16,7 @@ class TwitterSuggestionClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/users/suggestions/$slug.json"
-          request.uri.queryString() === Some("lang=en")
+          request.uri.rawQueryString === Some("lang=en")
         }
         .respondWithRated("/twitter/rest/suggestions/slug_suggestions.json")
         .await
@@ -29,7 +29,7 @@ class TwitterSuggestionClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/suggestions.json"
-          request.uri.queryString() === Some("lang=en")
+          request.uri.rawQueryString === Some("lang=en")
         }
         .respondWithRated("/twitter/rest/suggestions/categories.json")
         .await

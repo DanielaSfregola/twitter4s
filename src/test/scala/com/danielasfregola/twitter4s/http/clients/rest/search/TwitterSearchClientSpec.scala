@@ -15,6 +15,7 @@ class TwitterSearchClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/search/tweets.json"
+          // TODO - change me!!!!
           request.uri.queryString() === Some("count=15&include_entities=true&q=%23scala&result_type=mixed")
         }
         .respondWithRated("/twitter/rest/search/tweets.json")
@@ -22,6 +23,20 @@ class TwitterSearchClientSpec extends ClientSpec {
       result.rate_limit === rateLimit
       result.data === loadJsonAs[StatusSearch]("/fixtures/rest/search/tweets.json")
     }
+
+//    "search for tweets with url in it" in new TwitterSearchClientSpecContext {
+//      val result: RatedData[StatusSearch] = when(searchTweet("https://github.com/ReactiveX/RxJava"))
+//        .expectRequest { request =>
+//          request.method === HttpMethods.GET
+//          request.uri.endpoint === "https://api.twitter.com/1.1/search/tweets.json"
+//          request.uri.rawQueryString === Some("count=15&include_entities=true" +
+//            "&q=https%3A%2F%2Fgithub.com%2FReactiveX%2FRxJava&result_type=mixed")
+//        }
+//        .respondWithRated("/twitter/rest/search/tweets.json")
+//        .await
+//
+//    }
+
   }
 
 }

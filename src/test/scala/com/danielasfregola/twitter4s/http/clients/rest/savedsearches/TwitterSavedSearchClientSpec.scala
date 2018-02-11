@@ -27,7 +27,7 @@ class TwitterSavedSearchClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/saved_searches/create.json"
-          request.uri.queryString() === Some("query=#scala")
+          request.uri.rawQueryString === Some("query=%23scala")
         }
         .respondWith("/twitter/rest/savedsearches/create.json")
         .await

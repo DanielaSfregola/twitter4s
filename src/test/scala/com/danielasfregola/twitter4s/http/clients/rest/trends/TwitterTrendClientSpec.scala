@@ -15,7 +15,7 @@ class TwitterTrendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-          request.uri.queryString() === Some("id=1")
+          request.uri.rawQueryString === Some("id=1")
         }
         .respondWithRated("/twitter/rest/trends/trends.json")
         .await
@@ -28,7 +28,7 @@ class TwitterTrendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-          request.uri.queryString() === Some("id=1")
+          request.uri.rawQueryString === Some("id=1")
         }
         .respondWithRated("/twitter/rest/trends/trends.json")
         .await
@@ -41,7 +41,7 @@ class TwitterTrendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/trends/place.json"
-          request.uri.queryString() === Some("exclude=hashtags&id=1")
+          request.uri.rawQueryString === Some("exclude=hashtags&id=1")
         }
         .respondWithRated("/twitter/rest/trends/trends.json")
         .await

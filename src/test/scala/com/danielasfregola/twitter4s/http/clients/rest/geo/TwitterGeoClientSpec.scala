@@ -28,7 +28,7 @@ class TwitterGeoClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/geo/reverse_geocode.json"
-          request.uri.queryString() === Some("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
+          request.uri.rawQueryString === Some("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
         }
         .respondWithRated("/twitter/rest/geo/reverse_geocode.json")
         .await
@@ -41,7 +41,7 @@ class TwitterGeoClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-          request.uri.queryString() === Some("query=Creazzo")
+          request.uri.rawQueryString === Some("query=Creazzo")
         }
         .respondWithRated("/twitter/rest/geo/search.json")
         .await
@@ -55,7 +55,7 @@ class TwitterGeoClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-            request.uri.queryString() === Some("attribute:street_address=Via+Giotto+15&query=Creazzo")
+            request.uri.rawQueryString === Some("attribute:street_address=Via+Giotto+15&query=Creazzo")
           }
           .respondWithRated("/twitter/rest/geo/advanced_search.json")
           .await

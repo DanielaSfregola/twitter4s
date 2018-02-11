@@ -15,7 +15,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-          request.uri.queryString() === Some("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
+          request.uri.rawQueryString === Some("count=5000&cursor=-1&stringify_ids=false&user_id=2911461333")
         }
         .respondWithRated("/twitter/rest/friends/friends_ids.json")
         .await
@@ -28,7 +28,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-          request.uri.queryString() === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
+          request.uri.rawQueryString === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/friends/friends_ids.json")
         .await
@@ -41,7 +41,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-          request.uri.queryString() === Some("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
+          request.uri.rawQueryString === Some("count=5000&cursor=-1&stringify_ids=true&user_id=2911461333")
         }
         .respondWithRated("/twitter/rest/friends/friends_ids_stringified.json")
         .await
@@ -54,7 +54,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/ids.json"
-          request.uri.queryString() === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
+          request.uri.rawQueryString === Some("count=5000&cursor=-1&screen_name=DanielaSfregola&stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/friends/friends_ids_stringified.json")
         .await
@@ -67,7 +67,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "count=10&cursor=-1&include_user_entities=true&screen_name=DanielaSfregola&skip_status=false")
         }
         .respondWithRated("/twitter/rest/friends/users.json")
@@ -81,7 +81,7 @@ class TwitterFriendClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friends/list.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "count=10&cursor=-1&include_user_entities=true&skip_status=false&user_id=2911461333")
         }
         .respondWithRated("/twitter/rest/friends/users.json")

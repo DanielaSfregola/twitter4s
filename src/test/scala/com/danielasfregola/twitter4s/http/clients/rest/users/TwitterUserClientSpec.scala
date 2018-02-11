@@ -15,7 +15,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini,odersky")
+          request.uri.rawQueryString === Some("include_entities=true&screen_name=marcobonzanini%2Codersky")
         }
         .respondWithRated("/twitter/rest/users/users.json")
         .await
@@ -32,7 +32,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/lookup.json"
-          request.uri.queryString() === Some("include_entities=true&user_id=19018614,17765013")
+          request.uri.rawQueryString === Some("include_entities=true&user_id=19018614%2C17765013")
         }
         .respondWithRated("/twitter/rest/users/users.json")
         .await
@@ -49,7 +49,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-          request.uri.queryString() === Some("include_entities=true&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("include_entities=true&screen_name=marcobonzanini")
         }
         .respondWithRated("/twitter/rest/users/user.json")
         .await
@@ -62,7 +62,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/show.json"
-          request.uri.queryString() === Some("include_entities=true&user_id=19018614")
+          request.uri.rawQueryString === Some("include_entities=true&user_id=19018614")
         }
         .respondWithRated("/twitter/rest/users/user.json")
         .await
@@ -75,7 +75,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-          request.uri.queryString() === Some("screen_name=DanielaSfregola")
+          request.uri.rawQueryString === Some("screen_name=DanielaSfregola")
         }
         .respondWithRated("/twitter/rest/users/profile_banner.json")
         .await
@@ -88,7 +88,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/profile_banner.json"
-          request.uri.queryString() === Some("user_id=19018614")
+          request.uri.rawQueryString === Some("user_id=19018614")
         }
         .respondWithRated("/twitter/rest/users/profile_banner.json")
         .await
@@ -101,7 +101,7 @@ class TwitterUserClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/users/search.json"
-          request.uri.queryString() === Some("count=20&include_entities=true&page=-1&q=DanielaSfregola")
+          request.uri.rawQueryString === Some("count=20&include_entities=true&page=-1&q=DanielaSfregola")
         }
         .respondWithRated("/twitter/rest/users/users.json")
         .await

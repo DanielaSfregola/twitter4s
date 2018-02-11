@@ -15,7 +15,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
-          request.uri.queryString() === Some("count=20&include_entities=true&screen_name=DanielaSfregola")
+          request.uri.rawQueryString === Some("count=20&include_entities=true&screen_name=DanielaSfregola")
         }
         .respondWithRated("/twitter/rest/favorites/favorites.json")
         .await
@@ -28,7 +28,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/favorites/list.json"
-          request.uri.queryString() === Some("count=20&include_entities=true&user_id=19018614")
+          request.uri.rawQueryString === Some("count=20&include_entities=true&user_id=19018614")
         }
         .respondWithRated("/twitter/rest/favorites/favorites.json")
         .await
@@ -41,7 +41,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/favorites/create.json"
-          request.uri.queryString() === Some("id=243138128959913986&include_entities=true")
+          request.uri.rawQueryString === Some("id=243138128959913986&include_entities=true")
         }
         .respondWith("/twitter/rest/favorites/favorite.json")
         .await
@@ -53,7 +53,7 @@ class TwitterFavoriteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/favorites/destroy.json"
-          request.uri.queryString() === Some("id=243138128959913986&include_entities=true")
+          request.uri.rawQueryString === Some("id=243138128959913986&include_entities=true")
         }
         .respondWith("/twitter/rest/favorites/unfavorite.json")
         .await
