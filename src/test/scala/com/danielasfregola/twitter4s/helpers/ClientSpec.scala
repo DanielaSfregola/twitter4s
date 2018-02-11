@@ -64,13 +64,12 @@ trait ClientSpec extends Spec {
 
     protected val streamingClient = new StreamingClient(consumerToken, accessToken) {
 
-      override def processStreamRequest[T <: StreamingMessage: Manifest](
-          request: HttpRequest,
-          killSwitch: SharedKillSwitch)(f: PartialFunction[T, Unit])(
-          implicit system: ActorSystem,
-          materializer: Materializer): Future[SharedKillSwitch] = {
+      override def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
+          f: PartialFunction[T, Unit])(implicit system: ActorSystem,
+                                       materializer: Materializer): Future[SharedKillSwitch] = {
         implicit val ec = materializer.executionContext
         implicit val timeout: Timeout = DurationInt(20) seconds
+
         val responseR: Future[HttpResponse] = (transport.ref ? request).map(_.asInstanceOf[HttpResponse])
         for {
           response <- responseR

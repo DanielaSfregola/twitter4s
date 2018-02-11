@@ -9,8 +9,8 @@ import akka.testkit.TestProbe
 import com.danielasfregola.twitter4s.entities.RateLimit
 import org.specs2.specification.AfterEach
 
-import scala.concurrent.{Await, Future}
 import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 
 abstract class RequestDSL extends TestActorSystem with FixturesSupport with AfterEach {
 
