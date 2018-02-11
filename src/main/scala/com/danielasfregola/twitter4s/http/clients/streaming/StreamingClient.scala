@@ -35,39 +35,30 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       implicit val ec = materializer.executionContext
       for {
         requestWithAuth <- withOAuthHeader(None)(materializer)(request)
-        killSwitch <- processOrFailStreamRequest(requestWithAuth)(f)
+        killSwitch <- processStreamRequest(requestWithAuth)(f)
       } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
     }
   }
 
-  private val maxConnectionTimeMillis = 1000
-
-  // TODO - can we do better?
-  private def processOrFailStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
+  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
       f: PartialFunction[T, Unit])(implicit system: ActorSystem,
                                    materializer: Materializer): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
-    val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
-    val processing = processStreamRequest(request, killSwitch)(f)
-    val switch = Future { Thread.sleep(maxConnectionTimeMillis); killSwitch }
-    Future.firstCompletedOf(Seq(processing, switch))
-  }
-
-  protected def processStreamRequest[T <: StreamingMessage: Manifest](
-      request: HttpRequest,
-      killSwitch: SharedKillSwitch)(f: PartialFunction[T, Unit])(
-      implicit system: ActorSystem,
-      materializer: Materializer): Future[SharedKillSwitch] = {
-    implicit val ec = materializer.executionContext
     implicit val rqt = request
 
+    var successResponse = false
+
     if (withLogRequest) logRequest
-    Source
+
+    val killSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
+
+    val processing = Source
       .single(request)
       .via(connection)
       .flatMapConcat {
         case response if response.status.isSuccess =>
-          Future(processBody(response, killSwitch)(f))
+          successResponse = true
+          processBody(response, killSwitch)(f)
           Source.empty
         case failureResponse =>
           val statusCode = failureResponse.status
@@ -77,6 +68,14 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       }
       .runWith(Sink.ignore)
       .map(_ => killSwitch)
+
+    val switch = Future {
+      val pullingTimeMillis = 250
+      while (!successResponse) { Thread.sleep(pullingTimeMillis) }
+      killSwitch
+    }
+
+    Future.firstCompletedOf(Seq(processing, switch))
   }
 
   def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)(

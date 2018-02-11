@@ -5,9 +5,9 @@ import java.time.LocalDate
 
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Language._
-import com.danielasfregola.twitter4s.entities.enums.{ResultType, TweetMode}
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
 import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
+import com.danielasfregola.twitter4s.entities.enums.{ResultType, TweetMode}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
 import com.danielasfregola.twitter4s.util.Configurations._
