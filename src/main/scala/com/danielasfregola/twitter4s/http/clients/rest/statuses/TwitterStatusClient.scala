@@ -669,7 +669,7 @@ trait TwitterStatusClient {
     * @param ids : A sequence of tweet IDs, up to 100 are allowed in a single request.
     * @return : The representation of the lookup tweets.
     */
-  def tweetLookup(ids: Long*): Future[RatedData[Seq[LookupTweet]]] = tweetLookup(ids)
+  def tweetLookup(ids: Long*): Future[RatedData[Seq[Tweet]]] = tweetLookup(ids)
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
     * This method is especially useful to get the details (hydrate) a collection of Tweet IDs.
@@ -688,10 +688,10 @@ trait TwitterStatusClient {
     */
   def tweetLookup(ids: Seq[Long],
                   include_entities: Boolean = true,
-                  trim_user: Boolean = false): Future[RatedData[Seq[LookupTweet]]] = {
+                  trim_user: Boolean = false): Future[RatedData[Seq[Tweet]]] = {
     require(ids.nonEmpty, "please, provide at least one status id to lookup")
     val parameters = LookupParameters(ids.mkString(","), include_entities, trim_user, map = false)
-    genericGetTweetLookup[Seq[LookupTweet]](parameters)
+    genericGetTweetLookup[Seq[Tweet]](parameters)
   }
 
   /** Returns fully-hydrated tweet objects for up to 100 tweets per request, as specified by sequence of values passed to the id parameter.
