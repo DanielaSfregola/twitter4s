@@ -1,0 +1,199 @@
+{
+  "id": {
+    "956111334898270209": {
+      "created_at": "Wed Jan 24 10:28:00 +0000 2018",
+      "id": 956111334898270209,
+      "id_str": "956111334898270209",
+      "full_text": "Today's Neu Pick comes in the form of 'Favourite', the brilliantly catchy new single from Irish trio @PillowQueeens. https:\/\/t.co\/2JAI4GV3Qe https:\/\/t.co\/p67oJLeZ76",
+      "truncated": false,
+      "display_text_range": [
+        0,
+        140
+      ],
+      "entities": {
+        "hashtags": [],
+        "symbols": [],
+        "user_mentions": [
+          {
+            "screen_name": "PillowQueeens",
+            "name": "Pillow Queens",
+            "id": 795659026218491904,
+            "id_str": "795659026218491904",
+            "indices": [
+              101,
+              115
+            ]
+          }
+        ],
+        "urls": [
+          {
+            "url": "https:\/\/t.co\/2JAI4GV3Qe",
+            "expanded_url": "http:\/\/diymag.com\/2018\/01\/24\/pillow-queens-favourite-neu-pick-premiere-listen",
+            "display_url": "diymag.com\/2018\/01\/24\/pil\u2026",
+            "indices": [
+              117,
+              140
+            ]
+          }
+        ],
+        "media": [
+          {
+            "id": 956108706302844930,
+            "id_str": "956108706302844930",
+            "indices": [
+              141,
+              164
+            ],
+            "media_url": "http:\/\/pbs.twimg.com\/media\/DUTHzX3W4AIqF-a.jpg",
+            "media_url_https": "https:\/\/pbs.twimg.com\/media\/DUTHzX3W4AIqF-a.jpg",
+            "url": "https:\/\/t.co\/p67oJLeZ76",
+            "display_url": "pic.twitter.com\/p67oJLeZ76",
+            "expanded_url": "https:\/\/twitter.com\/diymagazine\/status\/956111334898270209\/photo\/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 800,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 453,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1500,
+                "h": 1000,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "extended_entities": {
+        "media": [
+          {
+            "id": 956108706302844930,
+            "id_str": "956108706302844930",
+            "indices": [
+              141,
+              164
+            ],
+            "media_url": "http:\/\/pbs.twimg.com\/media\/DUTHzX3W4AIqF-a.jpg",
+            "media_url_https": "https:\/\/pbs.twimg.com\/media\/DUTHzX3W4AIqF-a.jpg",
+            "url": "https:\/\/t.co\/p67oJLeZ76",
+            "display_url": "pic.twitter.com\/p67oJLeZ76",
+            "expanded_url": "https:\/\/twitter.com\/diymagazine\/status\/956111334898270209\/photo\/1",
+            "type": "photo",
+            "sizes": {
+              "thumb": {
+                "w": 150,
+                "h": 150,
+                "resize": "crop"
+              },
+              "medium": {
+                "w": 1200,
+                "h": 800,
+                "resize": "fit"
+              },
+              "small": {
+                "w": 680,
+                "h": 453,
+                "resize": "fit"
+              },
+              "large": {
+                "w": 1500,
+                "h": 1000,
+                "resize": "fit"
+              }
+            }
+          }
+        ]
+      },
+      "source": "\u003ca href=\"https:\/\/about.twitter.com\/products\/tweetdeck\" rel=\"nofollow\"\u003eTweetDeck\u003c\/a\u003e",
+      "in_reply_to_status_id": null,
+      "in_reply_to_status_id_str": null,
+      "in_reply_to_user_id": null,
+      "in_reply_to_user_id_str": null,
+      "in_reply_to_screen_name": null,
+      "user": {
+        "id": 18938807,
+        "id_str": "18938807",
+        "name": "DIY",
+        "screen_name": "diymagazine",
+        "location": "UK",
+        "description": "Almost certainly the greatest music magazine in the world.",
+        "url": "https:\/\/t.co\/5yaW51Rud6",
+        "entities": {
+          "url": {
+            "urls": [
+              {
+                "url": "https:\/\/t.co\/5yaW51Rud6",
+                "expanded_url": "http:\/\/diymag.com\/",
+                "display_url": "diymag.com",
+                "indices": [
+                  0,
+                  23
+                ]
+              }
+            ]
+          },
+          "description": {
+            "urls": []
+          }
+        },
+        "protected": false,
+        "followers_count": 142766,
+        "friends_count": 2640,
+        "listed_count": 1538,
+        "created_at": "Tue Jan 13 14:13:13 +0000 2009",
+        "favourites_count": 3706,
+        "utc_offset": 0,
+        "time_zone": "London",
+        "geo_enabled": false,
+        "verified": true,
+        "statuses_count": 90609,
+        "lang": "en",
+        "contributors_enabled": false,
+        "is_translator": false,
+        "is_translation_enabled": false,
+        "profile_background_color": "FFFFFF",
+        "profile_background_image_url": "http:\/\/pbs.twimg.com\/profile_background_images\/646661269\/0k07bet0tfn57xl3jb6x.jpeg",
+        "profile_background_image_url_https": "https:\/\/pbs.twimg.com\/profile_background_images\/646661269\/0k07bet0tfn57xl3jb6x.jpeg",
+        "profile_background_tile": false,
+        "profile_image_url": "http:\/\/pbs.twimg.com\/profile_images\/550415811274223616\/3caLuhwl_normal.png",
+        "profile_image_url_https": "https:\/\/pbs.twimg.com\/profile_images\/550415811274223616\/3caLuhwl_normal.png",
+        "profile_banner_url": "https:\/\/pbs.twimg.com\/profile_banners\/18938807\/1516811354",
+        "profile_link_color": "000000",
+        "profile_sidebar_border_color": "FFFFFF",
+        "profile_sidebar_fill_color": "EBEBEB",
+        "profile_text_color": "222222",
+        "profile_use_background_image": false,
+        "has_extended_profile": false,
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": false,
+        "follow_request_sent": false,
+        "notifications": false,
+        "translator_type": "none"
+      },
+      "geo": null,
+      "coordinates": null,
+      "place": null,
+      "contributors": null,
+      "is_quote_status": false,
+      "retweet_count": 17,
+      "favorite_count": 35,
+      "favorited": false,
+      "retweeted": true,
+      "possibly_sensitive": false,
+      "lang": "en"
+    },
+    "963141440695078912L": null
+  }
+}
