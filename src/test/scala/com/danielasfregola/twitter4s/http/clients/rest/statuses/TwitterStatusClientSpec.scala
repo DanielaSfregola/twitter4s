@@ -232,7 +232,7 @@ class TwitterStatusClientSpec extends ClientSpec {
     }
 
     "perform a lookup" in new TwitterStatusClientSpecContext {
-      val result: RatedData[Seq[LookupTweet]] = when(tweetLookup(327473909412814850L, 327473909412814851L))
+      val result: RatedData[Seq[Tweet]] = when(tweetLookup(327473909412814850L, 327473909412814851L))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
@@ -242,7 +242,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/statuses/lookup.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[Seq[LookupTweet]]("/fixtures/rest/statuses/lookup.json")
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/lookup.json")
     }
 
     "reject request if no ids have been provided for the lookup" in new TwitterStatusClientSpecContext {
