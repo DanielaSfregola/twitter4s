@@ -40,7 +40,7 @@ trait BodyEncoder {
       case (k, v)                             => Some(k -> v.toString)
     }
 
-  // TODO - improve performance with Macros?
+  // TODO - improve runtime performance with Macros?
   private def asMap(cc: Product): Map[String, Any] =
     cc.getClass.getDeclaredFields.map(_.getName).zip(cc.productIterator.to).toMap
 
