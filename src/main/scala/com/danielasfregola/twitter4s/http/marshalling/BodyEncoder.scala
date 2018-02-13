@@ -27,6 +27,10 @@ trait BodyEncoder {
 
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).flatMap {
+      case (k, (v1, v2) :: tail) =>
+        val rest = tail.map { case (a, b) => s"$a,$b" }
+        val flattened = s"$v1,$v2" :: rest
+        Some(k -> flattened.mkString(","))
       case (k, head :: tail)                  => Some(k -> (head +: tail).mkString(","))
       case (_, Nil)                           => None
       case (_, None)                          => None
@@ -36,7 +40,7 @@ trait BodyEncoder {
       case (k, v)                             => Some(k -> v.toString)
     }
 
-  // TODO - improve performance with Macros?
+  // TODO - improve runtime performance with Macros?
   private def asMap(cc: Product): Map[String, Any] =
     cc.getClass.getDeclaredFields.map(_.getName).zip(cc.productIterator.to).toMap
 

@@ -17,13 +17,14 @@ class TwitterUserClientSpec extends ClientSpec {
         GeoBoundingBox(Coordinate(-74, 40), Coordinate(-73, 41))
       )
       val result: Unit =
-        when(userEvents(tracks = Seq("trending"),
-                        languages = Seq(Language.English),
-                        locations = locationsFilter)(dummyProcessing))
+        when(
+          userEvents(tracks = Seq("trending"), languages = Seq(Language.English), locations = locationsFilter)(
+            dummyProcessing))
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://userstream.twitter.com/1.1/user.json"
-            request.uri.queryString() === Some("filter_level=none&language=en&locations=-122.75,36.8,-121.75,37.8,-74.0,40.0,-73.0,41.0&stall_warnings=false&stringify_friend_ids=false&track=trending&with=followings")
+            request.uri.queryString() === Some(
+              "filter_level=none&language=en&locations=-122.75,36.8,-121.75,37.8,-74.0,40.0,-73.0,41.0&stall_warnings=false&stringify_friend_ids=false&track=trending&with=followings")
           }
           .respondWithOk
           .await
