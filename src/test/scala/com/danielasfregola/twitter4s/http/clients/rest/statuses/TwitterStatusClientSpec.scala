@@ -2,6 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.statuses
 
 import akka.http.scaladsl.model.{HttpEntity, HttpMethods}
 import com.danielasfregola.twitter4s.entities._
+import com.danielasfregola.twitter4s.entities.enums.TweetMode
 import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterStatusClientSpec extends ClientSpec {
@@ -246,6 +247,21 @@ class TwitterStatusClientSpec extends ClientSpec {
       result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/lookup.json")
     }
 
+    "perform a lookup extended" in new TwitterStatusClientSpecContext {
+      val result: RatedData[Seq[Tweet]] = when(
+        tweetLookup(Seq(963141440695078912L, 956111334898270209L), tweet_mode = TweetMode.Extended)
+      ).expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
+          request.uri.queryString() === Some(
+            "id=963141440695078912,956111334898270209&include_entities=true&map=false&trim_user=false&tweet_mode=extended")
+        }
+        .respondWithRated("/twitter/rest/statuses/lookup_extended.json")
+        .await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[Seq[Tweet]]("/fixtures/rest/statuses/lookup_extended.json")
+    }
+
     "reject request if no ids have been provided for the lookup" in new TwitterStatusClientSpecContext {
       tweetLookup() must throwA[IllegalArgumentException](
         "requirement failed: please, provide at least one status id to lookup")
@@ -263,6 +279,21 @@ class TwitterStatusClientSpec extends ClientSpec {
         .await
       result.rate_limit === rateLimit
       result.data === loadJsonAs[LookupMapped]("/fixtures/rest/statuses/lookup_mapped.json")
+    }
+
+    "perform a mapped lookup extended" in new TwitterStatusClientSpecContext {
+      val result: RatedData[LookupMapped] = when(
+        tweetLookupMapped(Seq(963141440695078912L, 956111334898270209L), tweet_mode = TweetMode.Extended)
+      ).expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
+          request.uri.queryString() === Some(
+            "id=963141440695078912,956111334898270209&include_entities=true&map=true&trim_user=false&tweet_mode=extended")
+        }
+        .respondWithRated("/twitter/rest/statuses/lookup_mapped_extended.json")
+        .await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[LookupMapped]("/fixtures/rest/statuses/lookup_mapped_extended.json")
     }
   }
 }
