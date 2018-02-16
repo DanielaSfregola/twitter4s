@@ -30,11 +30,11 @@ class TwitterStatusClientSpec extends ClientSpec {
 
     "start a sample status stream" in new TwitterStatusClientSpecContext {
       val result: Unit =
-        when(sampleStatuses(languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing))
+        when(sampleStatuses(languages = Seq(Language.English))(dummyProcessing))
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
-            request.uri.rawQueryString === Some("filter_level=none&language=hu%2Cbn&stall_warnings=false")
+            request.uri.rawQueryString === Some("filter_level=none&language=en&stall_warnings=false")
           }
           .respondWithOk
           .await
