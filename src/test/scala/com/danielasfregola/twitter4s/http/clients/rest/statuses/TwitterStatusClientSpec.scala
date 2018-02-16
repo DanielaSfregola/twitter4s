@@ -115,7 +115,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&possibly_sensitive=false&status=This+is+a+test&trim_user=false")
+            "display_coordinates=false&possibly_sensitive=false&status=This%20is%20a%20test&trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/update.json")
         .await
@@ -129,7 +129,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&media_ids=1%2C2&possibly_sensitive=false&status=This+is+a+test&trim_user=false")
+            "display_coordinates=false&media_ids=1%2C2&possibly_sensitive=false&status=This%20is%20a%20test&trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/update.json")
         .await
@@ -143,7 +143,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&possibly_sensitive=false&status=D+DanielaSfregola+This+is+a+test+for+a+direct+message&trim_user=false"
+            "display_coordinates=false&possibly_sensitive=false&status=D%20DanielaSfregola%20This%20is%20a%20test%20for%20a%20direct%20message&trim_user=false"
           )
         }
         .respondWith("/twitter/rest/statuses/direct_message.json")

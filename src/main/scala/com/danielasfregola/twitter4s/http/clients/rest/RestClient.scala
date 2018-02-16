@@ -8,13 +8,13 @@ import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.{ActorMaterializer, Materializer}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RatedData}
 import com.danielasfregola.twitter4s.http.clients.Client
-import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
+import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 
 import scala.concurrent.Future
 
 private[twitter4s] class RestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends Client {
 
-  lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
+  lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
 
   private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
 

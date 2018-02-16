@@ -63,7 +63,7 @@ class TwitterAccountClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
           request.entity === HttpEntity(`application/x-www-form-urlencoded`,
-                                        "include_entities=true&name=Daniela+Sfregola&skip_status=false")
+                                        "include_entities=true&name=Daniela%20Sfregola&skip_status=false")
         }
         .respondWith("/twitter/rest/account/user.json")
         .await
@@ -89,7 +89,7 @@ class TwitterAccountClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
           request.entity === HttpEntity(`application/x-www-form-urlencoded`,
-                                        "description=Nice+description+here&include_entities=true&skip_status=false")
+                                        "description=Nice%20description%20here&include_entities=true&skip_status=false")
         }
         .respondWith("/twitter/rest/account/user.json")
         .await
@@ -102,7 +102,7 @@ class TwitterAccountClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/account/update_profile.json"
           request.entity === HttpEntity(`application/x-www-form-urlencoded`,
-                                        "include_entities=true&location=London%2C+UK&skip_status=false")
+                                        "include_entities=true&location=London%2C%20UK&skip_status=false")
         }
         .respondWith("/twitter/rest/account/user.json")
         .await

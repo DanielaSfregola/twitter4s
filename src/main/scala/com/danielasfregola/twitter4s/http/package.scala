@@ -2,18 +2,22 @@ package com.danielasfregola.twitter4s
 
 import java.net.URLEncoder
 
-package object http {
+import scala.util.matching.Regex
 
-  private val SpecialEncodings = Map("+" -> "%20", "*" -> "%2A", "~" -> "%7E")
+package object http {
 
   implicit class RichString(val value: String) extends AnyVal {
 
-    def toAscii = urlEncoded.replace("+", "%20")
-
-    def urlEncoded = URLEncoder.encode(value, "UTF-8")
-
-    def escapeSpecialChars = SpecialEncodings.foldRight(urlEncoded) {
-      case ((char, encoding), acc) => acc.replace(char, encoding)
+    def urlEncoded = {
+      val urlEncodePattern = """\+|\*|%7E""".r
+      val replacer: Regex.Match => String = m =>
+        m.group(0) match {
+          case "+"   => "%20"
+          case "*"   => "%2A"
+          case "%7E" => "~"
+      }
+      val encodedValue = URLEncoder.encode(value, "UTF-8")
+      urlEncodePattern.replaceAllIn(encodedValue, replacer)
     }
   }
 

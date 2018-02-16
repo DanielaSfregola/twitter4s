@@ -11,7 +11,7 @@ import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.oauth.OAuth2Provider
+import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 import org.json4s.native.Serialization
 
 import scala.concurrent.Future
@@ -25,7 +25,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
 
   def preProcessing(): Unit = ()
 
-  lazy val oauthProvider = new OAuth2Provider(consumerToken, Some(accessToken))
+  lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 

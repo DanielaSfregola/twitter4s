@@ -112,7 +112,7 @@ trait TwitterMediaClient {
 
   private def initMedia(size: Long, media_type: String, additional_owners: Seq[Long]): Future[MediaDetails] = {
     import restClient._
-    val parameters = MediaInitParameters(size, media_type.toAscii, Some(additional_owners.mkString(",")))
+    val parameters = MediaInitParameters(size, media_type, Some(additional_owners.mkString(",")))
     Post(s"$mediaUrl/upload.json", parameters).respondAs[MediaDetails]
   }
 

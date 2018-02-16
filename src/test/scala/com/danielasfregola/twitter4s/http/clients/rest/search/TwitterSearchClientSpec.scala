@@ -37,6 +37,20 @@ class TwitterSearchClientSpec extends ClientSpec {
       result.data === loadJsonAs[StatusSearch]("/fixtures/rest/search/tweets.json")
     }
 
+    "search for tweets with * in it" in new TwitterSearchClientSpecContext {
+      val result: RatedData[StatusSearch] = when(searchTweet("Test*Test"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/search/tweets.json"
+          request.uri.rawQueryString === Some("count=15&include_entities=true" +
+            "&q=Test%2ATest&result_type=mixed")
+        }
+        .respondWithRated("/twitter/rest/search/tweets.json")
+        .await
+      result.rate_limit === rateLimit
+      result.data === loadJsonAs[StatusSearch]("/fixtures/rest/search/tweets.json")
+    }
+
   }
 
 }

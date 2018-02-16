@@ -566,7 +566,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("list_id=8044403&name=new+name")
+          request.uri.rawQueryString === Some("list_id=8044403&name=new%20name")
         }
         .respondWithOk
         .await
@@ -578,7 +578,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("name=new+name&owner_screen_name=twitterapi&slug=meetup-20100301")
+          request.uri.rawQueryString === Some("name=new%20name&owner_screen_name=twitterapi&slug=meetup-20100301")
         }
         .respondWithOk
         .await
@@ -590,7 +590,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("name=new+name&owner_id=6253282&slug=meetup-20100301")
+          request.uri.rawQueryString === Some("name=new%20name&owner_id=6253282&slug=meetup-20100301")
         }
         .respondWithOk
         .await
@@ -602,7 +602,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("description=cool+description&list_id=8044403")
+          request.uri.rawQueryString === Some("description=cool%20description&list_id=8044403")
         }
         .respondWithOk
         .await
@@ -616,7 +616,7 @@ class TwitterListClientSpec extends ClientSpec {
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
             request.uri.rawQueryString === Some(
-              "description=cool+description&owner_screen_name=twitterapi&slug=meetup-20100301")
+              "description=cool%20description&owner_screen_name=twitterapi&slug=meetup-20100301")
           }
           .respondWithOk
           .await
@@ -628,7 +628,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("description=cool+description&owner_id=6253282&slug=meetup-20100301")
+          request.uri.rawQueryString === Some("description=cool%20description&owner_id=6253282&slug=meetup-20100301")
         }
         .respondWithOk
         .await
@@ -641,7 +641,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
-          request.uri.rawQueryString === Some("description=cool+description&list_id=8044403&mode=private")
+          request.uri.rawQueryString === Some("description=cool%20description&list_id=8044403&mode=private")
         }
         .respondWithOk
         .await
@@ -655,7 +655,7 @@ class TwitterListClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
           request.uri.rawQueryString === Some(
-            "description=cool+description&mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
+            "description=cool%20description&mode=private&owner_screen_name=twitterapi&slug=meetup-20100301")
         }
         .respondWithOk
         .await
@@ -669,7 +669,7 @@ class TwitterListClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/update.json"
           request.uri.rawQueryString === Some(
-            "description=cool+description&mode=private&owner_id=6253282&slug=meetup-20100301")
+            "description=cool%20description&mode=private&owner_id=6253282&slug=meetup-20100301")
         }
         .respondWithOk
         .await
@@ -681,7 +681,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/create.json"
-          request.uri.rawQueryString === Some("description=a+nice+description&mode=private&name=my-list")
+          request.uri.rawQueryString === Some("description=a%20nice%20description&mode=private&name=my-list")
         }
         .respondWith("/twitter/rest/lists/create.json")
         .await
@@ -706,7 +706,7 @@ class TwitterListClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/lists/show.json"
-          request.uri.rawQueryString === Some("owner_screen_name=Daniela+Sfregola&slug=my-list")
+          request.uri.rawQueryString === Some("owner_screen_name=Daniela%20Sfregola&slug=my-list")
         }
         .respondWithRated("/twitter/rest/lists/show.json")
         .await
