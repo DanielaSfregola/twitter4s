@@ -28,7 +28,7 @@ class TwitterGeoClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/geo/reverse_geocode.json"
-          request.uri.queryString() === Some("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
+          request.uri.rawQueryString === Some("accuracy=0m&granularity=neighborhood&lat=-122.42284884&long=37.76893497")
         }
         .respondWithRated("/twitter/rest/geo/reverse_geocode.json")
         .await
@@ -41,7 +41,7 @@ class TwitterGeoClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-          request.uri.queryString() === Some("query=Creazzo")
+          request.uri.rawQueryString === Some("query=Creazzo")
         }
         .respondWithRated("/twitter/rest/geo/search.json")
         .await
@@ -51,11 +51,11 @@ class TwitterGeoClientSpec extends ClientSpec {
 
     "perform an advanced search of a geo place" in new TwitterGeoClientSpecContext {
       val result: RatedData[GeoSearch] =
-        when(advancedSearchGeoPlace(query = Some("Creazzo"), street_address = Some("Via Giotto 15")))
+        when(advancedSearchGeoPlace(query = Some("Creazzo"), street_address = Some("Via Giotto 20")))
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === s"https://api.twitter.com/1.1/geo/search.json"
-            request.uri.queryString() === Some("attribute:street_address=Via+Giotto+15&query=Creazzo")
+            request.uri.rawQueryString === Some("attribute:street_address=Via%20Giotto%2020&query=Creazzo")
           }
           .respondWithRated("/twitter/rest/geo/advanced_search.json")
           .await
@@ -66,7 +66,7 @@ class TwitterGeoClientSpec extends ClientSpec {
     "reject advanced search if no latitude or longitude or ip or query have been provided" in new TwitterGeoClientSpecContext {
       val msg =
         "requirement failed: please, provide at least one of the following: 'latitude', 'longitude', 'query', 'ip'"
-      advancedSearchGeoPlace(street_address = Some("Via Giotto 15")) must throwA[IllegalArgumentException](msg)
+      advancedSearchGeoPlace(street_address = Some("Via Giotto 20")) must throwA[IllegalArgumentException](msg)
     }
 
   }

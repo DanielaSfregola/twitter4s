@@ -15,7 +15,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/show.json"
-          request.uri.queryString() === Some("id=649298254383980547")
+          request.uri.rawQueryString === Some("id=649298254383980547")
         }
         .respondWithRated("/twitter/rest/directmessages/show.json")
         .await
@@ -28,7 +28,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/sent.json"
-          request.uri.queryString() === Some("count=10&include_entities=true&page=-1")
+          request.uri.rawQueryString === Some("count=10&include_entities=true&page=-1")
         }
         .respondWithRated("/twitter/rest/directmessages/sent.json")
         .await
@@ -41,7 +41,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages.json"
-          request.uri.queryString() === Some("count=10&include_entities=true&skip_status=false")
+          request.uri.rawQueryString === Some("count=10&include_entities=true&skip_status=false")
         }
         .respondWithRated("/twitter/rest/directmessages/received.json")
         .await
@@ -54,7 +54,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/destroy.json"
-          request.uri.queryString() === Some("id=649298254383980547&include_entities=true")
+          request.uri.rawQueryString === Some("id=649298254383980547&include_entities=true")
         }
         .respondWith("/twitter/rest/directmessages/destroy.json")
         .await
@@ -67,7 +67,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
-          request.uri.queryString() === Some("text=FUNZIONAAAAAAAAAA+:D&user_id=2911461333")
+          request.uri.rawQueryString === Some("text=FUNZIONAAAAAAAAAA%20%3AD&user_id=2911461333")
         }
         .respondWith("/twitter/rest/directmessages/new.json")
         .await
@@ -80,7 +80,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/new.json"
-          request.uri.queryString() === Some("screen_name=marcobonzanini&text=FUNZIONAAAAAAAAAA+:D")
+          request.uri.rawQueryString === Some("screen_name=marcobonzanini&text=FUNZIONAAAAAAAAAA%20%3AD")
         }
         .respondWith("/twitter/rest/directmessages/new.json")
         .await

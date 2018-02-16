@@ -16,7 +16,7 @@ class TwitterApplicationClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
-          request.uri.queryString() === Some("resources=account,statuses")
+          request.uri.rawQueryString === Some("resources=account%2Cstatuses")
         }
         .respondWithRated("/twitter/rest/application/rate_limits.json")
         .await
@@ -29,7 +29,7 @@ class TwitterApplicationClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/application/rate_limit_status.json"
-          request.uri.queryString() === None
+          request.uri.rawQueryString === None
         }
         .respondWithRated("/twitter/rest/application/rate_limits.json")
         .await

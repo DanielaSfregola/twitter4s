@@ -19,7 +19,7 @@ class TwitterOAuthClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/oauth/request_token"
-          request.uri.queryString() === None
+          request.uri.rawQueryString === None
         }
         .respondWith("/twitter/authentication/request_token.txt")
         .await
@@ -34,7 +34,7 @@ class TwitterOAuthClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/oauth/request_token"
-          request.uri.queryString() === Some("x_auth_access_type=read")
+          request.uri.rawQueryString === Some("x_auth_access_type=read")
         }
         .respondWith("/twitter/authentication/request_token.txt")
         .await
@@ -61,7 +61,7 @@ class TwitterOAuthClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/oauth/access_token"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "x_auth_mode=client_auth&x_auth_password=my-secret-password&x_auth_username=twitterapi")
         }
         .respondWith("/twitter/authentication/access_token.txt")
@@ -80,7 +80,7 @@ class TwitterOAuthClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/oauth/access_token"
-          request.uri.queryString() === Some("oauth_token=my-oauth-token&oauth_verifier=my-token-verifier")
+          request.uri.rawQueryString === Some("oauth_token=my-oauth-token&oauth_verifier=my-token-verifier")
         }
         .respondWith("/twitter/authentication/access_token.txt")
         .await

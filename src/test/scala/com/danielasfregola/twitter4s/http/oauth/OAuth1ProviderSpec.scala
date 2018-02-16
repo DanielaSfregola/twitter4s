@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.helpers.{AwaitableFuture, TestActorSystem, 
 import org.specs2.matcher.Scope
 import org.specs2.mutable.SpecificationLike
 
-class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with AwaitableFuture with TestExecutionContext {
+class OAuth1ProviderSpec extends TestActorSystem with SpecificationLike with AwaitableFuture with TestExecutionContext {
 
   val consumerToken = ConsumerToken("xvz1evFS4wEEPTGEFPHBog", "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw")
 
@@ -19,7 +19,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
     HttpRequest(method = HttpMethods.POST, uri = uri, entity = entity.withContentType(contentType))
   }
 
-  def providerBuilder(accessToken: Option[AccessToken]) = new OAuth2Provider(consumerToken, accessToken) {
+  def providerBuilder(accessToken: Option[AccessToken]) = new OAuth1Provider(consumerToken, accessToken) {
     override def currentSecondsFromEpoc = 1318622958
     override def generateNonce = "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg"
   }
@@ -45,7 +45,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
       "with access token" in {
 
         "provide an Authorization token according to the OAuth standards" in new OAuthWithAccessToken {
-          val oauthHeader = provider.oauth2Header(None)(request, materializer).await
+          val oauthHeader = provider.oauth1Header(None)(request, materializer).await
           val expectedAuthorization =
             """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
           oauthHeader === RawHeader("Authorization", expectedAuthorization)
@@ -53,7 +53,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide the oauth parameters as expected" in new OAuthWithAccessToken {
 
-          val oauthParams = provider.oauth2Params(None)(request, materializer).await
+          val oauthParams = provider.oauth1Params(None)(request, materializer).await
           oauthParams.size === 7
           oauthParams("oauth_consumer_key") === consumerToken.key
           oauthParams("oauth_signature_method") === "HMAC-SHA1"
@@ -99,7 +99,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
       "with no access token" in {
 
         "provide an Authorization token according to the OAuth standards" in new OAuthWithNoAccessToken {
-          val oauthHeader = provider.oauth2Header(None)(request, materializer).await
+          val oauthHeader = provider.oauth1Header(None)(request, materializer).await
           val expectedAuthorization =
             """OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="%2Bgxx4CGoDB7afZbRRRpR56orbKU%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_version="1.0""""
           oauthHeader === RawHeader("Authorization", expectedAuthorization)
@@ -107,7 +107,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide the oauth parameters as expected" in new OAuthWithNoAccessToken {
 
-          val oauthParams = provider.oauth2Params(None)(request, materializer).await
+          val oauthParams = provider.oauth1Params(None)(request, materializer).await
           oauthParams.size === 6
           oauthParams("oauth_consumer_key") === consumerToken.key
           oauthParams("oauth_signature_method") === "HMAC-SHA1"
@@ -154,7 +154,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide an Authorization token according to the OAuth standards" in new OAuthWithAccessToken
         with WithCallback {
-          val oauthHeader = provider.oauth2Header(callback)(request, materializer).await
+          val oauthHeader = provider.oauth1Header(callback)(request, materializer).await
           val expectedAuthorization =
             """OAuth oauth_callback="http%3A%2F%2Fmy.example%2Fauth", oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="qiHvwU1c%2Bi7rCRk8rnVGOHXXTBI%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0""""
           oauthHeader === RawHeader("Authorization", expectedAuthorization)
@@ -162,7 +162,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide the oauth parameters as expected" in new OAuthWithAccessToken with WithCallback {
 
-          val oauthParams = provider.oauth2Params(callback)(request, materializer).await
+          val oauthParams = provider.oauth1Params(callback)(request, materializer).await
           oauthParams.size === 8
           oauthParams("oauth_callback") === "http%3A%2F%2Fmy.example%2Fauth"
           oauthParams("oauth_consumer_key") === consumerToken.key
@@ -212,7 +212,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide an Authorization token according to the OAuth standards" in new OAuthWithNoAccessToken
         with WithCallback {
-          val oauthHeader = provider.oauth2Header(callback)(request, materializer).await
+          val oauthHeader = provider.oauth1Header(callback)(request, materializer).await
           val expectedAuthorization =
             """OAuth oauth_callback="http%3A%2F%2Fmy.example%2Fauth", oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="Nb7%2FehS1ddvtYCbI9VU1AJyBKS8%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_version="1.0""""
           oauthHeader === RawHeader("Authorization", expectedAuthorization)
@@ -220,7 +220,7 @@ class OAuth2ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
         "provide the oauth parameters as expected" in new OAuthWithNoAccessToken with WithCallback {
 
-          val oauthParams = provider.oauth2Params(callback)(request, materializer).await
+          val oauthParams = provider.oauth1Params(callback)(request, materializer).await
           oauthParams.size === 7
           oauthParams("oauth_callback") === "http%3A%2F%2Fmy.example%2Fauth"
           oauthParams("oauth_consumer_key") === consumerToken.key

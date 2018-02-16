@@ -22,7 +22,7 @@ class TwitterMediaClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
-            request.uri.queryString() === Some("command=INIT&media_type=image%2Fpng&total_bytes=22689")
+            request.uri.rawQueryString === Some("command=INIT&media_type=image%2Fpng&total_bytes=22689")
           }
           .respondWith(initMediaResponse)
           .expectRequest { request =>
@@ -34,7 +34,7 @@ class TwitterMediaClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
-            request.uri.queryString() === Some("command=FINALIZE&media_id=925706675478151168")
+            request.uri.rawQueryString === Some("command=FINALIZE&media_id=925706675478151168")
           }
           .respondWith("/fixtures/rest/media/img_media_details.json")
           .await
@@ -47,7 +47,7 @@ class TwitterMediaClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
-            request.uri.queryString() === Some("command=STATUS&media_id=710511363345354753")
+            request.uri.rawQueryString === Some("command=STATUS&media_id=710511363345354753")
           }
           .respondWith("/twitter/rest/media/media_details.json")
           .await

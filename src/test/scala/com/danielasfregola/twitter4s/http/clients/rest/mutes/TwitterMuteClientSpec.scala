@@ -15,7 +15,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/create.json"
-          request.uri.queryString() === Some("screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/mutes/user.json")
         .await
@@ -27,7 +27,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/create.json"
-          request.uri.queryString() === Some("user_id=19018614")
+          request.uri.rawQueryString === Some("user_id=19018614")
         }
         .respondWith("/twitter/rest/mutes/user.json")
         .await
@@ -39,7 +39,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/destroy.json"
-          request.uri.queryString() === Some("screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/mutes/user.json")
         .await
@@ -51,7 +51,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/destroy.json"
-          request.uri.queryString() === Some("user_id=19018614")
+          request.uri.rawQueryString === Some("user_id=19018614")
         }
         .respondWith("/twitter/rest/mutes/user.json")
         .await
@@ -63,7 +63,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/ids.json"
-          request.uri.queryString() === Some("cursor=-1")
+          request.uri.rawQueryString === Some("cursor=-1")
         }
         .respondWithRated("/twitter/rest/mutes/muted_users_ids.json")
         .await
@@ -76,7 +76,7 @@ class TwitterMuteClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/mutes/users/list.json"
-          request.uri.queryString() === Some("cursor=-1&include_entities=true&skip_status=false")
+          request.uri.rawQueryString === Some("cursor=-1&include_entities=true&skip_status=false")
         }
         .respondWithRated("/twitter/rest/mutes/users.json")
         .await

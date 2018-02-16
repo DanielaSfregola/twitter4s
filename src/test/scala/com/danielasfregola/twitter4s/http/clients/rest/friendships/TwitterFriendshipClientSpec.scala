@@ -15,7 +15,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
-          request.uri.queryString() === Some("stringify_ids=false")
+          request.uri.rawQueryString === Some("stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/friendships/blocked_users.json")
         .await
@@ -28,7 +28,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/no_retweets/ids.json"
-          request.uri.queryString() === Some("stringify_ids=true")
+          request.uri.rawQueryString === Some("stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/friendships/blocked_users_stringified.json")
         .await
@@ -41,7 +41,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/friendships/incoming_friendships_ids.json")
         .await
@@ -54,7 +54,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/incoming.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/friendships/incoming_friendships_ids_stringified.json")
         .await
@@ -68,7 +68,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=false")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/friendships/outgoing_friendships_ids.json")
         .await
@@ -81,7 +81,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/outgoing.json"
-          request.uri.queryString() === Some("cursor=-1&stringify_ids=true")
+          request.uri.rawQueryString === Some("cursor=-1&stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/friendships/outgoing_friendships_ids_stringified.json")
         .await
@@ -95,7 +95,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-          request.uri.queryString() === Some("follow=true&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("follow=true&screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/follow.json")
         .await
@@ -107,7 +107,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/create.json"
-          request.uri.queryString() === Some("follow=true&user_id=19018614")
+          request.uri.rawQueryString === Some("follow=true&user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/follow.json")
         .await
@@ -119,7 +119,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
-          request.uri.queryString() === Some("screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/unfollow.json")
         .await
@@ -131,7 +131,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/destroy.json"
-          request.uri.queryString() === Some("user_id=19018614")
+          request.uri.rawQueryString === Some("user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/unfollow.json")
         .await
@@ -143,7 +143,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("retweets=true&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("retweets=true&screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -155,7 +155,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("retweets=true&user_id=19018614")
+          request.uri.rawQueryString === Some("retweets=true&user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -167,7 +167,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("retweets=false&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("retweets=false&screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -179,7 +179,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("retweets=false&user_id=19018614")
+          request.uri.rawQueryString === Some("retweets=false&user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -191,7 +191,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("device=true&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("device=true&screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -203,7 +203,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("device=true&user_id=19018614")
+          request.uri.rawQueryString === Some("device=true&user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -215,7 +215,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("device=false&screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("device=false&screen_name=marcobonzanini")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -227,7 +227,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/update.json"
-          request.uri.queryString() === Some("device=false&user_id=19018614")
+          request.uri.rawQueryString === Some("device=false&user_id=19018614")
         }
         .respondWith("/twitter/rest/friendships/update.json")
         .await
@@ -239,7 +239,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
-          request.uri.queryString() === Some("source_id=2911461333&target_id=19018614")
+          request.uri.rawQueryString === Some("source_id=2911461333&target_id=19018614")
         }
         .respondWithRated("/twitter/rest/friendships/relationship.json")
         .await
@@ -252,7 +252,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/show.json"
-          request.uri.queryString() === Some("source_screen_name=DanielaSfregola&target_screen_name=marcobonzanini")
+          request.uri.rawQueryString === Some("source_screen_name=DanielaSfregola&target_screen_name=marcobonzanini")
         }
         .respondWithRated("/twitter/rest/friendships/relationship.json")
         .await
@@ -265,7 +265,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
-          request.uri.queryString() === Some("screen_name=marcobonzanini,odersky")
+          request.uri.rawQueryString === Some("screen_name=marcobonzanini%2Codersky")
         }
         .respondWithRated("/twitter/rest/friendships/relationships.json")
         .await
@@ -283,7 +283,7 @@ class TwitterFriendshipClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/friendships/lookup.json"
-          request.uri.queryString() === Some("user_id=2911461333,2911461334")
+          request.uri.rawQueryString === Some("user_id=2911461333%2C2911461334")
         }
         .respondWithRated("/twitter/rest/friendships/relationships.json")
         .await

@@ -34,7 +34,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/sample.json"
-            request.uri.queryString() === Some("filter_level=none&language=hu,bn&stall_warnings=false")
+            request.uri.rawQueryString === Some("filter_level=none&language=hu%2Cbn&stall_warnings=false")
           }
           .respondWithOk
           .await
@@ -47,7 +47,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/firehose.json"
-            request.uri.queryString() === Some("language=hu,bn&stall_warnings=false")
+            request.uri.rawQueryString === Some("language=hu%2Cbn&stall_warnings=false")
           }
           .respondWithOk
           .await

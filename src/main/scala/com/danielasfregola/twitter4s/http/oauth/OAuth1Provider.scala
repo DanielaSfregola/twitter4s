@@ -11,29 +11,29 @@ import scala.concurrent.Future
 import scala.concurrent.duration._
 import scala.util.Random
 
-private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToken: Option[AccessToken])
+private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToken: Option[AccessToken])
     extends Encoder
     with UriHelpers {
 
-  def oauth2Header(callback: Option[String])(implicit request: HttpRequest,
+  def oauth1Header(callback: Option[String])(implicit request: HttpRequest,
                                              materializer: Materializer): Future[HttpHeader] = {
     implicit val ec = materializer.executionContext
-    oauth2Params(callback).map { params =>
+    oauth1Params(callback).map { params =>
       val authorizationValue = params.map { case (k, v) => s"""$k="$v"""" }.toList.sorted.mkString(", ")
       RawHeader("Authorization", s"OAuth $authorizationValue")
     }
   }
 
-  def oauth2Params(callback: Option[String])(implicit request: HttpRequest,
+  def oauth1Params(callback: Option[String])(implicit request: HttpRequest,
                                              materializer: Materializer): Future[Map[String, String]] = {
     implicit val ec = materializer.executionContext
     val params = basicOAuth2Params(callback)
     for {
-      signature <- oauth2Signature(params)
-    } yield (params + signature).mapValues(_.toAscii)
+      signature <- oauth1Signature(params)
+    } yield (params + signature).mapValues(_.urlEncoded)
   }
 
-  def oauth2Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
+  def oauth1Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
     implicit val ec = materializer.executionContext
     signatureBase(oauth2Params).map { signatureBase =>
       "oauth_signature" -> toHmacSha1(signatureBase, signingKey)
@@ -41,8 +41,8 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
   }
 
   val signingKey = {
-    val encodedConsumerSecret = consumerToken.secret.toAscii
-    val encodedAccessTokenSecret = accessToken.map(_.secret.toAscii).getOrElse("")
+    val encodedConsumerSecret = consumerToken.secret.urlEncoded
+    val encodedAccessTokenSecret = accessToken.map(_.secret.urlEncoded).getOrElse("")
     Seq(encodedConsumerSecret, encodedAccessTokenSecret).mkString("&")
   }
 
@@ -64,14 +64,14 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
   def signatureBase(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
     implicit val ec = materializer.executionContext
     bodyParams.map { bdParams =>
-      val method = request.method.name.toAscii
-      val baseUrl = request.uri.endpoint.toAscii
+      val method = request.method.name.urlEncoded
+      val baseUrl = request.uri.endpoint.urlEncoded
       val oauthParams = oauth2Params.map {
         case (k, v) =>
-          if (k == "oauth_callback") k -> v.toAscii
+          if (k == "oauth_callback") k -> v.urlEncoded
           else k -> v
       }
-      val encodedParams = encodeParams(queryParams ++ oauthParams ++ bdParams).toAscii
+      val encodedParams = encodeParams(queryParams ++ oauthParams ++ bdParams).urlEncoded
       s"$method&$baseUrl&$encodedParams"
     }
   }
@@ -88,7 +88,7 @@ private[twitter4s] class OAuth2Provider(consumerToken: ConsumerToken, accessToke
     }
   }
 
-  def queryParams(implicit request: HttpRequest) = request.uri.query().toMap.mapValues(_.toAscii)
+  def queryParams(implicit request: HttpRequest) = request.uri.query().toMap.mapValues(_.urlEncoded)
 
   private def encodeParams(params: Map[String, String]) =
     params.keySet.toList.sorted

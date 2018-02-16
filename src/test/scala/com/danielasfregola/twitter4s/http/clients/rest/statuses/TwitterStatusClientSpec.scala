@@ -15,7 +15,8 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/mentions_timeline.json"
-          request.uri.queryString() === Some("contributor_details=false&count=10&include_entities=true&trim_user=false")
+          request.uri.rawQueryString === Some(
+            "contributor_details=false&count=10&include_entities=true&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/mentions_timeline.json")
         .await
@@ -28,7 +29,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/user_timeline.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "contributor_details=false&count=10&exclude_replies=false&include_rts=true&screen_name=DanielaSfregola&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/user_timeline.json")
@@ -42,7 +43,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/user_timeline.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "contributor_details=false&count=10&exclude_replies=false&include_rts=true&trim_user=false&user_id=123456")
         }
         .respondWithRated("/twitter/rest/statuses/user_timeline.json")
@@ -56,7 +57,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/home_timeline.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "contributor_details=false&count=10&exclude_replies=false&include_entities=true&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/home_timeline.json")
@@ -70,7 +71,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweets_of_me.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "contributor_details=false&count=10&exclude_replies=false&include_entities=true&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/retweets_of_me.json")
@@ -85,7 +86,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/retweets/$id.json"
-          request.uri.queryString() === Some("count=10&trim_user=false")
+          request.uri.rawQueryString === Some("count=10&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/retweets.json")
         .await
@@ -98,7 +99,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/show.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "id=648866645855879168&include_entities=true&include_my_retweet=false&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/show.json")
@@ -114,7 +115,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&possibly_sensitive=false&status=This+is+a+test&trim_user=false")
+            "display_coordinates=false&possibly_sensitive=false&status=This%20is%20a%20test&trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/update.json")
         .await
@@ -128,7 +129,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&media_ids=1%2C2&possibly_sensitive=false&status=This+is+a+test&trim_user=false")
+            "display_coordinates=false&media_ids=1%2C2&possibly_sensitive=false&status=This%20is%20a%20test&trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/update.json")
         .await
@@ -142,7 +143,7 @@ class TwitterStatusClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/update.json"
           request.entity === HttpEntity(
             `application/x-www-form-urlencoded`,
-            "display_coordinates=false&possibly_sensitive=false&status=D+DanielaSfregola+This+is+a+test+for+a+direct+message&trim_user=false"
+            "display_coordinates=false&possibly_sensitive=false&status=D%20DanielaSfregola%20This%20is%20a%20test%20for%20a%20direct%20message&trim_user=false"
           )
         }
         .respondWith("/twitter/rest/statuses/direct_message.json")
@@ -156,7 +157,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/destroy/$id.json"
-          request.uri.queryString() === Some("trim_user=false")
+          request.uri.rawQueryString === Some("trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/destroy.json")
         .await
@@ -169,7 +170,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === s"https://api.twitter.com/1.1/statuses/retweet/$id.json"
-          request.uri.queryString() === Some("trim_user=false")
+          request.uri.rawQueryString === Some("trim_user=false")
         }
         .respondWith("/twitter/rest/statuses/retweet.json")
         .await
@@ -181,7 +182,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
-          request.uri.queryString() === Some(
+          request.uri.rawQueryString === Some(
             "align=none&hide_media=false&hide_thread=false&hide_tweet=false&id=648866645855879168&lang=en&omit_script=false")
         }
         .respondWithRated("/twitter/rest/statuses/oembed.json")
@@ -196,8 +197,8 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/oembed.json"
-          request.uri.queryString() === Some(
-            "align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https://twitter.com/Interior/status/648866645855879168")
+          request.uri.rawQueryString === Some(
+            "align=none&hide_media=false&hide_thread=false&hide_tweet=false&lang=en&omit_script=false&url=https%3A%2F%2Ftwitter.com%2FInterior%2Fstatus%2F648866645855879168")
         }
         .respondWithRated("/twitter/rest/statuses/oembed.json")
         .await
@@ -210,7 +211,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
-          request.uri.queryString() === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=false")
+          request.uri.rawQueryString === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=false")
         }
         .respondWithRated("/twitter/rest/statuses/retweeters_ids.json")
         .await
@@ -223,7 +224,7 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/retweeters/ids.json"
-          request.uri.queryString() === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
+          request.uri.rawQueryString === Some("count=100&cursor=-1&id=327473909412814850&stringify_ids=true")
         }
         .respondWithRated("/twitter/rest/statuses/retweeters_ids_stringified.json")
         .await
@@ -236,8 +237,8 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
-          request.uri.queryString() === Some(
-            "id=327473909412814850,327473909412814851&include_entities=true&map=false&trim_user=false")
+          request.uri.rawQueryString === Some(
+            "id=327473909412814850%2C327473909412814851&include_entities=true&map=false&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/lookup.json")
         .await
@@ -255,8 +256,8 @@ class TwitterStatusClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/statuses/lookup.json"
-          request.uri.queryString() === Some(
-            "id=327473909412814850,327473909412814851&include_entities=true&map=true&trim_user=false")
+          request.uri.rawQueryString === Some(
+            "id=327473909412814850%2C327473909412814851&include_entities=true&map=true&trim_user=false")
         }
         .respondWithRated("/twitter/rest/statuses/lookup_mapped.json")
         .await

@@ -16,7 +16,7 @@ class TwitterUserClientSpec extends ClientSpec {
           .expectRequest { request =>
             request.method === HttpMethods.GET
             request.uri.endpoint === "https://userstream.twitter.com/1.1/user.json"
-            request.uri.queryString() === Some(
+            request.uri.rawQueryString === Some(
               "filter_level=none&language=en&stall_warnings=false&stringify_friend_ids=false&track=trending&with=followings")
           }
           .respondWithOk
