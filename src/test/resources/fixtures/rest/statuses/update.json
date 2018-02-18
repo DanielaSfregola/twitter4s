@@ -7,6 +7,19 @@
     "urls": [],
     "user_mentions": []
   },
+  "extended_tweet": {
+    "full_text": "This is a full_text test",
+    "display_text_range": [
+      13,
+      125
+    ],
+    "entities": {
+      "hashtags": [],
+      "media": [],
+      "urls": [],
+      "user_mentions": []
+    }
+  },
   "favorite_count": 0,
   "favorited": false,
   "id": 649261149893074944,
