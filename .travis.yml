@@ -32,3 +32,4 @@ jdk:
 branches:
   only:
     - master
+    - /^twitter4s.*$/
