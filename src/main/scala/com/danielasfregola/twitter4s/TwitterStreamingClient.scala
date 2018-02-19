@@ -11,7 +11,7 @@ import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the Twitter Streaming API
   */
-class TwitterStreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
+class TwitterStreamingClient private (val consumerToken: ConsumerToken, val accessToken: AccessToken)(
     implicit _system: ActorSystem = ActorSystem("twitter4s-streaming"))
     extends StreamingClients
     with SystemShutdown {

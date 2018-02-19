@@ -9,8 +9,8 @@ import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the Twitter REST API for authentication
   */
-class TwitterAuthenticationClient(val consumerToken: ConsumerToken)(implicit _system: ActorSystem = ActorSystem(
-                                                                      "twitter4s-auth"))
+class TwitterAuthenticationClient private (val consumerToken: ConsumerToken)(implicit _system: ActorSystem =
+                                                                               ActorSystem("twitter4s-auth"))
     extends TwitterAuthClients
     with SystemShutdown {
 
