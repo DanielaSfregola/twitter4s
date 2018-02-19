@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 
-final case class DirectMessage(created_at: Date,
+final case class DirectMessage(created_at: Instant,
                                entities: Option[Entities],
                                id: Long,
                                id_str: String,

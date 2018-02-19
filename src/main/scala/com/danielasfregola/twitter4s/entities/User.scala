@@ -1,11 +1,11 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 final case class User(blocked_by: Boolean = false,
                       blocking: Boolean = false,
                       contributors_enabled: Boolean = false,
-                      created_at: Date,
+                      created_at: Instant,
                       default_profile: Boolean = false,
                       default_profile_image: Boolean = false,
                       description: Option[String] = None,

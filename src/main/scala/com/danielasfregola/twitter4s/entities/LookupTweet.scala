@@ -1,11 +1,11 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 final case class LookupTweet(
     contributors: Seq[Contributor],
     coordinates: Seq[Seq[Seq[Double]]] = Seq.empty,
-    created_at: Date,
+    created_at: Instant,
     entities: Option[Entities],
     favorite_count: Int = 0,
     favorited: Boolean = false,

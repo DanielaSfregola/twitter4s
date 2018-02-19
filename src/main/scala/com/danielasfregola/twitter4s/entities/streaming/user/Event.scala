@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities.streaming.user
 
-import java.util.Date
+import java.time.Instant
 
 import com.danielasfregola.twitter4s.entities.enums.EventCode
 import com.danielasfregola.twitter4s.entities.enums.SimpleEventCode.SimpleEventCode
@@ -15,20 +15,28 @@ import com.danielasfregola.twitter4s.entities.{Tweet, TwitterList, User}
   * <a href="https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types" target="_blank">
   *   https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/streaming-message-types</a>.
   */
-abstract class Event[T](created_at: Date, event: EventCode#Value, target: User, source: User, target_object: Option[T])
+abstract class Event[T](created_at: Instant,
+                        event: EventCode#Value,
+                        target: User,
+                        source: User,
+                        target_object: Option[T])
     extends UserStreamingMessage
 
-final case class SimpleEvent(created_at: Date,
+final case class SimpleEvent(created_at: Instant,
                              event: SimpleEventCode,
                              target: User,
                              source: User,
                              target_object: Option[String])
     extends Event(created_at, event, target, source, target_object)
 
-final case class TweetEvent(created_at: Date, event: TweetEventCode, target: User, source: User, target_object: Tweet)
+final case class TweetEvent(created_at: Instant,
+                            event: TweetEventCode,
+                            target: User,
+                            source: User,
+                            target_object: Tweet)
     extends Event(created_at, event, target, source, Some(target_object))
 
-final case class TwitterListEvent(created_at: Date,
+final case class TwitterListEvent(created_at: Instant,
                                   event: TwitterListEventCode,
                                   target: User,
                                   source: User,
