@@ -1,8 +1,8 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
-final case class TwitterList(created_at: Date,
+final case class TwitterList(created_at: Instant,
                              description: String,
                              following: Boolean,
                              full_name: String,

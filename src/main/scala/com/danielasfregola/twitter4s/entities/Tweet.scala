@@ -1,12 +1,12 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 
 final case class Tweet(contributors: Seq[Contributor] = Seq.empty,
                        coordinates: Option[Coordinates] = None,
-                       created_at: Date,
+                       created_at: Instant,
                        current_user_retweet: Option[TweetId] = None,
                        entities: Option[Entities] = None,
                        extended_entities: Option[Entities] = None,

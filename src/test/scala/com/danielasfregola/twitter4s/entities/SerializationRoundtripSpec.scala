@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 import com.danielasfregola.randomdatagenerator.RandomDataGenerator
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
@@ -35,10 +35,10 @@ class SerializationRoundtripSpec extends Specification with RandomDataGenerator 
   }
 
   // We serialize dates to second precision
-  implicit val arbitraryDate: Arbitrary[Date] = Arbitrary {
+  implicit val arbitraryDate: Arbitrary[Instant] = Arbitrary {
     for {
-      timeInMicroseconds: Long <- Gen.chooseNum(1142899200L, 1512442349L)
-    } yield new Date(timeInMicroseconds * 1000)
+      timeInSeconds: Long <- Gen.chooseNum(1142899200L, 1512442349L)
+    } yield Instant.ofEpochSecond(timeInSeconds)
   }
 
   implicit val arbitraryProfileImage: Arbitrary[ProfileImage] = Arbitrary {

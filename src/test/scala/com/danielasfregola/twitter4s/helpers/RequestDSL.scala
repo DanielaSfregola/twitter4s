@@ -24,7 +24,7 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport with Afte
 
   val rateLimit = {
     val dateFormatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZ yyyy", Locale.ENGLISH)
-    val resetDate = dateFormatter.parse("Sun Oct 18 15:26:33 +0000 2015")
+    val resetDate = dateFormatter.parse("Sun Oct 18 15:26:33 +0000 2015").toInstant
     new RateLimit(limit = 15, remaining = 14, reset = resetDate)
   }
 

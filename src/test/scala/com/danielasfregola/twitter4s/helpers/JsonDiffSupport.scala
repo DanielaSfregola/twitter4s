@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.helpers
 
-import java.util.Date
+import java.time.Instant
 
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import org.json4s.JsonAST._
@@ -84,6 +84,6 @@ trait JsonDiffSupport { this: JsonSupport =>
   }
 
   private object JDate {
-    def unapply(js: JString): Option[Date] = json4sFormats.dateFormat.parse(js.s)
+    def unapply(js: JString): Option[Instant] = json4sFormats.dateFormat.parse(js.s).map(_.toInstant)
   }
 }
