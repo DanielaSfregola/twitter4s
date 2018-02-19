@@ -3,9 +3,7 @@ package clients.rest.media
 
 import java.io.{File, FileInputStream, InputStream}
 import java.net.URLConnection
-import java.util.UUID
 
-import akka.actor.ActorSystem
 import akka.http.scaladsl.model.Multipart._
 import akka.http.scaladsl.model.{ContentTypes, MediaType}
 import akka.stream.scaladsl.Source
@@ -98,16 +96,13 @@ trait TwitterMediaClient {
       filename.getOrElse(s"twitter4s-$mediaId.$extension")
     }
 
-    val system = ActorSystem(s"twitter4s-media-${UUID.randomUUID}")
-    implicit val ec = system.dispatcher
+    implicit val ec: ExecutionContext = restClient.system.dispatcher
 
-    val response = for {
+    for {
       details <- initMedia(size, media_type, additional_owners)
       uploads <- appendMedia(details.media_id, inputStream, filenameBuilder(details.media_id))
       finalize <- finalizeMedia(details.media_id)
     } yield finalize
-    response.onComplete(_ => system.terminate)
-    response
   }
 
   private def initMedia(size: Long, media_type: String, additional_owners: Seq[Long]): Future[MediaDetails] = {

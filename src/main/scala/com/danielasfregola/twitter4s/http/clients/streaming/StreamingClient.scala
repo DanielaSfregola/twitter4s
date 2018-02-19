@@ -17,7 +17,8 @@ import org.json4s.native.Serialization
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
-private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)
+private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
+    implicit val system: ActorSystem)
     extends OAuthClient {
 
   val withLogRequest = true
@@ -29,15 +30,14 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
-    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] = {
-      implicit val system = ActorSystem(s"twitter4s-streaming-${UUID.randomUUID}")
-      implicit val materializer = ActorMaterializer()
-      implicit val ec = materializer.executionContext
+    implicit val materializer = ActorMaterializer()
+    implicit val ec = materializer.executionContext
+
+    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] =
       for {
         requestWithAuth <- withOAuthHeader(None)(materializer)(request)
         killSwitch <- processStreamRequest(requestWithAuth)(f)
       } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
-    }
   }
 
   protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
