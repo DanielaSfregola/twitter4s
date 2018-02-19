@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s
 
+import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient
@@ -22,10 +23,16 @@ import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSugges
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
 import com.danielasfregola.twitter4s.util.Configurations._
+import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the Twitter REST API
   */
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken) extends RestClients {
+class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(implicit _system: ActorSystem =
+                                                                                          ActorSystem("twitter4s-rest"))
+    extends RestClients
+    with SystemShutdown {
+
+  protected val system = _system
 
   protected val restClient = new RestClient(consumerToken, accessToken)
 
@@ -62,4 +69,14 @@ object TwitterRestClient {
 
   def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestClient =
     new TwitterRestClient(consumerToken, accessToken)
+
+  def withActorSystem(system: ActorSystem): TwitterRestClient = {
+    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
+    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
+    withActorSystem(consumerToken, accessToken)(system)
+  }
+
+  def withActorSystem(consumerToken: ConsumerToken, accessToken: AccessToken)(system: ActorSystem): TwitterRestClient =
+    new TwitterRestClient(consumerToken, accessToken)(system)
+
 }
