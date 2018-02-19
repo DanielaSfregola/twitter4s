@@ -1,18 +1,16 @@
 package com.danielasfregola.twitter4s.entities
 
-import java.util.Date
+import java.time.Instant
 
 import akka.http.scaladsl.model.{HttpHeader, StatusCodes}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
 
-final case class RateLimit(limit: Int, remaining: Int, reset: Date)
+final case class RateLimit(limit: Int, remaining: Int, reset: Instant)
 
 object RateLimit {
 
-  def apply(limit: Int, remaining: Int, reset: Long): RateLimit = {
-    val epochInMillis = reset * 1000
-    apply(limit, remaining, new Date(epochInMillis))
-  }
+  def apply(limit: Int, remaining: Int, reset: Long): RateLimit =
+    apply(limit, remaining, Instant.ofEpochSecond(reset))
 
   def apply(headers: Seq[HttpHeader]): RateLimit = {
     val errorMsg =

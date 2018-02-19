@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.serializers
 
-import java.time.LocalDate
+import java.time.{Instant, LocalDate}
 
 import com.danielasfregola.twitter4s.entities.ProfileImage
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
@@ -8,14 +8,20 @@ import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.Disconnect
 import org.json4s.JsonAST.{JInt, JNull, JString}
 import org.json4s.{CustomSerializer, Formats}
 
-object CustomFormats extends FormatsComposer {
+private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer
 
 }
 
-case object LocalDateSerializer
+private[twitter4s] case object InstantSerializer
+    extends CustomSerializer[Instant](format =>
+      ({ case JString(s) if DateTimeFormatter.canParseInstant(s) => DateTimeFormatter.parseInstant(s) }, {
+        case instant: Instant                                    => JString(DateTimeFormatter.formatInstant(instant))
+      }))
+
+private[twitter4s] case object LocalDateSerializer
     extends CustomSerializer[LocalDate](format =>
       ({
         case JString(dateString) =>
@@ -28,7 +34,7 @@ case object LocalDateSerializer
         case date: LocalDate => JString(date.toString)
       }))
 
-case object DisconnectionCodeSerializer
+private[twitter4s] case object DisconnectionCodeSerializer
     extends CustomSerializer[DisconnectionCode](format =>
       ({
         case JInt(n) => DisconnectionCode(n.toInt)
@@ -37,7 +43,7 @@ case object DisconnectionCodeSerializer
         case code: DisconnectionCode => JInt(code.id)
       }))
 
-case object ProfileImageSerializer
+private[twitter4s] case object ProfileImageSerializer
     extends CustomSerializer[ProfileImage](format =>
       ({
         case JString(n) => ProfileImage(n)
