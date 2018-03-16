@@ -33,16 +33,26 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
     implicit val materializer = ActorMaterializer()
     implicit val ec = materializer.executionContext
 
-    def processStream[T <: StreamingMessage: Manifest](f: PartialFunction[T, Unit]): Future[TwitterStream] =
+    def processStream[T <: StreamingMessage: Manifest](
+        f: PartialFunction[T, Unit],
+        errorHandler: PartialFunction[Throwable, Unit]
+    ): Future[TwitterStream] =
       for {
         requestWithAuth <- withOAuthHeader(None)(materializer)(request)
-        killSwitch <- processStreamRequest(requestWithAuth)(f)
+        killSwitch <- processStreamRequest(requestWithAuth)(f, errorHandler)
       } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
   }
 
-  protected def processStreamRequest[T <: StreamingMessage: Manifest](request: HttpRequest)(
-      f: PartialFunction[T, Unit])(implicit system: ActorSystem,
-                                   materializer: Materializer): Future[SharedKillSwitch] = {
+  protected def processStreamRequest[T <: StreamingMessage: Manifest](
+      request: HttpRequest
+  )(
+      f: PartialFunction[T, Unit],
+      errorHandler: PartialFunction[Throwable, Unit]
+  )(
+      implicit
+      system: ActorSystem,
+      materializer: Materializer
+  ): Future[SharedKillSwitch] = {
     implicit val ec = materializer.executionContext
     implicit val rqt = request
 
@@ -58,7 +68,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       .flatMapConcat {
         case response if response.status.isSuccess =>
           successResponse = true
-          processBody(response, killSwitch)(f)
+          processBody(response, killSwitch)(f, errorHandler)
           Source.empty
         case failureResponse =>
           val statusCode = failureResponse.status
@@ -78,13 +88,27 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
     Future.firstCompletedOf(Seq(processing, switch))
   }
 
-  def processBody[T: Manifest](response: HttpResponse, killSwitch: SharedKillSwitch)(
-      f: PartialFunction[T, Unit])(implicit request: HttpRequest, materializer: Materializer): Unit =
+  def processBody[T: Manifest, A](
+      response: HttpResponse,
+      killSwitch: SharedKillSwitch
+  )(
+      f: PartialFunction[T, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
+  )(
+      implicit
+      request: HttpRequest,
+      materializer: Materializer
+  ): Unit =
     response.entity.withoutSizeLimit.dataBytes
       .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
       .filter(_.nonEmpty)
       .via(killSwitch.flow)
       .map(data => unmarshalStream(data, f))
+      .recoverWithRetries(attempts = 3, {
+        case e =>
+          errorHandler(e)
+          Source.empty
+      })
       .runWith(Sink.foreach(_ => (): Unit))
 
   private def unmarshalStream[T <: StreamingMessage: Manifest](data: ByteString, f: PartialFunction[T, Unit])(

@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.enums.FilterLevel.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
+import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -46,19 +46,23 @@ trait TwitterStatusClient {
     *                       Set the minimum value of the filter_level Tweet attribute required to be included in the stream.
     * @param f : Function that defines how to process the received messages.
     */
-  def filterStatuses(follow: Seq[Long] = Seq.empty,
-                     tracks: Seq[String] = Seq.empty,
-                     locations: Seq[Double] = Seq.empty,
-                     languages: Seq[Language] = Seq.empty,
-                     stall_warnings: Boolean = false,
-                     filter_level: FilterLevel = FilterLevel.None)(
-      f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+  def filterStatuses(
+      follow: Seq[Long] = Seq.empty,
+      tracks: Seq[String] = Seq.empty,
+      locations: Seq[Double] = Seq.empty,
+      languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false,
+      filter_level: FilterLevel = FilterLevel.None
+  )(
+      f: PartialFunction[CommonStreamingMessage, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
+  ): Future[TwitterStream] = {
     import streamingClient._
     require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty,
             "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
     val filters = StatusFilters(follow, tracks, locations, languages, stall_warnings, filter_level)
     preProcessing()
-    Post(s"$statusUrl/filter.json", filters).processStream(f)
+    Post(s"$statusUrl/filter.json", filters).processStream(f, errorHandler)
   }
 
   /** Starts a streaming connection from Twitter's public API, which is a a small random sample of all public statuses.
@@ -83,15 +87,19 @@ trait TwitterStatusClient {
     *                       Set the minimum value of the filter_level Tweet attribute required to be included in the stream.
     * @param f : Function that defines how to process the received messages.
     */
-  def sampleStatuses(languages: Seq[Language] = Seq.empty,
-                     stall_warnings: Boolean = false,
-                     tracks: Seq[String] = Seq.empty,
-                     filter_level: FilterLevel = FilterLevel.None)(
-      f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+  def sampleStatuses(
+      languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false,
+      tracks: Seq[String] = Seq.empty,
+      filter_level: FilterLevel = FilterLevel.None
+  )(
+      f: PartialFunction[CommonStreamingMessage, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
+  ): Future[TwitterStream] = {
     import streamingClient._
     val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
     preProcessing()
-    Get(s"$statusUrl/sample.json", parameters).processStream(f)
+    Get(s"$statusUrl/sample.json", parameters).processStream(f, errorHandler)
   }
 
   /** Starts a streaming connection from Twitter's firehose API of all public statuses.
@@ -116,12 +124,16 @@ trait TwitterStatusClient {
   def firehoseStatuses(
       count: Option[Int] = None,
       languages: Seq[Language] = Seq.empty,
-      stall_warnings: Boolean = false)(f: PartialFunction[CommonStreamingMessage, Unit]): Future[TwitterStream] = {
+      stall_warnings: Boolean = false
+  )(
+      f: PartialFunction[CommonStreamingMessage, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
+  ): Future[TwitterStream] = {
     import streamingClient._
     val maxCount = 150000
     require(Math.abs(count.getOrElse(0)) <= maxCount, s"count must be between -$maxCount and +$maxCount")
     val parameters = StatusFirehoseParameters(languages, count, stall_warnings)
     preProcessing()
-    Get(s"$statusUrl/firehose.json", parameters).processStream(f)
+    Get(s"$statusUrl/firehose.json", parameters).processStream(f, errorHandler)
   }
 }
