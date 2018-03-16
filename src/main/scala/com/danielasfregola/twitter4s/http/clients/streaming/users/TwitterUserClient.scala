@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.{FilterLevel, WithFilter}
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
+import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -52,15 +52,19 @@ trait TwitterUserClient {
     * @param stall_warnings : Default to false. Specifies whether stall warnings (`WarningMessage`) should be delivered as part of the updates.
     * @param f : Function that defines how to process the received messages.
     */
-  def userEvents(`with`: WithFilter = WithFilter.Followings,
-                 replies: Option[Boolean] = None,
-                 tracks: Seq[String] = Seq.empty,
-                 locations: Seq[Double] = Seq.empty,
-                 stringify_friend_ids: Boolean = false,
-                 languages: Seq[Language] = Seq.empty,
-                 stall_warnings: Boolean = false,
-                 filter_level: FilterLevel = FilterLevel.None)(
-      f: PartialFunction[UserStreamingMessage, Unit]): Future[TwitterStream] = {
+  def userEvents(
+      `with`: WithFilter = WithFilter.Followings,
+      replies: Option[Boolean] = None,
+      tracks: Seq[String] = Seq.empty,
+      locations: Seq[Double] = Seq.empty,
+      stringify_friend_ids: Boolean = false,
+      languages: Seq[Language] = Seq.empty,
+      stall_warnings: Boolean = false,
+      filter_level: FilterLevel = FilterLevel.None
+  )(
+      f: PartialFunction[UserStreamingMessage, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+  ): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = UserParameters(`with`,
@@ -72,6 +76,6 @@ trait TwitterUserClient {
                                     stall_warnings,
                                     filter_level)
     preProcessing()
-    Get(s"$userUrl/user.json", parameters).processStream(f)
+    Get(s"$userUrl/user.json", parameters).processStream(f, errorHandler)
   }
 }

@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream}
+import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -52,11 +52,15 @@ trait TwitterSiteClient {
       replies: Option[Boolean] = None,
       stringify_friend_ids: Boolean = false,
       languages: Seq[Language] = Seq.empty,
-      stall_warnings: Boolean = false)(f: PartialFunction[SiteStreamingMessage, Unit]): Future[TwitterStream] = {
+      stall_warnings: Boolean = false
+  )(
+      f: PartialFunction[SiteStreamingMessage, Unit],
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+  ): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
     val parameters = SiteParameters(follow, `with`, repliesAll, stringify_friend_ids, languages, stall_warnings)
     preProcessing()
-    Get(s"$siteUrl/site.json", parameters).processStream(f)
+    Get(s"$siteUrl/site.json", parameters).processStream(f, errorHandler)
   }
 }
