@@ -93,7 +93,7 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
       killSwitch: SharedKillSwitch
   )(
       f: PartialFunction[T, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
   )(
       implicit
       request: HttpRequest,

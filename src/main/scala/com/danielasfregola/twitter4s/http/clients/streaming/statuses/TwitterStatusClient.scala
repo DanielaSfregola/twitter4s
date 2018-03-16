@@ -55,7 +55,7 @@ trait TwitterStatusClient {
       filter_level: FilterLevel = FilterLevel.None
   )(
       f: PartialFunction[CommonStreamingMessage, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
   ): Future[TwitterStream] = {
     import streamingClient._
     require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty,
@@ -94,7 +94,7 @@ trait TwitterStatusClient {
       filter_level: FilterLevel = FilterLevel.None
   )(
       f: PartialFunction[CommonStreamingMessage, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
   ): Future[TwitterStream] = {
     import streamingClient._
     val parameters = StatusSampleParameters(languages, stall_warnings, tracks, filter_level)
@@ -127,7 +127,7 @@ trait TwitterStatusClient {
       stall_warnings: Boolean = false
   )(
       f: PartialFunction[CommonStreamingMessage, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
   ): Future[TwitterStream] = {
     import streamingClient._
     val maxCount = 150000

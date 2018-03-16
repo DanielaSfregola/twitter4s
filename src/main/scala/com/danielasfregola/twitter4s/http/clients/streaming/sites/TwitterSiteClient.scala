@@ -55,7 +55,7 @@ trait TwitterSiteClient {
       stall_warnings: Boolean = false
   )(
       f: PartialFunction[SiteStreamingMessage, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.default
+      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
   ): Future[TwitterStream] = {
     import streamingClient._
     val repliesAll = replies.flatMap(x => if (x) Some("all") else None)
