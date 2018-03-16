@@ -27,8 +27,8 @@ trait BodyEncoder {
 
   private def toBodyAsMap(cc: Product): Map[String, String] =
     asMap(cc).flatMap {
-      case (k, head :: tail)                  => Some(k -> (head +: tail).mkString(","))
-      case (_, Nil)                           => None
+      case (_, Seq())                         => None
+      case (k, s @ Seq(_*))                   => Some(k -> s.mkString("", ",", ""))
       case (_, None)                          => None
       case (_, Some(v)) if v.toString.isEmpty => None
       case (k, Some(v))                       => Some(k -> v.toString)
