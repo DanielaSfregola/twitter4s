@@ -3,11 +3,10 @@ package http.clients.streaming.users
 
 import com.danielasfregola.twitter4s.entities.GeoBoundingBox
 import com.danielasfregola.twitter4s.entities.GeoBoundingBox.toLngLatPairs
-import com.danielasfregola.twitter4s.entities.GeoBoundingBox
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
-import com.danielasfregola.twitter4s.entities.enums.{FilterLevel, WithFilter}
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
+import com.danielasfregola.twitter4s.entities.enums.{FilterLevel, WithFilter}
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
 import com.danielasfregola.twitter4s.http.clients.streaming.{ErrorHandler, StreamingClient, TwitterStream}

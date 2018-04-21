@@ -12,7 +12,6 @@ import com.danielasfregola.twitter4s.http.clients.streaming.{ErrorHandler, Strea
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
 
 trait TwitterStatusClient {
 
