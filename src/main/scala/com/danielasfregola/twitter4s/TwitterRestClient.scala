@@ -27,8 +27,8 @@ import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the Twitter REST API
   */
-class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(implicit _system: ActorSystem =
-                                                                                          ActorSystem("twitter4s-rest"))
+class TwitterRestClient private (val consumerToken: ConsumerToken, val accessToken: AccessToken)(
+    implicit _system: ActorSystem = ActorSystem("twitter4s-rest"))
     extends RestClients
     with SystemShutdown {
 

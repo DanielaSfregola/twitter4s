@@ -13,7 +13,7 @@ import com.danielasfregola.twitter4s.entities.{DirectMessage, Tweet}
 import org.json4s.JsonAST.JValue
 import org.json4s.{CustomSerializer, Extraction, FieldSerializer, Formats, MappingException}
 
-object StreamingMessageFormats extends FormatsComposer {
+private[twitter4s] object StreamingMessageFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
     f + StreamingMessageSerializer + tweetUnmarshaller

@@ -1,12 +1,14 @@
 package com.danielasfregola.twitter4s
 package http.clients.streaming.statuses
 
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox.toLngLatPairs
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.statuses.parameters._
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
+import com.danielasfregola.twitter4s.http.clients.streaming.{ErrorHandler, StreamingClient, TwitterStream}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -46,21 +48,18 @@ trait TwitterStatusClient {
     *                       Set the minimum value of the filter_level Tweet attribute required to be included in the stream.
     * @param f : Function that defines how to process the received messages.
     */
-  def filterStatuses(
-      follow: Seq[Long] = Seq.empty,
-      tracks: Seq[String] = Seq.empty,
-      locations: Seq[Double] = Seq.empty,
-      languages: Seq[Language] = Seq.empty,
-      stall_warnings: Boolean = false,
-      filter_level: FilterLevel = FilterLevel.None
-  )(
-      f: PartialFunction[CommonStreamingMessage, Unit],
-      errorHandler: PartialFunction[Throwable, Unit] = ErrorHandler.ignore
-  ): Future[TwitterStream] = {
+  def filterStatuses(follow: Seq[Long] = Seq.empty,
+                     tracks: Seq[String] = Seq.empty,
+                     locations: Seq[GeoBoundingBox] = Seq.empty,
+                     languages: Seq[Language] = Seq.empty,
+                     stall_warnings: Boolean = false,
+                     filter_level: FilterLevel = FilterLevel.None)(f: PartialFunction[CommonStreamingMessage, Unit],
+                                                                   errorHandler: PartialFunction[Throwable, Unit] =
+                                                                     ErrorHandler.ignore): Future[TwitterStream] = {
     import streamingClient._
     require(follow.nonEmpty || tracks.nonEmpty || locations.nonEmpty,
             "At least one of 'follow', 'tracks' or 'locations' needs to be non empty")
-    val filters = StatusFilters(follow, tracks, locations, languages, stall_warnings, filter_level)
+    val filters = StatusFilters(follow, tracks, toLngLatPairs(locations), languages, stall_warnings, filter_level)
     preProcessing()
     Post(s"$statusUrl/filter.json", filters).processStream(f, errorHandler)
   }

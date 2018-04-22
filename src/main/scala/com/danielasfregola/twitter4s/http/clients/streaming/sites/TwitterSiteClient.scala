@@ -6,7 +6,7 @@ import com.danielasfregola.twitter4s.entities.enums.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.streaming.SiteStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.sites.parameters.SiteParameters
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
+import com.danielasfregola.twitter4s.http.clients.streaming.{ErrorHandler, StreamingClient, TwitterStream}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future

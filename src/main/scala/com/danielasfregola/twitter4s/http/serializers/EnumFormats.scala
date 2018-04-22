@@ -4,7 +4,7 @@ import com.danielasfregola.twitter4s.entities.enums._
 import org.json4s.Formats
 import org.json4s.ext.EnumNameSerializer
 
-object EnumFormats extends FormatsComposer {
+private[twitter4s] object EnumFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
     f +

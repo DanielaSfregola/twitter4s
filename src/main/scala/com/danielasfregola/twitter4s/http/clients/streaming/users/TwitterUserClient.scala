@@ -1,13 +1,15 @@
 package com.danielasfregola.twitter4s
 package http.clients.streaming.users
 
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox
+import com.danielasfregola.twitter4s.entities.GeoBoundingBox.toLngLatPairs
 import com.danielasfregola.twitter4s.entities.enums.FilterLevel.FilterLevel
 import com.danielasfregola.twitter4s.entities.enums.Language.Language
 import com.danielasfregola.twitter4s.entities.enums.WithFilter.WithFilter
 import com.danielasfregola.twitter4s.entities.enums.{FilterLevel, WithFilter}
 import com.danielasfregola.twitter4s.entities.streaming.UserStreamingMessage
 import com.danielasfregola.twitter4s.http.clients.streaming.users.parameters._
-import com.danielasfregola.twitter4s.http.clients.streaming.{StreamingClient, TwitterStream, ErrorHandler}
+import com.danielasfregola.twitter4s.http.clients.streaming.{ErrorHandler, StreamingClient, TwitterStream}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -56,7 +58,7 @@ trait TwitterUserClient {
       `with`: WithFilter = WithFilter.Followings,
       replies: Option[Boolean] = None,
       tracks: Seq[String] = Seq.empty,
-      locations: Seq[Double] = Seq.empty,
+      locations: Seq[GeoBoundingBox] = Seq.empty,
       stringify_friend_ids: Boolean = false,
       languages: Seq[Language] = Seq.empty,
       stall_warnings: Boolean = false,
@@ -70,7 +72,7 @@ trait TwitterUserClient {
     val parameters = UserParameters(`with`,
                                     repliesAll,
                                     tracks,
-                                    locations,
+                                    toLngLatPairs(locations),
                                     stringify_friend_ids,
                                     languages,
                                     stall_warnings,
