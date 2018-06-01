@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
+import com.danielasfregola.twitter4s.entities.{DirectMessage, DirectMessageEvent, RatedData}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
@@ -85,6 +85,22 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         .respondWith("/twitter/rest/directmessages/new.json")
         .await
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/new.json")
+    }
+
+    "get received and sent direct messages" in new TwitterDirectMessageClientSpecContext {
+      val result: RatedData[Seq[DirectMessageEvent]] = when(directMessages(count = 5))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/list.json"
+          request.uri.rawQueryString === Some("count=5")
+        }
+        .respondWithRated("/twitter/rest/directmessages/list.json")
+        .await
+      result.rate_limit === rateLimit
+      val fixture: Seq[DirectMessageEvent] =
+        loadJsonAs[Seq[DirectMessageEvent]]("/fixtures/rest/directmessages/list.json")
+      println(fixture)
+      result.data === fixture
     }
 
   }

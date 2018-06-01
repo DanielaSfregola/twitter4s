@@ -14,3 +14,8 @@ final case class Entities(hashtags: Seq[HashTag] = Seq.empty,
 final case class Urls(urls: Seq[UrlDetails] = Seq.empty)
 
 final case class UrlDetails(url: String, expanded_url: String, display_url: String, indices: Seq[Int])
+
+final case class Entities2(hashtags: Seq[HashTag] = Seq.empty,
+                           symbols: Seq[Symbol] = Seq.empty,
+                           user_mentions: Seq[UserMention] = Seq.empty,
+                           urls: Seq[UrlDetails] = Seq.empty)
