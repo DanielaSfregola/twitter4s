@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
+import com.danielasfregola.twitter4s.entities.{DirectMessage, DirectMessageEvent, RatedData}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -13,8 +13,11 @@ trait TwitterDirectMessageClient {
 
   protected val restClient: RestClient
 
-  private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
+  private val deprecatedDirectMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
 
+  private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages/events"
+
+  @Deprecated
   /** Returns a single direct message, specified by an id parameter.
     * For more information see
     * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/get-message" target="_blank">
@@ -26,9 +29,10 @@ trait TwitterDirectMessageClient {
   def directMessage(id: Long): Future[RatedData[DirectMessage]] = {
     import restClient._
     val parameters = ShowParameters(id)
-    Get(s"$directMessagesUrl/show.json", parameters).respondAsRated[DirectMessage]
+    Get(s"$deprecatedDirectMessagesUrl/show.json", parameters).respondAsRated[DirectMessage]
   }
 
+  @Deprecated
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
     * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message" target="_blank">
@@ -45,6 +49,7 @@ trait TwitterDirectMessageClient {
     genericCreateDirectMessage(parameters)
   }
 
+  @Deprecated
   /** Sends a new direct message to the specified user from the authenticating user.
     * For more information see
     * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/new-message" target="_blank">
@@ -63,9 +68,10 @@ trait TwitterDirectMessageClient {
 
   private def genericCreateDirectMessage(parameters: CreateParameters): Future[DirectMessage] = {
     import restClient._
-    Post(s"$directMessagesUrl/new.json", parameters).respondAs[DirectMessage]
+    Post(s"$deprecatedDirectMessagesUrl/new.json", parameters).respondAs[DirectMessage]
   }
 
+  @Deprecated
   /** Returns the 20 most recent direct messages sent by the authenticating user.
     * Includes detailed information about the sender and recipient user.
     * You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs.
@@ -90,9 +96,10 @@ trait TwitterDirectMessageClient {
                          page: Int = -1): Future[RatedData[Seq[DirectMessage]]] = {
     import restClient._
     val parameters = SentParameters(since_id, max_id, count, include_entities, page)
-    Get(s"$directMessagesUrl/sent.json", parameters).respondAsRated[Seq[DirectMessage]]
+    Get(s"$deprecatedDirectMessagesUrl/sent.json", parameters).respondAsRated[Seq[DirectMessage]]
   }
 
+  @Deprecated
   /** Returns the 20 most recent direct messages sent to the authenticating user.
     * Includes detailed information about the sender and recipient user.
     * You can request up to 200 direct messages per call, and only the most recent 200 DMs will be available using this endpoint.
@@ -123,9 +130,10 @@ trait TwitterDirectMessageClient {
                              skip_status: Boolean = false): Future[RatedData[Seq[DirectMessage]]] = {
     import restClient._
     val parameters = ReceivedParameters(since_id, max_id, count, include_entities, skip_status)
-    Get(s"$directMessagesUrl.json", parameters).respondAsRated[Seq[DirectMessage]]
+    Get(s"$deprecatedDirectMessagesUrl.json", parameters).respondAsRated[Seq[DirectMessage]]
   }
 
+  @Deprecated
   /** Destroys the direct message specified in the required ID parameter.
     * The authenticating user must be the recipient of the specified direct message.
     * For more information see
@@ -140,6 +148,19 @@ trait TwitterDirectMessageClient {
   def deleteDirectMessage(id: Long, include_entities: Boolean = true): Future[DirectMessage] = {
     import restClient._
     val parameters = DestroyParameters(id, include_entities)
-    Post(s"$directMessagesUrl/destroy.json", parameters).respondAs[DirectMessage]
+    Post(s"$deprecatedDirectMessagesUrl/destroy.json", parameters).respondAs[DirectMessage]
+  }
+
+  /** Returns all Direct Message events (both sent and received) within the last 30 days. Sorted in reverse-chronological order
+    * For more information see
+    * <a href="https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/list-events" target="_blank">
+    *   https://developer.twitter.com/en/docs/direct-messages/sending-and-receiving/api-reference/list-events</a>.
+    *
+    * @return : The sequence of sent and received direct messages.
+    * */
+  def directMessages(count: Int = 200, cursor: Option[String] = None): Future[RatedData[Seq[DirectMessageEvent]]] = {
+    import restClient._
+    val parameters = ListParameters(count, cursor)
+    Get(s"$directMessagesUrl/list.json", parameters).respondAsRated[Seq[DirectMessageEvent]]
   }
 }
