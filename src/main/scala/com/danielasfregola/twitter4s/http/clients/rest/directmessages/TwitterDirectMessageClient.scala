@@ -33,6 +33,12 @@ trait TwitterDirectMessageClient {
     Get(s"$events/list.json", parameters).respondAs[EventList]
   }
 
+  def eventShow(id: Long) = {
+    import restClient._
+    val parameters = ShowParameters(id)
+    Get(s"$events/show.json", parameters).respondAs[Event]
+  }
+
   /**Sends a new direct message to the specified user from the authenticating user.
     * Replace createDirectMessage method.
  *
@@ -46,7 +52,7 @@ trait TwitterDirectMessageClient {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDM(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
-    Post(s"$directMessagesUrl/events/new.json", write(parameters)(DefaultFormats), ContentType(MediaTypes.`application/json`)).respondAs[Event]
+    Post(s"$events/new.json", write(parameters)(DefaultFormats), ContentType(MediaTypes.`application/json`)).respondAs[Event]
   }
 
 
