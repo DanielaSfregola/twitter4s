@@ -1,9 +1,11 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
+import akka.http.scaladsl.model.{ContentType, MediaTypes}
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
+import org.json4s.DefaultFormats
 
 import scala.concurrent.Future
 
@@ -14,6 +16,39 @@ trait TwitterDirectMessageClient {
   protected val restClient: RestClient
 
   private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
+  private val events = s"$directMessagesUrl/events/"
+
+  /**Returns all Direct Message events (both sent and received) within the last 30 days.
+    * Sorted in reverse-chronological order.
+    * Replace directMessage methods.
+    * @param count : Optional parameter. Max number of events to be returned. 20 default. 50 max.
+    * @param cursor : Optional parameter. For paging through result sets greater than 1 page,
+    *               use the “next_cursor” property from the previous request.
+    * @return : list of events
+    */
+
+  def eventsList(count: Int = 20, cursor: Option[String]) = {
+    import restClient._
+    val parameters = EventListParameters(count, cursor)
+    Get(s"$events/list.json", parameters).respondAs[EventList]
+  }
+
+  /**Sends a new direct message to the specified user from the authenticating user.
+    * Replace createDirectMessage method.
+ *
+    * @param id : Id Max number of events to be returned. 20 default. 50 max.
+    * @param text : The text of your direct message. Be sure to URL encode as necessary,
+    *               and keep the message under 140 characters.
+    * @return : event with new message
+    */
+
+  def messageCreate(id: String, text: String) = {
+    import restClient._
+    import org.json4s.native.Serialization.write
+    val parameters = NewDM(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
+    Post(s"$directMessagesUrl/events/new.json", write(parameters)(DefaultFormats), ContentType(MediaTypes.`application/json`)).respondAs[Event]
+  }
+
 
   /** Returns a single direct message, specified by an id parameter.
     * For more information see

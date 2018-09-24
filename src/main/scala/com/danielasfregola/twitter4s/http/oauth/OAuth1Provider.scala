@@ -9,7 +9,7 @@ import com.danielasfregola.twitter4s.util.{Encoder, UriHelpers}
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.util.Random
+import scala.util.{Random, Try}
 
 private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToken: Option[AccessToken])
     extends Encoder
@@ -83,7 +83,7 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
       if (cleanBody.nonEmpty) {
         val entities = cleanBody.split("&")
         val bodyTokens = entities.flatMap(_.split("=", 2)).toList
-        bodyTokens.grouped(2).map { case List(k, v) => k -> v }.toMap
+        Try(bodyTokens.grouped(2).map { case List(k, v) => k -> v }.toMap).getOrElse(Map())
       } else Map()
     }
   }
