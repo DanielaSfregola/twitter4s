@@ -5,7 +5,6 @@ import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
-import org.json4s.DefaultFormats
 
 import scala.concurrent.Future
 
@@ -26,13 +25,15 @@ trait TwitterDirectMessageClient {
     *               use the “next_cursor” property from the previous request.
     * @return : list of events
     */
-
   def eventsList(count: Int = 20, cursor: Option[String]) = {
     import restClient._
     val parameters = EventListParameters(count, cursor)
     Get(s"$events/list.json", parameters).respondAs[EventList]
   }
-
+  /**Returns Direct Message event (both sent and received) by Id.
+    * @param id : Id of event.
+    * @return : event
+    */
   def eventShow(id: Long) = {
     import restClient._
     val parameters = ShowParameters(id)
@@ -47,14 +48,12 @@ trait TwitterDirectMessageClient {
     *               and keep the message under 140 characters.
     * @return : event with new message
     */
-
-  def messageCreate(id: String, text: String) = {
+  def messageCreate(id: Long, text: String) = {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDM(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
-    Post(s"$events/new.json", write(parameters)(DefaultFormats), ContentType(MediaTypes.`application/json`)).respondAs[Event]
+    Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[Event]
   }
-
 
   /** Returns a single direct message, specified by an id parameter.
     * For more information see
