@@ -15,7 +15,7 @@ trait TwitterDirectMessageClient {
   protected val restClient: RestClient
 
   private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
-  private val events = s"$directMessagesUrl/events/"
+  private val events = s"$directMessagesUrl/events"
 
   /**Returns all Direct Message events (both sent and received) within the last 30 days.
     * Sorted in reverse-chronological order.
@@ -25,7 +25,7 @@ trait TwitterDirectMessageClient {
     *               use the “next_cursor” property from the previous request.
     * @return : list of events
     */
-  def eventsList(count: Int = 20, cursor: Option[String]) = {
+  def eventsList(count: Int = 20, cursor: Option[String] = None) = {
     import restClient._
     val parameters = EventListParameters(count, cursor)
     Get(s"$events/list.json", parameters).respondAs[EventList]
