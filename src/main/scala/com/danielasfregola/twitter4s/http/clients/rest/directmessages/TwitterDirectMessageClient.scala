@@ -30,6 +30,7 @@ trait TwitterDirectMessageClient {
     val parameters = EventListParameters(count, cursor)
     Get(s"$events/list.json", parameters).respondAs[EventList]
   }
+
   /**Returns Direct Message event (both sent and received) by Id.
     * @param id : Id of event.
     * @return : event
@@ -42,13 +43,13 @@ trait TwitterDirectMessageClient {
 
   /**Sends a new direct message to the specified user from the authenticating user.
     * Replace createDirectMessage method.
- *
+    *
     * @param id : Id Max number of events to be returned. 20 default. 50 max.
     * @param text : The text of your direct message. Be sure to URL encode as necessary,
     *               and keep the message under 140 characters.
     * @return : event with new message
     */
-  def messageCreate(id: Long, text: String) = {
+  def messageCreate(id: String, text: String) = {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDM(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))

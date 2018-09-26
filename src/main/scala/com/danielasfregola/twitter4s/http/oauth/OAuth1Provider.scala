@@ -35,7 +35,8 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
 
   def oauth1Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
     implicit val ec = materializer.executionContext
-    signatureBase(oauth2Params).map { signatureBase => "oauth_signature" -> toHmacSha1(signatureBase, signingKey)
+    signatureBase(oauth2Params).map { signatureBase =>
+      "oauth_signature" -> toHmacSha1(signatureBase, signingKey)
     }
   }
 
