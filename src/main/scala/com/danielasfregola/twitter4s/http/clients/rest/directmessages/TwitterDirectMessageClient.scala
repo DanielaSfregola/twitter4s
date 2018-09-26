@@ -28,7 +28,7 @@ trait TwitterDirectMessageClient {
   def eventsList(count: Int = 20, cursor: Option[String] = None) = {
     import restClient._
     val parameters = EventListParameters(count, cursor)
-    Get(s"$events/list.json", parameters).respondAs[EventList]
+    Get(s"$events/list.json", parameters).respondAs[DirectMessageEventList]
   }
 
   /**Returns Direct Message event (both sent and received) by Id.
@@ -38,7 +38,7 @@ trait TwitterDirectMessageClient {
   def eventShow(id: Long) = {
     import restClient._
     val parameters = ShowParameters(id)
-    Get(s"$events/show.json", parameters).respondAs[Event]
+    Get(s"$events/show.json", parameters).respondAs[SingleEvent]
   }
 
   /**Sends a new direct message to the specified user from the authenticating user.
@@ -53,7 +53,7 @@ trait TwitterDirectMessageClient {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDM(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
-    Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[Event]
+    Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
   }
 
   /** Returns a single direct message, specified by an id parameter.
