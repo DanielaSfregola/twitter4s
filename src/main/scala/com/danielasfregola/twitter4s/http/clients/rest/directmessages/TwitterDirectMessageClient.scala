@@ -52,7 +52,8 @@ trait TwitterDirectMessageClient {
   def messageCreate(id: String, text: String): Future[SingleEvent] = {
     import restClient._
     import org.json4s.native.Serialization.write
-    val parameters = NewDirectMessageEvent(NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
+    val parameters = NewDirectMessageEvent(
+      NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
     Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
   }
 
