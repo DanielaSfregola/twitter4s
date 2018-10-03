@@ -53,7 +53,7 @@ trait TwitterDirectMessageClient {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDirectMessageEvent(
-      NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None))))
+      NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
     Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
   }
 
