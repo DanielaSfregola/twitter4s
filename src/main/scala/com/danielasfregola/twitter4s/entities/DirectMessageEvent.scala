@@ -9,7 +9,7 @@ final case class MessageCreate(target: Target, sender_id: Option[String], messag
 
 final case class Target(recipient_id: String)
 
-final case class MessageData(text: String, entities: Option[Entities] = None, attachment: Option[Attachment])
+final case class MessageData(text: String, entities: Option[Entities] = None, attachment: Option[Attachment] = None)
 
 final case class Attachment(`type`: String, media: Media)
 
