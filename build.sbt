@@ -73,7 +73,7 @@ lazy val standardSettings = Seq(
     "-encoding",
     "UTF-8",
     "-Xlint",
-    "-Xfatal-warnings",
+    "-deprecation",
     "-feature",
     "-language:postfixOps",
     "-unchecked"
