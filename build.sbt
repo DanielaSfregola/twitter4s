@@ -42,6 +42,7 @@ libraryDependencies ++= {
 scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
                                    "-language:implicitConversions",
                                    "-language:existentials",
+                                   "-Xfatal-warnings",
                                    "-feature",
                                    "-deprecation:false")
 
