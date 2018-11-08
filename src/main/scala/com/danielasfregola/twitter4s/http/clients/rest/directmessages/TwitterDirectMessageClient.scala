@@ -21,6 +21,7 @@ trait TwitterDirectMessageClient {
   /**Returns all Direct Message events (both sent and received) within the last 30 days.
     * Sorted in reverse-chronological order.
     * Replace directMessage methods.
+    *
     * @param count : Optional parameter. Max number of events to be returned. 20 default. 50 max.
     * @param cursor : Optional parameter. For paging through result sets greater than 1 page,
     *               use the “next_cursor” property from the previous request.
@@ -33,6 +34,7 @@ trait TwitterDirectMessageClient {
   }
 
   /**Returns Direct Message event (both sent and received) by Id.
+    *
     * @param id : Id of event.
     * @return : event
     */
@@ -51,10 +53,11 @@ trait TwitterDirectMessageClient {
     * @return : event with new message
     */
   def messageCreate(id: String, text: String): Future[SingleEvent] = {
-    import restClient._
     import org.json4s.native.Serialization.write
+    import restClient._
     val parameters = NewDirectMessageEvent(
-      NewEvent(TweetType.messageCreate, message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
+      NewEvent(TweetType.messageCreate,
+               message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
     Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
   }
 
