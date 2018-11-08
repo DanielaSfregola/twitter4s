@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.serializers
 
-import java.time.{Instant, LocalDate}
+import java.time._
 
 import com.danielasfregola.twitter4s.entities.ProfileImage
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
@@ -11,7 +11,7 @@ import org.json4s.{CustomSerializer, Formats}
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + LocalDateTimeSerializer
 
 }
 
@@ -32,6 +32,15 @@ private[twitter4s] case object LocalDateSerializer
         case JNull => null
       }, {
         case date: LocalDate => JString(date.toString)
+      }))
+
+private[twitter4s] case object LocalDateTimeSerializer
+    extends CustomSerializer[LocalDateTime](format =>
+      ({
+        case JString(stringAsUnixTime) =>
+          Instant.ofEpochMilli(stringAsUnixTime.toLong).atZone(ZoneId.systemDefault()).toLocalDateTime
+      }, {
+        case time: LocalDateTime => JString(time.toEpochSecond(OffsetDateTime.now().getOffset).toString)
       }))
 
 private[twitter4s] case object DisconnectionCodeSerializer

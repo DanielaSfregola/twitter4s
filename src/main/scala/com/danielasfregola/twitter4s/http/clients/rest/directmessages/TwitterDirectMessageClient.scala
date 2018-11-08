@@ -2,6 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
 import akka.http.scaladsl.model.{ContentType, MediaTypes}
 import com.danielasfregola.twitter4s.entities._
+import com.danielasfregola.twitter4s.entities.enums.TweetType
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -53,7 +54,7 @@ trait TwitterDirectMessageClient {
     import restClient._
     import org.json4s.native.Serialization.write
     val parameters = NewDirectMessageEvent(
-      NewEvent(message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
+      NewEvent(TweetType.messageCreate, message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
     Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
   }
 

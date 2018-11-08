@@ -5,7 +5,8 @@ import java.time.Instant
 import java.util.{Date, Locale}
 
 import de.heikoseeberger.akkahttpjson4s.Json4sSupport
-import org.json4s.{DefaultFormats, Formats, Serialization, native}
+import org.json4s.JsonAST.JString
+import org.json4s.{CustomSerializer, DefaultFormats, Formats, Serialization, native}
 
 import scala.util.Try
 
@@ -19,13 +20,19 @@ private[twitter4s] trait JsonSupport extends Json4sSupport {
   }
 
   implicit lazy val json4sFormats: Formats =
-    defaultFormats + StreamingMessageFormats + CustomFormats + EnumFormats
+    defaultFormats + StreamingMessageFormats + CustomFormats + EnumFormats + StringToLongFormatter
 
   private val defaultFormats = new DefaultFormats {
     override def dateFormatter = DateTimeFormatter.formatter
   }.preservingEmptyValues
 
 }
+
+private[twitter4s] object StringToLongFormatter
+    extends CustomSerializer[Long](format =>
+      ({
+        case JString(value) => value.toLong
+      }, { case value: Long => JString(value.toString) }))
 
 private[twitter4s] object DateTimeFormatter {
 
