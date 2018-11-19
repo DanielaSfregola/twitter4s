@@ -11,14 +11,18 @@ import org.json4s.{CustomSerializer, Formats}
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + LocalDateTimeSerializer + DirectMessageIdFormatter
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + DirectMessageIdFormatter
 
 }
 
 private[twitter4s] case object InstantSerializer
     extends CustomSerializer[Instant](format =>
-      ({ case JString(s) if DateTimeFormatter.canParseInstant(s) => DateTimeFormatter.parseInstant(s) }, {
-        case instant: Instant                                    => JString(DateTimeFormatter.formatInstant(instant))
+      ({
+        case JString(s) if DateTimeFormatter.canParseInstant(s) => DateTimeFormatter.parseInstant(s)
+        case JString(stringAsUnixTime) if stringAsUnixTime.forall(_.isDigit) =>
+          Instant.ofEpochMilli(stringAsUnixTime.toLong)
+      }, {
+        case instant: Instant => JString(DateTimeFormatter.formatInstant(instant))
       }))
 
 private[twitter4s] case object LocalDateSerializer
@@ -32,15 +36,6 @@ private[twitter4s] case object LocalDateSerializer
         case JNull => null
       }, {
         case date: LocalDate => JString(date.toString)
-      }))
-
-private[twitter4s] case object LocalDateTimeSerializer
-    extends CustomSerializer[LocalDateTime](format =>
-      ({
-        case JString(stringAsUnixTime) =>
-          Instant.ofEpochMilli(stringAsUnixTime.toLong).atZone(ZoneId.systemDefault()).toLocalDateTime
-      }, {
-        case time: LocalDateTime => JString(time.toEpochSecond(OffsetDateTime.now().getOffset).toString)
       }))
 
 private[twitter4s] case object DisconnectionCodeSerializer

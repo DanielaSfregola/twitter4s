@@ -1,11 +1,11 @@
 package com.danielasfregola.twitter4s.entities
-import java.time.LocalDateTime
+import java.time.Instant
 
 import com.danielasfregola.twitter4s.entities.enums.TweetType
 
 final case class DirectMessageEvent(`type`: TweetType.Value = TweetType.messageCreate,
                                     id: DirectMessageId,
-                                    created_timestamp: LocalDateTime,
+                                    created_timestamp: Instant,
                                     message_create: MessageCreate)
 
 final case class MessageCreate(target: Target, sender_id: Option[String], message_data: MessageData)
