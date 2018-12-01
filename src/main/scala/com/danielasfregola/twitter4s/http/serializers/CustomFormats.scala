@@ -4,14 +4,14 @@ import java.time._
 
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
-import com.danielasfregola.twitter4s.entities.{DirectMessageId, ProfileImage}
+import com.danielasfregola.twitter4s.entities.ProfileImage
 import org.json4s.JsonAST.{JInt, JNull, JString}
 import org.json4s.{CustomSerializer, Formats}
 
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + DirectMessageIdFormatter
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer
 
 }
 
@@ -55,9 +55,3 @@ private[twitter4s] case object ProfileImageSerializer
       }, {
         case img: ProfileImage => JString(img.normal)
       }))
-
-private[twitter4s] case object DirectMessageIdFormatter
-    extends CustomSerializer[DirectMessageId](format =>
-      ({
-        case JString(value)         => DirectMessageId(value.toLong)
-      }, { case DirectMessageId(id) => JString(id.toString) }))

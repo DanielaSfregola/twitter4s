@@ -100,7 +100,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
     }
 
     "get direct message event" in new TwitterDirectMessageClientSpecContext {
-      val result: SingleEvent = when(eventShow(1044927409530647812L))
+      val result: Event = when(directMessageEvent("1044927409530647812"))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/show.json"
@@ -108,12 +108,12 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         }
         .respondWith("/twitter/rest/directmessages/event.json")
         .await
-      result === loadJsonAs[SingleEvent]("/fixtures/rest/directmessages/event.json")
+      result === loadJsonAs[Event]("/fixtures/rest/directmessages/event.json")
     }
 
-    "create a direct message" in new TwitterDirectMessageClientSpecContext {
+    "create a direct message event" in new TwitterDirectMessageClientSpecContext {
       val text = "New test message"
-      val result: SingleEvent = when(messageCreate("1044927409530647812", text))
+      val result: Event = when(createDirectMessageEvent(2911461333L, text))
         .expectRequest { request =>
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/new.json"
@@ -121,7 +121,7 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
         }
         .respondWith("/twitter/rest/directmessages/event.json")
         .await
-      result === loadJsonAs[SingleEvent]("/fixtures/rest/directmessages/event.json")
+      result === loadJsonAs[Event]("/fixtures/rest/directmessages/event.json")
     }
 
   }

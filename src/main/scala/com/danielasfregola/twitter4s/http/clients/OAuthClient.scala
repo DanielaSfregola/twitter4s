@@ -48,6 +48,12 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
       apply(uri, data, contentType)
     }
 
+    def asJson[A <: AnyRef](uri: String, content: A): HttpRequest = {
+      val jsonData = org.json4s.native.Serialization.write(content)
+      val contentType = ContentType(MediaTypes.`application/json`)
+      apply(uri, jsonData, contentType)
+    }
+
     def apply(uri: String, content: Product, contentType: ContentType): HttpRequest = {
       val data = toBodyAsParams(content)
       apply(uri, data, contentType)

@@ -1,10 +1,8 @@
 package com.danielasfregola.twitter4s.entities
 import java.time.Instant
 
-import com.danielasfregola.twitter4s.entities.enums.TweetType
-
-final case class DirectMessageEvent(`type`: TweetType.Value = TweetType.messageCreate,
-                                    id: DirectMessageId,
+final case class DirectMessageEvent(`type`: String,
+                                    id: String,
                                     created_timestamp: Instant,
                                     message_create: MessageCreate)
 
@@ -18,6 +16,4 @@ final case class Attachment(`type`: String, media: Media)
 
 final case class Apps(id: String, name: String, url: String)
 
-final case class SingleEvent(event: DirectMessageEvent, apps: Map[String, App] = Map.empty)
-
-final case class DirectMessageId(id: Long)
+final case class Event(event: DirectMessageEvent, apps: Map[String, App] = Map.empty)
