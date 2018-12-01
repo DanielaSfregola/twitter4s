@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
+import akka.http.scaladsl.model.{ContentType, HttpMethods, MediaTypes}
+import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.helpers.ClientSpec
 
 class TwitterDirectMessageClientSpec extends ClientSpec {
@@ -87,6 +87,42 @@ class TwitterDirectMessageClientSpec extends ClientSpec {
       result === loadJsonAs[DirectMessage]("/fixtures/rest/directmessages/new.json")
     }
 
-  }
+    "get list of direct message events" in new TwitterDirectMessageClientSpecContext {
+      val result: DirectMessageEventList = when(eventsList(count = 1, Some("MTA0NDkxMzE5OTMyMDA0MzUyNw")))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/list.json"
+          request.uri.rawQueryString === Some("count=1&next_cursor=MTA0NDkxMzE5OTMyMDA0MzUyNw")
+        }
+        .respondWith("/twitter/rest/directmessages/list.json")
+        .await
+      result === loadJsonAs[DirectMessageEventList]("/fixtures/rest/directmessages/list.json")
+    }
 
+    "get direct message event" in new TwitterDirectMessageClientSpecContext {
+      val result: SingleEvent = when(eventShow(1044927409530647812L))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/show.json"
+          request.uri.rawQueryString === Some("id=1044927409530647812")
+        }
+        .respondWith("/twitter/rest/directmessages/event.json")
+        .await
+      result === loadJsonAs[SingleEvent]("/fixtures/rest/directmessages/event.json")
+    }
+
+    "create a direct message" in new TwitterDirectMessageClientSpecContext {
+      val text = "New test message"
+      val result: SingleEvent = when(messageCreate("1044927409530647812", text))
+        .expectRequest { request =>
+          request.method === HttpMethods.POST
+          request.uri.endpoint === "https://api.twitter.com/1.1/direct_messages/events/new.json"
+          request.entity.getContentType() === ContentType(MediaTypes.`application/json`)
+        }
+        .respondWith("/twitter/rest/directmessages/event.json")
+        .await
+      result === loadJsonAs[SingleEvent]("/fixtures/rest/directmessages/event.json")
+    }
+
+  }
 }

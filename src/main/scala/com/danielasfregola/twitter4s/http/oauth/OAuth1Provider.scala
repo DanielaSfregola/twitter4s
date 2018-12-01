@@ -1,8 +1,8 @@
 package com.danielasfregola.twitter4s.http
 package oauth
 
+import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
-import akka.http.scaladsl.model.{HttpHeader, HttpRequest}
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.util.{Encoder, UriHelpers}
@@ -80,7 +80,9 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
     implicit val ec = materializer.executionContext
     extractRequestBody.map { body =>
       val cleanBody = body.replace("+", "%20")
-      if (cleanBody.nonEmpty) {
+      if (cleanBody.nonEmpty && request.entity
+            .getContentType()
+            .mediaType == MediaTypes.`application/x-www-form-urlencoded`) {
         val entities = cleanBody.split("&")
         val bodyTokens = entities.flatMap(_.split("=", 2)).toList
         bodyTokens.grouped(2).map { case List(k, v) => k -> v }.toMap

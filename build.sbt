@@ -42,8 +42,9 @@ libraryDependencies ++= {
 scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
                                    "-language:implicitConversions",
                                    "-language:existentials",
+                                   "-Xfatal-warnings",
                                    "-feature",
-                                   "-deprecation")
+                                   "-deprecation:false")
 
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
@@ -73,7 +74,7 @@ lazy val standardSettings = Seq(
     "-encoding",
     "UTF-8",
     "-Xlint",
-    "-deprecation",
+    "-deprecation:false",
     "-Xfatal-warnings",
     "-feature",
     "-language:postfixOps",

@@ -1,6 +1,8 @@
 package com.danielasfregola.twitter4s.http.clients.rest.directmessages
 
-import com.danielasfregola.twitter4s.entities.{DirectMessage, RatedData}
+import akka.http.scaladsl.model.{ContentType, MediaTypes}
+import com.danielasfregola.twitter4s.entities._
+import com.danielasfregola.twitter4s.entities.enums.TweetType
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.parameters._
 import com.danielasfregola.twitter4s.util.Configurations._
@@ -14,6 +16,50 @@ trait TwitterDirectMessageClient {
   protected val restClient: RestClient
 
   private val directMessagesUrl = s"$apiTwitterUrl/$twitterVersion/direct_messages"
+  private val events = s"$directMessagesUrl/events"
+
+  /**Returns all Direct Message events (both sent and received) within the last 30 days.
+    * Sorted in reverse-chronological order.
+    * Replace directMessage methods.
+    *
+    * @param count : Optional parameter. Max number of events to be returned. 20 default. 50 max.
+    * @param cursor : Optional parameter. For paging through result sets greater than 1 page,
+    *               use the “next_cursor” property from the previous request.
+    * @return : list of events
+    */
+  def eventsList(count: Int = 20, cursor: Option[String] = None): Future[DirectMessageEventList] = {
+    import restClient._
+    val parameters = EventListParameters(count, cursor)
+    Get(s"$events/list.json", parameters).respondAs[DirectMessageEventList]
+  }
+
+  /**Returns Direct Message event (both sent and received) by Id.
+    *
+    * @param id : Id of event.
+    * @return : event
+    */
+  def eventShow(id: Long): Future[SingleEvent] = {
+    import restClient._
+    val parameters = ShowParameters(id)
+    Get(s"$events/show.json", parameters).respondAs[SingleEvent]
+  }
+
+  /**Sends a new direct message to the specified user from the authenticating user.
+    * Replace createDirectMessage method.
+    *
+    * @param id : Id Max number of events to be returned. 20 default. 50 max.
+    * @param text : The text of your direct message. Be sure to URL encode as necessary,
+    *               and keep the message under 140 characters.
+    * @return : event with new message
+    */
+  def messageCreate(id: String, text: String): Future[SingleEvent] = {
+    import org.json4s.native.Serialization.write
+    import restClient._
+    val parameters = NewDirectMessageEvent(
+      NewEvent(TweetType.messageCreate,
+               message_create = MessageCreate(Target(id), None, MessageData(text, None, None))))
+    Post(s"$events/new.json", write(parameters), ContentType(MediaTypes.`application/json`)).respondAs[SingleEvent]
+  }
 
   /** Returns a single direct message, specified by an id parameter.
     * For more information see
@@ -23,6 +69,7 @@ trait TwitterDirectMessageClient {
     * @param id : The ID of the direct message.
     * @return : The direct message.
     * */
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'eventShow' instead.", "twitter4s 6.0")
   def directMessage(id: Long): Future[RatedData[DirectMessage]] = {
     import restClient._
     val parameters = ShowParameters(id)
@@ -40,6 +87,7 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'messageCreate' instead.", "twitter4s 6.0")
   def createDirectMessage(user_id: Long, text: String): Future[DirectMessage] = {
     val parameters = CreateParameters(user_id = Some(user_id), text = text)
     genericCreateDirectMessage(parameters)
@@ -56,6 +104,7 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'messageCreate' instead.", "twitter4s 6.0")
   def createDirectMessage(screen_name: String, text: String): Future[DirectMessage] = {
     val parameters = CreateParameters(screen_name = Some(screen_name), text = text)
     genericCreateDirectMessage(parameters)
@@ -83,6 +132,7 @@ trait TwitterDirectMessageClient {
     *              Specifies the number of records to retrieve. Must be less than or equal to 200.
     * @return : The sequence of sent direct messages.
     * */
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'eventsList' instead.", "twitter4s 6.0")
   def sentDirectMessages(since_id: Option[Long] = None,
                          max_id: Option[Long] = None,
                          count: Int = 200,
@@ -116,6 +166,7 @@ trait TwitterDirectMessageClient {
     *                    When set to either `true` statuses will not be included in the returned user object.
     * @return : The sequence of received direct messages.
     * */
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'eventsList' instead.", "twitter4s 6.0")
   def receivedDirectMessages(since_id: Option[Long] = None,
                              max_id: Option[Long] = None,
                              count: Int = 200,

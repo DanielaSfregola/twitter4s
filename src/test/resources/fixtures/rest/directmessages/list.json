@@ -1,0 +1,30 @@
+{
+  "events" : [ {
+    "type" : "message_create",
+    "id" : "1044927409530647812",
+    "created_timestamp" : "1537935082782",
+    "message_create" : {
+      "target" : {
+        "recipient_id" : "773439338287913984"
+      },
+      "sender_id" : "24130273702",
+      "message_data" : {
+        "text" : "New test message",
+        "entities" : {
+          "hashtags" : [ ],
+          "symbols" : [ ],
+          "user_mentions" : [ ],
+          "urls" : [ ]
+        }
+      }
+    }
+  } ],
+  "apps" : {
+    "14855158" : {
+      "id" : "14855158",
+      "name" : "TestApplication",
+      "url" : "http://TestApplicationUrl.ru/"
+    }
+  },
+  "next_cursor" : "MTA0NDkyNzQwOTAzMDY0NzgxMg"
+}
