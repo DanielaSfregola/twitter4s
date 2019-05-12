@@ -1,8 +1,8 @@
 package com.danielasfregola.twitter4s.http
 package oauth
 
+import akka.http.scaladsl.model._
 import akka.http.scaladsl.model.headers.RawHeader
-import akka.http.scaladsl.model.{HttpCharsets, _}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.helpers.{AwaitableFuture, TestActorSystem, TestExecutionContext}
 import org.specs2.matcher.Scope
@@ -14,7 +14,7 @@ class OAuth1ProviderSpec extends TestActorSystem with SpecificationLike with Awa
 
   val request = {
     val uri = Uri("https://api.twitter.com/1/statuses/update.json?include_entities=true")
-    val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`, HttpCharsets.`UTF-8`)
+    val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`)
     val entity = HttpEntity("status=Hello+Ladies+%2B+Gentlemen%2C+a+signed+OAuth+request%21")
     HttpRequest(method = HttpMethods.POST, uri = uri, entity = entity.withContentType(contentType))
   }
