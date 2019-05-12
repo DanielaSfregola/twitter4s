@@ -44,7 +44,7 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
 
     def apply(uri: String, content: Product): HttpRequest = {
       val data = toBodyAsEncodedParams(content)
-      val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`, HttpCharsets.`UTF-8`)
+      val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`)
       apply(uri, data, contentType)
     }
 
