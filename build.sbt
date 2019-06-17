@@ -39,12 +39,16 @@ libraryDependencies ++= {
   )
 }
 
-scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
-                                   "-language:implicitConversions",
-                                   "-language:existentials",
-                                   "-Xfatal-warnings",
-                                   "-feature",
-                                   "-deprecation:false")
+libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.2.3"
+
+scalacOptions in ThisBuild ++= Seq(
+  "-language:postfixOps",
+  "-language:implicitConversions",
+  "-language:existentials",
+//                                   "-Xfatal-warnings",
+  "-feature",
+  "-deprecation:false"
+)
 
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
@@ -75,7 +79,7 @@ lazy val standardSettings = Seq(
     "UTF-8",
     "-Xlint",
     "-deprecation:false",
-    "-Xfatal-warnings",
+//    "-Xfatal-warnings",
     "-feature",
     "-language:postfixOps",
     "-unchecked"

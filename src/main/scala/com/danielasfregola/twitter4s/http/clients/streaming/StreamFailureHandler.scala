@@ -6,24 +6,26 @@ import com.danielasfregola.twitter4s.entities.streaming.common.{DisconnectMessag
 trait StreamFailureHandler {
 
   def handleMessage(csm: CommonStreamingMessage): StreamFailureAction.Value = {
-    case dm: DisconnectMessage =>
-      dm.disconnect.code match {
-        case Shutdown        => StreamFailureAction.RetryImmediately
-        case DuplicateStream => StreamFailureAction.RetryImmediately
-        case ControlRequest  => StreamFailureAction.RetryImmediately
-        case Stall           => StreamFailureAction.RetryImmediately
-        case Normal          => StreamFailureAction.RetryImmediately
-        case TokenRevoked    => StreamFailureAction.RetryImmediately
-        case AdminLogout     => StreamFailureAction.RetryImmediately
-        case Internal        => StreamFailureAction.RetryImmediately
-        case MaxMessageLimit => StreamFailureAction.RetryImmediately
-        case StreamException => StreamFailureAction.RetryImmediately
-        case BrokerStall     => StreamFailureAction.RetryImmediately
-        case ShedLoad        => StreamFailureAction.RetryImmediately
-        case _               => StreamFailureAction.RetryImmediately
-      }
-    case lm: LimitNotice => StreamFailureAction.RetryWithBigBackoff
-    case _               => StreamFailureAction.NoRetry
+    csm match{
+      case dm: DisconnectMessage =>
+        dm.disconnect.code match {
+          case Shutdown        => StreamFailureAction.RetryImmediately
+          case DuplicateStream => StreamFailureAction.RetryImmediately
+          case ControlRequest  => StreamFailureAction.RetryImmediately
+          case Stall           => StreamFailureAction.RetryImmediately
+          case Normal          => StreamFailureAction.RetryImmediately
+          case TokenRevoked    => StreamFailureAction.RetryImmediately
+          case AdminLogout     => StreamFailureAction.RetryImmediately
+          case Internal        => StreamFailureAction.RetryImmediately
+          case MaxMessageLimit => StreamFailureAction.RetryImmediately
+          case StreamException => StreamFailureAction.RetryImmediately
+          case BrokerStall     => StreamFailureAction.RetryImmediately
+          case ShedLoad        => StreamFailureAction.RetryImmediately
+          case _               => StreamFailureAction.RetryImmediately
+        }
+      case lm: LimitNotice => StreamFailureAction.RetryWithBigBackoff
+      case _               => StreamFailureAction.NoRetry
+    }
   }
 }
 
