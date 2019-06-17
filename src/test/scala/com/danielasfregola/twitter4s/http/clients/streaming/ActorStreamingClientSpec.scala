@@ -1,6 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.streaming
+import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpMethods, HttpRequest}
 import akka.pattern.ask
+import akka.stream.ActorMaterializer
+import akka.stream.scaladsl.{Sink, Source}
 import akka.testkit.TestActorRef
 import akka.util.Timeout
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
@@ -12,11 +15,17 @@ import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 import com.danielasfregola.twitter4s.util.Configurations.{statusStreamingTwitterUrl, twitterVersion}
 import com.typesafe.scalalogging.LazyLogging
 import org.reactivestreams.{Publisher, Subscriber, Subscription}
+import org.specs2.concurrent.ExecutionEnv
+import org.specs2.mutable.Specification
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class ActorStreamingClientSpec extends TestActorSystem with ClientSpec with TestExecutionContext with OAuthClient with LazyLogging {
+class ActorStreamingClientSpec(implicit ee: ExecutionEnv)
+    extends Specification
+    with ClientSpec
+    with OAuthClient
+    with LazyLogging  {
 
   "StreamingClient" should {
     {
@@ -24,6 +33,8 @@ class ActorStreamingClientSpec extends TestActorSystem with ClientSpec with Test
         val ct = ConsumerToken("", "")
         val at = AccessToken("", "")
         val request = HttpRequest()
+        implicit val system = ActorSystem("sada")
+        implicit val mat = ActorMaterializer()
         val asc = system.actorOf(ActorStreamingClient.props(ct, at, request))
 
         asc must not be null
@@ -37,9 +48,12 @@ class ActorStreamingClientSpec extends TestActorSystem with ClientSpec with Test
 
         val dsa = HttpRequest(HttpMethods.POST, s"$statusUrl/filter.json")
 
-//                val asc = system.actorOf(ActorStreamingClient.props(ct, at, request))
+        implicit val system = ActorSystem("sada")
+        implicit val mat = ActorMaterializer()
 
-        val actorRef = TestActorRef(new ActorStreamingClient(ct, at, dsa))
+        val actorRef = system.actorOf(ActorStreamingClient.props(ct, at, request))
+
+//        val actorRef = TestActorRef(new ActorStreamingClient(ct, at, dsa))
 
         implicit val timeout = Timeout(20 seconds)
 
@@ -47,27 +61,9 @@ class ActorStreamingClientSpec extends TestActorSystem with ClientSpec with Test
 
         val publisher = Await.result(res, 20 seconds).asInstanceOf[Publisher[CommonStreamingMessage]]
 
-        publisher.subscribe(new Subscriber[CommonStreamingMessage] {
-          override def onSubscribe(s: Subscription): Unit = {
-            println(s)
-          }
-          override def onNext(t: CommonStreamingMessage): Unit = {
-            println(t)
-          }
-          override def onError(t: Throwable): Unit = {
-            println(t)
-          }
-          override def onComplete(): Unit = {
-            println("Done")
-          }
-        })
-        for(i <- 1 to 10){
-          actorRef ! OpenConnection()
-          Thread.sleep(1000)
-
-        }
-        Thread.sleep(10000)
-        publisher must not be null
+        val dd2 = Source.fromPublisher(publisher).runWith(Sink.head)
+        val result = Await.result(actorRef ? OpenConnection(), 5000 millis)
+        dd2 must throwAn[Exception].await
       }
     }
   }

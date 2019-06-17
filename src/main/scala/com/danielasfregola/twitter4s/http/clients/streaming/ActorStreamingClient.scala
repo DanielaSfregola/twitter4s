@@ -2,11 +2,12 @@ package com.danielasfregola.twitter4s.http.clients.streaming
 
 import java.util.UUID
 
+import akka.NotUsed
 import akka.actor.{Actor, ActorRef, ActorSystem, Props, Status}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.http.scaladsl.settings.ClientConnectionSettings
-import akka.pattern.ask
+import akka.pattern.{pipe}
 import akka.stream.scaladsl.{Flow, Framing, Keep, Sink, Source}
 import akka.stream._
 import akka.util.{ByteString, Timeout}
@@ -18,9 +19,10 @@ import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 import org.json4s.native.Serialization
 import org.reactivestreams.Publisher
 import com.danielasfregola.twitter4s.http.clients.streaming.ActorStreamingClient.{GetPublisher, OpenConnection}
+import com.typesafe.sslconfig.akka.AkkaSSLConfig
 
 import scala.concurrent.duration._
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext, Future, Promise}
 import scala.util.{Failure, Success, Try}
 
 class ActorStreamingClient(consumerToken: ConsumerToken,
@@ -47,22 +49,21 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
     case gc: GetPublisher => sender() ! publisher
     case oc: OpenConnection =>
       val originalSender = sender()
-      openConnection()
-        .recover({
-          case ex: Exception =>
-            {
-              logger.error("WTF", ex)
-            }
-        })
-        .onComplete {
-          case Success(pb)            => {
-            logger.info("alL GOOD")
-          }
-          case Failure(ex: Exception) => {
-            logger.error("WTF2", ex)
-            originalSender ! Status.Failure(ex)
-          }
-        }
+      openConnection().pipeTo(originalSender)
+//        .recover({
+//          case ex: Exception => {
+//            logger.error("WTF", ex)
+//          }
+//        })
+//        .onComplete {
+//          case Success(pb) => {
+//            logger.info("alL GOOD")
+//          }
+//          case Failure(ex: Exception) => {
+//            logger.error("WTF2", ex)
+//            originalSender ! Status.Failure(ex)
+//          }
+//        }
     case csm: CommonStreamingMessage =>
       handleMessage(csm) match {
         case StreamFailureAction.RetryImmediately =>
@@ -79,57 +80,44 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
       }
   }
 
-  private val actorSource = Source.actorRef[HttpRequest](5, OverflowStrategy.fail)
+  private val actorSource = Source.actorRef[HttpRequest](1, OverflowStrategy.fail)
   private val publisherSink = Sink.asPublisher[StreamingMessage](fanout = false)
   private val killSwitch: SharedKillSwitch = KillSwitches.shared(s"twitter4s-${UUID.randomUUID}")
 
-//  val settings = ClientConnectionSettings()
-  private lazy val connectionFlow = Http()
-    .outgoingConnectionHttps(request.uri.authority.host.toString, request.uri.effectivePort)
-    .log("test")
+  private lazy val connectionFlow: Flow[HttpRequest, HttpResponse, Future[Http.OutgoingConnection]] = Http()
+    .outgoingConnection(request.uri.authority.host.toString, request.uri.effectivePort)
     .addAttributes(
       Attributes.logLevels(onElement = Attributes.LogLevels.Info,
-        onFailure = Attributes.LogLevels.Error,
-        onFinish = Attributes.LogLevels.Info))
+                           onFailure = Attributes.LogLevels.Error,
+                           onFinish = Attributes.LogLevels.Info))
 
-  private lazy val (graphSourceActorRef: ActorRef, publisher: Publisher[StreamingMessage]) =
-    actorSource
-      .log("afterSource")
-      .addAttributes(
-        Attributes.logLevels(onElement = Attributes.LogLevels.Info,
-                             onFailure = Attributes.LogLevels.Error,
-                             onFinish = Attributes.LogLevels.Info))
-      .via(connectionFlow)
-//    .via(req => Http().singleRequest(req))
-      .log("afterConnection")
-      .addAttributes(
-        Attributes.logLevels(onElement = Attributes.LogLevels.Info,
-          onFailure = Attributes.LogLevels.Error,
-          onFinish = Attributes.LogLevels.Info))
+  private lazy val zomfg: Source[HttpResponse, (ActorRef, Future[Http.OutgoingConnection])] = actorSource
+    .viaMat(connectionFlow)(Keep.both)
+
+  private lazy val ((graphSourceActorRef, future), publisher): ((ActorRef, Future[Http.OutgoingConnection]),
+                                                           Publisher[StreamingMessage]) =
+    zomfg
       .flatMapConcat(processHttpResponse)
+//      .recover {
+//        case ex: Exception =>
+//          throw new Exception(ex)
+////          QQ(ex)
+//      }
       .toMat(publisherSink)(Keep.both)
       .run()
 
-  def openConnection(): Future[Unit] = {
-    logger.info(s"Opening HTTP connection to ${request.uri}")
+  def openConnection(): Future[Http.OutgoingConnection] = {
+    logger.info(s"Opening HTTPS connection to ${request.uri}")
     Future.successful(graphSourceActorRef ! request)
 
-//    withOAuthHeader(None)(mat)(request).map(
-//      requestWithAuth => {
-//        logger.info(requestWithAuth.toString())
-//        publisher
-//      }
-//    )
-//          .map(_ => {
-//            logger.debug(s"Connection to ${request.uri} opened successfully")
-//            publisher
-//          })
-//          .recover({
-//            case ex: Throwable =>
-//              logger.info(s"Failed to open connection to ${request.uri}")
-//              throw ex
-//          }))
-  }
+    withOAuthHeader(None)(mat)(request)
+      .map(
+        requestWithAuth => {
+          logger.info(requestWithAuth.toString())
+          future
+        }
+      )
+  }.flatten
 
   private def processHttpResponse(httpResponse: HttpResponse) = {
     logger.info(httpResponse.toString())
@@ -155,6 +143,7 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
       .map(data => unmarshalStream(data))
       .filter(_.isSuccess)
       .map(_.get)
+
 
   private def unmarshalStream[T <: StreamingMessage: Manifest](data: ByteString): Try[StreamingMessage] = {
     val json = data.utf8String
@@ -191,3 +180,5 @@ object ActorStreamingClient {
   case class OpenConnection()
   case class GetPublisher()
 }
+
+case class QQ(ex: Exception) extends CommonStreamingMessage
