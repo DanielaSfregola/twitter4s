@@ -1,73 +1,83 @@
 package com.danielasfregola.twitter4s.http.clients.streaming
-import akka.actor.ActorSystem
+import akka.actor.{ActorRef, ActorSystem}
 import akka.http.scaladsl.model.{HttpMethods, HttpRequest}
 import akka.pattern.ask
-import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Sink, Source}
-import akka.testkit.TestActorRef
+import akka.stream.{ActorMaterializer, StreamTcpException}
 import akka.util.Timeout
 import com.danielasfregola.twitter4s.entities.streaming.CommonStreamingMessage
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
-import com.danielasfregola.twitter4s.helpers.{ClientSpec, TestActorSystem, TestExecutionContext}
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.clients.streaming.ActorStreamingClient.{GetPublisher, OpenConnection}
-import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
+import com.danielasfregola.twitter4s.exceptions.TwitterException
+import com.danielasfregola.twitter4s.helpers.ClientSpec
+import com.danielasfregola.twitter4s.http.clients.streaming.ActorStreamingClient.OpenConnection
 import com.danielasfregola.twitter4s.util.Configurations.{statusStreamingTwitterUrl, twitterVersion}
 import com.typesafe.scalalogging.LazyLogging
-import org.reactivestreams.{Publisher, Subscriber, Subscription}
+import org.reactivestreams.Publisher
 import org.specs2.concurrent.ExecutionEnv
 import org.specs2.mutable.Specification
 
-import scala.concurrent.Await
 import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 
-class ActorStreamingClientSpec(implicit ee: ExecutionEnv)
-    extends Specification
-    with ClientSpec
-    with OAuthClient
-    with LazyLogging  {
+class ActorStreamingClientSpec(implicit ee: ExecutionEnv) extends Specification with ClientSpec with LazyLogging {
 
   "StreamingClient" should {
     {
-      "be created successfully" in {
+      "create the stream successfully" in {
         val ct = ConsumerToken("", "")
         val at = AccessToken("", "")
         val request = HttpRequest()
-        implicit val system = ActorSystem("sada")
+        implicit val system = ActorSystem("test-actor-system")
         implicit val mat = ActorMaterializer()
         val asc = system.actorOf(ActorStreamingClient.props(ct, at, request))
 
-        asc must not be null
+        asc must haveSuperclass[ActorRef]
       }
 
-      "fail to open a connection for bad credentials" in {
+      "fail the stream in case of network issues" in {
+        "fail to open a connection for invalid host" in {
+          val ct = ConsumerToken("", "")
+          val at = AccessToken("", "")
+          val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
+
+          val dsa = HttpRequest(HttpMethods.POST, s"https://nosuchurlever.com")
+
+          implicit val system = ActorSystem("sada")
+          implicit val mat = ActorMaterializer()
+          implicit val timeout = Timeout(20 seconds)
+
+          val actorRef = system.actorOf(ActorStreamingClient.props(ct, at, dsa))
+
+          val streamSourceFuture = (actorRef ? OpenConnection())
+            .asInstanceOf[Future[Publisher[CommonStreamingMessage]]]
+            .map(Source.fromPublisher)
+          val streamSource = Await.result(streamSourceFuture, 20 seconds)
+          val streamResult = streamSource.runWith(Sink.head)
+          streamResult must throwAn[StreamTcpException].await(0, 20 seconds)
+        }
+      }
+
+      "fail the stream with 401 for invalid twitter credentials" in {
         val ct = ConsumerToken("", "")
         val at = AccessToken("", "")
         val statusUrl = s"$statusStreamingTwitterUrl/$twitterVersion/statuses"
-        val request = Post(s"$statusUrl/filter.json", "")
 
         val dsa = HttpRequest(HttpMethods.POST, s"$statusUrl/filter.json")
 
         implicit val system = ActorSystem("sada")
         implicit val mat = ActorMaterializer()
-
-        val actorRef = system.actorOf(ActorStreamingClient.props(ct, at, request))
-
-//        val actorRef = TestActorRef(new ActorStreamingClient(ct, at, dsa))
-
         implicit val timeout = Timeout(20 seconds)
 
-        val res = actorRef ? GetPublisher()
+        val actorRef = system.actorOf(ActorStreamingClient.props(ct, at, dsa))
 
-        val publisher = Await.result(res, 20 seconds).asInstanceOf[Publisher[CommonStreamingMessage]]
-
-        val dd2 = Source.fromPublisher(publisher).runWith(Sink.head)
-        val result = Await.result(actorRef ? OpenConnection(), 5000 millis)
-        dd2 must throwAn[Exception].await
+        val streamSourceFuture =
+          (actorRef ? OpenConnection())
+            .asInstanceOf[Future[Publisher[CommonStreamingMessage]]]
+            .map(Source.fromPublisher)
+        val streamSource = Await.result(streamSourceFuture, 20 seconds)
+        val streamResult = streamSource.runWith(Sink.head)
+        streamResult must throwAn[TwitterException].await(0, 20 seconds)
       }
     }
   }
-  override def oauthProvider: OAuth1Provider = new OAuth1Provider(ConsumerToken("", ""), Some(AccessToken("", "")))
-  override def withLogRequest: Boolean = true
-  override def withLogRequestResponse: Boolean = true
 }
