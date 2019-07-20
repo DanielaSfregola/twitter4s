@@ -2,10 +2,11 @@ package com.danielasfregola.twitter4s.http.clients.streaming
 
 import java.util.UUID
 
-import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import akka.NotUsed
+import akka.actor.{Actor, ActorRef, ActorSystem}
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream._
-import akka.stream.scaladsl.{Framing, Keep, Sink, Source}
+import akka.stream.scaladsl.{Flow, Framing, Keep, Sink, Source}
 import akka.util.{ByteString, Timeout}
 import com.danielasfregola.twitter4s.entities.streaming.{CommonStreamingMessage, StreamingMessage}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
@@ -20,7 +21,7 @@ import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 
-class ActorStreamingClient(consumerToken: ConsumerToken,
+abstract class ActorStreamingClient(consumerToken: ConsumerToken,
                            accessToken: AccessToken,
                            request: HttpRequest,
                            handleStreamErrors: Boolean = true)(implicit val actorSystem: ActorSystem,
@@ -28,8 +29,7 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
                                                                implicit val ec: ExecutionContext)
     extends Actor
     with OAuthClient
-    with StreamFailureHandler
-    with HttpConnectionFlow {
+    with StreamFailureHandler {
 
   override lazy val oauthProvider: OAuth1Provider = new OAuth1Provider(consumerToken, Some(accessToken))
   override def withLogRequest: Boolean = true
@@ -37,14 +37,21 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
 
   implicit val timeout = Timeout(5 seconds)
 
+  protected val connectionFlow: Flow[HttpRequest, HttpResponse, NotUsed]
+
   // Because it's an actor, we can use a var to keep track of the most recent error and backoff duration so that
   // we know what the next delay should be
 //  private var failureRetryMonitor: Int = 0
 
   override def receive = {
     case _: OpenConnection =>
+      val senderQQ = sender()
+      logger.debug("Opening connection")
       openConnection().map(
-        _ => sender() ! publisher
+        _ => {
+          logger.debug("Replying to sender")
+          senderQQ ! publisher
+        }
       )
     case csm: CommonStreamingMessage =>
       handleMessage(csm) match {
@@ -75,15 +82,21 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
           throw streamTcpException
       }
       .flatMapConcat(processHttpResponse)
+    .log("something something", x => x)
       .toMat(publisherSink)(Keep.both)
       .run()
 
   def openConnection(): Future[Unit] = {
     logger.info(s"Opening HTTPS connection to ${request.uri}")
-    withOAuthHeader(None)(mat)(request)
-      .map(
-        requestWithAuth => graphSourceActorRef ! requestWithAuth
-      )
+    graphSourceActorRef ! request
+
+    logger.info(s"Should have replied by now")
+
+    //    withOAuthHeader(None)(mat)(request)
+//      .map(
+//        requestWithAuth =>
+//      )
+    Future.successful()
   }
 
   private def processHttpResponse(httpResponse: HttpResponse) = {
@@ -116,13 +129,8 @@ class ActorStreamingClient(consumerToken: ConsumerToken,
     Try(Serialization.read[StreamingMessage](json))
   }
 
-  override def getRequest: HttpRequest = request
+  def getRequest: HttpRequest = request
 }
 object ActorStreamingClient {
-  def props(consumerToken: ConsumerToken,
-            accessToken: AccessToken,
-            request: HttpRequest)(implicit actorSystem: ActorSystem, mat: Materializer, ec: ExecutionContext) =
-    Props(new ActorStreamingClient(consumerToken = consumerToken, accessToken = accessToken, request = request))
-
   case class OpenConnection()
 }
