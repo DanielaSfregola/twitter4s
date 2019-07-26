@@ -9,6 +9,7 @@ import akka.http.scaladsl.model.HttpEntity.{ChunkStreamPart, Chunked}
 import akka.http.scaladsl.model._
 import akka.stream.Materializer
 import akka.stream.scaladsl.{Flow, Sink, Source}
+import akka.util.ByteString
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.streaming.common.{DisconnectMessage, DisconnectMessageInfo}
 import org.json4s.native.Serialization
@@ -22,34 +23,26 @@ trait FakeHttpConnectionFlow {
   implicit val actorSystem: ActorSystem
   implicit val mat: Materializer
 
+
+
   protected lazy val connectionFlow: Flow[HttpRequest, HttpResponse, NotUsed] = {
+
 
     val msg = DisconnectMessage(DisconnectMessageInfo(DisconnectionCode.Normal, "test", "test"))
     implicit val formats = org.json4s.DefaultFormats
     implicit val ec = mat.executionContext
 
-    val jsoned = Serialization.write(msg)
-
-//    val src = Source.single(msg).map(x => ChunkStreamPart.apply(serialise(jsoned)))
+    val jsoned: String = Serialization.write(msg)
 
     Flow[HttpRequest]
       .map(
-//      _ => HttpResponse(entity = Chunked(ContentTypes.`application/json`, src))
         x => {
           x.discardEntityBytes().future.onComplete { done =>
             println("Entity discarded completely!")
           }
-                    Thread.sleep(5000)
-          HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, jsoned))
+          HttpResponse(entity = HttpEntity(ContentTypes.`application/json`, jsoned + ByteString("\r\n")))
         }
-//        x => {
-//          Thread.sleep(5000)
-//          HttpResponse(entity = x.entity)
-////          x.asInstanceOf[HttpResponse]
-//        }
-
       )
-      .log("Something passed the flow ", resp => resp)
   }
 
   def serialise(value: Any): Array[Byte] = {

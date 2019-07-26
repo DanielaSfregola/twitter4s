@@ -92,10 +92,6 @@ abstract class ActorStreamingClient(consumerToken: ConsumerToken,
 
     logger.info(s"Should have replied by now")
 
-    //    withOAuthHeader(None)(mat)(request)
-//      .map(
-//        requestWithAuth =>
-//      )
     Future.successful()
   }
 
@@ -116,13 +112,15 @@ abstract class ActorStreamingClient(consumerToken: ConsumerToken,
       response: HttpResponse,
       killSwitch: SharedKillSwitch
   ): Source[StreamingMessage, Any] =
-    response.entity.withoutSizeLimit.dataBytes
+
+      response.entity.withoutSizeLimit.dataBytes
       .via(Framing.delimiter(ByteString("\r\n"), Int.MaxValue).async)
       .filter(_.nonEmpty)
       .via(killSwitch.flow)
       .map(data => unmarshalStream(data))
       .filter(_.isSuccess)
       .map(_.get)
+
 
   private def unmarshalStream[T <: StreamingMessage: Manifest](data: ByteString): Try[StreamingMessage] = {
     val json = data.utf8String
