@@ -17,6 +17,7 @@ env:
 script:
   - sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test  # check files are formatted correctly
   - travis_retry sbt clean coverage test coverageReport
+  - sbt coverageAggregate
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -24,9 +25,6 @@ after_success:
 scala:
   - 2.12.4
   - 2.11.12
-
-jdk:
-  - oraclejdk8
 
 # whitelist
 branches:
