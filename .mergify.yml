@@ -7,4 +7,4 @@ pull_request_rules:
       merge:
         method: merge
       comment:
-        message: "Thank you @scala-steward! :heart:"
+        message: "Thank you Scala Steward! :heart:"

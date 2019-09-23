@@ -12,7 +12,7 @@ before_cache:
 language: scala
 
 env:
-  - SBT_OPTS = -XX:MaxPermSize=1024M -XX:+UseConcMarkSweepGC -XX:+CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
+  - SBT_OPTS = -Xmx1G
 
 script:
   - sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test  # check files are formatted correctly
