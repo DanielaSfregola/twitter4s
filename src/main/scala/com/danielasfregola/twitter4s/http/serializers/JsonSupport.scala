@@ -39,6 +39,8 @@ private[twitter4s] object DateTimeFormatter {
 
   def parseInstant(s: String): Instant = formatter.parse(s).toInstant
 
+  def parseInstant(l: Long): Instant = Instant.ofEpochSecond(l)
+
   def formatInstant(i: Instant): String = formatter.format(Date.from(i))
 
 }

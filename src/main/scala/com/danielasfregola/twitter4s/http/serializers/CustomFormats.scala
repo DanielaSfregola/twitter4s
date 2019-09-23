@@ -5,7 +5,7 @@ import java.time._
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.ProfileImage
-import org.json4s.JsonAST.{JInt, JNull, JString}
+import org.json4s.JsonAST.{JInt, JLong, JNull, JString}
 import org.json4s.{CustomSerializer, Formats}
 
 private[twitter4s] object CustomFormats extends FormatsComposer {
@@ -18,6 +18,8 @@ private[twitter4s] object CustomFormats extends FormatsComposer {
 private[twitter4s] case object InstantSerializer
     extends CustomSerializer[Instant](format =>
       ({
+        case JInt(i)                                            => DateTimeFormatter.parseInstant(i.toLong)
+        case JLong(l)                                           => DateTimeFormatter.parseInstant(l)
         case JString(s) if DateTimeFormatter.canParseInstant(s) => DateTimeFormatter.parseInstant(s)
         case JString(stringAsUnixTime) if stringAsUnixTime.forall(_.isDigit) =>
           Instant.ofEpochMilli(stringAsUnixTime.toLong)
