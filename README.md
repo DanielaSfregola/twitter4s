@@ -10,7 +10,7 @@ Prerequisites
  * JDK 8
  * Scala 2.11.+ and 2.12.+
 
-- Go to http://apps.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
+- Go to https://developer.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
 - Once the app has been created, generate a access key and access secret with the desired permission level.
 
 Rate Limits
