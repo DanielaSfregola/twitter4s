@@ -5,7 +5,7 @@ enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 name := "twitter4s"
 version := "6.2-SNAPSHOT"
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.13.0"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -53,7 +53,7 @@ lazy val standardSettings = Seq(
     ScmInfo(url("https://github.com/DanielaSfregola/twitter4s"),
             "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
-  crossScalaVersions := Seq("2.12.4", "2.11.12"),
+  crossScalaVersions := Seq(scalaVersion.value, "2.12.10", "2.11.12"),
   pomExtra := (
     <developers>
     <developer>

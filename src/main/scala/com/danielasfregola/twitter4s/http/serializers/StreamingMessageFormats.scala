@@ -21,7 +21,7 @@ private[twitter4s] object StreamingMessageFormats extends FormatsComposer {
   private val tweetUnmarshaller = FieldSerializer[Tweet](deserializer = FieldSerializer.renameFrom("full_text", "text"))
 
   private def withCustomUnmarshaller[T <: StreamingMessage: Manifest](json: JValue, formatter: Formats): Option[T] = {
-    implicit val _: Formats = formatter
+    implicit val formats: Formats = formatter
     Extraction.extractOpt[T](json)
   }
 

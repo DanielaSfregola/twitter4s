@@ -30,7 +30,7 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
     val params = basicOAuth2Params(callback)
     for {
       signature <- oauth1Signature(params)
-    } yield (params + signature).mapValues(_.urlEncoded)
+    } yield (params + signature).mapValues(_.urlEncoded).toMap
   }
 
   def oauth1Signature(oauth2Params: Map[String, String])(implicit request: HttpRequest, materializer: Materializer) = {
@@ -67,7 +67,7 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
       val method = request.method.name.urlEncoded
       val baseUrl = request.uri.endpoint.urlEncoded
       val oauthParams = oauth2Params.map {
-        case (k, v) =>
+        case (k: String, v: String) =>
           if (k == "oauth_callback") k -> v.urlEncoded
           else k -> v
       }
@@ -90,7 +90,8 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
     }
   }
 
-  def queryParams(implicit request: HttpRequest) = request.uri.query().toMap.mapValues(_.urlEncoded)
+  def queryParams(implicit request: HttpRequest): Map[String, String] =
+    request.uri.query().toMap.mapValues(_.urlEncoded).toMap
 
   private def encodeParams(params: Map[String, String]) =
     params.keySet.toList.sorted
