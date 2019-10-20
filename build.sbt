@@ -8,7 +8,7 @@ version := "6.2-SNAPSHOT"
 scalaVersion := "2.12.4"
 
 resolvers ++= Seq(
-  "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/",
+  Resolver.sonatypeRepo("releases"),
   Resolver.jcenterRepo
 )
 
