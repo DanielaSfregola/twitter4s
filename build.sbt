@@ -20,7 +20,7 @@ libraryDependencies ++= {
   val Json4s = "3.6.7"
   val Specs2 = "4.8.0"
   val ScalaLogging = "3.9.2"
-  val RandomDataGenerator = "2.7"
+  val RandomDataGenerator = "2.8"
 
   Seq(
     "com.typesafe" % "config" % Typesafe,
