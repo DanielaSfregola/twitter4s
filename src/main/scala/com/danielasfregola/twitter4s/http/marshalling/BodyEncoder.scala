@@ -42,6 +42,6 @@ trait BodyEncoder {
 
   // TODO - improve performance with Macros?
   private def asMap(cc: Product): Map[String, Any] =
-    cc.getClass.getDeclaredFields.map(_.getName).zip(cc.productIterator.to).toMap
+    cc.getClass.getDeclaredFields.map(_.getName).zip(cc.productIterator.toSeq).toMap
 
 }

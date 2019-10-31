@@ -18,7 +18,7 @@ trait Client extends OAuthClient {
   protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(
       implicit system: ActorSystem,
       materializer: Materializer): Future[T] = {
-    implicit val _ = request
+    implicit val r: HttpRequest = request
     val requestStartTime = System.currentTimeMillis
 
     if (withLogRequest) logRequest
