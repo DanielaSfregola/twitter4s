@@ -44,10 +44,10 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "determine if user is subscribed" in new TwitterAccountClientSpecContext {
-      val result: Unit = when(isUserSubscribed(env_name = "test"))
+    "subscribe context user to all events" in new TwitterAccountClientSpecContext {
+      val result: Unit = when(subscribeAll(env_name = "test"))
         .expectRequest { request =>
-          request.method === HttpMethods.GET
+          request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/subscriptions.json"
         }
         .respondWithNoContent
@@ -55,10 +55,21 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
       result.isInstanceOf[Unit] should beTrue
     }
 
-    "subscribe context user to all events" in new TwitterAccountClientSpecContext {
-      val result: Unit = when(subscribeAll(env_name = "test"))
+    "unsubscribe context user to all events" in new TwitterAccountClientSpecContext {
+      val result: Unit = when(unsubscribeAll(env_name = "test"))
         .expectRequest { request =>
-          request.method === HttpMethods.POST
+          request.method === HttpMethods.DELETE
+          request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/subscriptions.json"
+        }
+        .respondWithNoContent
+        .await
+      result.isInstanceOf[Unit] should beTrue
+    }
+
+    "determine if user is subscribed" in new TwitterAccountClientSpecContext {
+      val result: Unit = when(isUserSubscribed(env_name = "test"))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/subscriptions.json"
         }
         .respondWithNoContent
