@@ -69,6 +69,12 @@ abstract class RequestDSL extends TestActorSystem with FixturesSupport with Afte
       transport.reply(response)
       new Await(Future.successful((): Unit))
     }
+
+    def respondWithNoContent: Await[Unit] = {
+      val response = HttpResponse(StatusCodes.NoContent)
+      transport.reply(response)
+      new Await(Future.successful((): Unit))
+    }
   }
 
   class Await[T](future: Future[T]) {

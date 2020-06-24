@@ -17,7 +17,7 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/webhooks.json"
           request.uri.rawQueryString === Some("url=https%3A%2F%2Fdanielasfregola.com%2Fwebhook")
         }
-        .respondWithRated("/twitter/rest/accountactivity/webhook.json")
+        .respondWith("/twitter/rest/accountactivity/webhook.json")
         .await
       result === loadJsonAs[Webhook]("/fixtures/rest/accountactivity/webhook.json")
     }
@@ -28,7 +28,7 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
           request.method === HttpMethods.DELETE
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/webhooks/1234567890123456789.json"
         }
-        .respondWithOk
+        .respondWithNoContent
         .await
       result.isInstanceOf[Unit] should beTrue
     }
@@ -39,7 +39,7 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
           request.method === HttpMethods.PUT
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/webhooks/1234567890123456789.json"
         }
-        .respondWithOk
+        .respondWithNoContent
         .await
       result.isInstanceOf[Unit] should beTrue
     }
@@ -50,7 +50,7 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/subscriptions.json"
         }
-        .respondWithOk
+        .respondWithNoContent
         .await
       result.isInstanceOf[Unit] should beTrue
     }
@@ -61,7 +61,7 @@ class TwitterAccountActivityClientSpec extends ClientSpec {
           request.method === HttpMethods.POST
           request.uri.endpoint === "https://api.twitter.com/1.1/account_activity/all/test/subscriptions.json"
         }
-        .respondWithOk
+        .respondWithNoContent
         .await
       result.isInstanceOf[Unit] should beTrue
     }

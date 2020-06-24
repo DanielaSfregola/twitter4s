@@ -40,7 +40,7 @@ trait TwitterAccountActivityClient {
     * */
   def removeWebhook(env_name: String, webhookId: String): Future[Unit] = {
     import restClient._
-    Delete(s"$accountUrl/$env_name/webhooks/$webhookId.json").respondAs[Unit]
+    Delete(s"$accountUrl/$env_name/webhooks/$webhookId.json").sendAsFormData
   }
 
   /** Reenables the webhook by setting its status to valid. It triggers the challenge response check (CRC) for the given enviroments webhook for all activites.
@@ -53,7 +53,7 @@ trait TwitterAccountActivityClient {
     * */
   def reenableWebhook(env_name: String, webhookId: String): Future[Unit] = {
     import restClient._
-    Put(s"$accountUrl/$env_name/webhooks/$webhookId.json").respondAs[Unit]
+    Put(s"$accountUrl/$env_name/webhooks/$webhookId.json").sendAsFormData
   }
 
   /** Subscribes the provided application to all events for the provided environment for all message types.
@@ -65,7 +65,7 @@ trait TwitterAccountActivityClient {
     * */
   def subscribeAll(env_name: String): Future[Unit] = {
     import restClient._
-    Post(s"$accountUrl/$env_name/subscriptions.json").respondAs[Unit]
+    Post(s"$accountUrl/$env_name/subscriptions.json").sendAsFormData
   }
 
   /** Deactivates subscription(s) for the provided user context and application for all activities.
@@ -77,7 +77,7 @@ trait TwitterAccountActivityClient {
     * */
   def unsubscribeAll(env_name: String): Future[Unit] = {
     import restClient._
-    Delete(s"$accountUrl/$env_name/subscriptions.json").respondAs[Unit]
+    Delete(s"$accountUrl/$env_name/subscriptions.json").sendAsFormData
   }
 
   /** Provides a way to determine if a webhook configuration is subscribed to the provided user’s events. If the provided user context has an active subscription with provided application, returns 204 OK. If the response code is not 204, then the user does not have an active subscription.
@@ -89,7 +89,7 @@ trait TwitterAccountActivityClient {
     * */
   def isUserSubscribed(env_name: String): Future[Unit] = {
     import restClient._
-    Get(s"$accountUrl/$env_name/subscriptions.json").respondAs[Unit]
+    Get(s"$accountUrl/$env_name/subscriptions.json").sendAsFormData
   }
 
   // The following routes require a Bearer token to authenticate the corresponding requests
