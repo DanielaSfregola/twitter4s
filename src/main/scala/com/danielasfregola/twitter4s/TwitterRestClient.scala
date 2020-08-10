@@ -4,6 +4,7 @@ import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient
+import com.danielasfregola.twitter4s.http.clients.rest.accountactivity.TwitterAccountActivityClient
 import com.danielasfregola.twitter4s.http.clients.rest.application.TwitterApplicationClient
 import com.danielasfregola.twitter4s.http.clients.rest.blocks.TwitterBlockClient
 import com.danielasfregola.twitter4s.http.clients.rest.directmessages.TwitterDirectMessageClient
@@ -40,6 +41,7 @@ class TwitterRestClient(val consumerToken: ConsumerToken, val accessToken: Acces
 
 trait RestClients
     extends TwitterAccountClient
+    with TwitterAccountActivityClient
     with TwitterApplicationClient
     with TwitterBlockClient
     with TwitterDirectMessageClient

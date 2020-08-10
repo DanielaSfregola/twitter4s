@@ -11,7 +11,7 @@ import org.json4s.{CustomSerializer, Formats}
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer
 
 }
 
@@ -38,6 +38,15 @@ private[twitter4s] case object LocalDateSerializer
         case JNull => null
       }, {
         case date: LocalDate => JString(date.toString)
+      }))
+
+private[twitter4s] case object ZonedDateTimeSerializer
+    extends CustomSerializer[ZonedDateTime](_ =>
+      ({
+        case JString(dateString) => DateTimeFormatter.parseZonedDateTime(dateString)
+        case JNull               => null
+      }, {
+        case date: ZonedDateTime => JString(date.toString)
       }))
 
 private[twitter4s] case object DisconnectionCodeSerializer
