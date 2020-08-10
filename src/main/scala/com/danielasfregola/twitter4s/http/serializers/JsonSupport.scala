@@ -1,7 +1,8 @@
 package com.danielasfregola.twitter4s.http.serializers
 
 import java.text.SimpleDateFormat
-import java.time.Instant
+import java.time.{Instant, ZonedDateTime}
+import java.time.format.DateTimeFormatterBuilder
 import java.util.{Date, Locale}
 
 import de.heikoseeberger.akkahttpjson4s.Json4sSupport
@@ -35,6 +36,12 @@ private[twitter4s] object DateTimeFormatter {
   // SimpleDateFormat not thread safe! Damn you java!!!
   def formatter = new SimpleDateFormat(formatterPattern, locale)
 
+  val builder: DateTimeFormatterBuilder = new DateTimeFormatterBuilder()
+    .appendPattern("[EEE MMM dd HH:mm:ss Z yyyy]")
+    .appendPattern("[yyyy-MM-dd HH:mm:ss Z]")
+
+  val dateTimeFormatter = builder.toFormatter(locale)
+
   def canParseInstant(s: String): Boolean = Try(parseInstant(s)).isSuccess
 
   def parseInstant(s: String): Instant = formatter.parse(s).toInstant
@@ -42,5 +49,7 @@ private[twitter4s] object DateTimeFormatter {
   def parseInstant(l: Long): Instant = Instant.ofEpochSecond(l)
 
   def formatInstant(i: Instant): String = formatter.format(Date.from(i))
+
+  def parseZonedDateTime(s: String): ZonedDateTime = ZonedDateTime.parse(s, dateTimeFormatter)
 
 }
