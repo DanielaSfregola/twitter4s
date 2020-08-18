@@ -96,7 +96,7 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
-  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'messageCreate' instead.", "twitter4s 6.0")
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'createDirectMessageEvent' instead.", "twitter4s 6.0")
   def createDirectMessage(user_id: Long, text: String): Future[DirectMessage] = {
     val parameters = CreateParameters(user_id = Some(user_id), text = text)
     genericCreateDirectMessage(parameters)
@@ -113,7 +113,7 @@ trait TwitterDirectMessageClient {
     *             and keep the message under 140 characters.
     * @return : The sent direct message.
     * */
-  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'messageCreate' instead.", "twitter4s 6.0")
+  @deprecated("Twitter endpoint deprecated from 17th Sep 2018. Please use 'createDirectMessageEvent' instead.", "twitter4s 6.0")
   def createDirectMessage(screen_name: String, text: String): Future[DirectMessage] = {
     val parameters = CreateParameters(screen_name = Some(screen_name), text = text)
     genericCreateDirectMessage(parameters)
