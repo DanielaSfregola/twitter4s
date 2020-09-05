@@ -1,4 +1,8 @@
-sudo: false
+language: scala
+
+os: linux
+
+dist: xenial
 
 cache:
   directories:
@@ -8,11 +12,6 @@ cache:
 before_cache:
   - find $HOME/.ivy2 -name "ivydata-*.properties" -delete
   - find $HOME/.sbt -name "*.lock" -delete
-
-language: scala
-
-env:
-  - SBT_OPTS = -Xmx1G
 
 script:
   - sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test  # check files are formatted correctly
