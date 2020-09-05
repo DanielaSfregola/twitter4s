@@ -3,7 +3,7 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 
 name := "twitter4s"
-version := "7.0"
+version := "7.1-SNAPSHOT"
 
 scalaVersion := "2.13.0"
 
