@@ -7,7 +7,7 @@ final case class SearchMetadata(completed_in: Double,
                                 max_id_str: String,
                                 next_results: Option[String],
                                 query: String,
-                                refresh_url: String,
+                                refresh_url: Option[String],
                                 count: Int,
                                 since_id: Long,
                                 since_id_str: String)
