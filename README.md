@@ -8,7 +8,7 @@ An asynchronous non-blocking Scala Twitter Client, implemented using Akka-Http a
 Prerequisites
 -------------
  * JDK 8
- * Scala 2.13.+, 2.12.+ or 2.11.+
+ * Scala 2.12+
 
 - Go to https://developer.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
 - Once the app has been created, generate a access key and access secret with the desired permission level.
