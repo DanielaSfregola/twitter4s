@@ -23,7 +23,7 @@ class TwitterMediaClientSpec extends ClientSpec {
             request.method === HttpMethods.POST
             request.uri.endpoint === "https://upload.twitter.com/1.1/media/upload.json"
             request.uri.rawQueryString === Some(
-              "command=INIT&media_category=TweetImage&media_type=image%2Fpng&total_bytes=22689")
+              "command=INIT&media_category=tweet_image&media_type=image%2Fpng&total_bytes=22689")
           }
           .respondWith(initMediaResponse)
           .expectRequest { request =>
