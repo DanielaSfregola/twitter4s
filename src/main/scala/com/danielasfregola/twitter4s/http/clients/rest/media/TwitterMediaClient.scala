@@ -107,7 +107,15 @@ trait TwitterMediaClient {
 
   private def initMedia(size: Long, media_type: String, additional_owners: Seq[Long]): Future[MediaDetails] = {
     import restClient._
-    val parameters = MediaInitParameters(size, media_type, Some(additional_owners.mkString(",")))
+    val media_category = media_type.toLowerCase match {
+      case mediaType if mediaType.startsWith("image/gif") => Some("tweet_gif")
+      case mediaType if mediaType.startsWith("image/")    => Some("tweet_image")
+      case mediaType if mediaType.startsWith("video/")    => Some("tweet_video")
+      case _                                              => None
+    }
+
+    val parameters =
+      MediaInitParameters(size, media_type, media_category, Some(additional_owners.mkString(",")))
     Post(s"$mediaUrl/upload.json", parameters).respondAs[MediaDetails]
   }
 
