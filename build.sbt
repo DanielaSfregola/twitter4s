@@ -14,8 +14,8 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val Typesafe = "1.4.0"
-  val Akka = "2.6.7"
-  val AkkaHttp = "10.2.0-RC1"
+  val Akka = "2.6.8"
+  val AkkaHttp = "10.2.0"
   val AkkaHttpJson4s = "1.33.0"
   val Json4s = "3.6.9"
   val Specs2 = "4.10.0"
