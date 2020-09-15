@@ -9,7 +9,7 @@ final case class MediaDetails(media_id: Long,
                               processing_info: Option[ProcessingInfo] = None)
 
 final case class ProcessingInfo(state: String,
-                                progress_percent: Long,
+                                progress_percent: Option[Long],
                                 check_after_secs: Option[Int],
                                 error: Option[ProcessingError])
 
