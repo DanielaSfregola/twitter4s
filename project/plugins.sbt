@@ -1,5 +1,3 @@
-resolvers += "jgit-repo" at "https://download.eclipse.org/jgit/maven"
-
 addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "1.4.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.6.3")
