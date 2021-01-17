@@ -85,7 +85,7 @@ private[twitter4s] class OAuth1Provider(consumerToken: ConsumerToken, accessToke
             .mediaType == MediaTypes.`application/x-www-form-urlencoded`) {
         val entities = cleanBody.split("&")
         val bodyTokens = entities.flatMap(_.split("=", 2)).toList
-        bodyTokens.grouped(2).map { case List(k, v) => k -> v }.toMap
+        bodyTokens.grouped(2).collect { case List(k, v) => k -> v }.toMap
       } else Map()
     }
   }

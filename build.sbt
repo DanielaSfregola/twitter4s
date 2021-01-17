@@ -5,7 +5,7 @@ enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 name := "twitter4s"
 version := "7.1-SNAPSHOT"
 
-scalaVersion := "2.13.0"
+scalaVersion := "2.13.4"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),

@@ -15,14 +15,14 @@ before_cache:
 
 script:
   - sbt scalafmt::test test:scalafmt::test sbt:scalafmt::test  # check files are formatted correctly
-  - travis_retry sbt clean coverage test coverageReport
-  - sbt coverageAggregate
+  - travis_retry sbt clean test
+  #- sbt coverageAggregate  #why does this not work anymore?
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 scala:
-  - 2.13.0
+  - 2.13.4
   - 2.12.10
 
 # whitelist
