@@ -3,8 +3,8 @@ package com.danielasfregola.twitter4s.http.clients.authentication
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.HttpRequest
 import akka.stream.{ActorMaterializer, Materializer}
-import com.danielasfregola.twitter4s.entities.ConsumerToken
-import com.danielasfregola.twitter4s.http.clients.Client
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
+import com.danielasfregola.twitter4s.http.clients.{Client, OAuthClient}
 import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 import com.danielasfregola.twitter4s.http.serializers.{FormSupport, FromMap}
 
@@ -12,7 +12,7 @@ import scala.concurrent.Future
 
 private[twitter4s] class AuthenticationClient(val consumerToken: ConsumerToken)(implicit val system: ActorSystem)
     extends Client {
-
+  lazy val oauthClient = new OAuthClient(consumerToken, AccessToken("", ""))
   lazy val oauthProvider = new OAuth1Provider(consumerToken, None)
 
   private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
@@ -23,7 +23,7 @@ private[twitter4s] class AuthenticationClient(val consumerToken: ConsumerToken)(
 
     def respondAs[T: Manifest](callback: Option[String])(implicit fromMap: FromMap[T]): Future[T] =
       for {
-        requestWithAuth <- withOAuthHeader(callback)(materializer)(request)
+        requestWithAuth <- oauthClient.withOAuthHeader(callback)(materializer)(request)
         t <- sendReceiveAs[T](requestWithAuth)
       } yield t
   }

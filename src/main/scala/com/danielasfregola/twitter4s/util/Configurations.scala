@@ -1,10 +1,25 @@
 package com.danielasfregola.twitter4s.util
 
+import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthMode, UseOAuth1, UseOAuthBearerToken}
 import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.util.Properties
 
 object Configurations extends ConfigurationDetector {
+  private def getAuthMode(): OAuthMode = {
+    def isEmpty(x: String) = Option(x).forall(_.isEmpty)
+
+    if (isEmpty(bearerToken)) {
+      UseOAuth1 // No bearer token? Assume legacy oauth
+    } else if (isEmpty(consumerTokenKey)
+               && isEmpty(consumerTokenSecret)
+               && isEmpty(accessTokenKey)
+               && isEmpty(accessTokenSecret)) {
+      UseOAuthBearerToken // No legacy auth info? Use bearer token.
+    } else {
+      MixedAuth // Use all the auth! (preference for legacy oauth, uses bearer token where needed)
+    }
+  }
 
   val config = ConfigFactory.load
 
@@ -15,8 +30,10 @@ object Configurations extends ConfigurationDetector {
   lazy val accessTokenSecret = envVarOrConfig("TWITTER_ACCESS_TOKEN_SECRET", "twitter.access.secret")
 
   lazy val bearerToken = envVarOrConfig("TWITTER_BEARER_TOKEN", "twitter.bearer.token")
+  lazy val authMode: OAuthMode = getAuthMode()
 
   lazy val twitterVersion = "1.1"
+  lazy val twitterVersionNext = "2"
 
   lazy val apiTwitterUrl = config.getString("twitter.rest.api")
   lazy val mediaTwitterUrl = config.getString("twitter.rest.media")

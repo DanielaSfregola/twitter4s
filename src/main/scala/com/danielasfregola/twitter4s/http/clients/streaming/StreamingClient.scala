@@ -19,14 +19,14 @@ import scala.util.{Failure, Success, Try}
 
 private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
     implicit val system: ActorSystem)
-    extends OAuthClient {
+    extends OAuthClient(consumerToken = consumerToken, accessToken = accessToken) {
 
-  val withLogRequest = true
-  val withLogRequestResponse = false
+  override val withLogRequest = true
+  override val withLogRequestResponse = false
 
   def preProcessing(): Unit = ()
 
-  lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
+  override lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 

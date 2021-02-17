@@ -4,14 +4,18 @@ import akka.http.scaladsl.client.RequestBuilding
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
 import akka.stream.Materializer
+import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
 
 import scala.concurrent.{ExecutionContext, Future}
 
-private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
-
-  def oauthProvider: OAuth1Provider
+private[twitter4s] class OAuthClient(consumerToken: ConsumerToken, accessToken: AccessToken)
+    extends CommonClient
+    with RequestBuilding {
+  lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
+  override def withLogRequest: Boolean = false
+  override def withLogRequestResponse: Boolean = false
 
   def withOAuthHeader(callback: Option[String])(
       implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
@@ -64,7 +68,5 @@ private[twitter4s] trait OAuthClient extends CommonClient with RequestBuilding {
 
     def apply(uri: String, multipartFormData: Multipart.FormData)(implicit ec: ExecutionContext): HttpRequest =
       apply(Uri(uri), Some(multipartFormData))
-
   }
-
 }

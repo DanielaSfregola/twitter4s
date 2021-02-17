@@ -2,14 +2,16 @@ package com.danielasfregola.twitter4s.http
 package clients.rest.search
 
 import java.time.LocalDate
-
 import com.danielasfregola.twitter4s.entities._
 import com.danielasfregola.twitter4s.entities.enums.Language._
 import com.danielasfregola.twitter4s.entities.enums.ResultType._
 import com.danielasfregola.twitter4s.entities.enums.TweetMode.TweetMode
 import com.danielasfregola.twitter4s.entities.enums.{ResultType, TweetMode}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.TweetSearchParameters
+import com.danielasfregola.twitter4s.http.clients.rest.search.parameters.{
+  TweetSearchAllParamaters,
+  TweetSearchParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations._
 
 import scala.concurrent.Future
@@ -21,6 +23,7 @@ trait TwitterSearchClient {
   protected val restClient: RestClient
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
+  private val searchAllUrl = s"$apiTwitterUrl/$twitterVersionNext/search/all"
 
   /** Returns a collection of relevant Tweets matching a specified query.
     * For more information see
@@ -95,5 +98,35 @@ trait TwitterSearchClient {
       tweet_mode
     )
     Get(s"$searchUrl/tweets.json", parameters).respondAsRated[StatusSearch]
+  }
+
+  /** Returns a collection of relevant tweets matching a query. This endpoint is only available to those using the Academic research product track.
+    * For more information, see:
+    * <a href="https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-all" target="_blank">
+    *   https://developer.twitter.com/en/docs/twitter-api/tweets/search/api-reference/get-tweets-search-all</a>
+    *
+    * @param query          : One query for matching Tweets. Up to 1024 characters.
+    * @param max_results    : Optional. The maximum number of search results to be returned by a request.
+    *                       A number between 10 and the system limit (currently 500).
+    *                       By default, a request response will return 10 results.
+    * @param next_token     : Optional. This parameter is used to get the next 'page' of results.
+    *                       The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.
+    * @param start_time     : Optional. The oldest UTC timestamp from which the Tweets will be provided.
+    *                       Timestamp is in second granularity and is inclusive (for example, 12:00:01 includes the first second of the minute).
+    *                       By default, a request will return Tweets from up to 30 days ago if you do not include this parameter.
+    * @param end_time       : Optional. The newest, most recent UTC timestamp to which the Tweets will be provided.
+    *                       Timestamp is in second granularity and is exclusive (for example, 12:00:01 excludes the first second of the minute).
+    *                       If used without start_time, Tweets from 30 days before end_time will be returned by default.
+    *                       If not specified, end_time will default to [now - 30 seconds].
+    * @return The representation of the search results.
+    */
+  def searchAllTweet(query: String,
+                     max_results: Int = 10,
+                     next_token: Option[String],
+                     start_time: Option[LocalDate],
+                     end_time: Option[LocalDate]): Future[RatedData[StatusSearch]] = {
+    import restClient._
+    val parameters = TweetSearchAllParamaters(query, max_results, next_token, start_time, end_time)
+    Get(s"$searchAllUrl", parameters).respondAsRated[StatusSearch]
   }
 }

@@ -15,6 +15,6 @@ trait Spec extends SpecificationLike with UriHelpers {
 
     val consumerToken = ConsumerToken("consumer-key", "consumer-secret")
     val accessToken = AccessToken("access-key", "access-secret")
-
+    val bearerToken = "bearerTokenBlahBlahBlah"
   }
 }

@@ -1,21 +1,17 @@
 package com.danielasfregola.twitter4s.http.clients
 
 import akka.http.scaladsl.client.RequestBuilding
-import akka.http.scaladsl.model.HttpMethods.{DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT}
+import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model.headers.{Authorization, OAuth2BearerToken}
-import akka.http.scaladsl.model.{ContentType, HttpEntity, HttpMethod, HttpRequest, MediaTypes, Multipart, Uri}
+import akka.http.scaladsl.model._
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
-import com.danielasfregola.twitter4s.util.Configurations
 
 import scala.concurrent.{ExecutionContext, Future}
 
-private[twitter4s] trait BearerTokenClient extends CommonClient with RequestBuilding {
-
-  // Perhaps in the future a client can be introduced to derive bearer tokens using oauth 2.0
-  // https://developer.twitter.com/en/docs/authentication/oauth-2-0/bearer-tokens
-  // For now we can just pull the token directly out of configuration
-  private val bearerToken = Configurations.bearerToken
+private[twitter4s] class BearerTokenClient(bearerToken: String) extends CommonClient with RequestBuilding {
+  override def withLogRequest: Boolean = false
+  override def withLogRequestResponse: Boolean = false
 
   def withBearerTokenHeader(callback: Option[String])(
       implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
