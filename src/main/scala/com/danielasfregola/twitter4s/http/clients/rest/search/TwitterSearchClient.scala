@@ -23,7 +23,7 @@ trait TwitterSearchClient {
   protected val restClient: RestClient
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
-  private val searchAllUrl = s"$apiTwitterUrl/$twitterVersionNext/search/all"
+  private val searchAllUrl = s"$apiTwitterUrl/$twitterVersionNext/tweets/search/all"
 
   /** Returns a collection of relevant Tweets matching a specified query.
     * For more information see
@@ -122,11 +122,11 @@ trait TwitterSearchClient {
     */
   def searchAllTweet(query: String,
                      max_results: Int = 10,
-                     next_token: Option[String],
-                     start_time: Option[LocalDate],
-                     end_time: Option[LocalDate]): Future[RatedData[StatusSearch]] = {
+                     next_token: Option[String] = None,
+                     start_time: Option[LocalDate] = None,
+                     end_time: Option[LocalDate] = None): Future[RatedData[StatusFullSearch]] = {
     import restClient._
     val parameters = TweetSearchAllParamaters(query, max_results, next_token, start_time, end_time)
-    Get(s"$searchAllUrl", parameters).respondAsRated[StatusSearch]
+    Get(s"$searchAllUrl", parameters).respondAsRated[StatusFullSearch]
   }
 }
