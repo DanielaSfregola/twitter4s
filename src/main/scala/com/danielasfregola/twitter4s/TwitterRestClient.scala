@@ -1,7 +1,6 @@
 package com.danielasfregola.twitter4s
 
 import akka.actor.ActorSystem
-import com.danielasfregola.twitter4s.entities.enums.OAuthMode
 import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthMode, UseOAuth1, UseOAuthBearerToken}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
@@ -65,16 +64,21 @@ trait RestClients
 
 object TwitterRestClient {
   def apply(): TwitterRestClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
-    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
-    val bearerToken = Configurations.bearerToken
-
-    if (authMode == OAuthMode.UseOAuth1) {
-      apply(consumerToken, accessToken)
-    } else if (authMode == OAuthMode.UseOAuthBearerToken) {
-      apply(bearerToken)
-    } else {
-      apply(consumerToken, accessToken, bearerToken)
+    // See what we have to work with
+    authMode match {
+      case UseOAuth1 => {
+        val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
+        val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
+        apply(consumerToken, accessToken)
+      }
+      case UseOAuthBearerToken => {
+        apply(bearerToken = bearerToken.get)
+      }
+      case MixedAuth => {
+        val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
+        val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
+        apply(consumerToken, accessToken, bearerToken = bearerToken.get)
+      }
     }
   }
 
@@ -92,9 +96,9 @@ object TwitterRestClient {
   }
 
   def withActorSystem(system: ActorSystem): TwitterRestClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
-    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
-    withActorSystem(consumerToken, accessToken, bearerToken, Configurations.authMode)(system)
+    val consumerToken = ConsumerToken(key = consumerTokenKey.getOrElse(""), secret = consumerTokenSecret.getOrElse(""))
+    val accessToken = AccessToken(key = accessTokenKey.getOrElse(""), secret = accessTokenSecret.getOrElse(""))
+    withActorSystem(consumerToken, accessToken, bearerToken.getOrElse(""), Configurations.authMode)(system)
   }
 
   def withActorSystem(consumerToken: ConsumerToken, accessToken: AccessToken, bearerToken: String, authMode: OAuthMode)(

@@ -27,8 +27,8 @@ trait StreamingClients extends TwitterStatusClient with TwitterUserClient with T
 object TwitterStreamingClient {
 
   def apply(): TwitterStreamingClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
-    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
+    val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
     apply(consumerToken, accessToken)
   }
 
@@ -36,8 +36,8 @@ object TwitterStreamingClient {
     new TwitterStreamingClient(consumerToken, accessToken)
 
   def withActorSystem(system: ActorSystem): TwitterStreamingClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
-    val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
+    val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
     withActorSystem(consumerToken, accessToken)(system)
   }
 

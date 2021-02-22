@@ -14,6 +14,13 @@ final case class SearchMetadata(completed_in: Double,
 
 final case class StatusMetadata(iso_language_code: String, result_type: String)
 
-final case class StatusFullSearch(statuses: List[Tweet], meta: FullSearchMetadata)
+final case class StatusFullSearch(data: List[MinimalTweet], meta: FullSearchMetadata)
 
-final case class FullSearchMetadata(newest_id: String, oldest_id: String, result_count: Int, next_token: Option[String])
+final case class FullSearchMetadata(newest_id: Option[String],
+                                    oldest_id: Option[String],
+                                    result_count: Int,
+                                    next_token: Option[String])
+
+// TODO: break this out into entities?
+// Full archive search only returns this when there are tweets returned
+final case class MinimalTweet(id: String, text: String)

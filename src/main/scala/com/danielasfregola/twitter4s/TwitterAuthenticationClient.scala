@@ -25,7 +25,7 @@ trait TwitterAuthClients extends TwitterOAuthClient
 object TwitterAuthenticationClient {
 
   def apply(): TwitterAuthenticationClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
     apply(consumerToken)
   }
 
@@ -33,7 +33,7 @@ object TwitterAuthenticationClient {
     new TwitterAuthenticationClient(consumerToken)
 
   def withActorSystem(system: ActorSystem): TwitterAuthenticationClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
+    val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
     withActorSystem(consumerToken)(system)
   }
 

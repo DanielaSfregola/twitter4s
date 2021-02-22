@@ -10,6 +10,7 @@ import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthM
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RatedData}
 import com.danielasfregola.twitter4s.http.clients.{BearerTokenClient, Client, OAuthClient}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
+import com.danielasfregola.twitter4s.util.Configurations
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -18,6 +19,40 @@ private[twitter4s] class RestClient(val authMode: OAuthMode)(implicit val system
     with RequestBuilding {
   var v1Client: OAuthClient = _
   var v2Client: BearerTokenClient = _
+
+  private def createOAuthClient(): OAuthClient = {
+    new OAuthClient(
+      ConsumerToken(Configurations.consumerTokenKey.getOrElse(""), Configurations.consumerTokenSecret.getOrElse("")),
+      AccessToken(Configurations.accessTokenKey.getOrElse(""), Configurations.accessTokenSecret.getOrElse(""))
+    )
+  }
+
+  private def createBearerTokenClient(): BearerTokenClient = {
+    new BearerTokenClient(Configurations.bearerToken.getOrElse(""))
+  }
+
+  authMode match {
+    case UseOAuth1           => v1Client = createOAuthClient()
+    case UseOAuthBearerToken => v2Client = createBearerTokenClient()
+    case MixedAuth => {
+      v1Client = createOAuthClient()
+      v2Client = createBearerTokenClient()
+    }
+    case _ => {
+      v1Client = createOAuthClient()
+    }
+  }
+
+  override protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])(
+      implicit request: HttpRequest,
+      response: HttpResponse,
+      materializer: Materializer) = {
+    implicit val ec = materializer.executionContext
+    if (withLogRequestResponse) logRequestResponse(requestStartTime)
+
+    if (response.status.isSuccess) f(response)
+    else parseFailedResponse(response).flatMap(Future.failed)
+  }
 
   def this(consumerToken: ConsumerToken, accessToken: AccessToken)(implicit system: ActorSystem) {
     this(UseOAuth1)

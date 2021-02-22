@@ -9,7 +9,7 @@ import scala.concurrent.Future
 
 trait Client extends CommonClient {
   val withLogRequest = false
-  val withLogRequestResponse = true
+  val withLogRequestResponse = false
 
   protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(
       implicit system: ActorSystem,
