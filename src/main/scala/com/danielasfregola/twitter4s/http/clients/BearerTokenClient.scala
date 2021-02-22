@@ -2,9 +2,8 @@ package com.danielasfregola.twitter4s.http.clients
 
 import akka.http.scaladsl.client.RequestBuilding
 import akka.http.scaladsl.model.HttpMethods._
-import akka.http.scaladsl.model.headers.{Authorization, OAuth2BearerToken}
 import akka.http.scaladsl.model._
-import akka.stream.Materializer
+import akka.http.scaladsl.model.headers.{Authorization, OAuth2BearerToken}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -13,13 +12,8 @@ private[twitter4s] class BearerTokenClient(bearerToken: String) extends CommonCl
   override def withLogRequest: Boolean = false
   override def withLogRequestResponse: Boolean = false
 
-  def withBearerTokenHeader(callback: Option[String])(
-      implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = { request =>
-    implicit val ec = materializer.executionContext
-    // I'm sure there's a less nasty way to do this?
-    Future {
-      request.withHeaders(request.headers :+ Authorization(OAuth2BearerToken(bearerToken)))
-    }
+  def withBearerTokenHeader(callback: Option[String]): HttpRequest => Future[HttpRequest] = { request =>
+    Future.successful(request.addHeader(Authorization(OAuth2BearerToken(bearerToken))))
   }
 
   override val Get = new BearerTokenRequestBuilder(GET)
