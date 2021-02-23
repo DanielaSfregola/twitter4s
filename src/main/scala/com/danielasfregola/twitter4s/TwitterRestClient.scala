@@ -79,6 +79,10 @@ object TwitterRestClient {
         val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
         apply(consumerToken, accessToken, bearerToken = bearerToken.get)
       }
+      case _ => {
+        // Uh, we somehow have no authmode?
+        throw new RuntimeException("TwitterRestClient: No authentication mode is defined")
+      }
     }
   }
 
