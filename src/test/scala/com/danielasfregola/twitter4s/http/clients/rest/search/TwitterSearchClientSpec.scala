@@ -56,7 +56,7 @@ class TwitterSearchClientSpec extends ClientSpec {
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets/search/all"
-          request.uri.rawQueryString === Some("max_results=10&q=%23scala")
+          request.uri.rawQueryString === Some("max_results=10&query=%23scala")
         }
         .respondWithRated("/twitter/rest/search/fullArchiveSearch.json")
         .await

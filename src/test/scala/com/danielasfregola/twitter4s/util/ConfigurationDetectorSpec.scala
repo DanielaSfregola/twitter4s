@@ -40,14 +40,14 @@ class ConfigurationDetectorSpec extends Specification with Mockito {
       "if configuration from file does not exists" in {
         "detect the configuration from the environment variable" in
           new ConfigurationDetectorSpecContext with WithEnvVariable with NoConfigFromFile {
-            envVarOrConfig(variableName, configName) === myConfigFromEnvVar
+            envVarOrConfig(variableName, configName) === Some(myConfigFromEnvVar)
           }
       }
 
       "if configuration from file exists" in {
         "detect the configuration from the environment variable" in
           new ConfigurationDetectorSpecContext with WithEnvVariable with WithConfigFromFile {
-            envVarOrConfig(variableName, configName) === myConfigFromEnvVar
+            envVarOrConfig(variableName, configName) === Some(myConfigFromEnvVar)
           }
       }
     }
@@ -57,14 +57,14 @@ class ConfigurationDetectorSpec extends Specification with Mockito {
       "if configuration from file exists" in {
         "detect the configuration from the configuration file" in
           new ConfigurationDetectorSpecContext with NoEnvVariable with WithConfigFromFile {
-            envVarOrConfig(variableName, configName) === myConfigFromFile
+            envVarOrConfig(variableName, configName) === Some(myConfigFromFile)
           }
       }
 
       "if configuration from file does not exist" in {
         "throw an exception" in
           new ConfigurationDetectorSpecContext with NoEnvVariable with NoConfigFromFile {
-            envVarOrConfig(variableName, configName) must throwA[RuntimeException]
+            envVarOrConfig(variableName, configName) === None
           }
       }
     }
