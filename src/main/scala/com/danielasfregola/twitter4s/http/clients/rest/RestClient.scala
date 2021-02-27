@@ -6,43 +6,16 @@ import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.{ActorMaterializer, Materializer}
-import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthMode, UseOAuth1, UseOAuthBearerToken}
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken, RateLimit, RatedData}
+import com.danielasfregola.twitter4s.entities.{RateLimit, RatedData}
 import com.danielasfregola.twitter4s.http.clients.{BearerTokenClient, Client, OAuthClient}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
-import com.danielasfregola.twitter4s.util.Configurations
 
 import scala.concurrent.{ExecutionContext, Future}
 
-private[twitter4s] class RestClient(val authMode: OAuthMode)(implicit val system: ActorSystem)
+private[twitter4s] class RestClient(val v1Client: Option[OAuthClient] = None,
+                                    val v2Client: Option[BearerTokenClient] = None)(implicit val system: ActorSystem)
     extends Client
     with RequestBuilding {
-  var v1Client: OAuthClient = _
-  var v2Client: BearerTokenClient = _
-
-  private def createOAuthClient(): OAuthClient = {
-    new OAuthClient(
-      ConsumerToken(Configurations.consumerTokenKey.getOrElse(""), Configurations.consumerTokenSecret.getOrElse("")),
-      AccessToken(Configurations.accessTokenKey.getOrElse(""), Configurations.accessTokenSecret.getOrElse(""))
-    )
-  }
-
-  private def createBearerTokenClient(): BearerTokenClient = {
-    new BearerTokenClient(Configurations.bearerToken.getOrElse(""))
-  }
-
-  authMode match {
-    case UseOAuth1           => v1Client = createOAuthClient()
-    case UseOAuthBearerToken => v2Client = createBearerTokenClient()
-    case MixedAuth => {
-      v1Client = createOAuthClient()
-      v2Client = createBearerTokenClient()
-    }
-    case _ => {
-      v1Client = createOAuthClient()
-    }
-  }
-
   override protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])(
       implicit request: HttpRequest,
       response: HttpResponse,
@@ -54,28 +27,18 @@ private[twitter4s] class RestClient(val authMode: OAuthMode)(implicit val system
     else parseFailedResponse(response).flatMap(Future.failed)
   }
 
-  def this(consumerToken: ConsumerToken, accessToken: AccessToken)(implicit system: ActorSystem) {
-    this(UseOAuth1)
-    this.v1Client = new OAuthClient(consumerToken, accessToken)
-  }
-
-  def this(bearerToken: String)(implicit system: ActorSystem) {
-    this(UseOAuthBearerToken)
-    v2Client = new BearerTokenClient(bearerToken)
-  }
-
   private[twitter4s] implicit class RichRestHttpRequest(val request: HttpRequest) {
     implicit val materializer = ActorMaterializer()
     implicit val ec = materializer.executionContext
 
     private def withHeader(callback: Option[String])(
         implicit materializer: Materializer): HttpRequest => Future[HttpRequest] = {
-      // Depending on our authMode, we may want to use a different helper function
-      authMode match {
-        case UseOAuth1           => v1Client.withOAuthHeader(callback)
-        case UseOAuthBearerToken => v2Client.withBearerTokenHeader(callback)
-        case MixedAuth           => v1Client.withOAuthHeader(callback)
-        case _                   => v1Client.withOAuthHeader(callback)
+      (v1Client, v2Client) match {
+        case (Some(v1Client), None)           => v1Client.withOAuthHeader(callback)
+        case (None, Some(v2Client))           => v2Client.withBearerTokenHeader(callback)
+        case (Some(v1Client), Some(v2Client)) => v1Client.withOAuthHeader(callback)
+        case _ =>
+          throw new IllegalStateException("RestClient requires at least one auth client passed to it");
       }
     }
 

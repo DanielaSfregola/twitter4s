@@ -64,7 +64,7 @@ class ConfigurationDetectorSpec extends Specification with Mockito {
       "if configuration from file does not exist" in {
         "throw an exception" in
           new ConfigurationDetectorSpecContext with NoEnvVariable with NoConfigFromFile {
-            envVarOrConfig(variableName, configName) === None
+            envVarOrConfig(variableName, configName) must throwA[RuntimeException]
           }
       }
     }

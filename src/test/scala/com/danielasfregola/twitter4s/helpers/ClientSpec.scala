@@ -1,7 +1,6 @@
 package com.danielasfregola.twitter4s.helpers
 
 import java.util.UUID
-
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model._
 import akka.pattern.ask
@@ -9,6 +8,7 @@ import akka.stream.{KillSwitches, Materializer, SharedKillSwitch}
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
+import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.authentication.AuthenticationClient
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.streaming.StreamingClient
@@ -39,7 +39,7 @@ trait ClientSpec extends Spec {
 
   abstract class RestClientSpecContext extends RequestDSL with SpecContext {
 
-    protected val restClient = new RestClient(consumerToken, accessToken) {
+    protected val restClient = new RestClient(Some(new OAuthClient(consumerToken, accessToken))) {
 
       override def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(
           implicit system: ActorSystem,

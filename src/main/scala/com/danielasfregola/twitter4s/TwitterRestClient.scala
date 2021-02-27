@@ -1,7 +1,6 @@
 package com.danielasfregola.twitter4s
 
 import akka.actor.ActorSystem
-import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthMode, UseOAuth1, UseOAuthBearerToken}
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.account.TwitterAccountClient
@@ -24,20 +23,26 @@ import com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusCli
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
-import com.danielasfregola.twitter4s.util.Configurations._
-import com.danielasfregola.twitter4s.util.{Configurations, SystemShutdown}
+import com.danielasfregola.twitter4s.http.clients.{BearerTokenClient, OAuthClient}
+import com.danielasfregola.twitter4s.util.Configurations.{
+  accessTokenKey,
+  accessTokenSecret,
+  consumerTokenKey,
+  consumerTokenSecret,
+  _
+}
+import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the Twitter REST API
   */
-class TwitterRestClient(val consumerToken: ConsumerToken,
-                        val accessToken: AccessToken,
-                        val bearerToken: String,
-                        authMode: OAuthMode)(implicit _system: ActorSystem = ActorSystem("twitter4s-rest"))
+class TwitterRestClient private (val OAuthClient: Option[OAuthClient] = None,
+                                 val bearerTokenClient: Option[BearerTokenClient] = None)(
+    implicit _system: ActorSystem = ActorSystem("twitter4s-rest"))
     extends RestClients
     with SystemShutdown {
-  protected val system = _system
+  override protected def system: ActorSystem = _system
 
-  protected val restClient = new RestClient(authMode)
+  override protected val restClient: RestClient = new RestClient(OAuthClient, bearerTokenClient)
 }
 
 trait RestClients
@@ -64,49 +69,41 @@ trait RestClients
 
 object TwitterRestClient {
   def apply(): TwitterRestClient = {
-    // See what we have to work with
-    authMode match {
-      case UseOAuth1 => {
-        val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
-        val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
-        apply(consumerToken, accessToken)
-      }
-      case UseOAuthBearerToken => {
-        apply(bearerToken = bearerToken.get)
-      }
-      case MixedAuth => {
-        val consumerToken = ConsumerToken(key = consumerTokenKey.get, secret = consumerTokenSecret.get)
-        val accessToken = AccessToken(key = accessTokenKey.get, secret = accessTokenSecret.get)
-        apply(consumerToken, accessToken, bearerToken = bearerToken.get)
-      }
-      case _ => {
-        // Uh, we somehow have no authmode?
-        throw new RuntimeException("TwitterRestClient: No authentication mode is defined")
-      }
+    var OAuthClient: Option[OAuthClient] = None
+    var btClient: Option[BearerTokenClient] = None
+
+    // See if we can define an OAuth client
+    (consumerTokenKey, consumerTokenSecret, accessTokenKey, accessTokenSecret) match {
+      case (Some(consumerTokenKey), Some(consumerTokenSecret), Some(accessTokenKey), Some(accessTokenSecret)) =>
+        OAuthClient = Some(
+          new OAuthClient(ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret),
+                          AccessToken(key = accessTokenKey, secret = accessTokenSecret)))
+      case _ => OAuthClient = None
     }
+
+    // See if we can define a bearer token client
+    (bearerToken) match {
+      case (Some(bearerToken)) => btClient = Some(new BearerTokenClient(bearerToken))
+      case _                   => btClient = None
+    }
+
+    new TwitterRestClient(OAuthClient, btClient)
   }
 
   // Mixed constructor
   def apply(consumerToken: ConsumerToken, accessToken: AccessToken, bearerToken: String): TwitterRestClient =
-    new TwitterRestClient(consumerToken, accessToken, bearerToken, MixedAuth)
+    new TwitterRestClient(Some(new OAuthClient(consumerToken, accessToken)), Some(new BearerTokenClient(bearerToken)))
 
   // OAuth1 constructor
   def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestClient =
-    new TwitterRestClient(consumerToken, accessToken, bearerToken = null, UseOAuth1)
+    new TwitterRestClient(Some(new OAuthClient(consumerToken, accessToken)))
 
   // Bearer token constructor
-  def apply(bearerToken: String) = {
-    new TwitterRestClient(null, null, bearerToken, UseOAuthBearerToken)
-  }
+  def apply(bearerToken: String) =
+    new TwitterRestClient(bearerTokenClient = Some(new BearerTokenClient(bearerToken)))
 
   def withActorSystem(system: ActorSystem): TwitterRestClient = {
-    val consumerToken = ConsumerToken(key = consumerTokenKey.getOrElse(""), secret = consumerTokenSecret.getOrElse(""))
-    val accessToken = AccessToken(key = accessTokenKey.getOrElse(""), secret = accessTokenSecret.getOrElse(""))
-    withActorSystem(consumerToken, accessToken, bearerToken.getOrElse(""), Configurations.authMode)(system)
+    // This is like calling the default constructor, need to determine what we have:
+    new TwitterRestClient()(system)
   }
-
-  def withActorSystem(consumerToken: ConsumerToken, accessToken: AccessToken, bearerToken: String, authMode: OAuthMode)(
-      system: ActorSystem): TwitterRestClient =
-    new TwitterRestClient(consumerToken, accessToken, bearerToken, authMode)(system)
-
 }

@@ -1,36 +1,10 @@
 package com.danielasfregola.twitter4s.util
 
-import com.danielasfregola.twitter4s.entities.enums.OAuthMode.{MixedAuth, OAuthMode, UseOAuth1, UseOAuthBearerToken}
 import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.util.Properties
-import scala.util.control.Exception.allCatch
 
 object Configurations extends ConfigurationDetector {
-  private def getAuthMode(): OAuthMode = {
-    // First off - make sure we have SOMETHING to work with here
-    if (bearerToken.isEmpty
-        && consumerTokenKey.isEmpty
-        && consumerTokenSecret.isEmpty
-        && accessTokenKey.isEmpty
-        && accessTokenSecret.isEmpty) {
-      throw new RuntimeException(
-        "[twitter4s] no environment variable or configuration settings were found for authenticating with Twitter's API.\nSee https://github.com/DanielaSfregola/twitter4s#usage for how to pass configuration")
-    }
-
-    // Getting here means we have something to work with. See what's empty out of everything we just checked
-    if (bearerToken.isEmpty) {
-      UseOAuth1 // No bearer token? Assume legacy oauth
-    } else if (consumerTokenKey.isEmpty
-               && consumerTokenSecret.isEmpty
-               && accessTokenKey.isEmpty
-               && accessTokenSecret.isEmpty) {
-      UseOAuthBearerToken // No legacy auth info? Use bearer token.
-    } else {
-      MixedAuth // Use all the auth! (preference for legacy oauth, uses bearer token where needed)
-    }
-  }
-
   val config = ConfigFactory.load
 
   lazy val consumerTokenKey: Option[String] = envVarOrConfig("TWITTER_CONSUMER_TOKEN_KEY", "twitter.consumer.key")
@@ -41,16 +15,15 @@ object Configurations extends ConfigurationDetector {
   lazy val accessTokenSecret: Option[String] = envVarOrConfig("TWITTER_ACCESS_TOKEN_SECRET", "twitter.access.secret")
 
   lazy val bearerToken: Option[String] = envVarOrConfig("TWITTER_BEARER_TOKEN", "twitter.bearer.token")
-  lazy val authMode: OAuthMode = getAuthMode()
 
   lazy val twitterVersion = "1.1"
   lazy val twitterVersionNext = "2"
 
-  lazy val apiTwitterUrl = config.getString("twitter.rest.api")
-  lazy val mediaTwitterUrl = config.getString("twitter.rest.media")
-  lazy val statusStreamingTwitterUrl = config.getString("twitter.streaming.public")
-  lazy val userStreamingTwitterUrl = config.getString("twitter.streaming.user")
-  lazy val siteStreamingTwitterUrl = config.getString("twitter.streaming.site")
+  lazy val apiTwitterUrl: String = config.getString("twitter.rest.api")
+  lazy val mediaTwitterUrl: String = config.getString("twitter.rest.media")
+  lazy val statusStreamingTwitterUrl: String = config.getString("twitter.streaming.public")
+  lazy val userStreamingTwitterUrl: String = config.getString("twitter.streaming.user")
+  lazy val siteStreamingTwitterUrl: String = config.getString("twitter.streaming.site")
 }
 
 trait ConfigurationDetector {
@@ -58,7 +31,14 @@ trait ConfigurationDetector {
   def config: Config
 
   protected def envVarOrConfig(envVar: String, configName: String): Option[String] =
-    allCatch.opt(environmentVariable(envVar) getOrElse configuration(configName))
+    try {
+      Option(environmentVariable(envVar) getOrElse configuration(configName))
+    } catch {
+      case _: Throwable =>
+        val msg =
+          s"[twitter4s] configuration missing: Environment variable $envVar or configuration $configName not found."
+        throw new RuntimeException(msg)
+    }
 
   protected def environmentVariable(name: String): Option[String] = Properties.envOrNone(name)
 
