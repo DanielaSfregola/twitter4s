@@ -23,7 +23,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.statuses.TwitterStatusCli
 import com.danielasfregola.twitter4s.http.clients.rest.suggestions.TwitterSuggestionClient
 import com.danielasfregola.twitter4s.http.clients.rest.trends.TwitterTrendClient
 import com.danielasfregola.twitter4s.http.clients.rest.users.TwitterUserClient
-import com.danielasfregola.twitter4s.http.clients.{BearerTokenClient, OAuthClient}
+import com.danielasfregola.twitter4s.http.clients.{BearerAuthClient, OAuthClient}
 import com.danielasfregola.twitter4s.util.Configurations.{
   accessTokenKey,
   accessTokenSecret,
@@ -36,7 +36,7 @@ import com.danielasfregola.twitter4s.util.SystemShutdown
 /** Represents the functionalities offered by the Twitter REST API
   */
 class TwitterRestClient private (val OAuthClient: Option[OAuthClient] = None,
-                                 val bearerTokenClient: Option[BearerTokenClient] = None)(
+                                 val bearerTokenClient: Option[BearerAuthClient] = None)(
     implicit _system: ActorSystem = ActorSystem("twitter4s-rest"))
     extends RestClients
     with SystemShutdown {
@@ -70,7 +70,7 @@ trait RestClients
 object TwitterRestClient {
   def apply(): TwitterRestClient = {
     var OAuthClient: Option[OAuthClient] = None
-    var btClient: Option[BearerTokenClient] = None
+    var btClient: Option[BearerAuthClient] = None
 
     // See if we can define an OAuth client
     (consumerTokenKey, consumerTokenSecret, accessTokenKey, accessTokenSecret) match {
@@ -83,7 +83,7 @@ object TwitterRestClient {
 
     // See if we can define a bearer token client
     (bearerToken) match {
-      case (Some(bearerToken)) => btClient = Some(new BearerTokenClient(bearerToken))
+      case (Some(bearerToken)) => btClient = Some(new BearerAuthClient(bearerToken))
       case _                   => btClient = None
     }
 
@@ -92,7 +92,7 @@ object TwitterRestClient {
 
   // Mixed constructor
   def apply(consumerToken: ConsumerToken, accessToken: AccessToken, bearerToken: String): TwitterRestClient =
-    new TwitterRestClient(Some(new OAuthClient(consumerToken, accessToken)), Some(new BearerTokenClient(bearerToken)))
+    new TwitterRestClient(Some(new OAuthClient(consumerToken, accessToken)), Some(new BearerAuthClient(bearerToken)))
 
   // OAuth1 constructor
   def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestClient =
@@ -100,7 +100,7 @@ object TwitterRestClient {
 
   // Bearer token constructor
   def apply(bearerToken: String) =
-    new TwitterRestClient(bearerTokenClient = Some(new BearerTokenClient(bearerToken)))
+    new TwitterRestClient(bearerTokenClient = Some(new BearerAuthClient(bearerToken)))
 
   def withActorSystem(system: ActorSystem): TwitterRestClient = {
     // This is like calling the default constructor, need to determine what we have:

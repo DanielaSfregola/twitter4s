@@ -7,13 +7,13 @@ import akka.http.scaladsl.model._
 import akka.http.scaladsl.unmarshalling.Unmarshal
 import akka.stream.{ActorMaterializer, Materializer}
 import com.danielasfregola.twitter4s.entities.{RateLimit, RatedData}
-import com.danielasfregola.twitter4s.http.clients.{BearerTokenClient, Client, OAuthClient}
+import com.danielasfregola.twitter4s.http.clients.{BearerAuthClient, Client, OAuthClient}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 
 import scala.concurrent.{ExecutionContext, Future}
 
 private[twitter4s] class RestClient(val v1Client: Option[OAuthClient] = None,
-                                    val v2Client: Option[BearerTokenClient] = None)(implicit val system: ActorSystem)
+                                    val v2Client: Option[BearerAuthClient] = None)(implicit val system: ActorSystem)
     extends Client
     with RequestBuilding {
   override protected def unmarshal[T](requestStartTime: Long, f: HttpResponse => Future[T])(

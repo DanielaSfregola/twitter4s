@@ -2,21 +2,63 @@ package com.danielasfregola.twitter4s.http.clients
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.{HttpEntity, HttpRequest, HttpResponse}
+import akka.http.scaladsl.client.RequestBuilding
+import akka.http.scaladsl.model.HttpMethods._
+import akka.http.scaladsl.model._
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
+import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import com.typesafe.scalalogging.LazyLogging
 import org.json4s.native.Serialization
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 import scala.concurrent.duration._
 import scala.util.Try
 
-private[twitter4s] trait CommonClient extends JsonSupport with LazyLogging {
+private[twitter4s] trait CommonClient extends RequestBuilding with JsonSupport with LazyLogging {
 
   def withLogRequest: Boolean
   def withLogRequestResponse: Boolean
+
+  def withAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest]
+
+  override val Get = new AuthRequestBuilder(GET)
+  override val Post = new AuthRequestBuilder(POST)
+  override val Put = new AuthRequestBuilder(PUT)
+  override val Patch = new AuthRequestBuilder(PATCH)
+  override val Delete = new AuthRequestBuilder(DELETE)
+  override val Options = new AuthRequestBuilder(OPTIONS)
+  override val Head = new AuthRequestBuilder(HEAD)
+
+  private[twitter4s] class AuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
+
+    def apply(uri: String, parameters: Parameters): HttpRequest =
+      if (parameters.toString.nonEmpty) apply(s"$uri?$parameters") else apply(uri)
+
+    def apply(uri: String, content: Product): HttpRequest = {
+      val data = toBodyAsEncodedParams(content)
+      val contentType = ContentType(MediaTypes.`application/x-www-form-urlencoded`)
+      apply(uri, data, contentType)
+    }
+
+    def asJson[A <: AnyRef](uri: String, content: A): HttpRequest = {
+      val jsonData = org.json4s.native.Serialization.write(content)
+      val contentType = ContentType(MediaTypes.`application/json`)
+      apply(uri, jsonData, contentType)
+    }
+
+    def apply(uri: String, content: Product, contentType: ContentType): HttpRequest = {
+      val data = toBodyAsParams(content)
+      apply(uri, data, contentType)
+    }
+
+    def apply(uri: String, data: String, contentType: ContentType): HttpRequest =
+      apply(uri).withEntity(HttpEntity(data).withContentType(contentType))
+
+    def apply(uri: String, multipartFormData: Multipart.FormData)(implicit ec: ExecutionContext): HttpRequest =
+      apply(Uri(uri), Some(multipartFormData))
+  }
 
   protected def connection(implicit request: HttpRequest, system: ActorSystem) = {
     val scheme = request.uri.scheme
