@@ -11,9 +11,8 @@ trait Client extends CommonClient {
   val withLogRequest = false
   val withLogRequestResponse = false
 
-  protected def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(
-      implicit system: ActorSystem,
-      materializer: Materializer): Future[T] = {
+  def sendAndReceive[T](request: HttpRequest, f: HttpResponse => Future[T])(implicit system: ActorSystem,
+                                                                            materializer: Materializer): Future[T] = {
     implicit val r: HttpRequest = request
     val requestStartTime = System.currentTimeMillis
 

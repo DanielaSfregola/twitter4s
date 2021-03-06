@@ -8,10 +8,10 @@ import akka.stream.{KillSwitches, Materializer, SharedKillSwitch}
 import akka.util.Timeout
 import akka.util.Timeout.durationToTimeout
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
 import com.danielasfregola.twitter4s.http.clients.authentication.AuthenticationClient
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.streaming.StreamingClient
+import com.danielasfregola.twitter4s.http.oauth.OAuthClient
 
 import scala.concurrent.Future
 import scala.concurrent.duration.DurationInt

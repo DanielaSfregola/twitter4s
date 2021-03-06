@@ -44,7 +44,7 @@ trait TwitterOAuthClient {
                    x_auth_access_type: Option[AccessType] = None): Future[OAuthRequestToken] = {
     import authenticationClient._
     val parameters = RequestTokenParameters(x_auth_access_type)
-    oauthClient.Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthRequestToken](oauth_callback)
+    Post(s"$oauthUrl/request_token", parameters).respondAs[OAuthRequestToken](oauth_callback)
   }
 
   /** Allows a Consumer application to use an OAuth request_token to request user authorization.
@@ -116,7 +116,7 @@ trait TwitterOAuthClient {
                                            x_auth_password = Some(x_auth_password),
                                            x_auth_mode = Some("client_auth"))
     import authenticationClient._
-    oauthClient.Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
+    Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
   }
 
   /** Allows a Consumer application to exchange the OAuth Request Token for an OAuth Access Token using OAuth 1.0.
@@ -134,6 +134,6 @@ trait TwitterOAuthClient {
   def accessToken(token: RequestToken, oauth_verifier: String): Future[OAuthAccessToken] = {
     val parameters = AccessTokenParameters(oauth_token = Some(token.key), oauth_verifier = Some(oauth_verifier))
     import authenticationClient._
-    oauthClient.Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
+    Post(s"$oauthUrl/access_token", parameters).respondAs[OAuthAccessToken]
   }
 }

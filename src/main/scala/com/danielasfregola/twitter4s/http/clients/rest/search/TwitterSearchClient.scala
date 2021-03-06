@@ -23,7 +23,7 @@ trait TwitterSearchClient {
   protected val restClient: RestClient
 
   private val searchUrl = s"$apiTwitterUrl/$twitterVersion/search"
-  private val searchAllUrl = s"$apiTwitterUrl/$twitterVersionNext/tweets/search/all"
+  private val searchAllUrl = s"$apiTwitterUrl/$twitterResearchVersion/tweets/search/all"
 
   /** Returns a collection of relevant Tweets matching a specified query.
     * For more information see

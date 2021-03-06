@@ -8,6 +8,7 @@ import akka.http.scaladsl.model._
 import akka.stream.Materializer
 import com.danielasfregola.twitter4s.exceptions.{Errors, TwitterException}
 import com.danielasfregola.twitter4s.http.marshalling.{BodyEncoder, Parameters}
+import com.danielasfregola.twitter4s.http.oauth.AuthClient
 import com.danielasfregola.twitter4s.http.serializers.JsonSupport
 import com.typesafe.scalalogging.LazyLogging
 import org.json4s.native.Serialization
@@ -18,20 +19,17 @@ import scala.util.Try
 
 private[twitter4s] trait CommonClient extends RequestBuilding with JsonSupport with LazyLogging {
 
-  def withLogRequest: Boolean
-  def withLogRequestResponse: Boolean
+  def authClient: AuthClient
 
-  def withAuthHeader(callback: Option[String])(implicit materializer: Materializer): HttpRequest => Future[HttpRequest]
+  override val Get = new TwitterRequestBuilder(GET)
+  override val Post = new TwitterRequestBuilder(POST)
+  override val Put = new TwitterRequestBuilder(PUT)
+  override val Patch = new TwitterRequestBuilder(PATCH)
+  override val Delete = new TwitterRequestBuilder(DELETE)
+  override val Options = new TwitterRequestBuilder(OPTIONS)
+  override val Head = new TwitterRequestBuilder(HEAD)
 
-  override val Get = new AuthRequestBuilder(GET)
-  override val Post = new AuthRequestBuilder(POST)
-  override val Put = new AuthRequestBuilder(PUT)
-  override val Patch = new AuthRequestBuilder(PATCH)
-  override val Delete = new AuthRequestBuilder(DELETE)
-  override val Options = new AuthRequestBuilder(OPTIONS)
-  override val Head = new AuthRequestBuilder(HEAD)
-
-  private[twitter4s] class AuthRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
+  private[twitter4s] class TwitterRequestBuilder(method: HttpMethod) extends RequestBuilder(method) with BodyEncoder {
 
     def apply(uri: String, parameters: Parameters): HttpRequest =
       if (parameters.toString.nonEmpty) apply(s"$uri?$parameters") else apply(uri)
@@ -72,7 +70,7 @@ private[twitter4s] trait CommonClient extends RequestBuilding with JsonSupport w
                                                                                    response: HttpResponse,
                                                                                    materializer: Materializer) = {
     implicit val ec = materializer.executionContext
-    if (withLogRequestResponse) logRequestResponse(requestStartTime)
+    if (authClient.withLogRequestResponse) logRequestResponse(requestStartTime)
 
     if (response.status.isSuccess) f(response)
     else parseFailedResponse(response).flatMap(Future.failed)

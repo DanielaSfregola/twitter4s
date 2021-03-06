@@ -1,32 +1,24 @@
 package com.danielasfregola.twitter4s.http.clients.streaming
 
 import java.util.UUID
-
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse}
 import akka.stream._
 import akka.stream.scaladsl.{Framing, Sink, Source}
 import akka.util.ByteString
 import com.danielasfregola.twitter4s.entities.streaming.StreamingMessage
-import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.exceptions.TwitterException
-import com.danielasfregola.twitter4s.http.clients.OAuthClient
-import com.danielasfregola.twitter4s.http.oauth.OAuth1Provider
+import com.danielasfregola.twitter4s.http.oauth.AuthClient
 import org.json4s.native.Serialization
+import com.danielasfregola.twitter4s.http.clients.Client
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success, Try}
 
-private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
-    implicit val system: ActorSystem)
-    extends OAuthClient(consumerToken = consumerToken, accessToken = accessToken) {
-
-  override val withLogRequest = true
-  override val withLogRequestResponse = false
+private[twitter4s] class StreamingClient(val authClient: AuthClient)(
+    implicit val system: ActorSystem) extends Client {
 
   def preProcessing(): Unit = ()
-
-  override lazy val oauthProvider = new OAuth1Provider(consumerToken, Some(accessToken))
 
   private[twitter4s] implicit class RichStreamingHttpRequest(val request: HttpRequest) {
 
@@ -38,9 +30,9 @@ private[twitter4s] class StreamingClient(val consumerToken: ConsumerToken, val a
         errorHandler: PartialFunction[Throwable, Unit]
     ): Future[TwitterStream] =
       for {
-        requestWithAuth <- withOAuthHeader(None)(materializer)(request)
+        requestWithAuth <- authClient.withAuthHeader(None)(materializer)(request)
         killSwitch <- processStreamRequest(requestWithAuth)(f, errorHandler)
-      } yield TwitterStream(consumerToken, accessToken)(killSwitch, requestWithAuth, system)
+      } yield TwitterStream(authClient)(killSwitch, requestWithAuth, system)
   }
 
   protected def processStreamRequest[T <: StreamingMessage: Manifest](
