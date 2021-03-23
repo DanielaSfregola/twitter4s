@@ -3,9 +3,9 @@ import com.typesafe.sbt.SbtGit.{GitKeys => git}
 enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 
 name := "twitter4s"
-version := "7.1-SNAPSHOT"
+version := "7.2-SNAPSHOT"
 
-scalaVersion := "2.13.0"
+scalaVersion := "2.13.5"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -13,14 +13,14 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val Typesafe = "1.4.0"
-  val Akka = "2.6.8"
-  val AkkaHttp = "10.2.0"
-  val AkkaHttpJson4s = "1.34.0"
-  val Json4s = "3.6.9"
-  val Specs2 = "4.10.3"
-  val ScalaLogging = "3.9.2"
-  val RandomDataGenerator = "2.9"
+  val Typesafe = "1.4.1"
+  val Akka = "2.6.13"
+  val AkkaHttp = "10.2.4"
+  val AkkaHttpJson4s = "1.35.3"
+  val Json4s = "3.7.0-M10"
+  val Specs2 = "4.10.6"
+  val ScalaLogging = "3.9.3"
+  val RandomDataGenerator = "2.8"
 
   Seq(
     "com.typesafe" % "config" % Typesafe,
@@ -53,7 +53,7 @@ lazy val standardSettings = Seq(
     ScmInfo(url("https://github.com/DanielaSfregola/twitter4s"),
             "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
-  crossScalaVersions := Seq(scalaVersion.value, "2.12.10"),
+  crossScalaVersions := Seq(scalaVersion.value, "2.12.13"),
   pomExtra := (
     <developers>
     <developer>
