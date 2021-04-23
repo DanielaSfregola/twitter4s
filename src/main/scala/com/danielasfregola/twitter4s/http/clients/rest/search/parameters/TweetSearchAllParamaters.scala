@@ -7,5 +7,6 @@ case class TweetSearchAllParamaters(query: String,
                                     max_results: Int = 10,
                                     next_token: Option[String],
                                     start_time: Option[LocalDate],
-                                    end_time: Option[LocalDate])
+                                    end_time: Option[LocalDate],
+                                    expansions: Option[String])
     extends Parameters

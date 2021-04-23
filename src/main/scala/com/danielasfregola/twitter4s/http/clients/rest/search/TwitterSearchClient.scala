@@ -124,9 +124,10 @@ trait TwitterSearchClient {
                      max_results: Int = 10,
                      next_token: Option[String] = None,
                      start_time: Option[LocalDate] = None,
-                     end_time: Option[LocalDate] = None): Future[RatedData[StatusFullSearch]] = {
+                     end_time: Option[LocalDate] = None,
+                     expansions: Option[String] = None): Future[RatedData[StatusFullSearch]] = {
     import restClient._
-    val parameters = TweetSearchAllParamaters(query, max_results, next_token, start_time, end_time)
+    val parameters = TweetSearchAllParamaters(query, max_results, next_token, start_time, end_time, expansions)
     Get(s"$searchAllUrl", parameters).respondAsRated[StatusFullSearch]
   }
 }

@@ -23,4 +23,4 @@ final case class FullSearchMetadata(newest_id: Option[String],
 
 // TODO: break this out into entities?
 // Full archive search only returns this when there are tweets returned
-final case class MinimalTweet(id: String, text: String)
+final case class MinimalTweet(id: String, text: String, author_id: Option[String])

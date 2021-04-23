@@ -43,5 +43,4 @@ trait ConfigurationDetector {
   protected def environmentVariable(name: String): Option[String] = Properties.envOrNone(name)
 
   protected def configuration(path: String): String = config.getString(path)
-
 }

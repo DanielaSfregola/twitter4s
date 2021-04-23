@@ -5,7 +5,7 @@ enablePlugins(GhpagesPlugin, SiteScaladocPlugin)
 name := "twitter4s"
 version := "7.2-SNAPSHOT"
 
-scalaVersion := "2.13.4"
+scalaVersion := "2.12.13"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -17,7 +17,7 @@ libraryDependencies ++= {
   val Akka = "2.6.12"
   val AkkaHttp = "10.2.3"
   val AkkaHttpJson4s = "1.35.3"
-  val Json4s = "3.7.0-M8"
+  val Json4s = "3.6.6"
   val Specs2 = "4.10.6"
   val ScalaLogging = "3.9.2"
   val RandomDataGenerator = "2.8"
@@ -56,12 +56,12 @@ lazy val standardSettings = Seq(
   crossScalaVersions := Seq(scalaVersion.value, "2.12.10"),
   pomExtra := (
     <developers>
-    <developer>
-      <id>DanielaSfregola</id>
-      <name>Daniela Sfregola</name>
-      <url>http://danielasfregola.com/</url>
-    </developer>
-  </developers>
+      <developer>
+        <id>DanielaSfregola</id>
+        <name>Daniela Sfregola</name>
+        <url>http://danielasfregola.com/</url>
+      </developer>
+    </developers>
   ),
   publishMavenStyle := true,
   publishTo := {
