@@ -173,6 +173,6 @@ object TweetsResponseFixture {
         withheld = None
       ))
     )),
-    errors = None
+    errors = Seq.empty[Error]
   )
 }
