@@ -3,17 +3,15 @@
     {
       "id": "2310484964373377688",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "attachments": [
-        {
-          "media_keys": [
-            "13_9995568729608410852",
-            "14_0381608460867506993"
-          ],
-          "poll_ids": [
-            "0419198663175162881"
-          ]
-        }
-      ],
+      "attachments": {
+        "media_keys": [
+          "13_9995568729608410852",
+          "14_0381608460867506993"
+        ],
+        "poll_ids": [
+          "0419198663175162881"
+        ]
+      },
       "author_id": "6338724728067829004",
       "context_annotations": [
         {
@@ -150,8 +148,7 @@
         "retweet_count": 0,
         "reply_count": 0,
         "like_count": 1,
-        "quote_count": 0,
-        "url_link_clicks": 12
+        "quote_count": 0
       },
       "referenced_tweets": [
         {

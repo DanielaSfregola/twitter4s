@@ -6,6 +6,7 @@ import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansion
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.responses.{TweetResponse, TweetsResponse}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
+import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.{TweetResponseFixture, TweetsResponseFixture}
 
 class TwitterTweetLookupClientSpec extends ClientSpec {
 
@@ -23,7 +24,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweets.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetsResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweets.json")
+      result.data === TweetsResponseFixture.fixture
     }
 
     "lookup tweets with expansions" in new TwitterTweetLookupClientSpecContext {
@@ -49,7 +50,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweets.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetsResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweets.json")
+      result.data === TweetsResponseFixture.fixture
     }
 
     "lookup tweets with tweet fields" in new TwitterTweetLookupClientSpecContext {
@@ -91,7 +92,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweets.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetsResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweets.json")
+      result.data === TweetsResponseFixture.fixture
     }
 
     "lookup tweet" in new TwitterTweetLookupClientSpecContext {
@@ -104,7 +105,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweet.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweet.json")
+      result.data === TweetResponseFixture.fixture
     }
 
     "lookup tweet with expansions" in new TwitterTweetLookupClientSpecContext {
@@ -130,7 +131,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweet.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweet.json")
+      result.data === TweetResponseFixture.fixture
     }
 
     "lookup tweet with tweet fields" in new TwitterTweetLookupClientSpecContext {
@@ -172,7 +173,7 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .respondWithRated("/twitter/rest/v2/tweets/tweetlookup/tweet.json")
         .await
       result.rate_limit === rateLimit
-      result.data === loadJsonAs[TweetResponse]("/fixtures/rest/v2/tweets/tweetlookup/tweet.json")
+      result.data === TweetResponseFixture.fixture
     }
   }
 }

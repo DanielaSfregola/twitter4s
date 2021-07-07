@@ -45,10 +45,9 @@ private[twitter4s] object DateTimeFormatter {
 
   val dateTimeFormatter = builder.toFormatter(locale)
 
-  def parseInstant(s: String): Option[Instant] = Seq(
-    v1InstantFormatter,
-    v2InstantFormatter
-  ).view.map(formatter => Try(formatter(s)).toOption).find(_.isDefined).flatten
+  def canParseInstant(s: String): Boolean = Try(parseInstant(s)).isSuccess
+
+  def parseInstant(s: String): Instant = Try(v1InstantFormatter(s)).getOrElse(v2InstantFormatter(s))
 
   def parseInstant(l: Long): Instant = Instant.ofEpochSecond(l)
 

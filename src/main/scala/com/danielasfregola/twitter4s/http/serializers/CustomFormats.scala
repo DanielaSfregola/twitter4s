@@ -6,21 +6,21 @@ import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.ProfileImage
 import org.json4s.JsonAST.{JInt, JLong, JNull, JString}
-import org.json4s.{CustomSerializer, Formats}
+import org.json4s.{CustomSerializer, Formats, JArray, JDouble}
 
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer + CoordinateSerializer
 
 }
 
 private[twitter4s] case object InstantSerializer
     extends CustomSerializer[Instant](format =>
       ({
-        case JInt(i)                                                         => DateTimeFormatter.parseInstant(i.toLong)
-        case JLong(l)                                                        => DateTimeFormatter.parseInstant(l)
-        case JString(s) if DateTimeFormatter.parseInstant(s).isDefined       => DateTimeFormatter.parseInstant(s).get
+        case JInt(i)                                            => DateTimeFormatter.parseInstant(i.toLong)
+        case JLong(l)                                           => DateTimeFormatter.parseInstant(l)
+        case JString(s) if DateTimeFormatter.canParseInstant(s) => DateTimeFormatter.parseInstant(s)
         case JString(stringAsUnixTime) if stringAsUnixTime.forall(_.isDigit) =>
           Instant.ofEpochMilli(stringAsUnixTime.toLong)
       }, {
@@ -66,3 +66,11 @@ private[twitter4s] case object ProfileImageSerializer
       }, {
         case img: ProfileImage => JString(img.normal)
       }))
+
+private[twitter4s] case object CoordinateSerializer
+  extends CustomSerializer[(Double, Double)](format =>
+    ({
+      case JArray(List(JDouble(lat), JDouble(long))) => (lat, long)
+    }, {
+      case (lat: Double, long: Double) => JArray(List(JDouble(lat), JDouble(long)))
+    }))
