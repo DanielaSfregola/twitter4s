@@ -15,6 +15,7 @@ object Configurations extends ConfigurationDetector {
   lazy val accessTokenSecret = envVarOrConfig("TWITTER_ACCESS_TOKEN_SECRET", "twitter.access.secret")
 
   lazy val twitterVersion = "1.1"
+  lazy val twitterVersionV2 = "2"
 
   lazy val apiTwitterUrl = config.getString("twitter.rest.api")
   lazy val mediaTwitterUrl = config.getString("twitter.rest.media")
