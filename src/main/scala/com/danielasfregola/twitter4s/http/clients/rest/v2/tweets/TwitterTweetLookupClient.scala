@@ -41,12 +41,19 @@ trait TwitterTweetLookupClient {
     *                    to return the specified fields for both the original Tweet and any included referenced Tweets.
     *                    The requested Tweet fields will display in both the original Tweet data object, as well as in
     *                    the referenced Tweet expanded data object that will be located in the includes data object.
+    * @param userFields  : Optional, by default is `Seq.empty`
+    *                    This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                    enables you to select which specific
+    *                    <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/user">user fields</a>
+    *                    will deliver in each returned Tweet. While the user ID will be located in the original Tweet object,
+    *                    you will find this ID and all additional user fields in the includes data object.
     *
     * @return : The representation of the search results.
     */
   def lookupTweets(ids: Seq[String],
                    expansions: Seq[Expansions] = Seq.empty[Expansions],
-                   tweetFields: Seq[TweetFields] = Seq.empty[TweetFields]): Future[RatedData[TweetsResponse]] = {
+                   tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
+                   userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TweetsParameters(
       ids,
       expansions,
@@ -54,7 +61,7 @@ trait TwitterTweetLookupClient {
       Seq.empty[PlaceFields], // TODO: Pending addition of place model
       Seq.empty[PollFields], // TODO: Pending addition of poll model
       tweetFields,
-      Seq.empty[UserFields] // TODO: Pending addition of user model
+      userFields
     )
 
     genericGetTweets(parameters)
@@ -80,19 +87,26 @@ trait TwitterTweetLookupClient {
     *                    to return the specified fields for both the original Tweet and any included referenced Tweets.
     *                    The requested Tweet fields will display in both the original Tweet data object, as well as in
     *                    the referenced Tweet expanded data object that will be located in the includes data object.
+    * @param userFields  : Optional, by default is `Seq.empty`
+    *                    This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                    enables you to select which specific
+    *                    <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/user">user fields</a>
+    *                    will deliver in each returned Tweet. While the user ID will be located in the original Tweet object,
+    *                    you will find this ID and all additional user fields in the includes data object.
     *
     * @return : The representation of the tweet.
     */
   def lookupTweet(id: String,
                   expansions: Seq[Expansions] = Seq.empty[Expansions],
-                  tweetFields: Seq[TweetFields] = Seq.empty[TweetFields]): Future[RatedData[TweetResponse]] = {
+                  tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
+                  userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetResponse]] = {
     val parameters = TweetParameters(
       expansions,
       Seq.empty[MediaFields], // TODO: Pending addition of media model
       Seq.empty[PlaceFields], // TODO: Pending addition of place model
       Seq.empty[PollFields], // TODO: Pending addition of poll model
       tweetFields,
-      Seq.empty[UserFields] // TODO: Pending addition of user model
+      userFields
     )
 
     genericGetTweet(
