@@ -150,7 +150,7 @@ object TweetResponseFixture {
       source = Some("Twitter for iPhone"),
       withheld = None
     )),
-    includes = Some(Includes(
+    includes = Some(TweetIncludes(
       tweets = Seq(Tweet(
         id = "6304480225832455363",
         text = "Donec feugiat elit tellus, a ultrices elit sodales facilisis.",

@@ -4,6 +4,7 @@ import akka.actor.ActorSystem
 import com.danielasfregola.twitter4s.entities.{AccessToken, ConsumerToken}
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
 import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.TwitterTweetLookupClient
+import com.danielasfregola.twitter4s.http.clients.rest.v2.users.TwitterUserLookupClient
 import com.danielasfregola.twitter4s.util.Configurations._
 import com.danielasfregola.twitter4s.util.SystemShutdown
 
@@ -22,6 +23,7 @@ class TwitterRestV2Client(val consumerToken: ConsumerToken, val accessToken: Acc
 
 trait V2RestClients
   extends TwitterTweetLookupClient
+  with TwitterUserLookupClient
 
 object TwitterRestV2Client {
 
