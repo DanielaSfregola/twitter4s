@@ -30,11 +30,14 @@ private[twitter4s] trait JsonSupport extends Json4sSupport {
 
 private[twitter4s] object DateTimeFormatter {
 
-  val formatterPattern = "EEE MMM dd HH:mm:ss ZZZZ yyyy"
+  val apiV1InstantFormatterPattern = "EEE MMM dd HH:mm:ss ZZZZ yyyy"
   val locale = Locale.ENGLISH
 
   // SimpleDateFormat not thread safe! Damn you java!!!
-  def formatter = new SimpleDateFormat(formatterPattern, locale)
+  def formatter = new SimpleDateFormat(apiV1InstantFormatterPattern, locale)
+
+  val v1InstantFormatter = (s: String) => formatter.parse(s).toInstant
+  val v2InstantFormatter = (s: String) => Instant.parse(s)
 
   val builder: DateTimeFormatterBuilder = new DateTimeFormatterBuilder()
     .appendPattern("[EEE MMM dd HH:mm:ss Z yyyy]")
@@ -44,7 +47,7 @@ private[twitter4s] object DateTimeFormatter {
 
   def canParseInstant(s: String): Boolean = Try(parseInstant(s)).isSuccess
 
-  def parseInstant(s: String): Instant = formatter.parse(s).toInstant
+  def parseInstant(s: String): Instant = Try(v1InstantFormatter(s)).getOrElse(v2InstantFormatter(s))
 
   def parseInstant(l: Long): Instant = Instant.ofEpochSecond(l)
 

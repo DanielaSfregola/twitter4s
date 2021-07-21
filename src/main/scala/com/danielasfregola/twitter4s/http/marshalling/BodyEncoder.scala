@@ -1,13 +1,19 @@
 package com.danielasfregola.twitter4s.http
 package marshalling
 
+object BodyEncoder {
+  // Unlike $colon, scala doesn't mangle '.' with a handle and instead considers it a UTF-16 'Full Stop'
+  private val scalaFullStop = "$u002E"
+  private val periodUrlEncoded = "%2E"
+}
+
 trait BodyEncoder {
+  import BodyEncoder._
 
   def toBodyAsParams(cc: Product): String =
     toBodyAsMap(cc)
       .map {
-        case (k, v) =>
-          val key = k.replace("$colon", ":")
+        case (k, v) => val key = k.replace("$colon",":").replace(scalaFullStop, periodUrlEncoded)
           s"$key=$v"
       }
       .toList
@@ -17,8 +23,7 @@ trait BodyEncoder {
   def toBodyAsEncodedParams(cc: Product): String =
     toBodyAsMap(cc)
       .map {
-        case (k, v) =>
-          val key = k.replace("$colon", ":")
+        case (k, v) => val key = k.replace("$colon",":").replace(scalaFullStop, periodUrlEncoded)
           s"$key=${v.urlEncoded}"
       }
       .toList

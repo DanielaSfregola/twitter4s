@@ -1,5 +1,6 @@
 package com.danielasfregola.twitter4s.http.serializers
 import com.danielasfregola.twitter4s.entities.enums._
+import com.danielasfregola.twitter4s.entities.v2.enums._
 import org.json4s.Formats
 import org.json4s.ext.EnumNameSerializer
 
@@ -22,5 +23,9 @@ private[twitter4s] object EnumFormats extends FormatsComposer {
       new EnumNameSerializer(ResultType) +
       new EnumNameSerializer(TimeZone) +
       new EnumNameSerializer(WidgetType) +
-      new EnumNameSerializer(WithFilter)
+      new EnumNameSerializer(WithFilter) +
+      new EnumNameSerializer(CoordinatesType) +
+      new EnumNameSerializer(ReferencedTweetType) +
+      new EnumNameSerializer(TweetReplySetting) +
+      new EnumNameSerializer(WithheldScope)
 }
