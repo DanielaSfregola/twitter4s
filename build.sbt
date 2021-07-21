@@ -14,13 +14,13 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val Typesafe = "1.4.1"
-  val Akka = "2.6.13"
+  val Akka = "2.6.14"
   val AkkaHttp = "10.2.4"
-  val AkkaHttpJson4s = "1.35.3"
+  val AkkaHttpJson4s = "1.36.0"
   val Json4s = "3.7.0-M10"
-  val Specs2 = "4.10.6"
-  val ScalaLogging = "3.9.3"
-  val RandomDataGenerator = "2.9"
+  val Specs2 = "4.11.0"
+  val ScalaLogging = "3.9.4"
+  val RandomDataGenerator = "2.8"
 
   Seq(
     "com.typesafe" % "config" % Typesafe,
