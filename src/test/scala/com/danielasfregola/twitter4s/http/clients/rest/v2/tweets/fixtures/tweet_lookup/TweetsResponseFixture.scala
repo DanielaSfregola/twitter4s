@@ -1,4 +1,4 @@
-package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures
+package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.tweet_lookup
 
 import com.danielasfregola.twitter4s.entities.v2._
 import com.danielasfregola.twitter4s.entities.v2.enums.{CoordinatesType, ReferencedTweetType, TweetReplySetting}
@@ -207,6 +207,7 @@ object TweetsResponseFixture {
         )
       )
     )),
+    meta = None,
     errors = Seq.empty[Error]
   )
 }

@@ -4,7 +4,7 @@ import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.RatedData
 import com.danielasfregola.twitter4s.entities.v2.responses.{TweetResponse, TweetsResponse}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
-import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.{TweetResponseFixture, TweetsResponseFixture}
+import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.tweet_lookup.{TweetResponseFixture, TweetsResponseFixture}
 import com.danielasfregola.twitter4s.http.clients.rest.v2.utils.V2SpecQueryHelper
 
 class TwitterTweetLookupClientSpec extends ClientSpec {

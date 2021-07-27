@@ -1,10 +1,9 @@
-package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures
-
-import java.time.Instant
+package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.tweet_lookup
 
 import com.danielasfregola.twitter4s.entities.v2._
-import com.danielasfregola.twitter4s.entities.v2.enums._
+import com.danielasfregola.twitter4s.entities.v2.enums.{CoordinatesType, ReferencedTweetType, TweetReplySetting}
 import com.danielasfregola.twitter4s.entities.v2.responses.TweetResponse
+import java.time.Instant
 
 object TweetResponseFixture {
   val fixture: TweetResponse = TweetResponse(

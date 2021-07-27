@@ -1,6 +1,6 @@
-package com.danielasfregola.twitter4s.http.clients.rest.v2.users.fixtures
+package com.danielasfregola.twitter4s.http.clients.rest.v2.users.fixtures.user_lookup
 
-import com.danielasfregola.twitter4s.entities.v2.{Error, Tweet, User, UserEntities, UserEntitiesCashtag, UserEntitiesDescription, UserEntitiesHashtag, UserEntitiesMention, UserEntitiesURL, UserPublicMetrics, UserURLContainer, UserIncludes}
+import com.danielasfregola.twitter4s.entities.v2._
 import com.danielasfregola.twitter4s.entities.v2.responses.UsersResponse
 import java.time.Instant
 
