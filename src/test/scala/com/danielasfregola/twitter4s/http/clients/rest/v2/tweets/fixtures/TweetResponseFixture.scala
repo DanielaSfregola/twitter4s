@@ -172,7 +172,41 @@ object TweetResponseFixture {
         reply_settings = None,
         source = None,
         withheld = None
-      ))
+      )),
+      users = Seq(
+        User(
+          id = "3955854555026519618",
+          name = "AliquamOrciEros",
+          username = "aliquamorcieros",
+          created_at = None,
+          `protected` = None,
+          withheld = None,
+          location = None,
+          url = None,
+          description = None,
+          verified = None,
+          entities = None,
+          profile_image_url = None,
+          public_metrics = None,
+          pinned_tweet_id = None
+        ),
+        User(
+          id = "6747736441958634428",
+          name = "Suspendisse At Nunc",
+          username = "suspendisseatnunc",
+          created_at = None,
+          `protected` = None,
+          withheld = None,
+          location = None,
+          url = None,
+          description = None,
+          verified = None,
+          entities = None,
+          profile_image_url = None,
+          public_metrics = None,
+          pinned_tweet_id = None
+        )
+      )
     )),
     errors = Seq.empty[Error]
   )

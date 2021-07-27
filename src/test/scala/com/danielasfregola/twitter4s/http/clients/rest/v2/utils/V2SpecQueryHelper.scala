@@ -1,5 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.utils
 
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.{Expansions => TweetExpansions}
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.{Expansions => UserExpansions}
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
@@ -8,6 +10,14 @@ import com.danielasfregola.twitter4s.entities.v2.enums.fields.{TweetFields, User
 import java.net.URLEncoder
 
 private[v2] object V2SpecQueryHelper {
+  val allTweetExpansions: Seq[TweetExpansions] = Seq(
+    TweetExpansions.AuthorId,
+    TweetExpansions.`Entities.Mentions.Username`,
+    TweetExpansions.InReplyToUser,
+    TweetExpansions.`ReferencedTweets.Id`,
+    TweetExpansions.`ReferencedTweets.Id.AuthorId`
+  )
+
   val allUserExpansions: Seq[UserExpansions] = Seq(
     UserExpansions.PinnedTweetId
   )
@@ -55,6 +65,7 @@ private[v2] object V2SpecQueryHelper {
   def buildIdsParam(ids: Seq[String]): String = "ids=" + encodeQueryParamValue(ids.mkString(","))
   def buildUsernamesParam(usernames: Seq[String]): String = "usernames=" + encodeQueryParamKey(usernames.mkString(","))
 
+  def buildTweetExpansions(expansions: Seq[TweetExpansions]): String = "expansions=" + encodeQueryParamValue(expansions.mkString(","))
   def buildUserExpansions(expansions: Seq[UserExpansions]): String = "expansions=" + encodeQueryParamValue(expansions.mkString(","))
 
   def buildTweetFieldsParam(fields: Seq[TweetFields]): String = encodeQueryParamKey("tweet.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
