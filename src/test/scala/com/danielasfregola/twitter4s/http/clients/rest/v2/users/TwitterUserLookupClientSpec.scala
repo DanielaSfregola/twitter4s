@@ -7,7 +7,7 @@ import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetF
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
 import com.danielasfregola.twitter4s.entities.v2.responses.{UserResponse, UsersResponse}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
-import com.danielasfregola.twitter4s.http.clients.rest.v2.users.fixtures.{UserResponseFixture, UsersResponseFixture}
+import com.danielasfregola.twitter4s.http.clients.rest.v2.users.fixtures.user_lookup.{UserResponseFixture, UsersResponseFixture}
 import com.danielasfregola.twitter4s.http.clients.rest.v2.utils.V2SpecQueryHelper
 
 class TwitterUserLookupClientSpec extends ClientSpec {
