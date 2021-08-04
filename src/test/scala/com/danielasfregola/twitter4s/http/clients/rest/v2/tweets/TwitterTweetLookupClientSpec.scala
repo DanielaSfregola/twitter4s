@@ -87,6 +87,26 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
         .await
     }
 
+    "lookup tweets with media fields" in new TwitterTweetLookupClientSpecContext {
+      val tweetIds = Seq("123", "456")
+      val mediaFields = V2SpecQueryHelper.allMediaFields
+
+      when(lookupTweets(
+        ids = tweetIds,
+        mediaFields = mediaFields
+      ))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === "https://api.twitter.com/2/tweets"
+          request.uri.rawQueryString === Some(Seq(
+            V2SpecQueryHelper.buildIdsParam(tweetIds),
+            V2SpecQueryHelper.buildMediaFieldsParam(mediaFields)
+          ).mkString("&"))
+        }
+        .respondWithOk
+        .await
+    }
+
     "lookup tweet" in new TwitterTweetLookupClientSpecContext {
       val result: RatedData[TweetResponse] = when(lookupTweet("123"))
         .expectRequest { request =>
@@ -146,6 +166,23 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
           request.uri.rawQueryString === Some(V2SpecQueryHelper.buildUserFieldsParam(userFields))
+        }
+        .respondWithOk
+        .await
+    }
+
+    "lookup tweet with media fields" in new TwitterTweetLookupClientSpecContext {
+      val tweetId = "123"
+      val mediaFields = V2SpecQueryHelper.allMediaFields
+
+      when(lookupTweet(
+        id = tweetId,
+        mediaFields = mediaFields
+      ))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
+          request.uri.rawQueryString === Some(V2SpecQueryHelper.buildMediaFieldsParam(mediaFields))
         }
         .respondWithOk
         .await

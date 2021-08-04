@@ -205,6 +205,20 @@ object TweetsResponseFixture {
           public_metrics = None,
           pinned_tweet_id = None
         )
+      ),
+      media = Seq(
+        Media(
+          media_key = "7_8340593532515834174",
+          `type` = "video",
+          duration_ms = None,
+          height = Some(1280),
+          non_public_metrics = None,
+          organic_metrics = None,
+          preview_image_url = None,
+          promoted_metrics = None,
+          public_metrics = None,
+          width = None
+        )
       )
     )),
     meta = None,

@@ -4,9 +4,10 @@ import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansion
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.{Expansions => TweetExpansions}
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.{Expansions => UserExpansions}
+import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
-import com.danielasfregola.twitter4s.entities.v2.enums.fields.{TweetFields, UserFields}
+import com.danielasfregola.twitter4s.entities.v2.enums.fields.{MediaFields, TweetFields, UserFields}
 import java.net.URLEncoder
 
 private[v2] object V2SpecQueryHelper {
@@ -62,6 +63,20 @@ private[v2] object V2SpecQueryHelper {
     UserFields.Withheld
   )
 
+  val allMediaFields: Seq[MediaFields] = Seq(
+    MediaFields.DurationMs,
+    MediaFields.Height,
+    MediaFields.MediaKey,
+    MediaFields.PreviewImageUrl,
+    MediaFields.Type,
+    MediaFields.Url,
+    MediaFields.Width,
+    MediaFields.PublicMetrics,
+    MediaFields.NonPublicMetrics,
+    MediaFields.OrganicMetrics,
+    MediaFields.PromotedMetrics
+  )
+
   def buildIdsParam(ids: Seq[String]): String = "ids=" + encodeQueryParamValue(ids.mkString(","))
   def buildUsernamesParam(usernames: Seq[String]): String = "usernames=" + encodeQueryParamKey(usernames.mkString(","))
 
@@ -71,6 +86,8 @@ private[v2] object V2SpecQueryHelper {
   def buildTweetFieldsParam(fields: Seq[TweetFields]): String = encodeQueryParamKey("tweet.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
 
   def buildUserFieldsParam(fields: Seq[UserFields]): String = encodeQueryParamKey("user.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+
+  def buildMediaFieldsParam(fields: Seq[MediaFields]): String = encodeQueryParamKey("media.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
 
   private def encodeQueryParamKey(str: String) = URLEncoder.encode(str, "UTF-8").replace(".","%2E")
   private def encodeQueryParamValue(str: String) = URLEncoder.encode(str, "UTF-8")

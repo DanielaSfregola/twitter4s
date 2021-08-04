@@ -3,6 +3,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.RatedData
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.{Expansions => TweetExpansions}
+import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
 import com.danielasfregola.twitter4s.entities.v2.enums.rest.TimelineExclude
@@ -103,6 +104,25 @@ class TwitterTimelinesClientSpec extends ClientSpec {
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
           request.uri.rawQueryString === Some(Seq(
             V2SpecQueryHelper.buildUserFieldsParam(userFields)
+          ).mkString("&"))
+        }
+        .respondWithOk
+        .await
+    }
+
+    "lookup timelines with media fields" in new TwitterTimelinesClientSpecContext {
+      val userId = "123"
+      val mediaFields: Seq[MediaFields] = V2SpecQueryHelper.allMediaFields
+
+      when(lookupTimeline(
+        userId = userId,
+        mediaFields = mediaFields
+      ))
+        .expectRequest { request =>
+          request.method === HttpMethods.GET
+          request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
+          request.uri.rawQueryString === Some(Seq(
+            V2SpecQueryHelper.buildMediaFieldsParam(mediaFields)
           ).mkString("&"))
         }
         .respondWithOk
