@@ -6,7 +6,9 @@
       "attachments": {
         "media_keys": [
           "13_9995568729608410852",
-          "14_0381608460867506993"
+          "14_0381608460867506993",
+          "7_1422932273641500672",
+          "3_1422208929984139264"
         ],
         "poll_ids": [
           "0419198663175162881"
@@ -217,6 +219,47 @@
         "height": 1280,
         "media_key": "7_8340593532515834174",
         "type": "video"
+      },
+      {
+        "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1422932273641500672/pu/img/kjOa5XKoU_UViWar.jpg",
+        "public_metrics": {
+          "view_count": 1162
+        },
+        "non_public_metrics": {
+          "playback_0_count": 1561,
+          "playback_100_count": 116,
+          "playback_25_count": 559,
+          "playback_50_count": 305,
+          "playback_75_count": 183
+        },
+        "organic_metrics": {
+          "playback_0_count": 1561,
+          "playback_100_count": 116,
+          "playback_25_count": 559,
+          "playback_50_count": 305,
+          "playback_75_count": 183,
+          "view_count": 629
+        },
+        "promoted_metrics": {
+          "playback_0_count": 259,
+          "playback_100_count": 15,
+          "playback_25_count": 113,
+          "playback_50_count": 57,
+          "playback_75_count": 25,
+          "view_count": 124
+        },
+        "height": 450,
+        "width": 720,
+        "media_key": "7_1422932273641500672",
+        "duration_ms": 70500,
+        "type": "video"
+      },
+      {
+        "url": "https://pbs.twimg.com/media/E7yzfJQX0AAw-u8.jpg",
+        "height": 720,
+        "width": 1280,
+        "media_key": "3_1422208929984139264",
+        "type": "photo"
       }
     ],
     "places": [

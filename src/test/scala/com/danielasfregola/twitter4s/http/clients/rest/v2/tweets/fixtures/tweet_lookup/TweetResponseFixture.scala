@@ -13,7 +13,9 @@ object TweetResponseFixture {
       attachments = Some(TweetAttachments(
         media_keys = Seq(
           "13_9995568729608410852",
-          "14_0381608460867506993"
+          "14_0381608460867506993",
+          "7_1422932273641500672",
+          "3_1422208929984139264"
         ),
         poll_ids = Seq(
           "0419198663175162881"
@@ -219,6 +221,54 @@ object TweetResponseFixture {
           public_metrics = None,
           url = None,
           width = None
+        ),
+        Media(
+          media_key = "7_1422932273641500672",
+          `type` = "video",
+          duration_ms = Some(70500),
+          height = Some(450),
+          non_public_metrics = Some(MediaNonPublicMetrics(
+            playback_0_count = 1561,
+            playback_100_count = 116,
+            playback_25_count = 559,
+            playback_50_count = 305,
+            playback_75_count = 183
+          )),
+          organic_metrics = Some(MediaOrganicMetrics(
+            playback_0_count = 1561,
+            playback_100_count = 116,
+            playback_25_count = 559,
+            playback_50_count = 305,
+            playback_75_count = 183,
+            view_count = 629
+          )),
+          preview_image_url = Some("https://pbs.twimg.com/ext_tw_video_thumb/1422932273641500672/pu/img/kjOa5XKoU_UViWar.jpg"),
+          promoted_metrics = Some(MediaPromotedMetrics(
+            playback_0_count = 259,
+            playback_100_count = 15,
+            playback_25_count = 113,
+            playback_50_count = 57,
+            playback_75_count = 25,
+            view_count = 124
+          )),
+          public_metrics = Some(MediaPublicMetrics(
+            view_count = 1162
+          )),
+          url = None,
+          width = Some(720)
+        ),
+        Media(
+          media_key = "3_1422208929984139264",
+          `type` = "photo",
+          duration_ms = None,
+          height = Some(720),
+          non_public_metrics = None,
+          organic_metrics = None,
+          preview_image_url = None,
+          promoted_metrics = None,
+          public_metrics = None,
+          url = Some("https://pbs.twimg.com/media/E7yzfJQX0AAw-u8.jpg"),
+          width = Some(1280)
         )
       )
     )),
