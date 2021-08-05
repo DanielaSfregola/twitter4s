@@ -85,6 +85,11 @@ trait TwitterTimelinesClient {
     *                        in the Tweet data object, but the expanded object metadata will be returned within the includes
     *                        response object, and will also include the ID so that you can match this data object to the
     *                        original Tweet object.
+    * @param mediaFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media">Media fields</a>
+    *                        will deliver in each returned Tweet.
     * @param tweetFields     : Optional, by default is `Seq.empty`
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
