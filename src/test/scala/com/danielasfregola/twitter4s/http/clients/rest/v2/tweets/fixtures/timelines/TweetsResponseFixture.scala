@@ -217,6 +217,7 @@ object TweetsResponseFixture {
           preview_image_url = None,
           promoted_metrics = None,
           public_metrics = None,
+          url = None,
           width = None
         )
       )

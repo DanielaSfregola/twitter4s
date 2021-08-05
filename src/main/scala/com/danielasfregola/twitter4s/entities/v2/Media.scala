@@ -9,6 +9,7 @@ final case class Media(media_key: String,
                        preview_image_url: Option[String],
                        promoted_metrics: Option[MediaPromotedMetrics],
                        public_metrics: Option[MediaPublicMetrics],
+                       url: Option[String],
                        width: Option[Int])
 
 final case class MediaNonPublicMetrics(playback_0_count: Int,
