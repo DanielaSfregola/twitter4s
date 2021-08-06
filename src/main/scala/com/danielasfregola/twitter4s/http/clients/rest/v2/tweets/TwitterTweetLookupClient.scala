@@ -52,12 +52,13 @@ trait TwitterTweetLookupClient {
     */
   def lookupTweets(ids: Seq[String],
                    expansions: Seq[Expansions] = Seq.empty[Expansions],
+                   mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                    tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                    userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TweetsParameters(
       ids,
       expansions,
-      Seq.empty[MediaFields], // TODO: Pending addition of media model
+      mediaFields,
       Seq.empty[PlaceFields], // TODO: Pending addition of place model
       Seq.empty[PollFields], // TODO: Pending addition of poll model
       tweetFields,
@@ -98,11 +99,12 @@ trait TwitterTweetLookupClient {
     */
   def lookupTweet(id: String,
                   expansions: Seq[Expansions] = Seq.empty[Expansions],
+                  mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                   tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                   userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetResponse]] = {
     val parameters = TweetParameters(
       expansions,
-      Seq.empty[MediaFields], // TODO: Pending addition of media model
+      mediaFields,
       Seq.empty[PlaceFields], // TODO: Pending addition of place model
       Seq.empty[PollFields], // TODO: Pending addition of poll model
       tweetFields,

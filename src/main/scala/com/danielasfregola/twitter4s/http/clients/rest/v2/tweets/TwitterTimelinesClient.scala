@@ -85,6 +85,11 @@ trait TwitterTimelinesClient {
     *                        in the Tweet data object, but the expanded object metadata will be returned within the includes
     *                        response object, and will also include the ID so that you can match this data object to the
     *                        original Tweet object.
+    * @param mediaFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media">Media fields</a>
+    *                        will deliver in each returned Tweet.
     * @param tweetFields     : Optional, by default is `Seq.empty`
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
@@ -111,6 +116,7 @@ trait TwitterTimelinesClient {
                      untilId: Option[String] = None,
                      exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
                      expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineTweetsParameters(
@@ -122,7 +128,7 @@ trait TwitterTimelinesClient {
       until_id = untilId,
       exclude = exclude,
       expansions = expansions,
-      `media.fields` = Seq.empty[MediaFields], // TODO: Pending addition of media model
+      `media.fields` = mediaFields,
       `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
       `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
       `tweet.fields` = tweetFields,
@@ -217,6 +223,7 @@ trait TwitterTimelinesClient {
                      sinceId: Option[String] = None,
                      untilId: Option[String] = None,
                      expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineMentionsParameters(
@@ -227,7 +234,7 @@ trait TwitterTimelinesClient {
       since_id = sinceId,
       until_id = untilId,
       expansions = expansions,
-      `media.fields` = Seq.empty[MediaFields], // TODO: Pending addition of media model
+      `media.fields` = mediaFields,
       `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
       `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
       `tweet.fields` = tweetFields,
