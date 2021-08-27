@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets
 
 import com.danielasfregola.twitter4s.entities.RatedData
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.Expansions
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PlaceFields.PlaceFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PollFields.PollFields
@@ -115,7 +115,7 @@ trait TwitterTimelinesClient {
                      sinceId: Option[String] = None,
                      untilId: Option[String] = None,
                      exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
-                     expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
                      mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
@@ -222,7 +222,7 @@ trait TwitterTimelinesClient {
                      paginationToken: Option[String] = None,
                      sinceId: Option[String] = None,
                      untilId: Option[String] = None,
-                     expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
                      mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {

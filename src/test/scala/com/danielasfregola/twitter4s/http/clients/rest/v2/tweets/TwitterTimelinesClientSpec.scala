@@ -2,7 +2,7 @@ package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets
 
 import akka.http.scaladsl.model.HttpMethods
 import com.danielasfregola.twitter4s.entities.RatedData
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.{Expansions => TweetExpansions}
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
