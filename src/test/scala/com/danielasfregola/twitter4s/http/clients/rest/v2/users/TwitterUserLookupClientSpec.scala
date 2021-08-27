@@ -1,13 +1,10 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.users
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.RatedData
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.UserExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
-import com.danielasfregola.twitter4s.entities.v2.responses.{UserResponse, UsersResponse}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
-import com.danielasfregola.twitter4s.http.clients.rest.v2.users.fixtures.user_lookup.{UserResponseFixture, UsersResponseFixture}
 import com.danielasfregola.twitter4s.http.clients.rest.v2.utils.V2SpecQueryHelper
 
 class TwitterUserLookupClientSpec extends ClientSpec {
@@ -16,21 +13,19 @@ class TwitterUserLookupClientSpec extends ClientSpec {
 
   "Twitter User Lookup Client" should {
 
-    "lookup users" in new TwitterUserLookupClientSpecContext {
+    "request users" in new TwitterUserLookupClientSpecContext {
       val userIds = Seq("123","456")
-      val result: RatedData[UsersResponse] = when(lookupUsers(userIds))
+      when(lookupUsers(userIds))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/users"
           request.uri.rawQueryString === Some(V2SpecQueryHelper.buildIdsParam(userIds))
         }
-        .respondWithRated("/twitter/rest/v2/users/userlookup/users.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === UsersResponseFixture.fixture
     }
 
-    "lookup users with expansions" in new TwitterUserLookupClientSpecContext {
+    "request users with expansions" in new TwitterUserLookupClientSpecContext {
       val userIds = Seq("123","456")
       val expansions: Seq[UserExpansions] = V2SpecQueryHelper.allUserExpansions
 
@@ -50,7 +45,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup users with user fields" in new TwitterUserLookupClientSpecContext {
+    "request users with user fields" in new TwitterUserLookupClientSpecContext {
       val userIds = Seq("123","456")
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
@@ -70,7 +65,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup users with tweet fields" in new TwitterUserLookupClientSpecContext {
+    "request users with tweet fields" in new TwitterUserLookupClientSpecContext {
       val userIds = Seq("123","456")
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 
@@ -90,21 +85,19 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user" in new TwitterUserLookupClientSpecContext {
+    "request user" in new TwitterUserLookupClientSpecContext {
       val userId = "123"
-      val result: RatedData[UserResponse] = when(lookupUser(userId))
+      when(lookupUser(userId))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId"
           request.uri.rawQueryString === None
         }
-        .respondWithRated("/twitter/rest/v2/users/userlookup/user.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === UserResponseFixture.fixture
     }
 
-    "lookup user with expansions" in new TwitterUserLookupClientSpecContext {
+    "request user with expansions" in new TwitterUserLookupClientSpecContext {
       val userId = "123"
       val expansions: Seq[UserExpansions] = V2SpecQueryHelper.allUserExpansions
 
@@ -123,7 +116,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user with user fields" in new TwitterUserLookupClientSpecContext {
+    "request user with user fields" in new TwitterUserLookupClientSpecContext {
       val userId = "123"
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
@@ -142,7 +135,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user with tweet fields" in new TwitterUserLookupClientSpecContext {
+    "request user with tweet fields" in new TwitterUserLookupClientSpecContext {
       val userId = "123"
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 
@@ -161,21 +154,19 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup users by usernames" in new TwitterUserLookupClientSpecContext {
+    "request users by usernames" in new TwitterUserLookupClientSpecContext {
       val usernames = Seq("user1","user2")
-      val result: RatedData[UsersResponse] = when(lookupUsersByUsernames(usernames))
+      when(lookupUsersByUsernames(usernames))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/users/by"
           request.uri.rawQueryString === Some(V2SpecQueryHelper.buildUsernamesParam(usernames))
         }
-        .respondWithRated("/twitter/rest/v2/users/userlookup/users.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === UsersResponseFixture.fixture
     }
 
-    "lookup users by usernames with expansions" in new TwitterUserLookupClientSpecContext {
+    "request users by usernames with expansions" in new TwitterUserLookupClientSpecContext {
       val usernames = Seq("user1","user2")
       val expansions: Seq[UserExpansions] = V2SpecQueryHelper.allUserExpansions
 
@@ -195,7 +186,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup users by usernames with user fields" in new TwitterUserLookupClientSpecContext {
+    "request users by usernames with user fields" in new TwitterUserLookupClientSpecContext {
       val usernames = Seq("user1","user2")
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
@@ -215,7 +206,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup users by usernames with tweet fields" in new TwitterUserLookupClientSpecContext {
+    "request users by usernames with tweet fields" in new TwitterUserLookupClientSpecContext {
       val usernames = Seq("user1","user2")
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 
@@ -235,21 +226,19 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user by username" in new TwitterUserLookupClientSpecContext {
+    "request user by username" in new TwitterUserLookupClientSpecContext {
       val username = "user1"
-      val result: RatedData[UserResponse] = when(lookupUserByUsername(username))
+      when(lookupUserByUsername(username))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/by/username/$username"
           request.uri.rawQueryString === None
         }
-        .respondWithRated("/twitter/rest/v2/users/userlookup/user.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === UserResponseFixture.fixture
     }
 
-    "lookup user with expansions" in new TwitterUserLookupClientSpecContext {
+    "request user with expansions" in new TwitterUserLookupClientSpecContext {
       val username = "user1"
       val expansions: Seq[UserExpansions] = V2SpecQueryHelper.allUserExpansions
 
@@ -268,7 +257,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user by username with user fields" in new TwitterUserLookupClientSpecContext {
+    "request user by username with user fields" in new TwitterUserLookupClientSpecContext {
       val username = "user1"
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
@@ -287,7 +276,7 @@ class TwitterUserLookupClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup user by username with tweet fields" in new TwitterUserLookupClientSpecContext {
+    "request user by username with tweet fields" in new TwitterUserLookupClientSpecContext {
       val username = "user1"
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 

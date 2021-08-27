@@ -92,5 +92,25 @@
         "text": "Donec feugiat elit tellus, a ultrices elit sodales facilisis."
       }
     ]
-  }
+  },
+  "errors": [
+    {
+      "detail": "Some generic error",
+      "field": "archaeology",
+      "parameter": "bones",
+      "resource_id": "123",
+      "resource_type": "tibula",
+      "title": "One strange error",
+      "value": "123"
+    },
+    {
+      "detail": "Some other generic error",
+      "parameter": "login",
+      "resource_id": "123",
+      "resource_type": "unknown",
+      "section": "zero",
+      "title": "Another strange error",
+      "type": "hidden"
+    }
+  ]
 }

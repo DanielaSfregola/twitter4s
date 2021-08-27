@@ -1,8 +1,8 @@
-package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.tweet_lookup
+package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.deserialization.fixtures
 
-import com.danielasfregola.twitter4s.entities.v2._
 import com.danielasfregola.twitter4s.entities.v2.enums.{CoordinatesType, ReferencedTweetType, TweetReplySetting}
 import com.danielasfregola.twitter4s.entities.v2.responses.TweetsResponse
+import com.danielasfregola.twitter4s.entities.v2._
 import java.time.Instant
 
 object TweetsResponseFixture {
@@ -272,7 +272,36 @@ object TweetsResponseFixture {
         )
       )
     )),
-    meta = None,
-    errors = Seq.empty[Error]
+    meta = Some(Meta(
+      oldest_id = Some("1356759580211109999"),
+      newest_id = Some("1410697282811569999"),
+      result_count = 7,
+      next_token = Some("123"),
+      previous_token = None
+    )),
+    errors = Seq(
+      Error(
+        detail = "Some generic error",
+        field = Some("archaeology"),
+        parameter = "bones",
+        resource_id = "123",
+        resource_type = "tibula",
+        section = None,
+        title = "One strange error",
+        `type` = None,
+        value = Some("123")
+      ),
+      Error(
+        detail = "Some other generic error",
+        field = None,
+        parameter = "login",
+        resource_id = "123",
+        resource_type = "unknown",
+        section = Some("zero"),
+        title = "Another strange error",
+        `type` = Some("hidden"),
+        value = None
+      )
+    )
   )
 }

@@ -162,6 +162,12 @@
       "source": "Twitter for iPhone"
     }
   ],
+  "meta": {
+    "oldest_id": "1356759580211109999",
+    "newest_id": "1410697282811569999",
+    "result_count": 7,
+    "next_token": "123"
+  },
   "includes": {
     "users": [
       {
@@ -262,5 +268,25 @@
         "id": "0fc2bbe1f995b733"
       }
     ]
-  }
+  },
+  "errors": [
+    {
+      "detail": "Some generic error",
+      "field": "archaeology",
+      "parameter": "bones",
+      "resource_id": "123",
+      "resource_type": "tibula",
+      "title": "One strange error",
+      "value": "123"
+    },
+    {
+      "detail": "Some other generic error",
+      "parameter": "login",
+      "resource_id": "123",
+      "resource_type": "unknown",
+      "section": "zero",
+      "title": "Another strange error",
+      "type": "hidden"
+    }
+  ]
 }
