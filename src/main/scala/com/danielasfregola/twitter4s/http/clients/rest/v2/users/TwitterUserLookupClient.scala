@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.users
 
 import com.danielasfregola.twitter4s.entities.RatedData
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.Expansions
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.UserExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
 import com.danielasfregola.twitter4s.entities.v2.responses.{UserResponse, UsersResponse}
@@ -49,7 +49,7 @@ trait TwitterUserLookupClient {
     * @return : The representation of the search results.
     */
   def lookupUsers(ids: Seq[String],
-                  expansions: Seq[Expansions] = Seq.empty[Expansions],
+                  expansions: Seq[UserExpansions] = Seq.empty[UserExpansions],
                   tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                   userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[UsersResponse]] = {
     import restClient._
@@ -98,7 +98,7 @@ trait TwitterUserLookupClient {
     * @return : The representation of the search results.
     */
   def lookupUser(id: String,
-                 expansions: Seq[Expansions] = Seq.empty[Expansions],
+                 expansions: Seq[UserExpansions] = Seq.empty[UserExpansions],
                  tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                  userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[UserResponse]] = {
     import restClient._
@@ -146,7 +146,7 @@ trait TwitterUserLookupClient {
     * @return : The representation of the search results.
     */
   def lookupUsersByUsernames(usernames: Seq[String],
-                             expansions: Seq[Expansions] = Seq.empty[Expansions],
+                             expansions: Seq[UserExpansions] = Seq.empty[UserExpansions],
                              tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                              userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[UsersResponse]] = {
     import restClient._
@@ -195,7 +195,7 @@ trait TwitterUserLookupClient {
     * @return : The representation of the search results.
     */
   def lookupUserByUsername(username: String,
-                           expansions: Seq[Expansions] = Seq.empty[Expansions],
+                           expansions: Seq[UserExpansions] = Seq.empty[UserExpansions],
                            tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                            userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[UserResponse]] = {
     import restClient._

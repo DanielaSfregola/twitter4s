@@ -1,9 +1,9 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.utils
 
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.{Expansions => TweetExpansions}
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.{Expansions => UserExpansions}
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.UserExpansions.UserExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
