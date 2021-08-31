@@ -6,12 +6,12 @@ import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.ProfileImage
 import org.json4s.JsonAST.{JInt, JLong, JNull, JString}
-import org.json4s.{CustomSerializer, Formats}
+import org.json4s.{CustomSerializer, Formats, JArray, JDouble}
 
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
   override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer + CoordinateSerializer
 
 }
 
@@ -65,4 +65,12 @@ private[twitter4s] case object ProfileImageSerializer
         case JNull      => null
       }, {
         case img: ProfileImage => JString(img.normal)
+      }))
+
+private[twitter4s] case object CoordinateSerializer
+    extends CustomSerializer[(Double, Double)](format =>
+      ({
+        case JArray(List(JDouble(lat), JDouble(long))) => (lat, long)
+      }, {
+        case (lat: Double, long: Double) => JArray(List(JDouble(lat), JDouble(long)))
       }))

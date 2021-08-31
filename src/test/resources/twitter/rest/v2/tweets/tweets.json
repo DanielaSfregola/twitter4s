@@ -1,0 +1,292 @@
+{
+  "data": [
+    {
+      "id": "2310484964373377688",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "attachments": {
+        "media_keys": [
+          "13_9995568729608410852",
+          "14_0381608460867506993",
+          "7_1422932273641500672",
+          "3_1422208929984139264"
+        ],
+        "poll_ids": [
+          "0419198663175162881"
+        ]
+      },
+      "author_id": "6338724728067829004",
+      "context_annotations": [
+        {
+          "domain": {
+            "id": "10",
+            "name": "Person",
+            "description": "Vestibulum pellentesque sed justo ac lacinia"
+          },
+          "entity": {
+            "id": "5233852574321016658",
+            "name": "Phasellus Eu",
+            "description": "Phasellus Eu"
+          }
+        },
+        {
+          "domain": {
+            "id": "54",
+            "name": "Musician",
+            "description": "Nullam imperdiet lectus metus"
+          },
+          "entity": {
+            "id": "6836362243680041612",
+            "name": "Phasellus Eu",
+            "description": "Phasellus Eu"
+          }
+        }
+      ],
+      "conversation_id": "0471114572504780656",
+      "created_at": "2020-05-15T16:03:42.000Z",
+      "entities": {
+        "annotations": [
+          {
+            "start": 144,
+            "end": 150,
+            "probability": 0.626,
+            "type": "Product",
+            "normalized_text": "Twitter"
+          }
+        ],
+        "cashtags": [
+          {
+            "start": 41,
+            "end": 44,
+            "tag": "GE"
+          }
+        ],
+        "urls": [
+          {
+            "start": 257,
+            "end": 280,
+            "url": "https://t.co/sodales",
+            "expanded_url": "https://www.google.com/sodales",
+            "display_url": "example.google.com/sodales",
+            "images": [
+              {
+                "url": "https://www.google.com/sodales",
+                "width": 1200,
+                "height": 630
+              },
+              {
+                "url": "https://www.google.com/sodales",
+                "width": 150,
+                "height": 150
+              }
+            ],
+            "status": 200,
+            "title": "Ut eros tellus, rhoncus maximus lacus a, dictum rhoncus libero",
+            "description": "Sed efficitur ultrices elit sed volutpat. Cras nibh turpis, accumsan sed ultricies eget, egestas in libero. Suspendisse potenti. Nullam in posuere metus. Sed ut fringilla tortor",
+            "unwound_url": "https://www.google.com/sodales"
+          }
+        ],
+        "mentions": [
+          {
+            "start": 105,
+            "end": 121,
+            "username": "SuspendisseAtNunc",
+            "id": "2894469526322928935"
+          },
+          {
+            "start": 125,
+            "end": 138,
+            "username": "SuspendisseAtNuncPosuere",
+            "id": "6279687081065223918"
+          }
+        ],
+        "hashtags": [
+          {
+            "start": 47,
+            "end": 60,
+            "tag": "SuspendisseAtNunc"
+          },
+          {
+            "start": 171,
+            "end": 194,
+            "tag": "SuspendisseNunc"
+          }
+        ]
+      },
+      "geo": {
+        "coordinates": {
+          "type": "Point",
+          "coordinates": [
+            40.74118764,
+            -73.9998279
+          ]
+        },
+        "place_id": "0fc2bbe1f995b733"
+      },
+      "in_reply_to_user_id": "1600750904601052113",
+      "lang": "en",
+      "non_public_metrics": {
+        "user_profile_clicks": 0,
+        "impression_count": 29,
+        "url_link_clicks": 12
+      },
+      "organic_metrics": {
+        "retweet_count": 0,
+        "url_link_clicks": 12,
+        "reply_count": 0,
+        "like_count": 1,
+        "user_profile_clicks": 0,
+        "impression_count": 29
+      },
+      "possibly_sensitive": true,
+      "promoted_metrics": {
+        "impression_count": 29,
+        "url_link_clicks": 12,
+        "user_profile_clicks": 0,
+        "retweet_count": 0,
+        "reply_count": 0,
+        "like_count": 1
+      },
+      "public_metrics": {
+        "retweet_count": 0,
+        "reply_count": 0,
+        "like_count": 1,
+        "quote_count": 0
+      },
+      "referenced_tweets": [
+        {
+          "type": "retweeted",
+          "id": "4653693971459419590"
+        }
+      ],
+      "reply_settings": "everyone",
+      "source": "Twitter for iPhone"
+    }
+  ],
+  "meta": {
+    "oldest_id": "1356759580211109999",
+    "newest_id": "1410697282811569999",
+    "result_count": 7,
+    "next_token": "123"
+  },
+  "includes": {
+    "users": [
+      {
+        "id": "3955854555026519618",
+        "name": "AliquamOrciEros",
+        "username": "aliquamorcieros"
+      },
+      {
+        "id": "6747736441958634428",
+        "name": "Suspendisse At Nunc",
+        "username": "suspendisseatnunc"
+      }
+    ],
+    "tweets": [
+      {
+        "id": "6304480225832455363",
+        "text": "Donec feugiat elit tellus, a ultrices elit sodales facilisis."
+      }
+    ],
+    "polls": [
+      {
+        "id": "0425105815647696196",
+        "options": [
+          {
+            "position": 1,
+            "label": "Hulu",
+            "votes": 9
+          },
+          {
+            "position": 2,
+            "label": "Netflix",
+            "votes": 26
+          },
+          {
+            "position": 3,
+            "label": "Amazon Prime",
+            "votes": 3
+          },
+          {
+            "position": 4,
+            "label": "YouTube TV",
+            "votes": 3
+          }
+        ]
+      }
+    ],
+    "media": [
+      {
+        "height": 1280,
+        "media_key": "7_8340593532515834174",
+        "type": "video"
+      },
+      {
+        "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1422932273641500672/pu/img/kjOa5XKoU_UViWar.jpg",
+        "public_metrics": {
+          "view_count": 1162
+        },
+        "non_public_metrics": {
+          "playback_0_count": 1561,
+          "playback_100_count": 116,
+          "playback_25_count": 559,
+          "playback_50_count": 305,
+          "playback_75_count": 183
+        },
+        "organic_metrics": {
+          "playback_0_count": 1561,
+          "playback_100_count": 116,
+          "playback_25_count": 559,
+          "playback_50_count": 305,
+          "playback_75_count": 183,
+          "view_count": 629
+        },
+        "promoted_metrics": {
+          "playback_0_count": 259,
+          "playback_100_count": 15,
+          "playback_25_count": 113,
+          "playback_50_count": 57,
+          "playback_75_count": 25,
+          "view_count": 124
+        },
+        "height": 450,
+        "width": 720,
+        "media_key": "7_1422932273641500672",
+        "duration_ms": 70500,
+        "type": "video"
+      },
+      {
+        "url": "https://pbs.twimg.com/media/E7yzfJQX0AAw-u8.jpg",
+        "height": 720,
+        "width": 1280,
+        "media_key": "3_1422208929984139264",
+        "type": "photo"
+      }
+    ],
+    "places": [
+      {
+        "full_name": "Curabitur ultrices ut odio ac pretium",
+        "id": "0fc2bbe1f995b733"
+      }
+    ]
+  },
+  "errors": [
+    {
+      "detail": "Some generic error",
+      "field": "archaeology",
+      "parameter": "bones",
+      "resource_id": "123",
+      "resource_type": "tibula",
+      "title": "One strange error",
+      "value": "123"
+    },
+    {
+      "detail": "Some other generic error",
+      "parameter": "login",
+      "resource_id": "123",
+      "resource_type": "unknown",
+      "section": "zero",
+      "title": "Another strange error",
+      "type": "hidden"
+    }
+  ]
+}
