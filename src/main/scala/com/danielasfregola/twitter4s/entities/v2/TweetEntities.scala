@@ -19,15 +19,8 @@ final case class TweetEntitiesURL(start: Int,
                                   display_url: String,
                                   unwound_url: Option[String])
 
-final case class TweetEntitiesHashtag(start: Int,
-                                      end: Int,
-                                      tag: String)
+final case class TweetEntitiesHashtag(start: Int, end: Int, tag: String)
 
-final case class TweetEntitiesMention(start: Int,
-                                      end: Int,
-                                      username: Option[String],
-                                      id: Option[String])
+final case class TweetEntitiesMention(start: Int, end: Int, username: Option[String], id: Option[String])
 
-final case class TweetEntitiesCashtag(start: Int,
-                                      end: Int,
-                                      tag: String)
+final case class TweetEntitiesCashtag(start: Int, end: Int, tag: String)

@@ -17,7 +17,4 @@ final case class User(id: String,
                       public_metrics: Option[UserPublicMetrics],
                       pinned_tweet_id: Option[String])
 
-final case class UserPublicMetrics(followers_count: Int,
-                                   following_count: Int,
-                                   tweet_count: Int,
-                                   listed_count: Int)
+final case class UserPublicMetrics(followers_count: Int, following_count: Int, tweet_count: Int, listed_count: Int)

@@ -1,10 +1,10 @@
 package com.danielasfregola.twitter4s.entities.v2.enums.expansions
 
 object TweetExpansions extends Enumeration {
-  type Expansions = Value
+  type TweetExpansions = Value
 
   // val `Attachments.PollIds` = Value("attachments.poll_ids") // TODO: Pending addition of poll model
-  // val `Attachments.MediaKeys` = Value("attachments.media_keys") // TODO: Pending addition of media model
+  val `Attachments.MediaKeys` = Value("attachments.media_keys")
   val AuthorId = Value("author_id")
   val `Entities.Mentions.Username` = Value("entities.mentions.username")
   //  val `Geo.PlaceId` = Value("geo.place_id") // TODO: Pending addition of place model

@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.paramaters
 
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.Expansions
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PlaceFields.PlaceFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PollFields.PollFields
@@ -12,7 +12,8 @@ import java.time.Instant
 
 private[twitter4s] final case class TimelineTweetsParameters(end_time: Option[Instant] = None,
                                                              exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
-                                                             expansions: Seq[Expansions] = Seq.empty[Expansions],
+                                                             expansions: Seq[TweetExpansions] =
+                                                               Seq.empty[TweetExpansions],
                                                              max_results: Option[Int] = None,
                                                              `media.fields`: Seq[MediaFields] = Seq.empty[MediaFields],
                                                              pagination_token: Option[String] = None,
@@ -22,4 +23,5 @@ private[twitter4s] final case class TimelineTweetsParameters(end_time: Option[In
                                                              start_time: Option[Instant] = None,
                                                              `tweet.fields`: Seq[TweetFields] = Seq.empty[TweetFields],
                                                              until_id: Option[String] = None,
-                                                             `user.fields`: Seq[UserFields] = Seq.empty[UserFields]) extends Parameters
+                                                             `user.fields`: Seq[UserFields] = Seq.empty[UserFields])
+    extends Parameters

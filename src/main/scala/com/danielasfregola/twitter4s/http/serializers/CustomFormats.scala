@@ -68,9 +68,9 @@ private[twitter4s] case object ProfileImageSerializer
       }))
 
 private[twitter4s] case object CoordinateSerializer
-  extends CustomSerializer[(Double, Double)](format =>
-    ({
-      case JArray(List(JDouble(lat), JDouble(long))) => (lat, long)
-    }, {
-      case (lat: Double, long: Double) => JArray(List(JDouble(lat), JDouble(long)))
-    }))
+    extends CustomSerializer[(Double, Double)](format =>
+      ({
+        case JArray(List(JDouble(lat), JDouble(long))) => (lat, long)
+      }, {
+        case (lat: Double, long: Double) => JArray(List(JDouble(lat), JDouble(long)))
+      }))

@@ -13,7 +13,8 @@ trait BodyEncoder {
   def toBodyAsParams(cc: Product): String =
     toBodyAsMap(cc)
       .map {
-        case (k, v) => val key = k.replace("$colon",":").replace(scalaFullStop, periodUrlEncoded)
+        case (k, v) =>
+          val key = k.replace("$colon", ":").replace(scalaFullStop, periodUrlEncoded)
           s"$key=$v"
       }
       .toList
@@ -23,7 +24,8 @@ trait BodyEncoder {
   def toBodyAsEncodedParams(cc: Product): String =
     toBodyAsMap(cc)
       .map {
-        case (k, v) => val key = k.replace("$colon",":").replace(scalaFullStop, periodUrlEncoded)
+        case (k, v) =>
+          val key = k.replace("$colon", ":").replace(scalaFullStop, periodUrlEncoded)
           s"$key=${v.urlEncoded}"
       }
       .toList

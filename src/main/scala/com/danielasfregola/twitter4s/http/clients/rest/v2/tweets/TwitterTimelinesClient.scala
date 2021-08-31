@@ -1,7 +1,7 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets
 
 import com.danielasfregola.twitter4s.entities.RatedData
-import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.Expansions
+import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PlaceFields.PlaceFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.PollFields.PollFields
@@ -10,7 +10,10 @@ import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFie
 import com.danielasfregola.twitter4s.entities.v2.enums.rest.TimelineExclude.TimelineExclude
 import com.danielasfregola.twitter4s.entities.v2.responses.TweetsResponse
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.paramaters.{TimelineMentionsParameters, TimelineTweetsParameters}
+import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.paramaters.{
+  TimelineMentionsParameters,
+  TimelineTweetsParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations.{apiTwitterUrl, twitterVersionV2}
 import java.time.Instant
 
@@ -85,6 +88,11 @@ trait TwitterTimelinesClient {
     *                        in the Tweet data object, but the expanded object metadata will be returned within the includes
     *                        response object, and will also include the ID so that you can match this data object to the
     *                        original Tweet object.
+    * @param mediaFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media">Media fields</a>
+    *                        will deliver in each returned Tweet.
     * @param tweetFields     : Optional, by default is `Seq.empty`
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
@@ -110,7 +118,8 @@ trait TwitterTimelinesClient {
                      sinceId: Option[String] = None,
                      untilId: Option[String] = None,
                      exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
-                     expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
+                     mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineTweetsParameters(
@@ -122,7 +131,7 @@ trait TwitterTimelinesClient {
       until_id = untilId,
       exclude = exclude,
       expansions = expansions,
-      `media.fields` = Seq.empty[MediaFields], // TODO: Pending addition of media model
+      `media.fields` = mediaFields,
       `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
       `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
       `tweet.fields` = tweetFields,
@@ -216,7 +225,8 @@ trait TwitterTimelinesClient {
                      paginationToken: Option[String] = None,
                      sinceId: Option[String] = None,
                      untilId: Option[String] = None,
-                     expansions: Seq[Expansions] = Seq.empty[Expansions],
+                     expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
+                     mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineMentionsParameters(
@@ -227,7 +237,7 @@ trait TwitterTimelinesClient {
       since_id = sinceId,
       until_id = untilId,
       expansions = expansions,
-      `media.fields` = Seq.empty[MediaFields], // TODO: Pending addition of media model
+      `media.fields` = mediaFields,
       `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
       `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
       `tweet.fields` = tweetFields,
@@ -240,8 +250,8 @@ trait TwitterTimelinesClient {
     )
   }
 
-
-  private def genericGetTweets(userId: String, parameters: TimelineTweetsParameters): Future[RatedData[TweetsResponse]] = {
+  private def genericGetTweets(userId: String,
+                               parameters: TimelineTweetsParameters): Future[RatedData[TweetsResponse]] = {
     import restClient._
 
     Get(
@@ -250,7 +260,8 @@ trait TwitterTimelinesClient {
     ).respondAsRated[TweetsResponse]
   }
 
-  private def genericGetMentions(userId: String, parameters: TimelineMentionsParameters): Future[RatedData[TweetsResponse]] = {
+  private def genericGetMentions(userId: String,
+                                 parameters: TimelineMentionsParameters): Future[RatedData[TweetsResponse]] = {
     import restClient._
 
     Get(
