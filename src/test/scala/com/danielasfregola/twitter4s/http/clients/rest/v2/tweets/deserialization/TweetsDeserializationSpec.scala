@@ -4,7 +4,10 @@ import com.danielasfregola.twitter4s.entities.RatedData
 import com.danielasfregola.twitter4s.entities.v2.responses.{TweetResponse, TweetsResponse}
 import com.danielasfregola.twitter4s.helpers.ClientSpec
 import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.TwitterTweetLookupClient
-import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.deserialization.fixtures.{TweetResponseFixture, TweetsResponseFixture}
+import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.deserialization.fixtures.{
+  TweetResponseFixture,
+  TweetsResponseFixture
+}
 
 class TweetsDeserializationSpec extends ClientSpec {
 

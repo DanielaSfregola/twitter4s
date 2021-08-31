@@ -5,7 +5,9 @@ import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetF
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
 import com.danielasfregola.twitter4s.http.marshalling.Parameters
 
-private[twitter4s] final case class UsersByUsernamesParameters(usernames: Seq[String],
-                                                               expansions: Seq[UserExpansions],
-                                                               `tweet.fields`: Seq[TweetFields] = Seq.empty[TweetFields],
-                                                               `user.fields`: Seq[UserFields] = Seq.empty[UserFields]) extends Parameters
+private[twitter4s] final case class UsersByUsernamesParameters(
+    usernames: Seq[String],
+    expansions: Seq[UserExpansions],
+    `tweet.fields`: Seq[TweetFields] = Seq.empty[TweetFields],
+    `user.fields`: Seq[UserFields] = Seq.empty[UserFields])
+    extends Parameters

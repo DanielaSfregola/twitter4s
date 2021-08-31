@@ -10,9 +10,9 @@ import com.danielasfregola.twitter4s.util.SystemShutdown
 
 /** Represents the functionalities offered by the V2 Twitter REST API
   */
-class TwitterRestV2Client(val consumerToken: ConsumerToken, val accessToken: AccessToken)(implicit _system: ActorSystem =
-                                                                                            ActorSystem("twitter4s-rest-v2"))
-  extends V2RestClients
+class TwitterRestV2Client(val consumerToken: ConsumerToken, val accessToken: AccessToken)(
+    implicit _system: ActorSystem = ActorSystem("twitter4s-rest-v2"))
+    extends V2RestClients
     with SystemShutdown {
 
   protected val system = _system
@@ -21,10 +21,7 @@ class TwitterRestV2Client(val consumerToken: ConsumerToken, val accessToken: Acc
 
 }
 
-trait V2RestClients
-  extends TwitterTimelinesClient
-    with TwitterTweetLookupClient
-    with TwitterUserLookupClient
+trait V2RestClients extends TwitterTimelinesClient with TwitterTweetLookupClient with TwitterUserLookupClient
 
 object TwitterRestV2Client {
 

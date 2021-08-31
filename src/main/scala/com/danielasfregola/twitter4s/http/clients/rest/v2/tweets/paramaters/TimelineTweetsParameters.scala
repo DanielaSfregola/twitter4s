@@ -12,7 +12,8 @@ import java.time.Instant
 
 private[twitter4s] final case class TimelineTweetsParameters(end_time: Option[Instant] = None,
                                                              exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
-                                                             expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
+                                                             expansions: Seq[TweetExpansions] =
+                                                               Seq.empty[TweetExpansions],
                                                              max_results: Option[Int] = None,
                                                              `media.fields`: Seq[MediaFields] = Seq.empty[MediaFields],
                                                              pagination_token: Option[String] = None,
@@ -22,4 +23,5 @@ private[twitter4s] final case class TimelineTweetsParameters(end_time: Option[In
                                                              start_time: Option[Instant] = None,
                                                              `tweet.fields`: Seq[TweetFields] = Seq.empty[TweetFields],
                                                              until_id: Option[String] = None,
-                                                             `user.fields`: Seq[UserFields] = Seq.empty[UserFields]) extends Parameters
+                                                             `user.fields`: Seq[UserFields] = Seq.empty[UserFields])
+    extends Parameters
