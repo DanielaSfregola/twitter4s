@@ -2,7 +2,7 @@ pull_request_rules:
   - name: automatically merge scala-steward's PRs
     conditions:
       - author=scala-steward
-      - status-success=Travis CI - Pull Request
+      - "status-success=ci/circleci: validate"
     actions:
       merge:
         method: merge
