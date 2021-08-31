@@ -1,16 +1,13 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets
 
 import akka.http.scaladsl.model.HttpMethods
-import com.danielasfregola.twitter4s.entities.RatedData
 import com.danielasfregola.twitter4s.entities.v2.enums.expansions.TweetExpansions.TweetExpansions
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.MediaFields.MediaFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.TweetFields.TweetFields
 import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFields
 import com.danielasfregola.twitter4s.entities.v2.enums.rest.TimelineExclude
 import com.danielasfregola.twitter4s.entities.v2.enums.rest.TimelineExclude.TimelineExclude
-import com.danielasfregola.twitter4s.entities.v2.responses.TweetsResponse
 import com.danielasfregola.twitter4s.helpers.ClientSpec
-import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.fixtures.timelines.TweetsResponseFixture
 import com.danielasfregola.twitter4s.http.clients.rest.v2.utils.V2SpecQueryHelper
 
 class TwitterTimelinesClientSpec extends ClientSpec {
@@ -19,21 +16,20 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
   "Twitter Tweet Lookup Client" should {
 
-    "lookup timelines" in new TwitterTimelinesClientSpecContext {
+    "request timelines" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      val result: RatedData[TweetsResponse] = when(lookupTimeline(userId))
+
+      when(lookupTimeline(userId))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
           request.uri.rawQueryString === None
         }
-        .respondWithRated("/twitter/rest/v2/tweets/timelines/tweets.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === TweetsResponseFixture.fixture
     }
 
-    "lookup timelines with expansions" in new TwitterTimelinesClientSpecContext {
+    "request timelines with expansions" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val expansions: Seq[TweetExpansions] = V2SpecQueryHelper.allTweetExpansions
 
@@ -52,7 +48,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup timelines with exclude" in new TwitterTimelinesClientSpecContext {
+    "request timelines with exclude" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val exclusions: Seq[TimelineExclude] = Seq(
         TimelineExclude.Replies,
@@ -72,7 +68,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup timelines with tweet fields" in new TwitterTimelinesClientSpecContext {
+    "request timelines with tweet fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 
@@ -91,7 +87,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup timelines with user fields" in new TwitterTimelinesClientSpecContext {
+    "request timelines with user fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
@@ -110,7 +106,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup timelines with media fields" in new TwitterTimelinesClientSpecContext {
+    "request timelines with media fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val mediaFields: Seq[MediaFields] = V2SpecQueryHelper.allMediaFields
 
@@ -129,21 +125,19 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup mentions" in new TwitterTimelinesClientSpecContext {
+    "request mentions" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      val result: RatedData[TweetsResponse] = when(lookupMentions(userId))
+      when(lookupMentions(userId))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/mentions"
           request.uri.rawQueryString === None
         }
-        .respondWithRated("/twitter/rest/v2/tweets/timelines/tweets.json")
+        .respondWithOk
         .await
-      result.rate_limit === rateLimit
-      result.data === TweetsResponseFixture.fixture
     }
 
-    "lookup mentions with expansions" in new TwitterTimelinesClientSpecContext {
+    "request mentions with expansions" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val expansions: Seq[TweetExpansions] = V2SpecQueryHelper.allTweetExpansions
 
@@ -162,7 +156,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup mentions with tweet fields" in new TwitterTimelinesClientSpecContext {
+    "request mentions with tweet fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val tweetFields: Seq[TweetFields] = V2SpecQueryHelper.allTweetFields
 
@@ -181,7 +175,7 @@ class TwitterTimelinesClientSpec extends ClientSpec {
         .await
     }
 
-    "lookup mentions with user fields" in new TwitterTimelinesClientSpecContext {
+    "request mentions with user fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
       val userFields: Seq[UserFields] = V2SpecQueryHelper.allUserFields
 
