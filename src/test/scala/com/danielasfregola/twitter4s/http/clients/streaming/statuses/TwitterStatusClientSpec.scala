@@ -19,20 +19,16 @@ class TwitterStatusClientSpec extends ClientSpec {
                          tracks = Seq("trending", "other"),
                          locations = locationsFilter,
                          languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing))
-      when(
-        filterStatuses(follow = Seq(1L, 2L, 3L),
-                       tracks = Seq("trending", "other"),
-                       languages = Seq(Language.Hungarian, Language.Bengali))(dummyProcessing))
-        .expectRequest { request =>
-          request.method === HttpMethods.POST
-          request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
-          request.entity === HttpEntity(
-            `application/x-www-form-urlencoded`,
-            "filter_level=none&follow=1%2C2%2C3&language=hu%2Cbn&locations=-122.75%2C36.8%2C-121.75%2C37.8&stall_warnings=false&track=trending%2Cother"
-          )
-        }
-        .respondWithOk
-        .await
+          .expectRequest { request =>
+            request.method === HttpMethods.POST
+            request.uri.endpoint === "https://stream.twitter.com/1.1/statuses/filter.json"
+            request.entity === HttpEntity(
+              `application/x-www-form-urlencoded`,
+              "filter_level=none&follow=1%2C2%2C3&language=hu%2Cbn&locations=-122.75%2C36.8%2C-121.75%2C37.8&stall_warnings=false&track=trending%2Cother"
+            )
+          }
+          .respondWithOk
+          .await
       result.isInstanceOf[Unit] should beTrue
     }
 

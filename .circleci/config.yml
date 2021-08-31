@@ -52,10 +52,4 @@ jobs:
           name:
             Test
           command:
-            cat /dev/null | sbt test:test
-      - run:
-          name:
-            Test Retry
-          command:
-            cat /dev/null | sbt clean test:test
-          when: on_fail
+            cat /dev/null | sbt test:test    
