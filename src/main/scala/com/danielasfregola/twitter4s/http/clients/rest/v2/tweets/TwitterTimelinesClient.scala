@@ -10,7 +10,10 @@ import com.danielasfregola.twitter4s.entities.v2.enums.fields.UserFields.UserFie
 import com.danielasfregola.twitter4s.entities.v2.enums.rest.TimelineExclude.TimelineExclude
 import com.danielasfregola.twitter4s.entities.v2.responses.TweetsResponse
 import com.danielasfregola.twitter4s.http.clients.rest.RestClient
-import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.paramaters.{TimelineMentionsParameters, TimelineTweetsParameters}
+import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.paramaters.{
+  TimelineMentionsParameters,
+  TimelineTweetsParameters
+}
 import com.danielasfregola.twitter4s.util.Configurations.{apiTwitterUrl, twitterVersionV2}
 import java.time.Instant
 
@@ -247,8 +250,8 @@ trait TwitterTimelinesClient {
     )
   }
 
-
-  private def genericGetTweets(userId: String, parameters: TimelineTweetsParameters): Future[RatedData[TweetsResponse]] = {
+  private def genericGetTweets(userId: String,
+                               parameters: TimelineTweetsParameters): Future[RatedData[TweetsResponse]] = {
     import restClient._
 
     Get(
@@ -257,7 +260,8 @@ trait TwitterTimelinesClient {
     ).respondAsRated[TweetsResponse]
   }
 
-  private def genericGetMentions(userId: String, parameters: TimelineMentionsParameters): Future[RatedData[TweetsResponse]] = {
+  private def genericGetMentions(userId: String,
+                                 parameters: TimelineMentionsParameters): Future[RatedData[TweetsResponse]] = {
     import restClient._
 
     Get(

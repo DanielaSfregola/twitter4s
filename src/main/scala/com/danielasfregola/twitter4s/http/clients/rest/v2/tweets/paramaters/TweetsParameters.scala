@@ -14,4 +14,5 @@ private[twitter4s] final case class TweetsParameters(ids: Seq[String],
                                                      `place.fields`: Seq[PlaceFields] = Seq.empty[PlaceFields],
                                                      `poll.fields`: Seq[PollFields] = Seq.empty[PollFields],
                                                      `tweet.fields`: Seq[TweetFields] = Seq.empty[TweetFields],
-                                                     `user.fields`: Seq[UserFields] = Seq.empty[UserFields]) extends Parameters
+                                                     `user.fields`: Seq[UserFields] = Seq.empty[UserFields])
+    extends Parameters

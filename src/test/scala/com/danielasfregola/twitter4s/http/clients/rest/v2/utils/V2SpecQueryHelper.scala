@@ -80,15 +80,20 @@ private[v2] object V2SpecQueryHelper {
   def buildIdsParam(ids: Seq[String]): String = "ids=" + encodeQueryParamValue(ids.mkString(","))
   def buildUsernamesParam(usernames: Seq[String]): String = "usernames=" + encodeQueryParamKey(usernames.mkString(","))
 
-  def buildTweetExpansions(expansions: Seq[TweetExpansions]): String = "expansions=" + encodeQueryParamValue(expansions.mkString(","))
-  def buildUserExpansions(expansions: Seq[UserExpansions]): String = "expansions=" + encodeQueryParamValue(expansions.mkString(","))
+  def buildTweetExpansions(expansions: Seq[TweetExpansions]): String =
+    "expansions=" + encodeQueryParamValue(expansions.mkString(","))
+  def buildUserExpansions(expansions: Seq[UserExpansions]): String =
+    "expansions=" + encodeQueryParamValue(expansions.mkString(","))
 
-  def buildTweetFieldsParam(fields: Seq[TweetFields]): String = encodeQueryParamKey("tweet.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+  def buildTweetFieldsParam(fields: Seq[TweetFields]): String =
+    encodeQueryParamKey("tweet.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
 
-  def buildUserFieldsParam(fields: Seq[UserFields]): String = encodeQueryParamKey("user.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+  def buildUserFieldsParam(fields: Seq[UserFields]): String =
+    encodeQueryParamKey("user.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
 
-  def buildMediaFieldsParam(fields: Seq[MediaFields]): String = encodeQueryParamKey("media.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+  def buildMediaFieldsParam(fields: Seq[MediaFields]): String =
+    encodeQueryParamKey("media.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
 
-  private def encodeQueryParamKey(str: String) = URLEncoder.encode(str, "UTF-8").replace(".","%2E")
+  private def encodeQueryParamKey(str: String) = URLEncoder.encode(str, "UTF-8").replace(".", "%2E")
   private def encodeQueryParamValue(str: String) = URLEncoder.encode(str, "UTF-8")
 }

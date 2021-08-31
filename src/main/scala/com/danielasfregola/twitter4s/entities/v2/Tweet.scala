@@ -26,21 +26,15 @@ final case class Tweet(id: String,
                        source: Option[String],
                        withheld: Option[Withheld])
 
-final case class TweetAttachments(media_keys: Seq[String],
-                                  poll_ids: Seq[String])
+final case class TweetAttachments(media_keys: Seq[String], poll_ids: Seq[String])
 
-final case class TweetContextAnnotation(domain: TweetDomain,
-                                        entity: TweetEntity)
+final case class TweetContextAnnotation(domain: TweetDomain, entity: TweetEntity)
 
-final case class TweetGeo(coordinates: Option[TweetCoordinates],
-                          place_id: Option[String])
+final case class TweetGeo(coordinates: Option[TweetCoordinates], place_id: Option[String])
 
-final case class TweetCoordinates(`type`: CoordinatesType,
-                                  coordinates: (Double, Double))
+final case class TweetCoordinates(`type`: CoordinatesType, coordinates: (Double, Double))
 
-final case class TweetNonPublicMetrics(impression_count: Int,
-                                       url_link_clicks: Option[Int],
-                                       user_profile_clicks: Int)
+final case class TweetNonPublicMetrics(impression_count: Int, url_link_clicks: Option[Int], user_profile_clicks: Int)
 
 final case class TweetOrganicMetrics(impression_count: Int,
                                      url_link_clicks: Option[Int],
@@ -56,18 +50,10 @@ final case class TweetPromotedMetrics(impression_count: Int,
                                       reply_count: Int,
                                       like_count: Int)
 
-final case class TweetPublicMetrics(retweet_count: Int,
-                                    reply_count: Int,
-                                    like_count: Int,
-                                    quote_count: Int)
+final case class TweetPublicMetrics(retweet_count: Int, reply_count: Int, like_count: Int, quote_count: Int)
 
-final case class TweetReferencedTweet(`type`: ReferencedTweetType,
-                                      id: String)
+final case class TweetReferencedTweet(`type`: ReferencedTweetType, id: String)
 
-final case class TweetDomain(id: String,
-                             name: String,
-                             description: Option[String])
+final case class TweetDomain(id: String, name: String, description: Option[String])
 
-final case class TweetEntity(id: String,
-                             name: String,
-                             description: Option[String])
+final case class TweetEntity(id: String, name: String, description: Option[String])

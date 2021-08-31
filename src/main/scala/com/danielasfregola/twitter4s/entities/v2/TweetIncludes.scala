@@ -5,4 +5,4 @@ final case class TweetIncludes(tweets: Seq[Tweet],
                                media: Seq[Media]
                                // places: Seq[Place], // TODO: Pending addition of places model
                                // polls: Seq[Polls] // TODO pending addition of polls model
-                              )
+)

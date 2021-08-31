@@ -27,17 +27,19 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetIds = Seq("123", "456")
       val expansions = V2SpecQueryHelper.allTweetExpansions
 
-      when(lookupTweets(
-        ids = tweetIds,
-        expansions = expansions
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          expansions = expansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
-          request.uri.rawQueryString === Some(Seq(
-            V2SpecQueryHelper.buildTweetExpansions(expansions),
-            V2SpecQueryHelper.buildIdsParam(tweetIds)
-          ).mkString("&"))
+          request.uri.rawQueryString === Some(
+            Seq(
+              V2SpecQueryHelper.buildTweetExpansions(expansions),
+              V2SpecQueryHelper.buildIdsParam(tweetIds)
+            ).mkString("&"))
         }
         .respondWithOk
         .await
@@ -47,17 +49,19 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetIds = Seq("123", "456")
       val tweetFields = V2SpecQueryHelper.allTweetFields
 
-      when(lookupTweets(
-        ids = tweetIds,
-        tweetFields = tweetFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          tweetFields = tweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
-          request.uri.rawQueryString === Some(Seq(
-            V2SpecQueryHelper.buildIdsParam(tweetIds),
-            V2SpecQueryHelper.buildTweetFieldsParam(tweetFields)
-          ).mkString("&"))
+          request.uri.rawQueryString === Some(
+            Seq(
+              V2SpecQueryHelper.buildIdsParam(tweetIds),
+              V2SpecQueryHelper.buildTweetFieldsParam(tweetFields)
+            ).mkString("&"))
         }
         .respondWithOk
         .await
@@ -67,17 +71,19 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetIds = Seq("123", "456")
       val userFields = V2SpecQueryHelper.allUserFields
 
-      when(lookupTweets(
-        ids = tweetIds,
-        userFields = userFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          userFields = userFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
-          request.uri.rawQueryString === Some(Seq(
-            V2SpecQueryHelper.buildIdsParam(tweetIds),
-            V2SpecQueryHelper.buildUserFieldsParam(userFields)
-          ).mkString("&"))
+          request.uri.rawQueryString === Some(
+            Seq(
+              V2SpecQueryHelper.buildIdsParam(tweetIds),
+              V2SpecQueryHelper.buildUserFieldsParam(userFields)
+            ).mkString("&"))
         }
         .respondWithOk
         .await
@@ -87,17 +93,19 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetIds = Seq("123", "456")
       val mediaFields = V2SpecQueryHelper.allMediaFields
 
-      when(lookupTweets(
-        ids = tweetIds,
-        mediaFields = mediaFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          mediaFields = mediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
-          request.uri.rawQueryString === Some(Seq(
-            V2SpecQueryHelper.buildIdsParam(tweetIds),
-            V2SpecQueryHelper.buildMediaFieldsParam(mediaFields)
-          ).mkString("&"))
+          request.uri.rawQueryString === Some(
+            Seq(
+              V2SpecQueryHelper.buildIdsParam(tweetIds),
+              V2SpecQueryHelper.buildMediaFieldsParam(mediaFields)
+            ).mkString("&"))
         }
         .respondWithOk
         .await
@@ -118,10 +126,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetId = "123"
       val expansions = V2SpecQueryHelper.allTweetExpansions
 
-      when(lookupTweet(
-        id = tweetId,
-        expansions = expansions
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          expansions = expansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -135,10 +144,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetId = "123"
       val tweetFields = V2SpecQueryHelper.allTweetFields
 
-      when(lookupTweet(
-        id = tweetId,
-        tweetFields = tweetFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          tweetFields = tweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -152,10 +162,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetId = "123"
       val userFields = V2SpecQueryHelper.allUserFields
 
-      when(lookupTweet(
-        id = tweetId,
-        userFields = userFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          userFields = userFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -169,10 +180,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
       val tweetId = "123"
       val mediaFields = V2SpecQueryHelper.allMediaFields
 
-      when(lookupTweet(
-        id = tweetId,
-        mediaFields = mediaFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          mediaFields = mediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
