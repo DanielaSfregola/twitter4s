@@ -5,13 +5,17 @@ import java.time._
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.enums.DisconnectionCode.DisconnectionCode
 import com.danielasfregola.twitter4s.entities.ProfileImage
-import org.json4s.JsonAST.{JInt, JLong, JNull, JString}
+import com.danielasfregola.twitter4s.entities.v2.GeoJSON
+import org.json4s.JsonAST.{JInt, JLong, JNull, JObject, JString}
+import org.json4s.native.Printer.compact
+import org.json4s.native.{JsonParser, renderJValue}
 import org.json4s.{CustomSerializer, Formats, JArray, JDouble}
 
 private[twitter4s] object CustomFormats extends FormatsComposer {
 
-  override def compose(f: Formats): Formats =
-    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer + CoordinateSerializer
+  override def compose(f: Formats): Formats = {
+    f + InstantSerializer + LocalDateSerializer + DisconnectionCodeSerializer + ProfileImageSerializer + ZonedDateTimeSerializer + CoordinateSerializer + GeoJSONSerializer
+  }
 
 }
 
@@ -73,4 +77,12 @@ private[twitter4s] case object CoordinateSerializer
         case JArray(List(JDouble(lat), JDouble(long))) => (lat, long)
       }, {
         case (lat: Double, long: Double) => JArray(List(JDouble(lat), JDouble(long)))
+      }))
+
+private[twitter4s] case object GeoJSONSerializer
+    extends CustomSerializer[GeoJSON](format =>
+      ({
+        case x: JObject => GeoJSON(compact(renderJValue(x)))
+      }, {
+        case GeoJSON(s) => JsonParser.parse(s)
       }))

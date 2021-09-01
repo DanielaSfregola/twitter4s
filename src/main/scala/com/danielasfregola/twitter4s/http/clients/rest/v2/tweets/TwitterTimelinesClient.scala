@@ -92,7 +92,26 @@ trait TwitterTimelinesClient {
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
     *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media">Media fields</a>
-    *                        will deliver in each returned Tweet.
+    *                        will deliver in each returned Tweet. The Tweet will only return media fields if the Tweet
+    *                        contains media and if you've also included the `expansions=attachments.media_keys` query parameter
+    *                        in your request. While the media ID will be located in the Tweet object, you will find this
+    *                        ID and all additional media fields in the includes data object.
+    * @param placeFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place">place fields</a>
+    *                        will deliver in each returned Tweet. The Tweet will only return place fields if the Tweet
+    *                        contains a place and if you've also included the `expansions=geo.place_id` query parameter
+    *                        in your request. While the place ID will be located in the Tweet object, you will find this
+    *                        ID and all additional place fields in the includes data object.
+    * @param pollFields      : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/poll">poll fields</a>
+    *                        will deliver in each returned Tweet. The Tweet will only return poll fields if the Tweet
+    *                        contains a poll and if you've also included the `expansions=attachments.poll_ids` query parameter
+    *                        in your request. While the poll ID will be located in the Tweet object, you will find this
+    *                        ID and all additional poll fields in the includes data object.
     * @param tweetFields     : Optional, by default is `Seq.empty`
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
@@ -120,6 +139,8 @@ trait TwitterTimelinesClient {
                      exclude: Seq[TimelineExclude] = Seq.empty[TimelineExclude],
                      expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
                      mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
+                     placeFields: Seq[PlaceFields] = Seq.empty[PlaceFields],
+                     pollFields: Seq[PollFields] = Seq.empty[PollFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineTweetsParameters(
@@ -132,8 +153,8 @@ trait TwitterTimelinesClient {
       exclude = exclude,
       expansions = expansions,
       `media.fields` = mediaFields,
-      `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
-      `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
+      `place.fields` = placeFields,
+      `poll.fields` = pollFields,
       `tweet.fields` = tweetFields,
       `user.fields` = userFields
     )
@@ -201,6 +222,30 @@ trait TwitterTimelinesClient {
     *                        in the Tweet data object, but the expanded object metadata will be returned within the includes
     *                        response object, and will also include the ID so that you can match this data object to the
     *                        original Tweet object.
+    * @param mediaFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/media">Media fields</a>
+    *                        will deliver in each returned Tweet. The Tweet will only return media fields if the Tweet
+    *                        contains media and if you've also included the `expansions=attachments.media_keys` query parameter
+    *                        in your request. While the media ID will be located in the Tweet object, you will find this
+    *                        ID and all additional media fields in the includes data object.
+    * @param placeFields     : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/place">place fields</a>
+    *                        will deliver in each returned Tweet. The Tweet will only return place fields if the Tweet
+    *                        contains a place and if you've also included the `expansions=geo.place_id` query parameter
+    *                        in your request. While the place ID will be located in the Tweet object, you will find this
+    *                        ID and all additional place fields in the includes data object.
+    * @param pollFields      : Optional, by default is `Seq.empty`
+    *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
+    *                        enables you to select which specific
+    *                        <a href="https://developer.twitter.com/en/docs/twitter-api/data-dictionary/object-model/poll">poll fields</a>
+    *                        will deliver in each returned Tweet. The Tweet will only return poll fields if the Tweet
+    *                        contains a poll and if you've also included the `expansions=attachments.poll_ids` query parameter
+    *                        in your request. While the poll ID will be located in the Tweet object, you will find this
+    *                        ID and all additional poll fields in the includes data object.
     * @param tweetFields     : Optional, by default is `Seq.empty`
     *                        This <a href="https://developer.twitter.com/en/docs/twitter-api/fields">fields</a> parameter
     *                        enables you to select which specific
@@ -227,6 +272,8 @@ trait TwitterTimelinesClient {
                      untilId: Option[String] = None,
                      expansions: Seq[TweetExpansions] = Seq.empty[TweetExpansions],
                      mediaFields: Seq[MediaFields] = Seq.empty[MediaFields],
+                     placeFields: Seq[PlaceFields] = Seq.empty[PlaceFields],
+                     pollFields: Seq[PollFields] = Seq.empty[PollFields],
                      tweetFields: Seq[TweetFields] = Seq.empty[TweetFields],
                      userFields: Seq[UserFields] = Seq.empty[UserFields]): Future[RatedData[TweetsResponse]] = {
     val parameters = TimelineMentionsParameters(
@@ -238,8 +285,8 @@ trait TwitterTimelinesClient {
       until_id = untilId,
       expansions = expansions,
       `media.fields` = mediaFields,
-      `place.fields` = Seq.empty[PlaceFields], // TODO: Pending addition of place model
-      `poll.fields` = Seq.empty[PollFields], // TODO: Pending addition of poll fields
+      `place.fields` = placeFields,
+      `poll.fields` = pollFields,
       `tweet.fields` = tweetFields,
       `user.fields` = userFields
     )
