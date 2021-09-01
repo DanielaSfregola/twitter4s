@@ -77,23 +77,23 @@ private[v2] object V2SpecQueryHelper {
     MediaFields.PromotedMetrics
   )
 
-  def buildIdsParam(ids: Seq[String]): String = "ids=" + encodeQueryParamValue(ids.mkString(","))
-  def buildUsernamesParam(usernames: Seq[String]): String = "usernames=" + encodeQueryParamKey(usernames.mkString(","))
+  def extractEncodedQueryKeyValuesPairs(queryString: String): Map[String, String] = {
+    queryString.split('&').map(_.split("=") match {
+      case Array(key, value) => key -> value
+      case _ => throw new Exception("Unable to parse query string")
+    }).toMap
+  }
 
-  def buildTweetExpansions(expansions: Seq[TweetExpansions]): String =
-    "expansions=" + encodeQueryParamValue(expansions.mkString(","))
-  def buildUserExpansions(expansions: Seq[UserExpansions]): String =
-    "expansions=" + encodeQueryParamValue(expansions.mkString(","))
+  def buildIdsQueryKeyValue(ids: Seq[String]): (String, String) = "ids" -> encodeQueryParamValue(ids.mkString(","))
+  def buildUsernamesQueryKeyValue(usernames: Seq[String]): (String, String) = "usernames" -> encodeQueryParamKey(usernames.mkString(","))
 
-  def buildTweetFieldsParam(fields: Seq[TweetFields]): String =
-    encodeQueryParamKey("tweet.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+  def buildTweetExpansionsQueryKeyValue(expansions: Seq[TweetExpansions]): (String, String) = "expansions" -> encodeQueryParamValue(expansions.mkString(","))
+  def buildUserExpansionsQueryKeyValue(expansions: Seq[UserExpansions]): (String, String) = "expansions" -> encodeQueryParamValue(expansions.mkString(","))
 
-  def buildUserFieldsParam(fields: Seq[UserFields]): String =
-    encodeQueryParamKey("user.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
+  def buildTweetFieldsQueryKeyValue(fields: Seq[TweetFields]): (String, String) = encodeQueryParamKey("tweet.fields") -> encodeQueryParamValue(fields.mkString(","))
+  def buildUserFieldsQueryKeyValue(fields: Seq[UserFields]): (String, String) = encodeQueryParamKey("user.fields") -> encodeQueryParamValue(fields.mkString(","))
+  def buildMediaFieldsQueryKeyValue(fields: Seq[MediaFields]): (String, String) = encodeQueryParamKey("media.fields") -> encodeQueryParamValue(fields.mkString(","))
 
-  def buildMediaFieldsParam(fields: Seq[MediaFields]): String =
-    encodeQueryParamKey("media.fields") + "=" + encodeQueryParamValue(fields.mkString(","))
-
-  private def encodeQueryParamKey(str: String) = URLEncoder.encode(str, "UTF-8").replace(".", "%2E")
-  private def encodeQueryParamValue(str: String) = URLEncoder.encode(str, "UTF-8")
+  private def encodeQueryParamKey(str: String): String = URLEncoder.encode(str, "UTF-8").replace(".","%2E")
+  private def encodeQueryParamValue(str: String): String = URLEncoder.encode(str, "UTF-8")
 }
