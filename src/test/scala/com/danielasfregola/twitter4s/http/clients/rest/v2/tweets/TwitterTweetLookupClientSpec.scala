@@ -27,10 +27,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweets with expansions" in new TwitterTweetLookupClientSpecContext {
       val tweetIds = Seq("123", "456")
-      when(lookupTweets(
-        ids = tweetIds,
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
@@ -45,10 +46,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweets with tweet fields" in new TwitterTweetLookupClientSpecContext {
       val tweetIds = Seq("123", "456")
-      when(lookupTweets(
-        ids = tweetIds,
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
@@ -63,10 +65,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweets with user fields" in new TwitterTweetLookupClientSpecContext {
       val tweetIds = Seq("123", "456")
-      when(lookupTweets(
-        ids = tweetIds,
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
@@ -81,10 +84,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweets with media fields" in new TwitterTweetLookupClientSpecContext {
       val tweetIds = Seq("123", "456")
-      when(lookupTweets(
-        ids = tweetIds,
-        mediaFields = V2SpecQueryHelper.allMediaFields
-      ))
+      when(
+        lookupTweets(
+          ids = tweetIds,
+          mediaFields = V2SpecQueryHelper.allMediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === "https://api.twitter.com/2/tweets"
@@ -110,10 +114,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweet with expansions" in new TwitterTweetLookupClientSpecContext {
       val tweetId = "123"
-      when(lookupTweet(
-        id = tweetId,
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -127,10 +132,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweet with tweet fields" in new TwitterTweetLookupClientSpecContext {
       val tweetId = "123"
-      when(lookupTweet(
-        id = tweetId,
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -144,10 +150,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweet with user fields" in new TwitterTweetLookupClientSpecContext {
       val tweetId = "123"
-      when(lookupTweet(
-        id = tweetId,
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"
@@ -161,10 +168,11 @@ class TwitterTweetLookupClientSpec extends ClientSpec {
 
     "request tweet with media fields" in new TwitterTweetLookupClientSpecContext {
       val tweetId = "123"
-      when(lookupTweet(
-        id = tweetId,
-        mediaFields = V2SpecQueryHelper.allMediaFields
-      ))
+      when(
+        lookupTweet(
+          id = tweetId,
+          mediaFields = V2SpecQueryHelper.allMediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/$tweetId"

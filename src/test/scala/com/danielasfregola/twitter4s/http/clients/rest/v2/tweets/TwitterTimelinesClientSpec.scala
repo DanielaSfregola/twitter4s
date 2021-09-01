@@ -26,10 +26,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request timelines with expansions" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupTimeline(
-        userId = userId,
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        lookupTimeline(
+          userId = userId,
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
@@ -66,10 +67,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request timelines with tweet fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupTimeline(
-        userId = userId,
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        lookupTimeline(
+          userId = userId,
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
@@ -83,10 +85,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request timelines with user fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupTimeline(
-        userId = userId,
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        lookupTimeline(
+          userId = userId,
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
@@ -100,10 +103,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request timelines with media fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupTimeline(
-        userId = userId,
-        mediaFields = V2SpecQueryHelper.allMediaFields
-      ))
+      when(
+        lookupTimeline(
+          userId = userId,
+          mediaFields = V2SpecQueryHelper.allMediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/tweets"
@@ -129,10 +133,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request mentions with expansions" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupMentions(
-        userId = userId,
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        lookupMentions(
+          userId = userId,
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/mentions"
@@ -146,10 +151,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request mentions with tweet fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupMentions(
-        userId = userId,
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        lookupMentions(
+          userId = userId,
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/mentions"
@@ -163,10 +169,11 @@ class TwitterTimelinesClientSpec extends ClientSpec {
 
     "request mentions with user fields" in new TwitterTimelinesClientSpecContext {
       val userId = "123"
-      when(lookupMentions(
-        userId = userId,
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        lookupMentions(
+          userId = userId,
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/users/$userId/mentions"

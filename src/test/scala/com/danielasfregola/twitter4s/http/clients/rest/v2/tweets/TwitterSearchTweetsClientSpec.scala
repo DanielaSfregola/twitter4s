@@ -12,15 +12,17 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
   "Twitter Search Tweets Client" should {
 
     "request search recent results" in new TwitterSearchTweetsClientSpecContext {
-      when(searchRecent(
-        query = "-is:retweet has:geo (from:NWSNHC OR from:NHC_Atlantic OR from:NWSHouston OR from:NWSSanAntonio OR from:USGS_TexasRain OR from:USGS_TexasFlood OR from:JeffLindner1)",
-        startTime = Some(Instant.ofEpochMilli(1630263600000L)), // Aug 29, 2021 07:00
-        endTime = Some(Instant.ofEpochMilli(1630350000000L)), // Aug 30, 2021 06:00
-        maxResults = Some(20),
-        nextToken = Some("789"),
-        sinceId = Some("1212"),
-        untilId = Some("3434")
-      ))
+      when(
+        searchRecent(
+          query =
+            "-is:retweet has:geo (from:NWSNHC OR from:NHC_Atlantic OR from:NWSHouston OR from:NWSSanAntonio OR from:USGS_TexasRain OR from:USGS_TexasFlood OR from:JeffLindner1)",
+          startTime = Some(Instant.ofEpochMilli(1630263600000L)), // Aug 29, 2021 07:00
+          endTime = Some(Instant.ofEpochMilli(1630350000000L)), // Aug 30, 2021 06:00
+          maxResults = Some(20),
+          nextToken = Some("789"),
+          sinceId = Some("1212"),
+          untilId = Some("3434")
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
@@ -39,10 +41,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search recent results with expansions" in new TwitterSearchTweetsClientSpecContext {
-      when(searchRecent(
-        query = "mountains",
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        searchRecent(
+          query = "mountains",
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
@@ -56,10 +59,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search recent results with media fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchRecent(
-        query = "mountains",
-        mediaFields = V2SpecQueryHelper.allMediaFields
-      ))
+      when(
+        searchRecent(
+          query = "mountains",
+          mediaFields = V2SpecQueryHelper.allMediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
@@ -73,10 +77,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search recent results with tweet fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchRecent(
-        query = "mountains",
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        searchRecent(
+          query = "mountains",
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
@@ -90,10 +95,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search recent results with user fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchRecent(
-        query = "mountains",
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        searchRecent(
+          query = "mountains",
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
@@ -107,15 +113,17 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search all results" in new TwitterSearchTweetsClientSpecContext {
-      when(searchAll(
-        query = "-is:retweet has:geo (from:NWSNHC OR from:NHC_Atlantic OR from:NWSHouston OR from:NWSSanAntonio OR from:USGS_TexasRain OR from:USGS_TexasFlood OR from:JeffLindner1)",
-        startTime = Some(Instant.ofEpochMilli(1630263600000L)), // Aug 29, 2021 07:00
-        endTime = Some(Instant.ofEpochMilli(1630350000000L)), // Aug 30, 2021 06:00
-        maxResults = Some(20),
-        nextToken = Some("789"),
-        sinceId = Some("1212"),
-        untilId = Some("3434")
-      ))
+      when(
+        searchAll(
+          query =
+            "-is:retweet has:geo (from:NWSNHC OR from:NHC_Atlantic OR from:NWSHouston OR from:NWSSanAntonio OR from:USGS_TexasRain OR from:USGS_TexasFlood OR from:JeffLindner1)",
+          startTime = Some(Instant.ofEpochMilli(1630263600000L)), // Aug 29, 2021 07:00
+          endTime = Some(Instant.ofEpochMilli(1630350000000L)), // Aug 30, 2021 06:00
+          maxResults = Some(20),
+          nextToken = Some("789"),
+          sinceId = Some("1212"),
+          untilId = Some("3434")
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
@@ -134,10 +142,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search all results with expansions" in new TwitterSearchTweetsClientSpecContext {
-      when(searchAll(
-        query = "mountains",
-        expansions = V2SpecQueryHelper.allTweetExpansions
-      ))
+      when(
+        searchAll(
+          query = "mountains",
+          expansions = V2SpecQueryHelper.allTweetExpansions
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
@@ -151,10 +160,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search all results with media fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchAll(
-        query = "mountains",
-        mediaFields = V2SpecQueryHelper.allMediaFields
-      ))
+      when(
+        searchAll(
+          query = "mountains",
+          mediaFields = V2SpecQueryHelper.allMediaFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
@@ -168,10 +178,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search all results with tweet fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchAll(
-        query = "mountains",
-        tweetFields = V2SpecQueryHelper.allTweetFields
-      ))
+      when(
+        searchAll(
+          query = "mountains",
+          tweetFields = V2SpecQueryHelper.allTweetFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
@@ -185,10 +196,11 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
     }
 
     "request search all results with user fields" in new TwitterSearchTweetsClientSpecContext {
-      when(searchAll(
-        query = "mountains",
-        userFields = V2SpecQueryHelper.allUserFields
-      ))
+      when(
+        searchAll(
+          query = "mountains",
+          userFields = V2SpecQueryHelper.allUserFields
+        ))
         .expectRequest { request =>
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
