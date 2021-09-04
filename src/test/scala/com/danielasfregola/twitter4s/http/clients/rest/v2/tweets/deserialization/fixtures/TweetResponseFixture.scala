@@ -284,6 +284,58 @@ object TweetResponseFixture {
             public_metrics = None,
             url = Some("https://pbs.twimg.com/media/E7yzfJQX0AAw-u8.jpg"),
             width = Some(1280)
+          ),
+        ),
+        places = Seq(
+          Place(
+            full_name = "Seattle",
+            id = "123",
+            contained_within = Seq("987"),
+            country = None,
+            country_code = None,
+            geo = Some(
+              GeoJSON(
+                """{"type":"Feature","geometry":{"type":"Point","coordinates":[47.6062,-122.3321]},"properties":{"name":"Seattle"}}"""
+              )),
+            name = None,
+            place_type = None
+          ),
+          Place(
+            full_name = "London, the capital and largest city of England and the United Kingdom",
+            id = "456",
+            contained_within = Seq.empty[String],
+            country = Some("England"),
+            country_code = Some("44"),
+            geo = None,
+            name = Some("London"),
+            place_type = Some("city")
+          )
+        ),
+        polls = Seq(
+          Poll(
+            id = "123",
+            options = Seq(
+              PollOption(
+                position = 1,
+                label = "Option A",
+                votes = 795
+              ),
+              PollOption(
+                position = 2,
+                label = "Option B",
+                votes = 800
+              ),
+            ),
+            duration_minutes = Some(1440),
+            end_datetime = None,
+            voting_status = Some("closed")
+          ),
+          Poll(
+            id = "123",
+            options = Seq.empty[PollOption],
+            duration_minutes = None,
+            end_datetime = Some(Instant.parse("2019-11-28T20:26:41.000Z")),
+            voting_status = None
           )
         )
       )),

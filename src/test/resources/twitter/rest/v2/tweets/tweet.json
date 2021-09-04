@@ -179,33 +179,6 @@
         "text": "Donec feugiat elit tellus, a ultrices elit sodales facilisis."
       }
     ],
-    "polls": [
-      {
-        "id": "0425105815647696196",
-        "options": [
-          {
-            "position": 1,
-            "label": "Hulu",
-            "votes": 9
-          },
-          {
-            "position": 2,
-            "label": "Netflix",
-            "votes": 26
-          },
-          {
-            "position": 3,
-            "label": "Amazon Prime",
-            "votes": 3
-          },
-          {
-            "position": 4,
-            "label": "YouTube TV",
-            "votes": 3
-          }
-        ]
-      }
-    ],
     "media": [
       {
         "height": 1280,
@@ -256,8 +229,54 @@
     ],
     "places": [
       {
-        "full_name": "Curabitur ultrices ut odio ac pretium",
-        "id": "0fc2bbe1f995b733"
+        "full_name": "Seattle",
+        "id": "123",
+        "contained_within": ["987"],
+        "geo": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              47.6062,
+              -122.3321
+            ]
+          },
+          "properties": {
+            "name": "Seattle"
+          }
+        }
+      },
+      {
+        "full_name": "London, the capital and largest city of England and the United Kingdom",
+        "id": "456",
+        "country": "England",
+        "country_code": 44,
+        "name": "London",
+        "place_type": "city"
+      }
+    ],
+    "polls": [
+      {
+        "id": "123",
+        "options": [
+          {
+            "position": 1,
+            "label": "Option A",
+            "votes": 795
+          },
+          {
+            "position": 2,
+            "label": "Option B",
+            "votes": 800
+          }
+        ],
+        "duration_minutes": 1440,
+        "voting_status": "closed"
+      },
+      {
+        "id": "123",
+        "options": [],
+        "end_datetime": "2019-11-28T20:26:41.000Z"
       }
     ]
   },
