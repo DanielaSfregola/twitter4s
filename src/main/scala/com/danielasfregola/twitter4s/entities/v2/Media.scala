@@ -1,7 +1,9 @@
 package com.danielasfregola.twitter4s.entities.v2
 
+import com.danielasfregola.twitter4s.entities.v2.enums.MediaType.MediaType
+
 final case class Media(media_key: String,
-                       `type`: String,
+                       `type`: MediaType,
                        duration_ms: Option[Int],
                        height: Option[Int],
                        non_public_metrics: Option[MediaNonPublicMetrics],

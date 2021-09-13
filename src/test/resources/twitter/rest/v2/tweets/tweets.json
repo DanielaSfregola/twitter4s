@@ -191,7 +191,7 @@
       {
         "height": 1280,
         "media_key": "7_8340593532515834174",
-        "type": "video"
+        "type": "photo"
       },
       {
         "preview_image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1422932273641500672/pu/img/kjOa5XKoU_UViWar.jpg",
@@ -232,7 +232,7 @@
         "height": 720,
         "width": 1280,
         "media_key": "3_1422208929984139264",
-        "type": "photo"
+        "type": "animated_gif"
       }
     ],
     "places": [
