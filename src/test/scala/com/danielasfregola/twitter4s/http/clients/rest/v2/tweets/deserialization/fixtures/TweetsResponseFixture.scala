@@ -1,6 +1,6 @@
 package com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.deserialization.fixtures
 
-import com.danielasfregola.twitter4s.entities.v2.enums.{CoordinatesType, ReferencedTweetType, TweetReplySetting}
+import com.danielasfregola.twitter4s.entities.v2.enums._
 import com.danielasfregola.twitter4s.entities.v2.responses.TweetsResponse
 import com.danielasfregola.twitter4s.entities.v2._
 import java.time.Instant
@@ -221,7 +221,7 @@ object TweetsResponseFixture {
         media = Seq(
           Media(
             media_key = "7_8340593532515834174",
-            `type` = "video",
+            `type` = MediaType.Photo,
             duration_ms = None,
             height = Some(1280),
             non_public_metrics = None,
@@ -234,7 +234,7 @@ object TweetsResponseFixture {
           ),
           Media(
             media_key = "7_1422932273641500672",
-            `type` = "video",
+            `type` = MediaType.Video,
             duration_ms = Some(70500),
             height = Some(450),
             non_public_metrics = Some(
@@ -274,7 +274,7 @@ object TweetsResponseFixture {
           ),
           Media(
             media_key = "3_1422208929984139264",
-            `type` = "photo",
+            `type` = MediaType.AnimatedGIF,
             duration_ms = None,
             height = Some(720),
             non_public_metrics = None,
