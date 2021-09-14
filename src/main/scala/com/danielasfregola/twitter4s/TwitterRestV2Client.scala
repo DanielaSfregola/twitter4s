@@ -33,22 +33,23 @@ trait V2RestClients
 
 object TwitterRestV2Client {
 
-  def apply(): TwitterRestClient = {
+  def apply(): TwitterRestV2Client = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
     val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
     apply(consumerToken, accessToken)
   }
 
-  def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestClient =
-    new TwitterRestClient(consumerToken, accessToken)
+  def apply(consumerToken: ConsumerToken, accessToken: AccessToken): TwitterRestV2Client =
+    new TwitterRestV2Client(consumerToken, accessToken)
 
-  def withActorSystem(system: ActorSystem): TwitterRestClient = {
+  def withActorSystem(system: ActorSystem): TwitterRestV2Client = {
     val consumerToken = ConsumerToken(key = consumerTokenKey, secret = consumerTokenSecret)
     val accessToken = AccessToken(key = accessTokenKey, secret = accessTokenSecret)
     withActorSystem(consumerToken, accessToken)(system)
   }
 
-  def withActorSystem(consumerToken: ConsumerToken, accessToken: AccessToken)(system: ActorSystem): TwitterRestClient =
-    new TwitterRestClient(consumerToken, accessToken)(system)
+  def withActorSystem(consumerToken: ConsumerToken, accessToken: AccessToken)(
+      system: ActorSystem): TwitterRestV2Client =
+    new TwitterRestV2Client(consumerToken, accessToken)(system)
 
 }
