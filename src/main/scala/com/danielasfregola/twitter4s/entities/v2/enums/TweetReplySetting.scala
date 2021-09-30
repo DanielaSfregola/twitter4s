@@ -6,4 +6,5 @@ object TweetReplySetting extends Enumeration {
   val Everyone = Value("everyone")
   val MentionedUsers = Value("mentioned_users")
   val Followers = Value("followers")
+  val Following = Value("following")
 }
