@@ -11,6 +11,7 @@ class packageHttpSpec extends Specification {
       "An encoded string!".urlEncoded === "An%20encoded%20string%21"
       "Dogs, Cats & Mice".urlEncoded === "Dogs%2C%20Cats%20%26%20Mice"
       "☃".urlEncoded === "%E2%98%83"
+      "()".urlEncoded === "%28%29"
     }
   }
 }

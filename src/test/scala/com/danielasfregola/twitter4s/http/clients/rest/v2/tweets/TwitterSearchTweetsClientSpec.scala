@@ -27,7 +27,7 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/recent"
           V2SpecQueryHelper.extractEncodedQueryKeyValuesPairs(request.uri.rawQueryString.get) === Map(
-            "query" -> "-is%3Aretweet%20has%3Ageo%20(from%3ANWSNHC%20OR%20from%3ANHC_Atlantic%20OR%20from%3ANWSHouston%20OR%20from%3ANWSSanAntonio%20OR%20from%3AUSGS_TexasRain%20OR%20from%3AUSGS_TexasFlood%20OR%20from%3AJeffLindner1)",
+            "query" -> "-is%3Aretweet%20has%3Ageo%20%28from%3ANWSNHC%20OR%20from%3ANHC_Atlantic%20OR%20from%3ANWSHouston%20OR%20from%3ANWSSanAntonio%20OR%20from%3AUSGS_TexasRain%20OR%20from%3AUSGS_TexasFlood%20OR%20from%3AJeffLindner1%29",
             "start_time" -> "2021-08-29T19%3A00%3A00Z",
             "end_time" -> "2021-08-30T19%3A00%3A00Z",
             "max_results" -> "20",
@@ -128,7 +128,7 @@ class TwitterSearchTweetsClientSpec extends ClientSpec {
           request.method === HttpMethods.GET
           request.uri.endpoint === s"https://api.twitter.com/2/tweets/search/all"
           V2SpecQueryHelper.extractEncodedQueryKeyValuesPairs(request.uri.rawQueryString.get) === Map(
-            "query" -> "-is%3Aretweet%20has%3Ageo%20(from%3ANWSNHC%20OR%20from%3ANHC_Atlantic%20OR%20from%3ANWSHouston%20OR%20from%3ANWSSanAntonio%20OR%20from%3AUSGS_TexasRain%20OR%20from%3AUSGS_TexasFlood%20OR%20from%3AJeffLindner1)",
+            "query" -> "-is%3Aretweet%20has%3Ageo%20%28from%3ANWSNHC%20OR%20from%3ANHC_Atlantic%20OR%20from%3ANWSHouston%20OR%20from%3ANWSSanAntonio%20OR%20from%3AUSGS_TexasRain%20OR%20from%3AUSGS_TexasFlood%20OR%20from%3AJeffLindner1%29",
             "start_time" -> "2021-08-29T19%3A00%3A00Z",
             "end_time" -> "2021-08-30T19%3A00%3A00Z",
             "max_results" -> "20",
