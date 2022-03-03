@@ -15,6 +15,24 @@ class ProfileImageSpec extends Specification {
       profile.bigger === "test_bigger.ext"
     }
 
+    "return all image types as empty if original picture url string is blank" in {
+      val emptyProfileImage = ProfileImage("")
+
+      emptyProfileImage.default === ""
+      emptyProfileImage.mini === ""
+      emptyProfileImage.normal === ""
+      emptyProfileImage.bigger === ""
+    }
+
+    "return all image types as empty if original picture ulr string is null" in {
+      val emptyProfileImage = ProfileImage(null)
+
+      emptyProfileImage.default === ""
+      emptyProfileImage.mini === ""
+      emptyProfileImage.normal === ""
+      emptyProfileImage.bigger === ""
+    }
+
   }
 
 }

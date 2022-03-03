@@ -3,8 +3,12 @@ package com.danielasfregola.twitter4s.entities
 final case class ProfileImage(mini: String, normal: String, bigger: String, default: String)
 
 object ProfileImage {
+  private def isEmpty(x: String) = x == null || x.trim.isEmpty
+  val empty: ProfileImage = ProfileImage(mini = "", normal = "", bigger = "", default = "")
 
   def apply(original: String): ProfileImage = {
+    if (isEmpty(original))
+      return empty
     val mini = resize(original, "_mini")
     val normal = resize(original, "_normal")
     val big = resize(original, "_bigger")
