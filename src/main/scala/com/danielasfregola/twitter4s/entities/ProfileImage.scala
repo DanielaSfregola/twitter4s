@@ -7,13 +7,15 @@ object ProfileImage {
   val empty: ProfileImage = ProfileImage(mini = "", normal = "", bigger = "", default = "")
 
   def apply(original: String): ProfileImage = {
-    if (isEmpty(original))
-      return empty
-    val mini = resize(original, "_mini")
-    val normal = resize(original, "_normal")
-    val big = resize(original, "_bigger")
-    val default = resize(original, "")
-    apply(mini, normal, big, default)
+    if (isEmpty(original)) {
+      empty
+    } else {
+      val mini = resize(original, "_mini")
+      val normal = resize(original, "_normal")
+      val big = resize(original, "_bigger")
+      val default = resize(original, "")
+      apply(mini, normal, big, default)
+    }
   }
 
   private def resize(original: String, size: String): String = {
