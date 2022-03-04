@@ -4,7 +4,7 @@ import com.danielasfregola.twitter4s.helpers.FixturesSupport
 import org.json4s.native.Serialization
 import org.specs2.mutable.Specification
 
-class ProfileImageSpec extends Specification with FixturesSupport{
+class ProfileImageSpec extends Specification with FixturesSupport {
 
   "ProfileImage" should {
 
