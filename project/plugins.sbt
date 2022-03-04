@@ -16,4 +16,4 @@ addSbtPlugin("com.github.sbt" % "sbt-pgp" % "2.1.2")
 
 addSbtPlugin("com.lucidchart" % "sbt-scalafmt-coursier" % "1.16")
 
-parallelExecution in Test := false
+Test / parallelExecution := false

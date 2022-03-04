@@ -14,10 +14,10 @@ resolvers ++= Seq(
 
 libraryDependencies ++= {
   val Typesafe = "1.4.2"
-  val Akka = "2.6.16"
+  val Akka = "2.6.18"
   val AkkaHttp = "10.2.9"
-  val AkkaHttpJson4s = "1.37.0"
-  val Json4s = "3.7.0-M10"
+  val AkkaHttpJson4s = "1.39.2"
+  val Json4s = "4.0.4"
   val Specs2 = "4.14.1"
   val ScalaLogging = "3.9.4"
   val RandomDataGenerator = "2.8"
@@ -38,12 +38,12 @@ libraryDependencies ++= {
   )
 }
 
-scalacOptions in ThisBuild ++= Seq("-language:postfixOps",
-                                   "-language:implicitConversions",
-                                   "-language:existentials",
-                                   "-Xfatal-warnings",
-                                   "-feature",
-                                   "-deprecation:false")
+ThisBuild / scalacOptions ++= Seq("-language:postfixOps",
+                                  "-language:implicitConversions",
+                                  "-language:existentials",
+                                  "-Xfatal-warnings",
+                                  "-feature",
+                                  "-deprecation:false")
 
 lazy val standardSettings = Seq(
   organization := "com.danielasfregola",
@@ -54,15 +54,26 @@ lazy val standardSettings = Seq(
             "scm:git:git@github.com:DanielaSfregola/twitter4s.git")),
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
   crossScalaVersions := Seq(scalaVersion.value, "2.12.15"),
-  pomExtra := (
-    <developers>
-    <developer>
-      <id>DanielaSfregola</id>
-      <name>Daniela Sfregola</name>
-      <url>http://danielasfregola.com/</url>
-    </developer>
-  </developers>
-  ),
+  pomExtra :=
+    <url>http://danielasfregola.github.io/twitter4s</url>
+      <licenses>
+        <license>
+          <name>Apache 2</name>
+          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+      </licenses>
+      <scm>
+        <connection>scm:git:github.com/DanielaSfregola/twitter4s</connection>
+        <developerConnection>scm:git:git@github.com:DanielaSfregola/twitter4s</developerConnection>
+        <url>github.com/DanielaSfregola/twitter4s</url>
+      </scm>
+      <developers>
+        <developer>
+          <id>DanielaSfregola</id>
+          <name>Daniela Sfregola</name>
+          <url>http://danielasfregola.com/</url>
+        </developer>
+      </developers>,
   publishMavenStyle := true,
   publishTo := {
     if (version.value.trim.endsWith("SNAPSHOT")) Some(Opts.resolver.sonatypeSnapshots)
@@ -79,10 +90,10 @@ lazy val standardSettings = Seq(
     "-language:postfixOps",
     "-unchecked"
   ),
-  scalacOptions in (Compile, doc) ++= Seq("-sourcepath", baseDirectory.value.getAbsolutePath),
+  Compile / doc / scalacOptions ++= Seq("-sourcepath", baseDirectory.value.getAbsolutePath),
   autoAPIMappings := true,
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/")),
-  scalacOptions in (Compile, doc) ++= {
+  Compile / doc / scalacOptions ++= {
     val branch = if (version.value.trim.endsWith("SNAPSHOT")) "master" else version.value
     Seq(
       "-doc-source-url",
@@ -96,10 +107,10 @@ lazy val coverageSettings = Seq(
   coverageMinimum := 85
 )
 
-scalafmtOnCompile in ThisBuild := true
-scalafmtTestOnCompile in ThisBuild := true
+ThisBuild / scalafmtOnCompile := true
+ThisBuild / scalafmtTestOnCompile := true
 
-siteSubdirName in SiteScaladoc := version + "/api"
+SiteScaladoc / siteSubdirName := version + "/api"
 
 lazy val root = (project in file("."))
   .settings(standardSettings ++ coverageSettings)
