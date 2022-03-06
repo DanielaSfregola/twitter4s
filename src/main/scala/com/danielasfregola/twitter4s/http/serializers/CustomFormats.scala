@@ -65,8 +65,9 @@ private[twitter4s] case object DisconnectionCodeSerializer
 private[twitter4s] case object ProfileImageSerializer
     extends CustomSerializer[ProfileImage](format =>
       ({
-        case JString(n) => ProfileImage(n)
-        case JNull      => null
+        case JString("") => null // withheld tweets provide urls as empty strings, making equivalent to null
+        case JString(n)  => ProfileImage(n)
+        case JNull       => null
       }, {
         case img: ProfileImage => JString(img.normal)
       }))
