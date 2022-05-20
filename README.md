@@ -10,11 +10,11 @@ Prerequisites
 -------------
  * JDK 8
  * Scala 2.12+
- * Twitter v1.1 api access
 
 - Go to https://developer.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
-- **Note**: You must request either **Elevated Access** or **Academic Research Access**. By default, Twitter provides new users **Essential Access** which does not include access to v1.X endpoints.
 - Once the app has been created, generate a access key and access secret with the desired permission level.
+
+NOTE: v1.1 endpoints are unaccessible for new users. More information at https://twittercommunity.com/t/ushering-in-a-new-era-for-the-twitter-developer-platform-with-the-twitter-api-v2/162087
 
 Rate Limits
 -----------
