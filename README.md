@@ -14,6 +14,8 @@ Prerequisites
 - Go to https://developer.twitter.com/, login with your twitter account and register your application to get a consumer key and a consumer secret.
 - Once the app has been created, generate a access key and access secret with the desired permission level.
 
+NOTE: v1.1 endpoints are unaccessible for new users. More information at https://twittercommunity.com/t/ushering-in-a-new-era-for-the-twitter-developer-platform-with-the-twitter-api-v2/162087
+
 Rate Limits
 -----------
 Be aware that the Twitter REST Api has rate limits specific to each endpoint. For more information, please have a look at the Twitter developers website [here](https://developer.twitter.com/en/docs/basics/rate-limiting).
