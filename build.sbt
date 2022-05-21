@@ -55,19 +55,7 @@ lazy val standardSettings = Seq(
   apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/latest/api/")),
   crossScalaVersions := Seq(scalaVersion.value, "2.12.15"),
   pomExtra :=
-    <url>http://danielasfregola.github.io/twitter4s</url>
-      <licenses>
-        <license>
-          <name>Apache 2</name>
-          <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-        </license>
-      </licenses>
-      <scm>
-        <connection>scm:git:github.com/DanielaSfregola/twitter4s</connection>
-        <developerConnection>scm:git:git@github.com:DanielaSfregola/twitter4s</developerConnection>
-        <url>github.com/DanielaSfregola/twitter4s</url>
-      </scm>
-      <developers>
+    <developers>
         <developer>
           <id>DanielaSfregola</id>
           <name>Daniela Sfregola</name>
@@ -92,7 +80,6 @@ lazy val standardSettings = Seq(
   ),
   Compile / doc / scalacOptions ++= Seq("-sourcepath", baseDirectory.value.getAbsolutePath),
   autoAPIMappings := true,
-  apiURL := Some(url("http://DanielaSfregola.github.io/twitter4s/")),
   Compile / doc / scalacOptions ++= {
     val branch = if (version.value.trim.endsWith("SNAPSHOT")) "master" else version.value
     Seq(
