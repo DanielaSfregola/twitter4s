@@ -8,7 +8,7 @@ import com.danielasfregola.twitter4s.http.clients.rest.v2.tweets.{
   TwitterTimelinesClient,
   TwitterTweetLookupClient
 }
-import com.danielasfregola.twitter4s.http.clients.rest.v2.users.TwitterUserLookupClient
+import com.danielasfregola.twitter4s.http.clients.rest.v2.users.{TwitterUserFollowsClient, TwitterUserLookupClient}
 import com.danielasfregola.twitter4s.util.Configurations._
 import com.danielasfregola.twitter4s.util.SystemShutdown
 
@@ -30,6 +30,7 @@ trait V2RestClients
     with TwitterTweetLookupClient
     with TwitterSearchTweetsClient
     with TwitterUserLookupClient
+    with TwitterUserFollowsClient
 
 object TwitterRestV2Client {
 
