@@ -6,7 +6,7 @@ addSbtPlugin("com.github.sbt" % "sbt-unidoc" % "0.5.0")
 
 resolvers += Classpaths.sbtPluginReleases
 
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.0")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.3")
 
 addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.3.2")
 
