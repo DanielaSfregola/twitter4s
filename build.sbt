@@ -18,7 +18,7 @@ libraryDependencies ++= {
   val AkkaHttp = "10.2.9"
   val AkkaHttpJson4s = "1.39.2"
   val Json4s = "4.0.5"
-  val Specs2 = "4.15.0"
+  val Specs2 = "4.19.0"
   val ScalaLogging = "3.9.4"
   val RandomDataGenerator = "2.8"
 
