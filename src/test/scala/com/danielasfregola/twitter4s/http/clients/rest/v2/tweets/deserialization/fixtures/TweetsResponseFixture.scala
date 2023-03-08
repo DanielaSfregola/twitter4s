@@ -147,7 +147,8 @@ object TweetsResponseFixture {
             retweet_count = 0,
             reply_count = 0,
             like_count = 1,
-            quote_count = 0
+            quote_count = 0,
+            impression_count = 0
           )),
         referenced_tweets = Some(
           Seq(
