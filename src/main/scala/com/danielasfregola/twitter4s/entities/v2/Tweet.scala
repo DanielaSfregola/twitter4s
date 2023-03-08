@@ -50,7 +50,11 @@ final case class TweetPromotedMetrics(impression_count: Int,
                                       reply_count: Int,
                                       like_count: Int)
 
-final case class TweetPublicMetrics(retweet_count: Int, reply_count: Int, like_count: Int, quote_count: Int)
+final case class TweetPublicMetrics(retweet_count: Int,
+                                    reply_count: Int,
+                                    like_count: Int,
+                                    quote_count: Int,
+                                    impression_count: Int)
 
 final case class TweetReferencedTweet(`type`: ReferencedTweetType, id: String)
 
